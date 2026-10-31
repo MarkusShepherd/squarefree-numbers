@@ -340,12 +340,13 @@ def cmd_probe(_):
     no tools, no files and no exclusion rules, already know a result for V_f
     (e.g. from pretraining)? Read logs/probe-<model>.md before trusting a run."""
     def one(model):
-        wd = sandbox(f"probe-{model}", {})
+        tag = model.replace(":", "-")
+        wd = sandbox(f"probe-{tag}", {})
         out = run_agent("probe", wd, model, CFG["effort"]["probe"], rules=False)
-        (ROOT / "logs" / f"probe-{model}.md").write_text(out.get("result", ""))
+        (ROOT / "logs" / f"probe-{tag}.md").write_text(out.get("result", ""))
         return "ok"
     for model, res in parallel(one, CFG["models"]["probe"]).items():
-        log(f"probe {model}: {res}; read logs/probe-{model}.md")
+        log(f"probe {model}: {res}; read logs/probe-{model.replace(':', '-')}.md")
 
 
 def cmd_numerics(_):
@@ -370,23 +371,28 @@ def common_inputs():
 
 
 def cmd_plan(_):
+    hints = CFG["variants"][VARIANT]["hints"]
+    models = CFG["models"]["planner"]
+    models = models if isinstance(models, list) else [models]
+    model_of = {h: models[i % len(models)] for i, h in enumerate(hints)}   # alternate
+
     def one(hint):
+        model = model_of[hint]
         wd = sandbox(f"plan-{hint}", common_inputs() | {"hint.md": variant_file(f"hints/{hint}.md")})
-        log(f"planner '{hint}' in runs/{wd.name}")
-        out = run_agent("planner", wd, CFG["models"]["planner"],
-                        CFG["effort"]["planner"], schema="plan")
-        plan = out["structured_output"]
+        log(f"planner '{hint}' ({model}) in runs/{wd.name}")
+        out = run_agent("planner", wd, model, CFG["effort"]["planner"], schema="plan")
+        plan = out["structured_output"] | {"model": model}
         (ROOT / "plans" / f"{hint}.json").write_text(json.dumps(plan, indent=2))
         (ROOT / "plans" / f"{hint}.md").write_text(render_plan(hint, plan))
         return len(plan["propositions"])
 
-    for hint, n in parallel(one, CFG["variants"][VARIANT]["hints"]).items():
+    for hint, n in parallel(one, hints).items():
         log(f"plan '{hint}': {n} propositions" if n else f"plan '{hint}': failed")
     log("read plans/*.md, then run: ./orchestrate.py select <hint>")
 
 
 def render_plan(hint, plan):
-    lines = [f"# Plan: {hint}", "", plan["summary"], "",
+    lines = [f"# Plan: {hint}", "", f"Model: {plan.get('model', '?')}", "", plan["summary"], "",
              "## Main theorem", "", plan["main_theorem"], ""]
     if plan.get("agrees_with_numerics"):
         lines += ["## Numerics check", "", plan["agrees_with_numerics"], ""]
@@ -591,7 +597,11 @@ def cmd_status(_):
     if cost_file.exists():
         rows = [json.loads(l) for l in cost_file.read_text().splitlines()]
         total = sum(r["cost_usd"] or 0 for r in rows)
-        print(f"\n{len(rows)} agent runs, ${total:.2f} total")
+        print(f"\n{len(rows)} agent runs, ${total:.2f} total (Claude)")
+        cx = [r for r in rows if r.get("backend") == "codex"]
+        if cx:
+            tok = sum((r.get("tokens") or {}).get("output", 0) for r in cx)
+            print(f"{len(cx)} of them Codex: {tok:,} output tokens (Codex reports no USD cost)")
 
 
 def main():
