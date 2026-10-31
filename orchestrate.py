@@ -107,6 +107,7 @@ def build_cmd(prompt, tools, model, schema=None):
         "--allowedTools", ",".join(tools),
         "--disallowedTools", *deny,
         "--strict-mcp-config",
+        "--settings", json.dumps({"disableAllHooks": True}),   # no user hooks in agents
         "--permission-mode", "dontAsk",
         "--output-format", "stream-json", "--verbose",   # full transcript, for auditing
         "--max-budget-usd", str(CFG["max_budget_usd"]),
@@ -271,6 +272,10 @@ def parse_codex(text, workdir, schema):
 # Leak detection: did any agent see or seek an excluded source?
 # --------------------------------------------------------------------------
 
+# Paths of runs_dir as they appear in transcripts, longest first; masked in scans.
+RUNS_PATHS = sorted({str(RUNS), str(RUNS).replace(str(Path.home()), "~"),
+                     os.environ.get("RUNS_DIR") or CFG["runs_dir"]}, key=len, reverse=True)
+
 _STRIP = str.maketrans("", "", "$\\{}*_`-‐‑‒–—")
 
 
@@ -343,6 +348,8 @@ def scan_leaks(workdir):
         except json.JSONDecodeError:
             continue
         for kind, text in _events(m):
+            for own in RUNS_PATHS:                      # the sandbox's own path is not a leak
+                text = text.replace(own, "<runs>")
             low = _norm(text)
             for pat in pats:
                 i = low.find(pat)

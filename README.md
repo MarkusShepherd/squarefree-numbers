@@ -152,6 +152,9 @@ a container per agent, isn't set up yet; it would work with the subscriptions
 - `--disallowedTools "mcp__*"` and `--strict-mcp-config`: no MCP servers or
   tools, including browser integrations such as Claude in Chrome.
 - `ENABLE_CLAUDEAI_MCP_SERVERS=false`: no claude.ai connectors (GitLab etc.).
+- `--settings '{"disableAllHooks": true}'`: your own hooks from
+  `~/.claude/settings.json` don't run in agents (a `SessionStart` hook's output
+  would otherwise go into the agent's context).
 - `WebFetch(domain:...)` deny rules for the blog's domains and gitlab.com, and
   `Bash(curl *)`, `Bash(wget *)` deny rules.
 - `--permission-mode dontAsk`: anything not pre-approved is denied.
