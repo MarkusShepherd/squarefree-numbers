@@ -26,6 +26,17 @@ will be checked against, so it must be exact and reproducible.
    $V_f / (x^{1/2} f(y)^{3/2})$ at fixed ratio is stable in $x$ but varies with
    the ratio. If so, extrapolate it to $f(y)/x \to 0$ (state the fit you used
    and its uncertainty) and report that limit as the empirical constant.
+
+   Small ratios are not automatically the most informative. When $f(y)$ is
+   small compared with $x$, other error terms can dominate the main term; they
+   typically decay with $x$ at fixed ratio, so there the normalised value is
+   *not* stable in $x$. Determine the cutoff from your data: the smallest
+   ratio above which the normalised value at fixed ratio changes by less than
+   about 1% between your two largest $x$. Fit only rows above that cutoff, and
+   report the cutoff, how the extrapolated constant changes when you move the
+   cutoff one grid step either way, and that spread as part of the
+   uncertainty. If no ratio passes the stability test, say so and do not
+   report an extrapolated constant.
 6. Validate your code: check $g(q,l)$ against brute-force densities for small
    $q$, and check $\sum_l Q(x;q,l) = Q(x;1,1)$.
 
@@ -44,7 +55,8 @@ Write `results.json`:
       "fit_fixed_x": {"beta": 1.49, "beta_se": 0.01},
       "fit_fixed_ratio": {"alpha_plus_beta": 2.0, "se": 0.02},
       "normalised": [{"x": 1000000, "ratio": 0.1, "V_over_x12_fy32": 0.123}],
-      "constant_extrapolated": {"value": 0.12, "uncertainty": 0.005, "method": "..."}
+      "constant_extrapolated": {"value": 0.12, "uncertainty": 0.005, "method": "...",
+                                "ratio_cutoff": 0.05, "cutoff_sensitivity": "..."}
     }
   },
   "validation": ["g(q,l) matches brute force for q <= 50", "..."],
