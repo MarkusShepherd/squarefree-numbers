@@ -107,6 +107,7 @@ def build_cmd(prompt, tools, model, schema=None):
         "--allowedTools", ",".join(tools),
         "--disallowedTools", *deny,
         "--strict-mcp-config",
+        "--settings", json.dumps({"disableAllHooks": True}),   # no user hooks in agents
         "--permission-mode", "dontAsk",
         "--output-format", "stream-json", "--verbose",   # full transcript, for auditing
         "--max-budget-usd", str(CFG["max_budget_usd"]),
