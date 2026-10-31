@@ -188,11 +188,26 @@ nothing about the thesis: they load into every `claude -p` session.
 Any model in `config.json` can be a Claude model (`opus`, `sonnet`, ...) or
 `codex` / `codex:<model>`, which runs that agent with the Codex CLI
 (`codex exec`, logged in with your ChatGPT account) instead of `claude -p`.
-The default mix uses Opus for the numerics, the provers and the integrator,
-and Codex as the second model family: one of the two referees, every other
-planner (`planner` may be a list; hints are assigned round-robin), the
-pollinator, and one of the probes. Fable is not used: it isn't included in
-the standard subscription.
+Model IDs are pinned (`claude-opus-5-5`, `claude-sonnet-5-5`,
+`codex:gpt-6.1-sol`), so they can't change mid-experiment; a bare `codex`
+would run the Codex CLI's default model, since `--ignore-user-config` skips
+the model set in `~/.codex/config.toml`. The default mix, sized for the $20
+Claude and ChatGPT plans:
+
+- **Opus** where judgement matters: one planner of two (`planner` may be a
+  list; hints are assigned round-robin), one referee, the integrator.
+- **Sonnet** for volume: the numerics and the provers. The Claude referee is
+  therefore never the prover's own model.
+- **Codex** (GPT-6.1-Sol) as the second model family: the other planner and
+  referee, the pollinator, and one of the probes.
+- Effort `high` everywhere (pollinator `medium`). `max` exhausts the plans'
+  usage windows early in proving; raise effort for a single stuck crux
+  proposition instead (`prove P3` after editing `config.json`).
+
+Fable is not used: it isn't included in the standard subscription. GPT-6-Astra
+is Codex's frontier model but costs several times Sol's usage; it is worth
+trying as `codex:gpt-6-astra` for one referee round on a stuck crux
+proposition, not as a default.
 
 How a Codex agent differs (flags checked against codex-cli 0.166.0; run
 `codex exec --help` if yours is newer):
@@ -211,7 +226,9 @@ How a Codex agent differs (flags checked against codex-cli 0.166.0; run
 - **Structured output.** The final message must be the JSON object;
   `--output-schema` would need strict schemas, and ours have optional fields.
 - **Effort.** `codex.effort` maps the harness's effort levels onto
-  `model_reasoning_effort`; `max` maps to `high` by default.
+  `model_reasoning_effort`, one-to-one by default. GPT-6.1-Sol accepts `low`,
+  `medium`, `high`, `xhigh` and `max` (checked with codex-cli 0.166.0); Ultra
+  is a parallel sub-agent mode, not an effort level, and isn't used.
 - **Cost.** Codex reports tokens, not dollars, and there is no equivalent of
   `--max-budget-usd`; only `timeout_s` caps a runaway Codex agent.
   `costs.jsonl` records the backend and token counts.
