@@ -344,10 +344,14 @@ def check_runs_dir():
     except FileNotFoundError:       # no git installed, so no git history to read either
         pass
     link = ROOT / "runs"
-    if not link.exists() and not link.is_symlink():
-        link.symlink_to(RUNS, target_is_directory=True)
-    elif not link.is_symlink():
+    if link.is_symlink():
+        if link.resolve() != RUNS:              # e.g. left over from a dry run
+            link.unlink()
+            link.symlink_to(RUNS, target_is_directory=True)
+    elif link.exists():
         log(f"note: runs/ is a directory from an older version; new runs go to {RUNS}")
+    else:
+        link.symlink_to(RUNS, target_is_directory=True)
 
 
 def cmd_check_leaks(_):
