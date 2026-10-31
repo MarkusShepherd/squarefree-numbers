@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`).
+"""Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`),
+optionally mixed with Codex CLI agents (`codex exec`) for model diversity.
 
 Every agent is one `claude -p` process run in its own sandbox folder under
 runs/, which contains only the files that role is allowed to see. Agents never
@@ -31,6 +32,8 @@ ROOT = Path(__file__).resolve().parent
 CFG = json.loads((ROOT / "config.json").read_text())
 SCHEMAS = json.loads((ROOT / "prompts" / "schemas.json").read_text())
 CLAUDE = os.environ.get("CLAUDE_BIN", "claude")
+CODEX = os.environ.get("CODEX_BIN", "codex")
+CODEX_CFG = CFG.get("codex", {})
 
 
 def log(msg):
@@ -113,16 +116,24 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
     The full stream (every tool call and tool result) is kept in
     <workdir>/_stream.jsonl and scanned for leaks of excluded sources."""
     tools = CFG["tools"][role] if tools is None else tools
-    cmd = build_cmd(build_prompt(role, task, rules), tools, model, schema)
-    env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
-               ENABLE_CLAUDEAI_MCP_SERVERS="false")       # no claude.ai connectors
+    prompt = build_prompt(role, task, rules)
+    kind, name = backend(model)
+    if kind == "codex":
+        if schema:
+            prompt += codex_schema_note(schema)
+        cmd = build_codex_cmd(prompt, tools, name, effort, workdir)
+        env = dict(os.environ)
+    else:
+        cmd = build_cmd(prompt, tools, name, schema)
+        env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
+                   ENABLE_CLAUDEAI_MCP_SERVERS="false")   # no claude.ai connectors
 
     t0 = time.time()
-    p = subprocess.run(cmd, cwd=workdir, env=env, capture_output=True,
+    p = subprocess.run(cmd, cwd=workdir, env=env, capture_output=True, stdin=subprocess.DEVNULL,
                        text=True, timeout=CFG["timeout_s"])
     (workdir / "_stream.jsonl").write_text(p.stdout)
     (workdir / "_stderr.txt").write_text(p.stderr)
-    out = parse_stream(p.stdout)
+    out = parse_codex(p.stdout, workdir, schema) if kind == "codex" else parse_stream(p.stdout)
     hits = scan_leaks(workdir)
     if hits:
         log(f"  WARNING: {len(hits)} possible leak(s) in runs/{workdir.name}; "
@@ -136,6 +147,7 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
             "role": role, "model": model, "effort": effort, "variant": VARIANT,
             "run": workdir.name, "seconds": round(time.time() - t0),
             "cost_usd": out.get("total_cost_usd"), "leak_hits": len(hits),
+            "backend": kind, "tokens": out.get("tokens"),
         }) + "\n")
     return out
 
@@ -154,6 +166,79 @@ def parse_stream(text):
 
 
 # --------------------------------------------------------------------------
+# Codex backend: model "codex" or "codex:<model>" in config.json
+# --------------------------------------------------------------------------
+
+def backend(model):
+    """'codex' / 'codex:<model>' -> ('codex', <model> or None); else ('claude', model)."""
+    if model == "codex" or model.startswith("codex:"):
+        return "codex", model.partition(":")[2] or None
+    return "claude", model
+
+
+def build_codex_cmd(prompt, tools, model, effort, workdir):
+    """The `codex exec` invocation (flags checked against codex-cli 0.166.0).
+
+    Codex has no per-tool whitelist, so a role's tool list maps onto a sandbox
+    mode: any of Write/Edit/Bash -> workspace-write (writes only inside the
+    sandbox folder), otherwise read-only. Both modes block network access from
+    commands. Codex has no per-domain deny rules either, so web search is off
+    for every Codex agent (`codex.extra_args`), and --ignore-user-config keeps
+    MCP servers and settings from ~/.codex/config.toml out."""
+    writes = any(t in tools for t in ("Write", "Edit", "Bash"))
+    cmd = [CODEX, "exec", "--json", "--skip-git-repo-check",
+           "--sandbox", "workspace-write" if writes else "read-only",
+           "--cd", str(workdir),
+           "--output-last-message", str(workdir / "_last.txt"),
+           "-c", f'model_reasoning_effort="{CODEX_CFG["effort"][effort]}"',
+           *CODEX_CFG.get("extra_args", [])]
+    if model:
+        cmd += ["--model", model]
+    return cmd + [prompt]
+
+
+def codex_schema_note(schema):
+    """Codex's --output-schema needs strict schemas (every property required);
+    ours have optional fields, so the final message carries the JSON instead."""
+    return ("\n\n## Structured output\n\nEnd with a final message that is exactly one JSON "
+            "object matching this JSON schema: no prose before or after it, no code "
+            f"fence.\n\n```json\n{json.dumps(SCHEMAS[schema], indent=2)}\n```\n")
+
+
+def parse_codex(text, workdir, schema):
+    """A `codex exec --json` transcript in the shape of Claude's `result`
+    message: result, structured_output, and token counts instead of a cost."""
+    msgs, tokens = [], {"input": 0, "output": 0}
+    for line in text.splitlines():
+        try:
+            m = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        item = m.get("item") or {}
+        if m.get("type") == "item.completed" and item.get("type") == "agent_message":
+            msgs.append(item.get("text", ""))
+        elif m.get("type") == "turn.completed":
+            u = m.get("usage") or {}
+            tokens["input"] += u.get("input_tokens") or 0
+            tokens["output"] += u.get("output_tokens") or 0
+    last = workdir / "_last.txt"
+    result = last.read_text() if last.exists() else (msgs[-1] if msgs else None)
+    if result is None:
+        return None
+    out = {"result": result, "total_cost_usd": None, "tokens": tokens}
+    if schema:
+        s = result.strip()
+        try:
+            obj = json.loads(s[s.find("{"): s.rfind("}") + 1])
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(obj, dict) or any(k not in obj for k in SCHEMAS[schema]["required"]):
+            return None
+        out["structured_output"] = obj
+    return out
+
+
+# --------------------------------------------------------------------------
 # Leak detection: did any agent see or seek an excluded source?
 # --------------------------------------------------------------------------
 
@@ -161,6 +246,33 @@ def _blocks(m):
     msg = m.get("message")
     content = msg.get("content") if isinstance(msg, dict) else None
     return content if isinstance(content, list) else []
+
+
+def _events(m):
+    """(kind, text) pairs from one transcript line, Claude or Codex format."""
+    item = m.get("item")
+    if isinstance(item, dict):                          # `codex exec --json`
+        if m.get("type") != "item.completed":
+            return
+        t = item.get("type")
+        if t in ("agent_message", "reasoning"):
+            yield "mention", item.get("text", "")
+        elif t != "user_message":                       # commands, searches, file changes
+            out = str(item.get("aggregated_output") or item.get("output") or "")
+            call = {k: v for k, v in item.items() if k not in ("id", "aggregated_output", "output")}
+            yield "attempt", json.dumps(call)
+            if out:
+                yield ("denied" if "denied" in out.lower()[:200] else "exposure"), out
+        return
+    for b in _blocks(m):
+        if b.get("type") == "tool_use":
+            yield "attempt", f"{b.get('name')}: {json.dumps(b.get('input'))}"
+        elif b.get("type") == "tool_result":
+            c = b.get("content")
+            text = c if isinstance(c, str) else json.dumps(c)
+            yield ("denied" if "denied" in text.lower()[:200] else "exposure"), text
+        elif b.get("type") == "text" and m.get("type") == "assistant":
+            yield "mention", b.get("text", "")
 
 
 def scan_leaks(workdir):
@@ -179,17 +291,7 @@ def scan_leaks(workdir):
             m = json.loads(line)
         except json.JSONDecodeError:
             continue
-        for b in _blocks(m):
-            if b.get("type") == "tool_use":
-                kind, text = "attempt", f"{b.get('name')}: {json.dumps(b.get('input'))}"
-            elif b.get("type") == "tool_result":
-                c = b.get("content")
-                text = c if isinstance(c, str) else json.dumps(c)
-                kind = "denied" if "denied" in text.lower()[:200] else "exposure"
-            elif b.get("type") == "text" and m.get("type") == "assistant":
-                kind, text = "mention", b.get("text", "")
-            else:
-                continue
+        for kind, text in _events(m):
             low = text.lower()
             for pat in pats:
                 i = low.find(pat)
@@ -238,12 +340,13 @@ def cmd_probe(_):
     no tools, no files and no exclusion rules, already know a result for V_f
     (e.g. from pretraining)? Read logs/probe-<model>.md before trusting a run."""
     def one(model):
-        wd = sandbox(f"probe-{model}", {})
+        tag = model.replace(":", "-")
+        wd = sandbox(f"probe-{tag}", {})
         out = run_agent("probe", wd, model, CFG["effort"]["probe"], rules=False)
-        (ROOT / "logs" / f"probe-{model}.md").write_text(out.get("result", ""))
+        (ROOT / "logs" / f"probe-{tag}.md").write_text(out.get("result", ""))
         return "ok"
     for model, res in parallel(one, CFG["models"]["probe"]).items():
-        log(f"probe {model}: {res}; read logs/probe-{model}.md")
+        log(f"probe {model}: {res}; read logs/probe-{model.replace(':', '-')}.md")
 
 
 def cmd_numerics(_):
@@ -268,23 +371,28 @@ def common_inputs():
 
 
 def cmd_plan(_):
+    hints = CFG["variants"][VARIANT]["hints"]
+    models = CFG["models"]["planner"]
+    models = models if isinstance(models, list) else [models]
+    model_of = {h: models[i % len(models)] for i, h in enumerate(hints)}   # alternate
+
     def one(hint):
+        model = model_of[hint]
         wd = sandbox(f"plan-{hint}", common_inputs() | {"hint.md": variant_file(f"hints/{hint}.md")})
-        log(f"planner '{hint}' in runs/{wd.name}")
-        out = run_agent("planner", wd, CFG["models"]["planner"],
-                        CFG["effort"]["planner"], schema="plan")
-        plan = out["structured_output"]
+        log(f"planner '{hint}' ({model}) in runs/{wd.name}")
+        out = run_agent("planner", wd, model, CFG["effort"]["planner"], schema="plan")
+        plan = out["structured_output"] | {"model": model}
         (ROOT / "plans" / f"{hint}.json").write_text(json.dumps(plan, indent=2))
         (ROOT / "plans" / f"{hint}.md").write_text(render_plan(hint, plan))
         return len(plan["propositions"])
 
-    for hint, n in parallel(one, CFG["variants"][VARIANT]["hints"]).items():
+    for hint, n in parallel(one, hints).items():
         log(f"plan '{hint}': {n} propositions" if n else f"plan '{hint}': failed")
     log("read plans/*.md, then run: ./orchestrate.py select <hint>")
 
 
 def render_plan(hint, plan):
-    lines = [f"# Plan: {hint}", "", plan["summary"], "",
+    lines = [f"# Plan: {hint}", "", f"Model: {plan.get('model', '?')}", "", plan["summary"], "",
              "## Main theorem", "", plan["main_theorem"], ""]
     if plan.get("agrees_with_numerics"):
         lines += ["## Numerics check", "", plan["agrees_with_numerics"], ""]
@@ -489,7 +597,11 @@ def cmd_status(_):
     if cost_file.exists():
         rows = [json.loads(l) for l in cost_file.read_text().splitlines()]
         total = sum(r["cost_usd"] or 0 for r in rows)
-        print(f"\n{len(rows)} agent runs, ${total:.2f} total")
+        print(f"\n{len(rows)} agent runs, ${total:.2f} total (Claude)")
+        cx = [r for r in rows if r.get("backend") == "codex"]
+        if cx:
+            tok = sum((r.get("tokens") or {}).get("output", 0) for r in cx)
+            print(f"{len(cx)} of them Codex: {tok:,} output tokens (Codex reports no USD cost)")
 
 
 def main():
