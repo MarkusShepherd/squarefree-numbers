@@ -40,7 +40,7 @@ numerics/           written by the numerics agent
 plans/              one plan per hint (.json for the driver, .md for you)
 plan.json           the plan you selected
 props/P*/           statement, proof-vN, review-vN-i, objections, status
-runs/               every agent's sandbox, kept for inspection
+runs/               symlink to runs_dir (outside the repo): every agent's sandbox, kept
 logs/costs.jsonl    one line per agent run: role, model, variant, seconds, cost, leak hits
 logs/probe-*.md     what fresh models already know about the problem
 logs/leaks.json     output of check-leaks
@@ -115,6 +115,12 @@ An agent with web access could simply find the 2011 thesis. Full sandboxing
 - `WebFetch(domain:...)` deny rules for the blog's domains and gitlab.com, and
   `Bash(curl *)`, `Bash(wget *)` deny rules.
 - `--permission-mode dontAsk`: anything not pre-approved is denied.
+- **Sandboxes outside the repository.** Agents run in `runs_dir`
+  (`~/sqf-runs/squarefree-numbers` by default, `RUNS_DIR` overrides), not
+  inside this git repo, so a Bash agent can't `git log` its way to the
+  thesis-informed variant or to commit messages about the answer. The driver
+  refuses to start if `runs_dir` is inside any git work tree. Claude agents
+  also get a `Bash(git *)` deny rule.
 
 **Instructed** (`prompts/_rules.md`, appended to every prompt): do not read
 anything by Markus Schepke / Shepherd, or Dehnert's 2015 paper on the same
@@ -131,7 +137,8 @@ search snippet: read it and decide whether the run is tainted), `attempt`,
 `denied` and `mention`.
 
 **Not covered**: Bash can still reach the web by other means (e.g. Python's
-`urllib`) and read files outside its folder by absolute path; search snippets
+`urllib`) and read files outside its folder by absolute path, including this
+repository if the agent knows or guesses where it is; search snippets
 can't be blocked, only detected; and pretraining can't be undone, only measured
 (`probe`). Also check that your own `~/.claude/CLAUDE.md` and auto memory say
 nothing about the thesis: they load into every `claude -p` session.

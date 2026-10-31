@@ -38,6 +38,7 @@ SCHEMAS = json.loads((ROOT / "prompts" / "schemas.json").read_text())
 CLAUDE = os.environ.get("CLAUDE_BIN", "claude")
 CODEX = os.environ.get("CODEX_BIN", "codex")
 CODEX_CFG = CFG.get("codex", {})
+RUNS = Path(os.environ.get("RUNS_DIR") or CFG["runs_dir"]).expanduser().resolve()
 
 
 def log(msg):
@@ -51,7 +52,7 @@ def log(msg):
 def sandbox(name, files):
     """Create runs/<name>-<timestamp>/ containing only `files` ({dest: src}).
     Kept after the run so you can see exactly what each agent saw and wrote."""
-    d = ROOT / "runs" / f"{name}-{datetime.now():%Y%m%d-%H%M%S-%f}"
+    d = RUNS / f"{name}-{datetime.now():%Y%m%d-%H%M%S-%f}"
     d.mkdir(parents=True)
     for dest, src in files.items():
         src, target = Path(src), d / dest
@@ -328,11 +329,31 @@ def scan_leaks(workdir):
     return hits
 
 
+def check_runs_dir():
+    """Sandboxes must not sit inside a git work tree: an agent with Bash could
+    otherwise read the repository's history (thesis-informed prompts, commit
+    messages about the answer). runs/ in the repo is a symlink to RUNS."""
+    RUNS.mkdir(parents=True, exist_ok=True)
+    try:
+        p = subprocess.run(["git", "-C", str(RUNS), "rev-parse", "--show-toplevel"],
+                           capture_output=True, text=True)
+        if p.returncode == 0:
+            sys.exit(f"runs_dir {RUNS} is inside the git work tree {p.stdout.strip()}; "
+                     "set runs_dir in config.json, or RUNS_DIR, to a path outside any repository")
+    except FileNotFoundError:       # no git installed, so no git history to read either
+        pass
+    link = ROOT / "runs"
+    if not link.exists() and not link.is_symlink():
+        link.symlink_to(RUNS, target_is_directory=True)
+    elif not link.is_symlink():
+        log(f"note: runs/ is a directory from an older version; new runs go to {RUNS}")
+
+
 def cmd_check_leaks(_):
     """Scan every run. 'exposure' is the serious kind: excluded material reached
     an agent. Read the context and decide whether that run's output is tainted."""
     all_hits = []
-    for d in sorted((ROOT / "runs").iterdir()):
+    for d in sorted(RUNS.iterdir()):
         all_hits += scan_leaks(d)
     (ROOT / "logs" / "leaks.json").write_text(json.dumps(all_hits, indent=2))
     if not all_hits:
@@ -635,8 +656,9 @@ def cmd_status(_):
 
 
 def main():
-    for d in ("runs", "logs", "plans", "papers"):
+    for d in ("logs", "plans", "papers"):
         (ROOT / d).mkdir(exist_ok=True)
+    check_runs_dir()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe").set_defaults(fn=cmd_probe)
