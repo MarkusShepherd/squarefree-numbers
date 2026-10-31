@@ -96,7 +96,9 @@ CLAUDE_BIN=$PWD/tests/fake_claude.py CODEX_BIN=$PWD/tests/fake_codex.py ./orches
 and so on through the steps. The stub makes every proposition need two rounds
 and makes P3 get stuck; the unhinted planner's transcript contains a planted
 search result from an excluded domain, which `check-leaks` should report.
-Delete `runs/ plans/ props/ numerics/ logs/ plan.json report/` afterwards.
+Afterwards delete `plans/ props/ numerics/ logs/ plan.json report/` and the
+sandboxes themselves: `rm -rf ~/sqf-runs/squarefree-numbers runs` (removing
+only the `runs` symlink leaves them in place).
 
 ## Independence from the thesis
 
