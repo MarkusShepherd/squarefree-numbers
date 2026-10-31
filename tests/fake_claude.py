@@ -39,6 +39,9 @@ def finish(structured=None):
 emit({"type": "system", "subtype": "init", "tools": [t for t in tools if t]})
 
 if role == "probe":
+    # planted for check-leaks: recall that shows up only in the reasoning
+    emit({"type": "assistant", "message": {"content": [
+        {"type": "thinking", "thinking": "I vaguely recall 'Sparse variance for $k$-free numbers'."}]}})
     emit({"type": "result", "subtype": "success", "total_cost_usd": 0.0,
           "result": "I know of no result for V_f itself."})
 elif role == "numerics":
@@ -48,8 +51,6 @@ elif role == "numerics":
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()
     if hint.startswith("No strategy hint"):
-        emit({"type": "assistant", "message": {"content": [
-            {"type": "thinking", "thinking": "I vaguely recall 'Sparse variance for $k$-free numbers'."}]}})
         tool_call("WebSearch", {"query": "sparse variance squarefree polynomial moduli"},
                   "1. Distribution of squarefree numbers ... https://riemannhypothesis.blog/thesis.pdf")
         tool_call("WebFetch", {"url": "https://riemannhypothesis.blog/thesis.pdf"},
