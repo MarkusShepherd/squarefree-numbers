@@ -4,6 +4,8 @@
     "neutral": {"hints": ["vaughan", "simplest", "dirichlet", "none"]},
     "thesis-informed": {"hints": ["vaughan", "no-trunc", "dirichlet", "none"]}
   },
+  "backends": ["claude", "codex"],
+  "fallback": {"codex": "sonnet", "claude": "codex"},
   "models": {
     "probe": ["opus", "sonnet", "codex"],
     "numerics": "opus",
@@ -46,7 +48,7 @@
     "blocked_bash": ["curl *", "wget *"],
     "leak_patterns": [
       "schepke", "shepherd", "riemannhypothesis", "primes.recommend.games",
-      "mshepherd", "squarefree-numbers"
+      "mshepherd", "squarefree-numbers", "dehnert", "s00605-014-0691"
     ]
   },
   "max_rounds": 4,

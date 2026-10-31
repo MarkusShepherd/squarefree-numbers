@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = []
+# ///
 """Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`),
 optionally mixed with Codex CLI agents (`codex exec`) for model diversity.
 
@@ -176,6 +180,29 @@ def backend(model):
     return "claude", model
 
 
+def enabled_backends():
+    """BACKENDS=claude,codex in the environment overrides `backends` in config.json."""
+    env = os.environ.get("BACKENDS")
+    return [b.strip() for b in env.split(",")] if env else CFG.get("backends", ["claude", "codex"])
+
+
+def resolve(model):
+    """A model of a disabled backend is replaced by that backend's `fallback`."""
+    kind = backend(model)[0]
+    if kind in enabled_backends():
+        return model
+    alt = CFG.get("fallback", {}).get(kind)
+    if not alt or backend(alt)[0] not in enabled_backends():
+        sys.exit(f"model {model!r}: backend '{kind}' is disabled and has no enabled fallback")
+    return alt
+
+
+def role_models(role):
+    """The configured model(s) for a role, after the backend switch."""
+    m = CFG["models"][role]
+    return [resolve(x) for x in m] if isinstance(m, list) else resolve(m)
+
+
 def build_codex_cmd(prompt, tools, model, effort, workdir):
     """The `codex exec` invocation (flags checked against codex-cli 0.166.0).
 
@@ -345,14 +372,14 @@ def cmd_probe(_):
         out = run_agent("probe", wd, model, CFG["effort"]["probe"], rules=False)
         (ROOT / "logs" / f"probe-{tag}.md").write_text(out.get("result", ""))
         return "ok"
-    for model, res in parallel(one, CFG["models"]["probe"]).items():
+    for model, res in parallel(one, list(dict.fromkeys(role_models("probe")))).items():
         log(f"probe {model}: {res}; read logs/probe-{model.replace(':', '-')}.md")
 
 
 def cmd_numerics(_):
     wd = sandbox("numerics", {"problem.md": ROOT / "problem.md"})
     log(f"numerics agent in runs/{wd.name}")
-    run_agent("numerics", wd, CFG["models"]["numerics"], CFG["effort"]["numerics"])
+    run_agent("numerics", wd, role_models("numerics"), CFG["effort"]["numerics"])
     if not (wd / "results.json").exists():
         sys.exit("numerics agent did not write results.json")
     out = ROOT / "numerics"
@@ -372,7 +399,7 @@ def common_inputs():
 
 def cmd_plan(_):
     hints = CFG["variants"][VARIANT]["hints"]
-    models = CFG["models"]["planner"]
+    models = role_models("planner")
     models = models if isinstance(models, list) else [models]
     model_of = {h: models[i % len(models)] for i, h in enumerate(hints)}   # alternate
 
@@ -485,7 +512,7 @@ def prove_one(pid):
             files["hint.md"] = pdir / "hint.md"
         wd = sandbox(f"prove-{pid}-r{rnd}", files)
         log(f"{pid} round {rnd}: prover")
-        run_agent("prover", wd, CFG["models"]["prover"], CFG["effort"]["prover"])
+        run_agent("prover", wd, role_models("prover"), CFG["effort"]["prover"])
         if not (wd / "proof.md").exists():
             log(f"{pid} round {rnd}: prover wrote no proof.md")
             continue
@@ -506,7 +533,7 @@ def prove_one(pid):
             return v
 
         with cf.ThreadPoolExecutor(2) as ex:
-            verdicts = list(ex.map(referee, enumerate(CFG["models"]["referees"])))
+            verdicts = list(ex.map(referee, enumerate(role_models("referees"))))
         log(f"{pid} round {rnd}: " + ", ".join(f"{v['model']}={v['verdict']}/{v['severity']}"
                                                 for v in verdicts))
 
@@ -532,6 +559,9 @@ def prove_one(pid):
 
 
 def cmd_prove(args):
+    refs = role_models("referees")
+    if len(set(refs)) < 2:
+        log(f"WARNING: both referees are {refs[0]}; set `fallback` to keep them different models")
     pids = args.props or sorted(p.name for p in (ROOT / "props").iterdir())
     pids = [p for p in pids if status(p)["state"] != "passed"]
     for pid, res in parallel(prove_one, pids).items():
@@ -548,7 +578,7 @@ def cmd_pollinate(args):
         "history.md": pdir / "objections.md",
         "plans": ROOT / "plans",
     })
-    out = run_agent("pollinator", wd, CFG["models"]["pollinator"],
+    out = run_agent("pollinator", wd, role_models("pollinator"),
                     CFG["effort"]["pollinator"], schema="pollination")
     v = out["structured_output"]
     if (wd / "hint.md").exists():
@@ -572,7 +602,7 @@ def cmd_integrate(_):
         files[f"props/{p}/statement.md"] = ROOT / "props" / p / "statement.md"
         files[f"props/{p}/proof.md"] = latest_proof(p)
     wd = sandbox("integrate", files)
-    out = run_agent("integrator", wd, CFG["models"]["integrator"], CFG["effort"]["integrator"],
+    out = run_agent("integrator", wd, role_models("integrator"), CFG["effort"]["integrator"],
                     schema="integration")
     v = out["structured_output"]
     rep = ROOT / "report"
