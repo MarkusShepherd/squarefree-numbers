@@ -102,7 +102,8 @@ Read the output of each step before starting the next.
 
 1. `./orchestrate.py probe`: ask fresh models, with no tools, what they already
    know about this variance. Read `logs/probe-*.md`. If a model reproduces the
-   thesis result, runs with that model are contaminated by pretraining.
+   thesis's or Dehnert's result, runs with that model are contaminated by
+   pretraining.
 2. `./orchestrate.py numerics`: exact computation of V_f. Read
    `numerics/README.md` and sanity-check it yourself before going on; every
    later step trusts it.
