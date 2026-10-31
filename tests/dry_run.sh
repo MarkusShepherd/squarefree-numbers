@@ -49,6 +49,7 @@ grep -Eq '^P3 +stuck' <<<"$status" || fail "P3 should be stuck"
 leaks=$(./orchestrate.py check-leaks)
 echo "$leaks"
 grep -q riemannhypothesis <<<"$leaks" || fail "check-leaks missed the planted leak"
+grep -q "sparse variance for kfree" <<<"$leaks" || fail "check-leaks missed the planted title in a thinking block"
 
 ./orchestrate.py archive dry-run
 [ -d archive/dry-run/runs ] || fail "archive has no sandboxes"

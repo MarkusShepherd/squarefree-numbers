@@ -49,7 +49,9 @@
     "blocked_bash": ["curl *", "wget *", "git *"],
     "leak_patterns": [
       "schepke", "shepherd", "riemannhypothesis", "primes.recommend.games",
-      "mshepherd", "squarefree-numbers", "dehnert", "s00605-014-0691"
+      "mshepherd", "squarefree-numbers", "dehnert", "s00605-014-0691",
+      "sparse variance for k-free", "monatsh. math. 177",
+      "distribution of squarefree numbers in arithmetic progressions"
     ]
   },
   "max_rounds": 4,
