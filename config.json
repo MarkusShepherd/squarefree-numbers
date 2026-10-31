@@ -6,28 +6,28 @@
   },
   "runs_dir": "~/sqf-runs/squarefree-numbers",
   "backends": ["claude", "codex"],
-  "fallback": {"codex": "sonnet", "claude": "codex"},
+  "fallback": {"codex": "claude-sonnet-5-5", "claude": "codex:gpt-6.1-sol"},
   "models": {
-    "probe": ["opus", "sonnet", "codex"],
-    "numerics": "opus",
-    "planner": ["opus", "codex"],
-    "prover": "opus",
-    "referees": ["opus", "codex"],
-    "integrator": "opus",
-    "pollinator": "codex"
+    "probe": ["claude-opus-5-5", "claude-sonnet-5-5", "codex:gpt-6.1-sol"],
+    "numerics": "claude-sonnet-5-5",
+    "planner": ["claude-opus-5-5", "codex:gpt-6.1-sol"],
+    "prover": "claude-sonnet-5-5",
+    "referees": ["claude-opus-5-5", "codex:gpt-6.1-sol"],
+    "integrator": "claude-opus-5-5",
+    "pollinator": "codex:gpt-6.1-sol"
   },
   "codex": {
-    "effort": {"low": "low", "medium": "medium", "high": "high", "max": "high"},
+    "effort": {"low": "low", "medium": "medium", "high": "high", "xhigh": "xhigh", "max": "max"},
     "extra_args": ["--ignore-user-config", "--ephemeral", "-c", "web_search=\"disabled\""]
   },
   "effort": {
     "probe": "high",
     "numerics": "high",
-    "planner": "max",
-    "prover": "max",
-    "referee": "max",
-    "integrator": "max",
-    "pollinator": "high"
+    "planner": "high",
+    "prover": "high",
+    "referee": "high",
+    "integrator": "high",
+    "pollinator": "medium"
   },
   "tools": {
     "probe": [],
@@ -53,7 +53,7 @@
     ]
   },
   "max_rounds": 4,
-  "parallel": 6,
+  "parallel": 2,
   "timeout_s": 7200,
-  "max_budget_usd": 25
+  "max_budget_usd": 8
 }
