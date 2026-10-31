@@ -174,7 +174,10 @@ patterns cover his name and the DOI.
 tool result. `check-leaks` classifies hits of the patterns in
 `config.json` as `exposure` (excluded material reached the agent, e.g. in a
 search snippet: read it and decide whether the run is tainted), `attempt`,
-`denied` and `mention`.
+`denied` and `mention`. It scans tool calls, tool results, the agent's text
+and its reasoning (Claude `thinking` blocks, Codex `reasoning` items), and
+matches on normalised text (lower case, no LaTeX/Markdown markup, hyphens or
+dashes), so "Square-free" and "$k$-free" variants are caught.
 
 **Not covered**: Bash can still reach the web by other means (e.g. Python's
 `urllib`) and read files outside its folder by absolute path, including this

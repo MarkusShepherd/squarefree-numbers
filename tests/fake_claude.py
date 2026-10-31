@@ -48,6 +48,8 @@ elif role == "numerics":
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()
     if hint.startswith("No strategy hint"):
+        emit({"type": "assistant", "message": {"content": [
+            {"type": "thinking", "thinking": "I vaguely recall 'Sparse variance for $k$-free numbers'."}]}})
         tool_call("WebSearch", {"query": "sparse variance squarefree polynomial moduli"},
                   "1. Distribution of squarefree numbers ... https://riemannhypothesis.blog/thesis.pdf")
         tool_call("WebFetch", {"url": "https://riemannhypothesis.blog/thesis.pdf"},

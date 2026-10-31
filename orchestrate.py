@@ -271,6 +271,27 @@ def parse_codex(text, workdir, schema):
 # Leak detection: did any agent see or seek an excluded source?
 # --------------------------------------------------------------------------
 
+_STRIP = str.maketrans("", "", "$\\{}*_`-‐‑‒–—")
+
+
+def _norm(s):
+    """Lower-case, drop LaTeX/Markdown markup, hyphens and dashes, collapse
+    whitespace: 'Square-free', '$k$-free' and 'k‐free' all match."""
+    return " ".join(s.lower().translate(_STRIP).split())
+
+
+def _flat(obj):
+    """Every string in a JSON value, joined; unlike json.dumps, no escaping
+    of non-ASCII characters or newlines."""
+    if isinstance(obj, str):
+        return obj
+    if isinstance(obj, dict):
+        return " ".join(_flat(v) for v in obj.values())
+    if isinstance(obj, list):
+        return " ".join(_flat(v) for v in obj)
+    return "" if obj is None else str(obj)
+
+
 def _blocks(m):
     msg = m.get("message")
     content = msg.get("content") if isinstance(msg, dict) else None
@@ -287,21 +308,22 @@ def _events(m):
         if t in ("agent_message", "reasoning"):
             yield "mention", item.get("text", "")
         elif t != "user_message":                       # commands, searches, file changes
-            out = str(item.get("aggregated_output") or item.get("output") or "")
+            out = _flat(item.get("aggregated_output") or item.get("output") or "")
             call = {k: v for k, v in item.items() if k not in ("id", "aggregated_output", "output")}
-            yield "attempt", json.dumps(call)
+            yield "attempt", _flat(call)
             if out:
                 yield ("denied" if "denied" in out.lower()[:200] else "exposure"), out
         return
     for b in _blocks(m):
         if b.get("type") == "tool_use":
-            yield "attempt", f"{b.get('name')}: {json.dumps(b.get('input'))}"
+            yield "attempt", f"{b.get('name')}: {_flat(b.get('input'))}"
         elif b.get("type") == "tool_result":
-            c = b.get("content")
-            text = c if isinstance(c, str) else json.dumps(c)
+            text = _flat(b.get("content"))
             yield ("denied" if "denied" in text.lower()[:200] else "exposure"), text
         elif b.get("type") == "text" and m.get("type") == "assistant":
             yield "mention", b.get("text", "")
+        elif b.get("type") == "thinking" and m.get("type") == "assistant":
+            yield "mention", b.get("thinking", "")      # recall may show only here
 
 
 def scan_leaks(workdir):
@@ -313,7 +335,7 @@ def scan_leaks(workdir):
     f = workdir / "_stream.jsonl"
     if not f.exists():
         return []
-    pats = [p.lower() for p in EXCL["leak_patterns"]]
+    pats = [_norm(p) for p in EXCL["leak_patterns"]]
     hits = []
     for line in f.read_text().splitlines():
         try:
@@ -321,12 +343,12 @@ def scan_leaks(workdir):
         except json.JSONDecodeError:
             continue
         for kind, text in _events(m):
-            low = text.lower()
+            low = _norm(text)
             for pat in pats:
                 i = low.find(pat)
                 if i >= 0:
                     hits.append({"run": workdir.name, "kind": kind, "pattern": pat,
-                                 "context": text[max(0, i - 120): i + 120]})
+                                 "context": low[max(0, i - 120): i + 120]})
     return hits
 
 
