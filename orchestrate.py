@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`).
+"""Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`),
+optionally mixed with Codex CLI agents (`codex exec`) for model diversity.
 
 Every agent is one `claude -p` process run in its own sandbox folder under
 runs/, which contains only the files that role is allowed to see. Agents never
@@ -31,6 +32,8 @@ ROOT = Path(__file__).resolve().parent
 CFG = json.loads((ROOT / "config.json").read_text())
 SCHEMAS = json.loads((ROOT / "prompts" / "schemas.json").read_text())
 CLAUDE = os.environ.get("CLAUDE_BIN", "claude")
+CODEX = os.environ.get("CODEX_BIN", "codex")
+CODEX_CFG = CFG.get("codex", {})
 
 
 def log(msg):
@@ -113,16 +116,24 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
     The full stream (every tool call and tool result) is kept in
     <workdir>/_stream.jsonl and scanned for leaks of excluded sources."""
     tools = CFG["tools"][role] if tools is None else tools
-    cmd = build_cmd(build_prompt(role, task, rules), tools, model, schema)
-    env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
-               ENABLE_CLAUDEAI_MCP_SERVERS="false")       # no claude.ai connectors
+    prompt = build_prompt(role, task, rules)
+    kind, name = backend(model)
+    if kind == "codex":
+        if schema:
+            prompt += codex_schema_note(schema)
+        cmd = build_codex_cmd(prompt, tools, name, effort, workdir)
+        env = dict(os.environ)
+    else:
+        cmd = build_cmd(prompt, tools, name, schema)
+        env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
+                   ENABLE_CLAUDEAI_MCP_SERVERS="false")   # no claude.ai connectors
 
     t0 = time.time()
-    p = subprocess.run(cmd, cwd=workdir, env=env, capture_output=True,
+    p = subprocess.run(cmd, cwd=workdir, env=env, capture_output=True, stdin=subprocess.DEVNULL,
                        text=True, timeout=CFG["timeout_s"])
     (workdir / "_stream.jsonl").write_text(p.stdout)
     (workdir / "_stderr.txt").write_text(p.stderr)
-    out = parse_stream(p.stdout)
+    out = parse_codex(p.stdout, workdir, schema) if kind == "codex" else parse_stream(p.stdout)
     hits = scan_leaks(workdir)
     if hits:
         log(f"  WARNING: {len(hits)} possible leak(s) in runs/{workdir.name}; "
@@ -136,6 +147,7 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
             "role": role, "model": model, "effort": effort, "variant": VARIANT,
             "run": workdir.name, "seconds": round(time.time() - t0),
             "cost_usd": out.get("total_cost_usd"), "leak_hits": len(hits),
+            "backend": kind, "tokens": out.get("tokens"),
         }) + "\n")
     return out
 
