@@ -5,13 +5,17 @@
     "thesis-informed": {"hints": ["vaughan", "no-trunc", "dirichlet", "none"]}
   },
   "models": {
-    "probe": ["fable", "opus"],
+    "probe": ["opus", "sonnet", "codex"],
     "numerics": "opus",
-    "planner": "fable",
-    "prover": "fable",
-    "referees": ["fable", "opus"],
-    "integrator": "fable",
-    "pollinator": "opus"
+    "planner": ["opus", "codex"],
+    "prover": "opus",
+    "referees": ["opus", "codex"],
+    "integrator": "opus",
+    "pollinator": "codex"
+  },
+  "codex": {
+    "effort": {"low": "low", "medium": "medium", "high": "high", "max": "high"},
+    "extra_args": ["--ignore-user-config", "--ephemeral", "-c", "web_search=\"disabled\""]
   },
   "effort": {
     "probe": "high",
