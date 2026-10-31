@@ -50,8 +50,21 @@ report/             integrator output
 ## Running it
 
 Requires Claude Code (`claude`) logged in, and Python 3.10+. For the default
-model mix also the Codex CLI (`npm i -g @openai/codex`, then `codex login`);
-without it, replace every `codex` in `config.json` by a Claude model.
+model mix also the Codex CLI (`npm i -g @openai/codex`, then `codex login`).
+
+The driver uses only the standard library, so there is nothing to install. It
+carries PEP 723 metadata, so `uv run orchestrate.py <step>` works as well as
+`./orchestrate.py <step>` and pins the Python version.
+
+**Claude only, Codex only, or both.** `backends` in `config.json` lists the
+enabled backends; `BACKENDS=claude` (or `codex`) in the environment overrides
+it for one command. A model of a disabled backend is replaced by
+`fallback` (`codex` -> `sonnet`, `claude` -> `codex`), so the per-role model
+list stays as it is. `prove` warns if both referees end up as the same model.
+
+```
+BACKENDS=claude ./orchestrate.py plan
+```
 
 1. Put the papers in `papers/`: Brüdern–Wooley 2011, BGP+ 1998 and
    arXiv:1912.04683 (see `problem.md`; Vaughan 2005 is paywalled and not
@@ -104,8 +117,11 @@ An agent with web access could simply find the 2011 thesis. Full sandboxing
 - `--permission-mode dontAsk`: anything not pre-approved is denied.
 
 **Instructed** (`prompts/_rules.md`, appended to every prompt): do not read
-anything by Markus Schepke / Shepherd; report it if encountered; do not use
-remembered knowledge of it; do not read outside the working directory.
+anything by Markus Schepke / Shepherd, or Dehnert's 2015 paper on the same
+problem (Monatsh. Math. 177, 373–396); report it if encountered; do not use
+remembered knowledge of either; do not read outside the working directory.
+Dehnert's paper is paywalled, so there is no domain to block; the leak
+patterns cover his name and the DOI.
 
 **Audited**: every run is recorded with `--output-format stream-json
 --verbose` in `runs/*/_stream.jsonl`, including every search query, fetch and
