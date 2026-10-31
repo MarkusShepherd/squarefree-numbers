@@ -166,6 +166,79 @@ def parse_stream(text):
 
 
 # --------------------------------------------------------------------------
+# Codex backend: model "codex" or "codex:<model>" in config.json
+# --------------------------------------------------------------------------
+
+def backend(model):
+    """'codex' / 'codex:<model>' -> ('codex', <model> or None); else ('claude', model)."""
+    if model == "codex" or model.startswith("codex:"):
+        return "codex", model.partition(":")[2] or None
+    return "claude", model
+
+
+def build_codex_cmd(prompt, tools, model, effort, workdir):
+    """The `codex exec` invocation (flags checked against codex-cli 0.166.0).
+
+    Codex has no per-tool whitelist, so a role's tool list maps onto a sandbox
+    mode: any of Write/Edit/Bash -> workspace-write (writes only inside the
+    sandbox folder), otherwise read-only. Both modes block network access from
+    commands. Codex has no per-domain deny rules either, so web search is off
+    for every Codex agent (`codex.extra_args`), and --ignore-user-config keeps
+    MCP servers and settings from ~/.codex/config.toml out."""
+    writes = any(t in tools for t in ("Write", "Edit", "Bash"))
+    cmd = [CODEX, "exec", "--json", "--skip-git-repo-check",
+           "--sandbox", "workspace-write" if writes else "read-only",
+           "--cd", str(workdir),
+           "--output-last-message", str(workdir / "_last.txt"),
+           "-c", f'model_reasoning_effort="{CODEX_CFG["effort"][effort]}"',
+           *CODEX_CFG.get("extra_args", [])]
+    if model:
+        cmd += ["--model", model]
+    return cmd + [prompt]
+
+
+def codex_schema_note(schema):
+    """Codex's --output-schema needs strict schemas (every property required);
+    ours have optional fields, so the final message carries the JSON instead."""
+    return ("\n\n## Structured output\n\nEnd with a final message that is exactly one JSON "
+            "object matching this JSON schema: no prose before or after it, no code "
+            f"fence.\n\n```json\n{json.dumps(SCHEMAS[schema], indent=2)}\n```\n")
+
+
+def parse_codex(text, workdir, schema):
+    """A `codex exec --json` transcript in the shape of Claude's `result`
+    message: result, structured_output, and token counts instead of a cost."""
+    msgs, tokens = [], {"input": 0, "output": 0}
+    for line in text.splitlines():
+        try:
+            m = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        item = m.get("item") or {}
+        if m.get("type") == "item.completed" and item.get("type") == "agent_message":
+            msgs.append(item.get("text", ""))
+        elif m.get("type") == "turn.completed":
+            u = m.get("usage") or {}
+            tokens["input"] += u.get("input_tokens") or 0
+            tokens["output"] += u.get("output_tokens") or 0
+    last = workdir / "_last.txt"
+    result = last.read_text() if last.exists() else (msgs[-1] if msgs else None)
+    if result is None:
+        return None
+    out = {"result": result, "total_cost_usd": None, "tokens": tokens}
+    if schema:
+        s = result.strip()
+        try:
+            obj = json.loads(s[s.find("{"): s.rfind("}") + 1])
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(obj, dict) or any(k not in obj for k in SCHEMAS[schema]["required"]):
+            return None
+        out["structured_output"] = obj
+    return out
+
+
+# --------------------------------------------------------------------------
 # Leak detection: did any agent see or seek an excluded source?
 # --------------------------------------------------------------------------
 
@@ -173,6 +246,33 @@ def _blocks(m):
     msg = m.get("message")
     content = msg.get("content") if isinstance(msg, dict) else None
     return content if isinstance(content, list) else []
+
+
+def _events(m):
+    """(kind, text) pairs from one transcript line, Claude or Codex format."""
+    item = m.get("item")
+    if isinstance(item, dict):                          # `codex exec --json`
+        if m.get("type") != "item.completed":
+            return
+        t = item.get("type")
+        if t in ("agent_message", "reasoning"):
+            yield "mention", item.get("text", "")
+        elif t != "user_message":                       # commands, searches, file changes
+            out = str(item.get("aggregated_output") or item.get("output") or "")
+            call = {k: v for k, v in item.items() if k not in ("id", "aggregated_output", "output")}
+            yield "attempt", json.dumps(call)
+            if out:
+                yield ("denied" if "denied" in out.lower()[:200] else "exposure"), out
+        return
+    for b in _blocks(m):
+        if b.get("type") == "tool_use":
+            yield "attempt", f"{b.get('name')}: {json.dumps(b.get('input'))}"
+        elif b.get("type") == "tool_result":
+            c = b.get("content")
+            text = c if isinstance(c, str) else json.dumps(c)
+            yield ("denied" if "denied" in text.lower()[:200] else "exposure"), text
+        elif b.get("type") == "text" and m.get("type") == "assistant":
+            yield "mention", b.get("text", "")
 
 
 def scan_leaks(workdir):
@@ -191,17 +291,7 @@ def scan_leaks(workdir):
             m = json.loads(line)
         except json.JSONDecodeError:
             continue
-        for b in _blocks(m):
-            if b.get("type") == "tool_use":
-                kind, text = "attempt", f"{b.get('name')}: {json.dumps(b.get('input'))}"
-            elif b.get("type") == "tool_result":
-                c = b.get("content")
-                text = c if isinstance(c, str) else json.dumps(c)
-                kind = "denied" if "denied" in text.lower()[:200] else "exposure"
-            elif b.get("type") == "text" and m.get("type") == "assistant":
-                kind, text = "mention", b.get("text", "")
-            else:
-                continue
+        for kind, text in _events(m):
             low = text.lower()
             for pat in pats:
                 i = low.find(pat)
