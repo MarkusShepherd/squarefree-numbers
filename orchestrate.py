@@ -20,6 +20,7 @@ Steps (run in order; you read the output between steps):
     ./orchestrate.py integrate         composition check  -> report/
     ./orchestrate.py status            table of where everything stands
     ./orchestrate.py check-leaks       scan all transcripts for excluded sources
+    ./orchestrate.py archive [label]   copy the finished run into archive/<label>/
 """
 import argparse
 import concurrent.futures as cf
@@ -635,6 +636,32 @@ def cmd_integrate(_):
     log(f"final theorem: {v['final_theorem']}")
 
 
+def cmd_archive(args):
+    """Copy every sandbox in runs_dir and the run's outputs into the repo under
+    archive/<label>/, for review and committing. Run it once no agent is running.
+    Agents of later runs can't reach the archive, since they can't read git.
+    PDFs from papers/ are left out: they are not ours to redistribute."""
+    label = args.label or f"{datetime.now():%Y%m%d-%H%M}-{VARIANT}"
+    dest = ROOT / "archive" / label
+    if dest.exists():
+        sys.exit(f"archive/{label} exists; pass another label")
+    skip = shutil.ignore_patterns("papers")
+    n = 0
+    for d in sorted(RUNS.iterdir()):
+        if d.is_dir():
+            shutil.copytree(d, dest / "runs" / d.name, ignore=skip)
+            n += 1
+    for name in ("config.json", "plan.json", "numerics", "plans", "props", "report", "logs"):
+        src = ROOT / name
+        if src.is_dir():
+            shutil.copytree(src, dest / name, ignore=skip)
+        elif src.exists():
+            dest.mkdir(parents=True, exist_ok=True)
+            shutil.copy(src, dest / name)
+    log(f"archived {n} sandboxes and the run's outputs to archive/{label}/; "
+        "review, then git add it")
+
+
 def cmd_status(_):
     if not (ROOT / "props").exists():
         print("no plan selected yet")
@@ -670,6 +697,7 @@ def main():
     s = sub.add_parser("pollinate"); s.add_argument("prop"); s.set_defaults(fn=cmd_pollinate)
     sub.add_parser("integrate").set_defaults(fn=cmd_integrate)
     sub.add_parser("status").set_defaults(fn=cmd_status)
+    s = sub.add_parser("archive"); s.add_argument("label", nargs="?"); s.set_defaults(fn=cmd_archive)
     args = ap.parse_args()
     args.fn(args)
 

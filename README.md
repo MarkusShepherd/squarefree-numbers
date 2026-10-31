@@ -86,6 +86,12 @@ BACKENDS=claude ./orchestrate.py plan
    the constant with the numerics.
 9. `./orchestrate.py check-leaks`: scan every transcript (it also runs after
    each agent and warns).
+10. `./orchestrate.py archive [label]`: copy every sandbox and the run's
+    outputs into `archive/<label>/` (default label: date, time and variant),
+    without the PDFs. Review it and commit it; that is the run's permanent
+    record. Agents never run inside the repo, so later runs can't read it.
+    Transcripts at max effort can be several MB per agent; compress the
+    archive or use Git LFS if that becomes a problem.
 
 To test the plumbing for free:
 
