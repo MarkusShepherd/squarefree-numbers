@@ -134,6 +134,14 @@ papers/
 # Agent sandboxes live outside the repo (runs_dir); runs is a symlink to them
 /runs
 
+# Working state of the current run; commit a finished run via `orchestrate.py archive`
+/logs/
+/plans/
+/props/
+/numerics/
+/report/
+/plan.json
+
 # Claude
 .claude/
 
