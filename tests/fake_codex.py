@@ -58,6 +58,10 @@ elif role == "planner":
         item(type="command_execution", command="curl -s https://riemannhypothesis.blog/thesis.pdf",
              aggregated_output="Distribution of squarefree numbers ... riemannhypothesis.blog",
              exit_code=0, status="completed")
+        item(type="mcp_tool_call", server="codex_apps", tool="search_service.web_run",
+             arguments={"open": [{"ref_id": "https://example.org"}]},
+             result={"content": [{"type": "text", "text": "Dehnert, Monatsh. Math."}]},
+             status="completed")
     props = [
         {"id": "P1", "title": "Rearrangement", "statement": "S1", "depends_on": []},
         {"id": "P2", "title": "Major arcs", "statement": "S2", "depends_on": ["P1"]},
