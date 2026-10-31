@@ -30,17 +30,6 @@ is a contract and must be usable without context.
 
 Aim for 5–12 propositions. Smaller is better if each stays honest.
 
-## Things that commonly break plans in this area
-
-- A truncation of the $k$-range (e.g. at $f(k) = x^{1/4}$) creates boundary
-  terms on several sides of the argument. If you truncate, make the boundary
-  terms explicit in every proposition they touch, so they can be shown to cancel.
-- Tail sums of multiplicative weights over $q$: terms with $q = p^2$ often decay
-  much more slowly than terms with squarefree $q$.
-- An error term that is fine for one $h$ or $k$ can be fatal after summing over
-  a range of length $x^{\theta}$. State the error per term *and* after summing.
-- A bounded but oscillating term is not a constant.
-
 Check your predicted main term (exponents and, if you can compute it, the
 constant) against `results.json`. If they disagree, your plan is wrong; say so
 in `summary` rather than hiding it.

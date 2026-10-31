@@ -6,6 +6,7 @@ runs/, which contains only the files that role is allowed to see. Agents never
 talk to each other; all state lives in this directory tree.
 
 Steps (run in order; you read the output between steps):
+    ./orchestrate.py probe             contamination check -> logs/probe-*.md
     ./orchestrate.py numerics          exact computations -> numerics/
     ./orchestrate.py plan              parallel planners  -> plans/<hint>.json
     ./orchestrate.py select <hint>     split chosen plan  -> props/P*/statement.md
@@ -13,6 +14,7 @@ Steps (run in order; you read the output between steps):
     ./orchestrate.py pollinate P3      hint for a stuck proposition, then `prove P3`
     ./orchestrate.py integrate         composition check  -> report/
     ./orchestrate.py status            table of where everything stands
+    ./orchestrate.py check-leaks       scan all transcripts for excluded sources
 """
 import argparse
 import concurrent.futures as cf
@@ -54,40 +56,163 @@ def sandbox(name, files):
     return d
 
 
-def run_agent(role, workdir, tools, model, effort, task="", schema=None):
-    """Run one agent to completion. Returns the parsed JSON result."""
-    prompt = (ROOT / "prompts" / f"{role}.md").read_text()
+VARIANT = CFG["variant"]
+EXCL = CFG["exclusion"]
+
+
+def variant_file(rel):
+    """`variants/<variant>/<rel>` if it exists, else `<rel>` (see variants/README.md)."""
+    v = ROOT / "variants" / VARIANT / rel
+    return v if v.exists() else ROOT / rel
+
+
+def build_prompt(role, task="", rules=True):
+    prompt = variant_file(f"prompts/{role}.md").read_text()
+    if rules:
+        prompt += "\n\n" + (ROOT / "prompts" / "_rules.md").read_text()
     if task:
         prompt += f"\n\n## This run\n\n{task}\n"
+    return prompt
+
+
+def build_cmd(prompt, tools, model, schema=None):
+    """The `claude -p` invocation. Restrictions, all tested on Claude Code:
+
+    --tools               the agent sees only these built-in tools (--allowedTools
+                          alone merely pre-approves; Task, Skill etc. stay visible)
+    --strict-mcp-config   no MCP servers from settings or .mcp.json
+    mcp__* deny           no MCP tools at all, incl. browser integrations
+    WebFetch(domain:...)  deny rules for every blocked domain
+    Bash(curl *) etc.     deny rules against fetching around WebFetch
+    dontAsk               anything not pre-approved is denied, never prompted
+    """
+    deny = ["mcp__*"]
+    if "WebFetch" in tools:
+        deny += [f"WebFetch(domain:{d})" for d in EXCL["blocked_domains"]]
+    if "Bash" in tools:
+        deny += [f"Bash({b})" for b in EXCL["blocked_bash"]]
     cmd = [
         CLAUDE, "-p", prompt,
         "--model", model,
+        "--tools", ",".join(tools),
         "--allowedTools", ",".join(tools),
-        "--permission-mode", "dontAsk",   # anything not allowed is denied, never prompted
-        "--output-format", "json",
+        "--disallowedTools", *deny,
+        "--strict-mcp-config",
+        "--permission-mode", "dontAsk",
+        "--output-format", "stream-json", "--verbose",   # full transcript, for auditing
         "--max-budget-usd", str(CFG["max_budget_usd"]),
     ]
     if schema:
         cmd += ["--json-schema", json.dumps(SCHEMAS[schema])]
-    env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort)
+    return cmd
+
+
+def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, rules=True):
+    """Run one agent to completion. Returns the final `result` message.
+
+    The full stream (every tool call and tool result) is kept in
+    <workdir>/_stream.jsonl and scanned for leaks of excluded sources."""
+    tools = CFG["tools"][role] if tools is None else tools
+    cmd = build_cmd(build_prompt(role, task, rules), tools, model, schema)
+    env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
+               ENABLE_CLAUDEAI_MCP_SERVERS="false")       # no claude.ai connectors
 
     t0 = time.time()
     p = subprocess.run(cmd, cwd=workdir, env=env, capture_output=True,
                        text=True, timeout=CFG["timeout_s"])
-    (workdir / "_stdout.json").write_text(p.stdout)
+    (workdir / "_stream.jsonl").write_text(p.stdout)
     (workdir / "_stderr.txt").write_text(p.stderr)
-    if p.returncode != 0:
+    out = parse_stream(p.stdout)
+    hits = scan_leaks(workdir)
+    if hits:
+        log(f"  WARNING: {len(hits)} possible leak(s) in runs/{workdir.name}; "
+            "run `./orchestrate.py check-leaks`")
+    if p.returncode != 0 or out is None:
         raise RuntimeError(f"{role} in {workdir.name} exited {p.returncode}: {p.stderr[-500:]}")
-    out = json.loads(p.stdout)
 
     with open(ROOT / "logs" / "costs.jsonl", "a") as fh:
         fh.write(json.dumps({
             "time": datetime.now().isoformat(timespec="seconds"),
-            "role": role, "model": model, "effort": effort, "run": workdir.name,
-            "seconds": round(time.time() - t0),
-            "cost_usd": out.get("total_cost_usd"),
+            "role": role, "model": model, "effort": effort, "variant": VARIANT,
+            "run": workdir.name, "seconds": round(time.time() - t0),
+            "cost_usd": out.get("total_cost_usd"), "leak_hits": len(hits),
         }) + "\n")
     return out
+
+
+def parse_stream(text):
+    """The last `result` message of a stream-json transcript, or None."""
+    result = None
+    for line in text.splitlines():
+        try:
+            m = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if m.get("type") == "result":
+            result = m
+    return result
+
+
+# --------------------------------------------------------------------------
+# Leak detection: did any agent see or seek an excluded source?
+# --------------------------------------------------------------------------
+
+def _blocks(m):
+    msg = m.get("message")
+    content = msg.get("content") if isinstance(msg, dict) else None
+    return content if isinstance(content, list) else []
+
+
+def scan_leaks(workdir):
+    """Find leak patterns in what the agent *did* (tool calls, its own text)
+    and what it *saw* (tool results). The prompt itself names the excluded
+    author, so the initial prompt is not scanned. Denied fetches show up as
+    'attempt' hits with a denial result; those were blocked, but still worth
+    knowing about."""
+    f = workdir / "_stream.jsonl"
+    if not f.exists():
+        return []
+    pats = [p.lower() for p in EXCL["leak_patterns"]]
+    hits = []
+    for line in f.read_text().splitlines():
+        try:
+            m = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        for b in _blocks(m):
+            if b.get("type") == "tool_use":
+                kind, text = "attempt", f"{b.get('name')}: {json.dumps(b.get('input'))}"
+            elif b.get("type") == "tool_result":
+                c = b.get("content")
+                text = c if isinstance(c, str) else json.dumps(c)
+                kind = "denied" if "denied" in text.lower()[:200] else "exposure"
+            elif b.get("type") == "text" and m.get("type") == "assistant":
+                kind, text = "mention", b.get("text", "")
+            else:
+                continue
+            low = text.lower()
+            for pat in pats:
+                i = low.find(pat)
+                if i >= 0:
+                    hits.append({"run": workdir.name, "kind": kind, "pattern": pat,
+                                 "context": text[max(0, i - 120): i + 120]})
+    return hits
+
+
+def cmd_check_leaks(_):
+    """Scan every run. 'exposure' is the serious kind: excluded material reached
+    an agent. Read the context and decide whether that run's output is tainted."""
+    all_hits = []
+    for d in sorted((ROOT / "runs").iterdir()):
+        all_hits += scan_leaks(d)
+    (ROOT / "logs" / "leaks.json").write_text(json.dumps(all_hits, indent=2))
+    if not all_hits:
+        log("no leak patterns found in any run")
+        return
+    for h in all_hits:
+        print(f"{h['kind']:9} {h['pattern']:22} {h['run']}\n          ...{h['context']!r}...")
+    kinds = {k: sum(h["kind"] == k for h in all_hits) for k in ("exposure", "attempt", "denied", "mention")}
+    log(f"{len(all_hits)} hits {kinds}; details in logs/leaks.json")
 
 
 def parallel(fn, items):
@@ -108,11 +233,23 @@ def parallel(fn, items):
 # Steps
 # --------------------------------------------------------------------------
 
+def cmd_probe(_):
+    """Contamination check, run before anything else: does a fresh model, with
+    no tools, no files and no exclusion rules, already know a result for V_f
+    (e.g. from pretraining)? Read logs/probe-<model>.md before trusting a run."""
+    def one(model):
+        wd = sandbox(f"probe-{model}", {})
+        out = run_agent("probe", wd, model, CFG["effort"]["probe"], rules=False)
+        (ROOT / "logs" / f"probe-{model}.md").write_text(out.get("result", ""))
+        return "ok"
+    for model, res in parallel(one, CFG["models"]["probe"]).items():
+        log(f"probe {model}: {res}; read logs/probe-{model}.md")
+
+
 def cmd_numerics(_):
     wd = sandbox("numerics", {"problem.md": ROOT / "problem.md"})
     log(f"numerics agent in runs/{wd.name}")
-    run_agent("numerics", wd, ["Bash", "Read", "Write", "Edit"],
-              CFG["models"]["numerics"], CFG["effort"]["numerics"])
+    run_agent("numerics", wd, CFG["models"]["numerics"], CFG["effort"]["numerics"])
     if not (wd / "results.json").exists():
         sys.exit("numerics agent did not write results.json")
     out = ROOT / "numerics"
@@ -132,16 +269,16 @@ def common_inputs():
 
 def cmd_plan(_):
     def one(hint):
-        wd = sandbox(f"plan-{hint}", common_inputs() | {"hint.md": ROOT / "hints" / f"{hint}.md"})
+        wd = sandbox(f"plan-{hint}", common_inputs() | {"hint.md": variant_file(f"hints/{hint}.md")})
         log(f"planner '{hint}' in runs/{wd.name}")
-        out = run_agent("planner", wd, ["Read", "Bash"], CFG["models"]["planner"],
+        out = run_agent("planner", wd, CFG["models"]["planner"],
                         CFG["effort"]["planner"], schema="plan")
         plan = out["structured_output"]
         (ROOT / "plans" / f"{hint}.json").write_text(json.dumps(plan, indent=2))
         (ROOT / "plans" / f"{hint}.md").write_text(render_plan(hint, plan))
         return len(plan["propositions"])
 
-    for hint, n in parallel(one, CFG["hints"]).items():
+    for hint, n in parallel(one, CFG["variants"][VARIANT]["hints"]).items():
         log(f"plan '{hint}': {n} propositions" if n else f"plan '{hint}': failed")
     log("read plans/*.md, then run: ./orchestrate.py select <hint>")
 
@@ -240,8 +377,7 @@ def prove_one(pid):
             files["hint.md"] = pdir / "hint.md"
         wd = sandbox(f"prove-{pid}-r{rnd}", files)
         log(f"{pid} round {rnd}: prover")
-        run_agent("prover", wd, ["Read", "Write", "Edit", "Bash"],
-                  CFG["models"]["prover"], CFG["effort"]["prover"])
+        run_agent("prover", wd, CFG["models"]["prover"], CFG["effort"]["prover"])
         if not (wd / "proof.md").exists():
             log(f"{pid} round {rnd}: prover wrote no proof.md")
             continue
@@ -255,7 +391,7 @@ def prove_one(pid):
         def referee(i_model):
             i, model = i_model
             rwd = sandbox(f"referee-{pid}-r{rnd}-{i}", ref_files)
-            out = run_agent("referee", rwd, ["Read"], model, CFG["effort"]["referee"],
+            out = run_agent("referee", rwd, model, CFG["effort"]["referee"],
                             schema="verdict")
             v = out["structured_output"] | {"model": model}
             (pdir / f"review-v{rnd}-{i}.json").write_text(json.dumps(v, indent=2))
@@ -304,7 +440,7 @@ def cmd_pollinate(args):
         "history.md": pdir / "objections.md",
         "plans": ROOT / "plans",
     })
-    out = run_agent("pollinator", wd, ["Read", "Write"], CFG["models"]["pollinator"],
+    out = run_agent("pollinator", wd, CFG["models"]["pollinator"],
                     CFG["effort"]["pollinator"], schema="pollination")
     v = out["structured_output"]
     if (wd / "hint.md").exists():
@@ -328,8 +464,7 @@ def cmd_integrate(_):
         files[f"props/{p}/statement.md"] = ROOT / "props" / p / "statement.md"
         files[f"props/{p}/proof.md"] = latest_proof(p)
     wd = sandbox("integrate", files)
-    out = run_agent("integrator", wd, ["Read", "Write", "Bash"],
-                    CFG["models"]["integrator"], CFG["effort"]["integrator"],
+    out = run_agent("integrator", wd, CFG["models"]["integrator"], CFG["effort"]["integrator"],
                     schema="integration")
     v = out["structured_output"]
     rep = ROOT / "report"
@@ -362,6 +497,8 @@ def main():
         (ROOT / d).mkdir(exist_ok=True)
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("probe").set_defaults(fn=cmd_probe)
+    sub.add_parser("check-leaks").set_defaults(fn=cmd_check_leaks)
     sub.add_parser("numerics").set_defaults(fn=cmd_numerics)
     sub.add_parser("plan").set_defaults(fn=cmd_plan)
     s = sub.add_parser("select"); s.add_argument("hint"); s.set_defaults(fn=cmd_select)
