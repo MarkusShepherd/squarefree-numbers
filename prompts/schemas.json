@@ -1,0 +1,59 @@
+{
+  "plan": {
+    "type": "object",
+    "properties": {
+      "summary": {"type": "string"},
+      "main_theorem": {"type": "string"},
+      "predicted_main_term": {"type": "string"},
+      "agrees_with_numerics": {"type": "string"},
+      "propositions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {"type": "string", "pattern": "^P[0-9]+$"},
+            "title": {"type": "string"},
+            "statement": {"type": "string"},
+            "depends_on": {"type": "array", "items": {"type": "string"}},
+            "cites": {"type": "array", "items": {"type": "string"}},
+            "crux": {"type": "boolean"},
+            "risk": {"type": "string"}
+          },
+          "required": ["id", "title", "statement", "depends_on"]
+        }
+      }
+    },
+    "required": ["summary", "main_theorem", "propositions"]
+  },
+  "verdict": {
+    "type": "object",
+    "properties": {
+      "verdict": {"enum": ["pass", "fail"]},
+      "severity": {"enum": ["none", "cosmetic", "gap", "fatal", "defect-confirmed"]},
+      "location": {"type": "string"},
+      "objection": {"type": "string"},
+      "other_issues": {"type": "array", "items": {"type": "string"}}
+    },
+    "required": ["verdict", "severity"]
+  },
+  "integration": {
+    "type": "object",
+    "properties": {
+      "composes": {"type": "boolean"},
+      "final_theorem": {"type": "string"},
+      "interface_mismatches": {"type": "array", "items": {"type": "string"}},
+      "numerics_comparison": {"type": "string"},
+      "loss_vs_plan": {"type": "string"}
+    },
+    "required": ["composes", "final_theorem"]
+  },
+  "pollination": {
+    "type": "object",
+    "properties": {
+      "diagnosis": {"enum": ["route", "statement"]},
+      "needs_replan": {"type": "boolean"},
+      "summary": {"type": "string"}
+    },
+    "required": ["diagnosis", "needs_replan", "summary"]
+  }
+}
