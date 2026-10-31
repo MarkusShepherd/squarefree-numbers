@@ -4,6 +4,7 @@
     "neutral": {"hints": ["vaughan", "simplest", "dirichlet", "none"]},
     "thesis-informed": {"hints": ["vaughan", "no-trunc", "dirichlet", "none"]}
   },
+  "runs_dir": "~/sqf-runs/squarefree-numbers",
   "backends": ["claude", "codex"],
   "fallback": {"codex": "sonnet", "claude": "codex"},
   "models": {
@@ -45,7 +46,7 @@
       "mshepherd.gitlab.io",
       "gitlab.com"
     ],
-    "blocked_bash": ["curl *", "wget *"],
+    "blocked_bash": ["curl *", "wget *", "git *"],
     "leak_patterns": [
       "schepke", "shepherd", "riemannhypothesis", "primes.recommend.games",
       "mshepherd", "squarefree-numbers", "dehnert", "s00605-014-0691"

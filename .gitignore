@@ -131,6 +131,9 @@ sitepackages/
 # Papers
 papers/
 
+# Agent sandboxes live outside the repo (runs_dir); runs is a symlink to them
+/runs
+
 # Claude
 .claude/
 

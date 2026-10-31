@@ -1,13 +1,13 @@
 # sqf-sparse: a small multi-agent proof harness
 
 A worked example of how to run "agents" on a research problem with off-the-shelf
-Claude Code. The problem is the sparse variance for squarefree numbers in
+Claude Code and Codex. The problem is the sparse variance for squarefree numbers in
 arithmetic progressions to polynomial moduli (`problem.md`), but nothing in the
 driver is specific to it.
 
 ## Ideas
 
-- **An agent is one `claude -p` process** in its own folder under `runs/`. The
+- **An agent is one `claude -p` (or `codex exec`) process** in its own folder under `runs/`. The
   folder contains only what that role may see; it is kept afterwards, so you can
   read exactly what each agent saw (inputs), did (`_stream.jsonl`) and wrote.
 - **State lives in files, not conversations.** Agents never talk to each other.
@@ -35,26 +35,56 @@ prompts/            one file per role, plus schemas.json; _rules.md is appended 
 hints/              one strategy hint per planner
 variants/           prompt variants that override prompts/ and hints/ (see variants/README.md)
 config.json         models, effort, tools, exclusions, rounds, parallelism, budget
-orchestrate.py      the driver (~500 lines)
+orchestrate.py      the driver (~700 lines, standard library only)
 numerics/           written by the numerics agent
 plans/              one plan per hint (.json for the driver, .md for you)
 plan.json           the plan you selected
 props/P*/           statement, proof-vN, review-vN-i, objections, status
-runs/               every agent's sandbox, kept for inspection
+runs/               symlink to runs_dir (outside the repo): every agent's sandbox, kept
 logs/costs.jsonl    one line per agent run: role, model, variant, seconds, cost, leak hits
 logs/probe-*.md     what fresh models already know about the problem
 logs/leaks.json     output of check-leaks
 report/             integrator output
+archive/<label>/    finished runs, copied by `archive` for committing
+tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
 ```
 
 ## Running it
 
-Requires Claude Code (`claude`) logged in, and Python 3.10+. For the default
-model mix also the Codex CLI (`npm i -g @openai/codex`, then `codex login`).
+### Before the first run
 
-The driver uses only the standard library, so there is nothing to install. It
-carries PEP 723 metadata, so `uv run orchestrate.py <step>` works as well as
-`./orchestrate.py <step>` and pins the Python version.
+1. **Prerequisites.** Check, don't assume:
+
+   ```
+   python3 --version   # 3.10 or newer
+   claude --version    # and logged in: `claude` starts without asking you to log in
+   codex --version     # only for the default Claude+Codex mix; `codex login` once
+   ```
+
+   Without Codex, set `"backends": ["claude"]` in `config.json`. The driver
+   uses only the standard library, so there is nothing to install; it carries
+   PEP 723 metadata, so `uv run orchestrate.py <step>` works as well as
+   `./orchestrate.py <step>` and pins the Python version.
+2. **Your own instruction files.** `~/.claude/CLAUDE.md`, Claude Code's auto
+   memory and `~/.codex/AGENTS.md` load into every agent. Make sure none of
+   them mentions the thesis or Dehnert.
+3. **Dry run, free:** `tests/dry_run.sh`. It runs every step with stub CLIs
+   instead of `claude` and `codex`, checks the expected outcome, cleans up
+   after itself, and ends with `dry run OK`. Rerun it after changing the driver.
+4. **Papers** into `papers/` (gitignored; any file names):
+   - Brüdern–Wooley 2011: <https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf>
+   - Brüdern–Granville–Perelli–Vaughan–Wooley 1998:
+     <https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf>
+   - arXiv:1912.04683: <https://arxiv.org/pdf/1912.04683>
+
+   Vaughan 2005 is paywalled. If you have it, add it and remove the "Not
+   included" paragraph from `problem.md`.
+5. **Choose the setup** in `config.json`: `variant` (`neutral` or
+   `thesis-informed`, see `variants/README.md`), `backends`, models and effort.
+   For a cheap first real run, set the Claude models to `sonnet` and every
+   effort to `medium`.
+
+### Backends
 
 **Claude only, Codex only, or both.** `backends` in `config.json` lists the
 enabled backends; `BACKENDS=claude` (or `codex`) in the environment overrides
@@ -66,42 +96,52 @@ list stays as it is. `prove` warns if both referees end up as the same model.
 BACKENDS=claude ./orchestrate.py plan
 ```
 
-1. Put the papers in `papers/`: Brüdern–Wooley 2011, BGP+ 1998 and
-   arXiv:1912.04683 (see `problem.md`; Vaughan 2005 is paywalled and not
-   included). `papers/` is gitignored: the PDFs are not ours to redistribute.
-2. `./orchestrate.py probe`: ask fresh models, with no tools, what they already
+### A run, step by step
+
+Read the output of each step before starting the next.
+
+1. `./orchestrate.py probe`: ask fresh models, with no tools, what they already
    know about this variance. Read `logs/probe-*.md`. If a model reproduces the
-   thesis result, runs with that model are contaminated by pretraining.
-3. `./orchestrate.py numerics`: exact computation of V_f. Read
+   thesis's or Dehnert's result, runs with that model are contaminated by
+   pretraining.
+2. `./orchestrate.py numerics`: exact computation of V_f. Read
    `numerics/README.md` and sanity-check it yourself before going on; every
    later step trusts it.
-4. `./orchestrate.py plan`: four planners in parallel. Read `plans/*.md`.
-5. `./orchestrate.py select vaughan` (or whichever plan you prefer).
-6. `./orchestrate.py prove`: prover/referee loop for every proposition, up to
+3. `./orchestrate.py plan`: four planners in parallel. Read `plans/*.md`.
+4. `./orchestrate.py select vaughan` (or whichever plan you prefer).
+5. `./orchestrate.py prove`: prover/referee loop for every proposition, up to
    `max_rounds` rounds each. `./orchestrate.py status` at any time.
-7. For a stuck proposition: read `props/P*/objections.md`, then
+6. For a stuck proposition: read `props/P*/objections.md`, then
    `./orchestrate.py pollinate P3` and `./orchestrate.py prove P3`. Or edit
    its statement by hand; that is often the right call.
-8. `./orchestrate.py integrate`: checks the passed pieces compose and compares
+7. `./orchestrate.py integrate`: checks the passed pieces compose and compares
    the constant with the numerics.
-9. `./orchestrate.py check-leaks`: scan every transcript (it also runs after
+8. `./orchestrate.py check-leaks`: scan every transcript (it also runs after
    each agent and warns).
+9. `./orchestrate.py archive [label]`: copy every sandbox and the run's
+   outputs into `archive/<label>/` (default label: date, time and variant),
+   without the PDFs. Review it and commit it; that is the run's permanent
+   record. Agents never run inside the repo, so later runs can't read it.
+   Transcripts at max effort can be several MB per agent; compress the
+   archive or use Git LFS if that becomes a problem.
 
-To test the plumbing for free:
+### Starting over
+
+A run's state is `plans/ plan.json props/ numerics/ report/ logs/` in the repo
+plus the sandboxes in `runs_dir`. To start a new run, archive the old one (step
+9), then:
 
 ```
-CLAUDE_BIN=$PWD/tests/fake_claude.py CODEX_BIN=$PWD/tests/fake_codex.py ./orchestrate.py numerics
+rm -rf plans plan.json props numerics report logs ~/sqf-runs/squarefree-numbers
 ```
 
-and so on through the steps. The stub makes every proposition need two rounds
-and makes P3 get stuck; the unhinted planner's transcript contains a planted
-search result from an excluded domain, which `check-leaks` should report.
-Delete `runs/ plans/ props/ numerics/ logs/ plan.json report/` afterwards.
+To keep the numerics and only replan, keep `numerics/`.
 
 ## Independence from the thesis
 
-An agent with web access could simply find the 2011 thesis. Full sandboxing
-(containers, `--bare`) would need API billing, so instead:
+An agent with web access could simply find the 2011 thesis. Full sandboxing,
+a container per agent, isn't set up yet; it would work with the subscriptions
+(`claude setup-token`, and a mounted `~/.codex/auth.json`). Instead:
 
 **Enforced** for every agent, all tested against Claude Code:
 
@@ -115,6 +155,12 @@ An agent with web access could simply find the 2011 thesis. Full sandboxing
 - `WebFetch(domain:...)` deny rules for the blog's domains and gitlab.com, and
   `Bash(curl *)`, `Bash(wget *)` deny rules.
 - `--permission-mode dontAsk`: anything not pre-approved is denied.
+- **Sandboxes outside the repository.** Agents run in `runs_dir`
+  (`~/sqf-runs/squarefree-numbers` by default, `RUNS_DIR` overrides), not
+  inside this git repo, so a Bash agent can't `git log` its way to the
+  thesis-informed variant or to commit messages about the answer. The driver
+  refuses to start if `runs_dir` is inside any git work tree. Claude agents
+  also get a `Bash(git *)` deny rule.
 
 **Instructed** (`prompts/_rules.md`, appended to every prompt): do not read
 anything by Markus Schepke / Shepherd, or Dehnert's 2015 paper on the same
@@ -131,7 +177,8 @@ search snippet: read it and decide whether the run is tainted), `attempt`,
 `denied` and `mention`.
 
 **Not covered**: Bash can still reach the web by other means (e.g. Python's
-`urllib`) and read files outside its folder by absolute path; search snippets
+`urllib`) and read files outside its folder by absolute path, including this
+repository if the agent knows or guesses where it is; search snippets
 can't be blocked, only detected; and pretraining can't be undone, only measured
 (`probe`). Also check that your own `~/.claude/CLAUDE.md` and auto memory say
 nothing about the thesis: they load into every `claude -p` session.
@@ -171,8 +218,7 @@ How a Codex agent differs (flags checked against codex-cli 0.166.0; run
 - **Auditing** is the same: `codex exec --json` events go to
   `runs/*/_stream.jsonl`, and `check-leaks` reads both formats.
 
-To test the plumbing for free, add `CODEX_BIN=$PWD/tests/fake_codex.py` to the
-command below.
+`tests/dry_run.sh` exercises both backends.
 
 ## Cost control
 
