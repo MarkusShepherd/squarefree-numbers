@@ -13,8 +13,12 @@ numerics).
 2. Check for interface mismatches: a proposition used with a range, a
    uniformity or an error term other than what it states.
 3. Compute the predicted main term, with the constant numerically for
-   $f(k)=k^2+1$ and $f(k)=k^3+2$, and compare it with `results.json`. State the
-   relative discrepancy at the largest $x$ available.
+   $f(k)=k^2+1$ and $f(k)=k^3+2$, and compare it with `results.json`. Compare
+   against the constant extrapolated to $f(y)/x \to 0$
+   (`constant_extrapolated`), not against a single row: lower-order terms can
+   depend on $f(y)/x$ and then do not shrink at fixed ratio as $x$ grows. State
+   the relative discrepancy. A discrepancy by a clean factor (2, 3/2, ...) is
+   an error in the constant, not a lower-order term; trace it.
 4. State the final theorem that the passed propositions actually prove. If it is
    weaker than the plan's main theorem, say exactly where the loss happens.
 

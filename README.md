@@ -49,7 +49,9 @@ report/             integrator output
 
 ## Running it
 
-Requires Claude Code (`claude`) logged in, and Python 3.10+.
+Requires Claude Code (`claude`) logged in, and Python 3.10+. For the default
+model mix also the Codex CLI (`npm i -g @openai/codex`, then `codex login`);
+without it, replace every `codex` in `config.json` by a Claude model.
 
 1. Put the papers in `papers/`: Brüdern–Wooley 2011, BGP+ 1998 and
    arXiv:1912.04683 (see `problem.md`; Vaughan 2005 is paywalled and not
@@ -75,7 +77,7 @@ Requires Claude Code (`claude`) logged in, and Python 3.10+.
 To test the plumbing for free:
 
 ```
-CLAUDE_BIN=$PWD/tests/fake_claude.py ./orchestrate.py numerics
+CLAUDE_BIN=$PWD/tests/fake_claude.py CODEX_BIN=$PWD/tests/fake_codex.py ./orchestrate.py numerics
 ```
 
 and so on through the steps. The stub makes every proposition need two rounds
@@ -118,6 +120,44 @@ can't be blocked, only detected; and pretraining can't be undone, only measured
 (`probe`). Also check that your own `~/.claude/CLAUDE.md` and auto memory say
 nothing about the thesis: they load into every `claude -p` session.
 
+## Models: Claude and Codex
+
+Any model in `config.json` can be a Claude model (`opus`, `sonnet`, ...) or
+`codex` / `codex:<model>`, which runs that agent with the Codex CLI
+(`codex exec`, logged in with your ChatGPT account) instead of `claude -p`.
+The default mix uses Opus for the numerics, the provers and the integrator,
+and Codex as the second model family: one of the two referees, every other
+planner (`planner` may be a list; hints are assigned round-robin), the
+pollinator, and one of the probes. Fable is not used: it isn't included in
+the standard subscription.
+
+How a Codex agent differs (flags checked against codex-cli 0.166.0; run
+`codex exec --help` if yours is newer):
+
+- **Tools.** Codex has no per-tool whitelist. A role whose tool list contains
+  Write, Edit or Bash runs with `--sandbox workspace-write` (writes only in its
+  folder), anything else with `--sandbox read-only`. Commands have no network
+  in either mode, which is stricter than the Claude side; but the read-only
+  sandbox still lets the agent *read* files anywhere on disk.
+- **No web search.** Codex can't deny individual domains, so `web_search` is
+  disabled for all Codex agents (`codex.extra_args`). A Codex planner therefore
+  works from `papers/` and memory only, unlike the Claude planners.
+- **No user config.** `--ignore-user-config` keeps MCP servers and settings
+  from `~/.codex/config.toml` out (login still works). `~/.codex/AGENTS.md` is
+  still loaded, so check it says nothing about the thesis, as for `CLAUDE.md`.
+- **Structured output.** The final message must be the JSON object;
+  `--output-schema` would need strict schemas, and ours have optional fields.
+- **Effort.** `codex.effort` maps the harness's effort levels onto
+  `model_reasoning_effort`; `max` maps to `high` by default.
+- **Cost.** Codex reports tokens, not dollars, and there is no equivalent of
+  `--max-budget-usd`; only `timeout_s` caps a runaway Codex agent.
+  `costs.jsonl` records the backend and token counts.
+- **Auditing** is the same: `codex exec --json` events go to
+  `runs/*/_stream.jsonl`, and `check-leaks` reads both formats.
+
+To test the plumbing for free, add `CODEX_BIN=$PWD/tests/fake_codex.py` to the
+command below.
+
 ## Cost control
 
 Runs use your Claude Code login, so they count against your subscription's
@@ -127,7 +167,9 @@ usage limits rather than API billing.
   call, so one runaway agent is capped.
 - `logs/costs.jsonl` records each run; `status` prints the total.
 - The expensive steps are the provers and referees at `max` effort. For a dry
-  run, set everything to `sonnet` and `medium`.
+  run, set every Claude model to `sonnet` and every effort to `medium`.
+- Codex agents count against your ChatGPT plan's limits instead, and `status`
+  shows their token totals separately.
 
 ## What it does not do
 

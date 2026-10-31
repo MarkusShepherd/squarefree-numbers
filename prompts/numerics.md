@@ -16,12 +16,17 @@ will be checked against, so it must be exact and reproducible.
    "bincount per modulus" approach costs $O(x)$ per modulus and is too slow for
    many moduli, so think about it before coding.
 3. For each $f$ and each $x$, evaluate $V_f$ at a grid of $y$ with
-   $f(y)/x \in \{0.05, 0.1, 0.2, 0.4, 0.7, 1.0\}$.
+   $f(y)/x \in \{0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.7, 1.0\}$.
 4. Fit $V_f \approx C\,x^{\alpha} f(y)^{\beta}$ two ways: fixed $x$ varying $y$,
    and fixed ratio $f(y)/x$ varying $x$. Report the exponents with standard
    errors, the fitted $C$, and the table of
    $V_f / (x^{1/2} f(y)^{3/2})$.
-5. Validate your code: check $g(q,l)$ against brute-force densities for small
+5. Lower-order terms may depend on the ratio $f(y)/x$ rather than on $x$, in
+   which case they do not shrink at fixed ratio as $x$ grows. Check whether
+   $V_f / (x^{1/2} f(y)^{3/2})$ at fixed ratio is stable in $x$ but varies with
+   the ratio. If so, extrapolate it to $f(y)/x \to 0$ (state the fit you used
+   and its uncertainty) and report that limit as the empirical constant.
+6. Validate your code: check $g(q,l)$ against brute-force densities for small
    $q$, and check $\sum_l Q(x;q,l) = Q(x;1,1)$.
 
 Do **not** read the papers to find out what the answer "should" be. Fit
@@ -38,7 +43,8 @@ Write `results.json`:
       "rows": [{"x": 1000000, "y": 316, "fy": 99857, "V": 1.234e12}],
       "fit_fixed_x": {"beta": 1.49, "beta_se": 0.01},
       "fit_fixed_ratio": {"alpha_plus_beta": 2.0, "se": 0.02},
-      "normalised": [{"x": 1000000, "ratio": 0.1, "V_over_x12_fy32": 0.123}]
+      "normalised": [{"x": 1000000, "ratio": 0.1, "V_over_x12_fy32": 0.123}],
+      "constant_extrapolated": {"value": 0.12, "uncertainty": 0.005, "method": "..."}
     }
   },
   "validation": ["g(q,l) matches brute force for q <= 50", "..."],
