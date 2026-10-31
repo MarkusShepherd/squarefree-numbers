@@ -112,8 +112,11 @@ the post.
   the context.
 - **Codex agents:** list event types with
   `grep -o '"type":"[a-z_.]*"' runs/<agent>/_stream.jsonl | sort | uniq -c`.
-  `command_execution` in a role without Bash, or any `web_search`, means
-  the Codex restrictions aren't doing what the config says.
+  `mcp_tool_call` to `codex_apps` `search_service.web_run` is Codex's literature
+  search and has no domain blocks, so read its queries and URLs. Any other MCP
+  tool means the Codex restrictions aren't doing what the config says.
+  `command_execution` is normal in a role without Bash (it is how Codex reads
+  files); check that commands stay in the sandbox.
   `failed to connect to Responses WebSocket` is transient: delete that
   sandbox and rerun.
 - **Dry run:** `tests/dry_run.sh` refuses to run while `logs/`, `plans/` etc.

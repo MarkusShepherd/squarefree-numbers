@@ -108,6 +108,10 @@ Read the output of each step before starting the next.
    `numerics/README.md` and sanity-check it yourself before going on; every
    later step trusts it.
 3. `./orchestrate.py plan`: four planners in parallel. Read `plans/*.md`.
+   Existing plans are kept, so a rerun only retries the failures. `plan --cross`
+   adds every other model on every hint, as `plans/<hint>@<model>.*`, so that a
+   strategy isn't lost to the model it happened to be paired with; select one
+   with `select <hint>@<model>`.
 4. `./orchestrate.py select vaughan` (or whichever plan you prefer).
 5. `./orchestrate.py prove`: prover/referee loop for every proposition, up to
    `max_rounds` rounds each. `./orchestrate.py status` at any time.
@@ -223,9 +227,13 @@ How a Codex agent differs (flags checked against codex-cli 0.166.0; run
   folder), anything else with `--sandbox read-only`. Commands have no network
   in either mode, which is stricter than the Claude side; but the read-only
   sandbox still lets the agent *read* files anywhere on disk.
-- **No web search.** Codex can't deny individual domains, so `web_search` is
-  disabled for all Codex agents (`codex.extra_args`). A Codex planner therefore
-  works from `papers/` and memory only, unlike the Claude planners.
+- **Web access, without domain blocks.** Codex agents do literature search with
+  the `codex_apps` MCP tool `search_service.web_run`, which stays available
+  despite `web_search="disabled"` and `--ignore-user-config`. Codex can't deny
+  individual domains: `tools.web_search.allowed_domains` did not stop a page
+  from opening (codex-cli 0.166.0). So the blocks that Claude agents have are,
+  for Codex, only the rules in the prompt plus the audit in `check-leaks`.
+  `--disable apps` would remove web access altogether.
 - **No user config.** `--ignore-user-config` keeps MCP servers and settings
   from `~/.codex/config.toml` out (login still works). `~/.codex/AGENTS.md` is
   still loaded, so check it says nothing about the thesis, as for `CLAUDE.md`.
@@ -255,6 +263,15 @@ usage limits rather than API billing.
   run, set every Claude model to `sonnet` and every effort to `medium`.
 - Codex agents count against your ChatGPT plan's limits instead, and `status`
   shows their token totals separately.
+
+## When an agent fails
+
+Nothing retries or waits. A failed agent is logged and the batch goes on, so
+after a usage limit, later agents probably fail too: rerun the step once the
+window resets. An agent counts as failed if it exits non-zero, passes `timeout_s`
+(it is killed), or ends without a successful result, such as an exhausted budget.
+Its transcript stays in `_stream.jsonl`, which is written as the agent runs, is
+scanned for leaks, and gets a line in `costs.jsonl` with the reason in `failure`.
 
 ## What it does not do
 

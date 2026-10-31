@@ -35,6 +35,11 @@ fail() { echo "dry run FAILED: $*" >&2; exit 1; }
 ./orchestrate.py numerics
 ./orchestrate.py plan
 [ "$(ls plans/*.json | wc -l)" -eq 4 ] || fail "expected 4 plans"
+./orchestrate.py plan                   # keeps the existing plans
+[ "$(ls -d "$STUB_RUNS"/plan-* | wc -l)" -eq 4 ] || fail "plan reran an existing plan"
+./orchestrate.py plan --cross           # adds the other model on each hint
+[ "$(ls plans/*.json | wc -l)" -eq 8 ] || fail "expected 8 plans after --cross"
+[ "$(ls -d "$STUB_RUNS"/plan-* | wc -l)" -eq 8 ] || fail "--cross reran an existing plan"
 ./orchestrate.py select vaughan
 ./orchestrate.py prove                  # P1, P2 pass in round 2; P3 gets stuck
 ./orchestrate.py pollinate P3
@@ -50,6 +55,26 @@ leaks=$(./orchestrate.py check-leaks)
 echo "$leaks"
 grep -q riemannhypothesis <<<"$leaks" || fail "check-leaks missed the planted leak"
 grep -q "sparse variance for kfree" <<<"$leaks" || fail "check-leaks missed the planted title in a thinking block"
+grep -Eq '^exposure +dehnert' <<<"$leaks" || fail "check-leaks did not class an MCP result as exposure"
+
+# A killed agent keeps its transcript and is logged, with the failure.
+slow="$STUB_RUNS/slow_agent.sh"
+printf '#!/bin/sh\necho "{\\"type\\": \\"system\\"}"\nexec sleep 30\n' > "$slow"
+chmod +x "$slow"
+CLAUDE_BIN="$slow" python3 - <<'PY' || fail "timeout handling"
+import json
+import orchestrate as o
+o.CFG["timeout_s"] = 1
+wd = o.sandbox("timeout-test", {})
+try:
+    o.run_agent("probe", wd, "sonnet", "high")
+    raise SystemExit("no exception on timeout")
+except RuntimeError as e:
+    assert "timed out" in str(e), e
+assert "system" in (wd / "_stream.jsonl").read_text()
+row = json.loads((o.ROOT / "logs" / "costs.jsonl").read_text().splitlines()[-1])
+assert "timed out" in row["failure"], row
+PY
 
 ./orchestrate.py archive dry-run
 [ -d archive/dry-run/runs ] || fail "archive has no sandboxes"

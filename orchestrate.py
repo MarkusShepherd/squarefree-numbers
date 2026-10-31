@@ -13,7 +13,7 @@ talk to each other; all state lives in this directory tree.
 Steps (run in order; you read the output between steps):
     ./orchestrate.py probe             contamination check -> logs/probe-*.md
     ./orchestrate.py numerics          exact computations -> numerics/
-    ./orchestrate.py plan              parallel planners  -> plans/<hint>.json
+    ./orchestrate.py plan [--cross]    parallel planners  -> plans/<hint>.json
     ./orchestrate.py select <hint>     split chosen plan  -> props/P*/statement.md
     ./orchestrate.py prove [P3 ...]    prover/referee loop per proposition
     ./orchestrate.py pollinate P3      hint for a stuck proposition, then `prove P3`
@@ -120,8 +120,10 @@ def build_cmd(prompt, tools, model, schema=None):
 def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, rules=True):
     """Run one agent to completion. Returns the final `result` message.
 
-    The full stream (every tool call and tool result) is kept in
-    <workdir>/_stream.jsonl and scanned for leaks of excluded sources."""
+    The full stream (every tool call and tool result) is written to
+    <workdir>/_stream.jsonl as it arrives, so a killed or failed agent keeps its
+    transcript, and is scanned for leaks of excluded sources. Failed runs are
+    logged in costs.jsonl too, with the reason in `failure`."""
     tools = CFG["tools"][role] if tools is None else tools
     prompt = build_prompt(role, task, rules)
     kind, name = backend(model)
@@ -136,26 +138,37 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
                    ENABLE_CLAUDEAI_MCP_SERVERS="false")   # no claude.ai connectors
 
     t0 = time.time()
-    p = subprocess.run(cmd, cwd=workdir, env=env, capture_output=True, stdin=subprocess.DEVNULL,
-                       text=True, timeout=CFG["timeout_s"])
-    (workdir / "_stream.jsonl").write_text(p.stdout)
-    (workdir / "_stderr.txt").write_text(p.stderr)
-    out = parse_codex(p.stdout, workdir, schema) if kind == "codex" else parse_stream(p.stdout)
+    with open(workdir / "_stream.jsonl", "w") as stdout, open(workdir / "_stderr.txt", "w") as stderr:
+        p = subprocess.Popen(cmd, cwd=workdir, env=env, stdin=subprocess.DEVNULL,
+                             stdout=stdout, stderr=stderr, text=True)
+        try:
+            p.wait(timeout=CFG["timeout_s"])
+            failure = f"exited {p.returncode}" if p.returncode != 0 else None
+        except subprocess.TimeoutExpired:
+            p.kill()
+            p.wait()
+            failure = f"timed out after {CFG['timeout_s']}s"
+    stream = (workdir / "_stream.jsonl").read_text()
+    out = parse_codex(stream, workdir, schema) if kind == "codex" else parse_stream(stream)
+    if not failure and (out is None or out.get("is_error")
+                        or out.get("subtype", "success") != "success"):   # e.g. budget exhausted
+        failure = f"gave no usable result ({(out or {}).get('subtype', 'no result message')})"
     hits = scan_leaks(workdir)
     if hits:
         log(f"  WARNING: {len(hits)} possible leak(s) in runs/{workdir.name}; "
             "run `./orchestrate.py check-leaks`")
-    if p.returncode != 0 or out is None:
-        raise RuntimeError(f"{role} in {workdir.name} exited {p.returncode}: {p.stderr[-500:]}")
 
     with open(ROOT / "logs" / "costs.jsonl", "a") as fh:
         fh.write(json.dumps({
             "time": datetime.now().isoformat(timespec="seconds"),
             "role": role, "model": model, "effort": effort, "variant": VARIANT,
             "run": workdir.name, "seconds": round(time.time() - t0),
-            "cost_usd": out.get("total_cost_usd"), "leak_hits": len(hits),
-            "backend": kind, "tokens": out.get("tokens"),
+            "cost_usd": (out or {}).get("total_cost_usd"), "leak_hits": len(hits),
+            "backend": kind, "tokens": (out or {}).get("tokens"), "failure": failure,
         }) + "\n")
+    if failure:
+        stderr_tail = (workdir / "_stderr.txt").read_text()[-500:]
+        raise RuntimeError(f"{role} in {workdir.name} {failure}: {stderr_tail}")
     return out
 
 
@@ -313,8 +326,9 @@ def _events(m):
         if t in ("agent_message", "reasoning"):
             yield "mention", item.get("text", "")
         elif t != "user_message":                       # commands, searches, file changes
-            out = _flat(item.get("aggregated_output") or item.get("output") or "")
-            call = {k: v for k, v in item.items() if k not in ("id", "aggregated_output", "output")}
+            out = _flat(item.get("aggregated_output") or item.get("output") or item.get("result") or "")
+            call = {k: v for k, v in item.items()
+                    if k not in ("id", "aggregated_output", "output", "result")}
             yield "attempt", _flat(call)
             if out:
                 yield ("denied" if "denied" in out.lower()[:200] else "exposure"), out
@@ -452,24 +466,34 @@ def common_inputs():
     return files
 
 
-def cmd_plan(_):
+def cmd_plan(args):
+    """One planner per hint, models alternating; a plan that already exists is
+    kept, so a rerun only retries the failures. --cross adds every other
+    model on every hint, as plans/<hint>@<model>.json."""
     hints = CFG["variants"][VARIANT]["hints"]
     models = role_models("planner")
     models = models if isinstance(models, list) else [models]
     model_of = {h: models[i % len(models)] for i, h in enumerate(hints)}   # alternate
 
-    def one(hint):
-        model = model_of[hint]
-        wd = sandbox(f"plan-{hint}", common_inputs() | {"hint.md": variant_file(f"hints/{hint}.md")})
-        log(f"planner '{hint}' ({model}) in runs/{wd.name}")
+    pairs = {h: (h, model_of[h]) for h in hints}
+    if args.cross:
+        pairs |= {f"{h}@{m.removeprefix('codex:')}": (h, m)
+                  for h in hints for m in models if m != model_of[h]}
+    names = [n for n in pairs if not (ROOT / "plans" / f"{n}.json").exists()]
+    log(f"planners to run: {names or 'none'}; {len(pairs) - len(names)} plan(s) already exist")
+
+    def one(name):
+        hint, model = pairs[name]
+        wd = sandbox(f"plan-{name}", common_inputs() | {"hint.md": variant_file(f"hints/{hint}.md")})
+        log(f"planner '{name}' ({model}) in runs/{wd.name}")
         out = run_agent("planner", wd, model, CFG["effort"]["planner"], schema="plan")
         plan = out["structured_output"] | {"model": model}
-        (ROOT / "plans" / f"{hint}.json").write_text(json.dumps(plan, indent=2))
-        (ROOT / "plans" / f"{hint}.md").write_text(render_plan(hint, plan))
+        (ROOT / "plans" / f"{name}.json").write_text(json.dumps(plan, indent=2))
+        (ROOT / "plans" / f"{name}.md").write_text(render_plan(name, plan))
         return len(plan["propositions"])
 
-    for hint, n in parallel(one, hints).items():
-        log(f"plan '{hint}': {n} propositions" if n else f"plan '{hint}': failed")
+    for name, n in parallel(one, names).items():
+        log(f"plan '{name}': {n} propositions" if n else f"plan '{name}': failed")
     log("read plans/*.md, then run: ./orchestrate.py select <hint>")
 
 
@@ -724,7 +748,7 @@ def main():
     sub.add_parser("probe").set_defaults(fn=cmd_probe)
     sub.add_parser("check-leaks").set_defaults(fn=cmd_check_leaks)
     sub.add_parser("numerics").set_defaults(fn=cmd_numerics)
-    sub.add_parser("plan").set_defaults(fn=cmd_plan)
+    s = sub.add_parser("plan"); s.add_argument("--cross", action="store_true"); s.set_defaults(fn=cmd_plan)
     s = sub.add_parser("select"); s.add_argument("hint"); s.set_defaults(fn=cmd_select)
     s = sub.add_parser("prove"); s.add_argument("props", nargs="*"); s.set_defaults(fn=cmd_prove)
     s = sub.add_parser("pollinate"); s.add_argument("prop"); s.set_defaults(fn=cmd_pollinate)
