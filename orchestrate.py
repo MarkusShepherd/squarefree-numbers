@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = []
+# ///
 """Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`),
 optionally mixed with Codex CLI agents (`codex exec`) for model diversity.
 
