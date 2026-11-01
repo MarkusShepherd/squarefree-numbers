@@ -9,6 +9,7 @@ result from an excluded domain and a denied fetch, so `check-leaks` has
 something to find. The librarian lists one open PDF, one paywalled work and
 two works the driver must reject."""
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -17,6 +18,10 @@ prompt = args[args.index("-p") + 1]
 role = prompt.split("\n", 1)[0].removeprefix("ROLE: ").strip()
 tools = args[args.index("--tools") + 1].split(",") if "--tools" in args else []
 cwd = Path.cwd()
+venv = os.environ.get("AGENT_VENV")         # the dry run's stub agent environment
+if venv and (os.environ.get("VIRTUAL_ENV") != venv
+             or not os.environ["PATH"].startswith(os.path.join(venv, "bin"))):
+    sys.exit("agent environment not passed to the agent")
 
 
 def emit(m):
