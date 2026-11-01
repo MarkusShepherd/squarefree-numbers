@@ -14,7 +14,8 @@
     "prover": "claude-sonnet-5-5",
     "referees": ["claude-opus-5-5", "codex:gpt-6.1-sol"],
     "integrator": "claude-opus-5-5",
-    "pollinator": "codex:gpt-6.1-sol"
+    "pollinator": "codex:gpt-6.1-sol",
+    "librarian": "claude-opus-5-5"
   },
   "codex": {
     "effort": {"low": "low", "medium": "medium", "high": "high", "xhigh": "xhigh", "max": "max"},
@@ -27,7 +28,8 @@
     "prover": "high",
     "referee": "high",
     "integrator": "high",
-    "pollinator": "medium"
+    "pollinator": "medium",
+    "librarian": "high"
   },
   "tools": {
     "probe": [],
@@ -36,7 +38,8 @@
     "prover": ["Read", "Write", "Edit", "Bash", "WebSearch", "WebFetch"],
     "referee": ["Read"],
     "pollinator": ["Read", "Write"],
-    "integrator": ["Read", "Write", "Bash"]
+    "integrator": ["Read", "Write", "Bash"],
+    "librarian": ["Read", "WebSearch", "WebFetch"]
   },
   "exclusion": {
     "blocked_domains": [

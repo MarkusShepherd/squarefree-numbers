@@ -47,6 +47,34 @@
     },
     "required": ["composes", "final_theorem"]
   },
+  "literature": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {"type": "string"},
+            "authors": {"type": "string"},
+            "title": {"type": "string"},
+            "year": {"type": "integer"},
+            "venue": {"type": "string"},
+            "kind": {"enum": ["article", "book", "preprint", "thesis", "lecture notes", "survey",
+                              "blog post", "other"]},
+            "url": {"type": "string"},
+            "pdf_url": {"type": "string"},
+            "access": {"enum": ["open", "paywalled", "unknown"]},
+            "relevance": {"type": "integer", "minimum": 1, "maximum": 3},
+            "why": {"type": "string"}
+          },
+          "required": ["id", "authors", "title", "year", "kind", "access", "relevance", "why"]
+        }
+      },
+      "notes": {"type": "string"}
+    },
+    "required": ["items"]
+  },
   "pollination": {
     "type": "object",
     "properties": {
