@@ -11,6 +11,11 @@ import json
 import sys
 from pathlib import Path
 
+if '--version' in sys.argv:
+    print('sqf-test-cli 1.0')
+    sys.exit(0)
+
+from fixture_schema import fill
 args = sys.argv[1:]
 prompt = args[args.index("-p") + 1]
 role = prompt.split("\n", 1)[0].removeprefix("ROLE: ").strip()
@@ -32,7 +37,7 @@ def tool_call(name, inp, result):
 def finish(structured=None):
     out = {"type": "result", "subtype": "success", "result": "ok", "total_cost_usd": 0.0}
     if structured is not None:
-        out["structured_output"] = structured
+        out["structured_output"] = fill(structured, json.loads(args[args.index("--json-schema") + 1]))
     emit(out)
 
 
@@ -47,6 +52,9 @@ if role == "probe":
 elif role == "numerics":
     (cwd / "results.json").write_text(json.dumps({"polynomials": {}, "validation": [], "notes": "stub"}))
     (cwd / "compute.py").write_text("# stub\n")
+    (cwd / "src").mkdir()
+    (cwd / "src/helper.py").write_text("# nested source fixture\n")
+    (cwd / "README.md").write_text("Stub numerics; not real mathematical evidence.\n")
     finish()
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()

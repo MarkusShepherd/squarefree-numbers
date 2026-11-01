@@ -9,6 +9,11 @@ import json
 import sys
 from pathlib import Path
 
+if '--version' in sys.argv:
+    print('sqf-test-cli 1.0')
+    sys.exit(0)
+
+from fixture_schema import fill
 args = sys.argv[1:]
 prompt = args[-1]
 role = prompt.split("\n", 1)[0].removeprefix("ROLE: ").strip()
@@ -31,11 +36,14 @@ def item(**it):
 def write(name, text):
     if not writable:
         sys.exit(f"{role}: write to {name} in a read-only sandbox")
+    (cwd / name).parent.mkdir(parents=True, exist_ok=True)
     (cwd / name).write_text(text)
     item(type="file_change", changes=[{"path": name, "kind": "add"}], status="completed")
 
 
 def finish(answer):
+    if not isinstance(answer, str) and '--output-schema' in args:
+        answer = fill(answer, json.loads(Path(args[args.index('--output-schema') + 1]).read_text()))
     text = answer if isinstance(answer, str) else json.dumps(answer)
     item(type="agent_message", text=text)
     emit({"type": "turn.completed", "usage": {"input_tokens": 1000, "output_tokens": 100}})
@@ -50,6 +58,8 @@ if role == "probe":
 elif role == "numerics":
     write("results.json", json.dumps({"polynomials": {}, "validation": [], "notes": "stub"}))
     write("compute.py", "# stub\n")
+    write("src/helper.py", "# nested source fixture\n")
+    write("README.md", "Stub numerics; not real mathematical evidence.\n")
     finish("done")
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()
@@ -58,8 +68,7 @@ elif role == "planner":
         item(type="command_execution", command="curl -s https://riemannhypothesis.blog/thesis.pdf",
              aggregated_output="Distribution of squarefree numbers ... riemannhypothesis.blog",
              exit_code=0, status="completed")
-        item(type="mcp_tool_call", server="codex_apps", tool="search_service.web_run",
-             arguments={"open": [{"ref_id": "https://example.org"}]},
+        item(type="web_search", query="example.org",
              result={"content": [{"type": "text", "text": "Dehnert, Monatsh. Math."}]},
              status="completed")
     props = [

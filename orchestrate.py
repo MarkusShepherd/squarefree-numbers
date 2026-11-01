@@ -3,11 +3,10 @@
 # requires-python = ">=3.10"
 # dependencies = []
 # ///
-"""Multi-agent proof attempt driven by non-interactive Claude Code (`claude -p`),
-optionally mixed with Codex CLI agents (`codex exec`) for model diversity.
+"""Multi-agent proof attempt using Claude Code and/or Codex CLI.
 
-Every agent is one `claude -p` process run in its own sandbox folder under
-runs/, which contains only the files that role is allowed to see. Agents never
+Every agent is a fresh process in its own working folder under runs/.
+Use container isolation to prevent access to files outside that folder. Agents never
 talk to each other; all state lives in this directory tree.
 
 Steps (run in order; you read the output between steps):
@@ -27,19 +26,25 @@ import concurrent.futures as cf
 import json
 import os
 import shutil
+import signal
+import threading
 import subprocess
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
+from harness_support import strict_schema, validate, validate_verdict, digest, hash_json, input_hashes, artifact_files
 
 ROOT = Path(__file__).resolve().parent
 CFG = json.loads((ROOT / "config.json").read_text())
-SCHEMAS = json.loads((ROOT / "prompts" / "schemas.json").read_text())
+SCHEMAS = {k: strict_schema(v) for k, v in json.loads((ROOT / "prompts" / "schemas.json").read_text()).items()}
 CLAUDE = os.environ.get("CLAUDE_BIN", "claude")
 CODEX = os.environ.get("CODEX_BIN", "codex")
 CODEX_CFG = CFG.get("codex", {})
 RUNS = Path(os.environ.get("RUNS_DIR") or CFG["runs_dir"]).expanduser().resolve()
+AGENT_SLOTS = threading.BoundedSemaphore(CFG["parallel"])
+VERSION_LOCK = threading.Lock()
+VERSIONS = {}
 
 
 def log(msg):
@@ -47,7 +52,7 @@ def log(msg):
 
 
 # --------------------------------------------------------------------------
-# One agent = one sandbox folder + one `claude -p` process
+# One agent = one working folder + one provider CLI process
 # --------------------------------------------------------------------------
 
 def sandbox(name, files):
@@ -58,6 +63,8 @@ def sandbox(name, files):
     for dest, src in files.items():
         src, target = Path(src), d / dest
         target.parent.mkdir(parents=True, exist_ok=True)
+        if src.is_symlink() or src.is_dir() and any(p.is_symlink() for p in src.rglob("*")):
+            raise ValueError(f"symlink input is not supported: {src}")
         if src.is_dir():
             shutil.copytree(src, target)
         elif src.exists():
@@ -117,58 +124,181 @@ def build_cmd(prompt, tools, model, schema=None):
     return cmd
 
 
-def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, rules=True):
-    """Run one agent to completion. Returns the final `result` message.
+def role_capabilities(role):
+    return CFG["capabilities"][role]
 
-    The full stream (every tool call and tool result) is written to
-    <workdir>/_stream.jsonl as it arrives, so a killed or failed agent keeps its
-    transcript, and is scanned for leaks of excluded sources. Failed runs are
-    logged in costs.jsonl too, with the reason in `failure`."""
-    tools = CFG["tools"][role] if tools is None else tools
+
+def claude_tools(caps):
+    tools = []
+    if caps["read"]:
+        tools += ["Read"]
+    if caps["write"]:
+        tools += ["Write", "Edit"]
+    if caps["compute"]:
+        tools += ["Bash"]
+    if caps["research"]:
+        tools += ["WebSearch", "WebFetch"]
+    return tools
+
+
+def capability_violations(stream, kind, caps):
+    violations = []
+    for line in stream.splitlines():
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if kind == "codex":
+            item = event.get("item") or {}
+            t = item.get("type")
+            if event.get("type") not in ("item.started", "item.completed"):
+                continue
+            if t == "mcp_tool_call":
+                violations.append("unexpected MCP tool")
+            if t == "web_search" and not caps["research"]:
+                violations.append("web search in an offline role")
+            if not any(caps.values()) and t not in ("agent_message", "reasoning", None):
+                violations.append(f"tool {t} in memory-only probe")
+        else:
+            for block in _blocks(event):
+                if block.get("type") == "tool_use" and block.get("name") not in claude_tools(caps):
+                    violations.append(f"unexpected tool {block.get('name')}")
+    return sorted(set(violations))
+
+
+def cli_version(binary):
+    with VERSION_LOCK:
+        if binary not in VERSIONS:
+            try:
+                p = subprocess.run([binary, "--version"], capture_output=True, text=True, timeout=10)
+                VERSIONS[binary] = p.stdout.strip() if p.returncode == 0 else "unavailable"
+            except (OSError, subprocess.TimeoutExpired):
+                VERSIONS[binary] = "unavailable"
+        return VERSIONS[binary]
+
+
+def source_snapshot():
+    # Include exact harness sources, not just HEAD (which may have local changes).
+    names = ["orchestrate.py", "harness_support.py", "config.json", "problem.md", "prompts/schemas.json"]
+    names += [f"prompts/{r}.md" for r in CFG["capabilities"]] + ["prompts/_rules.md"]
+    names += ["isolation/docker_runner.py", "isolation/Dockerfile"]
+    names += [str(p.relative_to(ROOT)) for p in sorted((ROOT / "hints").glob("*.md"))]
+    names += [str(p.relative_to(ROOT)) for p in sorted((ROOT / "variants" / VARIANT).rglob("*.md"))]
+    return {n: (ROOT / n).read_text() for n in names if (ROOT / n).is_file()}
+
+
+def run_agent(role, workdir, model, effort, task="", schema=None, rules=True):
+    # A single global limit includes nested referee workers.
+    with AGENT_SLOTS:
+        return _run_agent(role, workdir, model, effort, task, schema, rules)
+
+
+def _run_agent(role, workdir, model, effort, task, schema, rules):
+    caps = role_capabilities(role)
     prompt = build_prompt(role, task, rules)
     kind, name = backend(model)
+    mode = CFG.get("isolation", {}).get("mode", "host")
+    if mode not in ("host", "docker"):
+        raise ValueError(f"unknown isolation mode {mode!r}")
+    agent_dir = Path("/workspace") if mode == "docker" else workdir
+    if schema:
+        (workdir / "_schema.json").write_text(json.dumps(SCHEMAS[schema], indent=2))
     if kind == "codex":
-        if schema:
-            prompt += codex_schema_note(schema)
-        cmd = build_codex_cmd(prompt, tools, name, effort, workdir)
+        cmd = build_codex_cmd(prompt, caps, name, effort, agent_dir, schema)
         env = dict(os.environ)
     else:
-        cmd = build_cmd(prompt, tools, name, schema)
+        cmd = build_cmd(prompt, claude_tools(caps), name, schema)
         env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
-                   ENABLE_CLAUDEAI_MCP_SERVERS="false")   # no claude.ai connectors
-
-    t0 = time.time()
-    with open(workdir / "_stream.jsonl", "w") as stdout, open(workdir / "_stderr.txt", "w") as stderr:
-        p = subprocess.Popen(cmd, cwd=workdir, env=env, stdin=subprocess.DEVNULL,
-                             stdout=stdout, stderr=stderr, text=True)
-        try:
-            p.wait(timeout=CFG["timeout_s"])
-            failure = f"exited {p.returncode}" if p.returncode != 0 else None
-        except subprocess.TimeoutExpired:
-            p.kill()
-            p.wait()
-            failure = f"timed out after {CFG['timeout_s']}s"
-    stream = (workdir / "_stream.jsonl").read_text()
-    out = parse_codex(stream, workdir, schema) if kind == "codex" else parse_stream(stream)
-    if not failure and (out is None or out.get("is_error")
-                        or out.get("subtype", "success") != "success"):   # e.g. budget exhausted
-        failure = f"gave no usable result ({(out or {}).get('subtype', 'no result message')})"
+                   ENABLE_CLAUDEAI_MCP_SERVERS="false")
+    invocation = list(cmd)
+    if mode == "docker":
+        invocation[0] = kind
+        cmd = [sys.executable, str(ROOT / "isolation" / "docker_runner.py"),
+               "--image", CFG["isolation"]["image"], "--workdir", str(workdir),
+               "--backend", kind, "--outputs", str(RUNS / "_records" / workdir.name / "outputs"),
+               *(["--readonly-workspace"] if not caps["write"] else []), "--", *cmd]
+    try:
+        revision = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"],
+                                           text=True, stderr=subprocess.DEVNULL).strip()
+    except (OSError, subprocess.CalledProcessError):
+        revision = None
+    manifest = {"role": role, "model": model, "effort": effort, "capabilities": caps,
+                "isolation": mode, "command": invocation, "launch_command": cmd, "prompt": prompt,
+                "schema": SCHEMAS.get(schema), "inputs": input_hashes(workdir),
+                "revision": revision, "sources": source_snapshot(),
+                "cli_version": cli_version(CODEX if kind == "codex" else CLAUDE) if mode == "host" else "see outputs/_container-version.txt"}
+    # Records live outside the agent's directory so operator metadata cannot leak in.
+    record = RUNS / "_records" / workdir.name
+    record.mkdir(parents=True, exist_ok=True)
+    (record / "invocation.json").write_text(json.dumps(manifest, indent=2))
+    t0, failure, out = time.time(), None, None
+    try:
+        with open(record / "_stream.jsonl", "w") as stdout, open(record / "_stderr.txt", "w") as stderr:
+            p = subprocess.Popen(cmd, cwd=workdir, env=env, stdin=subprocess.DEVNULL,
+                                 stdout=stdout, stderr=stderr, text=True, start_new_session=True)
+            try:
+                p.wait(timeout=CFG["timeout_s"])
+                if p.returncode != 0:
+                    failure = f"exited {p.returncode}"
+            except subprocess.TimeoutExpired:
+                # TERM lets the container runner remove its container, then kill leftovers.
+                os.killpg(p.pid, signal.SIGTERM)
+                try:
+                    p.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    pass
+                try:
+                    os.killpg(p.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                p.wait()
+                failure = f"timed out after {CFG['timeout_s']}s"
+        stream = (record / "_stream.jsonl").read_text()
+        if any(p.is_symlink() for p in workdir.rglob("*")):
+            raise ValueError("agent outputs contain symlinks; refusing to read or promote them")
+        out = parse_codex(stream, workdir, schema) if kind == "codex" else parse_stream(stream)
+        if not failure and (out is None or out.get("is_error") or out.get("subtype", "success") != "success"):
+            failure = "gave no usable successful result"
+        if not failure:
+            violations = capability_violations(stream, kind, caps)
+            if violations:
+                raise ValueError("capability violation: " + "; ".join(violations))
+        if not failure and schema:
+            value = out.get("structured_output")
+            validate(value, SCHEMAS[schema])
+            if schema == "verdict":
+                validate_verdict(value)
+            elif schema == "plan":
+                check_acyclic(value["propositions"])
+    except (OSError, ValueError, TypeError, KeyError) as e:
+        failure = str(e)
+    # Compatibility copies are written only after the process exits; the authoritative
+    # transcript is outside the Docker mount and cannot be rewritten by an agent.
+    for name in ("_stream.jsonl", "_stderr.txt"):
+        src, target = record / name, workdir / name
+        if src.exists():
+            if target.is_symlink():
+                target.unlink()
+            if not target.is_dir():
+                shutil.copyfile(src, target)
     hits = scan_leaks(workdir)
     if hits:
-        log(f"  WARNING: {len(hits)} possible leak(s) in runs/{workdir.name}; "
-            "run `./orchestrate.py check-leaks`")
-
+        log(f"  WARNING: {len(hits)} possible leak(s) in runs/{workdir.name}; run check-leaks")
+    (record / "outcome.json").write_text(json.dumps({
+        "failure": failure, "outputs": input_hashes(workdir),
+        "provider_outputs": input_hashes(record / "outputs") if (record / "outputs").exists() else {}}, indent=2))
     with open(ROOT / "logs" / "costs.jsonl", "a") as fh:
         fh.write(json.dumps({
-            "time": datetime.now().isoformat(timespec="seconds"),
-            "role": role, "model": model, "effort": effort, "variant": VARIANT,
-            "run": workdir.name, "seconds": round(time.time() - t0),
-            "cost_usd": (out or {}).get("total_cost_usd"), "leak_hits": len(hits),
-            "backend": kind, "tokens": (out or {}).get("tokens"), "failure": failure,
+            "time": datetime.now().isoformat(timespec="seconds"), "role": role,
+            "model": model, "effort": effort, "variant": VARIANT, "run": workdir.name,
+            "seconds": round(time.time() - t0), "cost_usd": (out or {}).get("total_cost_usd"),
+            "leak_hits": len(hits), "backend": kind, "tokens": (out or {}).get("tokens"),
+            "failure": failure,
         }) + "\n")
     if failure:
-        stderr_tail = (workdir / "_stderr.txt").read_text()[-500:]
-        raise RuntimeError(f"{role} in {workdir.name} {failure}: {stderr_tail}")
+        stderr = record / "_stderr.txt"
+        tail = stderr.read_text()[-500:] if stderr.exists() else ""
+        raise RuntimeError(f"{role} in {workdir.name} {failure}: {tail}")
     return out
 
 
@@ -219,63 +349,63 @@ def role_models(role):
     return [resolve(x) for x in m] if isinstance(m, list) else resolve(m)
 
 
-def build_codex_cmd(prompt, tools, model, effort, workdir):
-    """The `codex exec` invocation (flags checked against codex-cli 0.166.0).
-
-    Codex has no per-tool whitelist, so a role's tool list maps onto a sandbox
-    mode: any of Write/Edit/Bash -> workspace-write (writes only inside the
-    sandbox folder), otherwise read-only. Both modes block network access from
-    commands. Codex has no per-domain deny rules either, so web search is off
-    for every Codex agent (`codex.extra_args`), and --ignore-user-config keeps
-    MCP servers and settings from ~/.codex/config.toml out."""
-    writes = any(t in tools for t in ("Write", "Edit", "Bash"))
+def build_codex_cmd(prompt, caps, model, effort, workdir, schema=None):
+    """Use native search by role; apps/plugins never supply an alternate web route."""
     cmd = [CODEX, "exec", "--json", "--skip-git-repo-check",
-           "--sandbox", "workspace-write" if writes else "read-only",
-           "--cd", str(workdir),
-           "--output-last-message", str(workdir / "_last.txt"),
+           "--sandbox", "workspace-write" if caps["write"] else "read-only",
+           "--cd", str(workdir), "--output-last-message", str(Path("/outputs/_last.txt") if CFG.get("isolation", {}).get("mode") == "docker" else workdir / "_last.txt"),
+           *CODEX_CFG.get("extra_args", []),
            "-c", f'model_reasoning_effort="{CODEX_CFG["effort"][effort]}"',
-           *CODEX_CFG.get("extra_args", [])]
+           "-c", 'approval_policy="never"',
+           "-c", 'sandbox_workspace_write.network_access=false',
+           "--disable", "apps", "--disable", "plugins", "--disable", "hooks",
+           "--disable", "multi_agent", "--disable", "multi_agent_v2",
+           "-c", f'features.shell_tool={str(caps["read"] or caps["compute"]).lower()}',
+           "-c", 'web_search="live"' if caps["research"] else 'web_search="disabled"']
+    if schema:
+        cmd += ["--output-schema", str(workdir / "_schema.json")]
+    if not any(caps.values()):
+        for feature in ("image_generation", "view_image", "browser_use", "in_app_browser", "sleep_tool", "goals"):
+            cmd += ["--disable", feature]
+    if CFG.get("isolation", {}).get("mode") == "docker":
+        cmd[cmd.index("--sandbox") + 1] = "danger-full-access"
     if model:
         cmd += ["--model", model]
     return cmd + [prompt]
 
 
-def codex_schema_note(schema):
-    """Codex's --output-schema needs strict schemas (every property required);
-    ours have optional fields, so the final message carries the JSON instead."""
-    return ("\n\n## Structured output\n\nEnd with a final message that is exactly one JSON "
-            "object matching this JSON schema: no prose before or after it, no code "
-            f"fence.\n\n```json\n{json.dumps(SCHEMAS[schema], indent=2)}\n```\n")
-
-
 def parse_codex(text, workdir, schema):
     """A `codex exec --json` transcript in the shape of Claude's `result`
     message: result, structured_output, and token counts instead of a cost."""
-    msgs, tokens = [], {"input": 0, "output": 0}
+    msgs, tokens, completed, failed = [], {"input": 0, "output": 0, "cached_input": 0}, False, False
     for line in text.splitlines():
         try:
             m = json.loads(line)
         except json.JSONDecodeError:
             continue
+        if m.get("type") in ("turn.failed", "error"):
+            failed = True
         item = m.get("item") or {}
         if m.get("type") == "item.completed" and item.get("type") == "agent_message":
             msgs.append(item.get("text", ""))
         elif m.get("type") == "turn.completed":
+            completed = True
             u = m.get("usage") or {}
             tokens["input"] += u.get("input_tokens") or 0
             tokens["output"] += u.get("output_tokens") or 0
+            tokens["cached_input"] += u.get("cached_input_tokens") or 0
     last = workdir / "_last.txt"
+    if not last.exists():
+        last = RUNS / "_records" / workdir.name / "outputs" / "_last.txt"
     result = last.read_text() if last.exists() else (msgs[-1] if msgs else None)
-    if result is None:
+    if result is None or failed or not completed:
         return None
     out = {"result": result, "total_cost_usd": None, "tokens": tokens}
     if schema:
         s = result.strip()
         try:
-            obj = json.loads(s[s.find("{"): s.rfind("}") + 1])
+            obj = json.loads(s)
         except json.JSONDecodeError:
-            return None
-        if not isinstance(obj, dict) or any(k not in obj for k in SCHEMAS[schema]["required"]):
             return None
         out["structured_output"] = obj
     return out
@@ -351,7 +481,9 @@ def scan_leaks(workdir):
     author, so the initial prompt is not scanned. Denied fetches show up as
     'attempt' hits with a denial result; those were blocked, but still worth
     knowing about."""
-    f = workdir / "_stream.jsonl"
+    f = RUNS / "_records" / workdir.name / "_stream.jsonl"
+    if not f.exists():
+        f = workdir / "_stream.jsonl"
     if not f.exists():
         return []
     pats = [_norm(p) for p in EXCL["leak_patterns"]]
@@ -386,6 +518,14 @@ def check_runs_dir():
                      "set runs_dir in config.json, or RUNS_DIR, to a path outside any repository")
     except FileNotFoundError:       # no git installed, so no git history to read either
         pass
+    owner = RUNS / "_owner.json"
+    if owner.exists():
+        if json.loads(owner.read_text())["checkout"] != str(ROOT):
+            raise ValueError(f"runs_dir {RUNS} belongs to another checkout; set a fresh RUNS_DIR")
+    elif any(RUNS.iterdir()):
+        raise ValueError(f"runs_dir {RUNS} contains unclaimed legacy runs; archive with the old harness and choose a fresh RUNS_DIR")
+    else:
+        owner.write_text(json.dumps({"checkout": str(ROOT)}, indent=2))
     link = ROOT / "runs"
     if link.is_symlink():
         if link.resolve() != RUNS:              # e.g. left over from a dry run
@@ -424,6 +564,8 @@ def parallel(fn, items):
             except Exception as e:      # one failed agent must not kill the batch
                 log(f"  {it}: ERROR {e}")
                 results[it] = None
+        if any(v is None for v in results.values()):
+            raise RuntimeError("one or more agents failed; successful artifacts were retained")
         return results
 
 
@@ -445,51 +587,131 @@ def cmd_probe(_):
         log(f"probe {model}: {res}; read logs/probe-{model.replace(':', '-')}.md")
 
 
-def cmd_numerics(_):
-    wd = sandbox("numerics", {"problem.md": ROOT / "problem.md"})
-    log(f"numerics agent in runs/{wd.name}")
-    run_agent("numerics", wd, role_models("numerics"), CFG["effort"]["numerics"])
-    if not (wd / "results.json").exists():
-        sys.exit("numerics agent did not write results.json")
+def model_list(role):
+    models = role_models(role)
+    return list(dict.fromkeys(models if isinstance(models, list) else [models]))
+
+
+def model_tag(model):
+    return model.replace(":", "-")
+
+
+def cmd_numerics(args):
     out = ROOT / "numerics"
     out.mkdir(exist_ok=True)
-    for f in ("results.json", "compute.py", "README.md"):
-        if (wd / f).exists():
-            shutil.copy(wd / f, out / f)
-    log("wrote numerics/results.json")
+    if args.accept:
+        candidate = out / "candidates" / args.accept
+        if not (candidate / "results.json").is_file():
+            raise ValueError("unknown numerical candidate; use its directory name")
+        for name in ("results.json", "compute.py", "README.md"):
+            if not (candidate / name).is_file():
+                raise ValueError(f"candidate is missing {name}")
+        provenance = candidate / "_candidate.json"
+        if not provenance.is_file() or json.loads(provenance.read_text())["spec"]["problem"] != digest(ROOT / "problem.md"):
+            raise ValueError("numerical candidate was computed for a different problem or lacks provenance")
+        # Copy all supporting code, including C sources used by compute.py.
+        for name, source in artifact_files(candidate).items():
+            destination = out / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(source, destination)
+        (out / "accepted.json").write_text(json.dumps({
+            "candidate": args.accept, "problem_hash": digest(ROOT / "problem.md"),
+            "results_hash": digest(out / "results.json"),
+            "artifacts": {name: digest(out / name) for name in artifact_files(candidate)},
+            "time": datetime.now().isoformat(), "acceptance": "operator selected; not a proof of numerical correctness"}, indent=2))
+        mark_report_stale("Accepted numerical evidence changed; rerun integration.")
+        log(f"accepted numerics candidate {args.accept}; record the independent validation in interventions.md")
+        return
+
+    def one(model):
+        target = out / "candidates" / model_tag(model)
+        spec = {"model": model, "problem": digest(ROOT / "problem.md"),
+                "prompt": build_prompt("numerics"), "effort": CFG["effort"]["numerics"],
+                "capabilities": role_capabilities("numerics")}
+        record = target / "_candidate.json"
+        if target.exists():
+            if record.exists():
+                saved = json.loads(record.read_text())
+                artifacts = {name: digest(path) for name, path in artifact_files(target).items()}
+                if saved == {"spec": spec, "artifacts": artifacts}:
+                    return str(target.relative_to(ROOT))
+            raise ValueError(f"candidate {target.name} changed or lacks provenance; archive/move it aside before rerunning")
+        wd = sandbox(f"numerics-{model_tag(model)}", {"problem.md": ROOT / "problem.md"})
+        run_agent("numerics", wd, model, CFG["effort"]["numerics"])
+        for name in ("results.json", "compute.py", "README.md"):
+            if not (wd / name).is_file():
+                raise ValueError(f"numerics agent did not write {name}")
+        data = json.loads((wd / "results.json").read_text())
+        if not isinstance(data.get("polynomials"), dict) or not isinstance(data.get("validation"), list):
+            raise ValueError("malformed numerical results")
+        target.mkdir(parents=True)
+        for name, source in artifact_files(wd).items():
+            destination = target / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(source, destination)
+        artifacts = {name: digest(path) for name, path in artifact_files(target).items()}
+        record.write_text(json.dumps({"spec": spec, "artifacts": artifacts}, indent=2))
+        return str(target.relative_to(ROOT))
+
+    for model, candidate in parallel(one, model_list("numerics")).items():
+        log(f"numerics {model}: {candidate}")
+    log("compare independent candidates and validate their code, then numerics --accept <candidate-directory-name>")
 
 
-def common_inputs():
+def common_inputs(include_numerics=False):
     files = {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"}
-    if (ROOT / "numerics" / "results.json").exists():
-        files["results.json"] = ROOT / "numerics" / "results.json"
+    if include_numerics:
+        result, accepted = ROOT / "numerics/results.json", ROOT / "numerics/accepted.json"
+        if not accepted.is_file():
+            raise ValueError("accept independently validated numerics with numerics --accept <candidate> first")
+        acceptance = json.loads(accepted.read_text())
+        if acceptance["problem_hash"] != digest(ROOT / "problem.md") or acceptance["results_hash"] != digest(result) or any(
+                digest(ROOT / "numerics" / name) != expected for name, expected in acceptance["artifacts"].items()):
+            raise ValueError("accepted numerical artifacts changed; validate and accept again")
+        files["results.json"] = result
     return files
 
 
 def cmd_plan(args):
-    """One planner per hint, models alternating; a plan that already exists is
-    kept, so a rerun only retries the failures. --cross adds every other
-    model on every hint, as plans/<hint>@<model>.json."""
+    """Cross models and hints by default; reuse only plans with matching provenance."""
     hints = CFG["variants"][VARIANT]["hints"]
     models = role_models("planner")
-    models = models if isinstance(models, list) else [models]
+    models = list(dict.fromkeys(models if isinstance(models, list) else [models]))
     model_of = {h: models[i % len(models)] for i, h in enumerate(hints)}   # alternate
 
     pairs = {h: (h, model_of[h]) for h in hints}
-    if args.cross:
+    if args.cross or CFG.get("planning_cross", False) and not args.single:
         pairs |= {f"{h}@{m.removeprefix('codex:')}": (h, m)
                   for h in hints for m in models if m != model_of[h]}
-    names = [n for n in pairs if not (ROOT / "plans" / f"{n}.json").exists()]
+    records = ROOT / "plans" / "_records"
+    records.mkdir(exist_ok=True)
+    expected = {}
+    for name, (hint, model) in pairs.items():
+        files = common_inputs(include_numerics=True) | {"hint.md": variant_file(f"hints/{hint}.md")}
+        expected[name] = {"model": model, "effort": CFG["effort"]["planner"],
+                          "inputs": {dest: digest(src) for dest, src in files.items()},
+                          "prompt": build_prompt("planner"), "schema": SCHEMAS["plan"],
+                          "capabilities": role_capabilities("planner"), "exclusion": EXCL,
+                          "provider_config": CODEX_CFG if backend(model)[0] == "codex" else {}}
+        existing = ROOT / "plans" / f"{name}.json"
+        record = records / f"{name}.json"
+        if existing.exists() and not args.refresh:
+            if not record.exists() or json.loads(record.read_text()) != expected[name]:
+                raise ValueError(f"cached plan {name!r} has different inputs/model or lacks provenance; use plan --refresh or a fresh experiment")
+    names = [n for n in pairs if args.refresh or not (ROOT / "plans" / f"{n}.json").exists()]
     log(f"planners to run: {names or 'none'}; {len(pairs) - len(names)} plan(s) already exist")
 
     def one(name):
         hint, model = pairs[name]
-        wd = sandbox(f"plan-{name}", common_inputs() | {"hint.md": variant_file(f"hints/{hint}.md")})
+        wd = sandbox(f"plan-{name}", common_inputs(include_numerics=True) | {"hint.md": variant_file(f"hints/{hint}.md")})
         log(f"planner '{name}' ({model}) in runs/{wd.name}")
         out = run_agent("planner", wd, model, CFG["effort"]["planner"], schema="plan")
         plan = out["structured_output"] | {"model": model}
+        if expected[name]["inputs"] != {dest: digest(src) for dest, src in (common_inputs(include_numerics=True) | {"hint.md": variant_file(f"hints/{hint}.md")}).items()}:
+            raise ValueError("planner inputs changed during invocation")
         (ROOT / "plans" / f"{name}.json").write_text(json.dumps(plan, indent=2))
         (ROOT / "plans" / f"{name}.md").write_text(render_plan(name, plan))
+        (records / f"{name}.json").write_text(json.dumps(expected[name], indent=2))
         return len(plan["propositions"])
 
     for name, n in parallel(one, names).items():
@@ -515,17 +737,19 @@ def render_plan(hint, plan):
 
 def check_acyclic(props):
     ids = {p["id"] for p in props}
+    if not props or len(ids) != len(props):
+        raise ValueError("plan must contain propositions with unique IDs")
     deps = {p["id"]: set(p["depends_on"]) for p in props}
     for pid, ds in deps.items():
         if ds - ids:
-            sys.exit(f"{pid} depends on unknown {ds - ids}")
+            raise ValueError(f"{pid} depends on unknown {ds - ids}")
     seen, done = set(), set()
 
     def visit(n):
         if n in done:
             return
         if n in seen:
-            sys.exit(f"dependency cycle through {n}")
+            raise ValueError(f"dependency cycle through {n}")
         seen.add(n)
         for m in deps[n]:
             visit(m)
@@ -536,6 +760,7 @@ def check_acyclic(props):
 
 def cmd_select(args):
     plan = json.loads((ROOT / "plans" / f"{args.hint}.json").read_text())
+    validate({k: v for k, v in plan.items() if k != "model"}, SCHEMAS["plan"])
     check_acyclic(plan["propositions"])
     if (ROOT / "props").exists() and any((ROOT / "props").iterdir()):
         sys.exit("props/ is not empty; move it aside before selecting a new plan")
@@ -556,6 +781,7 @@ def status(pid):
 def set_status(pid, **kw):
     s = status(pid) | kw
     (ROOT / "props" / pid / "status.json").write_text(json.dumps(s))
+    mark_report_stale("Proposition state changed; rerun integration after approvals are current.")
 
 
 def latest_proof(pid):
@@ -569,7 +795,64 @@ def dep_statements(pid):
     return {f"deps/{d}.md": ROOT / "props" / d / "statement.md" for d in meta["depends_on"]}
 
 
-def prove_one(pid):
+def mark_report_stale(reason):
+    if (ROOT / "report" / "integration.json").exists():
+        (ROOT / "report" / "STALE").write_text(reason + "\n")
+
+
+def contract_hash(pid, seen=None):
+    """Include all ancestor contracts, so even transitive edits invalidate approval."""
+    seen = set() if seen is None else seen
+    if pid in seen:
+        raise ValueError(f"dependency cycle through {pid}")
+    pdir = ROOT / "props" / pid
+    meta = json.loads((pdir / "meta.json").read_text())
+    deps = {d: contract_hash(d, seen | {pid}) for d in meta["depends_on"]}
+    return hash_json({"statement": digest(pdir / "statement.md"), "meta": digest(pdir / "meta.json"),
+                      "dependencies": deps, "problem": digest(ROOT / "problem.md"),
+                      "papers": digest(ROOT / "papers")})
+
+
+def approval_hash(pid):
+    return hash_json({"contract": contract_hash(pid), "proof": digest(latest_proof(pid)) if latest_proof(pid) else None,
+                      "review_policy": {"prompt": build_prompt("referee"), "schema": SCHEMAS["verdict"],
+                                        "models": referee_models(), "effort": CFG["effort"]["referee"],
+                                        "capabilities": role_capabilities("referee"), "exclusion": EXCL},
+                      "reviews": {p.name: digest(p) for p in sorted((ROOT / "props" / pid).glob(
+                          f"review-v{status(pid)['round']}-*.json"))}})
+
+
+def invalidate_stale():
+    props = ROOT / "props"
+    if not props.exists():
+        return
+    for p in sorted(props.iterdir()):
+        st = status(p.name)
+        if st["state"] in ("passed", "defect") and st.get("approval_hash") != approval_hash(p.name):
+            set_status(p.name, state="open", approval_hash=None, invalidated="statement, dependency, proof, review or corpus changed")
+            log(f"{p.name}: previous approval invalidated; review again")
+    # Reports are retained for audit but explicitly marked stale when any source changes.
+    manifest = ROOT / "report" / "inputs.json"
+    if manifest.exists() and json.loads(manifest.read_text()) != integration_hashes():
+        (ROOT / "report" / "STALE").write_text("Inputs changed. Rerun integrate after approvals are current.\n")
+
+
+def numerical_artifact_hashes():
+    accepted = ROOT / "numerics/accepted.json"
+    if not accepted.exists():
+        return {}
+    return {name: digest(ROOT / "numerics" / name)
+            for name in json.loads(accepted.read_text()).get("artifacts", {})}
+
+
+def integration_hashes():
+    return {"props": digest(ROOT / "props"), "plan": digest(ROOT / "plan.json"),
+            "problem": digest(ROOT / "problem.md"), "numerics": digest(ROOT / "numerics/results.json"),
+            "accepted": digest(ROOT / "numerics/accepted.json"),
+            "numerical_artifacts": numerical_artifact_hashes()}
+
+
+def prove_one(pid, override=None):
     """Prover/referee loop for one proposition.
 
     Provers see only the *statements* of dependencies (the contracts), so all
@@ -582,6 +865,8 @@ def prove_one(pid):
     objections_file = pdir / "objections.md"
 
     for rnd in range(st["round"] + 1, st["round"] + 1 + CFG["max_rounds"]):
+        set_status(pid, state="open", round=rnd)
+        contract = contract_hash(pid)
         # ---- prover ----
         files = common_inputs() | dep_statements(pid) | {"statement.md": pdir / "statement.md"}
         if objections_file.exists():
@@ -591,7 +876,10 @@ def prove_one(pid):
             files["hint.md"] = pdir / "hint.md"
         wd = sandbox(f"prove-{pid}-r{rnd}", files)
         log(f"{pid} round {rnd}: prover")
-        run_agent("prover", wd, role_models("prover"), CFG["effort"]["prover"])
+        models = [resolve(override)] if override else model_list("prover")
+        model = models[(rnd - 1) % len(models)]
+        log(f"{pid} round {rnd}: model {model}")
+        run_agent("prover", wd, model, CFG["effort"]["prover"])
         if not (wd / "proof.md").exists():
             log(f"{pid} round {rnd}: prover wrote no proof.md")
             continue
@@ -607,18 +895,25 @@ def prove_one(pid):
             rwd = sandbox(f"referee-{pid}-r{rnd}-{i}", ref_files)
             out = run_agent("referee", rwd, model, CFG["effort"]["referee"],
                             schema="verdict")
-            v = out["structured_output"] | {"model": model}
+            v = out["structured_output"] | {"model": model, "contract_hash": contract, "proof_hash": digest(proof)}
             (pdir / f"review-v{rnd}-{i}.json").write_text(json.dumps(v, indent=2))
             return v
 
         with cf.ThreadPoolExecutor(2) as ex:
-            verdicts = list(ex.map(referee, enumerate(role_models("referees"))))
+            verdicts = list(ex.map(referee, enumerate(referee_models())))
         log(f"{pid} round {rnd}: " + ", ".join(f"{v['model']}={v['verdict']}/{v['severity']}"
                                                 for v in verdicts))
 
+        if contract_hash(pid) != contract or digest(proof) != digest(wd / "proof.md"):
+            raise ValueError(f"{pid}: inputs changed during proof/review; no approval recorded")
+        defect = (wd / "proof.md").read_text().startswith("STATEMENT DEFECT:")
+        if any(v["severity"] == "defect-confirmed" for v in verdicts) and not defect:
+            raise ValueError("referee confirmed a defect without a STATEMENT DEFECT report")
         if all(v["verdict"] == "pass" for v in verdicts):
-            defect = any(v["severity"] == "defect-confirmed" for v in verdicts)
+            if defect and not all(v["severity"] == "defect-confirmed" for v in verdicts):
+                raise ValueError("a statement-defect report cannot be approved as a proof")
             set_status(pid, state="defect" if defect else "passed", round=rnd)
+            set_status(pid, approval_hash=approval_hash(pid))
             return "defect" if defect else "passed"
 
         # ---- objections feed the next round ----
@@ -637,17 +932,26 @@ def prove_one(pid):
     return "stuck"
 
 
-def cmd_prove(args):
+def referee_models():
+    # Preserve two independent sessions even if fallback collapses model diversity.
     refs = role_models("referees")
+    if not isinstance(refs, list) or len(refs) != 2:
+        raise ValueError("configure exactly two referee entries")
+    return refs
+
+
+def cmd_prove(args):
+    invalidate_stale()
+    refs = referee_models()
     if len(set(refs)) < 2:
-        log(f"WARNING: both referees are {refs[0]}; set `fallback` to keep them different models")
+        log(f"WARNING: both referees use {refs[0]}; configure models.referees for model diversity")
     pids = args.props or sorted(p.name for p in (ROOT / "props").iterdir())
     pids = [p for p in pids if status(p)["state"] != "passed"]
-    for pid, res in parallel(prove_one, pids).items():
+    for pid, res in parallel(lambda pid: prove_one(pid, args.model), pids).items():
         log(f"{pid}: {res}")
     stuck = [p for p in pids if status(p)["state"] in ("stuck", "defect")]
     if stuck:
-        log(f"needs you: {stuck}. Read their objections.md; try `pollinate`.")
+        log(f"needs you: {stuck}. Read reviews/objections; consider pollinate.")
 
 
 def cmd_pollinate(args):
@@ -657,7 +961,8 @@ def cmd_pollinate(args):
         "history.md": pdir / "objections.md",
         "plans": ROOT / "plans",
     })
-    out = run_agent("pollinator", wd, role_models("pollinator"),
+    model = resolve(args.model) if args.model else model_list("pollinator")[status(args.prop)["round"] % len(model_list("pollinator"))]
+    out = run_agent("pollinator", wd, model,
                     CFG["effort"]["pollinator"], schema="pollination")
     v = out["structured_output"]
     if (wd / "hint.md").exists():
@@ -671,32 +976,57 @@ def cmd_pollinate(args):
         log(f"wrote props/{args.prop}/hint.md; now run: ./orchestrate.py prove {args.prop}")
 
 
-def cmd_integrate(_):
+def cmd_integrate(args):
+    invalidate_stale()
     pids = sorted(p.name for p in (ROOT / "props").iterdir())
     open_ = [p for p in pids if status(p)["state"] != "passed"]
-    if open_:
-        sys.exit(f"not all propositions passed: {open_}")
-    files = common_inputs() | {"plan.json": ROOT / "plan.json"}
+    if open_ or not pids:
+        raise ValueError(f"not all propositions passed: {open_}")
+    selected = json.loads((ROOT / "plan.json").read_text())
+    check_acyclic(selected["propositions"])
+    if {p["id"] for p in selected["propositions"]} != set(pids):
+        raise ValueError("selected plan and proposition directories disagree")
+    for p in selected["propositions"]:
+        meta = json.loads((ROOT / "props" / p["id"] / "meta.json").read_text())
+        if p["depends_on"] != meta["depends_on"]:
+            raise ValueError("selected plan and proposition dependency graph disagree")
+    before = integration_hashes()
+    files = common_inputs(include_numerics=True) | {"plan.json": ROOT / "plan.json"}
     for p in pids:
         files[f"props/{p}/statement.md"] = ROOT / "props" / p / "statement.md"
         files[f"props/{p}/proof.md"] = latest_proof(p)
-    wd = sandbox("integrate", files)
-    out = run_agent("integrator", wd, role_models("integrator"), CFG["effort"]["integrator"],
-                    schema="integration")
-    v = out["structured_output"]
     rep = ROOT / "report"
     rep.mkdir(exist_ok=True)
-    (rep / "integration.json").write_text(json.dumps(v, indent=2))
-    if (wd / "assembly.md").exists():
-        shutil.copy(wd / "assembly.md", rep / "assembly.md")
-    log(f"composes: {v['composes']}")
-    log(f"final theorem: {v['final_theorem']}")
+
+    def one(model):
+        wd = sandbox(f"integrate-{model_tag(model)}", files)
+        out = run_agent("integrator", wd, model, CFG["effort"]["integrator"], schema="integration")
+        if not (wd / "assembly.md").is_file():
+            raise ValueError("integrator did not write assembly.md")
+        value = out["structured_output"]
+        tag = model_tag(model)
+        (rep / f"integration-{tag}.json").write_text(json.dumps(value, indent=2))
+        shutil.copy(wd / "assembly.md", rep / f"assembly-{tag}.md")
+        return value
+
+    # A failed or interrupted rerun must not leave an apparently current old report.
+    (rep / "STALE").write_text("Integration in progress or incomplete.\n")
+    models = [resolve(args.model)] if args.model else model_list("integrator")
+    reports = parallel(one, models)
+    if before != integration_hashes():
+        raise ValueError("inputs changed during integration; report is stale")
+    summary = {"composes": all(v["composes"] for v in reports.values()),
+               "reviews": reports, "requires_human_comparison": True}
+    (rep / "integration.json").write_text(json.dumps(summary, indent=2))
+    (rep / "inputs.json").write_text(json.dumps(before, indent=2))
+    (rep / "STALE").unlink()
+    log(f"all integrators compose: {summary['composes']}; compare independent theorems and constants in report/")
 
 
 def cmd_archive(args):
     """Copy every sandbox in runs_dir and the run's outputs into the repo under
     archive/<label>/, for review and committing. Run it once no agent is running.
-    Agents of later runs can't reach the archive, since they can't read git.
+    Host folders do not prevent agents from reading an archive; Docker does.
     PDFs from papers/ are left out: they are not ours to redistribute."""
     label = args.label or f"{datetime.now():%Y%m%d-%H%M}-{VARIANT}"
     dest = ROOT / "archive" / label
@@ -708,6 +1038,8 @@ def cmd_archive(args):
         if d.is_dir():
             shutil.copytree(d, dest / "runs" / d.name, ignore=skip)
             n += 1
+    (dest / "runs").mkdir(parents=True, exist_ok=True)
+    shutil.copy(RUNS / "_owner.json", dest / "runs" / "_owner.json")
     for name in ("config.json", "plan.json", "numerics", "plans", "props", "report", "logs"):
         src = ROOT / name
         if src.is_dir():
@@ -720,6 +1052,7 @@ def cmd_archive(args):
 
 
 def cmd_status(_):
+    invalidate_stale()
     if not (ROOT / "props").exists():
         print("no plan selected yet")
     else:
@@ -740,23 +1073,26 @@ def cmd_status(_):
 
 
 def main():
-    for d in ("logs", "plans", "papers"):
-        (ROOT / d).mkdir(exist_ok=True)
-    check_runs_dir()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe").set_defaults(fn=cmd_probe)
     sub.add_parser("check-leaks").set_defaults(fn=cmd_check_leaks)
-    sub.add_parser("numerics").set_defaults(fn=cmd_numerics)
-    s = sub.add_parser("plan"); s.add_argument("--cross", action="store_true"); s.set_defaults(fn=cmd_plan)
+    s = sub.add_parser("numerics"); s.add_argument("--accept", metavar="CANDIDATE"); s.set_defaults(fn=cmd_numerics)
+    s = sub.add_parser("plan"); s.add_argument("--cross", action="store_true"); s.add_argument("--single", action="store_true"); s.add_argument("--refresh", action="store_true"); s.set_defaults(fn=cmd_plan)
     s = sub.add_parser("select"); s.add_argument("hint"); s.set_defaults(fn=cmd_select)
-    s = sub.add_parser("prove"); s.add_argument("props", nargs="*"); s.set_defaults(fn=cmd_prove)
-    s = sub.add_parser("pollinate"); s.add_argument("prop"); s.set_defaults(fn=cmd_pollinate)
-    sub.add_parser("integrate").set_defaults(fn=cmd_integrate)
+    s = sub.add_parser("prove"); s.add_argument("props", nargs="*"); s.add_argument("--model"); s.set_defaults(fn=cmd_prove)
+    s = sub.add_parser("pollinate"); s.add_argument("prop"); s.add_argument("--model"); s.set_defaults(fn=cmd_pollinate)
+    s = sub.add_parser("integrate"); s.add_argument("--model"); s.set_defaults(fn=cmd_integrate)
     sub.add_parser("status").set_defaults(fn=cmd_status)
     s = sub.add_parser("archive"); s.add_argument("label", nargs="?"); s.set_defaults(fn=cmd_archive)
     args = ap.parse_args()
-    args.fn(args)
+    try:
+        for d in ("logs", "plans", "papers"):
+            (ROOT / d).mkdir(exist_ok=True)
+        check_runs_dir()
+        args.fn(args)
+    except (OSError, RuntimeError, ValueError) as e:
+        ap.exit(1, f"error: {e}\n")
 
 
 if __name__ == "__main__":
