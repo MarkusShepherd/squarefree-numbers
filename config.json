@@ -5,6 +5,7 @@
     "thesis-informed": {"hints": ["vaughan", "no-trunc", "dirichlet", "none"]}
   },
   "runs_dir": "~/sqf-runs/squarefree-numbers",
+  "agent_venv": "~/sqf-runs/agent-venv",
   "backends": ["claude", "codex"],
   "fallback": {"codex": "claude-sonnet-5-5", "claude": "codex:gpt-6.1-sol"},
   "models": {
