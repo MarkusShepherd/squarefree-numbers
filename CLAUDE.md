@@ -42,7 +42,8 @@ the thesis:
   needed, propose it and let him decide.
 - `archive/` holds earlier runs. Don't copy anything from there into a new
   run's agent-visible files.
-- Don't add papers to `papers/` or point agents to literature from 2011 or
+- Don't add papers to `papers/` beyond what Markus picks from
+  `literature/review.md`, and don't point agents to literature from 2011 or
   later: the run has a literature cutoff (README, "Independence from the
   thesis").
 
@@ -54,7 +55,8 @@ the thesis:
   referees and pollinates; effort `high`; `parallel` 2. Both subscriptions are
   the $20 plans: usage windows are the binding constraint.
 - `papers/`: Vaughan 2005, Brüdern–Wooley 2011, BGP+ 1998 (gitignored), and
-  nothing else: every agent gets a copy.
+  nothing else yet: every agent gets a copy. Further works only through the
+  literature step (Procedure, step 0).
 - **Literature cutoff:** agents may use only literature from 2010 or earlier,
   plus `papers/`. It was added after a first probe and numerics run, so **the
   whole run restarts from scratch** under the cutoff.
@@ -74,11 +76,19 @@ this is still current.
 One step at a time. After each step, run its checks and report to Markus
 before starting the next.
 
-0. `./orchestrate.py probe`, then `./orchestrate.py numerics`.
+0. `./orchestrate.py probe`, `./orchestrate.py numerics` and
+   `./orchestrate.py literature` (independent of each other; `papers/` must
+   be settled before step 1).
    - Check: `logs/probe-*.md`; `check-leaks`; `numerics/results.json` has a
-     `constant_extrapolated` for each polynomial.
-   - Report: each probe's answer in short, and the extrapolated constants with
-     their uncertainties.
+     `constant_extrapolated` for each polynomial; `literature/review.md`.
+   - Report: each probe's answer in short, the extrapolated constants with
+     their uncertainties, and the three literature lists (downloaded,
+     wishlist, rejected with reasons).
+   - Markus decides which works go into `papers/` and fetches the wishlist
+     items he wants. Copy only what he picks, after checking that each PDF's
+     title page matches its entry and is from 2010 or earlier, and add a line
+     per work to `papers/INDEX.md` (authors, year, title, venue). Nothing
+     else goes into `INDEX.md`: every agent reads it.
 1. `./orchestrate.py plan`: four planners (hints `vaughan`, `simplest`,
    `dirichlet`, `none`; models alternate Opus / Codex).
    - Check: four `plans/*.md`; `check-leaks`; in one Claude planner's
@@ -128,6 +138,11 @@ the post.
   search; check whether the agent then used it. A `mention` or `attempt`
   (citing or fetching it) by a planner or prover: report it to Markus. The
   referees should fail any proof that relies on it; check that they did.
+- **Librarian:** its transcript is expected to have `exposure` hits,
+  `post-cutoff arxiv` and possibly Dehnert, since a literature search turns
+  them up. What matters is `literature/candidates.json`: such items must be
+  `rejected`. An exposure of the thesis or the blog: report it, as for any
+  agent.
 - **Codex agents:** list event types with
   `grep -o '"type":"[a-z_.]*"' runs/<agent>/_stream.jsonl | sort | uniq -c`.
   `mcp_tool_call` to `codex_apps` `search_service.web_run` is Codex's literature

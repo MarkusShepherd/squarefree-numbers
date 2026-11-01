@@ -37,6 +37,7 @@ variants/           prompt variants that override prompts/ and hints/ (see varia
 config.json         models, effort, tools, exclusions, rounds, parallelism, budget
 orchestrate.py      the driver (~700 lines, standard library only)
 numerics/           written by the numerics agent
+literature/         librarian's list, vetted: review.md, candidates.json, pdf/ (for you to check)
 plans/              one plan per hint (.json for the driver, .md for you)
 plan.json           the plan you selected
 props/P*/           statement, proof-vN, review-vN-i, objections, status
@@ -71,7 +72,8 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
 3. **Dry run, free:** `tests/dry_run.sh`. It runs every step with stub CLIs
    instead of `claude` and `codex`, checks the expected outcome, cleans up
    after itself, and ends with `dry run OK`. Rerun it after changing the driver.
-4. **Papers** into `papers/` (gitignored; any file names), and nothing else:
+4. **Papers** into `papers/` (gitignored; any file names): these three, what
+   you pick in step 6, and nothing else:
    - Vaughan 2005, *A variance for k-free numbers in arithmetic progressions*,
      Proc. LMS 91, 573–597 (paywalled)
    - Brüdern–Wooley 2011: <https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf>
@@ -84,6 +86,16 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
    `thesis-informed`, see `variants/README.md`), `backends`, models and effort.
    For a cheap first real run, set the Claude models to `sonnet` and every
    effort to `medium`.
+6. **Literature search** (optional; any time before `plan`):
+   `./orchestrate.py literature`. A librarian agent lists relevant works from
+   2010 or earlier. The driver vets each, downloads the open PDFs to
+   `literature/pdf/` and writes `literature/review.md` in three lists:
+   downloaded; wishlist (no open PDF: get the full text through Cambridge
+   Core or a library if it's worth it); rejected, with the reason. For each
+   work the agents should have, check that the PDF is what its entry says and
+   from 2010 or earlier, copy it into `papers/` and add a line to
+   `papers/INDEX.md` (authors, year, title, venue). Every agent sees all of
+   `papers/`, `INDEX.md` included. To search again, move `literature/` aside.
 
 ### Backends
 
@@ -188,6 +200,21 @@ the referees (a proof relying on a later result fails review), and audited:
 probes, which have no rules. The year is `exclusion.literature_cutoff_year` in
 `config.json`. Models still know later results from pretraining (the probes
 name several); the referee check is what keeps them out of the proofs.
+
+**Literature search.** The librarian (`literature`) is a Claude agent with
+`Read`, `WebSearch` and `WebFetch` and the same domain blocks as the others;
+it has no tool that writes files, so it only *lists* works. The driver then
+checks every item itself rather than trusting the agent: the year against the
+cutoff, `leak_patterns` (excluded names, titles, DOI), arXiv identifiers after
+the cutoff, and blocked domains and shadow libraries for both the landing page
+and the PDF link. It downloads only over http(s), re-checks the host after
+redirects, and keeps a download only if it really is a PDF; a paywall's HTML
+page puts the item on the wishlist. The download runs as you, outside the
+agent restrictions, which is why nothing reaches the other agents until you
+have checked it and copied it into `papers/`. The step refuses to run on
+Codex, which has no domain blocks. Its transcript will have `exposure` and
+`post-cutoff arxiv` hits, since searches turn up later work; what matters is
+that none of it gets into `papers/`.
 
 **Audited**: every run is recorded with `--output-format stream-json
 --verbose` in `runs/*/_stream.jsonl`, including every search query, fetch and
