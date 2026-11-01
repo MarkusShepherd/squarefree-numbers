@@ -70,6 +70,8 @@ def hash_json(value):
 
 
 def input_hashes(directory):
+    if directory.is_symlink():
+        return {'.': digest(directory)}
     return {str(p.relative_to(directory)): digest(p) for p in sorted(directory.rglob('*')) if p.is_file() or p.is_symlink()}
 
 
@@ -96,3 +98,53 @@ def artifact_files(directory):
         if path.is_file() and relative.parts[0] not in reserved:
             files[str(relative)] = path
     return files
+
+
+def verify_inputs(directory, expected):
+    """A review may add scratch files but must not change any supplied file."""
+    actual = input_hashes(directory)
+    changed = [name for name, value in expected.items() if actual.get(name) != value]
+    if changed:
+        raise ValueError('referee modified review inputs: ' + ', '.join(sorted(changed)))
+
+
+def validate_artifact_tree(directory, missing_ok=False):
+    """Reject links and special files before consuming an agent-controlled tree."""
+    import stat
+    try:
+        mode = directory.lstat().st_mode
+    except FileNotFoundError:
+        if missing_ok:
+            return
+        raise
+    if not stat.S_ISDIR(mode):
+        raise ValueError(f'agent outputs contain symlinks or special files: {directory.name}')
+    for path in directory.rglob('*'):
+        mode = path.lstat().st_mode
+        if not (stat.S_ISREG(mode) or stat.S_ISDIR(mode)):
+            raise ValueError(f'agent outputs contain symlinks or special files: {path.relative_to(directory)}')
+
+
+def read_text_nofollow(path, root):
+    """Read a regular response file without following links below a trusted root."""
+    import os
+    import stat
+    parts = path.relative_to(root).parts
+    if not parts or any(part in ('.', '..') for part in parts):
+        raise ValueError('unsafe final response path')
+    directory = os.open(root, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        for part in parts[:-1]:
+            child = os.open(part, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=directory)
+            os.close(directory)
+            directory = child
+        fd = os.open(parts[-1], os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=directory)
+        try:
+            if not stat.S_ISREG(os.fstat(fd).st_mode):
+                raise ValueError('final response must be a regular file')
+            with os.fdopen(fd, encoding='utf-8', closefd=False) as stream:
+                return stream.read()
+        finally:
+            os.close(fd)
+    finally:
+        os.close(directory)

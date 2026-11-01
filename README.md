@@ -126,7 +126,16 @@ Read each step's outputs before proceeding.
 4. `./orchestrate.py numerics --accept <candidate>`: explicitly promote a reviewed
    candidate, e.g. `codex-gpt-6.1-sol`. Record why in `logs/interventions.md`.
    Acceptance is a human choice, not automated certification. Supporting source
-   files are retained. Existing accepted evidence is unchanged until acceptance.
+   files are retained in a fresh `numerics/accepted/snapshot-.../` directory.
+   `numerics/accepted.json` names the active snapshot and is replaced atomically
+   only after the complete copy is verified. Previous snapshots remain for audit;
+   files are never merged between candidates. Planning and integration check the
+   entire selected snapshot, including added or deleted files. Validate/rerun
+   candidate code before acceptance; use `PYTHONDONTWRITEBYTECODE=1` if rerunning
+   an accepted snapshot to avoid adding Python cache files to it. Failed promotion
+   leaves the prior selection intact. Legacy selections without a snapshot must
+   be reviewed and accepted again; root-level copies of old numerical files are
+   not used as evidence.
 5. `./orchestrate.py plan`: cross every unique configured planner with every hint.
    Base names retain the alternating assignment (`vaughan`, etc.); the additional
    plans use `<hint>@<model>`. `plan --single` runs only the base assignment;
@@ -211,7 +220,10 @@ and integration. Integer ranges in bibliography fields are validated as well.
 Optional fields in the source schemas become required in the emitted schemas;
 use empty strings/lists or false when those fields do not apply.
 The host validates nested fields, types, enums, dependency IDs and cycles, and
-verdict consistency. Codex uses `--output-schema`, `--json` and
+verdict consistency. Referee results are rejected if any supplied proof,
+statement, dependency or paper changes in their working directory. New scratch
+files do not invalidate a review; provider sandbox permissions still apply.
+Codex uses `--output-schema`, `--json` and
 `--output-last-message`, and must emit a successful completed turn.
 `--ignore-user-config` keeps user config out while preserving login. It does
 not imply that global instructions and every other user customization disappear.
@@ -275,8 +287,9 @@ refreshes to its copied Codex auth are not written back to your host login.
 Approvals bind the current proposition and all transitive dependency contracts,
 problem, supplied corpus, proof, referee artifacts and current referee policy. `status`, `prove` and
 `integrate` invalidate approvals when these change. Legacy approvals without
-hashes require new review. Updating an upstream statement invalidates dependent
-approvals. Dependency proofs are not assumptions: changing only an upstream
+hashes require new review. Approvals from before referee input-integrity
+verification also require fresh review. Updating an upstream statement
+invalidates dependent approvals. Dependency proofs are not assumptions: changing only an upstream
 proof invalidates its own approval, while unchanged contracts remain usable.
 Integration cannot proceed until every proposition has a current approval.
 Old reports are retained but marked `report/STALE` when their inputs change.
@@ -286,11 +299,14 @@ exact prompt, schema, command, capabilities, config/harness sources, input
 hashes, revision and CLI version; `outcome.json` records output hashes and
 failure. Authoritative transcripts are also recorded there, outside the agent
 mount; per-folder transcript copies remain available for convenience. Symlink
-inputs and agent outputs are rejected to prevent host-side promotion from
-following links outside the mounted directory. The agent cannot read these
-records in Docker mode. Container versions
-are captured in each record's `outputs/_container-version.txt`. Archives retain records and the literature review but omit all
-PDFs, including downloaded literature; preserve the supplied corpus separately using the recorded hashes.
+inputs and agent outputs in both the work folder and Docker output mount are
+rejected to prevent host-side promotion from following links outside mounted
+directories. Final responses are opened as regular files without following
+symlinks in agent-controlled path components, even if a link appears after the
+tree check. The agent cannot read these records in Docker mode. Container
+versions are captured in each record's `outputs/_container-version.txt`. Archives
+retain records and the literature review but omit all PDFs, including downloaded
+literature; preserve the supplied corpus separately using the recorded hashes.
 
 `parallel` limits **all live agent invocations**, including nested referees.
 Timeouts terminate process groups; Docker cleanup also removes the container.

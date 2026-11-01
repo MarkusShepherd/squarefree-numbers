@@ -70,6 +70,8 @@ before starting the next.
    corpus. Verify title pages and dates, copy only approved pre-2011 PDFs to
    `papers/`, and add their bibliographic entries to `papers/INDEX.md`. Markus
    validates and selects a candidate with `numerics --accept <candidate>`.
+   The active numerical snapshot is named in `numerics/accepted.json`; never
+   use leftover root-level numerical files from an earlier harness version.
    `plan` crosses every configured planner with every hint by default.
    - Check: expected `plans/*.md`; `check-leaks`; in one Claude planner's
      `_stream.jsonl`, `grep -c hook_started` is 0 (user hooks disabled).
@@ -131,7 +133,9 @@ the post.
 - **Dry run:** `tests/dry_run.sh` uses temporary checkouts and stub CLIs for
   both providers and single-provider modes. It is safe beside a real run.
 - **Approvals:** statement/dependency/corpus edits and proof/review changes
-  invalidate old approvals. Legacy approvals without hashes require review.
+  invalidate old approvals. A referee that changes supplied inputs fails its
+  invocation. Legacy approvals, including those made before input-integrity
+  verification, require review.
   `status`, `prove` and `integrate` perform this check; `report/STALE` marks
   outdated integration. Do not bypass it by manually changing status files.
 - **Isolation:** host mode does not prevent outside reads or guarantee offline

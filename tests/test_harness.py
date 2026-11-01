@@ -67,6 +67,10 @@ class HarnessTest(unittest.TestCase):
         self.run_step('plan', '--single')
         self.run_step('select', 'vaughan')
 
+    def selected_numerics(self):
+        acceptance = json.loads((self.root / 'numerics/accepted.json').read_text())
+        return self.root / 'numerics' / acceptance['snapshot']
+
     def finish_two_props(self):
         # P3 is deliberately unprovable in fixtures; the integration fixture needs only P1/P2.
         shutil.rmtree(self.root / 'props/P3')
@@ -242,7 +246,7 @@ class HarnessTest(unittest.TestCase):
         self.run_step('plan', success=False)
         candidate = sorted((self.root / 'numerics/candidates').iterdir())[0]
         self.run_step('numerics', '--accept', candidate.name)
-        (self.root / 'numerics/results.json').write_text('{}')
+        (self.selected_numerics() / 'results.json').write_text('{}')
         self.run_step('plan', success=False)
 
     def test_stale_plan_cache_and_refresh(self):
@@ -296,8 +300,8 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(len(list(Path(self.env['RUNS_DIR']).glob('numerics-*'))), count)
         candidate = sorted((self.root / 'numerics/candidates').iterdir())[0]
         self.run_step('numerics', '--accept', candidate.name)
-        self.assertTrue((self.root / 'numerics/src/helper.py').is_file())
-        (self.root / 'numerics/compute.py').write_text('# modified implementation\n')
+        self.assertTrue((self.selected_numerics() / 'src/helper.py').is_file())
+        (self.selected_numerics() / 'compute.py').write_text('# modified implementation\n')
         self.run_step('plan', success=False)
 
     def test_docker_mounts_and_prompt_preservation(self):
@@ -463,6 +467,195 @@ class HarnessTest(unittest.TestCase):
         for record in (Path(self.env['RUNS_DIR']) / '_records').glob('*/invocation.json'):
             invocation = json.loads(record.read_text())
             self.assertFalse(any(name.startswith('literature/') for name in invocation['inputs']))
+
+    def test_referees_reject_modified_inputs_for_both_backends(self):
+        o = self.load_driver()
+        actor = self.root / 'mutating_referee.py'
+        verdict = {'verdict': 'pass', 'severity': 'none', 'location': '', 'objection': '', 'other_issues': []}
+        actor.write_text('import json, pathlib, sys\n'
+                         'pathlib.Path(sys.argv[1]).write_text("Changed input\\n")\n'
+                         f'verdict = {verdict!r}\n'
+                         'if sys.argv[2] == "claude":\n'
+                         ' print(json.dumps({"type":"result","subtype":"success","structured_output":verdict}))\n'
+                         'else:\n'
+                         ' print(json.dumps({"type":"item.completed","item":{"type":"agent_message","text":json.dumps(verdict)}}))\n'
+                         ' print(json.dumps({"type":"turn.completed","usage":{}}))\n')
+        sources = {}
+        for name in ('proof.md', 'statement.md', 'deps/P1.md', 'papers/source.txt'):
+            source = self.root / ('original-' + name.replace('/', '-'))
+            source.write_text('Original input\n')
+            sources[name] = source
+        for kind, model in (('claude', 'sonnet'), ('codex', 'codex:gpt-6.1-sol')):
+            for filename in sources:
+                with self.subTest(backend=kind, input=filename):
+                    o.CLAUDE = o.CODEX = sys.executable
+                    cmd = lambda *args, **kw: [sys.executable, str(actor), filename, kind]
+                    o.build_cmd = o.build_codex_cmd = cmd
+                    wd = o.sandbox('mutating-referee', sources)
+                    with self.assertRaisesRegex(RuntimeError, 'referee modified review inputs'):
+                        o.run_agent('referee', wd, model, 'high', schema='verdict')
+                    row = json.loads((self.root / 'logs/costs.jsonl').read_text().splitlines()[-1])
+                    self.assertIn(filename, row['failure'])
+
+    def test_changed_referee_copy_never_approves_original_proof(self):
+        self.ready()
+        o = self.load_driver()
+        def fake_agent(role, workdir, *args, **kwargs):
+            if role == 'prover':
+                (workdir / 'proof.md').write_text('GAP: original unrepaired proof\n')
+                return {'result': 'done'}
+            (workdir / 'proof.md').write_text('A repaired proof\n')
+            return {'structured_output': {'verdict': 'pass', 'severity': 'none',
+                                         'location': '', 'objection': '', 'other_issues': []}}
+        o.run_agent = fake_agent
+        with self.assertRaisesRegex(ValueError, 'referee modified review inputs'):
+            o.prove_one('P1')
+        self.assertNotEqual(o.status('P1')['state'], 'passed')
+        self.assertEqual((self.root / 'props/P1/proof-v1.md').read_text(), 'GAP: original unrepaired proof\n')
+        self.assertFalse(list((self.root / 'props/P1').glob('review-v*.json')))
+
+    def test_docker_output_mount_links_fail_before_response_read(self):
+        o = self.load_driver()
+        o.CFG['isolation']['mode'] = 'docker'
+        external = Path(self.temp.name) / 'outside-host-file.json'
+        external.write_text(json.dumps({'items': [], 'notes': 'OUTSIDE_HOST_CONTENT'}))
+        for location in ('final-file', 'output-directory', 'nested-directory'):
+            with self.subTest(link=location):
+                wd = o.sandbox('docker-output-link', {})
+                record = o.RUNS / '_records' / wd.name
+                outputs = record / 'outputs'
+                actor = self.root / 'output_link_cli.py'
+                actor.write_text('import json\nfrom pathlib import Path\n'
+                                 f'p=Path({str(outputs)!r})\n'
+                                 f'target=Path({str(external)!r})\n'
+                                 + ('p.symlink_to(target.parent, target_is_directory=True)\n' if location == 'output-directory'
+                                    else 'p.mkdir(parents=True)\n' + (
+                                        '(p/"_last.txt").symlink_to(target)\n' if location == 'final-file'
+                                        else '(p/"nested").symlink_to(target.parent, target_is_directory=True)\n'))
+                                 + 'print(json.dumps({"type":"item.completed","item":{"type":"agent_message","text":"{\\"items\\":[],\\"notes\\":\\"real output\\"}"}}))\n'
+                                 + 'print(json.dumps({"type":"turn.completed","usage":{}}))\n')
+                original_popen = o.subprocess.Popen
+                def fake_container(cmd, **kwargs):
+                    if len(cmd) > 1 and str(cmd[1]).endswith('docker_runner.py'):
+                        return original_popen([sys.executable, str(actor)], **kwargs)
+                    return original_popen(cmd, **kwargs)
+                with patch.object(o.subprocess, 'Popen', side_effect=fake_container), \
+                     patch.object(o, 'read_text_nofollow', side_effect=AssertionError('unsafe output read')):
+                    with self.assertRaisesRegex(RuntimeError, 'symlinks'):
+                        o.run_agent('librarian', wd, 'codex:gpt-6.1-sol', 'high', schema='literature')
+                outcome = json.loads((record / 'outcome.json').read_text())
+                self.assertIsNotNone(outcome['failure'])
+                self.assertNotIn('OUTSIDE_HOST_CONTENT', json.dumps(outcome))
+
+    def test_final_response_reader_rejects_links_and_special_files(self):
+        o = self.load_driver()
+        stream = json.dumps({'type': 'turn.completed', 'usage': {}})
+        external = Path(self.temp.name) / 'outside.json'
+        external.write_text('{"items":[],"notes":"outside"}')
+        for target in (external, external.with_name('missing.json')):
+            wd = o.sandbox('linked-final', {})
+            (wd / '_last.txt').symlink_to(target)
+            with self.assertRaisesRegex(ValueError, 'unsafe final response'):
+                o.parse_codex(stream, wd, 'literature')
+        wd = o.sandbox('linked-output-parent', {})
+        record = o.RUNS / '_records' / wd.name
+        record.mkdir(parents=True)
+        (record / 'outputs').symlink_to(external.parent, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'unsafe final response'):
+            o.parse_codex(stream, wd, 'literature')
+        wd = o.sandbox('fifo-final', {})
+        os.mkfifo(wd / '_last.txt')
+        with self.assertRaisesRegex(ValueError, 'regular file'):
+            o.parse_codex(stream, wd, 'literature')
+        wd = o.sandbox('regular-docker-final', {})
+        outputs = o.RUNS / '_records' / wd.name / 'outputs'
+        outputs.mkdir(parents=True)
+        (outputs / '_last.txt').write_text('{"items":[],"notes":"regular output"}')
+        self.assertEqual(o.parse_codex(stream, wd, 'literature')['structured_output']['notes'], 'regular output')
+
+    def test_accepting_numerics_publishes_clean_complete_snapshots(self):
+        self.run_step('numerics')
+        first, second = sorted((self.root / 'numerics/candidates').iterdir())
+        (first / 'old_helper.py').write_text('VALUE = 1\n')
+        (second / 'compute.py').write_text('import importlib.util\nprint(importlib.util.find_spec("old_helper") is not None)\n')
+        self.run_step('numerics', '--accept', first.name)
+        old_selection = self.selected_numerics()
+        self.assertTrue((old_selection / 'old_helper.py').exists())
+        self.run_step('numerics', '--accept', second.name)
+        selection = self.selected_numerics()
+        self.assertNotEqual(selection, old_selection)
+        self.assertFalse((selection / 'old_helper.py').exists())
+        self.assertTrue((old_selection / 'old_helper.py').exists(), 'previous snapshot retained for audit')
+        p = subprocess.run([sys.executable, str(selection / 'compute.py')], cwd=selection,
+                           env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), capture_output=True, text=True, check=True)
+        self.assertEqual(p.stdout.strip(), 'False')
+        self.run_step('plan', '--single')
+        # An extra importable file must invalidate acceptance even if all recorded files match.
+        (selection / 'unrecorded_helper.py').write_text('VALUE = 2\n')
+        self.assertIn('artifacts changed', self.run_step('plan', '--single', success=False).stderr)
+
+    def test_failed_acceptance_keeps_previous_numerical_selection(self):
+        self.run_step('numerics')
+        first, second = sorted((self.root / 'numerics/candidates').iterdir())
+        self.run_step('numerics', '--accept', first.name)
+        original = (self.root / 'numerics/accepted.json').read_bytes()
+        selection = self.selected_numerics()
+        o = self.load_driver()
+        real_copy = o.shutil.copy
+        def broken_copy(src, dest):
+            if Path(src).name == 'compute.py':
+                raise OSError('simulated copy failure')
+            return real_copy(src, dest)
+        for operation in ('copy', 'publish'):
+            with self.subTest(failure=operation):
+                target, name, failure = ((o.shutil, 'copy', broken_copy) if operation == 'copy'
+                                         else (o.os, 'replace', OSError('simulated publish failure')))
+                with patch.object(target, name, side_effect=failure):
+                    with self.assertRaises(OSError):
+                        o.cmd_numerics(argparse.Namespace(accept=second.name))
+                self.assertEqual((self.root / 'numerics/accepted.json').read_bytes(), original)
+                self.assertEqual(self.selected_numerics(), selection)
+                self.assertEqual(list((self.root / 'numerics/accepted').iterdir()), [selection])
+                self.assertFalse(list((self.root / 'numerics').glob('.acceptance-*')))
+        self.run_step('plan', '--single')
+
+    def test_legacy_numerical_acceptance_requires_migration_without_breaking_status(self):
+        self.ready()
+        self.finish_two_props()
+        self.run_step('integrate')
+        selected = self.selected_numerics()
+        manifest = self.root / 'numerics/accepted.json'
+        acceptance = json.loads(manifest.read_text())
+        acceptance.pop('snapshot')
+        shutil.copy(selected / 'results.json', self.root / 'numerics/results.json')
+        manifest.write_text(json.dumps(acceptance))
+        self.run_step('status')
+        self.assertTrue((self.root / 'report/STALE').exists())
+        self.assertIn('clean snapshot', self.run_step('plan', '--single', success=False).stderr)
+        self.run_step('numerics', '--accept', acceptance['candidate'])
+        self.assertNotEqual(self.selected_numerics(), selected)
+        self.run_step('integrate')
+
+    def test_response_path_swap_cannot_escape_no_follow_reader(self):
+        o = self.load_driver()
+        external = Path(self.temp.name) / 'host-response.json'
+        external.write_text('{"items":[],"notes":"outside"}')
+        wd = o.sandbox('swapped-final', {})
+        final = wd / '_last.txt'
+        final.write_text('{"items":[],"notes":"model output"}')
+        original_open = os.open
+        swapped = False
+        def replace_before_open(path, flags, *args, **kwargs):
+            nonlocal swapped
+            if path == '_last.txt' and not swapped:
+                final.unlink()
+                final.symlink_to(external)
+                swapped = True
+            return original_open(path, flags, *args, **kwargs)
+        with patch.object(os, 'open', side_effect=replace_before_open):
+            with self.assertRaisesRegex(ValueError, 'unsafe final response'):
+                o.parse_codex('{"type":"turn.completed","usage":{}}', wd, 'literature')
+        self.assertTrue(swapped)
 
 
 if __name__ == '__main__':

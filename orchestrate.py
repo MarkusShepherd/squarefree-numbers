@@ -30,6 +30,7 @@ import re
 import shutil
 import signal
 import threading
+import tempfile
 import subprocess
 import sys
 import time
@@ -37,7 +38,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
-from harness_support import strict_schema, validate, validate_verdict, digest, hash_json, input_hashes, artifact_files
+from harness_support import strict_schema, validate, validate_verdict, digest, hash_json, input_hashes, artifact_files, verify_inputs, validate_artifact_tree, read_text_nofollow
 
 ROOT = Path(__file__).resolve().parent
 CFG = json.loads((ROOT / "config.json").read_text())
@@ -269,8 +270,10 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
                 p.wait()
                 failure = f"timed out after {CFG['timeout_s']}s"
         stream = (record / "_stream.jsonl").read_text()
-        if any(p.is_symlink() for p in workdir.rglob("*")):
-            raise ValueError("agent outputs contain symlinks; refusing to read or promote them")
+        validate_artifact_tree(workdir)
+        validate_artifact_tree(record / "outputs", missing_ok=True)
+        if role == "referee":
+            verify_inputs(workdir, manifest["inputs"])
         out = parse_codex(stream, workdir, schema) if kind == "codex" else parse_stream(stream)
         if not failure and (out is None or out.get("is_error") or out.get("subtype", "success") != "success"):
             failure = "gave no usable successful result"
@@ -410,10 +413,19 @@ def parse_codex(text, workdir, schema):
             tokens["input"] += u.get("input_tokens") or 0
             tokens["output"] += u.get("output_tokens") or 0
             tokens["cached_input"] += u.get("cached_input_tokens") or 0
-    last = workdir / "_last.txt"
-    if not last.exists():
-        last = RUNS / "_records" / workdir.name / "outputs" / "_last.txt"
-    result = last.read_text() if last.exists() else (msgs[-1] if msgs else None)
+    result = None
+    for path, root in ((workdir / "_last.txt", workdir),
+                       (RUNS / "_records" / workdir.name / "outputs" / "_last.txt",
+                        RUNS / "_records" / workdir.name)):
+        try:
+            result = read_text_nofollow(path, root)
+            break
+        except FileNotFoundError:
+            continue
+        except OSError as e:
+            raise ValueError(f"unsafe final response path: {path.name}") from e
+    if result is None:
+        result = msgs[-1] if msgs else None
     if result is None or failed or not completed:
         return None
     out = {"result": result, "total_cost_usd": None, "tokens": tokens}
@@ -668,18 +680,42 @@ def cmd_numerics(args):
         provenance = candidate / "_candidate.json"
         if not provenance.is_file() or json.loads(provenance.read_text())["spec"]["problem"] != digest(ROOT / "problem.md"):
             raise ValueError("numerical candidate was computed for a different problem or lacks provenance")
-        # Copy all supporting code, including C sources used by compute.py.
-        for name, source in artifact_files(candidate).items():
-            destination = out / name
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy(source, destination)
-        (out / "accepted.json").write_text(json.dumps({
-            "candidate": args.accept, "problem_hash": digest(ROOT / "problem.md"),
-            "results_hash": digest(out / "results.json"),
-            "artifacts": {name: digest(out / name) for name in artifact_files(candidate)},
-            "time": datetime.now().isoformat(), "acceptance": "operator selected; not a proof of numerical correctness"}, indent=2))
+        files = artifact_files(candidate)
+        expected = {name: digest(path) for name, path in files.items()}
+        snapshots = out / "accepted"
+        if snapshots.is_symlink():
+            raise ValueError("numerical snapshot parent must not be a symlink")
+        snapshots.mkdir(exist_ok=True)
+        snapshot = Path(tempfile.mkdtemp(prefix="snapshot-", dir=snapshots))
+        published = False
+        try:
+            for name, source in files.items():
+                destination = snapshot / name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy(source, destination)
+            validate_artifact_tree(snapshot)
+            if input_hashes(snapshot) != expected or artifact_hashes(candidate) != expected:
+                raise ValueError("numerical candidate changed during acceptance")
+            acceptance = {
+                "candidate": args.accept, "snapshot": str(snapshot.relative_to(out)),
+                "problem_hash": digest(ROOT / "problem.md"),
+                "results_hash": digest(snapshot / "results.json"), "artifacts": expected,
+                "time": datetime.now().isoformat(),
+                "acceptance": "operator selected; not a proof of numerical correctness"}
+            # Publish only a complete generation; a failed copy leaves the old selection intact.
+            with tempfile.NamedTemporaryFile(mode="w", dir=out, prefix=".acceptance-", delete=False) as fh:
+                pending = Path(fh.name)
+                json.dump(acceptance, fh, indent=2)
+            try:
+                os.replace(pending, out / "accepted.json")
+                published = True
+            finally:
+                pending.unlink(missing_ok=True)
+        finally:
+            if not published:
+                shutil.rmtree(snapshot)
         mark_report_stale("Accepted numerical evidence changed; rerun integration.")
-        log(f"accepted numerics candidate {args.accept}; record the independent validation in interventions.md")
+        log(f"accepted numerics candidate {args.accept} at {snapshot.relative_to(ROOT)}; record the independent validation in interventions.md")
         return
 
     def one(model):
@@ -858,17 +894,32 @@ def cmd_literature(_):
     log(f"{len(models)} independent searches, {len(rows)} items {counts}; read literature/review.md")
 
 
+def artifact_hashes(directory):
+    return {name: digest(path) for name, path in artifact_files(directory).items()}
+
+
+def accepted_snapshot(acceptance):
+    relative = Path(acceptance.get("snapshot", ""))
+    if relative.is_absolute() or len(relative.parts) != 2 or relative.parts[0] != "accepted" or relative.parts[1] in (".", ".."):
+        raise ValueError("numerical acceptance needs a clean snapshot; validate and accept a candidate again")
+    parent = ROOT / "numerics" / "accepted"
+    if parent.is_symlink():
+        raise ValueError("numerical snapshot parent must not be a symlink")
+    return ROOT / "numerics" / relative
+
+
 def common_inputs(include_numerics=False):
     files = {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"}
     if include_numerics:
-        result, accepted = ROOT / "numerics/results.json", ROOT / "numerics/accepted.json"
+        accepted = ROOT / "numerics/accepted.json"
         if not accepted.is_file():
             raise ValueError("accept independently validated numerics with numerics --accept <candidate> first")
         acceptance = json.loads(accepted.read_text())
-        if acceptance["problem_hash"] != digest(ROOT / "problem.md") or acceptance["results_hash"] != digest(result) or any(
-                digest(ROOT / "numerics" / name) != expected for name, expected in acceptance["artifacts"].items()):
+        snapshot = accepted_snapshot(acceptance)
+        validate_artifact_tree(snapshot)
+        if acceptance["problem_hash"] != digest(ROOT / "problem.md") or acceptance["results_hash"] != digest(snapshot / "results.json") or input_hashes(snapshot) != acceptance["artifacts"]:
             raise ValueError("accepted numerical artifacts changed; validate and accept again")
-        files["results.json"] = result
+        files["results.json"] = snapshot / "results.json"
     return files
 
 
@@ -1017,7 +1068,7 @@ def contract_hash(pid, seen=None):
 
 def approval_hash(pid):
     return hash_json({"contract": contract_hash(pid), "proof": digest(latest_proof(pid)) if latest_proof(pid) else None,
-                      "review_policy": {"prompt": build_prompt("referee"), "schema": SCHEMAS["verdict"],
+                      "review_policy": {"input_integrity_version": 1, "prompt": build_prompt("referee"), "schema": SCHEMAS["verdict"],
                                         "models": referee_models(), "effort": CFG["effort"]["referee"],
                                         "capabilities": role_capabilities("referee"), "exclusion": EXCL},
                       "reviews": {p.name: digest(p) for p in sorted((ROOT / "props" / pid).glob(
@@ -1043,13 +1094,17 @@ def numerical_artifact_hashes():
     accepted = ROOT / "numerics/accepted.json"
     if not accepted.exists():
         return {}
-    return {name: digest(ROOT / "numerics" / name)
-            for name in json.loads(accepted.read_text()).get("artifacts", {})}
+    try:
+        snapshot = accepted_snapshot(json.loads(accepted.read_text()))
+    except ValueError:
+        # Status can still invalidate old reports while numerical acceptance needs migration.
+        return {"invalid_acceptance": digest(accepted)}
+    return input_hashes(snapshot)
 
 
 def integration_hashes():
     return {"props": digest(ROOT / "props"), "plan": digest(ROOT / "plan.json"),
-            "problem": digest(ROOT / "problem.md"), "numerics": digest(ROOT / "numerics/results.json"),
+            "problem": digest(ROOT / "problem.md"),
             "accepted": digest(ROOT / "numerics/accepted.json"),
             "numerical_artifacts": numerical_artifact_hashes()}
 
@@ -1095,9 +1150,12 @@ def prove_one(pid, override=None):
         def referee(i_model):
             i, model = i_model
             rwd = sandbox(f"referee-{pid}-r{rnd}-{i}", ref_files)
+            reviewed_inputs = input_hashes(rwd)
             out = run_agent("referee", rwd, model, CFG["effort"]["referee"],
                             schema="verdict")
-            v = out["structured_output"] | {"model": model, "contract_hash": contract, "proof_hash": digest(proof)}
+            verify_inputs(rwd, reviewed_inputs)
+            v = out["structured_output"] | {"model": model, "contract_hash": contract,
+                                            "proof_hash": reviewed_inputs["proof.md"]}
             (pdir / f"review-v{rnd}-{i}.json").write_text(json.dumps(v, indent=2))
             return v
 
