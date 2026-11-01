@@ -12,6 +12,7 @@ talk to each other; all state lives in this directory tree.
 Steps (run in order; you read the output between steps):
     ./orchestrate.py probe             contamination check -> logs/probe-*.md
     ./orchestrate.py numerics          exact computations -> numerics/
+    ./orchestrate.py literature        literature search -> literature/review.md
     ./orchestrate.py plan [--cross]    parallel planners  -> plans/<hint>.json
     ./orchestrate.py select <hint>     split chosen plan  -> props/P*/statement.md
     ./orchestrate.py prove [P3 ...]    prover/referee loop per proposition
@@ -25,14 +26,17 @@ import argparse
 import concurrent.futures as cf
 import json
 import os
+import re
 import shutil
 import signal
 import threading
 import subprocess
 import sys
 import time
+import urllib.request
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 from harness_support import strict_schema, validate, validate_verdict, digest, hash_json, input_hashes, artifact_files
 
 ROOT = Path(__file__).resolve().parent
@@ -181,7 +185,8 @@ def source_snapshot():
     # Include exact harness sources, not just HEAD (which may have local changes).
     names = ["orchestrate.py", "harness_support.py", "config.json", "problem.md", "prompts/schemas.json"]
     names += [f"prompts/{r}.md" for r in CFG["capabilities"]] + ["prompts/_rules.md"]
-    names += ["isolation/docker_runner.py", "isolation/Dockerfile"]
+    names += ["isolation/docker_runner.py", "isolation/Dockerfile",
+              "agent-env/pyproject.toml", "agent-env/uv.lock"]
     names += [str(p.relative_to(ROOT)) for p in sorted((ROOT / "hints").glob("*.md"))]
     names += [str(p.relative_to(ROOT)) for p in sorted((ROOT / "variants" / VARIANT).rglob("*.md"))]
     return {n: (ROOT / n).read_text() for n in names if (ROOT / n).is_file()}
@@ -198,6 +203,8 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
     prompt = build_prompt(role, task, rules)
     kind, name = backend(model)
     mode = CFG.get("isolation", {}).get("mode", "host")
+    if mode == "host":
+        check_agent_venv()
     if mode not in ("host", "docker"):
         raise ValueError(f"unknown isolation mode {mode!r}")
     agent_dir = Path("/workspace") if mode == "docker" else workdir
@@ -210,6 +217,12 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
         cmd = build_cmd(prompt, claude_tools(caps), name, schema)
         env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
                    ENABLE_CLAUDEAI_MCP_SERVERS="false")
+    if mode == "host":
+        venv = agent_venv()
+        if venv:
+            env |= {"VIRTUAL_ENV": str(venv),
+                    "PATH": f"{venv / 'bin'}{os.pathsep}{env.get('PATH', '')}",
+                    "ZDOTDIR": str(venv), "BASH_ENV": ""}
     invocation = list(cmd)
     if mode == "docker":
         invocation[0] = kind
@@ -226,6 +239,8 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
                 "isolation": mode, "command": invocation, "launch_command": cmd, "prompt": prompt,
                 "schema": SCHEMAS.get(schema), "inputs": input_hashes(workdir),
                 "revision": revision, "sources": source_snapshot(),
+                "agent_environment": {"venv": str(agent_venv()) if mode == "host" and agent_venv() else "/opt/agent-venv" if mode == "docker" else None,
+                                      "lock_hash": digest(ROOT / "agent-env/uv.lock")},
                 "cli_version": cli_version(CODEX if kind == "codex" else CLAUDE) if mode == "host" else "see outputs/_container-version.txt"}
     # Records live outside the agent's directory so operator metadata cannot leak in.
     record = RUNS / "_records" / workdir.name
@@ -357,6 +372,7 @@ def build_codex_cmd(prompt, caps, model, effort, workdir, schema=None):
            *CODEX_CFG.get("extra_args", []),
            "-c", f'model_reasoning_effort="{CODEX_CFG["effort"][effort]}"',
            "-c", 'approval_policy="never"',
+           "-c", "allow_login_shell=false",
            "-c", 'sandbox_workspace_write.network_access=false',
            "--disable", "apps", "--disable", "plugins", "--disable", "hooks",
            "--disable", "multi_agent", "--disable", "multi_agent_v2",
@@ -440,6 +456,19 @@ def _flat(obj):
     return "" if obj is None else str(obj)
 
 
+_ARXIV = re.compile(r"arxiv(?:\.org/(?:abs|pdf)/|\s*:\s*|\s+)(\d{2})(\d{2})\.\d{4,5}")
+
+
+def _post_cutoff(text):
+    """New-style arXiv identifiers (arXiv:YYMM.NNNNN) dated after the literature
+    cutoff. Only identifiers next to 'arxiv' count, so numbers in tables don't."""
+    cut = EXCL.get("literature_cutoff_year")
+    if not cut:
+        return []
+    return [m for m in _ARXIV.finditer(text.lower())
+            if 1 <= int(m.group(2)) <= 12 and 2000 + int(m.group(1)) > cut]
+
+
 def _blocks(m):
     msg = m.get("message")
     content = msg.get("content") if isinstance(msg, dict) else None
@@ -502,6 +531,10 @@ def scan_leaks(workdir):
                 if i >= 0:
                     hits.append({"run": workdir.name, "kind": kind, "pattern": pat,
                                  "context": low[max(0, i - 120): i + 120]})
+            if not workdir.name.startswith("probe-"):        # probes have no cutoff rule
+                for mt in _post_cutoff(text):
+                    hits.append({"run": workdir.name, "kind": kind, "pattern": "post-cutoff arxiv",
+                                 "context": text[max(0, mt.start() - 120): mt.end() + 120]})
     return hits
 
 
@@ -535,6 +568,32 @@ def check_runs_dir():
         log(f"note: runs/ is a directory from an older version; new runs go to {RUNS}")
     else:
         link.symlink_to(RUNS, target_is_directory=True)
+
+
+def agent_venv():
+    """The agents' Python environment (agent-env/), or None if disabled."""
+    v = os.environ.get("AGENT_VENV") or CFG.get("agent_venv")
+    return Path(v).expanduser().resolve() if v else None
+
+
+def check_agent_venv():
+    """Refuse to start agents without their Python environment, so that no run
+    silently has fewer packages than another; and keep it outside any git work
+    tree, since every agent sees its path."""
+    v = agent_venv()
+    if not v:
+        return
+    if not (v / "bin" / "python3").exists():
+        raise ValueError(f"agent_venv {v} does not exist; build it with\n"
+                 f"  UV_PROJECT_ENVIRONMENT={v} uv sync --project agent-env\n"
+                 "or set \"agent_venv\": null in config.json to run agents without it")
+    try:
+        p = subprocess.run(["git", "-C", str(v), "rev-parse", "--show-toplevel"],
+                           capture_output=True, text=True)
+        if p.returncode == 0:
+            raise ValueError(f"agent_venv {v} is inside the git work tree {p.stdout.strip()}; move it out")
+    except FileNotFoundError:
+        pass
 
 
 def cmd_check_leaks(_):
@@ -658,6 +717,122 @@ def cmd_numerics(args):
     log("compare independent candidates and validate their code, then numerics --accept <candidate-directory-name>")
 
 
+# Literature search: the librarian lists, the driver vets and downloads.
+
+SHADOW_LIBRARIES = ("sci-hub", "scihub", "libgen", "library.lol", "annas-archive",
+                    "z-lib", "zlibrary", "booksc")
+
+
+def _host(url):
+    return (urlparse(url).hostname or "").lower()
+
+
+def _blocked_host(host):
+    for d in (d.lower() for d in EXCL["blocked_domains"]):
+        if host == d or (d.startswith("*.") and host.endswith(d[1:])):
+            return True
+    return any(s in host for s in SHADOW_LIBRARIES)
+
+
+def vet_item(it):
+    """Why a librarian's item must not reach papers/, or None if it may. The
+    driver checks this itself instead of trusting the agent's own vetting."""
+    cut = EXCL.get("literature_cutoff_year")
+    try:
+        year = int(it.get("year"))
+    except (TypeError, ValueError):
+        return "no publication year"
+    if cut and year > cut:
+        return f"published {year}, after the {cut} cutoff"
+    text = " ".join(str(it.get(k) or "") for k in ("authors", "title", "venue", "url", "pdf_url"))
+    low = _norm(text)
+    for p in EXCL["leak_patterns"]:
+        if _norm(p) in low:
+            return f"matches excluded pattern '{p}'"
+    if _post_cutoff(text):
+        return "arXiv identifier after the cutoff"
+    for u in (it.get("url"), it.get("pdf_url")):
+        if u and _blocked_host(_host(u)):
+            return f"blocked host {_host(u)}"
+    return None
+
+
+def fetch_pdf(url, dest, limit=50 * 2**20):
+    """Download url to dest if it really is a PDF; None on success, else why not."""
+    scheme = urlparse(url).scheme
+    if scheme not in ("http", "https") and not (scheme == "file" and os.environ.get("LIT_ALLOW_FILE")):
+        return f"unsupported URL scheme {scheme!r}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (literature download)"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            if _blocked_host(_host(r.geturl())):
+                return f"redirected to blocked host {_host(r.geturl())}"
+            data = r.read(limit + 1)
+    except Exception as e:                  # network errors, HTTP errors, timeouts
+        return f"download failed: {e}"
+    if len(data) > limit:
+        return "larger than 50 MB"
+    if not data.startswith(b"%PDF-"):
+        return "not a PDF (probably a landing page or a paywall)"
+    dest.write_bytes(data)
+    return None
+
+
+def render_literature(rows, notes):
+    sections = {
+        "downloaded": "Downloaded: check each, then copy what you want into papers/ and list it in papers/INDEX.md",
+        "wishlist": "Wishlist: no open PDF; get the full text if worthwhile, then as above",
+        "rejected": "Rejected by the driver (a leak pattern can also hit an unrelated work: check the reason)",
+    }
+    lines = ["# Literature search", ""] + ([notes, ""] if notes else [])
+    for status, title in sections.items():
+        lines += [f"## {title}", ""]
+        for r in sorted((r for r in rows if r["status"] == status),
+                        key=lambda r: -(r.get("relevance") or 0)):
+            ref = r.get("url") or r.get("pdf_url") or ""
+            lines += [f"- **{r.get('authors', '?')} ({r.get('year', '?')})**, *{r.get('title', '?')}*, "
+                      f"{r.get('venue') or ''} [{r.get('kind', '?')}, relevance {r.get('relevance', '?')}]  ",
+                      f"  {r.get('why', '')}  ",
+                      f"  {ref} ({r['note']})"]
+        lines.append("")
+    return "\n".join(lines)
+
+
+def cmd_literature(_):
+    """Literature search, after numerics and before planning. A librarian agent
+    lists relevant literature up to the cutoff; the driver vets every item,
+    downloads open-access PDFs to literature/pdf/ and writes
+    literature/review.md. Nothing reaches the other agents until you copy a
+    file into papers/ and list it in papers/INDEX.md."""
+    lit = ROOT / "literature"
+    if (lit / "candidates.json").exists():
+        sys.exit("literature/candidates.json exists; move literature/ aside to search again")
+    model = role_models("librarian")
+    if backend(model)[0] == "codex":
+        log("Codex librarian uses native search without domain deny rules; review its transcript and driver-rejected candidates")
+    wd = sandbox("literature", {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"})
+    log(f"librarian in runs/{wd.name}")
+    out = run_agent("librarian", wd, model, CFG["effort"]["librarian"],
+                    schema="literature")
+    (lit / "pdf").mkdir(parents=True, exist_ok=True)
+    rows = []
+    for i, it in enumerate(out["structured_output"].get("items", [])):
+        why = vet_item(it)
+        if why:
+            status = "rejected"
+        elif it.get("pdf_url"):
+            name = f"{i:02d}-" + re.sub(r"[^A-Za-z0-9._-]+", "_", str(it.get("id") or "item"))[:60] + ".pdf"
+            why = fetch_pdf(it["pdf_url"], lit / "pdf" / name)
+            status, why = ("downloaded", f"literature/pdf/{name}") if why is None else ("wishlist", why)
+        else:
+            status, why = "wishlist", f"no open-access PDF ({it.get('access', 'unknown')})"
+        rows.append(it | {"status": status, "note": why})
+    (lit / "candidates.json").write_text(json.dumps(rows, indent=2))
+    (lit / "review.md").write_text(render_literature(rows, out["structured_output"].get("notes", "")))
+    counts = {s: sum(r["status"] == s for r in rows) for s in ("downloaded", "wishlist", "rejected")}
+    log(f"{len(rows)} items {counts}; read literature/review.md")
+
+
 def common_inputs(include_numerics=False):
     files = {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"}
     if include_numerics:
@@ -674,6 +849,8 @@ def common_inputs(include_numerics=False):
 
 def cmd_plan(args):
     """Cross models and hints by default; reuse only plans with matching provenance."""
+    if not (ROOT / "literature" / "review.md").exists():
+        log("note: no literature search yet (./orchestrate.py literature); the planners get only what is in papers/")
     hints = CFG["variants"][VARIANT]["hints"]
     models = role_models("planner")
     models = list(dict.fromkeys(models if isinstance(models, list) else [models]))
@@ -1027,12 +1204,13 @@ def cmd_archive(args):
     """Copy every sandbox in runs_dir and the run's outputs into the repo under
     archive/<label>/, for review and committing. Run it once no agent is running.
     Host folders do not prevent agents from reading an archive; Docker does.
-    PDFs from papers/ are left out: they are not ours to redistribute."""
+    PDFs from papers/, literature/ and working folders are omitted."""
     label = args.label or f"{datetime.now():%Y%m%d-%H%M}-{VARIANT}"
     dest = ROOT / "archive" / label
     if dest.exists():
         sys.exit(f"archive/{label} exists; pass another label")
-    skip = shutil.ignore_patterns("papers")
+    def skip(directory, names):
+        return [name for name in names if name == "papers" or name.lower().endswith(".pdf")]
     n = 0
     for d in sorted(RUNS.iterdir()):
         if d.is_dir():
@@ -1040,7 +1218,7 @@ def cmd_archive(args):
             n += 1
     (dest / "runs").mkdir(parents=True, exist_ok=True)
     shutil.copy(RUNS / "_owner.json", dest / "runs" / "_owner.json")
-    for name in ("config.json", "plan.json", "numerics", "plans", "props", "report", "logs"):
+    for name in ("config.json", "plan.json", "numerics", "literature", "plans", "props", "report", "logs"):
         src = ROOT / name
         if src.is_dir():
             shutil.copytree(src, dest / name, ignore=skip)
@@ -1077,6 +1255,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe").set_defaults(fn=cmd_probe)
     sub.add_parser("check-leaks").set_defaults(fn=cmd_check_leaks)
+    sub.add_parser("literature").set_defaults(fn=cmd_literature)
     s = sub.add_parser("numerics"); s.add_argument("--accept", metavar="CANDIDATE"); s.set_defaults(fn=cmd_numerics)
     s = sub.add_parser("plan"); s.add_argument("--cross", action="store_true"); s.add_argument("--single", action="store_true"); s.add_argument("--refresh", action="store_true"); s.set_defaults(fn=cmd_plan)
     s = sub.add_parser("select"); s.add_argument("hint"); s.set_defaults(fn=cmd_select)
@@ -1089,6 +1268,9 @@ def main():
     try:
         for d in ("logs", "plans", "papers"):
             (ROOT / d).mkdir(exist_ok=True)
+        if args.cmd in ("probe", "literature", "plan", "prove", "pollinate", "integrate") or args.cmd == "numerics" and not args.accept:
+            if CFG.get("isolation", {}).get("mode", "host") == "host":
+                check_agent_venv()
         check_runs_dir()
         args.fn(args)
     except (OSError, RuntimeError, ValueError) as e:

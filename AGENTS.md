@@ -41,13 +41,19 @@ the thesis:
   the thesis's range or constant, the factor-2 error in it, or the baselines'
   results. Markus knows these; if a change to an agent-visible file seems
   needed, propose it and let him decide.
+- Use only literature from 2010 or earlier, except papers explicitly supplied
+  in `papers/`. This also covers remembered results. Do not add anything to
+  `papers/` beyond Markus's choices from `literature/review.md` and the initial
+  approved corpus. Every agent reads `papers/INDEX.md`; it contains bibliographic
+  entries only.
 - `archive/` holds earlier runs. Don't copy anything from there into a new
   run's agent-visible files.
 
 ## Current state
 
 Read `RUN_STATE.md` only as historical context. The current configuration and
-`./orchestrate.py status` are authoritative. A worktree has separate state;
+`./orchestrate.py status` are authoritative. The literature cutoff introduced
+in MR !13 requires restarting the pre-cutoff experiment from scratch. A worktree has separate state;
 never copy an earlier run's outputs into a fresh experiment unintentionally.
 
 ## Procedure
@@ -55,7 +61,12 @@ never copy an earlier run's outputs into a fresh experiment unintentionally.
 One step at a time. After each step, run its checks and report to Markus
 before starting the next.
 
-1. Run `probe`, then `numerics` for independent numerical candidates. Markus
+1. Run `probe`, `numerics` and the optional `literature` search. These are
+   independent, but settle the approved papers before planning. Report probe
+   answers; numerical constants and uncertainties; and the downloaded, wishlist
+   and rejected literature lists with reasons. Markus picks additions to the
+   corpus. Verify title pages and dates, copy only approved pre-2011 PDFs to
+   `papers/`, and add their bibliographic entries to `papers/INDEX.md`. Markus
    validates and selects a candidate with `numerics --accept <candidate>`.
    `plan` crosses every configured planner with every hint by default.
    - Check: expected `plans/*.md`; `check-leaks`; in one Claude planner's
@@ -102,6 +113,15 @@ the post.
   stop. Hits are printed in normalised form (lower case, no hyphens or
   markup). `shepherd` also matches unrelated authors called Shepherd; check
   the context.
+- **Literature:** `post-cutoff arxiv` exposures can be expected in search results.
+  Report uses/citations by planners and provers, and verify referee enforcement.
+  A librarian may encounter later sources, but the driver must reject those
+  items. Downloads never become agent inputs without Markus's decision.
+- **Python:** build `agent-env/` into external `agent_venv` with `uv sync --locked`.
+  Both backends must receive its PATH, VIRTUAL_ENV, ZDOTDIR and empty BASH_ENV;
+  Codex must have `allow_login_shell=false`. Docker builds the same lockfile
+  inside the image instead of mounting the host environment. A missing host
+  environment must fail before agents start. See README for setup and opt-out.
 - **Codex agents:** native `web_search` is available only to research roles.
   Apps, plugins, hooks and internal subagents are disabled. Any MCP event is
   unexpected and makes an invocation fail. A probe using tools also fails.

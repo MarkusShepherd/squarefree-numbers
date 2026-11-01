@@ -56,7 +56,8 @@
     "pollinator": [
       "claude-opus-5-5",
       "codex:gpt-6.1-sol"
-    ]
+    ],
+    "librarian": "claude-opus-5-5"
   },
   "codex": {
     "effort": {
@@ -79,7 +80,8 @@
     "prover": "high",
     "referee": "high",
     "integrator": "high",
-    "pollinator": "medium"
+    "pollinator": "medium",
+    "librarian": "high"
   },
   "exclusion": {
     "blocked_domains": [
@@ -108,7 +110,8 @@
       "sparse variance for k-free",
       "monatsh. math. 177",
       "distribution of squarefree numbers in arithmetic progressions"
-    ]
+    ],
+    "literature_cutoff_year": 2010
   },
   "max_rounds": 4,
   "parallel": 2,
@@ -156,11 +159,18 @@
       "write": true,
       "compute": true,
       "research": false
+    },
+    "librarian": {
+      "read": true,
+      "write": false,
+      "compute": false,
+      "research": true
     }
   },
   "planning_cross": true,
   "isolation": {
     "mode": "host",
     "image": "sqf-agents:local"
-  }
+  },
+  "agent_venv": "~/sqf-runs/agent-venv"
 }

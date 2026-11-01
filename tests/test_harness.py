@@ -22,15 +22,21 @@ class HarnessTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix='sqf-test-')
         self.root = Path(self.temp.name) / 'repo'
         self.root.mkdir()
-        for name in ('orchestrate.py', 'harness_support.py', 'config.json', 'problem.md', 'prompts', 'hints', 'tests', 'isolation'):
+        for name in ('orchestrate.py', 'harness_support.py', 'config.json', 'problem.md', 'prompts', 'hints', 'tests', 'isolation', 'agent-env'):
             src, target = SOURCE / name, self.root / name
             if src.is_dir():
                 shutil.copytree(src, target, ignore=shutil.ignore_patterns('__pycache__'))
             else:
                 shutil.copy2(src, target)
-        self.env = dict(os.environ, RUNS_DIR=str(Path(self.temp.name) / 'runs'),
+        venv = (Path(self.temp.name) / 'agent-venv').resolve()
+        (venv / 'bin').mkdir(parents=True)
+        (venv / 'bin/python3').symlink_to(sys.executable)
+        self.env = dict(os.environ, AGENT_VENV=str(venv), LIT_ALLOW_FILE='1', RUNS_DIR=str(Path(self.temp.name) / 'runs'),
                         CLAUDE_BIN=str(self.root / 'tests/fake_claude.py'),
                         CODEX_BIN=str(self.root / 'tests/fake_codex.py'), BACKENDS='claude,codex')
+        environment = patch.dict(os.environ, {'AGENT_VENV': str(venv)})
+        environment.start()
+        self.addCleanup(environment.stop)
 
     def tearDown(self):
         self.temp.cleanup()
@@ -78,6 +84,13 @@ class HarnessTest(unittest.TestCase):
                 if backend == 'claude':
                     self.env['CODEX_BIN'] = '/nonexistent/codex'
                 self.run_step('probe')
+                self.run_step('literature')
+                candidates = json.loads((self.root / 'literature/candidates.json').read_text())
+                self.assertEqual([r['status'] for r in candidates], ['downloaded', 'wishlist', 'rejected', 'rejected'])
+                self.assertIn('after the 2010 cutoff', candidates[2]['note'])
+                self.assertIn('blocked host gitlab.com', candidates[3]['note'])
+                self.assertEqual(len(list((self.root / 'literature/pdf').glob('*.pdf'))), 1)
+                self.assertFalse(any((self.root / 'papers').glob('*.pdf')), 'download must not auto-promote')
                 self.ready()
                 self.run_step('plan', '--single')
                 self.assertEqual(len(list((self.root / 'plans').glob('*.json'))), 4)
@@ -98,8 +111,12 @@ class HarnessTest(unittest.TestCase):
                 self.assertEqual(len(summary['reviews']), 1 if backend == 'codex' else 2)
                 leaks = self.run_step('check-leaks').stdout
                 self.assertIn('exposure', leaks)
+                self.assertIn('post-cutoff arxiv', leaks)
                 self.assertIn('dehnert' if backend != 'claude' else 'riemannhypothesis', leaks)
+                (self.root / 'literature/pdf/UPPER.PDF').write_bytes(b'%PDF-1.4\nfixture')
                 self.run_step('archive', 'test')
+                self.assertTrue((self.root / 'archive/test/literature/review.md').exists())
+                self.assertFalse([p for p in (self.root / 'archive/test').rglob('*') if p.suffix.lower() == '.pdf'])
                 records = self.root / 'archive/test/runs/_records'
                 invocation = json.loads(next(records.glob('*/invocation.json')).read_text())
                 self.assertIn('sources', invocation)
@@ -108,7 +125,7 @@ class HarnessTest(unittest.TestCase):
                 rows = [json.loads(s) for s in (self.root / 'logs/costs.jsonl').read_text().splitlines()]
                 if backend != 'claude,codex':
                     self.assertTrue(all(r['backend'] == backend for r in rows))
-                for name in ('logs', 'plans', 'numerics', 'props', 'report', 'archive'):
+                for name in ('logs', 'plans', 'numerics', 'literature', 'props', 'report', 'archive'):
                     shutil.rmtree(self.root / name)
                 (self.root / 'plan.json').unlink()
                 shutil.rmtree(Path(self.env['RUNS_DIR']))
@@ -159,6 +176,7 @@ class HarnessTest(unittest.TestCase):
         for role in ('probe', 'referee', 'planner'):
             cmd = o.build_codex_cmd('prompt', o.role_capabilities(role), 'gpt-6.1-sol', 'high', Path('/tmp'))
             joined = ' '.join(cmd)
+            self.assertIn('allow_login_shell=false', joined)
             self.assertIn('--disable apps', joined)
             self.assertIn('--disable plugins', joined)
             self.assertIn('--disable hooks', joined)
@@ -337,6 +355,90 @@ class HarnessTest(unittest.TestCase):
         problem.write_text(problem.read_text() + '\nChanged definition\n')
         self.run_step('plan', success=False)
         self.run_step('numerics', '--accept', candidate.name, success=False)
+
+    def test_agent_environment_preflight_and_opt_out(self):
+        self.env['AGENT_VENV'] += '/missing'
+        result = self.run_step('probe', success=False)
+        self.assertIn('does not exist', result.stderr)
+        self.assertFalse(Path(self.env['RUNS_DIR']).exists(), 'fail before creating/starting runs')
+        self.run_step('status')
+        self.env.pop('AGENT_VENV')
+        config = json.loads((self.root / 'config.json').read_text())
+        config['agent_venv'] = None
+        (self.root / 'config.json').write_text(json.dumps(config))
+        self.run_step('probe')
+
+    def test_environment_inside_git_worktree_is_rejected(self):
+        # A real temporary Git tree verifies the check, independent of this repo's parent.
+        venv = self.root / 'agent-venv'
+        (venv / 'bin').mkdir(parents=True)
+        (venv / 'bin/python3').symlink_to(sys.executable)
+        subprocess.run(['git', 'init', '--quiet', str(self.root)], check=True)
+        self.env['AGENT_VENV'] = str(venv)
+        result = self.run_step('probe', success=False)
+        self.assertIn('inside the git work tree', result.stderr)
+
+    def test_cutoff_scan_and_literature_vetting(self):
+        o = self.load_driver()
+        for identifier in ('2006.04060', '1912.04683v2', '1101.0001'):
+            self.assertEqual(len(o._post_cutoff('arxiv.org/pdf/' + identifier)), 1)
+        for text in ('arXiv:1012.5674', 'arXiv:0905.1234', 'arXiv:math/0501123',
+                     'arXiv:1715.76478', '2026.1234 in a table', 'Journal 2015'):
+            self.assertFalse(o._post_cutoff(text), text)
+        event = json.dumps({'type': 'assistant', 'message': {'content': [
+            {'type': 'text', 'text': 'arXiv:1912.04683 and arXiv:1012.5674'}]}})
+        probe = o.sandbox('probe-memory', {})
+        (probe / '_stream.jsonl').write_text(event)
+        self.assertFalse(o.scan_leaks(probe))
+        planner = o.sandbox('plan-check', {})
+        (planner / '_stream.jsonl').write_text(event)
+        self.assertEqual(sum(h['pattern'] == 'post-cutoff arxiv' for h in o.scan_leaks(planner)), 1)
+        item = {'year': 2005, 'authors': 'A. Author', 'title': 'Useful estimate',
+                'url': 'https://example.org/paper', 'pdf_url': ''}
+        self.assertIsNone(o.vet_item(item))
+        for changes, reason in (
+                ({'year': 2015}, 'cutoff'),
+                ({'authors': 'F. Dehnert'}, 'excluded pattern'),
+                ({'url': 'https://sub.riemannhypothesis.blog/paper'}, 'excluded pattern'),
+                ({'url': 'https://gitlab.com/notes'}, 'blocked host'),
+                ({'pdf_url': 'https://sci-hub.example/paper'}, 'blocked host'),
+                ({'url': 'https://arxiv.org/abs/1912.04683'}, 'arXiv'),
+                ({'year': None}, 'no publication year')):
+            self.assertIn(reason, o.vet_item(item | changes))
+        for relevance in (0, 4):
+            from fixture_schema import fill
+            value = fill({'items': [item | {'id': 'test', 'kind': 'article',
+                                          'access': 'unknown', 'why': 'test', 'relevance': relevance}]},
+                         o.SCHEMAS['literature'])
+            with self.assertRaises(ValueError):
+                validate(value, o.SCHEMAS['literature'])
+        pdf = Path(self.temp.name) / 'test.pdf'
+        pdf.write_bytes(b'%PDF-1.4\nfixture')
+        dest = self.root / 'download.pdf'
+        with patch.dict(os.environ, {'LIT_ALLOW_FILE': '1'}):
+            self.assertIsNone(o.fetch_pdf(pdf.as_uri(), dest))
+        self.assertEqual(dest.read_bytes(), pdf.read_bytes())
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertIn('unsupported URL scheme', o.fetch_pdf(pdf.as_uri(), dest))
+        html = Path(self.temp.name) / 'paywall.html'
+        html.write_text('<html>paywall</html>')
+        with patch.dict(os.environ, {'LIT_ALLOW_FILE': '1'}):
+            self.assertIn('not a PDF', o.fetch_pdf(html.as_uri(), dest))
+
+    def test_docker_has_locked_environment_without_host_venv_mount(self):
+        dockerfile = (self.root / 'isolation/Dockerfile').read_text()
+        self.assertIn('uv sync --locked --project /opt/agent-env --python 3.12', dockerfile)
+        self.assertIn('VIRTUAL_ENV=/opt/agent-venv', dockerfile)
+        o = self.load_driver()
+        o.CFG['isolation']['mode'] = 'docker'
+        # Docker mode must not fail because a macOS host environment is absent.
+        with patch.object(o, 'check_agent_venv', side_effect=AssertionError('host environment used')):
+            # Stop at process launch, before running Docker or touching credentials.
+            class Captured(Exception):
+                pass
+            with patch.object(o.subprocess, 'Popen', side_effect=Captured):
+                with self.assertRaises(Captured):
+                    o.run_agent('probe', o.sandbox('docker-env', {}), 'codex:gpt-6.1-sol', 'high')
 
 
 if __name__ == '__main__':

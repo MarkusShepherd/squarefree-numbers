@@ -3,6 +3,16 @@
 This snapshot predates the provider-parity changes. It is not a source of current
 configuration or approval status. Check config.json, git log, logs/ and status.
 
+## Cutoff restart (merged MRs !13–!15)
+
+The snapshot below describes the earlier, pre-cutoff experiment, not an eligible
+run under the new rules. Archive it as `pre-cutoff` before clearing its state.
+The new run uses only literature from 2010 or earlier plus the approved corpus
+(Vaughan 2005, Brüdern–Wooley 2011, BGP+ 1998). The 2019 background paper is
+excluded. Rebuild the shared agent environment, then restart probe and numerics;
+review optional literature search results before planning. Do not import the
+old run's numerical or mathematical outputs into the new experiment.
+
 ## Where the run stands (31 Oct 2026)
 
 - Configured as in `config.json`: variant `neutral`; Opus

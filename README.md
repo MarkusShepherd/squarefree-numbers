@@ -27,6 +27,8 @@ config.json          models, capabilities, effort, isolation and limits
 orchestrate.py       orchestration and state transitions
 harness_support.py   JSON validation and hashing helpers
 isolation/           optional Docker image and per-invocation runner
+agent-env/           pinned scientific Python project and uv.lock
+literature/          vetted candidates, review lists and unpromoted PDFs
 numerics/            independent candidates and operator-selected evidence
 plans/               plans and cache provenance
 plan.json            selected plan
@@ -53,15 +55,33 @@ for Codex-only runs. Subscription usage and model availability depend on your
 account. Claude's USD budget flag does not meter Codex; Codex tokens are logged
 separately. Effort labels across providers are not equal compute budgets.
 
-Put the approved papers into `papers/`:
+For host-mode agent runs, build the shared scientific Python environment once
+with Python 3.12+ (the driver itself needs only Python 3.10+):
 
-- Brüdern–Wooley 2011: <https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf>
-- BGP+ 1998: <https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf>
-- arXiv:1912.04683: <https://arxiv.org/pdf/1912.04683>
+```sh
+UV_PROJECT_ENVIRONMENT=~/sqf-runs/agent-venv uv sync --locked --project agent-env
+```
 
-Vaughan 2005 is paywalled; if supplied, update the availability paragraph in
-`problem.md`. Supply text extractions alongside PDFs when useful; the Docker
-image includes `pdftotext` so both providers can inspect the same corpus.
+`agent_venv` in config.json specifies its location; `AGENT_VENV` overrides it.
+Agent-starting steps refuse a missing environment or one inside a Git worktree.
+Set `agent_venv` to null (and unset `AGENT_VENV`) to opt out explicitly.
+Every host agent gets the same `VIRTUAL_ENV`, PATH prefix, `ZDOTDIR` and empty
+`BASH_ENV`; Codex also gets `allow_login_shell=false`. This prevents personal
+zsh/bash startup files from silently selecting a different Python. The locked
+packages are numpy 2.5.4, scipy 1.18.1, mpmath 1.3.0 and sympy 1.14.0.
+Docker builds its own Linux environment from this same project and lockfile;
+it never mounts the host virtualenv. Rebuild the image after changing the lock.
+
+The initial approved corpus in `papers/` is Vaughan 2005, Brüdern–Wooley 2011
+and BGP+ 1998. The latter two PDFs are at
+<https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf> and
+<https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf>; Vaughan is supplied
+locally. Read `papers/INDEX.md` for the actual approved corpus. Literature is
+limited to **2010 or earlier, plus the explicitly supplied papers in papers/**.
+The former 2019 arXiv background paper is excluded. Post-cutoff and pre-cutoff
+experiments are separate: archive the earlier run and restart all agent stages.
+Supply text extractions alongside PDFs when useful; the Docker image includes
+`pdftotext` so both providers can inspect the same corpus.
 
 Before spending subscription usage, run:
 
@@ -85,35 +105,47 @@ Read each step's outputs before proceeding.
    candidates under `numerics/candidates/<model>/`. Compare implementations,
    brute-force small cases and rerun the code. Counts and fits have different
    reliability; investigate disagreement rather than deciding by model vote.
-3. `./orchestrate.py numerics --accept <candidate>`: explicitly promote a reviewed
+3. `./orchestrate.py literature`: an optional search for further pre-2011 works.
+   It is independent of probe and numerics, but belongs before planning.
+   The librarian returns bibliography; the driver checks years, exclusion
+   patterns, arXiv dates, blocked hosts and shadow-library hosts itself, then
+   downloads only apparent open PDFs into `literature/pdf/` (50 MB cap).
+   Read `literature/review.md`: downloaded, wishlist and rejected with reasons.
+   Nothing is promoted automatically. Markus picks works; verify each PDF's
+   title page, then copy only approved pre-2011 works into `papers/` and add
+   bibliographic entries to `papers/INDEX.md`. Finish this before any planner
+   runs. The default librarian is Claude, with fetch deny rules; Codex-only
+   uses the fallback and native search, whose domain restrictions are weaker.
+   The identical driver vetting and human gate still apply in both modes.
+4. `./orchestrate.py numerics --accept <candidate>`: explicitly promote a reviewed
    candidate, e.g. `codex-gpt-6.1-sol`. Record why in `logs/interventions.md`.
    Acceptance is a human choice, not automated certification. Supporting source
    files are retained. Existing accepted evidence is unchanged until acceptance.
-4. `./orchestrate.py plan`: cross every unique configured planner with every hint.
+5. `./orchestrate.py plan`: cross every unique configured planner with every hint.
    Base names retain the alternating assignment (`vaughan`, etc.); the additional
    plans use `<hint>@<model>`. `plan --single` runs only the base assignment;
    `plan --cross` explicitly requests the full crossing. Existing matching plans
    are reused. Changed inputs require `plan --refresh` or a fresh experiment.
-5. `./orchestrate.py select <plan-name>`: Markus selects a plan. Existing
+6. `./orchestrate.py select <plan-name>`: Markus selects a plan. Existing
    propositions must be moved aside before selecting another.
-6. `./orchestrate.py prove`: each proposition gets up to `max_rounds` **additional**
+7. `./orchestrate.py prove`: each proposition gets up to `max_rounds` **additional**
    rounds per invocation. Prover models rotate across rounds, so both providers
    can try the hard work. Two independent referee sessions inspect each attempt.
    A defect report can never become an approved proof.
-7. For a stuck proposition, read its reviews and objections. Markus may request
+8. For a stuck proposition, read its reviews and objections. Markus may request
    `pollinate P3`, then `prove P3`; change a statement; or replan. Use
    `prove P3 --model codex:gpt-6.1-sol` (or a Claude model) for a targeted attempt.
    `pollinate` also accepts `--model`.
-8. `./orchestrate.py integrate`: every unique configured integrator independently
+9. `./orchestrate.py integrate`: every unique configured integrator independently
    checks composition and compares constants with accepted numerical evidence.
    Read every `integration-<model>.json` and `assembly-<model>.md`. The summary's
    `composes` is true only if all integrators agree to composition; differing
    theorem statements still need human comparison. `integrate --model <model>`
    requests a single model explicitly.
-9. `./orchestrate.py check-leaks`: inspect exposure, attempt, denied and mention
+10. `./orchestrate.py check-leaks`: inspect exposure, attempt, denied and mention
    hits. Exclusion scanning also runs after every invocation. Stop to review an
    exposure before feeding affected outputs into another stage.
-10. `./orchestrate.py archive <label>`: after all agents finish, preserve working
+11. `./orchestrate.py archive <label>`: after all agents finish, preserve working
     directories, provenance, outputs and logs. Review and commit the archive.
 
 `./orchestrate.py status` shows approvals and usage. Numerical target results
@@ -144,6 +176,9 @@ The operator's provider does not constrain the agent backends.
 **Switching backends does not make existing outputs single-provider outputs.**
 Archive the current experiment, then start with empty `logs/`, `plans/`,
 `plan.json`, `props/`, `numerics/`, `report/` and a fresh external RUNS_DIR.
+`literature/` is retained across restarts as a manually reviewed search record;
+move it aside explicitly when you want to search again. It never becomes an
+agent input automatically. Reusing it does not substitute for approving papers.
 A separate Git worktree is convenient for this. Always give worktrees distinct
 RUNS_DIR values: the driver refuses a directory already owned by another
 checkout or containing unclaimed old runs. A legacy run must be archived with
@@ -165,7 +200,8 @@ local computation for roles that need files. A read-only command sandbox cannot
 write scratch code. Native provider policies and filesystem isolation remain
 different mechanisms; inspect live transcripts to verify actual capabilities.
 
-Both providers use strict JSON schemas for plans, verdicts and integration.
+Both providers use strict JSON schemas for plans, literature lists, verdicts
+and integration. Integer ranges in bibliography fields are validated as well.
 Optional fields in the source schemas become required in the emitted schemas;
 use empty strings/lists or false when those fields do not apply.
 The host validates nested fields, types, enums, dependency IDs and cycles, and
@@ -183,7 +219,13 @@ The excluded thesis, its author's sites, and Dehnert (2015) must not be used.
 `prompts/_rules.md` spells out the policy. The leak scanner checks normalized
 transcript text, tool calls, results and exposed reasoning summaries. It cannot
 inspect hidden reasoning, undo pretraining, guarantee complete tool telemetry,
-or prove a source was not used.
+or prove a source was not used. The 2010 cutoff covers remembered results too;
+referees must reject proofs using later work outside the supplied corpus.
+`post-cutoff arxiv` hits flag modern identifiers in text next to "arxiv"; probes
+are exempt. Journal-only citations without an arXiv identifier need referee
+review. Librarian search results may expose later work, but those items must
+be rejected before anything enters the approved corpus. Thesis/blog exposures
+still require review.
 
 **Host mode** (default) is convenient, but working directories are not security
 boundaries. Agents can potentially read outside their folders, including other
@@ -198,7 +240,7 @@ folder, a clean home and the minimum provider login. It never mounts the
 repository, siblings, archives, the Docker socket or your full home/config.
 
 ```sh
-docker build -t sqf-agents:local -f isolation/Dockerfile isolation
+docker build -t sqf-agents:local -f isolation/Dockerfile .
 # For Claude container sessions only:
 claude setup-token
 # Set CLAUDE_CODE_OAUTH_TOKEN to that token in your environment (do not commit it).
@@ -206,7 +248,9 @@ claude setup-token
 ```
 
 Set `isolation.mode` to `docker` in config.json. The image pins CLI versions
-with build arguments and includes Python, GCC, Poppler, git and ripgrep.
+with build arguments and includes Python 3.12, the locked scientific packages,
+GCC, Poppler, git and ripgrep. `.dockerignore` excludes experiment data from the
+build context; only the Dockerfile and agent environment enter the build.
 Codex's inner command sandbox uses `danger-full-access` **only in Docker** to
 avoid requiring nested Linux namespace privileges; the container supplies the
 filesystem boundary. Read-only roles also receive a read-only work-folder mount and a separate
@@ -239,8 +283,8 @@ mount; per-folder transcript copies remain available for convenience. Symlink
 inputs and agent outputs are rejected to prevent host-side promotion from
 following links outside the mounted directory. The agent cannot read these
 records in Docker mode. Container versions
-are captured in each record's `outputs/_container-version.txt`. Archives retain records but omit
-paper PDFs; preserve the supplied corpus separately using the recorded hashes.
+are captured in each record's `outputs/_container-version.txt`. Archives retain records and the literature review but omit all
+PDFs, including downloaded literature; preserve the supplied corpus separately using the recorded hashes.
 
 `parallel` limits **all live agent invocations**, including nested referees.
 Timeouts terminate process groups; Docker cleanup also removes the container.

@@ -22,7 +22,7 @@ def strict_schema(schema):
 
 def validate(value, schema, path='$'):
     """Validate the JSON Schema subset used by this repository; fail closed."""
-    supported = {'type', 'properties', 'required', 'additionalProperties', 'items', 'enum', 'pattern', 'minItems'}
+    supported = {'type', 'properties', 'required', 'additionalProperties', 'items', 'enum', 'pattern', 'minItems', 'minimum', 'maximum'}
     if set(schema) - supported:
         raise ValueError(f'{path}: unsupported schema keywords {set(schema) - supported}')
     kind = schema.get('type')
@@ -32,6 +32,10 @@ def validate(value, schema, path='$'):
         raise ValueError(f'{path}: expected {kind}')
     if 'enum' in schema and value not in schema['enum']:
         raise ValueError(f'{path}: invalid enum value {value!r}')
+    if 'minimum' in schema and value < schema['minimum']:
+        raise ValueError(f'{path}: below minimum')
+    if 'maximum' in schema and value > schema['maximum']:
+        raise ValueError(f'{path}: above maximum')
     if 'pattern' in schema and not re.search(schema['pattern'], value):
         raise ValueError(f'{path}: does not match {schema["pattern"]}')
     if kind == 'object':
