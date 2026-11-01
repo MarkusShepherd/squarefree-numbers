@@ -73,7 +73,7 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
    instead of `claude` and `codex`, checks the expected outcome, cleans up
    after itself, and ends with `dry run OK`. Rerun it after changing the driver.
 4. **Papers** into `papers/` (gitignored; any file names): these three, what
-   you pick in step 6, and nothing else:
+   you pick after the literature search (step 3 of a run), and nothing else:
    - Vaughan 2005, *A variance for k-free numbers in arithmetic progressions*,
      Proc. LMS 91, 573–597 (paywalled)
    - Brüdern–Wooley 2011: <https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf>
@@ -86,16 +86,6 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
    `thesis-informed`, see `variants/README.md`), `backends`, models and effort.
    For a cheap first real run, set the Claude models to `sonnet` and every
    effort to `medium`.
-6. **Literature search** (optional; any time before `plan`):
-   `./orchestrate.py literature`. A librarian agent lists relevant works from
-   2010 or earlier. The driver vets each, downloads the open PDFs to
-   `literature/pdf/` and writes `literature/review.md` in three lists:
-   downloaded; wishlist (no open PDF: get the full text through Cambridge
-   Core or a library if it's worth it); rejected, with the reason. For each
-   work the agents should have, check that the PDF is what its entry says and
-   from 2010 or earlier, copy it into `papers/` and add a line to
-   `papers/INDEX.md` (authors, year, title, venue). Every agent sees all of
-   `papers/`, `INDEX.md` included. To search again, move `literature/` aside.
 
 ### Backends
 
@@ -120,22 +110,33 @@ Read the output of each step before starting the next.
 2. `./orchestrate.py numerics`: exact computation of V_f. Read
    `numerics/README.md` and sanity-check it yourself before going on; every
    later step trusts it.
-3. `./orchestrate.py plan`: four planners in parallel. Read `plans/*.md`.
+3. `./orchestrate.py literature`: a librarian agent lists relevant works
+   from 2010 or earlier. The driver vets each, downloads the open PDFs to
+   `literature/pdf/` and writes `literature/review.md` in three lists:
+   downloaded; wishlist (no open PDF: get the full text through Cambridge
+   Core or a library if it's worth it); rejected, with the reason. For each
+   work the agents should have, check that the PDF is what its entry says and
+   from 2010 or earlier, copy it into `papers/` and add a line to
+   `papers/INDEX.md` (authors, year, title, venue). Every agent from step 4
+   on sees all of `papers/`, `INDEX.md` included, so settle it before
+   planning. Optional: `plan` only notes when it hasn't run. Steps 1–3 are
+   independent of each other.
+4. `./orchestrate.py plan`: four planners in parallel. Read `plans/*.md`.
    Existing plans are kept, so a rerun only retries the failures. `plan --cross`
    adds every other model on every hint, as `plans/<hint>@<model>.*`, so that a
    strategy isn't lost to the model it happened to be paired with; select one
    with `select <hint>@<model>`.
-4. `./orchestrate.py select vaughan` (or whichever plan you prefer).
-5. `./orchestrate.py prove`: prover/referee loop for every proposition, up to
+5. `./orchestrate.py select vaughan` (or whichever plan you prefer).
+6. `./orchestrate.py prove`: prover/referee loop for every proposition, up to
    `max_rounds` rounds each. `./orchestrate.py status` at any time.
-6. For a stuck proposition: read `props/P*/objections.md`, then
+7. For a stuck proposition: read `props/P*/objections.md`, then
    `./orchestrate.py pollinate P3` and `./orchestrate.py prove P3`. Or edit
    its statement by hand; that is often the right call.
-7. `./orchestrate.py integrate`: checks the passed pieces compose and compares
+8. `./orchestrate.py integrate`: checks the passed pieces compose and compares
    the constant with the numerics.
-8. `./orchestrate.py check-leaks`: scan every transcript (it also runs after
+9. `./orchestrate.py check-leaks`: scan every transcript (it also runs after
    each agent and warns).
-9. `./orchestrate.py archive [label]`: copy every sandbox and the run's
+10. `./orchestrate.py archive [label]`: copy every sandbox and the run's
    outputs into `archive/<label>/` (default label: date, time and variant),
    without the PDFs. Review it and commit it; that is the run's permanent
    record. Agents never run inside the repo, so later runs can't read it.
@@ -146,13 +147,14 @@ Read the output of each step before starting the next.
 
 A run's state is `plans/ plan.json props/ numerics/ report/ logs/` in the repo
 plus the sandboxes in `runs_dir`. To start a new run, archive the old one (step
-9), then:
+10), then:
 
 ```
 rm -rf plans plan.json props numerics report logs ~/sqf-runs/squarefree-numbers
 ```
 
-To keep the numerics and only replan, keep `numerics/`.
+To keep the numerics and only replan, keep `numerics/`. `literature/` is not
+part of a run's state and stays; move it aside to search again.
 
 ## Independence from the thesis
 

@@ -607,6 +607,9 @@ def cmd_plan(args):
     """One planner per hint, models alternating; a plan that already exists is
     kept, so a rerun only retries the failures. --cross adds every other
     model on every hint, as plans/<hint>@<model>.json."""
+    if not (ROOT / "literature" / "review.md").exists():
+        log("note: no literature search yet (./orchestrate.py literature); "
+            "the planners get only what is in papers/")
     hints = CFG["variants"][VARIANT]["hints"]
     models = role_models("planner")
     models = models if isinstance(models, list) else [models]
