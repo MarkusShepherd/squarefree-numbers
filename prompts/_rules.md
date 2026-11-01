@@ -16,3 +16,9 @@
    literature. Do not read or list files outside your current directory.
 3. Cite every external source you use: authors, title, year, and URL or arXiv
    id.
+4. **Literature up to 2010.** Use only literature published, or posted as a
+   preprint, in 2010 or earlier, plus the papers in `papers/` (Brüdern–Wooley
+   2011 among them). This applies to searching, reading and citing, and to
+   results you remember: do not use a result first published in 2011 or
+   later, even if you know it. If a source turns out to be from 2011 or later,
+   stop reading it, use nothing from it, and say so in your output.

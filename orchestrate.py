@@ -26,6 +26,7 @@ import argparse
 import concurrent.futures as cf
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -310,6 +311,19 @@ def _flat(obj):
     return "" if obj is None else str(obj)
 
 
+_ARXIV = re.compile(r"arxiv(?:\.org/(?:abs|pdf)/|\s*:\s*|\s+)(\d{2})(\d{2})\.\d{4,5}")
+
+
+def _post_cutoff(text):
+    """New-style arXiv identifiers (arXiv:YYMM.NNNNN) dated after the literature
+    cutoff. Only identifiers next to 'arxiv' count, so numbers in tables don't."""
+    cut = EXCL.get("literature_cutoff_year")
+    if not cut:
+        return []
+    return [m for m in _ARXIV.finditer(text.lower())
+            if 1 <= int(m.group(2)) <= 12 and 2000 + int(m.group(1)) > cut]
+
+
 def _blocks(m):
     msg = m.get("message")
     content = msg.get("content") if isinstance(msg, dict) else None
@@ -370,6 +384,10 @@ def scan_leaks(workdir):
                 if i >= 0:
                     hits.append({"run": workdir.name, "kind": kind, "pattern": pat,
                                  "context": low[max(0, i - 120): i + 120]})
+            if not workdir.name.startswith("probe-"):        # probes have no cutoff rule
+                for mt in _post_cutoff(text):
+                    hits.append({"run": workdir.name, "kind": kind, "pattern": "post-cutoff arxiv",
+                                 "context": text[max(0, mt.start() - 120): mt.end() + 120]})
     return hits
 
 

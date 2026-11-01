@@ -27,6 +27,9 @@ argument that is not written, that is a gap.
    it changes the final exponent? Do implied constants depend on things they
    are not allowed to depend on?
 8. Interchanges of summation, integration and limits: justified?
+9. Every cited result: is it from 2010 or earlier, or from a paper in
+   `papers/`? A result first published in 2011 or later may not be used, even
+   if it is correct; relying on one is a gap.
 
 If the proof begins with `STATEMENT DEFECT:`, check whether the claimed defect
 is real. If it is, return `pass` with severity `defect-confirmed` and put the

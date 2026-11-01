@@ -42,6 +42,9 @@ the thesis:
   needed, propose it and let him decide.
 - `archive/` holds earlier runs. Don't copy anything from there into a new
   run's agent-visible files.
+- Don't add papers to `papers/` or point agents to literature from 2011 or
+  later: the run has a literature cutoff (README, "Independence from the
+  thesis").
 
 ## Where the run stands (31 Oct 2026)
 
@@ -50,13 +53,18 @@ the thesis:
   (`claude-sonnet-5-5`) does numerics and proofs; Codex `gpt-6.1-sol` plans,
   referees and pollinates; effort `high`; `parallel` 2. Both subscriptions are
   the $20 plans: usage windows are the binding constraint.
-- `papers/`: Brüdern–Wooley 2011, BGP+ 1998, arXiv:1912.04683 (gitignored).
-- **Done:** `probe` (no model knows a result for V_f; Opus half-recalls the
-  title of Dehnert's paper, see `check-leaks`), `numerics` (constants
+- `papers/`: Vaughan 2005, Brüdern–Wooley 2011, BGP+ 1998 (gitignored), and
+  nothing else: every agent gets a copy.
+- **Literature cutoff:** agents may use only literature from 2010 or earlier,
+  plus `papers/`. It was added after a first probe and numerics run, so **the
+  whole run restarts from scratch** under the cutoff.
+- **Earlier run, before the cutoff:** probe (no model knows a result for V_f;
+  Opus half-recalls the title of Dehnert's paper) and numerics (constants
   extrapolated to f(y)/x → 0, about 0.135–0.142 ± 0.01 for the three
-  polynomials).
-- **Next:** MR !10 (mask runs_dir in the leak scan, disable user hooks in
-  agents) should be merged first. Then `./orchestrate.py plan`.
+  polynomials). Archive it as `archive/pre-cutoff` and clear the run state
+  (README, "Starting over") before starting again.
+- **Next:** archive and clear the earlier run, `tests/dry_run.sh`, then step 0
+  below.
 
 Check `git log`, `./orchestrate.py status` and `logs/` before assuming any of
 this is still current.
@@ -66,6 +74,11 @@ this is still current.
 One step at a time. After each step, run its checks and report to Markus
 before starting the next.
 
+0. `./orchestrate.py probe`, then `./orchestrate.py numerics`.
+   - Check: `logs/probe-*.md`; `check-leaks`; `numerics/results.json` has a
+     `constant_extrapolated` for each polynomial.
+   - Report: each probe's answer in short, and the extrapolated constants with
+     their uncertainties.
 1. `./orchestrate.py plan`: four planners (hints `vaughan`, `simplest`,
    `dirichlet`, `none`; models alternate Opus / Codex).
    - Check: four `plans/*.md`; `check-leaks`; in one Claude planner's
@@ -110,6 +123,11 @@ the post.
   stop. Hits are printed in normalised form (lower case, no hyphens or
   markup). `shepherd` also matches unrelated authors called Shepherd; check
   the context.
+- **Post-cutoff literature:** `post-cutoff arxiv` hits in `check-leaks`. An
+  `exposure` (a search result from 2011 or later) is normal in a literature
+  search; check whether the agent then used it. A `mention` or `attempt`
+  (citing or fetching it) by a planner or prover: report it to Markus. The
+  referees should fail any proof that relies on it; check that they did.
 - **Codex agents:** list event types with
   `grep -o '"type":"[a-z_.]*"' runs/<agent>/_stream.jsonl | sort | uniq -c`.
   `mcp_tool_call` to `codex_apps` `search_service.web_run` is Codex's literature

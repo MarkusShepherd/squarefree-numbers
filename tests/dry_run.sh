@@ -56,6 +56,8 @@ echo "$leaks"
 grep -q riemannhypothesis <<<"$leaks" || fail "check-leaks missed the planted leak"
 grep -q "sparse variance for kfree" <<<"$leaks" || fail "check-leaks missed the planted title in a thinking block"
 grep -Eq '^exposure +dehnert' <<<"$leaks" || fail "check-leaks did not class an MCP result as exposure"
+[ "$(grep -c 'post-cutoff arxiv' <<<"$leaks")" -eq 1 ] \
+    || fail "check-leaks: expected exactly one post-cutoff arXiv hit (1912.04683, not 1012.5674)"
 
 # A killed agent keeps its transcript and is logged, with the failure.
 slow="$STUB_RUNS/slow_agent.sh"

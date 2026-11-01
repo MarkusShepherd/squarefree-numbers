@@ -50,6 +50,11 @@ elif role == "numerics":
     finish()
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()
+    if hint.startswith("Strategy hint: follow Vaughan"):   # planted: one post-cutoff id, one not
+        tool_call("WebSearch", {"query": "squarefree variance single modulus"},
+                  "Fixed modulus: https://arxiv.org/abs/1912.04683")
+        tool_call("WebSearch", {"query": "squarefree numbers 2010"},
+                  "Before the cutoff: arXiv:1012.5674")
     if hint.startswith("No strategy hint"):
         tool_call("WebSearch", {"query": "sparse variance squarefree polynomial moduli"},
                   "1. Distribution of squarefree numbers ... https://riemannhypothesis.blog/thesis.pdf")
