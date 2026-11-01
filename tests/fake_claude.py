@@ -6,7 +6,8 @@ referees fail any proof without a "Response to objections" section (so every
 proposition needs two rounds), and always fail P3 (so it gets stuck and
 `pollinate` can be tested). The 'none' planner's transcript contains a search
 result from an excluded domain and a denied fetch, so `check-leaks` has
-something to find."""
+something to find. The librarian lists one open PDF, one paywalled work and
+two works the driver must reject."""
 import json
 import sys
 from pathlib import Path
@@ -83,6 +84,20 @@ elif role == "referee":
 elif role == "pollinator":
     (cwd / "hint.md").write_text("stub hint\n")
     finish({"diagnosis": "route", "needs_replan": False, "summary": "try plan B's step 4"})
+elif role == "librarian":
+    # the open PDF is a file:// URL, which the driver accepts only with LIT_ALLOW_FILE=1
+    (cwd / "fake.pdf").write_bytes(b"%PDF-1.4\n% stub\n")
+    item = {"kind": "article", "relevance": 2, "why": "stub"}
+    finish({"items": [
+        item | {"id": "open2005", "authors": "A. Author", "title": "An open paper", "year": 2005,
+                "access": "open", "pdf_url": (cwd / "fake.pdf").as_uri()},
+        item | {"id": "croft1975", "authors": "M. J. Croft", "title": "Square-free numbers in "
+                "arithmetic progressions", "year": 1975, "access": "paywalled"},
+        item | {"id": "excluded2015", "authors": "F. Dehnert", "title": "Sparse variance for "
+                "k-free numbers in arithmetic progressions", "year": 2015, "access": "paywalled"},
+        item | {"id": "blog", "authors": "B. Logger", "title": "A post", "year": 2009,
+                "kind": "blog post", "access": "open", "url": "https://primes.recommend.games/x"},
+    ], "notes": "stub"})
 elif role == "integrator":
     (cwd / "assembly.md").write_text("stub assembly\n")
     finish({"composes": True, "final_theorem": "T"})
