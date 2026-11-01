@@ -22,9 +22,13 @@ STUB_RUNS=$(mktemp -d)
 export CLAUDE_BIN="$PWD/tests/fake_claude.py" CODEX_BIN="$PWD/tests/fake_codex.py"
 export RUNS_DIR="$STUB_RUNS" BACKENDS=claude,codex   # both backends, whatever config.json says
 export LIT_ALLOW_FILE=1                 # the stub librarian's open PDF is a file:// URL
+STUB_VENV=$(mktemp -d)                  # stub agent environment, outside runs_dir
+mkdir "$STUB_VENV/bin"
+ln -s "$(command -v python3)" "$STUB_VENV/bin/python3"
+export AGENT_VENV="$STUB_VENV"           # the stubs exit unless the driver passes it on
 
 cleanup() {
-    rm -rf plans props numerics literature report logs plan.json archive/dry-run "$STUB_RUNS"
+    rm -rf plans props numerics literature report logs plan.json archive/dry-run "$STUB_RUNS" "$STUB_VENV"
     rmdir archive 2>/dev/null || true
     if [ -L runs ]; then rm runs; fi        # the next real command re-creates it
 }
@@ -32,6 +36,9 @@ trap cleanup EXIT
 
 fail() { echo "dry run FAILED: $*" >&2; exit 1; }
 
+if AGENT_VENV="$STUB_VENV/missing" ./orchestrate.py probe 2>/dev/null; then
+    fail "probe started without the agent environment"
+fi
 ./orchestrate.py probe
 ./orchestrate.py numerics
 ./orchestrate.py literature             # one download, one wishlist, two rejected

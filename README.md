@@ -66,6 +66,22 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
    uses only the standard library, so there is nothing to install; it carries
    PEP 723 metadata, so `uv run orchestrate.py <step>` works as well as
    `./orchestrate.py <step>` and pins the Python version.
+
+   The agents get their own Python environment, the same for Claude and
+   Codex: numpy, scipy, mpmath and sympy at the versions pinned in
+   `agent-env/`. Build it once with uv, and commit the `agent-env/uv.lock`
+   it writes:
+
+   ```
+   UV_PROJECT_ENVIRONMENT=~/sqf-runs/agent-venv uv sync --project agent-env
+   ```
+
+   The driver puts it first on every agent's `PATH` (`agent_venv` in
+   `config.json`; `AGENT_VENV` overrides) and refuses to start agents without
+   it. Agents can't install anything else. Their shells skip your shell
+   startup files (`ZDOTDIR` points into the environment, Codex runs with
+   `allow_login_shell=false`): a `~/.zshenv` or a login profile could
+   otherwise put another `python3` first on `PATH`.
 2. **Your own instruction files.** `~/.claude/CLAUDE.md`, Claude Code's auto
    memory and `~/.codex/AGENTS.md` load into every agent. Make sure none of
    them mentions the thesis or Dehnert.

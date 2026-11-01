@@ -140,6 +140,13 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
         cmd = build_cmd(prompt, tools, name, schema)
         env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
                    ENABLE_CLAUDEAI_MCP_SERVERS="false")   # no claude.ai connectors
+    venv = agent_venv()
+    if venv:                    # same python3 and packages for either backend
+        env |= {"VIRTUAL_ENV": str(venv),
+                "PATH": f"{venv / 'bin'}{os.pathsep}{env.get('PATH', '')}",
+                # no personal shell startup files: ~/.zshenv runs even in non-login
+                # zsh and can put another python3 first. The venv has no .zshenv.
+                "ZDOTDIR": str(venv), "BASH_ENV": ""}
 
     t0 = time.time()
     with open(workdir / "_stream.jsonl", "w") as stdout, open(workdir / "_stderr.txt", "w") as stderr:
@@ -416,6 +423,32 @@ def check_runs_dir():
         log(f"note: runs/ is a directory from an older version; new runs go to {RUNS}")
     else:
         link.symlink_to(RUNS, target_is_directory=True)
+
+
+def agent_venv():
+    """The agents' Python environment (agent-env/), or None if disabled."""
+    v = os.environ.get("AGENT_VENV") or CFG.get("agent_venv")
+    return Path(v).expanduser() if v else None
+
+
+def check_agent_venv():
+    """Refuse to start agents without their Python environment, so that no run
+    silently has fewer packages than another; and keep it outside any git work
+    tree, since every agent sees its path."""
+    v = agent_venv()
+    if not v:
+        return
+    if not (v / "bin" / "python3").exists():
+        sys.exit(f"agent_venv {v} does not exist; build it with\n"
+                 f"  UV_PROJECT_ENVIRONMENT={v} uv sync --project agent-env\n"
+                 "or set \"agent_venv\": null in config.json to run agents without it")
+    try:
+        p = subprocess.run(["git", "-C", str(v), "rev-parse", "--show-toplevel"],
+                           capture_output=True, text=True)
+        if p.returncode == 0:
+            sys.exit(f"agent_venv {v} is inside the git work tree {p.stdout.strip()}; move it out")
+    except FileNotFoundError:
+        pass
 
 
 def cmd_check_leaks(_):
@@ -899,6 +932,8 @@ def main():
     sub.add_parser("status").set_defaults(fn=cmd_status)
     s = sub.add_parser("archive"); s.add_argument("label", nargs="?"); s.set_defaults(fn=cmd_archive)
     args = ap.parse_args()
+    if args.cmd not in ("status", "check-leaks", "archive"):
+        check_agent_venv()
     args.fn(args)
 
 

@@ -157,8 +157,12 @@ the post.
   mv logs.keep logs`), or archive first.
 - **macOS:** `grep` repetition counts are capped at 255 (`.\{0,500\}` fails);
   use Python for long context windows.
-- **Sandboxes** can't install packages (network is denied); the numerics agent
-  wrote C and stdlib Python.
+- **Python packages:** every agent's `python3` is the environment at
+  `agent_venv` (numpy, scipy, mpmath, sympy; pinned in `agent-env/`), for
+  both backends. Agents can't install anything else. Agent shells don't read
+  Markus's zsh/bash startup files (`ZDOTDIR`, Codex `allow_login_shell=false`);
+  if an agent's `python3` lacks the packages, check that first. The pre-cutoff run had
+  no such environment, and its numerics agent wrote C instead.
 - **Usage:** you run on the same Claude subscription as the agents. Keep your
   own effort moderate; don't read whole transcripts when a grep will do
   (they reach several MB).
