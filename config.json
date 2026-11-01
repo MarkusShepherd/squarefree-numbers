@@ -47,6 +47,7 @@
       "gitlab.com"
     ],
     "blocked_bash": ["curl *", "wget *", "git *"],
+    "literature_cutoff_year": 2010,
     "leak_patterns": [
       "schepke", "shepherd", "riemannhypothesis", "primes.recommend.games",
       "mshepherd", "squarefree-numbers", "dehnert", "s00605-014-0691",

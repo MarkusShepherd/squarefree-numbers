@@ -71,14 +71,15 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
 3. **Dry run, free:** `tests/dry_run.sh`. It runs every step with stub CLIs
    instead of `claude` and `codex`, checks the expected outcome, cleans up
    after itself, and ends with `dry run OK`. Rerun it after changing the driver.
-4. **Papers** into `papers/` (gitignored; any file names):
+4. **Papers** into `papers/` (gitignored; any file names), and nothing else:
+   - Vaughan 2005, *A variance for k-free numbers in arithmetic progressions*,
+     Proc. LMS 91, 573–597 (paywalled)
    - Brüdern–Wooley 2011: <https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf>
    - Brüdern–Granville–Perelli–Vaughan–Wooley 1998:
      <https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf>
-   - arXiv:1912.04683: <https://arxiv.org/pdf/1912.04683>
 
-   Vaughan 2005 is paywalled. If you have it, add it and remove the "Not
-   included" paragraph from `problem.md`.
+   Every agent gets a copy of `papers/`, so a later paper left there would
+   break the literature cutoff (see "Independence from the thesis").
 5. **Choose the setup** in `config.json`: `variant` (`neutral` or
    `thesis-informed`, see `variants/README.md`), `backends`, models and effort.
    For a cheap first real run, set the Claude models to `sonnet` and every
@@ -175,6 +176,18 @@ problem (Monatsh. Math. 177, 373–396); report it if encountered; do not use
 remembered knowledge of either; do not read outside the working directory.
 Dehnert's paper is paywalled, so there is no domain to block; the leak
 patterns cover his name and the DOI.
+
+**Literature cutoff.** Agents may use only literature from 2010 or earlier,
+plus `papers/` (which includes Brüdern–Wooley 2011): roughly what was
+available when the problem was set. This excludes Dehnert (2015) by
+construction and keeps the run comparable with the original task. Deny rules
+can't filter by date, so the cutoff is instructed (`_rules.md`), checked by
+the referees (a proof relying on a later result fails review), and audited:
+`check-leaks` reports new-style arXiv identifiers dated 2011 or later
+(`arXiv:YYMM.NNNNN`, `arxiv.org/abs/...`) as `post-cutoff arxiv`, except in
+probes, which have no rules. The year is `exclusion.literature_cutoff_year` in
+`config.json`. Models still know later results from pretraining (the probes
+name several); the referee check is what keeps them out of the proofs.
 
 **Audited**: every run is recorded with `--output-format stream-json
 --verbose` in `runs/*/_stream.jsonl`, including every search query, fetch and

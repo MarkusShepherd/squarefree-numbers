@@ -34,24 +34,20 @@ change explicitly and justify it.
 
 The `papers/` folder contains:
 
+- R. C. Vaughan (2005), *A variance for k-free numbers in arithmetic
+  progressions*, Proc. London Math. Soc. (3) 91, 573–597: the asymptotic for
+  the full variance $V(x,Y)$ over all moduli $q \le Y$.
 - Brüdern–Wooley (2011), *Sparse variance for primes in arithmetic progression*:
   the analogue of this problem for primes, with moduli $f(k)$.
 - Brüdern–Granville–Perelli–Vaughan–Wooley (1998), *On the exponential sum over
   k-free numbers*: major-arc estimates for the exponential sum over squarefree
   numbers.
-- arXiv:1912.04683, *A variance for k-free numbers in arithmetic progressions of
-  given modulus*: the variance for a single fixed modulus. Background only; it
-  does not treat the sum over moduli.
 
-**Not included:** R. C. Vaughan, *A variance for k-free numbers in arithmetic
-progressions*, Proc. London Math. Soc. (3) 91 (2005), 573–597. It gives the
-asymptotic for the full variance $V(x,Y)$ over all moduli $q \le Y$, and is the
-natural starting point, but it is paywalled. Use what you can find about it in
-the published literature, or reconstruct the parts you need.
+**Literature cutoff.** Besides these papers, use only literature from 2010 or
+earlier (see the rules at the end of your instructions).
 
-The expected approach is to adapt the method for all moduli (Vaughan 2005) to
-sparse moduli, as Brüdern–Wooley did for primes. You are not required to follow
-it.
+The expected approach is to adapt Vaughan's method for all moduli to sparse
+moduli, as Brüdern–Wooley did for primes. You are not required to follow it.
 
 `numerics/results.json`, once present, holds exact computations of $V_f(x,y)$
 for small $x$. It is ground truth: a predicted main term that disagrees with it
