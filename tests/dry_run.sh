@@ -5,7 +5,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-for p in plans props numerics report logs; do
+for p in plans props numerics literature report logs; do
     if [ -n "$(ls -A "$p" 2>/dev/null)" ]; then
         echo "dry_run: $p/ is not empty; archive or move the current run aside first" >&2
         exit 1
@@ -21,9 +21,10 @@ done
 STUB_RUNS=$(mktemp -d)
 export CLAUDE_BIN="$PWD/tests/fake_claude.py" CODEX_BIN="$PWD/tests/fake_codex.py"
 export RUNS_DIR="$STUB_RUNS" BACKENDS=claude,codex   # both backends, whatever config.json says
+export LIT_ALLOW_FILE=1                 # the stub librarian's open PDF is a file:// URL
 
 cleanup() {
-    rm -rf plans props numerics report logs plan.json archive/dry-run "$STUB_RUNS"
+    rm -rf plans props numerics literature report logs plan.json archive/dry-run "$STUB_RUNS"
     rmdir archive 2>/dev/null || true
     if [ -L runs ]; then rm runs; fi        # the next real command re-creates it
 }
@@ -33,6 +34,12 @@ fail() { echo "dry run FAILED: $*" >&2; exit 1; }
 
 ./orchestrate.py probe
 ./orchestrate.py numerics
+./orchestrate.py literature             # one download, one wishlist, two rejected
+lit=$(python3 -c 'import json; print(" ".join(r["status"] for r in json.load(open("literature/candidates.json"))))')
+[ "$lit" = "downloaded wishlist rejected rejected" ] || fail "literature statuses: $lit"
+[ "$(ls literature/pdf/*.pdf | wc -l)" -eq 1 ] || fail "literature: expected one downloaded PDF"
+grep -q "after the 2010 cutoff" literature/review.md || fail "literature: 2015 paper not rejected"
+grep -q "blocked host gitlab.com" literature/review.md || fail "literature: blocked host not rejected"
 ./orchestrate.py plan
 [ "$(ls plans/*.json | wc -l)" -eq 4 ] || fail "expected 4 plans"
 ./orchestrate.py plan                   # keeps the existing plans
@@ -80,5 +87,7 @@ PY
 
 ./orchestrate.py archive dry-run
 [ -d archive/dry-run/runs ] || fail "archive has no sandboxes"
+[ -f archive/dry-run/literature/review.md ] || fail "archive has no literature review"
+[ -z "$(find archive/dry-run -name '*.pdf')" ] || fail "archive contains PDFs"
 
 echo "dry run OK"

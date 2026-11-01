@@ -42,6 +42,7 @@ The `papers/` folder contains:
 - Brüdern–Granville–Perelli–Vaughan–Wooley (1998), *On the exponential sum over
   k-free numbers*: major-arc estimates for the exponential sum over squarefree
   numbers.
+- Further works listed in `papers/INDEX.md`, if that file exists.
 
 **Literature cutoff.** Besides these papers, use only literature from 2010 or
 earlier (see the rules at the end of your instructions).

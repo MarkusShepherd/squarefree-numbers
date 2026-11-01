@@ -13,6 +13,7 @@ talk to each other; all state lives in this directory tree.
 Steps (run in order; you read the output between steps):
     ./orchestrate.py probe             contamination check -> logs/probe-*.md
     ./orchestrate.py numerics          exact computations -> numerics/
+    ./orchestrate.py literature        literature search -> literature/review.md
     ./orchestrate.py plan [--cross]    parallel planners  -> plans/<hint>.json
     ./orchestrate.py select <hint>     split chosen plan  -> props/P*/statement.md
     ./orchestrate.py prove [P3 ...]    prover/referee loop per proposition
@@ -31,8 +32,10 @@ import shutil
 import subprocess
 import sys
 import time
+import urllib.request
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 CFG = json.loads((ROOT / "config.json").read_text())
@@ -477,6 +480,122 @@ def cmd_numerics(_):
     log("wrote numerics/results.json")
 
 
+# Literature search: the librarian lists, the driver vets and downloads.
+
+SHADOW_LIBRARIES = ("sci-hub", "scihub", "libgen", "library.lol", "annas-archive",
+                    "z-lib", "zlibrary", "booksc")
+
+
+def _host(url):
+    return (urlparse(url).hostname or "").lower()
+
+
+def _blocked_host(host):
+    for d in (d.lower() for d in EXCL["blocked_domains"]):
+        if host == d or (d.startswith("*.") and host.endswith(d[1:])):
+            return True
+    return any(s in host for s in SHADOW_LIBRARIES)
+
+
+def vet_item(it):
+    """Why a librarian's item must not reach papers/, or None if it may. The
+    driver checks this itself instead of trusting the agent's own vetting."""
+    cut = EXCL.get("literature_cutoff_year")
+    try:
+        year = int(it.get("year"))
+    except (TypeError, ValueError):
+        return "no publication year"
+    if cut and year > cut:
+        return f"published {year}, after the {cut} cutoff"
+    text = " ".join(str(it.get(k) or "") for k in ("authors", "title", "venue", "url", "pdf_url"))
+    low = _norm(text)
+    for p in EXCL["leak_patterns"]:
+        if _norm(p) in low:
+            return f"matches excluded pattern '{p}'"
+    if _post_cutoff(text):
+        return "arXiv identifier after the cutoff"
+    for u in (it.get("url"), it.get("pdf_url")):
+        if u and _blocked_host(_host(u)):
+            return f"blocked host {_host(u)}"
+    return None
+
+
+def fetch_pdf(url, dest, limit=50 * 2**20):
+    """Download url to dest if it really is a PDF; None on success, else why not."""
+    scheme = urlparse(url).scheme
+    if scheme not in ("http", "https") and not (scheme == "file" and os.environ.get("LIT_ALLOW_FILE")):
+        return f"unsupported URL scheme {scheme!r}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (literature download)"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            if _blocked_host(_host(r.geturl())):
+                return f"redirected to blocked host {_host(r.geturl())}"
+            data = r.read(limit + 1)
+    except Exception as e:                  # network errors, HTTP errors, timeouts
+        return f"download failed: {e}"
+    if len(data) > limit:
+        return "larger than 50 MB"
+    if not data.startswith(b"%PDF-"):
+        return "not a PDF (probably a landing page or a paywall)"
+    dest.write_bytes(data)
+    return None
+
+
+def render_literature(rows, notes):
+    sections = {
+        "downloaded": "Downloaded: check each, then copy what you want into papers/ and list it in papers/INDEX.md",
+        "wishlist": "Wishlist: no open PDF; get the full text if worthwhile, then as above",
+        "rejected": "Rejected by the driver (a leak pattern can also hit an unrelated work: check the reason)",
+    }
+    lines = ["# Literature search", ""] + ([notes, ""] if notes else [])
+    for status, title in sections.items():
+        lines += [f"## {title}", ""]
+        for r in sorted((r for r in rows if r["status"] == status),
+                        key=lambda r: -(r.get("relevance") or 0)):
+            ref = r.get("url") or r.get("pdf_url") or ""
+            lines += [f"- **{r.get('authors', '?')} ({r.get('year', '?')})**, *{r.get('title', '?')}*, "
+                      f"{r.get('venue') or ''} [{r.get('kind', '?')}, relevance {r.get('relevance', '?')}]  ",
+                      f"  {r.get('why', '')}  ",
+                      f"  {ref} ({r['note']})"]
+        lines.append("")
+    return "\n".join(lines)
+
+
+def cmd_literature(_):
+    """Literature search, after numerics and before planning. A librarian agent
+    lists relevant literature up to the cutoff; the driver vets every item,
+    downloads open-access PDFs to literature/pdf/ and writes
+    literature/review.md. Nothing reaches the other agents until you copy a
+    file into papers/ and list it in papers/INDEX.md."""
+    lit = ROOT / "literature"
+    if (lit / "candidates.json").exists():
+        sys.exit("literature/candidates.json exists; move literature/ aside to search again")
+    model = role_models("librarian")
+    if backend(model)[0] == "codex":
+        sys.exit("the librarian needs a Claude model: Codex agents have no domain blocks")
+    wd = sandbox("literature", {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"})
+    log(f"librarian in runs/{wd.name}")
+    out = run_agent("librarian", wd, model, CFG["effort"]["librarian"],
+                    schema="literature")
+    (lit / "pdf").mkdir(parents=True, exist_ok=True)
+    rows = []
+    for i, it in enumerate(out["structured_output"].get("items", [])):
+        why = vet_item(it)
+        if why:
+            status = "rejected"
+        elif it.get("pdf_url"):
+            name = f"{i:02d}-" + re.sub(r"[^A-Za-z0-9._-]+", "_", str(it.get("id") or "item"))[:60] + ".pdf"
+            why = fetch_pdf(it["pdf_url"], lit / "pdf" / name)
+            status, why = ("downloaded", f"literature/pdf/{name}") if why is None else ("wishlist", why)
+        else:
+            status, why = "wishlist", f"no open-access PDF ({it.get('access', 'unknown')})"
+        rows.append(it | {"status": status, "note": why})
+    (lit / "candidates.json").write_text(json.dumps(rows, indent=2))
+    (lit / "review.md").write_text(render_literature(rows, out["structured_output"].get("notes", "")))
+    counts = {s: sum(r["status"] == s for r in rows) for s in ("downloaded", "wishlist", "rejected")}
+    log(f"{len(rows)} items {counts}; read literature/review.md")
+
+
 def common_inputs():
     files = {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"}
     if (ROOT / "numerics" / "results.json").exists():
@@ -488,6 +607,9 @@ def cmd_plan(args):
     """One planner per hint, models alternating; a plan that already exists is
     kept, so a rerun only retries the failures. --cross adds every other
     model on every hint, as plans/<hint>@<model>.json."""
+    if not (ROOT / "literature" / "review.md").exists():
+        log("note: no literature search yet (./orchestrate.py literature); "
+            "the planners get only what is in papers/")
     hints = CFG["variants"][VARIANT]["hints"]
     models = role_models("planner")
     models = models if isinstance(models, list) else [models]
@@ -715,18 +837,20 @@ def cmd_archive(args):
     """Copy every sandbox in runs_dir and the run's outputs into the repo under
     archive/<label>/, for review and committing. Run it once no agent is running.
     Agents of later runs can't reach the archive, since they can't read git.
-    PDFs from papers/ are left out: they are not ours to redistribute."""
+    PDFs (papers/, literature/pdf/, copies in sandboxes) are left out: they
+    are not ours to redistribute."""
     label = args.label or f"{datetime.now():%Y%m%d-%H%M}-{VARIANT}"
     dest = ROOT / "archive" / label
     if dest.exists():
         sys.exit(f"archive/{label} exists; pass another label")
-    skip = shutil.ignore_patterns("papers")
+    skip = shutil.ignore_patterns("papers", "*.pdf")
     n = 0
     for d in sorted(RUNS.iterdir()):
         if d.is_dir():
             shutil.copytree(d, dest / "runs" / d.name, ignore=skip)
             n += 1
-    for name in ("config.json", "plan.json", "numerics", "plans", "props", "report", "logs"):
+    for name in ("config.json", "plan.json", "numerics", "literature", "plans", "props", "report",
+                 "logs"):
         src = ROOT / name
         if src.is_dir():
             shutil.copytree(src, dest / name, ignore=skip)
@@ -766,6 +890,7 @@ def main():
     sub.add_parser("probe").set_defaults(fn=cmd_probe)
     sub.add_parser("check-leaks").set_defaults(fn=cmd_check_leaks)
     sub.add_parser("numerics").set_defaults(fn=cmd_numerics)
+    sub.add_parser("literature").set_defaults(fn=cmd_literature)
     s = sub.add_parser("plan"); s.add_argument("--cross", action="store_true"); s.set_defaults(fn=cmd_plan)
     s = sub.add_parser("select"); s.add_argument("hint"); s.set_defaults(fn=cmd_select)
     s = sub.add_parser("prove"); s.add_argument("props", nargs="*"); s.set_defaults(fn=cmd_prove)
