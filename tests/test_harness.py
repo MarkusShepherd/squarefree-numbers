@@ -86,10 +86,18 @@ class HarnessTest(unittest.TestCase):
                 self.run_step('probe')
                 self.run_step('literature')
                 candidates = json.loads((self.root / 'literature/candidates.json').read_text())
-                self.assertEqual([r['status'] for r in candidates], ['downloaded', 'wishlist', 'rejected', 'rejected'])
-                self.assertIn('after the 2010 cutoff', candidates[2]['note'])
-                self.assertIn('blocked host gitlab.com', candidates[3]['note'])
-                self.assertEqual(len(list((self.root / 'literature/pdf').glob('*.pdf'))), 1)
+                expected_models = ({'claude-opus-5-5', 'codex:gpt-6.1-sol'} if backend == 'claude,codex'
+                                   else {'codex:gpt-6.1-sol'} if backend == 'codex'
+                                   else {'claude-opus-5-5', 'claude-sonnet-5-5'})
+                self.assertEqual({r['model'] for r in candidates}, expected_models)
+                self.assertEqual(len(list((self.root / 'literature/searches').glob('*.json'))), len(expected_models))
+                for model in expected_models:
+                    items = [r for r in candidates if r['model'] == model]
+                    self.assertEqual([r['status'] for r in items], ['downloaded', 'wishlist', 'rejected', 'rejected'])
+                    self.assertIn('after the 2010 cutoff', items[2]['note'])
+                    self.assertIn('blocked host gitlab.com', items[3]['note'])
+                    self.assertIn(model, (self.root / 'literature/review.md').read_text())
+                self.assertEqual(len(list((self.root / 'literature/pdf').glob('*.pdf'))), len(expected_models))
                 self.assertFalse(any((self.root / 'papers').glob('*.pdf')), 'download must not auto-promote')
                 self.ready()
                 self.run_step('plan', '--single')
@@ -439,6 +447,22 @@ class HarnessTest(unittest.TestCase):
             with patch.object(o.subprocess, 'Popen', side_effect=Captured):
                 with self.assertRaises(Captured):
                     o.run_agent('probe', o.sandbox('docker-env', {}), 'codex:gpt-6.1-sol', 'high')
+
+    def test_literature_retries_only_failed_search(self):
+        self.env['CODEX_BIN'] = '/nonexistent/codex'
+        self.run_step('literature', success=False)
+        searches = self.root / 'literature/searches'
+        self.assertEqual([p.name for p in searches.glob('*.json')], ['claude-opus-5-5.json'])
+        self.assertFalse((self.root / 'literature/candidates.json').exists())
+        self.env['CODEX_BIN'] = str(self.root / 'tests/fake_codex.py')
+        self.run_step('literature')
+        rows = [json.loads(line) for line in (self.root / 'logs/costs.jsonl').read_text().splitlines()]
+        successful = [r for r in rows if r['role'] == 'librarian' and r['failure'] is None]
+        self.assertEqual([r['model'] for r in successful].count('claude-opus-5-5'), 1)
+        self.assertEqual([r['model'] for r in successful].count('codex:gpt-6.1-sol'), 1)
+        for record in (Path(self.env['RUNS_DIR']) / '_records').glob('*/invocation.json'):
+            invocation = json.loads(record.read_text())
+            self.assertFalse(any(name.startswith('literature/') for name in invocation['inputs']))
 
 
 if __name__ == '__main__':

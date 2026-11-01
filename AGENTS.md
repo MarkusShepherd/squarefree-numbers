@@ -62,7 +62,9 @@ One step at a time. After each step, run its checks and report to Markus
 before starting the next.
 
 1. Run `probe`, `numerics` and the optional `literature` search. These are
-   independent, but settle the approved papers before planning. Report probe
+   independent, but settle the approved papers before planning. Literature
+   searches run on both providers by default; compare the attributed combined
+   review and per-model responses in `literature/searches/`. Report probe
    answers; numerical constants and uncertainties; and the downloaded, wishlist
    and rejected literature lists with reasons. Markus picks additions to the
    corpus. Verify title pages and dates, copy only approved pre-2011 PDFs to

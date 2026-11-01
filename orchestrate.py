@@ -791,7 +791,7 @@ def render_literature(rows, notes):
                         key=lambda r: -(r.get("relevance") or 0)):
             ref = r.get("url") or r.get("pdf_url") or ""
             lines += [f"- **{r.get('authors', '?')} ({r.get('year', '?')})**, *{r.get('title', '?')}*, "
-                      f"{r.get('venue') or ''} [{r.get('kind', '?')}, relevance {r.get('relevance', '?')}]  ",
+                      f"{r.get('venue') or ''} [{r.get('kind', '?')}, relevance {r.get('relevance', '?')}; {r.get('model', 'unknown model')}]  ",
                       f"  {r.get('why', '')}  ",
                       f"  {ref} ({r['note']})"]
         lines.append("")
@@ -799,38 +799,63 @@ def render_literature(rows, notes):
 
 
 def cmd_literature(_):
-    """Literature search, after numerics and before planning. A librarian agent
-    lists relevant literature up to the cutoff; the driver vets every item,
-    downloads open-access PDFs to literature/pdf/ and writes
-    literature/review.md. Nothing reaches the other agents until you copy a
-    file into papers/ and list it in papers/INDEX.md."""
+    """Independent librarian searches; shared driver vetting and human corpus approval."""
     lit = ROOT / "literature"
     if (lit / "candidates.json").exists():
-        sys.exit("literature/candidates.json exists; move literature/ aside to search again")
-    model = role_models("librarian")
-    if backend(model)[0] == "codex":
-        log("Codex librarian uses native search without domain deny rules; review its transcript and driver-rejected candidates")
-    wd = sandbox("literature", {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"})
-    log(f"librarian in runs/{wd.name}")
-    out = run_agent("librarian", wd, model, CFG["effort"]["librarian"],
-                    schema="literature")
-    (lit / "pdf").mkdir(parents=True, exist_ok=True)
-    rows = []
-    for i, it in enumerate(out["structured_output"].get("items", [])):
-        why = vet_item(it)
-        if why:
-            status = "rejected"
-        elif it.get("pdf_url"):
-            name = f"{i:02d}-" + re.sub(r"[^A-Za-z0-9._-]+", "_", str(it.get("id") or "item"))[:60] + ".pdf"
-            why = fetch_pdf(it["pdf_url"], lit / "pdf" / name)
-            status, why = ("downloaded", f"literature/pdf/{name}") if why is None else ("wishlist", why)
-        else:
-            status, why = "wishlist", f"no open-access PDF ({it.get('access', 'unknown')})"
-        rows.append(it | {"status": status, "note": why})
+        raise ValueError("literature/candidates.json exists; move literature/ aside to search again")
+    models = model_list("librarian")
+    files = {"problem.md": ROOT / "problem.md", "papers": ROOT / "papers"}
+    spec = {"inputs": {name: digest(path) for name, path in files.items()},
+            "prompt": build_prompt("librarian"), "schema": SCHEMAS["literature"],
+            "effort": CFG["effort"]["librarian"], "capabilities": role_capabilities("librarian"),
+            "exclusion": EXCL}
+    (lit / "searches").mkdir(parents=True, exist_ok=True)
+
+    def search(model):
+        saved = lit / "searches" / f"{model_tag(model)}.json"
+        expected = spec | {"model": model}
+        if saved.exists():
+            cached = json.loads(saved.read_text())
+            if cached.get("spec") != expected:
+                raise ValueError(f"literature search {model} has different inputs; move literature/ aside")
+            validate(cached["output"], SCHEMAS["literature"])
+            return cached["output"]
+        if backend(model)[0] == "codex":
+            log("Codex librarian uses native search without domain deny rules; review its transcript and driver-rejected candidates")
+        wd = sandbox(f"literature-{model_tag(model)}", files)
+        log(f"librarian {model} in runs/{wd.name}")
+        out = run_agent("librarian", wd, model, CFG["effort"]["librarian"], schema="literature")
+        if spec["inputs"] != {name: digest(path) for name, path in files.items()}:
+            raise ValueError("literature inputs changed during search")
+        output = out["structured_output"]
+        saved.write_text(json.dumps({"spec": expected, "output": output}, indent=2))
+        return output
+
+    # Every search sees only the original problem/corpus, never another search's output.
+    # Successful searches survive a failed peer so rerunning retries only the failure.
+    outputs = parallel(search, models)
+    (lit / "pdf").mkdir(exist_ok=True)
+    rows, notes = [], []
+    for model in models:
+        output = outputs[model]
+        if output.get("notes"):
+            notes.append(f"### {model}\n\n{output['notes']}")
+        for i, it in enumerate(output["items"]):
+            why = vet_item(it)
+            if why:
+                status = "rejected"
+            elif it.get("pdf_url"):
+                key = re.sub(r"[^A-Za-z0-9._-]+", "_", str(it.get("id") or "item"))[:60]
+                name = f"{model_tag(model)}-{i:02d}-{key}.pdf"
+                why = fetch_pdf(it["pdf_url"], lit / "pdf" / name)
+                status, why = ("downloaded", f"literature/pdf/{name}") if why is None else ("wishlist", why)
+            else:
+                status, why = "wishlist", f"no open-access PDF ({it.get('access', 'unknown')})"
+            rows.append(it | {"model": model, "status": status, "note": why})
     (lit / "candidates.json").write_text(json.dumps(rows, indent=2))
-    (lit / "review.md").write_text(render_literature(rows, out["structured_output"].get("notes", "")))
+    (lit / "review.md").write_text(render_literature(rows, "\n\n".join(notes)))
     counts = {s: sum(r["status"] == s for r in rows) for s in ("downloaded", "wishlist", "rejected")}
-    log(f"{len(rows)} items {counts}; read literature/review.md")
+    log(f"{len(models)} independent searches, {len(rows)} items {counts}; read literature/review.md")
 
 
 def common_inputs(include_numerics=False):

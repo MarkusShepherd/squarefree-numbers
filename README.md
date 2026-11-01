@@ -107,16 +107,22 @@ Read each step's outputs before proceeding.
    reliability; investigate disagreement rather than deciding by model vote.
 3. `./orchestrate.py literature`: an optional search for further pre-2011 works.
    It is independent of probe and numerics, but belongs before planning.
-   The librarian returns bibliography; the driver checks years, exclusion
+   Opus and Sol search independently by default, under the global concurrency
+   limit. Each returns bibliography; the driver checks years, exclusion
    patterns, arXiv dates, blocked hosts and shadow-library hosts itself, then
    downloads only apparent open PDFs into `literature/pdf/` (50 MB cap).
    Read `literature/review.md`: downloaded, wishlist and rejected with reasons.
    Nothing is promoted automatically. Markus picks works; verify each PDF's
    title page, then copy only approved pre-2011 works into `papers/` and add
    bibliographic entries to `papers/INDEX.md`. Finish this before any planner
-   runs. The default librarian is Claude, with fetch deny rules; Codex-only
-   uses the fallback and native search, whose domain restrictions are weaker.
-   The identical driver vetting and human gate still apply in both modes.
+   runs. Raw responses are kept in `literature/searches/<model>.json`; the
+   combined candidates and review identify the model behind every entry.
+   Overlapping recommendations remain visible rather than being silently merged.
+   Download filenames include the model to avoid collisions. If one search fails,
+   successful searches are retained and reused on a retry with unchanged inputs.
+   Backend overrides still apply: duplicate resolved models run only once.
+   Claude has fetch deny rules; Codex uses native search with weaker domain
+   restrictions. Both receive identical driver vetting and the human gate.
 4. `./orchestrate.py numerics --accept <candidate>`: explicitly promote a reviewed
    candidate, e.g. `codex-gpt-6.1-sol`. Record why in `logs/interventions.md`.
    Acceptance is a human choice, not automated certification. Supporting source

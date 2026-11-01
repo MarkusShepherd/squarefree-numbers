@@ -57,7 +57,10 @@
       "claude-opus-5-5",
       "codex:gpt-6.1-sol"
     ],
-    "librarian": "claude-opus-5-5"
+    "librarian": [
+      "claude-opus-5-5",
+      "codex:gpt-6.1-sol"
+    ]
   },
   "codex": {
     "effort": {
