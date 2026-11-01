@@ -20,7 +20,8 @@
   },
   "codex": {
     "effort": {"low": "low", "medium": "medium", "high": "high", "xhigh": "xhigh", "max": "max"},
-    "extra_args": ["--ignore-user-config", "--ephemeral", "-c", "web_search=\"disabled\""]
+    "extra_args": ["--ignore-user-config", "--ephemeral", "-c", "web_search=\"disabled\"",
+                   "-c", "allow_login_shell=false"]
   },
   "effort": {
     "probe": "high",

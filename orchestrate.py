@@ -143,7 +143,10 @@ def run_agent(role, workdir, model, effort, task="", schema=None, tools=None, ru
     venv = agent_venv()
     if venv:                    # same python3 and packages for either backend
         env |= {"VIRTUAL_ENV": str(venv),
-                "PATH": f"{venv / 'bin'}{os.pathsep}{env.get('PATH', '')}"}
+                "PATH": f"{venv / 'bin'}{os.pathsep}{env.get('PATH', '')}",
+                # no personal shell startup files: ~/.zshenv runs even in non-login
+                # zsh and can put another python3 first. The venv has no .zshenv.
+                "ZDOTDIR": str(venv), "BASH_ENV": ""}
 
     t0 = time.time()
     with open(workdir / "_stream.jsonl", "w") as stdout, open(workdir / "_stderr.txt", "w") as stderr:

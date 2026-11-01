@@ -18,9 +18,11 @@ last = Path(args[args.index("--output-last-message") + 1])
 writable = args[args.index("--sandbox") + 1] == "workspace-write"
 n = 0
 venv = os.environ.get("AGENT_VENV")         # the dry run's stub agent environment
-if venv and (os.environ.get("VIRTUAL_ENV") != venv
+if venv and (os.environ.get("VIRTUAL_ENV") != venv or os.environ.get("ZDOTDIR") != venv
              or not os.environ["PATH"].startswith(os.path.join(venv, "bin"))):
     sys.exit("agent environment not passed to the agent")
+if "allow_login_shell=false" not in args:   # a login shell's profile files rewrite PATH
+    sys.exit("codex called without -c allow_login_shell=false")
 
 
 def emit(m):

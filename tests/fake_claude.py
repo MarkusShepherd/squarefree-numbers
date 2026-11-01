@@ -19,7 +19,7 @@ role = prompt.split("\n", 1)[0].removeprefix("ROLE: ").strip()
 tools = args[args.index("--tools") + 1].split(",") if "--tools" in args else []
 cwd = Path.cwd()
 venv = os.environ.get("AGENT_VENV")         # the dry run's stub agent environment
-if venv and (os.environ.get("VIRTUAL_ENV") != venv
+if venv and (os.environ.get("VIRTUAL_ENV") != venv or os.environ.get("ZDOTDIR") != venv
              or not os.environ["PATH"].startswith(os.path.join(venv, "bin"))):
     sys.exit("agent environment not passed to the agent")
 

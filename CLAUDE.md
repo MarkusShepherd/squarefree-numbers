@@ -159,7 +159,9 @@ the post.
   use Python for long context windows.
 - **Python packages:** every agent's `python3` is the environment at
   `agent_venv` (numpy, scipy, mpmath, sympy; pinned in `agent-env/`), for
-  both backends. Agents can't install anything else. The pre-cutoff run had
+  both backends. Agents can't install anything else. Agent shells don't read
+  Markus's zsh/bash startup files (`ZDOTDIR`, Codex `allow_login_shell=false`);
+  if an agent's `python3` lacks the packages, check that first. The pre-cutoff run had
   no such environment, and its numerics agent wrote C instead.
 - **Usage:** you run on the same Claude subscription as the agents. Keep your
   own effort moderate; don't read whole transcripts when a grep will do

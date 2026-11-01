@@ -78,7 +78,10 @@ tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
 
    The driver puts it first on every agent's `PATH` (`agent_venv` in
    `config.json`; `AGENT_VENV` overrides) and refuses to start agents without
-   it. Agents can't install anything else.
+   it. Agents can't install anything else. Their shells skip your shell
+   startup files (`ZDOTDIR` points into the environment, Codex runs with
+   `allow_login_shell=false`): a `~/.zshenv` or a login profile could
+   otherwise put another `python3` first on `PATH`.
 2. **Your own instruction files.** `~/.claude/CLAUDE.md`, Claude Code's auto
    memory and `~/.codex/AGENTS.md` load into every agent. Make sure none of
    them mentions the thesis or Dehnert.
