@@ -39,7 +39,7 @@ lit=$(python3 -c 'import json; print(" ".join(r["status"] for r in json.load(ope
 [ "$lit" = "downloaded wishlist rejected rejected" ] || fail "literature statuses: $lit"
 [ "$(ls literature/pdf/*.pdf | wc -l)" -eq 1 ] || fail "literature: expected one downloaded PDF"
 grep -q "after the 2010 cutoff" literature/review.md || fail "literature: 2015 paper not rejected"
-grep -q "blocked host primes.recommend.games" literature/review.md || fail "literature: blocked host not rejected"
+grep -q "blocked host gitlab.com" literature/review.md || fail "literature: blocked host not rejected"
 ./orchestrate.py plan
 [ "$(ls plans/*.json | wc -l)" -eq 4 ] || fail "expected 4 plans"
 ./orchestrate.py plan                   # keeps the existing plans

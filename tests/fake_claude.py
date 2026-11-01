@@ -96,7 +96,7 @@ elif role == "librarian":
         item | {"id": "excluded2015", "authors": "F. Dehnert", "title": "Sparse variance for "
                 "k-free numbers in arithmetic progressions", "year": 2015, "access": "paywalled"},
         item | {"id": "blog", "authors": "B. Logger", "title": "A post", "year": 2009,
-                "kind": "blog post", "access": "open", "url": "https://primes.recommend.games/x"},
+                "kind": "blog post", "access": "open", "url": "https://gitlab.com/someone/notes"},
     ], "notes": "stub"})
 elif role == "integrator":
     (cwd / "assembly.md").write_text("stub assembly\n")
