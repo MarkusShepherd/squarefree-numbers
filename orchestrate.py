@@ -511,9 +511,10 @@ def _events(m):
         if t in ("agent_message", "reasoning"):
             yield "mention", item.get("text", "")
         elif t != "user_message":                       # commands, searches, file changes
-            out = _flat(item.get("aggregated_output") or item.get("output") or item.get("result") or "")
-            call = {k: v for k, v in item.items()
-                    if k not in ("id", "aggregated_output", "output", "result")}
+            # web_search items carry their search results in `results`: what the agent saw.
+            outputs = ("aggregated_output", "output", "result", "results")
+            out = _flat(next((item[k] for k in outputs if item.get(k)), ""))
+            call = {k: v for k, v in item.items() if k != "id" and k not in outputs}
             yield "attempt", _flat(call)
             if out:
                 yield ("denied" if "denied" in out.lower()[:200] else "exposure"), out

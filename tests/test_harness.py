@@ -280,6 +280,21 @@ class HarnessTest(unittest.TestCase):
         (self.root / 'papers/note.txt').write_text('real corpus change')
         self.assertRegex(self.run_step('status').stdout, r'P1\s+open')
 
+    def test_codex_search_results_are_exposure_not_attempt(self):
+        o = self.load_driver()
+        event = {'type': 'item.completed', 'item': {
+            'id': 'ws', 'type': 'web_search', 'query': 'Croft 1975 squarefree',
+            'action': {'type': 'search', 'queries': ['Croft 1975 squarefree']},
+            'results': [{'type': 'text_result', 'title': 'Thesis',
+                         'url': 'https://primes.recommend.games/thesis.pdf'}]}}
+        kinds = {kind: text for kind, text in o._events(event)}
+        self.assertNotIn('primes.recommend.games', kinds['attempt'])
+        self.assertIn('Croft 1975', kinds['attempt'])
+        self.assertIn('primes.recommend.games', kinds['exposure'])
+        event['item'] |= {'query': 'https://primes.recommend.games/thesis.pdf',
+                          'action': {'type': 'open_page', 'url': 'https://primes.recommend.games/thesis.pdf'}}
+        self.assertIn('primes.recommend.games', dict(o._events(event))['attempt'])
+
     def test_stray_files_in_props_are_not_propositions(self):
         self.ready()
         (self.root / 'props/.DS_Store').write_bytes(b'finder')

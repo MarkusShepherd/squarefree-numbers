@@ -41,6 +41,13 @@ def item(**it):
     emit({"type": "item.completed", "item": {"id": f"item_{n}", **it}})
 
 
+def search(query, snippet=None):
+    """A native web search, shaped as codex-cli 0.166.0 reports it."""
+    results = [{"type": "text_result", "ref_id": "turn0search0", "title": "Result",
+                "snippet": snippet}] if snippet else []
+    item(type="web_search", query=query, action={"type": "search", "queries": [query]}, results=results)
+
+
 def write(name, text):
     if not writable:
         sys.exit(f"{role}: write to {name} in a read-only sandbox")
@@ -72,16 +79,14 @@ elif role == "numerics":
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()
     if hint.startswith("Strategy hint: follow Vaughan"):
-        item(type="web_search", query="squarefree variance", result="Fixed modulus: https://arxiv.org/abs/1912.04683")
-        item(type="web_search", query="squarefree numbers 2010", result="Before cutoff: arXiv:1012.5674")
+        search("squarefree variance", "Fixed modulus: https://arxiv.org/abs/1912.04683")
+        search("squarefree numbers 2010", "Before cutoff: arXiv:1012.5674")
     if hint.startswith("No strategy hint"):
-        item(type="web_search", query="sparse variance squarefree polynomial moduli")
+        search("sparse variance squarefree polynomial moduli")
         item(type="command_execution", command="curl -s https://riemannhypothesis.blog/thesis.pdf",
              aggregated_output="Distribution of squarefree numbers ... riemannhypothesis.blog",
              exit_code=0, status="completed")
-        item(type="web_search", query="example.org",
-             result={"content": [{"type": "text", "text": "Dehnert, Monatsh. Math."}]},
-             status="completed")
+        search("example.org", "Dehnert, Monatsh. Math.")
     props = [
         {"id": "P1", "title": "Rearrangement", "statement": "S1", "depends_on": []},
         {"id": "P2", "title": "Major arcs", "statement": "S2", "depends_on": ["P1"]},
