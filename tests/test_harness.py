@@ -280,6 +280,13 @@ class HarnessTest(unittest.TestCase):
         (self.root / 'papers/note.txt').write_text('real corpus change')
         self.assertRegex(self.run_step('status').stdout, r'P1\s+open')
 
+    def test_stray_files_in_props_are_not_propositions(self):
+        self.ready()
+        (self.root / 'props/.DS_Store').write_bytes(b'finder')
+        self.assertNotIn('.DS_Store', self.run_step('status').stdout)
+        self.run_step('prove', 'P1')
+        self.assertRegex(self.run_step('status').stdout, r'P1\s+passed')
+
     def test_global_concurrency(self):
         o = self.load_driver()
         active = 0

@@ -1029,7 +1029,7 @@ def cmd_select(args):
     plan = json.loads((ROOT / "plans" / f"{args.hint}.json").read_text())
     validate({k: v for k, v in plan.items() if k != "model"}, SCHEMAS["plan"])
     check_acyclic(plan["propositions"])
-    if (ROOT / "props").exists() and any((ROOT / "props").iterdir()):
+    if prop_ids():
         sys.exit("props/ is not empty; move it aside before selecting a new plan")
     shutil.copy(ROOT / "plans" / f"{args.hint}.json", ROOT / "plan.json")
     for p in plan["propositions"]:
@@ -1039,6 +1039,12 @@ def cmd_select(args):
         (d / "meta.json").write_text(json.dumps(p, indent=2))
         (d / "status.json").write_text(json.dumps({"state": "open", "round": 0}))
     log(f"selected plan '{args.hint}': {len(plan['propositions'])} propositions in props/")
+
+
+def prop_ids():
+    """Propositions are the directories in props/; ignore stray files such as .DS_Store."""
+    props = ROOT / "props"
+    return sorted(p.name for p in props.iterdir() if p.is_dir()) if props.exists() else []
 
 
 def status(pid):
@@ -1090,14 +1096,11 @@ def approval_hash(pid):
 
 
 def invalidate_stale():
-    props = ROOT / "props"
-    if not props.exists():
-        return
-    for p in sorted(props.iterdir()):
-        st = status(p.name)
-        if st["state"] in ("passed", "defect") and st.get("approval_hash") != approval_hash(p.name):
-            set_status(p.name, state="open", approval_hash=None, invalidated="statement, dependency, proof, review or corpus changed")
-            log(f"{p.name}: previous approval invalidated; review again")
+    for pid in prop_ids():
+        st = status(pid)
+        if st["state"] in ("passed", "defect") and st.get("approval_hash") != approval_hash(pid):
+            set_status(pid, state="open", approval_hash=None, invalidated="statement, dependency, proof, review or corpus changed")
+            log(f"{pid}: previous approval invalidated; review again")
     # Reports are retained for audit but explicitly marked stale when any source changes.
     manifest = ROOT / "report" / "inputs.json"
     if manifest.exists() and json.loads(manifest.read_text()) != integration_hashes():
@@ -1223,7 +1226,7 @@ def cmd_prove(args):
     refs = referee_models()
     if len(set(refs)) < 2:
         log(f"WARNING: both referees use {refs[0]}; configure models.referees for model diversity")
-    pids = args.props or sorted(p.name for p in (ROOT / "props").iterdir())
+    pids = args.props or prop_ids()
     pids = [p for p in pids if status(p)["state"] != "passed"]
     for pid, res in parallel(lambda pid: prove_one(pid, args.model), pids).items():
         log(f"{pid}: {res}")
@@ -1256,7 +1259,7 @@ def cmd_pollinate(args):
 
 def cmd_integrate(args):
     invalidate_stale()
-    pids = sorted(p.name for p in (ROOT / "props").iterdir())
+    pids = prop_ids()
     open_ = [p for p in pids if status(p)["state"] != "passed"]
     if open_ or not pids:
         raise ValueError(f"not all propositions passed: {open_}")
@@ -1336,10 +1339,10 @@ def cmd_status(_):
         print("no plan selected yet")
     else:
         print(f"{'prop':6} {'state':8} {'round':>5}  title")
-        for d in sorted((ROOT / "props").iterdir()):
-            s, m = status(d.name), json.loads((d / "meta.json").read_text())
+        for pid in prop_ids():
+            s, m = status(pid), json.loads((ROOT / "props" / pid / "meta.json").read_text())
             crux = " [crux]" if m.get("crux") else ""
-            print(f"{d.name:6} {s['state']:8} {s['round']:>5}  {m['title']}{crux}")
+            print(f"{pid:6} {s['state']:8} {s['round']:>5}  {m['title']}{crux}")
     cost_file = ROOT / "logs" / "costs.jsonl"
     if cost_file.exists():
         rows = [json.loads(l) for l in cost_file.read_text().splitlines()]
