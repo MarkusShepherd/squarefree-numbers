@@ -17,7 +17,7 @@ Model agreement is evidence, not a proof checker.
 ```
 AGENTS.md            shared instructions for the interactive operator
 CLAUDE.md            points Claude Code to AGENTS.md
-RUN_STATE.md         historical snapshot, not current run authority
+RUN_STATE.md         where the run stands (operator notes)
 problem.md           mathematical question
 papers/              supplied PDFs (gitignored)
 prompts/             role prompts, exclusion rules and JSON schemas

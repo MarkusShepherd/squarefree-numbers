@@ -51,9 +51,9 @@ the thesis:
 
 ## Current state
 
-Read `RUN_STATE.md` only as historical context. The current configuration and
-`./orchestrate.py status` are authoritative. The literature cutoff introduced
-in MR !13 requires restarting the pre-cutoff experiment from scratch. A worktree has separate state;
+`RUN_STATE.md` records where the run stands; read it first and update it after
+each step. The current configuration and `./orchestrate.py status` are
+authoritative where they disagree with it. A worktree has separate state;
 never copy an earlier run's outputs into a fresh experiment unintentionally.
 
 ## Procedure
