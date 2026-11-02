@@ -1142,14 +1142,26 @@ def prove_one(pid, override=None):
     for rnd in range(st["round"] + 1, st["round"] + 1 + CFG["max_rounds"]):
         # `round` advances only when a round completes; an interrupted one restarts.
         set_status(pid, state="open")
+        if objections_file.exists():
+            objections = objections_file.read_text()
+            # A crash can leave objections from this round before its status is saved.
+            # They refer to the proof we are about to discard, so roll them back too.
+            stale = re.search(rf"(?m)^## Round {rnd} \(against proof-v{rnd}\)$", objections)
+            if stale:
+                completed = objections[:stale.start()]
+                if completed.strip():
+                    objections_file.write_text(completed)
+                else:
+                    objections_file.unlink()
         for stale in [pdir / f"proof-v{rnd}.md", *pdir.glob(f"review-v{rnd}-*.json")]:
             stale.unlink(missing_ok=True)
         contract = contract_hash(pid)
         # ---- prover ----
         files = common_inputs() | dep_statements(pid) | {"statement.md": pdir / "statement.md"}
-        if objections_file.exists():
+        previous_proof = latest_proof(pid)
+        if objections_file.exists() and previous_proof is not None:
             files |= {"objections.md": objections_file,
-                      "previous-proof.md": latest_proof(pid)}
+                      "previous-proof.md": previous_proof}
         if (pdir / "hint.md").exists():
             files["hint.md"] = pdir / "hint.md"
         wd = sandbox(f"prove-{pid}-r{rnd}", files)

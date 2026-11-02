@@ -270,6 +270,23 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(sorted(p.name for p in (self.root / 'props/P1').glob('proof-v*.md')),
                          ['proof-v1.md', 'proof-v2.md'])
 
+    def test_incomplete_objections_are_removed_with_their_proof(self):
+        self.ready()
+        pdir = self.root / 'props/P1'
+        (pdir / 'proof-v1.md').write_text('Interrupted proof')
+        (pdir / 'review-v1-0.json').write_text('{"incomplete": true}')
+        (pdir / 'objections.md').write_text(
+            '\n## Round 1 (against proof-v1)\n\nObjection to interrupted proof\n')
+        self.assertEqual(json.loads((pdir / 'status.json').read_text())['round'], 0)
+
+        self.run_step('prove', 'P1')
+
+        objections = (pdir / 'objections.md').read_text()
+        self.assertNotIn('Objection to interrupted proof', objections)
+        self.assertEqual(objections.count('## Round 1 (against proof-v1)'), 1)
+        self.assertNotIn('incomplete', (pdir / 'review-v1-0.json').read_text())
+        self.assertEqual(json.loads((pdir / 'status.json').read_text())['round'], 2)
+
     def test_os_metadata_does_not_invalidate_approvals(self):
         self.ready()
         self.finish_two_props()
