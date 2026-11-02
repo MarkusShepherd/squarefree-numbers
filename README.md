@@ -19,7 +19,7 @@ AGENTS.md            shared instructions for the interactive operator
 CLAUDE.md            points Claude Code to AGENTS.md
 RUN_STATE.md         where the run stands (operator notes)
 problem.md           mathematical question
-papers/              supplied PDFs (gitignored)
+papers/              supplied PDFs (gitignored) and INDEX.md
 prompts/             role prompts, exclusion rules and JSON schemas
 hints/               strategy hints
 variants/            optional prompt/hint overrides
