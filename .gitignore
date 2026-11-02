@@ -154,3 +154,6 @@ papers/
 *.joblib
 *.parquet
 *.pickle
+
+# Local development worktrees
+.worktrees/

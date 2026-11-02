@@ -10,6 +10,11 @@ import os
 import sys
 from pathlib import Path
 
+if '--version' in sys.argv:
+    print('sqf-test-cli 1.0')
+    sys.exit(0)
+
+from fixture_schema import fill
 args = sys.argv[1:]
 prompt = args[-1]
 role = prompt.split("\n", 1)[0].removeprefix("ROLE: ").strip()
@@ -19,6 +24,7 @@ writable = args[args.index("--sandbox") + 1] == "workspace-write"
 n = 0
 venv = os.environ.get("AGENT_VENV")         # the dry run's stub agent environment
 if venv and (os.environ.get("VIRTUAL_ENV") != venv or os.environ.get("ZDOTDIR") != venv
+             or os.environ.get("BASH_ENV") != ""
              or not os.environ["PATH"].startswith(os.path.join(venv, "bin"))):
     sys.exit("agent environment not passed to the agent")
 if "allow_login_shell=false" not in args:   # a login shell's profile files rewrite PATH
@@ -35,14 +41,24 @@ def item(**it):
     emit({"type": "item.completed", "item": {"id": f"item_{n}", **it}})
 
 
+def search(query, snippet=None):
+    """A native web search, shaped as codex-cli 0.166.0 reports it."""
+    results = [{"type": "text_result", "ref_id": "turn0search0", "title": "Result",
+                "snippet": snippet}] if snippet else []
+    item(type="web_search", query=query, action={"type": "search", "queries": [query]}, results=results)
+
+
 def write(name, text):
     if not writable:
         sys.exit(f"{role}: write to {name} in a read-only sandbox")
+    (cwd / name).parent.mkdir(parents=True, exist_ok=True)
     (cwd / name).write_text(text)
     item(type="file_change", changes=[{"path": name, "kind": "add"}], status="completed")
 
 
 def finish(answer):
+    if not isinstance(answer, str) and '--output-schema' in args:
+        answer = fill(answer, json.loads(Path(args[args.index('--output-schema') + 1]).read_text()))
     text = answer if isinstance(answer, str) else json.dumps(answer)
     item(type="agent_message", text=text)
     emit({"type": "turn.completed", "usage": {"input_tokens": 1000, "output_tokens": 100}})
@@ -57,18 +73,20 @@ if role == "probe":
 elif role == "numerics":
     write("results.json", json.dumps({"polynomials": {}, "validation": [], "notes": "stub"}))
     write("compute.py", "# stub\n")
+    write("src/helper.py", "# nested source fixture\n")
+    write("README.md", "Stub numerics; not real mathematical evidence.\n")
     finish("done")
 elif role == "planner":
     hint = (cwd / "hint.md").read_text()
+    if hint.startswith("Strategy hint: follow Vaughan"):
+        search("squarefree variance", "Fixed modulus: https://arxiv.org/abs/1912.04683")
+        search("squarefree numbers 2010", "Before cutoff: arXiv:1012.5674")
     if hint.startswith("No strategy hint"):
-        item(type="web_search", query="sparse variance squarefree polynomial moduli")
+        search("sparse variance squarefree polynomial moduli")
         item(type="command_execution", command="curl -s https://riemannhypothesis.blog/thesis.pdf",
              aggregated_output="Distribution of squarefree numbers ... riemannhypothesis.blog",
              exit_code=0, status="completed")
-        item(type="mcp_tool_call", server="codex_apps", tool="search_service.web_run",
-             arguments={"open": [{"ref_id": "https://example.org"}]},
-             result={"content": [{"type": "text", "text": "Dehnert, Monatsh. Math."}]},
-             status="completed")
+        search("example.org", "Dehnert, Monatsh. Math.")
     props = [
         {"id": "P1", "title": "Rearrangement", "statement": "S1", "depends_on": []},
         {"id": "P2", "title": "Major arcs", "statement": "S2", "depends_on": ["P1"]},
@@ -92,6 +110,20 @@ elif role == "referee":
 elif role == "pollinator":
     write("hint.md", "stub hint\n")
     finish({"diagnosis": "route", "needs_replan": False, "summary": "try plan B's step 4"})
+elif role == "librarian":
+    # the open PDF is a file:// URL, which the driver accepts only with LIT_ALLOW_FILE=1
+    (cwd / "fake.pdf").write_bytes(b"%PDF-1.4\n% stub\n")
+    candidate = {"kind": "article", "relevance": 2, "why": "stub"}
+    finish({"items": [
+        candidate | {"id": "open2005", "authors": "A. Author", "title": "An open paper", "year": 2005,
+                "access": "open", "pdf_url": (cwd / "fake.pdf").as_uri()},
+        candidate | {"id": "croft1975", "authors": "M. J. Croft", "title": "Square-free numbers in "
+                "arithmetic progressions", "year": 1975, "access": "paywalled"},
+        candidate | {"id": "excluded2015", "authors": "F. Dehnert", "title": "Sparse variance for "
+                "k-free numbers in arithmetic progressions", "year": 2015, "access": "paywalled"},
+        candidate | {"id": "blog", "authors": "B. Logger", "title": "A post", "year": 2009,
+                "kind": "blog post", "access": "open", "url": "https://gitlab.com/someone/notes"},
+    ], "notes": "stub"})
 elif role == "integrator":
     write("assembly.md", "stub assembly\n")
     finish({"composes": True, "final_theorem": "T"})

@@ -1,0 +1,7 @@
+# Build only the runner image and scientific environment, never experiment data.
+**
+!isolation/
+!isolation/Dockerfile
+!agent-env/
+!agent-env/pyproject.toml
+!agent-env/uv.lock

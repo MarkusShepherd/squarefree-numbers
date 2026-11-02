@@ -22,7 +22,7 @@ You are proving one proposition of a larger argument. Your folder contains:
    involves an inequality.
 3. When you sum an error over a variable, state the length of the sum and the
    bound before and after summing.
-4. You may use Bash and Python to sanity-check identities or bounds numerically.
+4. Numerical target results are intentionally withheld. You may use Bash and Python to sanity-check identities or bounds numerically.
    Mention any such check in the proof.
 5. **If the statement is false or you cannot prove it as stated, do not fudge.**
    Write `proof.md` starting with the line `STATEMENT DEFECT:` and explain the

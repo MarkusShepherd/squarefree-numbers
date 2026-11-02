@@ -1,340 +1,316 @@
-# sqf-sparse: a small multi-agent proof harness
+# sqf-sparse: a proof harness for Claude Code and Codex
 
-A worked example of how to run "agents" on a research problem with off-the-shelf
-Claude Code and Codex. The problem is the sparse variance for squarefree numbers in
-arithmetic progressions to polynomial moduli (`problem.md`), but nothing in the
-driver is specific to it.
+A file-based research workflow for the sparse variance of squarefree numbers
+in arithmetic progressions to polynomial moduli (`problem.md`). Either provider
+can do every role. Use both, Claude only, or Codex only; the Python driver uses
+only the standard library.
 
-## Ideas
-
-- **An agent is one `claude -p` (or `codex exec`) process** in its own folder under `runs/`. The
-  folder contains only what that role may see; it is kept afterwards, so you can
-  read exactly what each agent saw (inputs), did (`_stream.jsonl`) and wrote.
-- **State lives in files, not conversations.** Agents never talk to each other.
-  The driver copies files between folders, and that copying *is* the
-  information flow.
-- **Propositions are contracts.** A prover sees only the *statements* of its
-  dependencies, so all propositions can be attacked in parallel, and a broken
-  proof of P2 cannot leak into P5.
-- **Referees are independent by construction**: separate process, separate
-  folder, read-only tools, no access to the prover's reasoning, the other
-  referee, or earlier objections. Two different models referee each proof.
-- **Structured output** (`--json-schema`) for anything the driver must parse:
-  plans, verdicts. Free text for anything a human reads: proofs.
-- **Humans steer at the seams**: you read the plans and pick one, and you decide
-  what to do with stuck propositions.
-- **Independence from the 2011 thesis** on this problem is enforced where it is
-  cheap and *audited* everywhere else; see below.
+An agent is a fresh `claude -p` or `codex exec` process. Planners propose
+propositions with explicit dependency contracts. Provers see dependency
+statements, not their proofs. Two fresh referee sessions inspect each proof.
+Independent integrators check the complete argument. Markus chooses plans,
+accepts numerical evidence, decides statement changes and judges the result.
+Model agreement is evidence, not a proof checker.
 
 ## Layout
 
 ```
-problem.md          the question (edit this for another problem)
-papers/             PDFs the agents may read (you supply these)
-prompts/            one file per role, plus schemas.json; _rules.md is appended to all
-hints/              one strategy hint per planner
-variants/           prompt variants that override prompts/ and hints/ (see variants/README.md)
-config.json         models, effort, tools, exclusions, rounds, parallelism, budget
-orchestrate.py      the driver (~700 lines, standard library only)
-numerics/           written by the numerics agent
-literature/         librarian's list, vetted: review.md, candidates.json, pdf/ (for you to check)
-plans/              one plan per hint (.json for the driver, .md for you)
-plan.json           the plan you selected
-props/P*/           statement, proof-vN, review-vN-i, objections, status
-runs/               symlink to runs_dir (outside the repo): every agent's sandbox, kept
-logs/costs.jsonl    one line per agent run: role, model, variant, seconds, cost, leak hits
-logs/probe-*.md     what fresh models already know about the problem
-logs/leaks.json     output of check-leaks
-report/             integrator output
-archive/<label>/    finished runs, copied by `archive` for committing
-tests/              stub CLIs and dry_run.sh, for testing the plumbing for free
+AGENTS.md            shared instructions for the interactive operator
+CLAUDE.md            points Claude Code to AGENTS.md
+RUN_STATE.md         where the run stands (operator notes)
+problem.md           mathematical question
+papers/              supplied PDFs (gitignored)
+prompts/             role prompts, exclusion rules and JSON schemas
+hints/               strategy hints
+variants/            optional prompt/hint overrides
+config.json          models, capabilities, effort, isolation and limits
+orchestrate.py       orchestration and state transitions
+harness_support.py   JSON validation and hashing helpers
+isolation/           optional Docker image and per-invocation runner
+agent-env/           pinned scientific Python project and uv.lock
+literature/          vetted candidates, review lists and unpromoted PDFs
+numerics/            independent candidates and operator-selected evidence
+plans/               plans and cache provenance
+plan.json            selected plan
+props/P*/            statements, proof versions, reviews, objections, approval hashes
+runs/                symlink to external working directories and _records/
+logs/                costs/tokens, probes, exclusions and interventions
+report/              independent integration reports; STALE if outdated
+archive/<label>/     permanent run record, excluding paper PDFs
+tests/               stub CLIs and temporary-checkout regression tests
 ```
 
-## Running it
+## Setup
 
-### Before the first run
+Check Python 3.10+, and the installed versions of the providers you enable:
 
-1. **Prerequisites.** Check, don't assume:
-
-   ```
-   python3 --version   # 3.10 or newer
-   claude --version    # and logged in: `claude` starts without asking you to log in
-   codex --version     # only for the default Claude+Codex mix; `codex login` once
-   ```
-
-   Without Codex, set `"backends": ["claude"]` in `config.json`. The driver
-   uses only the standard library, so there is nothing to install; it carries
-   PEP 723 metadata, so `uv run orchestrate.py <step>` works as well as
-   `./orchestrate.py <step>` and pins the Python version.
-
-   The agents get their own Python environment, the same for Claude and
-   Codex: numpy, scipy, mpmath and sympy at the versions pinned in
-   `agent-env/`. Build it once with uv, and commit the `agent-env/uv.lock`
-   it writes:
-
-   ```
-   UV_PROJECT_ENVIRONMENT=~/sqf-runs/agent-venv uv sync --project agent-env
-   ```
-
-   The driver puts it first on every agent's `PATH` (`agent_venv` in
-   `config.json`; `AGENT_VENV` overrides) and refuses to start agents without
-   it. Agents can't install anything else. Their shells skip your shell
-   startup files (`ZDOTDIR` points into the environment, Codex runs with
-   `allow_login_shell=false`): a `~/.zshenv` or a login profile could
-   otherwise put another `python3` first on `PATH`.
-2. **Your own instruction files.** `~/.claude/CLAUDE.md`, Claude Code's auto
-   memory and `~/.codex/AGENTS.md` load into every agent. Make sure none of
-   them mentions the thesis or Dehnert.
-3. **Dry run, free:** `tests/dry_run.sh`. It runs every step with stub CLIs
-   instead of `claude` and `codex`, checks the expected outcome, cleans up
-   after itself, and ends with `dry run OK`. Rerun it after changing the driver.
-4. **Papers** into `papers/` (gitignored; any file names): these three, what
-   you pick after the literature search (step 3 of a run), and nothing else:
-   - Vaughan 2005, *A variance for k-free numbers in arithmetic progressions*,
-     Proc. LMS 91, 573–597 (paywalled)
-   - Brüdern–Wooley 2011: <https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf>
-   - Brüdern–Granville–Perelli–Vaughan–Wooley 1998:
-     <https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf>
-
-   Every agent gets a copy of `papers/`, so a later paper left there would
-   break the literature cutoff (see "Independence from the thesis").
-5. **Choose the setup** in `config.json`: `variant` (`neutral` or
-   `thesis-informed`, see `variants/README.md`), `backends`, models and effort.
-   For a cheap first real run, set the Claude models to `sonnet` and every
-   effort to `medium`.
-
-### Backends
-
-**Claude only, Codex only, or both.** `backends` in `config.json` lists the
-enabled backends; `BACKENDS=claude` (or `codex`) in the environment overrides
-it for one command. A model of a disabled backend is replaced by
-`fallback` (`codex` -> `sonnet`, `claude` -> `codex`), so the per-role model
-list stays as it is. `prove` warns if both referees end up as the same model.
-
-```
-BACKENDS=claude ./orchestrate.py plan
+```sh
+python3 --version
+claude --version
+codex --version
 ```
 
-### A run, step by step
+Log in with `claude` and/or `codex login`. No Claude installation is necessary
+for Codex-only runs. Subscription usage and model availability depend on your
+account. Claude's USD budget flag does not meter Codex; Codex tokens are logged
+separately. Effort labels across providers are not equal compute budgets.
 
-Read the output of each step before starting the next.
+For host-mode agent runs, build the shared scientific Python environment once
+with Python 3.12+ (the driver itself needs only Python 3.10+):
 
-1. `./orchestrate.py probe`: ask fresh models, with no tools, what they already
-   know about this variance. Read `logs/probe-*.md`. If a model reproduces the
-   thesis's or Dehnert's result, runs with that model are contaminated by
-   pretraining.
-2. `./orchestrate.py numerics`: exact computation of V_f. Read
-   `numerics/README.md` and sanity-check it yourself before going on; every
-   later step trusts it.
-3. `./orchestrate.py literature`: a librarian agent lists relevant works
-   from 2010 or earlier. The driver vets each, downloads the open PDFs to
-   `literature/pdf/` and writes `literature/review.md` in three lists:
-   downloaded; wishlist (no open PDF: get the full text through Cambridge
-   Core or a library if it's worth it); rejected, with the reason. For each
-   work the agents should have, check that the PDF is what its entry says and
-   from 2010 or earlier, copy it into `papers/` and add a line to
-   `papers/INDEX.md` (authors, year, title, venue). Every agent from step 4
-   on sees all of `papers/`, `INDEX.md` included, so settle it before
-   planning. Optional: `plan` only notes when it hasn't run. Steps 1–3 are
-   independent of each other.
-4. `./orchestrate.py plan`: four planners in parallel. Read `plans/*.md`.
-   Existing plans are kept, so a rerun only retries the failures. `plan --cross`
-   adds every other model on every hint, as `plans/<hint>@<model>.*`, so that a
-   strategy isn't lost to the model it happened to be paired with; select one
-   with `select <hint>@<model>`.
-5. `./orchestrate.py select vaughan` (or whichever plan you prefer).
-6. `./orchestrate.py prove`: prover/referee loop for every proposition, up to
-   `max_rounds` rounds each. `./orchestrate.py status` at any time.
-7. For a stuck proposition: read `props/P*/objections.md`, then
-   `./orchestrate.py pollinate P3` and `./orchestrate.py prove P3`. Or edit
-   its statement by hand; that is often the right call.
-8. `./orchestrate.py integrate`: checks the passed pieces compose and compares
-   the constant with the numerics.
-9. `./orchestrate.py check-leaks`: scan every transcript (it also runs after
-   each agent and warns).
-10. `./orchestrate.py archive [label]`: copy every sandbox and the run's
-   outputs into `archive/<label>/` (default label: date, time and variant),
-   without the PDFs. Review it and commit it; that is the run's permanent
-   record. Agents never run inside the repo, so later runs can't read it.
-   Transcripts at max effort can be several MB per agent; compress the
-   archive or use Git LFS if that becomes a problem.
-
-### Starting over
-
-A run's state is `plans/ plan.json props/ numerics/ report/ logs/` in the repo
-plus the sandboxes in `runs_dir`. To start a new run, archive the old one (step
-10), then:
-
-```
-rm -rf plans plan.json props numerics report logs ~/sqf-runs/squarefree-numbers
+```sh
+UV_PROJECT_ENVIRONMENT=~/sqf-runs/agent-venv uv sync --locked --project agent-env
 ```
 
-To keep the numerics and only replan, keep `numerics/`. `literature/` is not
-part of a run's state and stays; move it aside to search again.
+`agent_venv` in config.json specifies its location; `AGENT_VENV` overrides it.
+Agent-starting steps refuse a missing environment or one inside a Git worktree.
+Set `agent_venv` to null (and unset `AGENT_VENV`) to opt out explicitly.
+Every host agent gets the same `VIRTUAL_ENV`, PATH prefix, `ZDOTDIR` and empty
+`BASH_ENV`; Codex also gets `allow_login_shell=false`. This prevents personal
+zsh/bash startup files from silently selecting a different Python. The locked
+packages are numpy 2.5.4, scipy 1.18.1, mpmath 1.3.0 and sympy 1.14.0.
+Docker builds its own Linux environment from this same project and lockfile;
+it never mounts the host virtualenv. Rebuild the image after changing the lock.
 
-## Independence from the thesis
+The initial approved corpus in `papers/` is Vaughan 2005, Brüdern–Wooley 2011
+and BGP+ 1998. The latter two PDFs are at
+<https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf> and
+<https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf>; Vaughan is supplied
+locally. Read `papers/INDEX.md` for the actual approved corpus. Literature is
+limited to **2010 or earlier, plus the explicitly supplied papers in papers/**.
+The former 2019 arXiv background paper is excluded. Post-cutoff and pre-cutoff
+experiments are separate: archive the earlier run and restart all agent stages.
+Supply text extractions alongside PDFs when useful; the Docker image includes
+`pdftotext` so both providers can inspect the same corpus.
 
-An agent with web access could simply find the 2011 thesis. Full sandboxing,
-a container per agent, isn't set up yet; it would work with the subscriptions
-(`claude setup-token`, and a mounted `~/.codex/auth.json`). Instead:
+Before spending subscription usage, run:
 
-**Enforced** for every agent, all tested against Claude Code:
+```sh
+tests/dry_run.sh
+```
 
-- `--tools <list>` per role (`config.json`): the agent sees only these built-in
-  tools. (`--allowedTools` alone only pre-approves; `Task`, `Skill` etc. stay
-  visible.) Planners and provers get `WebSearch`/`WebFetch` for the literature
-  search; referees get `Read` only.
-- `--disallowedTools "mcp__*"` and `--strict-mcp-config`: no MCP servers or
-  tools, including browser integrations such as Claude in Chrome.
-- `ENABLE_CLAUDEAI_MCP_SERVERS=false`: no claude.ai connectors (GitLab etc.).
-- `--settings '{"disableAllHooks": true}'`: your own hooks from
-  `~/.claude/settings.json` don't run in agents (a `SessionStart` hook's output
-  would otherwise go into the agent's context).
-- `WebFetch(domain:...)` deny rules for the blog's domains and gitlab.com, and
-  `Bash(curl *)`, `Bash(wget *)` deny rules.
-- `--permission-mode dontAsk`: anything not pre-approved is denied.
-- **Sandboxes outside the repository.** Agents run in `runs_dir`
-  (`~/sqf-runs/squarefree-numbers` by default, `RUNS_DIR` overrides), not
-  inside this git repo, so a Bash agent can't `git log` its way to the
-  thesis-informed variant or to commit messages about the answer. The driver
-  refuses to start if `runs_dir` is inside any git work tree. Claude agents
-  also get a `Bash(git *)` deny rule.
+Tests use temporary copies, never the current experiment. They cover mixed,
+Claude-only and Codex-only workflows, including integration, schema failures,
+stale approvals, process cleanup and the global concurrency limit. Stub success
+does not verify live provider tool discovery or mathematical quality.
 
-**Instructed** (`prompts/_rules.md`, appended to every prompt): do not read
-anything by Markus Schepke / Shepherd, or Dehnert's 2015 paper on the same
-problem (Monatsh. Math. 177, 373–396); report it if encountered; do not use
-remembered knowledge of either; do not read outside the working directory.
-Dehnert's paper is paywalled, so there is no domain to block; the leak
-patterns cover his name and the DOI.
+## Running one experiment
 
-**Literature cutoff.** Agents may use only literature from 2010 or earlier,
-plus `papers/` (which includes Brüdern–Wooley 2011): roughly what was
-available when the problem was set. This excludes Dehnert (2015) by
-construction and keeps the run comparable with the original task. Deny rules
-can't filter by date, so the cutoff is instructed (`_rules.md`), checked by
-the referees (a proof relying on a later result fails review), and audited:
-`check-leaks` reports new-style arXiv identifiers dated 2011 or later
-(`arXiv:YYMM.NNNNN`, `arxiv.org/abs/...`) as `post-cutoff arxiv`, except in
-probes, which have no rules. The year is `exclusion.literature_cutoff_year` in
-`config.json`. Models still know later results from pretraining (the probes
-name several); the referee check is what keeps them out of the proofs.
+Read each step's outputs before proceeding.
 
-**Literature search.** The librarian (`literature`) is a Claude agent with
-`Read`, `WebSearch` and `WebFetch` and the same domain blocks as the others;
-it has no tool that writes files, so it only *lists* works. The driver then
-checks every item itself rather than trusting the agent: the year against the
-cutoff, `leak_patterns` (excluded names, titles, DOI), arXiv identifiers after
-the cutoff, and blocked domains and shadow libraries for both the landing page
-and the PDF link. It downloads only over http(s), re-checks the host after
-redirects, and keeps a download only if it really is a PDF; a paywall's HTML
-page puts the item on the wishlist. The download runs as you, outside the
-agent restrictions, which is why nothing reaches the other agents until you
-have checked it and copied it into `papers/`. The step refuses to run on
-Codex, which has no domain blocks. Its transcript will have `exposure` and
-`post-cutoff arxiv` hits, since searches turn up later work; what matters is
-that none of it gets into `papers/`.
+1. `./orchestrate.py probe`: memory-only contamination probes for enabled models.
+   Read `logs/probe-*.md`. Recall of excluded work can taint a run; a negative
+   probe cannot establish absence of pretraining contamination.
+2. `./orchestrate.py numerics`: configured models independently compute numerical
+   candidates under `numerics/candidates/<model>/`. Compare implementations,
+   brute-force small cases and rerun the code. Counts and fits have different
+   reliability; investigate disagreement rather than deciding by model vote.
+3. `./orchestrate.py literature`: an optional search for further pre-2011 works.
+   It is independent of probe and numerics, but belongs before planning.
+   Opus and Sol search independently by default, under the global concurrency
+   limit. Each returns bibliography; the driver checks years, exclusion
+   patterns, arXiv dates, blocked hosts and shadow-library hosts itself, then
+   downloads only apparent open PDFs into `literature/pdf/` (50 MB cap).
+   Read `literature/review.md`: downloaded, wishlist and rejected with reasons.
+   Nothing is promoted automatically. Markus picks works; verify each PDF's
+   title page, then copy only approved pre-2011 works into `papers/` and add
+   bibliographic entries to `papers/INDEX.md`. Finish this before any planner
+   runs. Raw responses are kept in `literature/searches/<model>.json`; the
+   combined candidates and review identify the model behind every entry.
+   Overlapping recommendations remain visible rather than being silently merged.
+   Download filenames include the model to avoid collisions. If one search fails,
+   successful searches are retained and reused on a retry with unchanged inputs.
+   Backend overrides still apply: duplicate resolved models run only once.
+   Claude has fetch deny rules; Codex uses native search with weaker domain
+   restrictions. Both receive identical driver vetting and the human gate.
+4. `./orchestrate.py numerics --accept <candidate>`: explicitly promote a reviewed
+   candidate, e.g. `codex-gpt-6.1-sol`. Record why in `logs/interventions.md`.
+   Acceptance is a human choice, not automated certification. Supporting source
+   files are retained in a fresh `numerics/accepted/snapshot-.../` directory.
+   `numerics/accepted.json` names the active snapshot and is replaced atomically
+   only after the complete copy is verified. Previous snapshots remain for audit;
+   files are never merged between candidates. Planning and integration check the
+   entire selected snapshot, including added or deleted files. Validate/rerun
+   candidate code before acceptance; use `PYTHONDONTWRITEBYTECODE=1` if rerunning
+   an accepted snapshot to avoid adding Python cache files to it. Failed promotion
+   leaves the prior selection intact. Legacy selections without a snapshot must
+   be reviewed and accepted again; root-level copies of old numerical files are
+   not used as evidence.
+5. `./orchestrate.py plan`: cross every unique configured planner with every hint.
+   Base names retain the alternating assignment (`vaughan`, etc.); the additional
+   plans use `<hint>@<model>`. `plan --single` runs only the base assignment;
+   `plan --cross` explicitly requests the full crossing. Existing matching plans
+   are reused. Changed inputs require `plan --refresh` or a fresh experiment.
+6. `./orchestrate.py select <plan-name>`: Markus selects a plan. Existing
+   propositions must be moved aside before selecting another.
+7. `./orchestrate.py prove`: each proposition gets up to `max_rounds` **additional**
+   rounds per invocation. Prover models rotate across rounds, so both providers
+   can try the hard work. Two independent referee sessions inspect each attempt.
+   A defect report can never become an approved proof.
+8. For a stuck proposition, read its reviews and objections. Markus may request
+   `pollinate P3`, then `prove P3`; change a statement; or replan. Use
+   `prove P3 --model codex:gpt-6.1-sol` (or a Claude model) for a targeted attempt.
+   `pollinate` also accepts `--model`.
+9. `./orchestrate.py integrate`: every unique configured integrator independently
+   checks composition and compares constants with accepted numerical evidence.
+   Read every `integration-<model>.json` and `assembly-<model>.md`. The summary's
+   `composes` is true only if all integrators agree to composition; differing
+   theorem statements still need human comparison. `integrate --model <model>`
+   requests a single model explicitly.
+10. `./orchestrate.py check-leaks`: inspect exposure, attempt, denied and mention
+   hits. Exclusion scanning also runs after every invocation. Stop to review an
+   exposure before feeding affected outputs into another stage.
+11. `./orchestrate.py archive <label>`: after all agents finish, preserve working
+    directories, provenance, outputs and logs. Review and commit the archive.
 
-**Audited**: every run is recorded with `--output-format stream-json
---verbose` in `runs/*/_stream.jsonl`, including every search query, fetch and
-tool result. `check-leaks` classifies hits of the patterns in
-`config.json` as `exposure` (excluded material reached the agent, e.g. in a
-search snippet: read it and decide whether the run is tainted), `attempt`,
-`denied` and `mention`. It scans tool calls, tool results, the agent's text
-and its reasoning (Claude `thinking` blocks, Codex `reasoning` items), and
-matches on normalised text (lower case, no LaTeX/Markdown markup, hyphens or
-dashes), so "Square-free" and "$k$-free" variants are caught.
+`./orchestrate.py status` shows approvals and usage. Numerical target results
+are withheld from provers and referees; planners and integrators can see the
+accepted evidence. Independent integration sessions do not see each other.
 
-**Not covered**: Bash can still reach the web by other means (e.g. Python's
-`urllib`) and read files outside its folder by absolute path, including this
-repository if the agent knows or guesses where it is; search snippets
-can't be blocked, only detected; and pretraining can't be undone, only measured
-(`probe`). Also check that your own `~/.claude/CLAUDE.md` and auto memory say
-nothing about the thesis: they load into every `claude -p` session.
+## Codex only, Claude only, or both
 
-## Models: Claude and Codex
+```sh
+export BACKENDS=codex
+./orchestrate.py probe
+./orchestrate.py numerics
+# Review candidates, accept one, and follow the remaining steps above.
+```
 
-Any model in `config.json` can be a Claude model (`opus`, `sonnet`, ...) or
-`codex` / `codex:<model>`, which runs that agent with the Codex CLI
-(`codex exec`, logged in with your ChatGPT account) instead of `claude -p`.
-Model IDs are pinned (`claude-opus-5-5`, `claude-sonnet-5-5`,
-`codex:gpt-6.1-sol`), so they can't change mid-experiment; a bare `codex`
-would run the Codex CLI's default model, since `--ignore-user-config` skips
-the model set in `~/.codex/config.toml`. The default mix, sized for the $20
-Claude and ChatGPT plans:
+Set `BACKENDS=claude` or `BACKENDS=claude,codex` similarly, or change `backends`
+in config.json. Disabled-provider assignments resolve through `fallback`.
+The default Claude-to-Codex fallback is `codex:gpt-6.1-sol`. Codex-only thus
+uses Sol for every role and two fresh Sol referee sessions. The harness warns
+about duplicate referee models: separate sessions do not supply model-family
+diversity. To use multiple available Codex models, set explicit `codex:<id>`
+entries under `models`; no Claude model is required.
 
-- **Opus** where judgement matters: one planner of two (`planner` may be a
-  list; hints are assigned round-robin), one referee, the integrator.
-- **Sonnet** for volume: the numerics and the provers. The Claude referee is
-  therefore never the prover's own model.
-- **Codex** (GPT-6.1-Sol) as the second model family: the other planner and
-  referee, the pollinator, and one of the probes.
-- Effort `high` everywhere (pollinator `medium`). `max` exhausts the plans'
-  usage windows early in proving; raise effort for a single stuck crux
-  proposition instead (`prove P3` after editing `config.json`).
+To use Codex as the interactive operator, start `codex` in this repository;
+it loads AGENTS.md. Claude Code follows CLAUDE.md's pointer to the same guide.
+The operator's provider does not constrain the agent backends.
 
-Fable is not used: it isn't included in the standard subscription. GPT-6-Astra
-is Codex's frontier model but costs several times Sol's usage; it is worth
-trying as `codex:gpt-6-astra` for one referee round on a stuck crux
-proposition, not as a default.
+**Switching backends does not make existing outputs single-provider outputs.**
+Archive the current experiment, then start with empty `logs/`, `plans/`,
+`plan.json`, `props/`, `numerics/`, `report/` and a fresh external RUNS_DIR.
+`literature/` is retained across restarts as a manually reviewed search record;
+move it aside explicitly when you want to search again. It never becomes an
+agent input automatically. Reusing it does not substitute for approving papers.
+A separate Git worktree is convenient for this. Always give worktrees distinct
+RUNS_DIR values: the driver refuses a directory already owned by another
+checkout or containing unclaimed old runs. A legacy run must be archived with
+the old harness before migration. Do not copy earlier mathematical results into
+a supposedly independent run.
 
-How a Codex agent differs (flags checked against codex-cli 0.166.0; run
-`codex exec --help` if yours is newer):
+## Capabilities and provider adapters
 
-- **Tools.** Codex has no per-tool whitelist. A role whose tool list contains
-  Write, Edit or Bash runs with `--sandbox workspace-write` (writes only in its
-  folder), anything else with `--sandbox read-only`. Commands have no network
-  in either mode, which is stricter than the Claude side; but the read-only
-  sandbox still lets the agent *read* files anywhere on disk.
-- **Web access, without domain blocks.** Codex agents do literature search with
-  the `codex_apps` MCP tool `search_service.web_run`, which stays available
-  despite `web_search="disabled"` and `--ignore-user-config`. Codex can't deny
-  individual domains: `tools.web_search.allowed_domains` did not stop a page
-  from opening (codex-cli 0.166.0). So the blocks that Claude agents have are,
-  for Codex, only the rules in the prompt plus the audit in `check-leaks`.
-  `--disable apps` would remove web access altogether.
-- **No user config.** `--ignore-user-config` keeps MCP servers and settings
-  from `~/.codex/config.toml` out (login still works). `~/.codex/AGENTS.md` is
-  still loaded, so check it says nothing about the thesis, as for `CLAUDE.md`.
-- **Structured output.** The final message must be the JSON object;
-  `--output-schema` would need strict schemas, and ours have optional fields.
-- **Effort.** `codex.effort` maps the harness's effort levels onto
-  `model_reasoning_effort`, one-to-one by default. GPT-6.1-Sol accepts `low`,
-  `medium`, `high`, `xhigh` and `max` (checked with codex-cli 0.166.0); Ultra
-  is a parallel sub-agent mode, not an effort level, and isn't used.
-- **Cost.** Codex reports tokens, not dollars, and there is no equivalent of
-  `--max-budget-usd`; only `timeout_s` caps a runaway Codex agent.
-  `costs.jsonl` records the backend and token counts.
-- **Auditing** is the same: `codex exec --json` events go to
-  `runs/*/_stream.jsonl`, and `check-leaks` reads both formats.
+`capabilities` expresses read, write, compute and research access per role.
+Claude receives an explicit built-in tool list and no MCP tools. Codex receives
+native search only for research roles, read-only or workspace-write commands,
+and no apps, plugins, hooks or internal subagents. Probes have shell execution
+and research disabled. The transcript audit rejects tool use in probes, MCP
+calls, and online search in offline roles. One role invocation is the accounting
+unit; the driver provides the explicit multi-agent structure for both providers.
 
-`tests/dry_run.sh` exercises both backends.
+Read access on Codex uses shell commands; both providers therefore receive
+local computation for roles that need files. A read-only command sandbox cannot
+write scratch code. Native provider policies and filesystem isolation remain
+different mechanisms; inspect live transcripts to verify actual capabilities.
 
-## Cost control
+Both providers use strict JSON schemas for plans, literature lists, verdicts
+and integration. Integer ranges in bibliography fields are validated as well.
+Optional fields in the source schemas become required in the emitted schemas;
+use empty strings/lists or false when those fields do not apply.
+The host validates nested fields, types, enums, dependency IDs and cycles, and
+verdict consistency. Referee results are rejected if any supplied proof,
+statement, dependency or paper changes in their working directory. New scratch
+files do not invalidate a review; provider sandbox permissions still apply.
+Codex uses `--output-schema`, `--json` and
+`--output-last-message`, and must emit a successful completed turn.
+`--ignore-user-config` keeps user config out while preserving login. It does
+not imply that global instructions and every other user customization disappear.
+See [Codex noninteractive mode](https://learn.chatgpt.com/docs/non-interactive-mode),
+[CLI flags](https://learn.chatgpt.com/docs/developer-commands?surface=cli) and
+[configuration](https://learn.chatgpt.com/docs/config-file/config-reference).
 
-Runs use your Claude Code login, so they count against your subscription's
-usage limits rather than API billing.
+## Isolation and excluded sources
 
-- `max_budget_usd` in `config.json` is passed as `--max-budget-usd` to every
-  call, so one runaway agent is capped.
-- `logs/costs.jsonl` records each run; `status` prints the total.
-- The expensive steps are the provers and referees at `max` effort. For a dry
-  run, set every Claude model to `sonnet` and every effort to `medium`.
-- Codex agents count against your ChatGPT plan's limits instead, and `status`
-  shows their token totals separately.
+The excluded thesis, its author's sites, and Dehnert (2015) must not be used.
+`prompts/_rules.md` spells out the policy. The leak scanner checks normalized
+transcript text, tool calls, results and exposed reasoning summaries. It cannot
+inspect hidden reasoning, undo pretraining, guarantee complete tool telemetry,
+or prove a source was not used. The 2010 cutoff covers remembered results too;
+referees must reject proofs using later work outside the supplied corpus.
+`post-cutoff arxiv` hits flag modern identifiers in text next to "arxiv"; probes
+are exempt. Journal-only citations without an arXiv identifier need referee
+review. Librarian search results may expose later work, but those items must
+be rejected before anything enters the approved corpus. Thesis/blog exposures
+still require review.
 
-## When an agent fails
+**Host mode** (default) is convenient, but working directories are not security
+boundaries. Agents can potentially read outside their folders, including other
+runs and the repository. Check your global Claude/Codex instructions, skills,
+auto memory and rules for contamination. Command sandboxes limit writes and
+Codex command networking; Claude's shell deny patterns do not block every
+possible network client. Native Codex search has no equivalent of the Claude
+fetch deny rules here. Prompts and after-the-fact audits are not domain filters.
 
-Nothing retries or waits. A failed agent is logged and the batch goes on, so
-after a usage limit, later agents probably fail too: rerun the step once the
-window resets. An agent counts as failed if it exits non-zero, passes `timeout_s`
-(it is killed), or ends without a successful result, such as an exhausted budget.
-Its transcript stays in `_stream.jsonl`, which is written as the agent runs, is
-scanned for leaks, and gets a line in `costs.jsonl` with the reason in `failure`.
+**Docker mode** gives each invocation its own filesystem, only its own work
+folder, a clean home and the minimum provider login. It never mounts the
+repository, siblings, archives, the Docker socket or your full home/config.
 
-## What it does not do
+```sh
+docker build -t sqf-agents:local -f isolation/Dockerfile .
+# For Claude container sessions only:
+claude setup-token
+# Set CLAUDE_CODE_OAUTH_TOKEN to that token in your environment (do not commit it).
+# Codex uses ~/.codex/auth.json, or set CODEX_AUTH_FILE to a login JSON file.
+```
 
-- Lean. Mathlib does not cover this kind of analytic number theory, so the
-  referees and the numerics are the verifier. They are much weaker than a proof
-  checker; the final read is yours.
-- Automatic replanning. When a statement is wrong, its dependents are probably
-  wrong too, and deciding how is the part worth doing yourself.
+Set `isolation.mode` to `docker` in config.json. The image pins CLI versions
+with build arguments and includes Python 3.12, the locked scientific packages,
+GCC, Poppler, git and ripgrep. `.dockerignore` excludes experiment data from the
+build context; only the Dockerfile and agent environment enter the build.
+Codex's inner command sandbox uses `danger-full-access` **only in Docker** to
+avoid requiring nested Linux namespace privileges; the container supplies the
+filesystem boundary. Read-only roles also receive a read-only work-folder mount and a separate
+output folder. The container still has network access for inference and
+research, and model commands can reach that network. Docker mode does **not**
+provide a network allowlist, source exclusion proxy or tool-free inference
+service. Those require a separate controlled network deployment. For a tightly
+controlled corpus experiment, disable research capabilities, keep the filesystem
+isolation, and account for this network limitation in the experiment's claims.
+Credentials available to a provider process are also accessible to code running
+inside its container. Docker removes the container after success or termination;
+refreshes to its copied Codex auth are not written back to your host login.
+
+## Approval validity and reproducibility
+
+Approvals bind the current proposition and all transitive dependency contracts,
+problem, supplied corpus, proof, referee artifacts and current referee policy. `status`, `prove` and
+`integrate` invalidate approvals when these change. Legacy approvals without
+hashes require new review. Approvals from before referee input-integrity
+verification also require fresh review. Updating an upstream statement
+invalidates dependent approvals. Dependency proofs are not assumptions: changing only an upstream
+proof invalidates its own approval, while unchanged contracts remain usable.
+Integration cannot proceed until every proposition has a current approval.
+Old reports are retained but marked `report/STALE` when their inputs change.
+
+Every invocation has an external `runs/_records/<run>/invocation.json` with its
+exact prompt, schema, command, capabilities, config/harness sources, input
+hashes, revision and CLI version; `outcome.json` records output hashes and
+failure. Authoritative transcripts are also recorded there, outside the agent
+mount; per-folder transcript copies remain available for convenience. Symlink
+inputs and agent outputs in both the work folder and Docker output mount are
+rejected to prevent host-side promotion from following links outside mounted
+directories. Final responses are opened as regular files without following
+symlinks in agent-controlled path components, even if a link appears after the
+tree check. The agent cannot read these records in Docker mode. Container
+versions are captured in each record's `outputs/_container-version.txt`. Archives
+retain records and the literature review but omit all PDFs, including downloaded
+literature; preserve the supplied corpus separately using the recorded hashes.
+
+`parallel` limits **all live agent invocations**, including nested referees.
+Timeouts terminate process groups; Docker cleanup also removes the container.
+Failed agents retain streams, stderr, provenance and usage records. A failed
+batch exits nonzero after keeping successful artifacts; rerun after addressing
+the failure or the usage window resets. No automatic mathematical replanning,
+usage-limit retries, formal proof checking or automatic publication is provided.
