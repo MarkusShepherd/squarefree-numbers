@@ -6,7 +6,7 @@
 - $Q(x;q,l) = \#\{n \le x : n \equiv l \pmod q,\ n \text{ squarefree}\}$.
 - $g(q,l) = \lim_{x\to\infty} Q(x;q,l)/x$ (exists; derive its closed form yourself if you need it).
 - $E(x;q,l) = Q(x;q,l) - g(q,l)\,x$.
-- $f \in \mathbb{Q}[t]$ is an integer-valued polynomial of degree $d \ge 1$ with $f(t) \ge 2$ and $f'(t) \ge 1$ for $t \ge 1$.
+- $f \in \mathbb{Z}[t]$ is a polynomial of degree $d \ge 1$ with $f(t) \ge 2$ and $f'(t) \ge 1$ for $t \ge 1$.
 - $\rho(m) = \#\{a \bmod m : f(a) \equiv 0 \pmod m\}$.
 
 ## Object of study
