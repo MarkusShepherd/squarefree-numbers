@@ -1,0 +1,24 @@
+{
+  "candidate": "codex-gpt-6.1-sol",
+  "snapshot": "accepted/snapshot-j2x_vk5t",
+  "problem_hash": "b4efb9ea304861681409d13e2a00313e4251bb76c996e3f48cb24160a416ecb4",
+  "results_hash": "c0b92da93ad533486653444281d332666012048a887960c9f0ac6094838e2c4e",
+  "artifacts": {
+    "README.md": "aa97ed0dd806e503bf3e53e5bbba9b67142955aabc2b84ac622a48f7ad647c9e",
+    "compute.py": "3192d2b57cb723a36a1100de05c1eb5114f42b7f0b151b469c182359c590cf5b",
+    "compute_core": "0518cfc7171abf358d28a7365189cd201203fd87e8bf69d9ab7acf7328b9ef0d",
+    "compute_core.cpp": "d58b48cc862d76507484802665c76b62dcffae103ee3f99d894bf83e6e728782",
+    "compute_core_check": "9f6e75f52113c6e1d4587fbee626d0df0c8d4340865c3fe932bd7ad7a430287e",
+    "problem.md": "b4efb9ea304861681409d13e2a00313e4251bb76c996e3f48cb24160a416ecb4",
+    "raw_1000.csv": "3ec3802c1b25efcfdaa288e5e4db33393f7862e28986f6dacca2fa5cf9eb86b6",
+    "raw_1000000.csv": "cfb845e6f77fa01a3eb5863f9ab7984331d890ac322004692ece403e30ba08c0",
+    "raw_16000000.csv": "3f6b81267c900cb495d048a6bfb05d0452bbe948afb2cf0df2006386bfc7f150",
+    "raw_256000000.csv": "c5cd4bc1054e169a6fa97a53175f4e2b42700c68225159f2b75aeced2b23cb68",
+    "raw_4000000.csv": "8886e39ff47450fe325d30530a00222a97054a8e6c66f9ac0f65c43318182382",
+    "raw_64000000.csv": "2534320b9b0525e3a203e189353e0703a9c5c8f7ae5208570d6d4faea8582f06",
+    "results.json": "c0b92da93ad533486653444281d332666012048a887960c9f0ac6094838e2c4e",
+    "validation_other_modulus.csv": "cfb845e6f77fa01a3eb5863f9ab7984331d890ac322004692ece403e30ba08c0"
+  },
+  "time": "2026-11-02T13:33:05.134959",
+  "acceptance": "operator selected; not a proof of numerical correctness"
+}

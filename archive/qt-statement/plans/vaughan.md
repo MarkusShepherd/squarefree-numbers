@@ -1,0 +1,112 @@
+# Plan: vaughan
+
+Model: claude-opus-5-5
+
+PLAN (elementary per-modulus route; deliberately deviates from the circle-method hint, see below).
+(1) Open the square for each modulus q=f(k). The off-diagonal is a sum over shifts t=hq of the shifted convolution N(X;t)=#{n<=X: n, n+t squarefree}. Mirsky's elementary argument gives N(X;t)=S(t)X+O(x^{2/3+eps}) uniformly in t<=x (P1). The cross term comes from Vaughan 2005 Lemmas 2.2(ii)-2.4 (P2).
+(2) An exact algebraic identity (P3, Vaughan's section 6 with u replaced by one fixed q) reduces each modulus to V(q) = -2Phi(q) + O(x^{5/3+eps}/q + x^{1/2}) (P4). Here Phi(q) = C*sum_m gamma(m) q delta_m(q) B(x/(q delta_m(q))) is a sawtooth sum.
+(3) Evaluate Phi(q) for each single q with an elementary sawtooth/partial-summation lemma (P5, crux). The result is Phi(q) = 2 zeta(-1/2) kappa(q) (xq)^{1/2} + O(x^{2/5} q^{3/5+eps}) (P6).
+(4) Average kappa over polynomial values with weight f'(k) f(k)^{1/2} (P7, crux). This uses only rho(p) and rho(p^2), so it plays the role of Bruedern-Wooley's w_h / Euler-product step.
+(5) Assemble (P8).
+
+WHY NOT THE CIRCLE METHOD. Vaughan's minor-arc step uses the u<->v symmetry of K(alpha) and sup|K| << R log x. The sparse analogue T_f(alpha) has no such symmetry and needs power-saving Weyl bounds, which give a worse range (roughly f(y) > x^{5/6-delta}) than the elementary x^{7/9}. Both routes lead to the same object, -2 sum_k f'(k) Phi(f(k)), i.e. Vaughan's V3 with the sum over u replaced by the sum over f(k). A circle-method upgrade of P1/P4 alone could lower x^{5/3} toward x^{3/2} and widen the range toward x^{2/3}; it is not part of this plan.
+
+VERIFICATION (python, own code).
+(a) The exact model -2 sum_{k<=y} f'(k) Phi(f(k)) reproduces the raw V in results.json at x=10^6 to 1e-3 to 1e-5 relative, for all 8 ratios of k^2+1 and 4 ratios of 2k+1. k^3+2 was not reached: the comparison script hit its time limit and was stopped. So the reduction P1-P4 is numerically sound, and all r-dependence of V/(x^{1/2} f(y)^{3/2}) lives inside Phi.
+(b) The P3 identity was checked for q = 3, 12, 50 at x = 10^5, agreeing to within truncation error (about 5e-6).
+(c) The Phi(q) asymptotic was checked at x = 10^9: within 1-4% for q/x <= 3e-3.
+(d) For f(k)=k the constant formula gives 0.128479, which is Vaughan's c_2 from (1.14)/(1.15).
+
+NUMERICS. Predicted A_f vs operator extrapolations (C + a sqrt(r) fit):
+- k^2+1: 0.13808 vs 0.1384 +- 0.007
+- k^3+2: 0.13561 vs 0.1385 +- 0.007
+- 2k+1: 0.14261 vs 0.1409 +- 0.008
+Exponents match the fitted alpha+beta = 2.000. The fixed-x beta of about 1.54-1.55 is biased upward by a secondary term: (z - A_f)/sqrt(r) stays about 0.02-0.05, stable in x, consistent with an f(y)^2 term. The ordering at r=0.01 matches the predicted ordering of A_f. No discrepancy beyond finite-ratio effects. At f(y) of order x the main term alone is not the asymptotic (data 0.171 vs 0.138 at r=1), which is why the theorem requires f(y) <= x^{1-eps}.
+
+RULE COMPLIANCE. No web search or fetch was performed. Nothing by the excluded author or the excluded paper was consulted. Sources: only papers/ (Vaughan 2005; Bruedern-Wooley 2011, supplied and allowed). P1 is Mirsky's classical argument: L. Mirsky, 'On the frequency of pairs of square-free numbers with a given difference', Bull. Amer. Math. Soc. 55 (1949), 936-939. It is cited from memory as background only; P1 is to be proved from scratch.
+
+## Main theorem
+
+Let f be as in problem.md (integer-valued, degree d >= 1, f(t) >= 2 and f'(t) >= 1 for t >= 1). Let rho(m) = #{a mod m : f(a) = 0 mod m}, u_p = rho(p)/p, v_p = rho(p^2)/p^2 (so 0 <= v_p <= u_p <= 1). Define
+E_p(f) = (1-1/p) [ (1-u_p)(1+1/p-2/p^2) + (u_p-v_p)(1-2/p^2+p^{-3/2}) + v_p(1-1/p^2) ],
+S_f = prod_p E_p(f) (absolutely convergent, positive), and A_f = -(8/3) zeta(-1/2) S_f > 0, with zeta(-1/2) = -0.2078862250...
+
+THEOREM. For every eps > 0, uniformly for real x >= 2 and y >= 1 with f(y) <= x,
+V_f(x,y) = A_f x^{1/2} f(y)^{3/2} + O_{f,eps}( x^{5/3+eps} + x^{2/5} f(y)^{8/5+eps} + x^{1/2} f(y)^{3/2-1/(2d)+eps} ).
+Hence V_f(x,y) ~ A_f x^{1/2} f(y)^{3/2} for x^{7/9+eps} <= f(y) <= x^{1-eps}. For f(k)=k, A_f equals Vaughan's c_2 = 0.128479...
+
+## Numerics check
+
+Yes, within the stated uncertainties. Predicted vs extrapolated: k^2+1 0.13808 vs 0.1384+-0.007; k^3+2 0.13561 vs 0.1385+-0.007; 2k+1 0.14261 vs 0.1409+-0.008. Fitted alpha+beta = 2.0005, matching 1/2+3/2. Raw values at r=0.01 exceed A_f by 0.002-0.004, with (z-A_f)/sqrt(r) about 0.02-0.05 across r: a secondary f(y)^2 term dominated by our error terms, not a discrepancy. The exact intermediate model matched tabulated V at x=10^6 to 1e-3 to 1e-5 for k^2+1 (all ratios) and 2k+1 (4 ratios); k^3+2 was not checked this way because the script was stopped at its time limit.
+
+## P1: Uniform shifted convolution of squarefree indicators
+
+Depends on: none  
+Cites: Vaughan 2005, Lemma 2.15
+
+For integer t >= 1 and real X >= 0 let N(X;t) = #{1 <= n <= X : mu^2(n) = mu^2(n+t) = 1}. Let C = prod_p (1 - 2/p^2) and S(t) = C prod_{p^2|t} (p^2-1)/(p^2-2); equivalently S(t) = C sum_{m^2|t} gamma(m) with gamma(m) = mu^2(m) prod_{p|m}(p^2-2)^{-1}, and S(t) = sum_{a,b>=1} mu(a)mu(b) 1[(a^2,b^2)|t]/lcm(a^2,b^2). CLAIM: for every eps > 0, uniformly for real x >= 2, integers 1 <= t <= x and real 0 <= X <= x, N(X;t) = S(t) X + O_eps(x^eps X^{2/3} + x^{1/2}), the implied constant depending only on eps.
+
+*Risk:* Low (classical, Mirsky). Care needed for uniformity in t (gives the x^{1/2} term) and for the sign-mixed range a <= z < b, which should be rewritten via mu^2(n) minus the a > z tail. This proposition fixes the range f(y) >= x^{7/9+eps}.
+
+## P2: Cross term for a single modulus
+
+Depends on: none  
+Cites: Vaughan 2005, Lemma 2.2, Vaughan 2005, Lemma 2.3, Vaughan 2005, Lemma 2.4
+
+With g(q,l) = sum_{m>=1, (m^2,q)|l} mu(m)(m^2,q)/(m^2 q) (Vaughan 2005 (1.2),(1.4), k=2), so 0 <= g(q,l) <= 1/q, and tau the divisor function: uniformly for real x >= 2 and integers 1 <= q <= x, sum_{l=1}^q g(q,l) Q(x;q,l) = x sum_{l=1}^q g(q,l)^2 + O(x^{1/2} tau(q)^3 / q), with an absolute implied constant.
+
+*Risk:* Low. Follows Vaughan (3.5)-(3.7) for one q, using Lemma 2.2(ii) (hypothesis rt <= q <= x holds).
+
+## P3: Exact singular-series identity for one modulus
+
+Depends on: none  
+Cites: Vaughan 2005, Lemma 2.4, Vaughan 2005, Lemma 2.5, Vaughan 2005, Lemma 2.15, Vaughan 2005, Lemma 2.16, Vaughan 2005, Lemma 2.17
+
+Let C = prod_p(1-2/p^2), gamma(m) = mu^2(m) prod_{p|m}(p^2-2)^{-1}, S(t) = C sum_{m^2|t} gamma(m), delta_m(q) = m^2/(m^2,q), B(u) = {u}^2/2 - {u}/2 for u >= 0, and Phi(q) = Phi_x(q) = C sum_{m>=1} gamma(m) q delta_m(q) B(x/(q delta_m(q))) (absolutely convergent, since |B(u)| <= min(1/8, u/2)). g(q,l) as in problem.md. CLAIM: for every integer q >= 1 and real x >= 1, 2 sum_{1<=h<=x/q} S(hq)(x - hq) = x^2 sum_{l=1}^q g(q,l)^2 - x/zeta(2) - 2 Phi(q).
+
+*Risk:* Low; purely algebraic. Uses: for squarefree m, m^2 | hq iff delta_m(q) | h; Lemma 2.16; C sum gamma = 1/zeta(2); and C sum_m gamma(m)/(q delta_m(q)) = sum_l g(q,l)^2 via Vaughan eq. (6.8). Numerically verified for q = 3, 12, 50. Watch sign conventions for B_2^*.
+
+## P4: Per-modulus reduction to the sawtooth sum Phi
+
+Depends on: P1, P2, P3  
+Cites: Vaughan 2005, Lemma 2.4
+
+With E(x;q,l) as in problem.md and Phi(q) = C sum_m gamma(m) q delta_m(q) B(x/(q delta_m(q))) as in P3: for every eps > 0, uniformly for real x >= 2 and integers 1 <= q <= x, sum_{l=1}^q E(x;q,l)^2 = -2 Phi(q) + O_eps(x^{5/3+eps} q^{-1} + x^{1/2}).
+
+*Risk:* Low-moderate bookkeeping. Expand sum_l Q^2 = Q(x;1,1) + 2 sum_{h<=x/q} N(x-hq; hq), then apply P1, P2 and P3 with Q(x;1,1) = x/zeta(2) + O(x^{1/2}). The x^2 sum g^2 terms cancel exactly. Numerically confirmed to about 1e-4 at x = 10^6.
+
+## P5: Sawtooth sum over squarefree n against B(Z/n^2) (CRUX)
+
+Depends on: none  
+Cites: Vaughan 2005, Lemma 2.18
+
+Let B(u) = {u}^2/2 - {u}/2. For integer q >= 1 let a_q(n) = mu^2(n) 1[(n,q)=1] prod_{p|n} p^2/(p^2-2) and A_q = prod_{p not dividing q} (1-1/p)(1+p/(p^2-2)) * prod_{p|q} (1-1/p). CLAIM: for every eps > 0, uniformly for integers q >= 1 and real Z > 0, the series sum_n a_q(n) B(Z/n^2) converges absolutely and equals 2 zeta(-1/2) A_q Z^{1/2} + O_eps(q^eps Z^{2/5}). Ingredients: (i) int_0^infty B(u) u^{-s-2} du = -zeta(s)/(s(s+1)) for -1 < Re s < 0, so int_0^infty B(Z/t^2) dt = 2 zeta(-1/2) Z^{1/2}; (ii) sum_{n<=T} a_q(n) = A_q T + O_eps(q^eps T^{1/2}); (iii) split at N_1 = Z^{2/5}, bound n <= N_1 trivially, and use partial summation with |d/dt B(Z/t^2)| <= Z/t^3 for n > N_1; for Z <= 1 use B(u) = (u^2-u)/2.
+
+*Risk:* The analytic heart. Risks: the Mellin constant and its sign (check: 4 zeta(-1/2) = -0.8316), and q-uniformity in (ii). A per-q Mellin contour shift does not converge absolutely, so the elementary split is the intended route. The exponent 2/5 is crude but sufficient.
+
+## P6: Asymptotic for Phi(q) for an individual modulus
+
+Depends on: P5  
+Cites: none
+
+With Phi(q) as in P3, and e_p(0) = (1-1/p)(1+1/p-2/p^2), e_p(1) = (1-1/p)(1-2/p^2+p^{-3/2}), e_p(2) = (1-1/p)(1-1/p^2), kappa(q) = prod_p e_p(min(v_p(q),2)): for every eps > 0, uniformly for real x >= 1 and integers 1 <= q <= x, Phi(q) = 2 zeta(-1/2) kappa(q) (xq)^{1/2} + O_eps(x^{2/5} q^{3/5+eps}).
+
+*Risk:* Low-moderate. Factor m = m1 m2 m3 by p not dividing q, p || q, p^2 | q, so delta = m1^2 m2. Apply P5 with Z = x/(q m2), which may be < 1. Check that C A_q times the local factors equals kappa(q). Numerically within 1-4% at x = 10^9.
+
+## P7: Weighted mean of kappa over polynomial values (CRUX)
+
+Depends on: none  
+Cites: Bruedern-Wooley 2011, Lemma 2
+
+With f as in problem.md (degree d), rho, kappa and e_p(j) as in P6, u_p = rho(p)/p, v_p = rho(p^2)/p^2, E_p(f) = e_p(0)(1-u_p) + e_p(1)(u_p-v_p) + e_p(2) v_p and S_f = prod_p E_p(f): for every eps > 0, uniformly for real y >= 1, sum_{1<=k<=y} f'(k) f(k)^{1/2} kappa(f(k)) = (2/3) S_f f(y)^{3/2} + O_{f,eps}(f(y)^{3/2-1/(2d)+eps}). Route: write kappa = kappa_0 (1 * eta) with eta(p) = O(1/p) and eta(p^2) = O(p^{-3/2}); apply Euler summation in residue classes mod l (uniform error O_f(y^{d-1} f(y)^{1/2})); treat l <= y^{4/3} exactly and bound the tail by L^{-1/2} q^eps.
+
+*Risk:* This is where sparseness enters. Polynomials with repeated factors have rho(p^2) up to p rho(p); handle this with |eta(p^2)| rho(p^2) << p^{-1/2}. Only the general Euler-summation step (22) of Bruedern-Wooley Lemma 2 is needed. E_p(f) > 0 as a convex combination.
+
+## P8: Main theorem: assembly
+
+Depends on: P4, P6, P7  
+Cites: none
+
+With A_f = -(8/3) zeta(-1/2) S_f (S_f from P7) and d = deg f: for every eps > 0, uniformly for real x >= 2 and y >= 1 with f(y) <= x, V_f(x,y) = A_f x^{1/2} f(y)^{3/2} + O_{f,eps}(x^{5/3+eps} + x^{2/5} f(y)^{8/5+eps} + x^{1/2} f(y)^{3/2-1/(2d)+eps}). In particular V_f ~ A_f x^{1/2} f(y)^{3/2} for x^{7/9+eps} <= f(y) <= x^{1-eps}.
+
+*Risk:* Low. Sum P4 over q = f(k), using sum f'(k)/f(k) << log 2y and sum f'(k) << f(y); then apply P6 and P7 multiplied by -4 zeta(-1/2) x^{1/2}. Sign check: -4 zeta(-1/2)(2/3) S_f = A_f > 0.

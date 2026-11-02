@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "main_theorem": {
+      "type": "string"
+    },
+    "predicted_main_term": {
+      "type": "string"
+    },
+    "agrees_with_numerics": {
+      "type": "string"
+    },
+    "propositions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^P[0-9]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "crux": {
+            "type": "boolean"
+          },
+          "risk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "statement",
+          "depends_on",
+          "cites",
+          "crux",
+          "risk"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "summary",
+    "main_theorem",
+    "predicted_main_term",
+    "agrees_with_numerics",
+    "propositions"
+  ],
+  "additionalProperties": false
+}

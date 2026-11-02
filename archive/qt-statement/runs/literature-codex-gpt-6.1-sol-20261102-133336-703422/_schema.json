@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "authors": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "venue": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "article",
+              "book",
+              "preprint",
+              "thesis",
+              "lecture notes",
+              "survey",
+              "blog post",
+              "other"
+            ],
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "pdf_url": {
+            "type": "string"
+          },
+          "access": {
+            "enum": [
+              "open",
+              "paywalled",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "relevance": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "why": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "authors",
+          "title",
+          "year",
+          "venue",
+          "kind",
+          "url",
+          "pdf_url",
+          "access",
+          "relevance",
+          "why"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "notes"
+  ],
+  "additionalProperties": false
+}

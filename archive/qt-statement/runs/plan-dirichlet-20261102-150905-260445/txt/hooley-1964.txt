@@ -1,0 +1,532 @@
+                                                                                                      39
+                  ON THE DISTRIBUTION OF THE ROOTS OF POLYNOMIAL
+                                    CONGRUENCES
+
+                                                                  C. HOOLEY
+
+                      1. Introduction. In a recent paper on a divisor problem the authorf
+                  showed incidentally that there is a certain regularity in the distribution
+                  of the roots of the congruence
+
+
+                  for variable k, where D is a fixed integer that is not a perfect square. In
+                  fact, to be more precise, it was shown that the ratios vjk, when arranged
+                  in the obvious way, are uniformly distributed in the sense of Weyl. In
+                  this paper we shall prove that a similar result is true when the special
+                  quadratic congruence above is replaced by the general polynomial
+                   congruence
+                                                f(v) = O (modk),
+                  where /(it) is any irreducible primitive polynomial of degree greater than
+                  one. An entirely different procedure is adopted, since the method used in
+                  the former paper is only applicable to quadratic congruences:);.
+                      Our method here has certain other applications in the theory of
+                  numbers. As an example we mention a problem on Kloosterman sums
+                  that was discussed by J. V. Linnik at the recent mathematical congress
+                  in Stockholm!;. This problem is to determine the order of magnitude
+                  of the sum
+                                                           ) k),
+
+                   where S(u, v; k) is a Kloosterman sum (as defined explicitly in §3).
+                   Although an upper bound can be easily obtained by using Weil's estimate
+                   for the Kloosterman sum, this is probably far short of what is actually
+                  'true. In fact any substantial improvement in this upper bound would
+                   have interesting applications to the theory of modular forms and to other
+                   problems in the theory of numbers. Our method enables a slight improve-
+                   ment in this upper bound to be made; brief details are given in §3.
+
+                       Notation. The letters a, d, k, I, A, m and r are positive integers; a, h,
+                  /x, v, u and v are integers; p is a (positive) prime number, x is a continuous
+                  real variable which is to be regarded as tending to infinity.
+
+                       | "On the number of divisors of quadratic polynomials", Ada Math., 110 (1963),
+                   97-114.
+                       X For quadratic congruences, however, the method in f yields more precise results.
+                       § Proc. Inter. Congress. Math., 1962.
+                                                      [MATHEMATIKA 11 (1964), 39-49]
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                  40                                               C. HOOLEY
+
+
+                     The (positive) highest common factor of two integers u, v is denoted
+                  by (u, v); u>{k) is the number of distinct prime factors of k; dr(k) is the
+                  number of ways of expressing k as a product of r factors; a_Ak) is 2 d~*.
+                      The letters Glt C2, etc., are positive constants whose exact interpreta-
+                  tion depends on where they occur; in §2 they depend at most on the
+                  form of the polynomial f(u) until equation (9), after which they may
+                  depend on h also; in §3 they are absolute constants. The equation
+                  cf> = O(\tp\) denotes an inequality of the type \(j>\ ^ Gi\ifi\, true for all
+                  values of the variables consistent with stated conditions.
+
+                      2. The distribution of the roots of the congruence; preliminary description
+                  and lemmata. The discussion in this section will relate throughout to a
+                  given irreducible primitive polynomial /(«) of degree n exceeding 1 and
+                  discriminant D. We define p (k) to be the number of roots of the congruence
+                                                             f(v) = 0 (mod A;),
+                  and define S(h, k) by
+                                                     S(h, k)=               2         e2™*"*
+                                                                     f(v)=O (mod *)
+
+                  where evidently
+                                                                      ) = O{p(k)}.
+                  Our result on the roots of the congruence will be obtained by comparing
+                  the orders of magnitude of the sums
+                                                             R(x) = 2
+
+                  and                                        B(h, x) = 2 S{h, k)
+                                                                            fc;£x
+
+                  for h =£ 0. The principal requirement will be an estimate for R(h, x) that
+                  is small compared with R{x).
+                      We begin by investigating the properties of S(h, k). Thefirstlemma
+                  shows that for a fixed value of k the average order of S(h, k) is less than
+                  the order of p(k).
+                       LEMMA        1. We have, for any integer h,
+
+                                                        \              = O{p(k)k(h,k)}.
+                                                  a=l
+
+                       Using the definition of S(ah, k) we obtain
+
+                                                               2                S     e^iah<v~^k
+                                                              <a^k          0o,v'<£
+                                                                     f{v)=f(v')=O (mod ft)
+
+
+                                                                0<i,»'<i
+                                                              )=/(»')=0 (mod*)
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                          ON THE DISTRIBUTION OF THE BOOTS OF POLYNOMIAL CONGRUENCES                              41
+
+
+                                                                       2
+                                                                  0<!, t < i
+                                                            f(v)=f(v')=O (mod *)
+                                                              h(v-v')=O (mod*)
+
+
+                                                              }{v) = 0 (mod i)       A(» - » ' ) = 0 (mod *)
+
+                                                         = k{h,k)                2               l=p(k)k(h,k),
+                                                                           0<wS,k
+                                                                       f(v)=O (mod 4)
+
+                  which is the result required.
+                     The next lemma shows that S(h, k) has a multiplicative property.
+                       LEMMA 2.           / / (k,k') = l, we have
+                                                S{h, k)S(h', k') = S(hk'+h'k, k¥).
+                       We have
+                                       S(h, k) S(h', k') = 2 e x p | 5 {Me' v+h' kv'),
+                  where the summation is over all values of v, v satisfying the conditions
+
+
+                                              /(v) = 0 (modA;); /(v') =
+                  If for each such pair v, v we define N = N(v, v') by
+                                     N = v (modi), N=v' (modi'),                                       0<N^kk',
+                  then firstly
+                                           exprp (hk' v-\-h' kv) = exp , , , (hk'+h'k),
+
+                  and secondly, as v, v vary, N is in turn equal to each root of the congruence
+                  f(fi) = O (mod kk') once and once only. Therefore
+
+                                           8(h, k) S(h', k') =                   2            e x p ^ {hk'+h'k)
+                                                                      /(/i)=0 Imodtt')                **
+                                                                           0 <kk'
+                                                                   = S{hk'+h'k,kk').
+                       Lemma 3 is an immediate deduction from Lemma 2.
+                       LEMMA 3.           / / (i, i') = 1, then
+                                                    8(h, kk') = 8(hi', k) S(hk, k'),
+                  where i, i' satisfy the congruences
+                                                kk=\       (modi'), i ' i ' s l (modi).
+                       Next we consider some properties of p(k).
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                  42                                               C. HOOLEY
+
+                       LEMMA 4.            We have
+                          (i) p(k) is a multiplicative function of k, i.e. p(kk') = p(Jc)p(k'), if
+                              (M') = i;
+                         (ii) if p I'D, then p(p) = p{px)
+                        (iii) p(p-)
+                        (iv) p{k) =
+                      Parts (i) and (ii) follow from the elementary theory of congruences
+                  [(i) is in fact a special case of Lemma 2], Part (iii) was proved independ-
+                  ently by Ore and Nagell in 192If; (iv) follows from the preceding parts,
+                  since D has only a finite number of prime factors.
+                      The results in Lemma 5 are of a familiar type; the method of proof
+                  has been clearly illustrated by ErdosJ.
+                        LEMMA 5.           There exists a positive constant 0, such that
+
+
+                  Also
+
+
+                      The author is greatly indebted to Professor Heilbronn for suggesting
+                  the idea behind the proof of the next lemma. This concerns the distribu-
+                  tion of the primes p for which the value of p(p) is maximal. The letter q
+                  will be used to indicate, generally, a prime p such that p(p) = n and pj[D.
+                        LEMMA 6.           There exists a positive constant C2 such that
+
+
+
+                       The proof depends on the principle§ that when p\D the factorisation
+                  of the polynomial f(u), modulo p, as a product of irreducible polynomials
+                  fx(u), f2(u), ...,fs(u) of degrees mv m2, ..., ms, respectively, corresponds to
+                   the factorisation of p as a product of prime ideals p1; pa, ..., ps of degrees
+                   mx, ma, ..., ms, respectively, in the field E = R(d) generated by a root 9
+                   of the equation /(«) = 0. We deduce from this principle that the primes
+                   q are just the rational primes not dividing D that split up totally in E
+                   into the product of n prime ideals of degree 1. The required lower bound
+                  is derived by using a certain sub-set of the q that is defined in terms of
+                   another algebraic number field.
+
+                       f See, for example, T. Nagell, Introduction to Number Theory, Chapter 3, Theorem 54.
+                   (Almqvisi and Wiksell).
+                       % P. ErdSs, " On the sum Srf{/(/fc)}", Journal London Math. Soc, 27 (1952), 7-15.
+                       § R. Dedekind, Gesammelte Math. Werke, 1, 202-232.
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                           ON THE DISTRIBUTION OF THE ROOTS OF POLYNOMIAL CONGRUENCES                             43
+
+                      The field E is contained in the normal field F generated by 6 and its
+                  conjugates, the degree s of F being not greater than n\. Then for any
+                  prime p not dividing D (and hence not dividing the discriminant of F)
+                  we compare the factorisations in E and F of p into prime ideals. Firstly
+                  in F the prime p either has no prime ideal factors of the first degree, or it
+                  splits up totally into s prime ideal factors of the first degree. Secondly,
+                  if p splits up totally in F, then it splits up totally in E.
+                      We conclude that the norms of the first degree prime ideals in F are
+                  primes of the type q provided that they do not divide D; furthermore,
+                  exactly s such ideals give rise to the same prime q.
+                      We therefore have
+
+
+
+                  where II' indicates that the product is only over those first degree prime
+                  ideals in F whose norms do not divide D. Hence
+
+                                    n (i+-i-)>c3 u" (1-7^)                                 n (i--^            ,
+                  where II" indicates a product over both prime ideals in F of degree greater
+                  than 1 and first degree prime ideals whose norms divide D. Finally,
+                  therefore,
+
+
+
+                      The estimation of R{h, x) will depend in part on the use of numbers
+                  whose prime factors are restricted by certain conditions. To avoid
+                  interrupting the argument later, we define now a notation for these
+                  numbers, and state two lemmata on their properties.
+                      Let
+
+                   where
+                                                                    p_
+
+
+
+                  Then let the subscript 1 attached to appropriate letters indicate that
+                  these letters denote either the number 1 or numbers composed entirely
+                  of prime factors not exceeding X; let also the subscript 2 indicate, simi-
+                  larly, either 1 or numbers composed entirely of prime factors exceeding
+                  X. Furthermore, for any integer denoted by the letter k, we understand
+                  &J and k2 to be denned by the equation k = k1k2.
+                      The lemmata are given by a straightforward application of Brun's
+                  (or Selberg's) sieve method.
+                       LEMMA        7. Let C7 be any positive constant.                    Then for y ^ xcr
+
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                  44                                               C. HOOLEY
+
+                       LEMMA 8. / / a, A and y satisfy the conditions y~^x2!3,                A^ce 1 ' 3 and
+                   (a, A) = 1, then
+
+
+                                                      l2=a (mod A)
+
+
+                        The estimation of B(h, x) may now be commenced.
+                        Estimation of E(h, x). We have, by Lemma 3.
+                                        R(h, x) = S S(h, k)
+
+                                                                       2, kj) S(hk1} k2)
+
+
+                                                                         = S i + S 2 , say.             (1)
+
+                       The sum S2 i s examined first.                     We have
+
+
+
+
+                  by Lemma 4. Now, if o>(fe1) ^ (1/6-B) log log£, the product of the distinct
+                  prime factors in kx cannot exceed a;*. Therefore the conditions of summa-
+                  tion in S 2 imply that either
+
+                                                  o) (k) > to (kj) > ^ g log log x
+
+                  or i x is divisible by the square of some number exceeding a;1'12. Conse-
+                  quently
+                                      2 2 =O(                 S           »»«>)+Of
+
+
+                                                                            say.                        (2)
+                       We examine S3 by using the equation
+
+                                                            r>(l/6B)logloga;
+
+                  in which the inner sum may be estimated by a method due to Hardy
+                  and Ramanujanf. This method shows that the inner sum is
+                                                                    (loglogg+Cg) - i
+                                                                  -      (r-1)!
+
+                     f G-. H. Hardy, and S. Kamanujan, " The normal nvunber of prime factors of a
+                  number n ", Quart. J. Math., 48 (1917), 76-92.
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                          ON THE DISTRIBUTION or THE BOOTS OF POLYNOMIAL CONGRUENCES                       45
+
+                  Therefore
+                                                                                                       \
+                                                            loga; rxi/e^iogiog*               (r—l)\   J
+                                                            _5_             v
+                                                            loga; r>(i/6£)iogiog*
+                  by Stirling's Theorem.                 Therefore
+
+                                                            logx r>(1i&^logloex\              r   J
+
+
+
+
+                                                        (     X     °° 1 \            / X \
+
+
+                       Also                                 fog~xSi 2 ^ j = ° \Iogij '
+                                                          \ d?m<x                 I
+
+
+
+
+                                                          (a: log"" a; S
+                                                                       1
+
+
+                                                                        *             o(^)                 (4)
+
+                        We deduce from (2), (3) and (4) that
+
+
+
+                        We turn our attention to Ei- We have
+                                               E,= E
+
+                                                        o( s
+
+
+
+
+                   where, for y ^ a;' and A;x < a;*, we define 0 (y, kt) by
+                                               ®(y,h)= S
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                  46                                                  C. HOOLEY
+
+                  Moreover, by the Cauchy-Schwarz inequality,
+
+
+
+                                                                                                                  (7)
+
+                     The sum 2s c a n be assessed in at least three different ways; the one
+                  we use appears to be the least complicated. We have
+
+
+                  where N = n2, and therefore
+
+                                                                  '              S                    1).
+
+                  Since the condition of summation here implies that at least one of the
+                  products Za(1)/2(2)...l£N)ml) cannot exceed y1-1^, we have
+
+                             \i!2(1U2(2)..J2w<2/         /        V a < 1 U 2 < 1 >...«,wr- 1 ><2/ 1 - 1 '*   l
+
+
+
+                  Hence, by Lemma 7,
+                                            /y log log a;
+
+
+
+
+                                                                 n           ( i - ) )
+
+
+                                  \  logo;                       r
+                  by the Mertens formula.
+                       Next
+                                                              | S(ah, kx
+                                                             L                        kv=a (mod ki)
+
+                  where plainly the conditions of summation allow the inner sum to be
+                  estimated by Lemma 8. Therefore, by Lemma 1,
+
+
+
+
+                  As stated in the section on notation, we now allow the constant implied
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                              ON THE DISTRIBUTION OF THE ROOTS OF POLYNOMIAL CONGRUENCES     47
+
+                 by the 0 notation to depend on h. We may thus write
+
+
+
+                        We have from (7), (8) and (10)
+
+
+
+                 and from this and (6)
+                                           _
+
+
+                                                                                           (11)
+
+                 Next, using the results of Lemma 4 several times, we have
+                                                pHl)
+                                 y < y
+
+
+
+
+                                           U<
+
+
+
+                 where q has the same meaning as in Lemma 6. Then
+
+
+
+
+                  by Lemmata 5 and 6. Therefore by this and (11)
+
+
+
+                  w h e r e
+
+
+
+
+                       We deduce finally from (1), (5) and (12) the following theorem.
+                       THEOREM  1. Let f(u) be an irreducible primitive polynomial of degree
+                 n ( > 1), and let
+                                                                 taiz   /(D)SO (mod k)
+                                                                             0^k
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                  48                                                   C. HOOLEY
+
+                  Then, if          h^O,
+
+                                                               1
+                                                                                 log*»a;
+
+                     The uniform distribution. The uniform distribution of the roots of
+                  the congruence
+                                             /(»)sO (modi)
+                  can now be deduced from Theorem 1. We take the numbers of the form
+                  v\k, where f(v) = 0 (mod k) and 0 < v < k, and arrange them as a sequence
+                  sx, s2, •-., sm, ... so that the corresponding denominators are in ascending
+                  order (the arrangement in a group corresponding to a fixed value of k
+                  is immaterial).
+                       Consider the sum
+                                                        2 e2nihs-
+
+                  for each non-zero value of h as Q->oo. If M is the denominator (before
+                  cancellation) in SQ, then
+
+                                                                k<M
+                  by Lemma 5. Also
+                                       s    f»nihsm=       2                 2          ez"ihvlk+O{p{M)}.
+                                                         k<M           /(»)=0 (mod k)
+
+                  Therefore, by Theorem 1,
+
+                                                           ;C 1 0 Jflog-'-
+
+                                                         < C n Q log-
+                  whence, for any h ^ 0,
+                                                           1
+
+
+
+                  as Q^oo.           We thus have
+                      THEOREM 2. TAe sequence sv s2, ...,sm,                               ...,as   defined above, is uni-
+                  formly distributed in the interval (0, 1).
+
+                      3. The Kloosterman sums. We examine briefly the application of the
+                  method developed in §2 to the problem on Kloosterman sums that was
+                  discussed in the introduction.
+                      The Kloosterman sum 8(u,v; k) defined as
+
+                                                                   2      exp-j- (uh+vh),
+                                                               (*,*) = !
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+                          ON THE DISTRIBUTION or THE ROOTS OF POLYNOMIAL CONGRUENCES                                  49
+
+                  where M = l (modi), satisfies the inequality
+                                                   8(u,v;k) = O{kH{k)(v,kf),                                        (13)
+                  as was deduced by the author f from the results of Weil and Salie. The
+                  problem is then to obtain as precise an estimate as possible for the sum
+                                                        T(u,v; x) = £ S(u,v; k).                                   (14)
+                                                                             fcsSE
+
+                  The method of §2 can be applied to this problem by using the following
+                  analogues of Lemmata 1 and 3; these, together with equation (13),
+                  make it clear that in some respects 8(u, v; k) is similar to S(h, k).
+                       LEMMA 1A.            We have
+                                                   \8{u, va2; k)\* = 0{k*d(k)(v, k)}.
+                                         («, k) = 1
+
+                       LEMMA 3A.            / / (k,k')=l,          then
+                                            S(u,v;      kk') = S(u, vk'2; k)S(u, vkz; k').
+                        The following theorem can then be obtained.
+                       THEOREM^.              We have
+                                                                    2
+                                      T(u,v; x) =
+                     A direct substitution in (14) of the estimate (13) would give instead
+                  the weaker result
+                                                   T(u, v;x) = 0{x^^{v)                    log a;}.
+                      Theorem 3 implies slight improvements in certain known results in
+                   the theory of modular forms.
+
+                        The Department of Mathematics,
+                           The University of Bristol.
+
+                                                                                 {Received on the 11th of November, 1963.)
+
+
+
+
+                         f See Proc. London Math. Soc. (3), 7 (1957), 396-413.
+
+
+
+https://doi.org/10.1112/S0025579300003466 Published online by Cambridge University Press
+

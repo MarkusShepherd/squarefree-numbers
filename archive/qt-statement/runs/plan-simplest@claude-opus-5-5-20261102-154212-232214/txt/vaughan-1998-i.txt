@@ -1,0 +1,653 @@
+              On a variance associated with the
+              distribution of general sequences
+                in arithmetic progressions. I
+                                   By R. C. Vaughan
+     Department of Mathematics, Huxley Building, Imperial College of Science,
+       Technology and Medicine, 180 Queen’s Gate, London SW7 2BZ, UK
+
+An asymptotic formula of Montgomery–Hooley type is established for general se-
+quences which, for relatively small moduli, are approximately equidistributed in the
+reduced residue classes.
+           Keywords: variance; distribution; sequences; reduced residue classes
+
+
+
+                                       1. Introduction
+In this memoir we are concerned with the development of those ideas contained in
+Goldston & Vaughan (1996) that relate to more general situations. Thus we are
+following the precedent set by Hooley (1975c) in which his method, first applied to
+the primes in Hooley (1975a, b), is then turned and directed towards arithmetical
+sequences of a rather general form.
+   In particular, we are interested in the extent to which it is possible to obtain an
+asymptotic formula for the variance
+                               X X
+                   V (x, Q) =            |A(x; q, a) − f (q, a)Φ(x)|2 ,           (1.1)
+                                 q⩽Q a∈A(q)
+
+where A(q) is a suitable set of residue classes modulo q, A(x; q, a) denotes
+                                              X
+                             A(x; q, a) =           an ,                             (1.2)
+                                                  n⩽x
+                                               n≡a (mod q)
+
+and f and Φ appropriately reflect the local and global properties, respectively, of the
+real sequence {an }.
+  The simplest generalization from the primes, and one which can be very useful in
+practice as sequences arising from a sieving procedure often meet the requirements
+described below, is that in which the distribution is restricted to, and uniform within,
+the reduced residue classes modulo q, at least for relatively small q. Thus, for the
+purposes of this paper we take A(q) to be the set of reduced residue classes modulo q.
+  It is natural to suppose that Φ be fairly smooth, but as it stands all methods for
+dealing with V (x, Q) require some understanding of objects such as
+                               Z x−h
+                                     Φ0 (y)Φ0 (y + h) dy.
+                                   0
+Even in the case of primes this leads to some technical complications and to obviate
+this it is normal to consider the primes in weighted form. In order to apply weights
+
+Phil. Trans. R. Soc. Lond. A (1998) 356, 781–791                   c 1998 The Royal Society
+Printed in Great Britain                       781                              TEX Paper
+782                                       R. C. Vaughan
+
+properly here we make the following assumptions with regard to Φ. We suppose that
+there is a real number x0 ⩾ 1 such that on [x0 , ∞) the function Φ is non-negative, has
+continuous second deriviative, Φ0 (x) > 0, Φ(x)Φ00 (x)  Φ0 (x)2 and Φ00 (x) 6= 0. We
+observe in passing that this implies that Φ(x)  xΦ0 (x) and that there is a positive
+number δ such that for all sufficiently large x we have Φ(x) > xδ . Thus, rather than
+consider V in the form given above, we replace A(x; q, a) by
+                                               X
+                              B(x; q, a) =            bn ,                        (1.3)
+                                                   x0 <n⩽x
+                                                  n≡a (mod q)
+
+where
+                                                   an
+                                           bn =          ,                               (1.4)
+                                                  Φ0 (n)
+and suppose that
+                                       q
+                                      XX                                         2
+                                                                           x
+                      V (x, Q) =             B(x; q, a) − E(q, a)                    ,   (1.5)
+                                                                          φ(q)
+                                   q⩽Q a=1
+
+where E(q, a) is 1 or 0 according to whether (q, a) = 1 or (q, a) > 1. There would be
+little point in studying this form of the variance if E(q, a)x/φ(q) were not a fairly
+good approximation to B(x; q, a), at least for smaller values of q. It is natural, then,
+to suppose that there is an increasing function Ψ (x), with Ψ (x) > log x for all large
+x, Ψ (1) > 0 and
+                              Z x
+                                  Ψ (y)−1 dy  xΨ (x)−1 ,
+                                      1
+
+such that
+                                                  Φ(x)
+                         A(x; q, a) = E(q, a)          + O(Φ(x)/Ψ (x))                   (1.6)
+                                                  φ(q)
+uniformly for all real x ⩾ 1 and natural numbers q and a. Here we note that imme-
+diately from the above assumptions we have Ψ (x)  x.
+  With the above definitions it is now possible to state a simple conclusion.
+  Theorem 1.1. Let
+                                                  X                       x
+                  U (x, Q) = V (x, Q) − Q               b2n + Qx log        + cxQ,       (1.7)
+                                                                          Q
+                                             x0 <n⩽x
+
+where
+                                                      X        log p
+                              c = γ + log(2π) +                       ,                  (1.8)
+                                                       p
+                                                             p(p − 1)
+
+and suppose that for all sufficiently large x we have log x ⩽ Ψ (x) ⩽ x1/2 . Then
+uniformly for x2/3 ⩽ Q ⩽ x we have
+                                           X       
+                       3/2 1/2       2
+                                                                 p
+           U (x, Q)  Q x + x + x                bn (log 2x)3/2 / Ψ (x).
+                                                  2
+                                                                             (1.9)
+                                                   x0 <n⩽x
+
+
+Phil. Trans. R. Soc. Lond. A (1998)
+                     Distribution of sequences in arithmetic progression               783
+                                p
+  By working harder, the Ψ (x) undoubtedly can be replaced by Ψ (x)θ for some
+θ ∈ ( 12 , 1], albeit an inflated logarithmic factor would be required in (1.9). It might
+even be possible to take θ = 1.
+  We remark in passing that the techniques described herein would suffice just as well
+to treat B(y + x; q, a) − B(y; q, a) provided that y does not grow at an appreciably
+faster rate than x, and that then simple partial summation techniques could be
+applied to obtain a concomitant theorem for A(x; q, a).
+  If one supposes further that the sequence {an } is the characteristic function of a
+set, then it follows by partial summation from (1.6) with q = a = 1 that the sum
+over n in (1.7) and (1.9) may be replaced by
+                                         Z x
+                                               1
+                                              0 (y)
+                                                    dy.                             (1.10)
+                                          x0 Φ
+  Returning to (1.7), it is interesting that when Ψ (x) is at least as large as (log 2x)3+δ ,
+where δ is a positive constant, then the positivity of V ensures that
+                                   X
+                                         b2n  x log Ψ (x).
+                                      x0 <n⩽x
+
+Thus, condition (1.6) ensures that the an cannot be the characteristic function of a
+dense subset of the integers.
+
+
+                           2. Simple consequences of (1.6)
+We need to extract several pieces of information from the basic assumption (1.6).
+  Lemma 2.1. Let E(q, a) be 1 or 0 according to whether (q, a) = 1 or (q, a) > 1.
+Then
+                                        x
+                  B(x; q, a) = E(q, a)      + O(x/Ψ (x))
+                                       φ(q)
+uniformly for all real x ⩾ 1 and natural numbers q and a.
+
+  Proof . This is a straightforward application of partial summation technique. We
+have                                 x   Z x         
+                           A(y; q, a)          d      1
+           B(x; q, a) =                  −                   A(y; q, a) dy.
+                            Φ0 (y) x0                0
+                                            x0 dy Φ (y)
+
+We apply (1.6) and observe that
+                                                             
+                                            d          1
+                                            dy       Φ0 (y)
+is of fixed sign. The main terms are easily handled, and the contributions from the
+error term in (1.6) to the above is
+                                               Z x
+                                  Φ(x)               dy
+                             0           +1+            .
+                               Φ (x)Ψ (x)       x0 Ψ (y)
+The lemma then follows easily.                                                             
+
+Phil. Trans. R. Soc. Lond. A (1998)
+784                                          R. C. Vaughan
+
+  Lemma 2.2. Suppose that x1/2 < Q ⩽ x. Then
+      X 1  X     q                        X 
+                      B(x; q, a) − x  x +    b2n (log 2x)2 /Ψ (x).
+          φ(q)   a=1
+          q⩽Q                                                         n⩽x
+                         (a,q)=1
+
+
+  Proof . We work primarily with
+                                     X                 q
+                                                       X
+                                            1
+                                                             B(x; q, a).
+                                           φ(q)      a=1
+                                    q⩽Q
+                                                   (a,q)=1
+
+We invoke the definition of B(x; q, a) and observe that when summed over a reduced
+set of residues a modulo q this becomes
+                                        X
+                                             bn .
+                                                 x0 <n⩽x
+                                                 (a,q)=1
+
+We then interchange the order of summation of q and n. Thus we are reduced to
+treating the sum
+                                   X     1
+                                            .
+                                       φ(q)
+                                                  q⩽Q
+                                                (q,n)=1
+                                                                              P       2
+This can be done elementarily as follows. We have 1/φ(q) =                    r|q µ(r) /φ(r) and so
+the above sum becomes
+                               X µ(r)2 X 1
+                                                    .
+                                      rφ(r)       s
+                                           r⩽Q              s⩽Q/r
+                                         (r,n)=1           (s,n)=1
+
+The inner sum here is
+                                          X µ(d)          X      1
+                                                                   .
+                                                   d             m
+                                          d|n          m⩽Q/rd
+
+Here we replace the inner sum by
+                                                                     
+                                             Q                   rd
+                                         log    +γ+O                      .
+                                             rd                  Q
+This leads to the estimate
+       X         1        X∞  X µ(d)      Q
+                                                   
+                                                      log Q
+                                                                           
+                     =                 log    +γ +O         (log 2n + d(n)) .
+                φ(q)      r=1
+                                 d         rd           Q
+        q⩽Q                        d|n
+      (q,n)=1            (r,n)=1
+
+Simple manipulations then show that the main terms here are
+                                      X        X
+                      C1 log Q + C2 +     f (p)     g(r),
+                                                       p|n             r|n
+
+Phil. Trans. R. Soc. Lond. A (1998)
+                   Distribution of sequences in arithmetic progression                                               785
+
+where
+                                                ∞
+                                                X µ(r)2
+                                      C1 =                  ,
+                                                r=1
+                                                      rφ(r)
+                                                      X log p
+                                      C2 = γ +                               ,
+                                                       p
+                                                             p2 − p + 1
+                                      log p       log p
+                                  f (p) =    − 2           ,
+                                     p−1 p −p+1
+and g(r) is multiplicative, equals 0 unless r is square-free, and satisfies
+                                                p
+                                 g(p) = − 2            .
+                                            p −p+1
+In passing we observe that in the special case n = 1 we have
+                      X 1                                       
+                                                           log Q
+                               = C1 (log Q + C2 ) + O              .                                                (2.1)
+                          φ(q)                               Q
+                        q⩽Q
+
+We apply the general case and obtain
+                       X 1       X q
+                                                      B(x; q, a) = U + V,
+                                  φ(q)     a=1
+                            q⩽Q
+                                         (a,q)=1
+
+where                                                                           X
+                           X                                        X
+                   U=              bn C1 log Q + C2 +                      f (p)           g(r)
+                         x0 <n⩽x                                     p|n             r|n
+
+and
+                                      X             log Q
+                              V            |bn |         (log 2n + d(n)).
+                                                      Q
+                                      n⩽x
+
+By the case q = 1 of lemma 2.1 we have
+                                   X
+                                      bn  x,
+                                                n⩽x
+
+when x is sufficiently large. Hence, by Cauchy’s ineqality we have both
+                                   X
+                                       b2n  x
+                                            n⩽x
+
+and
+                                         X                   X
+                                                 |bn |            b2n .
+                                         n⩽x                 n⩽x
+
+Therefore                                           X
+                                        V                 b2n /Ψ (x).
+                                                    n⩽x
+
+With regard to U we have
+                          X                     X                      X             X              X
+     U = C1 (log Q + C2 )   g(r)                           bn + C1           f (p)         g(r)              bn .
+                               r⩽x          x0 <n⩽x                    p⩽x           r⩽x          x0 <n⩽x
+                                               r|n                                                 [p,r]|n
+
+Phil. Trans. R. Soc. Lond. A (1998)
+786                                         R. C. Vaughan
+
+Again by lemma 2.1, the contribution from each sum over n is  x/Ψ (x), except
+when r = 1 in the first sum, in which case there is an extra contribution of x.
+Therefore
+                    U = xC1 (log Q + C2 ) + O(x(log x)2 /Ψ (x)).
+By (2.1) the main term here can be replaced by
+                                     X 1
+                                   x
+                                          φ(q)
+                                               q⩽Q
+and then the lemma follows at once.                                                               
+  It is useful to define here                   X
+                                      G(α) =             bn e(αn)                              (2.2)
+                                               x0 <n⩽x
+and                                            X
+                                      J(β) =         e(αn)                                     (2.3)
+                                               n⩽x
+where, as usual, e(·) = exp(2πi·). Then the next lemma follows easily be partial
+summation.
+  Lemma 2.3. Suppose that (q, a) = 1 and α = a/q + β. Then
+                        µ(q)
+                G(α) =       J(β) + O((1 + x|β|)qx/Ψ (x)).
+                        φ(q)
+
+                            3. Preliminary arrangements
+We have                                                             X                
+                       V (x, Q) = 2S1 − S2 + S3 + 2E + O                        b2n
+                                                                      n⩽x
+where                            X X X
+                          S1 =                       bm bn ,                                   (3.1)
+                                 q⩽Q n⩽x m<n
+                                        q|n−m
+                               X x2
+                          S2 =          ,                                                      (3.2)
+                                   φ(q)
+                               q⩽Q
+                                 X
+                          S3 = Q     b2m ,                                                     (3.3)
+                                      m⩽x
+                                 X              Xq            
+                                        x
+                           E=                 x−     B(x; q, a) .                              (3.4)
+                                       φ(q)      a=1
+                                 q⩽Q
+                                                     (a,q)=1
+Lemma 2.2 enables us to bound E. Thus                                                  
+                                                                X               (log 2x)2
+              V (x, Q) = 2S1 − S2 + S3 + O             x2 + x         b2n                  .   (3.5)
+                                                                                  Ψ (x)
+                                                                n⩽x
+As is usual in these questions, the main part of our argument is concerned with the
+sum S1 .
+  For future reference observe that it may be supposed that x is sufficiently large.
+
+Phil. Trans. R. Soc. Lond. A (1998)
+                   Distribution of sequences in arithmetic progression                            787
+
+               4. The Farey dissection and an exponential sum
+This section largely imitates § 3 of Goldston & Vaughan (1996). Let
+                                      X X
+                              F (α) =           e(αqr),                                          (4.1)
+                                                q⩽Q r⩽x/q
+
+and G be as in (2.2). Then, by (3.1),
+                                  Z 1
+                             S1 =     F (α)|G(α)|2 dα.                                           (4.2)
+                                            0
+  For any arbitrary function F : N → C we have
+        X X                 X X               X                          X
+                   f (qr) =          f (qr) +                                          f (qr).
+                                   √                          √ √
+          q⩽Q r⩽x/q              q⩽ x r⩽x/q                 r⩽ x x<q⩽min(Q,x/r)
+
+For convenience an expression of the kind on the right-hand side is written in the
+form
+                      X X                X        
+                                  +                  f (lm).                 (4.3)
+                            √                   √
+                          l⩽ x    m⩽x/l          x<m⩽min(Q,x/l)
+
+Thus
+                                      F (α) = Fq (α) + Hq (α),                                   (4.4)
+where
+                                 X X                       X           
+                    Fq (α) =                      +                      e(αlm)                  (4.5)
+                                 √                    √
+                               l⩽ x      m⩽x/l         x<m⩽min(Q,x/l)
+                                q|l
+
+and Hq (α) is the corresponding multiple sum with q - l. On performing the inner
+summation in Hq (α) we have
+                                 X
+                        Hq (α)       min(xl−1 , ||αl||−1 ).
+                                            √
+                                          l⩽ x
+                                           q-l
+
+For a given a and q with (a, q) = 1 we put
+                                           β = α − a/q.
+Then
+                                       ||αl|| ⩾ ||al/q|| − |β|l
+and so when                    √
+                          l⩽    x,      q-l      and |β| ⩽ 12 q −1 x−1/2
+we have                           X                    √
+                     Hq (α)             ||al/q||−1  ( xq −1 + 1)q log 2q
+                                   √
+                                 l⩽ x
+                                  q-l
+
+and so
+                             √
+                   Hq (α)  ( x + q) log 2q            when    |β| ⩽ 12 q −1 x−1/2 .             (4.6)
+
+Phil. Trans. R. Soc. Lond. A (1998)
+788                                        R. C. Vaughan
+
+  We suppose that R satisfies
+                                            √
+                                           2 x ⩽ R ⩽ 12 x                                        (4.7)
+and consider a typical interval M(q, a) associated with the element a/q of the Farey
+dissection of order R, namely, when 1 ⩽ a ⩽ q ⩽ R and (a, q) = 1,
+                                                      
+                                        a + a− a + a+
+                           M(q, a) =           ,         ,
+                                        q + q− q + q+
+where q± is defined by aq± ≡ ∓1 (mod q) and R − q < q± ⩽ R and a± is defined by
+a± = (aq± ± 1)/q. We observe that
+                                      a + a± a         1
+                                             −   =
+                                      q + q±   q   q(q + q± )
+lies in [1/(2qR), 1/(qR)).
+   We have                           q Z
+                                   X X
+                            S1 =                                F (α)|G(α)|2 dα
+                                   q⩽R     a=1         M(q,a)
+                                         (a,q)=1
+
+and           q Z                                                           Z 1
+            X X
+                                                         2
+                                     Hq (α)|G(α)| dα  R(log x)                   |G(α)|2 dα.
+            q⩽R     a=1     M(q,a)                                           0
+                  (a,q)=1
+                                                   √
+We note also that Fq (α) = 0 when q >      x. Hence
+                                                   
+                                                   X 
+                               S1 = S4 + O R log x  b2n ,                                        (4.8)
+                                                                 n⩽x
+
+where
+                                   X      q
+                                          X        Z
+                        S4 =                                    Fq (α)|G(α)|2 dα.                (4.9)
+                                 √                 M(q,a)
+                               q⩽ x        a=1
+                                         (a,q)=1
+
+  Let β = α − a/q. Then, by (4.5),
+                              X
+                   Fq (α)         min(xq −1 m−1 , ||βqm||−1 ).                                 (4.10)
+                                       √
+                                     m⩽ x/q
+
+Hence
+                                √
+                        x log(2 x/q)         √
+              Fq (α)                   (q ⩽ x, |β| ⩽ 12 q −1 x−1/2 ).                          (4.11)
+                           q + qx|β|
+                   √
+  Suppose that q ⩽ x and define the major arc N(q, a) by
+                                                              
+                               a     −1    −1 a    −1       −1
+                  N(q, a) =      − q (2R) , + q (2R)             .                              (4.12)
+                               q              q
+Then N(q, a) ⊂ M(q, a) and for α ∈ M(q, a)\N(q, a) we have
+                                          Fq (α)  R log x.
+
+Phil. Trans. R. Soc. Lond. A (1998)
+                   Distribution of sequences in arithmetic progression            789
+
+Moreover, the same conclusion holds when α ∈ N(q, a) and q > x/R. Thus, by (4.8)
+and (4.9),
+                                             X 
+                         S1 = S5 + O R(log x)     b2n ,                   (4.13)
+                                                            n⩽x
+
+where
+                                 X        q
+                                          X Z
+                        S5 =                              Fq (α)|G(α)|2 dα.    (4.14)
+                               q⩽x/R     a=1     N(q,a)
+                                       (a,q)=1
+
+
+                                      5. The major arcs
+We do not dwell for long on the major arcs N(q, a) as the method is almost completely
+standard. In view of (4.7), on each arc, if necessary, we may invoke (4.11). Moreover,
+by lemma 2.3,
+                                          µ(q)2
+                     Fq (α)|G(α)|2 =            Fq (β)|J(β)|2 + ∆1 + ∆2 ,
+                                          φ(q)2
+where
+                                         x3 log x
+                             ∆1                       ,
+                                  (1 + x|β|)φ(q)Ψ (x)
+                             ∆2  x3 q(log x)(1 + x|β|)Ψ (x)−2 ,
+and, as usual, α = a/q + β. Hence, by (4.12) and (4.14),
+              S5 = S6 + O(x3 (log x)2 R−1 Ψ (x)−1 + x5 (log x)R−3 Ψ (x)−2 ),     (5.1)
+where
+                                  X µ(q)2 Z
+                          S6 =                Fq (β)|J(β)|2 dβ,                  (5.2)
+                                    φ(q) I(q)
+                                 q⩽x/R
+
+with
+                               I(q) = [− 12 q −1 R−1 , 12 q −1 R−1 ].            (5.3)
+We now wish to replace each I(q) by a unit interval. It is desirable to make as much
+use of (4.11) as possible, but then conditions there necessitate proceeding in two
+stages. By (4.11), when                           √
+                            1/(2qR) ⩽ |β| ⩽ 1/(2q x),
+the contribution from the integrand is
+                                                log x
+                                                         ,
+                                              qφ(q)2 |β|3
+and, by the crude estimate
+                              Fq (β)  xq −1 log x
+                                √
+stemming from (4.10), when 1/(2q x) ⩽ |β| ⩽ 21 it is
+                                              x3 log x
+                                                            .
+                                          qφ(q)2 (1 + x|β|)2
+
+Phil. Trans. R. Soc. Lond. A (1998)
+790                                         R. C. Vaughan
+
+We may also use this latter
+                          √ bound to estimate the contribution when we add in the
+q in the range x/R < q ⩽ x. Thus, by (5.2),
+                          S6 = S7 + O(xR log x + x3/2 (log x)2 )
+where
+                                 X µ(q)2 Z 1/2
+                          S7 =                             Fq (β)|J(β)|2 dβ.
+                                   √    φ(q)       −1/2
+                                 q⩽ x
+
+Thus, by (4.13) and (5.1), S1 differs from S7 by an amount which is
+                     X
+            R log x      b2n + xR log x + x3/2 (log x)2
+                         n⩽x
+                              + x3 (log x)2 R−1 Ψ (x)−1 + x5 (log x)R−3 Ψ (x)−2 .
+The optimal choice for R here is
+                                  R = x(log x)1/2 Ψ (x)−1/2 .
+Hence
+                                              X                                  
+                                        2
+                   S1 = S7 + O        x +x           b2n    (log x)3/2       −1/2
+                                                                         Ψ (x)       .   (5.4)
+                                               n⩽x
+
+
+                   6. Completion of the proof of theorem 1.1
+The completion of the proof now closely shadows that of Goldston & Vaughan (1996),
+there being minor detail changes because we do not desire to invoke the Riemann
+hypothesis. Following the details of § 7 of that paper (Goldston & Vaughan 1996) we
+find first that, via (5.4),
+                       1     X 1              √
+                S1 = x2              + 12 xW ( x) − 12 Q2 W (x/Q)
+                       2      √ φ(l)
+                            l⩽ x
+                                          X                         
+                                      2          2         3/2    −1/2
+                              +O     x +x       bn (log x) Ψ (x)         .     (6.1)
+                                                   n⩽x
+
+Then, by (3.1)–(3.3) and (3.5),
+                        X             √                              Q
+           V (x, Q) = Q     b2n + xW ( x) − Q2 W (x/Q) − C1 x2 log √
+                                                                      x
+                        n⩽x
+                                        X                         
+                             + O x2 + x      b2n (log x)3/2 Ψ (x)−1/2 ,                  (6.2)
+                                                     n⩽x
+
+where
+                                                   ζ(2)ζ(3)
+                                            C1 =                                         (6.3)
+                                                     ζ(6)
+and
+                                               X 1
+                                 W (X) =             (X − l)2 .                          (6.4)
+                                                φ(l)
+                                              l⩽X
+
+
+Phil. Trans. R. Soc. Lond. A (1998)
+                   Distribution of sequences in arithmetic progression                 791
+
+  Let
+                                           X log p              
+                                         3
+                            C2 =       γ− −             C1 ,                         (6.5)
+                                         2   p2 − p + 1
+                                                 p
+                                                     X     log p
+                            C3 = γ + log 2π +                     ,                  (6.6)
+                                                     p
+                                                         p(p − 1)
+
+and define
+               E(X) = W (X) − C1 X 2 log X − C2 X 2 − X log X − C3 X.                (6.7)
+Then we would like to invoke lemma 5 of Goldston & Vaughan (1996) to bound
+E(X), but the estimate given there depends on the Riemann hypothesis. However,
+quite plainly, without any hypothesis it is still possible to move the relevant contour
+to the line Rs = − 32 using only standard estimates for the Riemann zeta function
+(see, for example, §§ 3.5 and 3.11 of Titchmarsh (1986)). Thus we obtain
+                                          E(X) = O(X 1/2 ).                          (6.8)
+Indeed a small further saving could be made by penetrating the zero free region in
+the critical strip of the Riemann zeta function, but this is not of great importance.
+  Combining (6.2), (6.7) and (6.8) now immediately gives theorem 1.1.
+The author was supported by an EPSRC Senior Fellowship.
+
+
+                                            References
+Goldston, D. A. & Vaughan, R. C. 1996 On the Montgomery–Hooley asymptotic formula. In
+  Sieve methods, exponential sums, and their applications in number theory (ed. G. R. H.
+  Greaves, G. Harman & M. N. Huxley). LMS Lecture Notes, vol. 237. Cambridge Univer-
+  sity Press.
+Hooley, C. 1975a On the Barban–Davenport–Halberstam theorem. I. J. Reine Angew. Math.
+  274/275, 206–223.
+Hooley, C. 1975b On the Barban–Davenport–Halberstam theorem. II. J. Lond. Math. Soc. 9,
+  625–636.
+Hooley, C. 1975c On the Barban–Davenport–Halberstam theorem. III. J. Lond. Math. Soc. 11,
+  399–407.
+Titchmarsh, E. C. 1986 The theory of the Riemann zeta-function (revised D. R. Heath-Brown),
+  2nd edn. Oxford: Clarendon.
+
+
+
+
+Phil. Trans. R. Soc. Lond. A (1998)
+

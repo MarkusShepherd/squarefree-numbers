@@ -1,0 +1,856 @@
+                       SPARSE VARIANCE FOR PRIMES IN
+                          ARITHMETIC PROGRESSION
+
+                                J. BRÜDERN AND T. D. WOOLEY∗
+
+        Abstract. An analogue of the Montgomery-Hooley asymptotic formula is established
+        for the variance of the number of primes in arithmetic progressions, in which the moduli
+        are restricted to the values of a polynomial.
+
+
+
+
+                                        1. Introduction
+  The distribution of primes is a fundamental problem in the theory of numbers. Our
+concern here is with the error terms that arise in the prime number theorem for arithmetic
+progressions. Let 𝜙 denote Euler’s totient, and deﬁne the relevant quantity 𝐸(𝑥; 𝑘, 𝑙) for
+real 𝑥 ≥ 2, and coprime natural numbers 𝑘 and 𝑙, through the equation
+                                ∑               𝑥
+                                     log 𝑝 =        + 𝐸(𝑥; 𝑘, 𝑙).
+                                𝑝≤𝑥
+                                              𝜙(𝑘)
+                                𝑝≡𝑙 mod 𝑘
+
+Montgomery [8] obtained an asymptotic formula for the variance
+                                                𝑘
+                                              ∑ ∑
+                                 𝑉 (𝑥, 𝑦) =                   ∣𝐸(𝑥; 𝑘, 𝑙)∣2
+                                              𝑘≤𝑦     𝑙=1
+                                                    (𝑙,𝑘)=1
+
+that was promptly reﬁned by Hooley [5], and now takes the shape
+                    𝑉 (𝑥, 𝑦) = 𝑥𝑦 log 𝑦 + 𝑐𝑥𝑦 + 𝑂(𝑥1/2 𝑦 3/2 + 𝑥2 (log 𝑥)−𝐴 ).                     (1)
+Here, the coeﬃcient 𝑐 is a certain real constant, the exponent 𝐴 is a preassigned positive
+real number, and the relation (1) holds uniformly for 1 ≤ 𝑦 ≤ 𝑥. In this range, the
+asymptotic formula (1) implies the upper bound
+                                𝑉 (𝑥, 𝑦) ≪ 𝑥𝑦 log 𝑥 + 𝑥2 (log 𝑥)−𝐴                                 (2)
+which is known as the Barban-Davenport-Halberstam theorem. If one singles out an
+individual progression 𝑙 modulo 𝑘 from the mean 𝑉 (𝑥, 𝑦), then one recovers from the
+bound (2) the Siegel-Walﬁsz theorem, the latter asserting that the estimate
+                                     𝐸(𝑥; 𝑘, 𝑙) ≪ 𝑥(log 𝑥)−𝐴/2
+
+   1991 Mathematics Subject Classiﬁcation. 11N13, 11P55.
+   Key words and phrases. Primes in progressions, Barban-Davenport-Halberstam theorem.
+   ∗
+     The authors thank Shandong University for providing a creative atmosphere during the period while
+this paper was conceived, and the Hausdorﬀ Research Institute for very good working conditions while
+the paper was completed. The second author is supported in part by a Royal Society Wolfson Research
+Merit Award.
+                                                     1
+2                                   J. BRÜDERN AND T. D. WOOLEY
+
+holds uniformly in 𝑘 and 𝑙. Although it seems diﬃcult to improve this last bound, the
+asymptotic formula for 𝑉 (𝑥, 𝑦) shows that in mean square, the average size of 𝐸(𝑥; 𝑘, 𝑙)
+is about the square-root of (𝑥 log 𝑥)/𝑘.
+     One might ask whether conclusions similar to those described above are possible for
+thinner averages, for example with the moduli 𝑘 restricted to the values of a polynomial.
+This was studied recently by Mikawa and Peneva [7], who obtained a result analogous
+to the Barban-Davenport-Halberstam theorem. More precisely, let 𝑓 ∈ ℚ[𝑡] denote an
+integer-valued polynomial of degree 𝑑 ≥ 2, with positive leading coeﬃcient and derivative
+𝑓 ′ . Then, there exist real numbers 𝑦1 such that the inequalities 𝑓 (𝑦) ≥ 2 and 𝑓 ′ (𝑦) ≥ 1
+hold for all 𝑦 ≥ 𝑦1 . Denote the smallest such 𝑦1 with 𝑦1 ≥ 1 by 𝑦0 (𝑓 ). We may now deﬁne
+                                                                𝑓 (𝑘)
+                                          ∑                     ∑
+                                                      ′
+                         𝑉𝑓 (𝑥, 𝑦) =                 𝑓 (𝑘)                 ∣𝐸(𝑥; 𝑓 (𝑘), 𝑙)∣2 .          (3)
+                                       𝑦0 (𝑓 )<𝑘≤𝑦               𝑙=1
+                                                             (𝑙,𝑓 (𝑘))=1
+
+In this notation, the aforementioned estimate of Mikawa and Peneva asserts that whenever
+𝐴 ≥ 1 is a real number, then there is a 𝐵 ≥ 1 such that, uniformly for 𝑓 (𝑦) ≤ 𝑥(log 𝑥)−𝐵 ,
+one has
+                                  𝑉𝑓 (𝑥, 𝑦) ≪ 𝑥2 (log 𝑥)−𝐴 .                             (4)
+                                                                                       ′
+We note here that Theorem 2 of [7] relates to a variant of 𝑉𝑓 (𝑥, 𝑦), with the weight 𝑓 (𝑘)
+in (3) replaced by 𝑘 −1 𝜙(𝑓 (𝑘)). However, as is easily checked, the bound (4) above is
+equivalent to the conclusion in [7]. Our purpose in this paper is to establish a version of
+the Montgomery-Hooley asymptotic formula for 𝑉𝑓 (𝑥, 𝑦).
+Theorem. Let 𝑓 be an integer-valued polynomial of degree 𝑑 ≥ 2, with positive leading
+coeﬃcient. Then, whenever 𝑓 (𝑦) ≤ 𝑥, one has
+        𝑉𝑓 (𝑥, 𝑦) = 𝑥𝑓 (𝑦) log 𝑓 (𝑦) + 𝐶(𝑓 )𝑥𝑓 (𝑦) + 𝑂 𝑥1/2 𝑓 (𝑦)3/2 + 𝑥2 (log 𝑥)−𝐴 ,
+                                                      (                            )
+
+wherein 𝐶(𝑓 ) denotes a certain real number depending only on 𝑓 .
+   A new approach1 to the Montgomery-Hooley theorem was developed by Goldston and
+Vaughan [3] and Vaughan [10]. In contrast with previous work that depended on the
+additive theory of primes, the evaluation of 𝑉 (𝑥, 𝑦) is now linked to the problem of ﬁnding
+an asymptotic formula for the number of solutions of the equation 𝑝1 − 𝑝2 = ℎ𝑘 in primes
+𝑝1 , 𝑝2 not exceeding 𝑥, and natural numbers ℎ and 𝑘 with 𝑘 ≤ 𝑦. This may be viewed
+as a ternary additive problem that is well within the competence of the circle method.
+Moreover, the primes enter the scene only through an application of the Siegel-Walﬁsz
+theorem. Vinogradov’s estimate for exponential sums over primes is not required since
+the minor arc analysis can be performed primarily with the product ℎ𝑘. Following these
+patterns, we are led to consider the equation 𝑝1 − 𝑝2 = ℎ𝑓 (𝑘), and again, a treatment by
+the circle method is possible. A detailed discussion of this equation is to be found in §§3
+and 4, following a preparatory analysis in the next section. Reﬂecting a similar problem
+in the work of Vaughan [10], the treatment of the major arcs invokes certain auxiliary
+averages of multiplicative functions that are supplied in §§5 and 6, thereby completing
+the proof of the theorem.
+   There is an extensive literature relating to improvements of the error term in the as-
+ymptotic formula (1) that are subject to the truth of the Riemann hypothesis for Dirichlet
+    1For historical comments on the genesis of this method, the curious reader is directed to p. 118 of [3].
+               SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                          3
+
+𝐿-functions (see, in particular, Hooley [5], [6], Friedlander and Goldston [2], Goldston and
+Vaughan [3] and Vaughan [11]). Likewise, in the conclusion of our theorem above, the
+term 𝑥2 (log 𝑥)−𝐴 may be replaced conditionally by 𝑥2−𝛿(𝑑) , where 𝛿(𝑑) is a positive real
+number the size of which is determined by the maximal savings available for Weyl sums
+involving a degree 𝑑 polynomial. We spare the reader any details.
+   Our methods are rather ﬂexible. One may replace the primes with other sequences of
+interest, and functions can be substituted for the polynomial 𝑓 with growth more rapid
+than any polynomial. For example, by working along the lines of Brüdern and Perelli
+[1], it should be possible to deduce an asymptotic formula for 𝑉𝑓 (𝑥, 𝑦) when 𝑓 (𝑘) =
+[ exp((log 𝑘)𝛾 )], and 𝛾 is any positive number smaller than 3/2.
+
+
+                              2. Two preparatory steps
+   Our initial advance on the analysis of the variance 𝑉𝑓 (𝑥, 𝑦) involves the isolation of a
+term accessible to the circle method, and this is the objective of this section. Fix the
+value of 𝐴 ≥ 1 for the rest of the paper, and choose a permissible value of 𝐵 = 𝐵(𝐴) so
+that the asymptotic relation (4) holds uniformly for 𝑓 (𝑦) ≤ 𝑥(log 𝑥)−𝐵 . An inspection of
+[7] reveals that one may take 𝐵 = 24𝑑 𝐴. When 𝑥 is suﬃciently large, there is a unique
+solution 𝑦 to the equation 𝑓 (𝑦) = 𝑥(log 𝑥)−𝐵 that we denote by 𝑦1 = 𝑦1 (𝑥). As a truncated
+analogue of the sum 𝑉𝑓 (𝑥, 𝑦) deﬁned in (3), we deﬁne
+                                                          𝑓 (𝑘)
+                                      ∑                   ∑
+                                                ′
+                      𝑉𝑓′ (𝑥, 𝑦) =             𝑓 (𝑘)                 ∣𝐸(𝑥; 𝑓 (𝑘), 𝑙)∣2 .   (5)
+                                     𝑦1 <𝑘≤𝑦               𝑙=1
+                                                       (𝑙,𝑓 (𝑘))=1
+
+Then in view of the deﬁnition (3) and the estimate (4), it is easily veriﬁed that
+                           𝑉𝑓 (𝑥, 𝑦) = 𝑉𝑓′ (𝑥, 𝑦) + 𝑂(𝑥2 (log 𝑥)−𝐴 ).                      (6)
+
+  We have removed small values of 𝑘 from 𝑉𝑓 (𝑥, 𝑦) mainly for technical convenience. To
+do so, we had to invoke the work of Mikawa and Peneva [7], but it would be possible,
+and perhaps more coherent, to cover small 𝑘 by our method. However, a critical step for
+small 𝑘 would depend on the ideas of section 2.2 in [7], and that we would have need to
+duplicate in any case. In the interest of brevity, we therefore prefer to work temporarily
+with 𝑉𝑓′ (𝑥, 𝑦).
+  In the next step, we open the square in (5). Let
+                                               ∑
+                                 𝜗(𝑥; 𝑘, 𝑙) =        log 𝑝
+                                                         𝑝≤𝑥
+                                                       𝑝≡𝑙 mod 𝑘
+
+and
+                                                     ∑     𝑓 ′ (𝑘)
+                                 Φ𝑓 (𝑧, 𝑦) =                        .                      (7)
+                                                    𝑧<𝑘≤𝑦
+                                                          𝜙(𝑓  (𝑘))
+
+Then it follows from (5) that
+                            𝑉𝑓′ (𝑥, 𝑦) = 𝑆1 − 2𝑥𝑆2 + 𝑥2 Φ𝑓 (𝑦1 , 𝑦),                       (8)
+4                                        J. BRÜDERN AND T. D. WOOLEY
+
+where
+                                                                      𝑓 (𝑘)
+                                            ∑                         ∑
+                                                        ′
+                                 𝑆1 =                 𝑓 (𝑘)                   𝜗(𝑥; 𝑓 (𝑘), 𝑙)2 ,
+                                           𝑦1 <𝑘≤𝑦                  𝑙=1
+                                                                (𝑙,𝑓 (𝑘))=1
+
+
+                                                                          𝑓 (𝑘)
+                                            ∑    𝑓 ′ (𝑘)                  ∑
+                                 𝑆2    =                                             𝜗(𝑥; 𝑓 (𝑘), 𝑙).
+                                         𝑦 <𝑘≤𝑦
+                                                𝜙(𝑓 (𝑘))                   𝑙=1
+                                            1
+                                                                       (𝑙,𝑓 (𝑘))=1
+
+    By the Prime Number Theorem, one ﬁnds that
+                         𝑓 (𝑘)
+                         ∑                                   ∑
+                                    𝜗(𝑥; 𝑓 (𝑘), 𝑙) =                  log 𝑝 = 𝑥 + 𝑂(𝑥(log 𝑥)−3𝐴 ).
+                          𝑙=1                                𝑝≤𝑥
+                      (𝑙,𝑓 (𝑘))=1                           𝑝∤𝑓 (𝑘)
+
+Consequently, using only straightforward estimates, one discovers that whenever 𝑓 (𝑦) ≤ 𝑥,
+one has
+                           𝑆2 = 𝑥Φ𝑓 (𝑦1 , 𝑦) + 𝑂(𝑥(log 𝑥)2−3𝐴 ).                       (9)
+Similarly, one may derive the relation
+                            𝑓 (𝑘)
+                            ∑                                     ∑ ∑
+                                       𝜗(𝑥; 𝑓 (𝑘), 𝑙)2 =                               (log 𝑝1 )(log 𝑝2 ).
+                             𝑙=1                                  𝑝1 ≤𝑥 𝑝2 ≤𝑥
+                         (𝑙,𝑓 (𝑘))=1                             𝑝1 ∤𝑓 (𝑘) 𝑝2 ∤𝑓 (𝑘)
+                                                                𝑝1 ≡𝑝2 mod 𝑓 (𝑘)
+
+  Here we separate the diagonal terms with 𝑝1 = 𝑝2 from the oﬀ-diagonal ones. Note
+that the conditions 𝑝1 ∣𝑓 (𝑘) and 𝑝1 ≡ 𝑝2 mod 𝑓 (𝑘) imply that 𝑝1 = 𝑝2 . We may therefore
+ignore the constraint 𝑝𝑗 ∤ 𝑓 (𝑘) (𝑗 = 1, 2) when considering the oﬀ-diagonal terms. In this
+way, by symmetry, we derive the formula
+              𝑓 (𝑘)
+              ∑                                    ∑                                ∑∑
+                         𝜗(𝑥; 𝑓 (𝑘), 𝑙)2 =                  (log 𝑝)2 + 2                        (log 𝑝1 )(log 𝑝2 ).
+               𝑙=1                                 𝑝≤𝑥                            𝑝1 <𝑝2 ≤𝑥
+           (𝑙,𝑓 (𝑘))=1                            𝑝∤𝑓 (𝑘)                     𝑝1 ≡𝑝2 mod 𝑓 (𝑘)
+
+We next reintroduce the terms with 𝑝∣𝑓 (𝑘), and sum over 𝑘. Then, much as in the analysis
+leading to the relation (9), we ﬁnd that
+                                 ∑            ∑
+                    𝑆1 = 2𝑆0 +        𝑓 ′ (𝑘)  (log 𝑝)2 + 𝑂(𝑥(log 𝑥)2 ),            (10)
+                                           𝑦1 <𝑘≤𝑦               𝑝≤𝑥
+
+where                                    ∑                     ∑∑
+                                 𝑆0 =             𝑓 ′ (𝑘)                         (log 𝑝1 )(log 𝑝2 ).                 (11)
+                                        𝑦1 <𝑘≤𝑦                 𝑝1 <𝑝2 ≤𝑥
+                                                            𝑝1 ≡𝑝2 mod 𝑓 (𝑘)
+
+  On applying partial summation within (10), and substituting the outcome together
+with (8) and (9) into (6), we obtain our ﬁnal formula
+                                                     ∑
+            𝑉𝑓 (𝑥, 𝑦) = 2𝑆0 − 𝑥2 Φ𝑓 (𝑦1 , 𝑦) + 𝑓 (𝑦)   (log 𝑝)2 + 𝑂(𝑥2 (log 𝑥)−𝐴 ). (12)
+                                                                          𝑝≤𝑥
+                SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                       5
+
+                                3. The circle method
+   In this section we apply the circle method to evaluate the sum 𝑆0 deﬁned in equation
+(11). With this objective in view, we rewrite the congruence condition 𝑝1 ≡ 𝑝2 mod 𝑓 (𝑘)
+in (11) in the form 𝑝2 − 𝑝1 = ℎ𝑓 (𝑘), with ℎ ∈ ℤ. In addition, we observe that the
+supplementary condition ℎ ≥ 1 is equivalent to the summation condition 𝑝1 < 𝑝2 imposed
+in the second summation of (11). Consequently, on writing
+                                      ∑           ∑
+                        𝑇𝑓 (𝛼) =          𝑓 ′ (𝑘)     𝑒(𝛼ℎ𝑓 (𝑘)),                  (13)
+                                    𝑦1 <𝑘≤𝑦               ℎ≤𝑥/𝑓 (𝑘)
+
+                                    ∑
+                         𝑈 (𝛼) =            (log 𝑝)𝑒(𝛼𝑝),                              (14)
+                                      𝑝≤𝑥
+
+we may use orthogonality to infer from (11) that
+                                     ∫ 1
+                               𝑆0 =      𝑇𝑓 (𝛼)∣𝑈 (𝛼)∣2 𝑑𝛼.
+                                            0
+
+   We analyse this integral by splitting the range of integration into major and minor arcs.
+The dissection depends on the absolute constant 𝐷 ≥ 1 that arises in Lemma 1 below.
+Let 𝐶 = 4𝑑3 𝐷𝐵, and write 𝑄 = (log 𝑥)𝐶 . Let 𝔐 denote the union of the pairwise disjoint
+intervals ∣𝛼−𝑎/𝑞∣ ≤ 𝑄/𝑥 with 1 ≤ 𝑎 ≤ 𝑞 ≤ 𝑄 and (𝑎, 𝑞) = 1. Let 𝔪 = [𝑄/𝑥, 1+𝑄/𝑥]∖𝔐.
+The contribution from the minor arcs is controlled with the aid of the bound
+                                sup ∣𝑇𝑓 (𝛼)∣ ≪ 𝑥(log 𝑥)−2𝐴                             (15)
+                                𝛼∈𝔪
+
+that we establish in a moment. Equipped with (15) and the elementary estimate
+                         ∫ 1               ∑
+                             ∣𝑈 (𝛼)∣2 𝑑𝛼 =  (log 𝑝)2 ≪ 𝑥 log 𝑥,
+                           0                      𝑝≤𝑥
+
+we infer that
+                               𝑆0 = 𝑆𝔐 + 𝑂(𝑥2 (log 𝑥)1−2𝐴 ),                           (16)
+where                                   ∫
+                                𝑆𝔐 =            𝑇𝑓 (𝛼)∣𝑈 (𝛼)∣2 𝑑𝛼.                     (17)
+                                            𝔐
+   The major arc contribution 𝑆𝔐 will be discussed in §4. In the remainder of this section,
+we brieﬂy sketch a proof of (15). This bound of Weyl’s type is certainly familiar territory
+for workers in the ﬁeld, but a suitable reference does not seem to be available. The
+argument below is streamlined so as to conﬁrm (15) with little eﬀort, but when one seeks
+for the strongest possible bounds, one can do rather better, in particular when 𝑑 is small.
+This is of no relevance for us, but an analysis of 𝑉𝑓 (𝑥, 𝑦) under GRH is sensitive to this
+comment.
+   Let 𝑦0 ≤ 𝑧0 ≤ 𝑧, and consider the weighted Weyl sum
+                                           ∑
+                            𝑆(𝛽; 𝑧0 , 𝑧) =      𝑓 ′ (𝑛)𝑒(𝛽𝑓 (𝑛)).
+                                                𝑧0 <𝑛≤𝑧
+6                               J. BRÜDERN AND T. D. WOOLEY
+
+Lemma 1. There is an absolute constant 𝐷 ≥ 1 with the property that whenever 𝛽 ∈ ℝ,
+and 𝑏 and 𝑟 are coprime natural numbers with ∣𝑟𝛽 − 𝑏∣ ≤ 1/𝑟, one has
+                                                                                      )1/(𝐷𝑑3 )
+      𝑆(𝛽; 𝑧0 , 𝑧) ≪ 𝑧 𝑑 (log 𝑧) (𝑟 + 𝑧 𝑑 ∣𝑟𝛽 − 𝑏∣)−1 + 𝑧 −1 + (𝑟 + 𝑧 𝑑 ∣𝑟𝛽 − 𝑏∣)𝑧 −𝑑
+                                (
+                                                                                                .
+Proof. When 𝑘 is a natural number, let 𝐽𝑠,𝑘 (𝑃 ) denote the number of integral solutions
+of the simultaneous equations
+                           ∑𝑠
+                              (𝑥𝑗𝑖 − 𝑦𝑖𝑗 ) = 0   (1 ≤ 𝑗 ≤ 𝑘),
+                              𝑖=1
+
+with 1 ≤ 𝑥𝑖 , 𝑦𝑖 ≤ 𝑃 (1 ≤ 𝑖 ≤ 𝑠). Then, by Theorem 7.4 of Vaughan [9], for example,
+there exists an absolute constant 𝐷 ≥ 1 such that whenever 𝑠 ≥ 21 𝐷𝑘 3 , one has 𝐽𝑠,𝑘 (𝑃 ) ≪
+𝑃 2𝑠−𝑘(𝑘+1)/2 . Applying Theorem 5.2 of Vaughan [9] in conjunction with partial summation,
+we deduce that
+                                                                           3
+                       𝑆(𝛽; 𝑧0 , 𝑧) ≪ 𝑧 𝑑 (log 𝑧)(𝑟−1 + 𝑧 −1 + 𝑟𝑧 −𝑑 )1/(𝐷𝑑 ) .
+The conclusion of the lemma now follows from a familiar transference principle (see, for
+example, Exercise 2 of Chapter 2 of Vaughan [9]).                                          □
+  We are now ready to deduce (15). Let 𝑦(ℎ) be the upper bound for 𝑘 determined by
+the simultaneous conditions 𝑘 ≤ 𝑦 and 𝑓 (𝑘) ≤ 𝑥/ℎ. Then 𝑓 (𝑦(ℎ)) = min{𝑓 (𝑦), 𝑥/ℎ}.
+Reversing the order of summation in (13) yields
+                                      ∑
+                           𝑇𝑓 (𝛼) =         𝑆(𝛼ℎ; 𝑦1 , 𝑦(ℎ)).                  (18)
+                                        ℎ≤(log 𝑥)𝐵
+
+Suppose that 𝛼 ∈ 𝔪. For any integer ℎ with 1 ≤ ℎ ≤ (log 𝑥)𝐵 , we apply Dirichlet’s
+theorem to ﬁnd coprime integers 𝑟 = 𝑟(ℎ) and 𝑏 = 𝑏(ℎ) with
+                     1 ≤ 𝑟 ≤ 𝑦(ℎ)𝑑−2/3     and ∣𝛼ℎ𝑟 − 𝑏∣ ≤ 𝑦(ℎ)−𝑑+2/3 .
+The validity of the simultaneous conditions ℎ𝑟 ≤ 𝑄 and ∣𝛼 − 𝑏/(ℎ𝑟)∣ ≤ 𝑄/𝑥 would imply
+that 𝛼 ∈ 𝔐, whence for each ℎ, at least one of these inequalities fails. If ℎ𝑟 > 𝑄, then
+𝑟 > (log 𝑥)𝐶−𝐵 , and an application of Lemma 1 with 𝛽 = 𝛼ℎ yields
+                                                           3                         3
+        𝑆(𝛼ℎ; 𝑦1 , 𝑦(ℎ)) ≪ 𝑥(log 𝑥)(𝑟−1 + 𝑦(ℎ)−2/3 )1/(𝐷𝑑 ) ≪ 𝑥(log 𝑥)1+(𝐵−𝐶)/(𝐷𝑑 ) .
+If ℎ𝑟 ≤ 𝑄 but ∣𝛼 − 𝑏/(ℎ𝑟)∣ > 𝑄/𝑥, meanwhile, then in like manner Lemma 1 gives
+                                                      3                     3
+                  𝑆(𝛼ℎ; 𝑦1 , 𝑦(ℎ)) ≪ 𝑥(log 𝑥)𝑄−1/(𝐷𝑑 ) ≪ 𝑥(log 𝑥)1−𝐶/(𝐷𝑑 ) .
+Summing over natural numbers ℎ with ℎ ≤ (log 𝑥)𝐵 , we deduce (15) from (18).
+
+                                    4. The major arcs
+   We move on to analyse the major arc contribution 𝑆𝔐 to 𝑆0 , and subsequently incor-
+porate the conclusions of the previous section in order to obtain an asymptotic formula
+for 𝑆0 . For 𝛼 ∈ 𝔐, one may write 𝛼 = 𝛽 + 𝑎/𝑞 for some 𝛽 ∈ ℝ with ∣𝛽∣ ≤ 𝑄/𝑥, and
+coprime integers 𝑎 and 𝑞 with 1 ≤ 𝑎 ≤ 𝑞 ≤ 𝑄. Then, by (14) and Lemma 3.1 of Vaughan
+[9], one has
+                                   𝜇(𝑞)
+                          𝑈 (𝛼) =       𝐽(𝛽) + 𝑂(𝑥(log 𝑥)−5𝐶 ),
+                                   𝜙(𝑞)
+                SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                                              7
+
+where                                                 ∑
+                                         𝐽(𝛽) =             𝑒(𝛽𝑛).
+                                                      𝑛≤𝑥
+
+The trivial upper bound 𝑇𝑓 (𝛼) ≪ 𝑥 log 𝑥 (which is available from (13)) and (17) now
+suﬃce to conﬁrm that
+                           𝑞  ∫ 𝑄/𝑥
+                ∑ 𝜇(𝑞)2 ∑
+          𝑆𝔐 =          2
+                                    𝑇𝑓 (𝛽 + 𝑎/𝑞)∣𝐽(𝛽)∣2 𝑑𝛽 + 𝑂(𝑥2 (log 𝑥)−𝐶 ).
+                𝑞≤𝑄
+                    𝜙(𝑞)  𝑎=1  −𝑄/𝑥
+                             (𝑎,𝑞)=1
+
+  We would like to extend the sum over all natural numbers 𝑞 here. It is convenient
+to do this in two steps. In the ﬁrst of these steps, we extend the range for 𝑞 above to
+𝑞 ≤ 𝑥1/(2𝑑) . For this, we note that the intervals ∣𝛼 − 𝑎/𝑞∣ ≤ 𝑄/𝑥 with 1 ≤ 𝑎 ≤ 𝑞 ≤ 𝑥1/(2𝑑)
+and (𝑎, 𝑞) = 1 are pairwise disjoint. When 𝑎 and 𝑞 are coprime natural numbers with
+1 ≤ 𝑎 ≤ 𝑞 and 𝑄 < 𝑞 ≤ 𝑥1/(2𝑑) , and ∣𝛽∣ ≤ 𝑄/𝑥, one has 𝛽 + 𝑎/𝑞 ∈ 𝔪. Therefore, on
+recalling (15), for any such 𝛽, 𝑎 and 𝑞, one has
+                          ∣𝑇𝑓 (𝛽 + 𝑎/𝑞)∣ ≤ sup ∣𝑇𝑓 (𝛼)∣ ≪ 𝑥(log 𝑥)−2𝐴 .
+                                                𝛼∈𝔪
+
+Combining this estimate with the elementary inequality
+                      ∫ 𝑄/𝑥              ∫ 1/2
+                                   2
+                            ∣𝐽(𝛽)∣ 𝑑𝛽 ≤        ∣𝐽(𝛽)∣2 𝑑𝛽 = [𝑥],
+                            −𝑄/𝑥                      −1/2
+
+we deduce that
+                               𝑞  ∫ 𝑄/𝑥
+            ∑            𝜇(𝑞)2 ∑
+     𝑆𝔐 =                    2
+                                        𝑇𝑓 (𝛽 + 𝑎/𝑞)∣𝐽(𝛽)∣2 𝑑𝛽 + 𝑂(𝑥2 (log 𝑥)1−2𝐴 ).                           (19)
+                  1/(2𝑑)
+                         𝜙(𝑞) 𝑎=1 −𝑄/𝑥
+            𝑞≤𝑥
+                            (𝑎,𝑞)=1
+
+   Before extending the range for 𝑞 even further, we complete the integral in (19) to
+∣𝛽∣ ≤ 21 . In this range for 𝛽, one has 𝐽(𝛽) ≪ ∣𝛽∣−1 , so that another application of the
+trivial bound 𝑇𝑓 (𝛼) ≪ 𝑥 log 𝑥 in combination with straightforward estimates yields the
+upper bound
+                            𝑞
+             ∑ 𝜇(𝑞)2 ∑            ∫
+                          2
+                                        ∣𝑇𝑓 (𝛽 + 𝑎/𝑞)𝐽(𝛽)2 ∣ 𝑑𝛽
+               1/(2𝑑)
+                      𝜙(𝑞) 𝑎=1
+          𝑞≤𝑥                               1
+                           (𝑎,𝑞)=1 𝑄/𝑥≤∣𝛽∣≤ 2
+                                              ∑ 1 ∫ 1/2
+                                   ≪ 𝑥(log 𝑥)              𝛽 −2 𝑑𝛽 ≪ 𝑥2 (log 𝑥)2−𝐶 .
+                                              𝑞≤𝑥
+                                                  𝜙(𝑞) 𝑄/𝑥
+
+Hence, we may indeed extend the integration in (19) to [− 21 , 21 ] with the introduction of
+acceptable errors. However, by orthogonality and (13), one has
+     ∫ 1/2                              ∑          ∑      ∑ ∑ ( 𝑎ℎ𝑓 (𝑘) )
+                              2               ′
+            𝑇𝑓 (𝛽 + 𝑎/𝑞)∣𝐽(𝛽)∣ 𝑑𝛽 =          𝑓 (𝑘)                      𝑒
+       −1/2                           𝑦 <𝑘≤𝑦              𝑛  ≤𝑥    𝑛 ≤𝑥
+                                                                              𝑞
+                                                1                   ℎ≤𝑥/𝑓 (𝑘)     1     2
+                                                                                𝑛2 −𝑛1 =ℎ𝑓 (𝑘)
+                                                 ∑                    ∑          ( 𝑎ℎ𝑓 (𝑘) )
+                                        =                 𝑓 ′ (𝑘)               𝑒            ([𝑥] − ℎ𝑓 (𝑘)).
+                                                𝑦1 <𝑘≤𝑦
+                                                                                     𝑞
+                                                                    ℎ≤𝑥/𝑓 (𝑘)
+8                                    J. BRÜDERN AND T. D. WOOLEY
+
+In the last sum, we may replace [𝑥] by 𝑥, introducing an error bounded by 𝑂(𝑥 log 𝑥) into
+this identity. We summarize and inject these results into (19) to infer that
+                                      𝑆𝔐 = 𝑀0 + 𝑂(𝑥2 (log 𝑥)−𝐴 ),                               (20)
+where
+                          ∑           𝜇(𝑞)2 ∑ ′          ∑
+               𝑀0 =                                𝑓 (𝑘)   𝑐𝑞 (ℎ𝑓 (𝑘))(𝑥 − ℎ𝑓 (𝑘)),
+                               1/(2𝑑)
+                                      𝜙(𝑞)2 𝑦 <𝑘≤𝑦
+                         𝑞≤𝑥               1             ℎ≤𝑥/𝑓 (𝑘)
+in which we have written                              𝑞
+                                                      ∑         ( 𝑎𝑛 )
+                                          𝑐𝑞 (𝑛) =             𝑒
+                                                       𝑎=1
+                                                                   𝑞
+                                                     (𝑎,𝑞)=1
+for Ramanujan’s sum.
+   Recall that 𝑦(ℎ) was deﬁned through the equation 𝑓 (𝑦(ℎ)) = min{𝑓 (𝑦), 𝑥/ℎ}. In the
+deﬁnition of 𝑀0 , we exchange the order of summation of ℎ and 𝑘 and then sort 𝑘 according
+to residue classes modulo 𝑞. Then
+                                         𝑞
+                   ∑ 𝜇(𝑞)2 ∑ ∑                           ∑
+           𝑀0 =                 2
+                                            𝑐 𝑞 (ℎ𝑓 (𝑎))     𝑓 ′ (𝑘)(𝑥 − ℎ𝑓 (𝑘)).    (21)
+                     1/(2𝑑)
+                            𝜙(𝑞)        𝑎=1
+                   𝑞≤𝑥                ℎ≤𝑥/𝑓 (𝑦1 )                   𝑦1 <𝑘≤𝑦(ℎ)
+                                                                    𝑘≡𝑎 mod 𝑞
+
+For small 𝑞, Euler’s summation formula readily yields an asymptotic formula for the
+innermost sum, with a main term independent of 𝑎. It is then possible to sum 𝑐𝑞 (ℎ𝑓 (𝑎))
+over 𝑎. This process will largely disentangle the sum in (21). Two lemmata make this
+analysis precise.
+Lemma 2. With 𝑥, 𝑦 and ℎ in the ranges as above, and uniformly in 𝑞, one has
+                                  1 𝑓 (𝑦(ℎ))
+        ∑                           ∫
+               ′
+              𝑓 (𝑘)(𝑥 − ℎ𝑓 (𝑘)) =            (𝑥 − ℎ𝑡) 𝑑𝑡 + 𝑂(𝑥𝑦 𝑑−1 + 𝑦 2𝑑−1 ℎ).
+                                  𝑞 𝑓 (𝑦1 )
+          𝑦1 <𝑘≤𝑦(ℎ)
+          𝑘≡𝑎 mod 𝑞
+
+Proof. Observe ﬁrst that by Euler’s summation formula, if 𝑔 : [𝑋, 𝑌 ] → ℝ is continuously
+diﬀerentiable, then
+                                           1 𝑌
+                             ∑               ∫
+                                    𝑔(𝑘) =      𝑔(𝑡) 𝑑𝑡 + 𝐸,                         (22)
+                            𝑋<𝑘≤𝑌
+                                           𝑞  𝑋
+                                   𝑘≡𝑎 mod 𝑞
+where the implicitly deﬁned real number 𝐸 satisﬁes the bound
+                               ∫ 𝑌
+                         ∣𝐸∣ ≤     ∣𝑔 ′ (𝑡)∣ 𝑑𝑡 + ∣𝑔(𝑋)∣ + ∣𝑔(𝑌 )∣.
+                                          𝑋
+For the application at hand, we take 𝑔(𝑡) = 𝑓 ′ (𝑡)(𝑥 − ℎ𝑓 (𝑡)), and put 𝑋 = 𝑦1 and
+𝑌 = 𝑦(ℎ). Note, in particular, that 𝑥 − ℎ𝑓 (𝑡) = 𝑂(𝑥) for all relevant choices of 𝑡, and
+hence 𝑔(𝑡) ≪ 𝑦 𝑑−1 𝑥 for 𝑋 ≤ 𝑡 ≤ 𝑌 . Also, one has 𝑔 ′ (𝑡) = 𝑓 ′′ (𝑡)(𝑥 − ℎ𝑓 (𝑡)) − ℎ𝑓 ′ (𝑡)2 . Then
+it follows that
+                                     𝐸 ≪ 𝑥𝑦 𝑑−1 + 𝑦 2𝑑−1 ℎ.                                      (23)
+Finally, by substitution one obtains
+                      ∫ 𝑦(ℎ)                        ∫ 𝑓 (𝑦(ℎ))
+                              ′
+                             𝑓 (𝑡)(𝑥 − ℎ𝑓 (𝑡)) 𝑑𝑡 =            (𝑥 − ℎ𝜏 ) 𝑑𝜏.                     (24)
+                           𝑦1                                   𝑓 (𝑦1 )
+              SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                                            9
+
+The conclusion of the lemma follows by collecting together (22), (23) and (24).                              □
+  In advance of the statement of the next lemma, for each natural number 𝑚, we deﬁne
+𝜌(𝑚) to be the number of solutions of the congruence 𝑓 (𝑎) ≡ 0 mod 𝑚.
+Lemma 3. For any ℎ ∈ ℕ, the sum
+                                                              𝑞
+                                                   1∑
+                                          𝑤ℎ (𝑞) =       𝑐𝑞 (ℎ𝑓 (𝑎))
+                                                   𝑞 𝑎=1
+is a multiplicative function of 𝑞. When 𝑝 is a prime, one has
+                                      {
+                                       𝑝 − 1,     when 𝑝∣ℎ,
+                             𝑤ℎ (𝑝) =
+                                       𝜌(𝑝) − 1, when 𝑝 ∤ ℎ.
+
+Proof. Since 𝑐𝑞 (𝑛) is multiplicative as a function of 𝑞 (see, for example, Theorem 272 of
+Hardy and Wright [4]), it suﬃces to apply the Chinese Remainder Theorem to the sum
+over 𝑎 in order to conﬁrm the multiplicativity of 𝑤ℎ (𝑞). Next, when 𝑝 is a prime, we apply
+the deﬁnition of 𝑐𝑞 (𝑛) and orthogonality to obtain the relation
+                      𝑝−1    𝑝
+                 1 ∑ ∑ ( 𝑙ℎ𝑓 (𝑎) )
+        𝑤ℎ (𝑝) =           𝑒       = card{1 ≤ 𝑎 ≤ 𝑝 : ℎ𝑓 (𝑎) ≡ 0 mod 𝑝} − 1,
+                 𝑝 𝑙=1 𝑎=1   𝑝
+and the lemma follows at once.                                                                               □
+  We inject the asymptotic formula supplied by Lemma 2 into (21). This introduces an
+error term
+                ∑ 𝜇(𝑞)2 ∑
+                             2
+                                   𝑞𝜙(𝑞)(𝑥𝑦 𝑑−1 + 𝑦 2𝑑−1 ℎ) ≪ 𝑥2−1/(2𝑑)+𝜀 ,
+                  1/(2𝑑)
+                         𝜙(𝑞)
+               𝑞≤𝑥                   ℎ≤𝑥/𝑓 (𝑦1 )
+
+so that we now have
+                                                             ∫ 𝑓 (𝑦(ℎ))
+                ∑            𝜇(𝑞)2        ∑
+         𝑀0 =                                      𝑤ℎ (𝑞)                 (𝑥 − ℎ𝑡) 𝑑𝑡 + 𝑂(𝑥2−1/(2𝑑)+𝜀 ).   (25)
+                      1/(2𝑑)
+                             𝜙(𝑞)2                            𝑓 (𝑦1 )
+                𝑞≤𝑥                  ℎ≤𝑥/𝑓 (𝑦1 )
+
+We next exchange the order of summation and complete the sum over 𝑞. By Lemma 3,
+the multiplicative function 𝑤ℎ (𝑞)𝜇(𝑞)2 is non-negative and bounded by 𝑂((𝑞, ℎ)𝑞 𝜀 ). This
+implies that
+                         ∑ 𝜇(𝑞)2
+                                     2
+                                       𝑤ℎ (𝑞) = 𝑊 (ℎ) + 𝑂(ℎ𝜀 𝑥−1/(2𝑑) ),
+                          1/(2𝑑)
+                                 𝜙(𝑞)
+                            𝑞≤𝑥
+
+with
+                                  ∞
+                                    𝜇(𝑞)2
+                                                  (             )
+                                  ∑           ℎ ∏      𝜌(𝑝) − 1
+                  𝑊 (ℎ) =           𝑤ℎ (𝑞) =        1+            .                                        (26)
+                          𝑞=1
+                              𝜙(𝑞)2          𝜙(ℎ)      (𝑝 − 1)2
+                                                                        𝑝∤ℎ
+
+A trivial estimate for the integral in (25) shows it to be 𝑂(𝑓 (𝑦)𝑥), and this suﬃces here
+to conclude that
+                          ∑            ∫ 𝑓 (𝑦(ℎ))
+                 𝑀0 =           𝑊 (ℎ)             (𝑥 − ℎ𝑡) 𝑑𝑡 + 𝑂(𝑥2−1/(2𝑑)+𝜀 ).
+                            ℎ≤𝑥/𝑓 (𝑦1 )            𝑓 (𝑦1 )
+10                                   J. BRÜDERN AND T. D. WOOLEY
+
+The derivative of 𝑡(𝑥 − 12 ℎ𝑡) with respect to 𝑡 is 𝑥 − ℎ𝑡, and we have 𝑓 (𝑦(ℎ)) = 𝑓 (𝑦) when
+ℎ ≤ 𝑥/𝑓 (𝑦), and 𝑓 (𝑦(ℎ)) = 𝑥/ℎ when ℎ > 𝑥/𝑓 (𝑦). Hence, if we compute the integral and
+split the sum over ℎ at 𝑥/𝑓 (𝑦) when appropriate, we readily ﬁnd that
+             𝑀0 = 12 𝑓 (𝑦1 )2 Θ𝑓 (𝑥/𝑓 (𝑦1 )) − 𝑓 (𝑦)2 Θ𝑓 (𝑥/𝑓 (𝑦)) + 𝑂(𝑥2−1/(2𝑑)+𝜀 )
+                    (                                             )
+                                                                                          (27)
+where
+                                                ∑ 𝑊 (ℎ)
+                                     Θ𝑓 (𝐻) =                    (𝐻 − ℎ)2 .                 (28)
+                                                ℎ≤𝐻
+                                                         ℎ
+  We summarize the analysis based on the application of the circle method by combining
+(16), (20) and (27), thereby obtaining the formula
+                 2𝑆0 = 𝑓 (𝑦1 )2 Θ𝑓 (𝑥/𝑓 (𝑦1 )) − 𝑓 (𝑦)2 Θ𝑓 (𝑥/𝑓 (𝑦)) + 𝑂(𝑥2 (log 𝑥)−𝐴 ),    (29)
+and thus we enter the opening phase of the endgame.
+
+                     5. An exercise in multiplicative number theory
+   In view of the relations (29) and (12), the evaluation of 𝑉𝑓 (𝑥, 𝑦) is reduced to the
+deduction of appropriate asymptotic formulae for the functions Φ𝑓 and Θ𝑓 , deﬁned in (7)
+and (28), respectively. This is accomplished largely by a series of exercises in multiplicative
+number theory. We begin with an analysis of the Dirichlet series associated with the
+function 𝑊 (ℎ)/ℎ, restricting attention for the time being to the situation wherein 𝜌(2) ≥
+1. An inspection of (26) shows that the series
+                                                  ∞
+                                                  ∑
+                                         𝐷(𝑠) =         𝑊 (𝑛)𝑛−1−𝑠
+                                                  𝑛=1
+
+converges absolutely in the half-plane Re (𝑠) > 0, and that 𝑊 (ℎ)/𝑊 (1) is multiplicative.
+Hence, for Re (𝑠) > 0, one has
+                                               ∏
+                                  𝐷(𝑠) = 𝑊 (1)     𝐷𝑝 (𝑠)                            (30)
+                                                             𝑝
+
+with
+                                          (                      ∞
+                                                             )−1 ∑
+                                            𝜌(𝑝) − 1
+                           𝐷𝑝 (𝑠) = 1 + 1 +                               𝜙(𝑝𝑙 )−1 𝑝−𝑙𝑠 .   (31)
+                                            (𝑝 − 1)2                𝑙=1
+
+Notice here that since 𝜌(𝑝) ≥ 0, the Euler factor 𝐷𝑝 (𝑠) is deﬁned for all values of 𝑝, with
+the exception of 𝑝 = 2 in the special case 𝜌(2) = 0. It is for this reason that we isolate
+the latter situation below.2
+  The Euler product (30) yields an analytic continuation of 𝐷(𝑠) to a meromorphic
+function on the half-plane Re (𝑠) > −2. In order to see this, it will be convenient to write
+𝜉 = 𝑝−1−𝑠 , and deﬁne the real number 𝜆 = 𝜆(𝑝) by means of the identity
+                             (              )−1
+                                   𝜌(𝑝) − 1             𝜆(𝑝)
+                               1+         2
+                                                 =1− 2 .                                (32)
+                                   (𝑝 − 1)               𝑝
+
+     2We are grateful to the referee for prompting our separate treatment of this case.
+              SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                        11
+
+It is apparent from the relation deﬁning 𝜆(𝑝) that 0 ≤ 𝜆 ≪ 1, wherein the implicit
+constant depends only on 𝑓 . We may rearrange the Euler factors into the shape
+                                           (       )
+                                        𝑝        𝜆     𝜉
+                         𝐷𝑝 (𝑠) = 1 +        1− 2          ,
+                                      𝑝−1        𝑝 1−𝜉
+and consequently,
+                                               (      )
+                                           𝜉        𝜆
+                     (1 − 𝜉)𝐷𝑝 (𝑠) = 1 +         1−     ,
+                                         𝑝−1        𝑝
+          (       )                      ( )          ( )2       (     )
+                𝜉                          𝜉 1−𝜆         𝜉     𝑝     𝜆
+            1−       (1 − 𝜉)𝐷𝑝 (𝑠) = 1 +            −             1−     ,
+                𝑝                          𝑝 𝑝−1         𝑝 𝑝−1       𝑝
+                                         (         )(      )
+          (1 − 𝜉/𝑝)(1 − 𝜉)                   𝜉/𝑝      1−𝜆
+                            𝐷𝑝 (𝑠) = 1 +                     .
+             1 − 𝜉 2 /𝑝2                   1 + 𝜉/𝑝    𝑝−1
+On recalling (30), and rewriting 𝜉 as 𝑝−1−𝑠 again, the previous formulae transform into
+the relations
+       𝐷(𝑠)                                               𝜁(𝑠 + 1)𝜁(𝑠 + 2)
+              = 𝜁(𝑠 + 1)𝐸1 (𝑠) = 𝜁(𝑠 + 1)𝜁(𝑠 + 2)𝐸2 (𝑠) =                  𝐸3 (𝑠), (33)
+       𝑊 (1)                                                  𝜁(2𝑠 + 4)
+where we have written
+                    ∏(           𝑝−𝑠
+                                          (             ))
+                                                 𝜆(𝑝)
+         𝐸1 (𝑠) =     1+                      1−             ,                          (34)
+                       𝑝
+                               𝑝(𝑝 − 1)           𝑝
+                   ∏(       𝑝−𝑠                     𝑝−2𝑠
+                                                                 (             ))
+                                                                        𝜆(𝑝)
+          𝐸2 (𝑠) =   1+            (1 − 𝜆(𝑝))  −                     1−             ,   (35)
+                   𝑝
+                        𝑝2 (𝑝 − 1)               𝑝3 (𝑝 − 1)              𝑝
+                   ∏(                      )
+                             1 − 𝜆(𝑝)
+          𝐸3 (𝑠) =   1+                      .                                          (36)
+                   𝑝
+                        (𝑝 − 1)(1 + 𝑝𝑠+2 )
+
+Here 𝜁 denotes Riemann’s zeta function, and the product 𝐸𝑗 converges absolutely and
+locally uniformly in the half-plane Re (𝑠) > −(𝑗 + 1)/2 for 𝑗 = 1, 2, 3. In particular,
+the relations recorded in (33) provide the analytic continuation of 𝐷(𝑠) to the half-plane
+Re (𝑠) > −2. In the half-plane Re (𝑠) ≥ −3/2, meanwhile, the only singularities of 𝐷(𝑠)
+are simple poles at 𝑠 = 0 and 𝑠 = −1.
+  Returning now to (28), we deduce from one of Perron’s formulae that
+                                    1 2+𝑖∞ 𝐷(𝑠)𝐻 𝑠+2
+                                       ∫
+                          Θ𝑓 (𝐻) =                            𝑑𝑠.                     (37)
+                                    𝜋𝑖 2−𝑖∞ 𝑠(𝑠 + 1)(𝑠 + 2)
+Observe that from (36), one ﬁnds that the function 𝐸3 (𝑠) is holomorphic and uniformly
+bounded in Re (𝑠) ≥ −3/2. Invoking only standard estimates for the zeta factors in (33),
+one can move the line of integration on the right hand side of (37) to Re (𝑠) = −3/2.
+The reader may care to inspect the analysis on p. 141 of Goldston and Vaughan [3] for
+the necessary ideas, though in the present circumstances one should not use the Riemann
+hypothesis. One may also compare the discussion on p. 791 of Vaughan [10]. If 𝑅(𝑧) is
+the residue of the integrand in (37) at 𝑠 = 𝑧, then it follows that
+                           1
+                             Θ (𝐻) = 𝑅(0) + 𝑅(−1) + 𝑂(𝐻 1/2 ).
+                           2 𝑓
+                                                                                        (38)
+12                             J. BRÜDERN AND T. D. WOOLEY
+
+     We compute 𝑅(0) explicitly by using (33) and (34) along with the familiar expansion
+                               𝜁(1 + 𝑠)   1  𝛾
+                                        = 2 + + 𝑂(1).
+                                   𝑠     𝑠   𝑠
+A short calculation then reveals that
+                               𝑅(0) = 21 𝑐(𝑓 )𝐻 2 log 𝐻 + Γ0 𝐻 2 ,                   (39)
+where
+                                               1 − 𝜆(𝑝)𝑝−1
+                                          ∏(               )
+                            𝑐(𝑓 ) = 𝑊 (1)   1+                                       (40)
+                                          𝑝
+                                                 𝑝(𝑝 − 1)
+and Γ0 = Γ0 (𝑓 ) is a certain real number, the precise value of which is not relevant to
+our subsequent discussion. Another short calculation leads from (26) and (32) to the
+alternative formulae
+                             ∏(                        1 − 𝜆(𝑝)𝑝−1
+                                                )(                   )
+                                     𝜌(𝑝) − 1
+                     𝑐(𝑓 ) =      1+          2
+                                                  1+
+                              𝑝
+                                      (𝑝 − 1)            𝑝(𝑝 − 1)
+                                                    ∞
+                                                        𝜇(𝑛)2 𝜌(𝑛)
+                             ∏(                 ) ∑
+                                        𝜌(𝑝)
+                           =      1+             =                 .                (41)
+                              𝑝
+                                     𝑝(𝑝 − 1)      𝑛=1
+                                                          𝑛𝜙(𝑛)
+In the latter form, this constant will play an important role later.
+  A similar technique may be applied to evaluate 𝑅(−1). In this instance we use (33)
+and (35) and then reach the transitional formula
+                        𝑅(−1) = −𝑊 (1)𝐸2 (−1)𝜁(0)𝐻 log 𝐻 + Γ−1 𝐻,                    (42)
+where Γ−1 = Γ−1 (𝑓 ) is another real number, the precise value of which is again of little
+importance in what follows. We remark, however, that Γ−1 (𝑓 ) could be made just as
+explicit as 𝑐(𝑓 ). Observe next that 𝜁(0) = −1/2, and so on applying (26), (32) and (35),
+we ﬁnd that the Euler factors of 𝑊 (1) and 𝐸2 (−1) combine to give the formula
+                            ∏(                       1 − 𝜆(𝑝) 1 − 𝜆(𝑝)𝑝−1
+                                               )(                           )
+                                     𝜌(𝑝) − 1
+            𝑊 (1)𝐸2 (−1) =       1+               1+          −
+                             𝑝
+                                      (𝑝 − 1)2       𝑝(𝑝 − 1)     𝑝(𝑝 − 1)
+                               (               ) (        )
+                            ∏        𝜌(𝑝) − 1        𝜆(𝑝)
+                          =      1+          2
+                                                  1− 2      = 1.
+                             𝑝
+                                      (𝑝 − 1)         𝑝
+We may therefore conclude that
+                                𝑅(−1) = 21 𝐻 log 𝐻 + Γ−1 𝐻.                          (43)
+     On substituting (39) and (43) into (38), we obtain the expansion
+              Θ𝑓 (𝐻) = 𝑐(𝑓 )𝐻 2 log 𝐻 + 2Γ0 𝐻 2 + 𝐻 log 𝐻 + 2Γ−1 𝐻 + 𝑂(𝐻 1/2 ),
+which may be incorporated into (29), leading to the asymptotic formula
+                             (         )             (       )
+                        2       𝑓 (𝑦)                    𝑥
+            2𝑆0 = 𝑐(𝑓 )𝑥 log             −𝑥𝑓 (𝑦) log           − 2Γ−1 𝑥𝑓 (𝑦)
+                               𝑓 (𝑦1 )                 𝑓 (𝑦)
+                                          + 𝑂 𝑥1/2 𝑓 (𝑦)3/2 + 𝑥2 (log 𝑥)−𝐴 .
+                                               (                            )
+                                                                                     (44)
+This completes the evaluation of the expression 𝑆0 deﬁned in equation (11).
+              SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                       13
+
+   We turn our attention now to the situation with 𝜌(2) = 0. Here, as a consequence
+of (26), one sees that 𝑊 (ℎ) = 0 whenever ℎ is odd, and moreover that for all natural
+numbers 𝑚 one has
+                                            (             )−1
+                        𝑊 (2𝑚)      𝑚 ∏          𝜌(𝑝) − 1
+                               =              1+              .
+                         𝑊 (2)    𝜙(2𝑚)          (𝑝 − 1)2
+                                               𝑝∣𝑚
+                                               𝑝>2
+
+Deﬁne                                      {
+                                            2,    when 𝑝 = 2,
+                                  𝜌0 (𝑝) =
+                                            𝜌(𝑝), when 𝑝 > 2.
+In the remainder of this section, we adopt the convention that the decoration of a symbol
+with a subscript 0 is to be interpreted as indicating that the deﬁnition of that symbol is
+to be modiﬁed by replacing 𝜌(𝑝) by 𝜌0 (𝑝) throughout. We now ﬁnd that 𝑊 (2) = 𝑊0 (1)
+and                                   (                )−1 (     )
+                       𝑊 (2𝑚) ∏             𝜌0 (𝑝) − 1        𝑝
+                                =      1+                          .
+                        𝑊0 (1)               (𝑝 − 1)2        𝑝−1
+                                        𝑝∣𝑚
+
+In particular, it follows that 𝑊 (2𝑚)/𝑊0 (1) is a multiplicative function of 𝑚. With the
+Dirichlet series 𝐷(𝑠) deﬁned as before, we again ﬁnd that 𝐷(𝑠) converges absolutely in
+the half-plane Re (𝑠) > 0. Hence, for Re (𝑠) > 0, one has
+                                  ∞
+                                  ∑                                 ∏
+                           −1−𝑠
+                𝐷(𝑠) = 2                𝑊 (2𝑚)𝑚−1−𝑠 = 𝑊0 (1)2−1−𝑠       𝐷𝑝,0 (𝑠),     (45)
+                                  𝑚=1                               𝑝
+
+with 𝐷𝑝,0 (𝑠) deﬁned via (31).
+   We may now execute the argument following (31) to establish that the analogue of (33)
+holds, save that in present circumstances 𝐷(𝑠)/𝑊 (1) is replaced by 21+𝑠 𝐷(𝑠)/𝑊0 (1). It
+follows, in particular, that the analogue of the asymptotic relation (38) holds. A modest
+calculation reveals that
+                              𝑅0 (0) = 41 𝑐0 (𝑓 )𝐻 2 log 𝐻 + Γ0 𝐻 2 ,                (46)
+where 𝑐0 (𝑓 ) is deﬁned via (40), and Γ0 = Γ0 (𝑓 ) is a certain (but diﬀerent) real number,
+the precise value of which is again of no importance in what follows. In addition, as a
+consequence of the argument underlying (41), we have
+                          ∏(       𝜌0 (𝑝)
+                                           )    ∏(          𝜌(𝑝)
+                                                                    )
+                𝑐0 (𝑓 ) =    1+              =2       1+              = 2𝑐(𝑓 ).        (47)
+                          𝑝
+                                 𝑝(𝑝  − 1)      𝑝>2
+                                                          𝑝(𝑝 −  1)
+
+  So far as 𝑅(−1) is concerned, the modiﬁcation to the formula (33) leaves the relation
+(42) essentially unchanged, save that Γ−1 will need adjustment invisible in the ensuing
+discussion. We therefore deduce as before that the analogue of (43) holds, whence on
+substituting (46) and (43) into (38) we conclude that
+           Θ𝑓 (𝐻) = 21 𝑐0 (𝑓 )𝐻 2 log 𝐻 + 2Γ0 𝐻 2 + 𝐻 log 𝐻 + 2Γ−1 𝐻 + 𝑂(𝐻 1/2 ).
+Incorporating this, as before, into (29), and recalling (47), we arrive at the asymptotic
+formula (44). In this way, we have established the asymptotic relation (44) in all circum-
+stances.
+14                                         J. BRÜDERN AND T. D. WOOLEY
+
+                6. Another exercise in multiplicative number theory
+     Our treatment of the sum Φ𝑓 deﬁned in equation (7) takes the convolution
+
+                                                      𝑞     ∑ 𝜇(𝑟)2
+                                                          =
+                                                     𝜙(𝑞)     𝜙(𝑟)
+                                                              𝑟∣𝑞
+
+as the starting point. By reversing the order of summation, we obtain
+           ∑           𝑓 (𝑘)     ∑ 𝜇(𝑟)2                  ∑                 ∑ 𝜇(𝑟)2 ( 𝜌(𝑟)                 )
+                               =                                      1=                        𝑧 + 𝑂(𝜌(𝑟)) .
+                      𝜙(𝑓 (𝑘))     𝜙(𝑟)                                              𝜙(𝑟)   𝑟
+        𝑦0 (𝑓 )<𝑘≤𝑧                   𝑟≤𝑓 (𝑧)           𝑦0 (𝑓 )<𝑘≤𝑧        𝑟≤𝑓 (𝑧)
+                                                      𝑓 (𝑘)≡0 mod 𝑟
+
+Since 𝜌(𝑝) ≤ 𝑑 for primes 𝑝 large enough in terms of 𝑓 , we now deduce from (41) that
+                                        ∑           𝑓 (𝑘)
+                                                            = 𝑐(𝑓 )𝑧 + 𝑂((log 𝑧)𝑑 ).
+                                                   𝜙(𝑓 (𝑘))
+                                     𝑦0 (𝑓 )<𝑘≤𝑧
+
+This relation may be summed by parts against the diﬀerentiable factor 𝑓 ′ (𝑡)/𝑓 (𝑡). For
+large 𝑡, one has
+                                  𝑑 ′
+                                     (𝑓 (𝑡)/𝑓 (𝑡)) ≪ 𝑡−2 ,
+                                  𝑑𝑡
+and consequently we are led to the asymptotic formula
+                          𝑓 ′ (𝑘)                                  (log 𝑧)𝑑
+                  ∑                                              (          )
+                                  = 𝑐(𝑓 ) log 𝑓 (𝑧) + 𝑐˜(𝑓 ) + 𝑂              ,
+                        𝜙(𝑓 (𝑘))                                      𝑧
+                       𝑦0 (𝑓 )<𝑘≤𝑧
+
+where 𝑐˜(𝑓 ) is a real number, the value of which, yet again, plays no role in our conclusions.
+Substituting this formula into the deﬁnition (7), we infer that whenever 𝑥1/𝑑 (log 𝑥)−𝐵 ≤
+𝑦 ≤ 𝑥1/𝑑 , one has
+                                              (         )
+                                                𝑓 (𝑦)
+                      Φ𝑓 (𝑦1 , 𝑦) = 𝑐(𝑓 ) log             + 𝑂(𝑥−1/𝑑 (log 𝑥)𝐵+𝑑 ).          (48)
+                                                𝑓 (𝑦1 )
+  We now substitute (44) and (48) into the asymptotic relation (12), thereby deducing
+that
+                                          (                     )
+                                           ∑
+       𝑉𝑓 (𝑥, 𝑦) = 𝑥𝑓 (𝑦) log 𝑓 (𝑦)+𝑓 (𝑦)    (log 𝑝)2 − 𝑥 log 𝑥
+                                                           𝑝≤𝑥
+
+                                                     − 2Γ−1 𝑥𝑓 (𝑦) + 𝑂(𝑥1/2 𝑓 (𝑦)3/2 + 𝑥2 (log 𝑥)−𝐴 ).
+
+By the Prime Number Theorem and partial summation, we therefore arrive at the as-
+ymptotic formula
+
+         𝑉𝑓 (𝑥, 𝑦) = 𝑥𝑓 (𝑦) log 𝑓 (𝑦) − (2Γ−1 + 1)𝑥𝑓 (𝑦) + 𝑂(𝑥1/2 𝑓 (𝑦)3/2 + 𝑥2 (log 𝑥)−𝐴 ),
+
+and this conﬁrms the conclusion of our theorem with 𝐶(𝑓 ) = −(2Γ−1 + 1).
+                SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION                                 15
+
+                                            References
+ [1] J. Brüdern and A. Perelli, Goldbach numbers in sparse sequences. Ann. Inst. Fourier (Grenoble) 48
+     (1998), 353–378.
+ [2] J. B. Friedlander and D. A. Goldston, Variance of distribution of primes in residue classes. Quart.
+     J. Math. Oxford Ser. (2) 47 (1996), 313–336.
+ [3] D. A. Goldston and R. C. Vaughan, On the Montgomery-Hooley asymptotic formula. Sieve methods,
+     exponential sums, and their applications in number theory (Cardiﬀ, 1995), pp. 117–142, London
+     Math. Soc. Lecture Note Ser., vol. 237, Cambridge Univ. Press, Cambridge, 1997.
+ [4] G. H. Hardy and E. M. Wright, An introduction to the theory of numbers. Fifth edition. The Claren-
+     don Press, Oxford University Press, New York, 1979.
+ [5] C. Hooley, On the Barban-Davenport-Halberstam theorem. I. J. Reine Angew. Math. 274/275 (1975),
+     206–223.
+ [6] C. Hooley, On the Barban-Davenport-Halberstam theorem. II. J. London Math. Soc. (2) 9 (1975),
+     625–636.
+ [7] H. Mikawa and T. P. Peneva, Primes in arithmetic progressions to spaced moduli. Arch. Math. (Basel)
+     84 (2005), 239–248.
+ [8] H. L. Montgomery, Primes in arithmetic progressions. Michigan Math. J. 17 (1970) 33–39.
+ [9] R. C. Vaughan, The Hardy-Littlewood method. Second edition. Cambridge Tracts in Mathematics,
+     vol. 125. Cambridge University Press, Cambridge, 1997.
+[10] R. C. Vaughan, On a variance associated with the distribution of general sequences in arithmetic
+     progressions. I. R. Soc. Lond. Philos. Trans. Ser. A 356 (1998), 781–791.
+[11] R. C. Vaughan, On a variance associated with the distribution of primes in arithmetic progressions.
+     Proc. London Math. Soc. (3) 82 (2001), 533–553.
+
+  JB: Institut für Algebra und Zahlentheorie, Universität Stuttgart, D-70511 Stuttgart,
+Germany
+
+  TDW: School of Mathematics, University of Bristol, University Walk, Clifton, Bris-
+tol BS8 1TW, United Kingdom
+

@@ -1,0 +1,405 @@
+                     Can. J. Math., Vol. XXV, No. 6, 1973, pp. 1216-1223
+
+
+
+
+                     ON THE DISTRIBUTION OF SQUARE-FREE NUMBERS
+                                                                        C. HOOLEY
+
+                       1. Introduction. Erdosf [1] has shown that, if the square-free numbers in
+                     ascending order be denoted by Si, s2, . . . , sn, . . . , then for 0 ^ 7 ^ 2
+
+                                                               J]     (sn+1 - sn)y ~ B(y)x
+
+                     as x —> 00. In this paper we shall extend this result by proving that the
+                     asymptotic formula in fact holds for the wider range 0 ^ 7 S 3.
+                        Similar results have been obtained previously by the author in respect of
+                     both the sequence of numbers expressible as the sum of two squares and also
+                     sequences of numbers relatively prime to given large integers, although the
+                     method used here differs from that of the earlier papers [2; 3J. Our result may
+                     also be compared with the inequality
+
+                                                           £        ^ L t i - p f c ) ! = O(log3 X)
+                                                         Vn+i^kx          Pn
+
+                     that has been obtained by Selberg on the Riemann hypothesis [6].
+                        The method here admits of an immediate generalization for the treatment
+                     of &-free numbers, the corresponding asymptotic formula being stated without
+                     proof in Theorem 2 at the end of the paper. When k ^ 3, however, it is possible
+                     to extend the analysis a little further in order to widen again the allowable
+                     range of 7 in terms of k. Since it would not be appropriate to give the details
+                     here, an account of this development will be reserved for a future occasion.
+
+                        2. Notation. The letters d, /, m, n, and v are positive integers; i, j , and
+                     H are non-negative integers; p is a (positive) prime number.
+                        The letter x denotes a variable that is to be regarded as tending to infinity,
+                     all appropriate inequalities that are true for sufficiently large x being assumed
+                     to hold.
+                        The letter c with subscript is a positive absolute constant; the constants
+                     implied by the O-notation are absolute, being, in particular, independent of rj
+                     in section 5; on the other hand, the passage to the limit as x —> 00 implied
+                     by the o-notation is not necessarily uniform with respect to any other para-
+                     meters involved.
+
+
+                       Received June 22, 1972.
+                       fAlthough Erdôs only considers the case 7 = 2 , his method is immediately applicable to the
+                     case 0 = 7 = 2.
+                                                                               1216
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                                                      SQUARE-FREE NUMBERS                    1217
+
+                3. The initial inequality. Let Nt = Ni(x) be the number of intervals
+             sn+i — sn of length / for which sn+i ^ x, and define the function fT{m) by
+                                                      Mm) =               £             1,
+                                                                    p2\m,p>ciTlogT
+             where C\ = 1/100 and T < x is any integer exceeding a sufficiently large positive
+             absolute constant c2. Then in this section we show that an inequality for a
+             sum involving Ni can be expressed in terms oi fT{m).
+                At the very beginning we follow Erdôs [1] by considering, for any integer
+             I ^ T, the integers in any interval of the form M < m < M + / that are
+             divisible by the square of at least one prime p such that p g c{T log T. These
+             integers do not in number exceed
+
+                               S         G? + 0 = l S                    è + x(cir log r)
+
+
+
+
+             We deduce that, if 5w+i — sn = I, then there are at least Z/8 integers between
+             sn and 5w+i that have the property that they are divisible by the square of a
+             prime p with p > c{T log T, since all numbers between consecutive square-free
+             numbers are divisible by the square of some prime.
+                Next we consider the I — T intervals of the form M ^ m < M + T which
+             consist entirely of integers lying between given consecutive square-free
+             numbers differing by /. Then, for / ^ 32T, at least (/ — T)/32 of these intervals
+             contain at least T/32 integers divisible by the square of a prime exceeding
+             CiTXog T. For, were this not so, then at least 31 (/ — T)/S2 intervals would
+             contain fewer than T/32 such integers, and it would follow that
+
+                                   l ^ - r ) è r + è(z-r)r^(l/-2r)r
+             as each of at least //8 — 2T of these integers is included in T different intervals
+             of length T. But
+
+                                                       ll-2T*±(l-T)
+             for / ^ 32T, and the falsity of our assertion would therefore imply the impos-
+             sible inequality 63/32 2 > 1/16.
+                To relate this to the function fT(m) we define FT(n) by
+                                                       Fr(n) =          Yl        fr(m),
+                                                                     n^m<n+T
+             and consider the sum
+             (1)                                                E       Fr\n).
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                     1218                                                C. HOOLEY
+
+
+                     Plainly, for I ^ 32T we have FT(n) ^ T/32 for at least (/ - D / 3 2 > Z/64
+                     integers w such that both n and w + T — 1 lie between two consecutive square-
+                     free integers distance / apart. The sum (1) therefore counts at least c^lT1 for
+                     each interval s n+ i — sn of length /, and we deduce that
+                     (2)                                   C3T2Mz2T(x) ^             £         FT\n),
+                                                                                    n^x—T
+
+                     where Mv(x) is defined for any integer v by
+
+                                                                   Mv(x) = £ # , / .
+                        In the next section we pass on to the problem of obtaining an upper bound
+                     for the sum on the right-hand side of this inequality.
+
+                       4. The s u m ^n^x-TFT2(n).                  To estimate this sum we introduce the additional
+                     functions
+                                                                                               1
+                                                                  gx(m)              X)
+                                                                                 p2\m,X<p^2X
+                     and
+                                                              GT,x(n) =            X)       gx(m),
+                                                                              nSm<n+T
+
+                     where throughout it will be assumed that n ^ x — T and
+                     (3)                                                  T < x*-8
+                     for some ô > 0.
+                        To find an inequality for FT{n) we write
+
+                                           FT(n)=             Z          , *,                  XtilogiXiGT,Xi(n),
+                                                                       XÎ \ogixi
+                     where X< = Ci2lT log T, and then infer from the Cauchy-Schwarz inequality
+                     that
+
+                                  F An)      ûJf,           ^ïTnTrM                     S       X/log^Gr.x.V))
+
+
+                                                 i    lOg 1       Xi<x\i^0
+
+
+                     Therefore
+
+                     (4)            S      Fr2(«) g - r g - -                £          X/log^ £          Gr,x,2(M).
+
+                       We suppress temporarily the subscript from Xt in order to facilitate the
+                     consideration of the inner sum, although it will still be assumed that
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                                                          SQUARE-FREE NUMBERS                                           1219
+
+
+              Ci T log T S X < xK We have
+
+                     E GTtX2(n) = E ( E                                    2x00)
+                     <x— T                    n^x—T       \nSm<n+T              /
+                                                            2
+                                          ^ T E fe (w) + 2 j ] ( r - r ) 2                             gx(m)gx(m + r)
+
+                                          ^ r E           gx2(m) +2T           J2       E      gx{m)gx(m + r)
+
+              (5)                         = r(2?(x, X) + 2S(.r, X, T)), say.
+                An estimate for R(x, X) is easily derived. We have from the definition of
+              gx(m) that
+                                  R(x,X)       ^ Z          ( , E             l'\
+                                                    m^x     \pi\m,p2\m,         f
+                                                             \ P1,P2>X          I
+
+
+                                               = E [-2! + E r 2X 2 ]
+                                                   p>X LP2 J               p           2  2
+                                                                             l7£p2. LP1 P2 J
+                                                                          P1,P2>X
+
+
+                                               <X      +X                                   =0
+                                                    L?
+                                                     p>X P(L?) \ p>X P I                         (xùx)-
+                                                                                             ~VXlog.
+               An estimate for S(x, X, T) could be obtained by following a similar method.
+             Since this would not yield sufficiently precise bounds, we adopt instead a
+             method that utilises an elementary principle in the theory of diophantine
+             approximation. The sum S{x, X, T) does not exceed the number of solutions
+             in primes pu P2 and integers h, l2 of the inequality
+                                                          0 < p22h - pi2h < T
+             for which p22h < x and X < pi, p2 ^ 2X. Since these conditions imply that
+             /1, h < x/X2 and (/i, h) < T, we may write h = dli , l2 = dl2', where
+              (h',h') = 1 and d < MX,T = min(x/X 2 , T). Therefore, substituting for
+             /1, h and then suppressing superscripts, we have
+
+              (7)                              S(x,X,T)           S   E             V(x,X,T;d),
+
+             where V(x, X, T; d) is the number of solutions in l1} l2, pi, p2 simultaneously
+             satisfying the conditions
+              (8)                           0 < p2H2 - p!2h < T/d; P2H2 < x/d,
+              (9)                                                 (/i,/ 2 ) = 1,
+              (10)                                              X < pu p2 ^ 2X.
+               We shall find two estimates for V(x,X, T;d), the estimate to be chosen
+             for substitution in (7) depending on the value of d relative to x, X, and T.
+                Firstly we have
+              (11)                             V(x,X,T;d)=                     E        fii.i, ( 1 \
+                                                                           li,h<x/dX2
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                     1220                                               C. HOOLEY
+
+
+                    where Viuï2{l) = Vhth{1)(x, X, T\ d) is, for given lul2, the number of
+                    solutions of (8) and (10) in primes pi, p2. For any such solution we have
+
+                                                                o < h _ Pi < __!__
+                                                                       l\     p2        dllp2
+                     and therefore
+
+                                                       0 <(^*_fc<--r-<-X,
+                                                    W        £2 d/i£i£ 2       dhX2 '
+                     Hence, for given lu /2, all ratios pi/p% lie in a fixed interval of length not exceed-
+                     ing T/dhX2. Also, because X > T/d implies that pi ^ p2, different solutions
+                     in pu p2 always correspond to different ratios pi/p2. Since two different values
+                     of pi/p2 are at least 1/4X2 apart, we deduce that
+
+
+                                                                i v ^ s f + 0(D,
+                     and then from this and (11) that
+
+                                        F(*,x,r;d) = o(5 E r)+o(                                    E i)
+                                                                     \ a h,h<x/dx2 n/           \h,h<x/dX* I
+
+                     (12)                                      _ 0 (i^ î ) + 0 (^ I ).
+                        However, we also have that
+                     (13)                             7(*,Z,r;d)=                   E      VPUP™,
+
+                     where VpliP2{2) = VPltP2{2) (x, T; d) is, for given pi, p2, the number of solutions
+                     in /i, h of (8) and (9). Next, writing Aj = 23, we consider, for each j such that
+                     Aj < x/dX2, only those solutions for which
+
+                                                                     A,- g Zi < 2A,.
+                     Any such solution satisfies
+
+
+
+                     and two different solutions give rise to two different ratios l2/h at least 1/4A/
+                     apart. Hence the number of these solutions is at most
+
+                                                                     4TA
+
+                     and therefore, summing over j , we have
+                                                         VP1J2) = o ( j f 5 ) +O(logx)
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                                                       SQUARE-FREE NUMBERS                                        1221
+
+              for pu pi > X. Finally from this and (13) we have
+
+                                     V(x,X,T;d) = Oil Mi + log x)                            £       l}
+
+              <">                                         -°(ï5^f)+o(W-
+             which furnishes us with the second estimate for V(x, X, T; d) that we require.
+                To decide which estimate for V(x, X, T; d) should be used for each value
+             of d in (7) we observe that it suffices to compare the second terms in the right-
+             hand sides of (12) and (14), since the first terms in these are nearly the same.
+             As these second terms are almost equal for d = x/X 3 , the method of choosing
+             between (12) and (14) and the consequent estimates for S(x, X, T) are as
+             follows.
+                   (i) If X ^ x1, then we take (12) for all d in the summation. This gives
+
+
+
+
+              (15)                                  - o ( 2 ^ ) + o(£)
+
+             since T < x*~ô.
+                (ii) If (x/T)* ^ X < x*, then we take (14) for d g x/Xz and (12) for
+                3
+             x/X < d < T, since T < X < x/XK Therefore
+
+                        s(x,x, T) = o ( - r ^ ± 4) + o(x2 E 1) + o(Ù Z i )
+                                                \    A        d=l a /             \     d^x/X*   /    \ A d>a;/x3 » /
+
+              (16)                       - 0{^p^) + o(|)
+
+                                         - °(f )•
+             since X / T è x 4ô/3 .
+                (iii) If a T log T S X < (x/T)x*t then we take (14) for d < T. In this case
+
+
+
+
+                                               =
+                                                    °UlogX/'
+             by a simple comparison of orders of magnitude.
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                    1222                                                  C. HOOLEY
+
+
+                       Next by (6) we see that the estimates provided by (15), (16), and (17) hold
+                    in respect of not only S(x, X, T) but also the coefficient of T in the right-hand
+                    side of (5). Therefore, by this and (4), we have
+
+                               E Fr\n) = o(£±{ E rxrtw+                                                         £ r#})
+                             n^x-T                      MOg 1         \Xi<(x/T)3      A i lOg A i   Xi^(x/T)3    A{     / /
+
+                    (18)
+                                                 - °\iog2r h 2») + °l log T h                                    2» /
+                                                                x     \
+                                                 = °llc
+                                                      log 2 f/'
+                    which is the estimate required for the application of (2) in the coming section.
+
+                      5. The theorem and its generalisation. To complete the proof of the
+                    theorem we require the following two lemmata, due, respectively, to Richert [5]
+                    and Mirsky [4].
+                       LEMMA 1. We have, for                sT+i ^ x, that
+                                                            sr+i — sr = 0(x 2 / 9 log x).
+                       LEMMA 2. For any given I we have
+
+                                                      Nx(x)          = A(l)x + o(x).
+                       Let 7 be a real constant such that 0 ^ y ^ 3. Then, by Lemma 1, we have
+                    (19)                E Nf = E Nf + E Nzf = E i + Z*. say,
+                                          I               l^V                 v< Ku
+                    where r\ is a given integer exceeding 32c2 and where w = c&x2/9 log x for some
+                    sufficiently large constant c%. In this case
+
+                    (20)                                        E i = * E ^(/)/ 7 + <>(*)
+                    by Lemma 2. Next we infer from (2) and (18) that
+
+                                                                    Mv(x) = o\u( -log
+                                                                                   q V*;/)
+
+                    for r] < v < u on account of the inequalities satisfied by r\ and u. Therefore!
+
+                                                      L, = o( £                       M2%(x)(2%rx)
+                     (21)                                    =
+                                                                    °(* 5             (2W^(2"v))
+                                                                       \ l o g 77/'
+
+                       fOnly the terms corresponding to /x = 0 need be used for the case 0 ^ 7 ^ 1.
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+                                                          SQUARE-FREE NUMBERS                              1223
+
+              We conclude from (19), (20), and (21) that
+
+                                       jjçw-i^w + .aj + o^).
+                 The final result is now almost immediate. We have
+
+                                          ÏIE- Z          Nf)                               (      v
+                                          h j n - Z ^ i                «s,                      Mogu/
+
+              from which firstly follows the convergence of 5^7=i A (l)ly. Denoting the sum
+              of the latter series by B(y), we then let r\ —> oo and obtain
+
+                                                          l i m ^ Z Ntr = B(y).
+                 We have thus proved the following theorem.
+                 THEOREM 1. Let the square-free numbers in ascending order be denoted by
+              slf s2f . . . , sn, . . . . Then, for 0 ^ y ^ 3, we have
+                                                          YJ    (S»+I -   sn)y ~        B(y)x
+              as x —> co .
+                As stated in the introduction this theorem is a special case of the next
+              theorem, which can be established by means of a routine generalisation of the
+              above proof.
+                 THEOREM 2. Let the k-free numbers (k > 1) in ascending order be denoted by
+              Si(A°, s2(k), . . . , snw, . . . . Then, for 0 ^ y ^ k + l,we have
+                                                           a,
+                                                   E            (w -^)'~s*(7)*
+                                                Sn+i^^X
+              as x —* oo .
+                                                                  REFERENCES
+
+             1. P. Erdôs, Some problems and results in elementary number theory, Publ. Math. Debrecen 2
+                    (1951), 103-109.
+             2. C. Hooley, On the difference of consecutive numbers prime to n, I, Acta Arith. 8 (1963), 343-347.
+             3#         On the intervals between numbers that are sums of two squares, Acta Math. 127
+                    (1971), 279-297.
+             4. L. Mirsky, Arithmetical pattern problems relating to divisibility by r-th powers, Proc. London
+                    Math. Soc. 50 (1949), 497-508.
+             5. H. E. Richert, On the difference between consecutive square-free numbers, J. London Math.
+                    Soc. 29 (1954), 16-20.
+             6. A. Selberg, On the normal density of primes in small intervals and the difference between con-
+                    secutive primes, Archiv Math, og Naturvid. 47 (1943), 87-106.
+
+              University College, Cardiff,
+              Cardiff, Wales
+
+
+
+
+https://doi.org/10.4153/CJM-1973-129-0 Published online by Cambridge University Press
+

@@ -1,0 +1,8 @@
+{
+  "failure": null,
+  "outputs": {
+    "_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_stream.jsonl": "508b3f1753749994d41044809cc87c0b59b04dd4c8a734a034a083bacba77b27"
+  },
+  "provider_outputs": {}
+}

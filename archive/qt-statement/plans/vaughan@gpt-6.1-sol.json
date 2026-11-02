@@ -1,0 +1,77 @@
+{
+  "summary": "Target a six-proposition proof for integer-coefficient polynomials f\u2208Z[t] satisfying problem.md, retaining the weight f\u2032(k). This restriction makes congruence averaging modulo m\u00b2 directly valid. Uniform squarefree correlations replace the circle-method dissection; periodic averaging then gives an explicit finite-ratio profile. The proposed asymptotic range is x^{max(7/9,d/(d+1))+\u03b7}\u2264f(y), with f(y)/x tending to zero. The predicted constants agree with the numerical extrapolation envelopes. A bare monomial does not explain the persistent fixed-ratio dependence; the proposed profile does. No excluded source was accessed or used.",
+  "main_theorem": "Target theorem. Fix f\u2208Z[t] satisfying the assumptions of problem.md, of degree d\u22651. Put \u03b8_d=max{7/9,d/(d+1)}. For every fixed \u03b7 with 0<\u03b7<1\u2212\u03b8_d, there exist constants A_{f,\u03b7}>0 and x_0(f,\u03b7)\u22652 such that, uniformly for real x\u2265x_0(f,\u03b7), real y\u22651, and Y=f(y) satisfying x^{\u03b8_d+\u03b7}\u2264Y\u2264x, one has |V_f(x,y)\u2212x\u00b2\u2131_f(Y/x)|\u2264A_{f,\u03b7}x^{1/2}Y^{3/2}x^{\u2212\u03b7/8}. Here \u2131_f and C_f>0 are defined explicitly in P6. Consequently, throughout the same range, |V_f(x,y)\u2212C_f x^{1/2}Y^{3/2}|\u2264A_{f,\u03b7}x^{1/2}Y^{3/2}[(Y/x)^{1/8}+x^{\u2212\u03b7/8}], after increasing A_{f,\u03b7}. In particular, if 0<\u03b7<(1\u2212\u03b8_d)/2, then uniformly for x^{\u03b8_d+\u03b7}\u2264Y\u2264x^{1\u2212\u03b7}, the relative error is at most 2A_{f,\u03b7}C_f^{\u22121}x^{\u2212\u03b7/8}.",
+  "predicted_main_term": "C_f x^{1/2}f(y)^{3/2}, with C_f=\u2212(8/3)\u03b6(\u22121/2)\u220f_p[(1\u22122/p\u00b2)(1\u22121/p)(1+pT_p/(p\u00b2\u22122))], where T_p=1\u2212\u03c1(p)/p+[\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2]p^{\u22121/2}+\u03c1(p\u00b2)/p\u00b3. The product converges absolutely and is positive. Products truncated at primes below 10^6 give C_{t\u00b2+1}\u22480.138082663, C_{t\u00b3+2}\u22480.135607555, and C_{2t+1}\u22480.142613346; these decimal estimates are not certified enclosures.",
+  "agrees_with_numerics": "Yes, within the scope of the proposed theorem. The extrapolated constants are respectively 0.138371\u00b10.007020, 0.138511\u00b10.007292, and 0.140863\u00b10.008159, containing all three predictions. At x=256000000 and the smallest ratio, V/(x^{1/2}Y^{3/2}) is approximately 0.140858, 0.139990, and 0.144598. At ratios near one these normalisations remain substantially larger; the theorem explicitly retains a finite-ratio correction. Direct numerical evaluation of the P6 profile, truncating its nonnegative m-series at 10000, differs from all eight largest-x rows by at most approximately 0.27%, 1.11%, and 0.20%, respectively. The omitted tail is nonnegative, and polynomial sampling contributes additional finite-size error. The exact-count validation in results.json supports the implementation; fixed-ratio power fits and extrapolations alone do not determine the small-ratio asymptotic.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Local densities and uniform control of the centering term",
+      "statement": "Let \u03bc denote the M\u00f6bius function, \u03c4(n) the number of positive divisors of n, \u03c6 Euler\u2019s totient, and \u03b6 the Riemann zeta function. For every integer q\u22651 and integer l, the density in problem.md is g(q,l)=q^{\u22121}\u2211_{m\u22651,(m\u00b2,q)|l} \u03bc(m)(m\u00b2,q)/m\u00b2, with absolute convergence, where (a,b) denotes the greatest common divisor. Define the multiplicative function G by G(1)=1, G(p)=G(p\u00b2)=\u22121/(p\u00b2\u22121), and G(p^j)=0 for every prime p and integer j\u22653. Then 0\u2264g(q,l)\u22641/q, \u2211_{l=1}^q g(q,l)=1/\u03b6(2), and \u2211_{l=1}^q g(q,l)\u00b2=[q\u03b6(2)\u00b2]^{\u22121}\u2211_{r|q}\u03c6(r)G(r)\u00b2. There is an absolute constant A>0 such that, uniformly for real x\u22652 and integers 1\u2264q\u2264x, |\u2211_{l=1}^q g(q,l)Q(x;q,l)\u2212x\u2211_{l=1}^q g(q,l)\u00b2|\u2264A x^{1/2}\u03c4(q)\u00b3/q.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), specialised to k=2; https://doi.org/10.1112/S0024611505015352",
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemmas 2.3, 2.4, 2.5 and 2.17, specialised to k=2; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The centering includes all residue classes. Replacing g(q,l) by a coprime-class density would invalidate both the cancellation and the constant."
+    },
+    {
+      "id": "P2",
+      "title": "Squarefree pair correlations uniformly in the shift",
+      "statement": "Define B=\u220f_p(1\u22122/p\u00b2), where p ranges over primes, and for every integer H\u22651 define S(H)=B\u220f_{p\u00b2|H}(p\u00b2\u22121)/(p\u00b2\u22122). Both products converge, with the second product finite. For every \u03b5 with 0<\u03b5<1/10 there is a constant A_\u03b5>0 such that, uniformly for real x\u22652 and integers 1\u2264H\u2264x, |\u2211_{1\u2264n\u2264x\u2212H}\u03bc\u00b2(n)\u03bc\u00b2(n+H)\u2212(x\u2212H)S(H)|\u2264A_\u03b5 x^{2/3+\u03b5}. The constant is independent of H, including shifts comparable with x.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "A fixed-shift correlation theorem is insufficient. The proposition requires a separate elementary argument with uniform truncation errors; the deliberately conservative exponent 2/3 avoids stronger correlation results."
+    },
+    {
+      "id": "P3",
+      "title": "Reduction to an explicit nonnegative covariance model",
+      "statement": "Let \u03b6 denote the Riemann zeta function, B=\u220f_p(1\u22122/p\u00b2), \u03c8(u)={u}(1\u2212{u}), and \u03b2(m)=\u03bc\u00b2(m)\u220f_{p|m}p\u00b2/(p\u00b2\u22122), with \u03b2(1)=1 and {u}=u\u2212\u230au\u230b. Define S(H)=B\u220f_{p\u00b2|H}(p\u00b2\u22121)/(p\u00b2\u22122) for integers H\u22651. For real x>0 and integer q\u22651 define M(x;q)=Bq\u2211_{m\u22651}\u03b2(m)/(m\u00b2,q)\u00b7\u03c8(x(m\u00b2,q)/(qm\u00b2)); this series converges absolutely and is nonnegative. The exact identity M(x;q)=x/\u03b6(2)+2\u2211_{1\u2264h\u2264x/q}(x\u2212hq)S(hq)\u2212x\u00b2\u2211_{l=1}^q g(q,l)\u00b2 holds. Moreover, for every fixed f\u2208Z[t] satisfying problem.md and every \u03b5 with 0<\u03b5<1/10, there is A_{f,\u03b5}>0 such that, uniformly for real x\u22652 and y\u22651 with f(y)\u2264x, |V_f(x,y)\u2212\u2211_{1\u2264k\u2264y}f\u2032(k)M(x;f(k))|\u2264A_{f,\u03b5}x^{5/3+\u03b5}.",
+      "depends_on": [
+        "P1",
+        "P2"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemmas 2.5, 2.16 and 2.17, specialised to k=2; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The identity requires exact cancellation of quadratic and linear terms before estimating anything. Missing a factor of q or 2, or discarding prime-square terms, changes the leading constant."
+    },
+    {
+      "id": "P4",
+      "title": "Weighted polynomial averaging with an explicit truncation parameter",
+      "statement": "Fix f\u2208Z[t] satisfying problem.md, of degree d\u22651. Put B=\u220f_p(1\u22122/p\u00b2), \u03c8(u)={u}(1\u2212{u}), and \u03b2(m)=\u03bc\u00b2(m)\u220f_{p|m}p\u00b2/(p\u00b2\u22122), with \u03b2(1)=1. For integers m\u22651 and 0\u2264a<m\u00b2 put u_m(a)=(m\u00b2,f(a)). Define M(x;q)=Bq\u2211_{m\u22651}\u03b2(m)/(m\u00b2,q)\u00b7\u03c8(x(m\u00b2,q)/(qm\u00b2)) and J_f(x,Y)=B\u222b_0^Y t\u2211_{m\u22651}[\u03b2(m)/m\u00b2]\u2211_{a=0}^{m\u00b2\u22121}u_m(a)^{\u22121}\u03c8(xu_m(a)/(tm\u00b2))dt. The integral and series converge. For every \u03b5 with 0<\u03b5<1/10 there is A_{f,\u03b5}>0 such that, uniformly for real x\u22652, y\u22651, Y=f(y)\u2264x, and real 1\u2264M\u2264x, |\u2211_{1\u2264k\u2264y}f\u2032(k)M(x;f(k))\u2212J_f(x,Y)|\u2264A_{f,\u03b5}[xY M^{\u22121+\u03b5}+Y^{2\u22121/d}M^{3+\u03b5}+xY^{1\u22121/d}M^{1+\u03b5}log(2x)].",
+      "depends_on": [
+        "P3"
+      ],
+      "cites": [],
+      "crux": true,
+      "risk": "The periodic averaging error must account for all m\u00b2 residue classes and the total variation of the fractional-part kernel. A smooth-weight summation lemma cannot be imported unchanged. Integer coefficients ensure that f(a) modulo m\u00b2 is well-defined."
+    },
+    {
+      "id": "P5",
+      "title": "Euler product and the unique leading pole",
+      "statement": "Fix f\u2208Z[t] satisfying problem.md. Let \u03b2(m)=\u03bc\u00b2(m)\u220f_{p|m}p\u00b2/(p\u00b2\u22122), \u03b2(1)=1, and u_m(a)=(m\u00b2,f(a)) for integers m\u22651 and 0\u2264a<m\u00b2. For complex s with Re(s)>1/2 define D_f(s)=\u2211_{m\u22651}\u03b2(m)m^{\u22122s}[m^{\u22122}\u2211_{a=0}^{m\u00b2\u22121}u_m(a)^{s\u22121}]. This series converges absolutely. For each prime p define T_p(s)=1\u2212\u03c1(p)/p+[\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2]p^{s\u22121}+[\u03c1(p\u00b2)/p\u00b2]p^{2s\u22122}. Then D_f(s)=\u03b6(2s)H_f(s), where H_f(s)=\u220f_p[(1\u2212p^{\u22122s})(1+[p\u00b2/(p\u00b2\u22122)]p^{\u22122s}T_p(s))]. The product for H_f converges absolutely and locally uniformly on Re(s)>1/4. There is A_f>0 such that |H_f(s)|\u2264A_f whenever 3/8\u2264Re(s)\u22643/4, with no restriction on Im(s). Thus D_f has a meromorphic continuation to Re(s)>1/4 whose only possible pole is at s=1/2; this pole is simple, has residue H_f(1/2)/2, and H_f(1/2)>0. No squarefreeness or irreducibility assumption on f is imposed.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "The factors involving \u03c1(p\u00b2) must be retained at every prime, especially primes dividing the content or discriminant. Repeated roots are allowed and cannot be handled by assuming \u03c1(p\u00b2)=\u03c1(p)."
+    },
+    {
+      "id": "P6",
+      "title": "Explicit finite-ratio profile and its small-ratio expansion",
+      "statement": "Fix f\u2208Z[t] satisfying problem.md. Let B=\u220f_p(1\u22122/p\u00b2), \u03c8(u)={u}(1\u2212{u}), \u03b2(m)=\u03bc\u00b2(m)\u220f_{p|m}p\u00b2/(p\u00b2\u22122), \u03b2(1)=1, and u_m(a)=(m\u00b2,f(a)). For 0<r\u22641 define \u2131_f(r)=B\u2211_{m\u22651}[\u03b2(m)/m\u00b2]\u2211_{a=0}^{m\u00b2\u22121}u_m(a)^{\u22121}\u222b_0^r t\u03c8(u_m(a)/(m\u00b2t))dt. This nonnegative series converges. For each prime p put T_p=1\u2212\u03c1(p)/p+[\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2]p^{\u22121/2}+\u03c1(p\u00b2)/p\u00b3, and define C_f=\u2212(8/3)\u03b6(\u22121/2)\u220f_p[(1\u22122/p\u00b2)(1\u22121/p)(1+pT_p/(p\u00b2\u22122))]. This product converges absolutely and C_f>0. There exists A_f>0 such that, uniformly for 0<r\u22641, |\u2131_f(r)\u2212C_f r^{3/2}|\u2264A_f r^{13/8}. Equivalently, for real x\u2265Y>0, the quantity J_f(x,Y) defined by the explicit integral in P4 equals x\u00b2\u2131_f(Y/x) and satisfies |J_f(x,Y)\u2212C_f x^{1/2}Y^{3/2}|\u2264A_f x^{3/8}Y^{13/8}.",
+      "depends_on": [
+        "P5"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.18, with B\u2082*(u)=\u2212\u03c8(u)/2 and its contour parameter between \u22122 and \u22121; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": true,
+      "risk": "The contour argument must use the integrated kernel, whose extra denominator supplies the necessary decay. A pointwise Mellin inversion for \u03c8 does not justify the same contour shift. The pole residue and the prime-square density factors must both survive unchanged."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

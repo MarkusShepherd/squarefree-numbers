@@ -1,0 +1,78 @@
+{
+  "summary": "Proposed six-proposition plan using squarefree pair correlations, polynomial averaging of local factors, and a generating Dirichlet series. Restrict f to Z[t] with no repeated complex root, retaining the original weight f'(k). This restriction supplies bounded root counts modulo p and p\u00b2 outside finitely many primes and includes all three numerical examples. The plan gives a ratio-dependent main term up to f(y)=x, and a constant times x^(1/2)f(y)^(3/2) in a narrower range. The predicted constants agree with the numerical extrapolation ranges. The fitted exponents differ from (1/2,3/2), but the derived ratio-dependent term explains that discrepancy without changing the theorem to fit data. The Dirichlet-series organization follows the permitted supplied paper by J. Br\u00fcdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011), \u00a75, https://doi.org/10.1093/qmath/hap029; no prime-variance theorem is transferred. No excluded work was consulted. A search incidentally returned a 2026 CV and a current publication list; neither was opened or used. These are proposed contracts, not completed proofs.",
+  "main_theorem": "Restrict f to an integer-coefficient polynomial satisfying the assumptions in problem.md and gcd(f,f')=1 in Q[t]. Put Y=f(y), a_d=max{5/3,2-1/(2d)}, and \u03bb_d=(2a_d-1)/3=max{7/9,1-1/(3d)}. Let \u03a6_f and the positive constant C_f be the explicit quantities defined in P5. For every 0<\u03b5<min{1/8,1/(4d)}, there exist K_{f,\u03b5}>0 and x_0(f,\u03b5) such that, uniformly for real x\u2265x_0(f,\u03b5) and real y\u22651 with sqrt(x)\u2264Y\u2264x, |V_f(x,y)-x\u00b2\u03a6_f(Y/x)|\u2264K_{f,\u03b5}x^(a_d+\u03b5). In the same range, |V_f(x,y)-C_f x^(1/2)Y^(3/2)|\u2264K_{f,\u03b5}[x^(1/4+\u03b5)Y^(7/4-\u03b5)+x^(a_d+\u03b5)]. Consequently, for every 0<\u03b7<(1-\u03bb_d)/2, there exist K_{f,\u03b7}>0 and x_1(f,\u03b7) such that, uniformly for x\u2265x_1(f,\u03b7) and x^(\u03bb_d+\u03b7)\u2264Y\u2264x^(1-\u03b7), |V_f(x,y)/(C_f x^(1/2)Y^(3/2))-1|\u2264K_{f,\u03b7}x^(-\u03b7/5). Thus \u03bb_1=7/9 and \u03bb_d=1-1/(3d) for d\u22652.",
+  "predicted_main_term": "When Y/x tends to zero within the theorem's power range, the predicted main term is C_f x^(1/2)Y^(3/2), where C_f=-(8/3)\u03b6(-1/2)\u220f_p (1-p^(-1))[1+p^(-1)-(2+\u03c1(p))p^(-2)+\u03c1(p)p^(-5/2)-\u03c1(p\u00b2)p^(-7/2)+\u03c1(p\u00b2)p^(-4)]. The product is absolutely convergent; \u03b6 denotes the Riemann zeta function and p runs over primes. Finite products through p\u22642,000,000 give approximately C_{t\u00b2+1}=0.13808, C_{t\u00b3+2}=0.13561, and C_{2t+1}=0.14261. For fixed positive Y/x, the predicted main term is instead the explicit x\u00b2\u03a6_f(Y/x) from P5. In particular, the constant-power expression alone is not asserted to be an asymptotic at fixed Y/x.",
+  "agrees_with_numerics": "Yes, with the distinction between fixed-ratio and vanishing-ratio limits. The reported extrapolated constants are 0.13837\u00b10.00702, 0.13851\u00b10.00729, and 0.14086\u00b10.00816, respectively; all contain the predicted constants. At x=256,000,000, finite-product evaluations of the ratio-dependent formula have maximum relative discrepancies across the eight supplied ratios of approximately 0.071% for t\u00b2+1, 0.89% for t\u00b3+2, and 0.0011% for 2t+1. These evaluations are numerical checks, not certified error bounds. The larger cubic discrepancies are compatible with sparse endpoint effects, since the sampled y values are only 136\u2013634. Independently, direct squarefree sieving and residue counting reproduced the complete x=1,000,000, y=99 quadratic row and y=21 cubic row: both displayed variances agreed, and both integer weighted count-square sums agreed exactly. The production implementation was unavailable, so its other validation claims were not independently audited. The persistent ratio curvature explains why joint power fits produce exponents near (0.45,1.55); their regression errors do not measure the uncertainty in the vanishing-ratio exponents or constant.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Local densities and uniform control of the centering term",
+      "statement": "Let \u03b4=1/\u03b6(2), where \u03b6 is the Riemann zeta function. For every integer q\u22651 and integer l, define q_1=\u220f_{p||q}p, where p||q means p divides q but p\u00b2 does not. The density in problem.md is g(q,l)=(\u03b4/q)\u220f_{p|q}(1-p^(-2))^(-1)\u220f_{p||q, p|l}(1-p^(-1))\u220f_{p\u00b2|q}1_{p\u00b2\u2224l}. Empty products equal 1. Put G(q)=\u03a3_{l=1}^q g(q,l)\u00b2. Then G(q)=(\u03b4\u00b2/q)\u220f_{p||q}[(1-2p^(-2)+p^(-3))/(1-p^(-2))\u00b2]\u220f_{p\u00b2|q}(1-p^(-2))^(-1). There exists an absolute constant K>0 such that, uniformly for real x\u22652 and integers 1\u2264q\u2264x, |\u03a3_{l=1}^q g(q,l)Q(x;q,l)-xG(q)|\u2264K sqrt(x)/q. Also |Q(x;1,1)-\u03b4x|\u2264K sqrt(x). No coprimality restriction on l is imposed.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), specialized to squarefree numbers and squarefree divisors r\u2264x, https://doi.org/10.1112/S0024611505015352."
+      ],
+      "crux": false,
+      "risk": "Residues divisible by p when p||q have a different local factor from residues modulo p\u00b2. Confusing these cases changes both the centering term and the final constant. Only Lemma 2.2(ii), which has no q\u2264x^(1-\u03b7) restriction, is required."
+    },
+    {
+      "id": "P2",
+      "title": "Squarefree pair correlations uniformly in the difference",
+      "statement": "For every positive integer r define S(r)=\u220f_p(1-2p^(-2))\u220f_{p\u00b2|r}(p\u00b2-1)/(p\u00b2-2), with products over primes. For real x\u22652 and integers 1\u2264r\u2264x, define R(x;r)=\u03a3_{1\u2264n\u2264x-r}\u03bc\u00b2(n)\u03bc\u00b2(n+r), where the sum is empty when x-r<1. For every 0<\u03b5<1/6 there exists K_\u03b5>0 such that |R(x;r)-(x-r)S(r)|\u2264K_\u03b5 x^(2/3+\u03b5), uniformly throughout these ranges. The constant is independent of r and x.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "The assigned proof must establish uniformity for differences as large as x, rather than import a theorem for a fixed difference. Square-divisor truncation must retain the compatibility condition gcd(a,b)\u00b2|r when completing the singular series."
+    },
+    {
+      "id": "P3",
+      "title": "Discarding small polynomial moduli",
+      "statement": "Let f satisfy the assumptions of problem.md, allowing the original integer-valued rational coefficients. For every \u03b5>0 there exists K_{f,\u03b5}>0 such that, uniformly for real x\u22652 and 2\u2264Z\u2264x, 0\u2264\u03a3_{k\u22651, f(k)\u2264Z}f'(k)\u03a3_{l=1}^{f(k)}E(x;f(k),l)\u00b2\u2264K_{f,\u03b5}x^(1+\u03b5)Z^(2-1/d). The sum is over positive integers k. In particular, at Z=sqrt(x) this is at most K_{f,\u03b5}x^(2-1/(2d)+\u03b5).",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 2.2, with its k=2 and 1\u2264Q=Z\u2264x, https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf."
+      ],
+      "crux": false,
+      "risk": "The cited lemma uses a differently normalized density; P1 identifies it with the density in problem.md. Positivity and injectivity of k\u21a6f(k) permit comparison with all moduli, and the derivative contributes the factor Z^(1-1/d)."
+    },
+    {
+      "id": "P4",
+      "title": "Averaging singular series and density factors along the polynomial",
+      "statement": "Let f\u2208Z[t] satisfy problem.md and have no repeated complex root. Put \u03b4=1/\u03b6(2), C_0=\u220f_p(1-2p^(-2)), and S(r)=C_0\u220f_{p\u00b2|r}(p\u00b2-1)/(p\u00b2-2) for positive integers r. For every prime p put a_p=1/(p\u00b2-2), u_p=\u03c1(p)/p, v_p=\u03c1(p\u00b2)/p\u00b2, b_{0,p}=1+a_pv_p, b_{1,p}=1+a_pu_p, and b_{j,p}=1+a_p for integers j\u22652. For positive integers h, let v_p(h) be the exponent of p in h and define W_f(h)=\u220f_p(1-2p^(-2))b_{v_p(h),p}. Define c_f=\u220f_p(1-2p^(-2))[b_{0,p}+(b_{1,p}-b_{0,p})/p+(b_{2,p}-b_{1,p})/p\u00b2], G(q)=\u03a3_{l=1}^q g(q,l)\u00b2, and P_f(H)=\u03a3_{1\u2264h\u2264H}W_f(h)(H-h)\u00b2/h for real H\u22651. These products converge absolutely. There exist K_f>0 and x_0(f) such that the following estimates hold. First, uniformly for all integers h\u22651 and real 1\u2264t_0\u2264t_1, |\u03a3_{t_0<k\u2264t_1}S(hf(k))-(t_1-t_0)W_f(h)|\u2264K_f. Second, uniformly for x\u2265x_0(f), f(1)\u2264Z\u2264Y=f(y)\u2264x, and the unique real z\u22651 satisfying f(z)=Z, |\u03a3_{z<k\u2264y}f'(k)G(f(k))-c_f log(Y/Z)|\u2264K_f Z^(-1/d) and |\u03a3_{z<k\u2264y}f'(k)-(Y-Z)|\u2264K_f Y^(1-1/d). Finally, define M_f(x;z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{h\u22651, hf(k)\u2264x}(x-hf(k))S(hf(k)). Uniformly in the same ranges, |2M_f(x;z,y)-Z\u00b2P_f(x/Z)+Y\u00b2P_f(x/Y)|\u2264K_f x\u00b2Z^(-1/d). All sums over k and h are over integers, and log denotes the natural logarithm.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [],
+      "crux": true,
+      "risk": "The essential issue is summable discrepancy after expanding the singular series into square-divisibility conditions. The relevant modulus is r\u00b2/gcd(r\u00b2,h), so primes dividing h once and twice must be distinguished. All bad primes of f must remain in the local factors. The no-repeated-root restriction is essential to the proposed uniform summability argument."
+    },
+    {
+      "id": "P5",
+      "title": "Dirichlet series, contour shift, and explicit main terms",
+      "statement": "Let f\u2208Z[t] satisfy problem.md and have no repeated complex root. For each prime p define a_p=1/(p\u00b2-2), u_p=\u03c1(p)/p, v_p=\u03c1(p\u00b2)/p\u00b2, b_{0,p}=1+a_pv_p, b_{1,p}=1+a_pu_p, and b_{j,p}=1+a_p for j\u22652. Let W_f(h)=\u220f_p(1-2p^(-2))b_{v_p(h),p}, where v_p(h) is the exponent of p in the positive integer h. Put T_p(s)=b_{0,p}+(b_{1,p}-b_{0,p})p^(-s)+(b_{2,p}-b_{1,p})p^(-2s), A_f(s)=\u220f_p(1-2p^(-2))T_p(s), and J_f(s)=\u220f_p(1-p^(-2s-2))(1-2p^(-2))T_p(s). The product for A_f converges absolutely and locally uniformly for Re(s)>-1/2, and the product for J_f does so for Re(s)>-3/4. For each 0<\u03b5<1/8, |J_f(s)|\u2264K_{f,\u03b5} uniformly for Re(s)\u2265-3/4+\u03b5. For Re(s)>1, F_f(s)=\u03a3_{h\u22651}W_f(h)h^(-s)=\u03b6(s)A_f(s)=\u03b6(s)\u03b6(2s+2)J_f(s); the last identity continues F_f meromorphically to Re(s)>-3/4. Put \u03b4=1/\u03b6(2), c_f=A_f(1), B_f=c_f(\u03b3-3/2)+A_f'(1), and C_f=-(8/3)\u03b6(-1/2)J_f(-1/2), where \u03b3 is Euler's constant. Then c_f>0, C_f>0, and F_f(0)=-\u03b4/2. For P_f(H)=\u03a3_{1\u2264h\u2264H}W_f(h)(H-h)\u00b2/h, every 0<\u03b5<1/8 admits K_{f,\u03b5}>0 such that, uniformly for H\u22651, P_f(H)=c_fH\u00b2log H+B_fH\u00b2+\u03b4H-C_fH^(1/2)+R_f(H), with |R_f(H)|\u2264K_{f,\u03b5}H^(1/4+\u03b5). The Mellin integral uses 2F_f(w+1)H^(w+2)/[w(w+1)(w+2)], initially on Re(w)=2 and shifted to Re(w)=-7/4+\u03b5; there is no finite height or major-arc cutoff. Define, for 0<r\u22641, \u03a6_f(r)=\u03b4r-r\u00b2P_f(1/r)+c_f log(1/r)+B_f. Then |\u03a6_f(r)-C_fr^(3/2)|\u2264K_{f,\u03b5}r^(7/4-\u03b5), uniformly for 0<r\u22641. The constant C_f equals the Euler product stated in predicted_main_term. If that product is truncated to p\u2264R, its error in absolute value is at most K_f/R for every real R\u22652, with K_f depending only on f.",
+      "depends_on": [],
+      "cites": [
+        "H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I. Classical Theory (2007), Theorem 5.1 and equation (5.19) with smoothing order 2, https://doi.org/10.1017/CBO9780511618314.",
+        "H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I. Classical Theory (2007), Corollaries 1.16, 1.17, 10.4 and 10.5, https://doi.org/10.1017/CBO9780511618314."
+      ],
+      "crux": true,
+      "risk": "The residue at w=-1 must cancel the squarefree diagonal exactly; an incorrect local factor changes F_f(0). The pole at w=-3/2 supplies the main constant. Absolute convergence of J_f and integrability on the shifted line must be checked explicitly, including finitely many bad primes; no zero-free region or hypothesis on zeta zeros is available or needed."
+    },
+    {
+      "id": "P6",
+      "title": "Reduction of the variance to the averaged pair model",
+      "statement": "Let f\u2208Z[t] satisfy problem.md and have no repeated complex root. Put \u03b4=1/\u03b6(2), a_d=max{5/3,2-1/(2d)}, G(q)=\u03a3_{l=1}^qg(q,l)\u00b2, and S(r)=\u220f_p(1-2p^(-2))\u220f_{p\u00b2|r}(p\u00b2-1)/(p\u00b2-2) for positive integers r. For every 0<\u03b5<1/8 there exist K_{f,\u03b5}>0 and x_0(f,\u03b5)\u2265f(1)\u00b2 such that the following holds uniformly for real x\u2265x_0(f,\u03b5) and y\u22651 with sqrt(x)\u2264Y=f(y)\u2264x. Set Z=sqrt(x) and let z\u22651 be the unique real solution of f(z)=Z. Define M_f(x;z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{h\u22651, hf(k)\u2264x}(x-hf(k))S(hf(k)), with integer k,h. Then V_f(x,y)=\u03b4x(Y-Z)+2M_f(x;z,y)-x\u00b2\u03a3_{z<k\u2264y}f'(k)G(f(k))+R, where |R|\u2264K_{f,\u03b5}x^(a_d+\u03b5). The constant and threshold depend only on f and \u03b5. Combining this identity with P4 and P5 gives the main theorem, including the ratio-dependent term and the stated relative rate in the power-law range.",
+      "depends_on": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The pair-correlation error is summed with total weight at most a constant depending on f times x log(2x); its contribution must be absorbed using a smaller \u03b5 in P2. Endpoint errors from replacing \u03a3f'(k) by Y-Z must also be retained. Treating the small-modulus block by pair correlations would lose the required saving."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

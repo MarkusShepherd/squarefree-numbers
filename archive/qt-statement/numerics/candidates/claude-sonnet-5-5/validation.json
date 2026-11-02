@@ -1,0 +1,16 @@
+[
+ "g(q,l) (exact rationals times 6/pi^2) equals the exact periodic-density brute force (period q*prod p^2, prod_{p not| q}(1-p^-2) factored out) for all q <= 50 and all l: PASS",
+ "sum_{l mod q} g(q,l) = 6/pi^2 exactly for q <= 50: PASS",
+ "g(q,l)*x vs Q(x;q,l), x=2e6, q<=50 and q in {97,100,210}: max |Q - g x| = 38.59 (consistent with square-root cancellation)",
+ "sum_l Q(x;q,l) = Q(x;1,1) for x in {997,5000,123456}, q<120 and q in {x-1,x,500,777}: PASS",
+ "sum_l Q(x;q,l)^2 from the FFT autocorrelation formula equals bincount brute force (exact integers), same x,q: PASS; max FFT rounding error 2.32e-11",
+ "sum_l g(q,l)^2 closed form (W^2 T / q^2) equals enumeration for q <= 300: PASS",
+ "sum_l E(x;q,l)^2: fast exact-rational path vs float64 brute force (x=3000,50000; q<150 and some larger): max rel. diff 1.49e-12; fast float path 1.67e-08",
+ "V_f(x,y) k^2+1, x=20000, y=120: fast 4.2444012128e+07, brute force 4.2444012128e+07, rel diff 2.6e-14",
+ "V_f(x,y) k^2+1, x=200000, y=120: fast 1.1519576490e+08, brute force 1.1519576490e+08, rel diff 7.0e-15",
+ "V_f(x,y) k^3+2, x=20000, y=27: fast 7.0108539451e+07, brute force 7.0108539451e+07, rel diff 4.1e-14",
+ "V_f(x,y) k^3+2, x=200000, y=58: fast 6.6265606724e+09, brute force 6.6265606724e+09, rel diff 2.1e-13",
+ "V_f(x,y) 2k+1, x=20000, y=120: fast 7.2255060681e+04, brute force 7.2255060681e+04, rel diff 8.1e-16",
+ "V_f(x,y) 2k+1, x=200000, y=120: fast 2.1506141009e+05, brute force 2.1506141009e+05, rel diff 5.4e-16",
+ "float64 path (used only for q > 3000) vs 50-digit exact path at x=1e7, 359 moduli q in (3000, 1e7]: max rel. diff 3.45e-10"
+]

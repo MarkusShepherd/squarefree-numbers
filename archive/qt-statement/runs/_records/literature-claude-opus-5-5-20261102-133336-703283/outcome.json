@@ -1,0 +1,14 @@
+{
+  "failure": null,
+  "outputs": {
+    "_schema.json": "5355005386471b51678eb0109b14db571b98b51ef704fa943ee9c7036c90e60e",
+    "_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_stream.jsonl": "b509157c3f2270e3c9fcd45e3d63571cdb01fdb80dbd2b6d134fd7968c487aa5",
+    "papers/INDEX.md": "bf3bf56f1cfc6c9b1b6817a35c0ae9e3f1ccf0ffac33d6b9d536da9de298ada2",
+    "papers/bgpvw-1998.pdf": "89da25d27425bc6264d1457b71f8bf23602c18a84a696d264a353fec7d9f95b8",
+    "papers/bruedern-wooley-2011.pdf": "bfa8c9e4c5e8e9f79043d6d3d95fbd736b9ccb5e9895d572aa9aef52b3147faa",
+    "papers/vaughan-2005.pdf": "a0ff18701b969f7d9263bffbd5e31f1ee4c618d9044af88ed47c9b0a1407b285",
+    "problem.md": "b4efb9ea304861681409d13e2a00313e4251bb76c996e3f48cb24160a416ecb4"
+  },
+  "provider_outputs": {}
+}

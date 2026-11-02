@@ -1,0 +1,72 @@
+{
+  "summary": "Six-proposition plan using squarefree pair correlations and elementary averaging over polynomial values. Restrict f to Z[t], retaining the original weight f'(k); this includes every polynomial in results.json and ensures congruences have period equal to their modulus. The plan gives an explicit fixed-ratio profile and its small-ratio power-law asymptotic. Numerical checks reveal no contradiction: the profile explains the persistent ratio dependence, and the predicted constants lie within the reported extrapolation uncertainties. The numerical implementation itself was unavailable; its validation claims were reviewed, and the proposed arithmetic profile was computed independently. Sources consulted: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), https://doi.org/10.1112/S0024611505015352; J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), https://doi.org/10.1098/rsta.1998.0183; J. Br\u00fcdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011, explicitly permitted supplied paper), https://doi.org/10.1093/qmath/hap029. Only the specified Vaughan lemmas are invoked as external results. No excluded source was accessed or used.",
+  "main_theorem": "Proposed theorem. Let f\u2208Z[t] have degree d\u22651 and satisfy the hypotheses in problem.md. Put \u03b4=1/(4d+1). For each prime p define a_p=1\u22122/p\u00b2+\u03c1(p\u00b2)/p\u2074, b_p=1\u22122/p\u00b2+\u03c1(p)/p\u00b3, c_p=1\u22121/p\u00b2, u_p=(b_p\u2212a_p)/a_p and v_p=(c_p\u2212b_p)/a_p. Define the multiplicative function \u03b1 by \u03b1(1)=1, \u03b1(p)=u_p, \u03b1(p\u00b2)=v_p and \u03b1(p^j)=0 for j\u22653, and put A=\u220f_p a_p. Write \u03c8(z)={z}(1\u2212{z}), where {z}=z\u2212floor(z). For 0<r\u22641 define F_f(r)=A sum_{m\u22651} m\u03b1(m) integral_0^r t\u03c8(1/(mt)) dt. This series converges absolutely and F_f(r)>0. There exist constants K_f>0 and x_0(f)\u22652 such that, uniformly for real x\u2265x_0(f), real y\u22651 and Y=f(y)\u2264x, |V_f(x,y)\u2212x\u00b2F_f(Y/x)|\u2264K_f x^(2\u2212\u03b4) log(2x). Define J=\u220f_p (1\u22121/p)(1+u_p\u221ap+v_pp) and C_f=2\u03b6(3/2)AJ/(3\u03c0)>0. For every fixed \u03b7 with 0<\u03b7<1/4 there is K_{f,\u03b7}>0 such that, throughout the same range, |V_f(x,y)\u2212C_f x^(1/2)Y^(3/2)|\u2264K_{f,\u03b7}[x^(1/4+\u03b7)Y^(7/4\u2212\u03b7)+x^(2\u2212\u03b4)log(2x)]. All products defining A, J and C_f converge absolutely. Thus the profile is an asymptotic main term uniformly on x^(1\u22122\u03b4/3+\u03b5)\u2264Y\u2264x for every fixed 0<\u03b5<2\u03b4/3. The pure-power asymptotic holds whenever Y/x\u21920 and Y/[x^(1\u22122\u03b4/3)(log(2x))^(2/3)]\u2192\u221e.",
+  "predicted_main_term": "The full main term is x\u00b2F_f(f(y)/x). When f(y)/x tends to zero it becomes C_f x^(1/2)f(y)^(3/2), with C_f=(2\u03b6(3/2)/(3\u03c0))\u220f_p(1\u22121/p)[a_p+\u221ap(b_p\u2212a_p)+p(c_p\u2212b_p)]. Products over primes below 10^6 give approximately C_{k\u00b2+1}=0.138083, C_{k\u00b3+2}=0.135608 and C_{2k+1}=0.142613.",
+  "agrees_with_numerics": "Yes, within the limits of these finite computations. The extrapolated constants in results.json are respectively 0.138371\u00b10.007020, 0.138511\u00b10.007292 and 0.140863\u00b10.008159, where the uncertainties are sensitivity envelopes. The joint fitted exponents differ from (1/2,3/2), but fixed-ratio slopes are approximately 2 and the independently calculated profile reproduces the observed curvature. At x=256000000, the largest relative profile discrepancies across the eight supplied ratios are approximately 0.071% for k\u00b2+1, 0.90% for k\u00b3+2 and 0.00055% for 2k+1. Changing the numerical profile truncation from 100000 to 400000 changed normalized predictions by less than 1.8\u00d710^\u22129. These checks support the proposed local factors; they do not establish the theorem. The larger cubic residuals remain compatible with sparse finite sampling and the conservative proposed error bound.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Squarefree densities and uniform centering estimates",
+      "statement": "Let \u03b6 denote the Riemann zeta function and \u03c6 Euler's totient function. Define the multiplicative function G by G(1)=1, G(p)=G(p\u00b2)=\u22121/(p\u00b2\u22121) for every prime p, and G(p^j)=0 for j\u22653. For every integer q\u22651 and integer l, the density from problem.md satisfies g(q,l)=(1/q) sum_{m\u22651, gcd(m\u00b2,q)|l} \u03bc(m)gcd(m\u00b2,q)/m\u00b2; this series converges absolutely. Moreover 0\u2264g(q,l)\u22641/q and sum_{l=1}^q g(q,l)=\u03b6(2)^\u22121. Set B(q)=q sum_{l=1}^q g(q,l)\u00b2. Then B(q)=\u03b6(2)^\u22122 sum_{r|q} \u03c6(r)G(r)\u00b2. There is an absolute constant K>0 such that |E(x;q,l)|\u2264K\u221ax uniformly for all real x\u22652, integers q\u22651 and integers l. The same K may be enlarged so that, uniformly for real x\u22652 and integers 1\u2264q\u2264x, |sum_{l=1}^q g(q,l)Q(x;q,l)\u2212xB(q)/q|\u2264K\u221ax/q and |Q(x;1,1)\u2212x/\u03b6(2)|\u2264K\u221ax.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), specialized to squarefree numbers; https://doi.org/10.1112/S0024611505015352",
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.5, specialized to squarefree numbers; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The mixed moment must have an error proportional to 1/q. A residue-by-residue estimate would lose this factor. Vaughan's multiple-count estimate is needed only for squarefree divisors at most q\u2264x."
+    },
+    {
+      "id": "P2",
+      "title": "Uniform squarefree pair correlation",
+      "statement": "For each integer h\u22651 define S(h)=\u220f_p(1\u22122/p\u00b2+1_{p\u00b2|h}/p\u00b2), where p runs over primes and 1_{p\u00b2|h} is 1 when p\u00b2 divides h and 0 otherwise. The product converges absolutely. There is an absolute constant K>0 such that, uniformly for real x\u22652 and integers 1\u2264h\u2264x, |sum_{1\u2264n\u2264x\u2212h} \u03bc\u00b2(n)\u03bc\u00b2(n+h)\u2212(x\u2212h)S(h)|\u2264Kx^(3/4). The summation variable n is a positive integer. The constant is independent of both x and h.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "Uniformity must include shifts comparable with x. This is an original elementary proposition, not an invocation of a fixed-shift asymptotic."
+    },
+    {
+      "id": "P3",
+      "title": "Arithmetic factors and the square-supported coefficient mean",
+      "statement": "Fix f\u2208Z[t] satisfying problem.md. For every prime p define a_p=1\u22122/p\u00b2+\u03c1(p\u00b2)/p\u2074, b_p=1\u22122/p\u00b2+\u03c1(p)/p\u00b3, c_p=1\u22121/p\u00b2, u_p=(b_p\u2212a_p)/a_p and v_p=(c_p\u2212b_p)/a_p. Define \u03b1 multiplicatively by \u03b1(1)=1, \u03b1(p)=u_p, \u03b1(p\u00b2)=v_p and \u03b1(p^j)=0 for j\u22653. Then \u03b1(m)\u22650 for every positive integer m. The products A=\u220f_p a_p and J=\u220f_p(1\u22121/p)(1+u_p\u221ap+v_pp) converge absolutely and are positive. One has A sum_{m\u22651}\u03b1(m)=\u03b6(2)^\u22121. For every positive integer h, define W(h)=\u220f_{p\u2224h}a_p \u220f_{p|h,p\u00b2\u2224h}b_p \u220f_{p\u00b2|h}c_p. Then W(h)=A sum_{m|h}\u03b1(m). Also D=A sum_{m\u22651}\u03b1(m)/m=\u220f_p[(1\u22121/p)a_p+(1/p\u22121/p\u00b2)b_p+c_p/p\u00b2], with absolute convergence of the series and products. For every fixed \u03b7 with 0<\u03b7<1/4 there exists K_{f,\u03b7}>0 such that, uniformly for all real M\u22651, |sum_{m\u2264M}m\u03b1(m)\u2212J\u221aM|\u2264K_{f,\u03b7}M^(1/4+\u03b7). Constants may depend only on f and \u03b7. No assumption that f is primitive, irreducible or squarefree as a polynomial is imposed.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "Repeated polynomial factors can make \u03c1(p\u00b2) grow with p. The coefficient estimate must allow this, as well as the finitely many primes dividing the content of f."
+    },
+    {
+      "id": "P4",
+      "title": "Polynomial averaging with explicit truncation losses",
+      "statement": "Fix f\u2208Z[t] of degree d\u22651 satisfying problem.md. Put c=\u03b6(2)^\u22121 and B(q)=q sum_{l=1}^q g(q,l)\u00b2 for positive integers q. For positive integers n define S(n)=\u220f_p(1\u22122/p\u00b2+1_{p\u00b2|n}/p\u00b2). For each prime p set a_p=1\u22122/p\u00b2+\u03c1(p\u00b2)/p\u2074, b_p=1\u22122/p\u00b2+\u03c1(p)/p\u00b3 and c_p=1\u22121/p\u00b2. For positive integers h define W(h)=\u220f_{p\u2224h}a_p \u220f_{p|h,p\u00b2\u2224h}b_p \u220f_{p\u00b2|h}c_p, and set D=\u220f_p[(1\u22121/p)a_p+(1/p\u22121/p\u00b2)b_p+c_p/p\u00b2]. There is K_f>0 such that the following three inequalities hold simultaneously and uniformly for real x\u22652, real y\u22651, Y=f(y)\u2264x, real f(1)\u2264T\u2264Y and real 1\u2264R\u2264x. Every sum over k or h is over positive integers. First, |sum_{T<f(k)\u2264Y} f'(k) sum_{h\u2264x/f(k)}(x\u2212hf(k))S(hf(k))\u2212integral_T^Y sum_{h\u2264x/t}(x\u2212ht)W(h)dt|\u2264K_f x\u00b2[RT^(\u22121/d)+log(2x)/R]. Second, |sum_{T<f(k)\u2264Y} f'(k)B(f(k))/f(k)\u2212D log(Y/T)|\u2264K_f[RT^(\u22121/d)+log(2x)/R]. Third, |sum_{T<f(k)\u2264Y}f'(k)\u2212(Y\u2212T)|\u2264K_f Y^(1\u22121/d). The constant may depend only on f, including its degree, and is independent of x,y,T,R and every summed shift h.",
+      "depends_on": [
+        "P1",
+        "P3"
+      ],
+      "cites": [],
+      "crux": true,
+      "risk": "Both averages must yield exactly the same D. The root counts and residue-class endpoint errors must sum to RT^(\u22121/d), without an extra power of R. The statement deliberately restricts f to integer coefficients so the required congruence periods are valid."
+    },
+    {
+      "id": "P5",
+      "title": "Integrated fractional-part kernel and its universal constant",
+      "statement": "Let \u03b1 be a nonnegative real sequence on the positive integers with sum_{m\u22651}\u03b1(m)<\u221e. Suppose A,J>0, K\u22650 and 0<\u03c3<1/2 satisfy |sum_{m\u2264M}m\u03b1(m)\u2212J\u221aM|\u2264KM^\u03c3 for every real M\u22651. Define c_\u03b1=A sum_m \u03b1(m), D_\u03b1=A sum_m \u03b1(m)/m and W_\u03b1(h)=A sum_{m|h}\u03b1(m) for positive integers h. Write \u03c8(z)={z}(1\u2212{z}), where {z}=z\u2212floor(z). For real x,t>0 define H(x,t)=c_\u03b1 x+2 sum_{h\u2264x/t}W_\u03b1(h)(x\u2212ht)\u2212D_\u03b1 x\u00b2/t. Then H(x,t)=A sum_{m\u22651}m\u03b1(m)t\u03c8(x/(mt)), with absolute convergence, and 0\u2264H(x,t)\u2264c_\u03b1 x. There is a constant C_\u03c3>0 depending only on \u03c3 such that, uniformly for all real x>0 and 0<Y\u2264x, |integral_0^Y H(x,t)dt\u2212[2\u03b6(3/2)/(3\u03c0)]AJ\u221ax Y^(3/2)|\u2264C_\u03c3 A(K+J)x^\u03c3Y^(2\u2212\u03c3). The integral at zero is improper and converges.",
+      "depends_on": [],
+      "cites": [],
+      "crux": true,
+      "risk": "The coefficient mean must be applied to the integrated kernel. Applying partial summation to the unsmoothed fractional-part expression can lose the claimed exponent."
+    },
+    {
+      "id": "P6",
+      "title": "Reduction of the variance and control of discarded moduli",
+      "statement": "Fix f\u2208Z[t] of degree d\u22651 satisfying problem.md. Put c=\u03b6(2)^\u22121, B(q)=q sum_{l=1}^q g(q,l)\u00b2 for positive integers q, and S(n)=\u220f_p(1\u22122/p\u00b2+1_{p\u00b2|n}/p\u00b2) for positive integers n. For real x\u22652, real y\u22651 with Y=f(y)\u2264x, and real f(1)\u2264T\u2264Y, define L_f(x;T,Y)=sum_{T<f(k)\u2264Y}f'(k)[cx+2 sum_{h\u2264x/f(k)}(x\u2212hf(k))S(hf(k))\u2212x\u00b2B(f(k))/f(k)]. Both summation variables are positive integers. There is K_f>0 such that |V_f(x,y)\u2212L_f(x;T,Y)|\u2264K_f[xT\u00b2+x^(7/4)log(2x)] uniformly throughout these ranges. In addition, 0\u2264V_f(x,y)\u2264K_f xY\u00b2 uniformly for every real x\u22652 and real y\u22651 with Y=f(y)\u2264x. Constants may depend only on f. Combining this reduction with P4 using T=x^(2d/(4d+1)) and R=x^(1/(4d+1)) is permitted whenever T\u2264Y and x is large enough that T\u2265f(1); the additional bound covers Y<T.",
+      "depends_on": [
+        "P1",
+        "P2"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The total pair-correlation error must be summed with the actual weights and shift ranges. Using a bound proportional to the number of residue classes would destroy the stated power saving."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

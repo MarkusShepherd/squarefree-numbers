@@ -1,0 +1,2681 @@
+{
+  "polynomials": {
+    "k^2+1": {
+      "rows": [
+        {
+          "x": 1000000,
+          "y": 99,
+          "fy": 9802,
+          "V": 137662483.30227074,
+          "V_decimal": "137662483.30227074397",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 3545739001280
+        },
+        {
+          "x": 1000000,
+          "y": 141,
+          "fy": 19882,
+          "V": 401344191.5200134,
+          "V_decimal": "401344191.52001340356",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 3822102194364
+        },
+        {
+          "x": 1000000,
+          "y": 223,
+          "fy": 49730,
+          "V": 1606768484.9161732,
+          "V_decimal": "1606768484.9161731107",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 4182024354612
+        },
+        {
+          "x": 1000000,
+          "y": 316,
+          "fy": 99857,
+          "V": 4793582912.812324,
+          "V_decimal": "4793582912.8123239439",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 4458011662144
+        },
+        {
+          "x": 1000000,
+          "y": 447,
+          "fy": 199810,
+          "V": 14020292971.39417,
+          "V_decimal": "14020292971.394170766",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 4739180207772
+        },
+        {
+          "x": 1000000,
+          "y": 632,
+          "fy": 399425,
+          "V": 41192479017.42452,
+          "V_decimal": "41192479017.424522682",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 5037780101060
+        },
+        {
+          "x": 1000000,
+          "y": 836,
+          "fy": 698897,
+          "V": 99473644883.0253,
+          "V_decimal": "99473644883.025292266",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 5315404727108
+        },
+        {
+          "x": 1000000,
+          "y": 999,
+          "fy": 998002,
+          "V": 170849035588.02673,
+          "V_decimal": "170849035588.02674831",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 5526528971528
+        },
+        {
+          "x": 4000000,
+          "y": 199,
+          "fy": 39602,
+          "V": 2233231141.1836576,
+          "V_decimal": "2233231141.1836578505",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 65464111288668
+        },
+        {
+          "x": 4000000,
+          "y": 282,
+          "fy": 79525,
+          "V": 6427433373.470442,
+          "V_decimal": "6427433373.470442105",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 69833662031996
+        },
+        {
+          "x": 4000000,
+          "y": 447,
+          "fy": 199810,
+          "V": 25845546436.915344,
+          "V_decimal": "25845546436.915343589",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 75630001315860
+        },
+        {
+          "x": 4000000,
+          "y": 632,
+          "fy": 399425,
+          "V": 76375324217.1031,
+          "V_decimal": "76375324217.103101109",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 80023467042292
+        },
+        {
+          "x": 4000000,
+          "y": 894,
+          "fy": 799237,
+          "V": 224004533690.53952,
+          "V_decimal": "224004533690.5395152",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 84522607542136
+        },
+        {
+          "x": 4000000,
+          "y": 1264,
+          "fy": 1597697,
+          "V": 658104985578.3197,
+          "V_decimal": "658104985578.31968705",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 89302861544884
+        },
+        {
+          "x": 4000000,
+          "y": 1673,
+          "fy": 2798930,
+          "V": 1592391939736.989,
+          "V_decimal": "1592391939736.9889854",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 93756205034600
+        },
+        {
+          "x": 4000000,
+          "y": 1999,
+          "fy": 3996002,
+          "V": 2735418991670.4517,
+          "V_decimal": "2735418991670.4515527",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 97133774274364
+        },
+        {
+          "x": 16000000,
+          "y": 399,
+          "fy": 159202,
+          "V": 35870740286.5931,
+          "V_decimal": "35870740286.593105049",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 1186874250207468
+        },
+        {
+          "x": 16000000,
+          "y": 565,
+          "fy": 319226,
+          "V": 103232830273.79657,
+          "V_decimal": "103232830273.79656777",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 1256738485056016
+        },
+        {
+          "x": 16000000,
+          "y": 894,
+          "fy": 799237,
+          "V": 413340183373.4508,
+          "V_decimal": "413340183373.45080975",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 1349154998026792
+        },
+        {
+          "x": 16000000,
+          "y": 1264,
+          "fy": 1597697,
+          "V": 1221011697999.0308,
+          "V_decimal": "1221011697999.0306967",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 1419499262094840
+        },
+        {
+          "x": 16000000,
+          "y": 1788,
+          "fy": 3196945,
+          "V": 3581321211815.0293,
+          "V_decimal": "3581321211815.0293565",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 1491506540029724
+        },
+        {
+          "x": 16000000,
+          "y": 2529,
+          "fy": 6395842,
+          "V": 10535449308404.332,
+          "V_decimal": "10535449308404.331203",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 1568098608153792
+        },
+        {
+          "x": 16000000,
+          "y": 3346,
+          "fy": 11195717,
+          "V": 25471331417194.508,
+          "V_decimal": "25471331417194.507137",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 1639257478770016
+        },
+        {
+          "x": 16000000,
+          "y": 3999,
+          "fy": 15992002,
+          "V": 43782220072279.86,
+          "V_decimal": "43782220072279.862554",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 1693378836408848
+        },
+        {
+          "x": 64000000,
+          "y": 799,
+          "fy": 638402,
+          "V": 575166889380.4609,
+          "V_decimal": "575166889380.46099543",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 21219894283410004
+        },
+        {
+          "x": 64000000,
+          "y": 1131,
+          "fy": 1279162,
+          "V": 1654670973462.9219,
+          "V_decimal": "1654670973462.9218455",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 22337180346326276
+        },
+        {
+          "x": 64000000,
+          "y": 1788,
+          "fy": 3196945,
+          "V": 6608075873632.937,
+          "V_decimal": "6608075873632.936155",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 23813593991495952
+        },
+        {
+          "x": 64000000,
+          "y": 2529,
+          "fy": 6395842,
+          "V": 19541118481938.395,
+          "V_decimal": "19541118481938.394613",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 24940742642890368
+        },
+        {
+          "x": 64000000,
+          "y": 3577,
+          "fy": 12794930,
+          "V": 57329248823052.03,
+          "V_decimal": "57329248823052.032587",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 26092679369363212
+        },
+        {
+          "x": 64000000,
+          "y": 5059,
+          "fy": 25593482,
+          "V": 168623441892062.47,
+          "V_decimal": "168623441892062.45544",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 27318003783524196
+        },
+        {
+          "x": 64000000,
+          "y": 6693,
+          "fy": 44796250,
+          "V": 407601078009167.1,
+          "V_decimal": "407601078009167.13549",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 28456515340373860
+        },
+        {
+          "x": 64000000,
+          "y": 7999,
+          "fy": 63984002,
+          "V": 700643728628852.1,
+          "V_decimal": "700643728628852.12163",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 29322431397233796
+        },
+        {
+          "x": 256000000,
+          "y": 1599,
+          "fy": 2556802,
+          "V": 9213955478984.049,
+          "V_decimal": "9213955478984.0497914",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 375178854571750584
+        },
+        {
+          "x": 256000000,
+          "y": 2262,
+          "fy": 5116645,
+          "V": 26465993422254.61,
+          "V_decimal": "26465993422254.610598",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 393027845080666352
+        },
+        {
+          "x": 256000000,
+          "y": 3577,
+          "fy": 12794930,
+          "V": 105783138222175.48,
+          "V_decimal": "105783138222175.48793",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 416671123783141556
+        },
+        {
+          "x": 256000000,
+          "y": 5059,
+          "fy": 25593482,
+          "V": 312767074728752.4,
+          "V_decimal": "312767074728752.39083",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 434702579893123784
+        },
+        {
+          "x": 256000000,
+          "y": 7155,
+          "fy": 51194026,
+          "V": 917489043155510.4,
+          "V_decimal": "917489043155510.43015",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 453131831921907500
+        },
+        {
+          "x": 256000000,
+          "y": 10119,
+          "fy": 102394162,
+          "V": 2698491931639237.5,
+          "V_decimal": "2698491931639237.3492",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 472736326032704672
+        },
+        {
+          "x": 256000000,
+          "y": 13386,
+          "fy": 179184997,
+          "V": 6521238105298217.0,
+          "V_decimal": "6521238105298216.9452",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 490946760627011252
+        },
+        {
+          "x": 256000000,
+          "y": 15999,
+          "fy": 255968002,
+          "V": 1.1211194405521122e+16,
+          "V_decimal": "11211194405521121.09",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 504806717796930164
+        }
+      ],
+      "fit_combined_two_ways": {
+        "alpha": 0.4551402266946798,
+        "alpha_se": 0.003902244880049716,
+        "beta": 1.5454471380330823,
+        "beta_se": 0.0038749488152537348,
+        "alpha_plus_beta": 2.000587364727762,
+        "alpha_plus_beta_se": 0.00046074589855787023,
+        "C": 0.16849976125063096,
+        "log_C_residual_se": 0.002447726715970277,
+        "note": "Combines the largest-x beta with the mean fixed-ratio delta=alpha+beta, then fits C with those exponents. alpha_se combines marginal SEs in quadrature and ignores correlation; C residual SE is conditional on fitted exponents."
+      },
+      "fit_fixed_x": {
+        "beta": 1.5454471380330823,
+        "beta_se": 0.0038749488152537348,
+        "x": 256000000,
+        "by_x": [
+          {
+            "x": 1000000,
+            "beta": 1.5445809417078968,
+            "beta_se": 0.003952632918631339,
+            "prefactor_C_times_x_alpha": 91.93761176173344,
+            "r_squared": 0.9999607096579876
+          },
+          {
+            "x": 4000000,
+            "beta": 1.544491236638541,
+            "beta_se": 0.004054503269794984,
+            "prefactor_C_times_x_alpha": 172.8096223812747,
+            "r_squared": 0.9999586535995536
+          },
+          {
+            "x": 16000000,
+            "beta": 1.5450485984532147,
+            "beta_se": 0.003905171355104036,
+            "prefactor_C_times_x_alpha": 321.97390344429596,
+            "r_squared": 0.9999616707337802
+          },
+          {
+            "x": 64000000,
+            "beta": 1.5453342567826052,
+            "beta_se": 0.003883346738191817,
+            "prefactor_C_times_x_alpha": 601.8016252025486,
+            "r_squared": 0.999962111948514
+          },
+          {
+            "x": 256000000,
+            "beta": 1.5454471380330823,
+            "beta_se": 0.0038749488152537348,
+            "prefactor_C_times_x_alpha": 1127.787133850551,
+            "r_squared": 0.9999622811450494
+          }
+        ],
+        "note": "Log-log OLS over all eight ratios; curvature in the ratio biases a pure power fit. Standard errors describe OLS residuals only."
+      },
+      "fit_fixed_ratio": {
+        "alpha_plus_beta": 2.000587364727762,
+        "se": 0.00046074589855787023,
+        "by_ratio": [
+          {
+            "ratio": 0.01,
+            "alpha_plus_beta": 2.0034749685059836,
+            "se": 0.0010251553247911723,
+            "r_squared": 0.9999992145249116,
+            "actual_ratio_min": 0.009802,
+            "actual_ratio_max": 0.0099875078125
+          },
+          {
+            "ratio": 0.02,
+            "alpha_plus_beta": 2.001298321601309,
+            "se": 0.0002739833358971776,
+            "r_squared": 0.9999999437728765,
+            "actual_ratio_min": 0.01988125,
+            "actual_ratio_max": 0.01998690625
+          },
+          {
+            "ratio": 0.05,
+            "alpha_plus_beta": 2.0005673454020396,
+            "se": 0.0004631379476845286,
+            "r_squared": 0.9999998392186884,
+            "actual_ratio_min": 0.04973,
+            "actual_ratio_max": 0.0499801953125
+          },
+          {
+            "ratio": 0.1,
+            "alpha_plus_beta": 1.999322010053913,
+            "se": 0.0003842696955429386,
+            "r_squared": 0.9999998891774893,
+            "actual_ratio_min": 0.0998560625,
+            "actual_ratio_max": 0.0999745390625
+          },
+          {
+            "ratio": 0.2,
+            "alpha_plus_beta": 1.9997686628990996,
+            "se": 0.0001694480729974179,
+            "r_squared": 0.9999999784605308,
+            "actual_ratio_min": 0.1998090625,
+            "actual_ratio_max": 0.1999766640625
+          },
+          {
+            "ratio": 0.4,
+            "alpha_plus_beta": 2.000004871901047,
+            "se": 0.00014704252392219158,
+            "r_squared": 0.9999999837839514,
+            "actual_ratio_min": 0.39942425,
+            "actual_ratio_max": 0.3999771953125
+          },
+          {
+            "ratio": 0.7,
+            "alpha_plus_beta": 2.0000381322250114,
+            "se": 4.5260240087676916e-05,
+            "r_squared": 0.9999999984636916,
+            "actual_ratio_min": 0.698897,
+            "actual_ratio_max": 0.69994140625
+          },
+          {
+            "ratio": 1.0,
+            "alpha_plus_beta": 2.000224605233692,
+            "se": 4.8476731977098415e-05,
+            "r_squared": 0.9999999982379006,
+            "actual_ratio_min": 0.998002,
+            "actual_ratio_max": 0.9998750078125
+          }
+        ],
+        "note": "Top-level estimate is the mean of eight slopes; its SE is their dispersion/sqrt(8). By-ratio OLS SEs are reported separately. Fits hold the target ratio fixed; actual ratios differ because y is integral."
+      },
+      "fit_joint": {
+        "C": 0.1717917082438242,
+        "C_log_se": 0.02138148823291941,
+        "alpha": 0.45438239339791825,
+        "alpha_se": 0.0020294236261856296,
+        "beta": 1.544979693076791,
+        "beta_se": 0.0015861533029979315,
+        "log_residual_rms": 0.015078317324347187,
+        "note": "Joint unweighted OLS log V=log C+alpha log x+beta log f(y). This power-law C is distinct from the small-ratio asymptotic-normalisation intercept."
+      },
+      "normalised": [
+        {
+          "x": 1000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.009802,
+          "V_over_x12_fy32": 0.14185464207486925
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.019882,
+          "V_over_x12_fy32": 0.14316171020321244
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.04973,
+          "V_over_x12_fy32": 0.14488573092128293
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.099857,
+          "V_over_x12_fy32": 0.15191213658678962
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.19981,
+          "V_over_x12_fy32": 0.156975277378028
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.399425,
+          "V_over_x12_fy32": 0.1631792990900257
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.698897,
+          "V_over_x12_fy32": 0.17025044945267423
+        },
+        {
+          "x": 1000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.998002,
+          "V_over_x12_fy32": 0.1713623519416094
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.0099005,
+          "V_over_x12_fy32": 0.14168634604432212
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01988125,
+          "V_over_x12_fy32": 0.1433019404206742
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.0499525,
+          "V_over_x12_fy32": 0.1446871270521693
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.09985625,
+          "V_over_x12_fy32": 0.15127606022750567
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.19980925,
+          "V_over_x12_fy32": 0.15675212646954018
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.39942425,
+          "V_over_x12_fy32": 0.1629384406196367
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.6997325,
+          "V_over_x12_fy32": 0.17003249178126112
+        },
+        {
+          "x": 4000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.9990005,
+          "V_over_x12_fy32": 0.17122032489738612
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.009950125,
+          "V_over_x12_fy32": 0.141174926158467
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.019951625,
+          "V_over_x12_fy32": 0.1430903871821816
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.0499523125,
+          "V_over_x12_fy32": 0.14462196731385726
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.0998560625,
+          "V_over_x12_fy32": 0.15115349861349764
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.1998090625,
+          "V_over_x12_fy32": 0.15663201556358294
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.399740125,
+          "V_over_x12_fy32": 0.16283452086752548
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.6997323125,
+          "V_over_x12_fy32": 0.16998624767548087
+        },
+        {
+          "x": 16000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.999500125,
+          "V_over_x12_fy32": 0.17115261348747168
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.00997503125,
+          "V_over_x12_fy32": 0.14094917289021722
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01998690625,
+          "V_over_x12_fy32": 0.14296618799953603
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.049952265625,
+          "V_over_x12_fy32": 0.1445048044935978
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.09993503125,
+          "V_over_x12_fy32": 0.15101248043990242
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.19992078125,
+          "V_over_x12_fy32": 0.15657751382795254
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.39989815625,
+          "V_over_x12_fy32": 0.16279231498017202
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.69994140625,
+          "V_over_x12_fy32": 0.16993500451782323
+        },
+        {
+          "x": 64000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.99975003125,
+          "V_over_x12_fy32": 0.17111975568713875
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.0099875078125,
+          "V_over_x12_fy32": 0.14085766368910352
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01998689453125,
+          "V_over_x12_fy32": 0.1429191052034947
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.0499801953125,
+          "V_over_x12_fy32": 0.1444573331046929
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.0999745390625,
+          "V_over_x12_fy32": 0.1509756756633575
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.1999766640625,
+          "V_over_x12_fy32": 0.15654960524980752
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.3999771953125,
+          "V_over_x12_fy32": 0.16277524104369345
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.69994139453125,
+          "V_over_x12_fy32": 0.1699251293889192
+        },
+        {
+          "x": 256000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.9998750078125,
+          "V_over_x12_fy32": 0.1711013290641903
+        }
+      ],
+      "constant_extrapolated": {
+        "value": 0.138371148163709,
+        "uncertainty": 0.007019796885790297,
+        "method": "Unweighted OLS z(r)=C+a*sqrt(r), using actual r=f(y)/x at the largest x and only target ratios at or above the stable cutoff. Uncertainty is max(2*intercept_SE, adjacent-cutoff shift, linear-in-r / quadratic-in-sqrt(r) model shifts, change on fitting the second-largest x); it is a sensitivity envelope, not a confidence interval. Functional form is empirical and not identified by these finite ratios.",
+        "ratio_cutoff": 0.01,
+        "cutoff_sensitivity": [
+          {
+            "value": 0.138371148163709,
+            "se": 0.0013341364233637133,
+            "coefficients": [
+              0.138371148163709,
+              0.0358623016959318
+            ],
+            "residual_rms": 0.001822222166577783,
+            "n": 8,
+            "ratio_cutoff": 0.01,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": false
+          },
+          {
+            "value": 0.1389038654260524,
+            "se": 0.0016804853267753344,
+            "coefficients": [
+              0.1389038654260524,
+              0.03513077034980037
+            ],
+            "residual_rms": 0.0018843373257554639,
+            "n": 7,
+            "ratio_cutoff": 0.02,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": false
+          }
+        ],
+        "cutoff_spread": 0.0005327172623434129,
+        "intercept_se": 0.0013341364233637133,
+        "central_fit": {
+          "value": 0.138371148163709,
+          "se": 0.0013341364233637133,
+          "coefficients": [
+            0.138371148163709,
+            0.0358623016959318
+          ],
+          "residual_rms": 0.001822222166577783,
+          "n": 8,
+          "ratio_cutoff": 0.01,
+          "degree_in_sqrt_ratio": 1,
+          "includes_unstable_rows": false
+        },
+        "alternative_quadratic_in_sqrt_ratio": {
+          "value": 0.13447470549221466,
+          "se": 0.0013289294272911133,
+          "coefficients": [
+            0.13447470549221466,
+            0.0582981982381437,
+            -0.0208813933244781
+          ],
+          "residual_rms": 0.000961454382169186,
+          "n": 8,
+          "ratio_cutoff": 0.01,
+          "degree_in_sqrt_ratio": 2,
+          "includes_unstable_rows": false
+        },
+        "alternative_linear_ratio": {
+          "value": 0.1453909450494993,
+          "se": 0.0022281636247316865,
+          "slope": 0.030823704703653566,
+          "r_squared": 0.8716007759228149
+        },
+        "second_largest_x_fit": {
+          "value": 0.13843916082662758,
+          "se": 0.0013277602949479587,
+          "coefficients": [
+            0.13843916082662758,
+            0.035798867861886456
+          ],
+          "residual_rms": 0.0018136454488270606,
+          "n": 8,
+          "ratio_cutoff": 0.01,
+          "degree_in_sqrt_ratio": 1,
+          "includes_unstable_rows": false
+        },
+        "cutoff_sensitivity_note": "The lower adjacent cutoff is unavailable when the chosen cutoff is 0.01, the bottom of the requested grid.",
+        "model_shift": 0.007019796885790297,
+        "x_shift": 6.801266291858732e-05,
+        "stability": [
+          {
+            "ratio": 0.01,
+            "relative_change_two_largest_x": 0.0006492354601114192,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.02,
+            "relative_change_two_largest_x": 0.00032932819081299414,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.05,
+            "relative_change_two_largest_x": 0.0003285107998398651,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.1,
+            "relative_change_two_largest_x": 0.00024372009808526496,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.2,
+            "relative_change_two_largest_x": 0.0001782412906088382,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.4,
+            "relative_change_two_largest_x": 0.00010488171066702634,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.7,
+            "relative_change_two_largest_x": 5.811121100118832e-05,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 1.0,
+            "relative_change_two_largest_x": 0.00010768261603966156,
+            "passes_1_percent": true
+          }
+        ]
+      }
+    },
+    "k^3+2": {
+      "rows": [
+        {
+          "x": 1000000,
+          "y": 21,
+          "fy": 9263,
+          "V": 136902400.03989553,
+          "V_decimal": "136902400.03989552872",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 3359595040728
+        },
+        {
+          "x": 1000000,
+          "y": 27,
+          "fy": 19685,
+          "V": 412643473.8972933,
+          "V_decimal": "412643473.89729331829",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 3654027823506
+        },
+        {
+          "x": 1000000,
+          "y": 36,
+          "fy": 46658,
+          "V": 1553897340.951394,
+          "V_decimal": "1553897340.9513939662",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 3992328705300
+        },
+        {
+          "x": 1000000,
+          "y": 46,
+          "fy": 97338,
+          "V": 4707920299.768433,
+          "V_decimal": "4707920299.7684327839",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 4282647919098
+        },
+        {
+          "x": 1000000,
+          "y": 58,
+          "fy": 195114,
+          "V": 13366221286.856169,
+          "V_decimal": "13366221286.856168637",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 4564080098598
+        },
+        {
+          "x": 1000000,
+          "y": 73,
+          "fy": 389019,
+          "V": 38476933509.704506,
+          "V_decimal": "38476933509.704503608",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 4859085890694
+        },
+        {
+          "x": 1000000,
+          "y": 88,
+          "fy": 681474,
+          "V": 93542264908.94081,
+          "V_decimal": "93542264908.94081416",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 5134833380886
+        },
+        {
+          "x": 1000000,
+          "y": 99,
+          "fy": 970301,
+          "V": 163164547331.76562,
+          "V_decimal": "163164547331.76561457",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 5342695565910
+        },
+        {
+          "x": 4000000,
+          "y": 34,
+          "fy": 39306,
+          "V": 2255458051.611791,
+          "V_decimal": "2255458051.6117912436",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 62801652745092
+        },
+        {
+          "x": 4000000,
+          "y": 43,
+          "fy": 79509,
+          "V": 6625507669.108723,
+          "V_decimal": "6625507669.1087231161",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 67171048772334
+        },
+        {
+          "x": 4000000,
+          "y": 58,
+          "fy": 195114,
+          "V": 25209101584.418545,
+          "V_decimal": "25209101584.418543966",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 72838170702390
+        },
+        {
+          "x": 4000000,
+          "y": 73,
+          "fy": 389019,
+          "V": 73566381027.04149,
+          "V_decimal": "73566381027.041489717",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 77204940171282
+        },
+        {
+          "x": 4000000,
+          "y": 92,
+          "fy": 778690,
+          "V": 212711609081.7036,
+          "V_decimal": "212711609081.70362811",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 81710348946642
+        },
+        {
+          "x": 4000000,
+          "y": 116,
+          "fy": 1560898,
+          "V": 612887513490.9869,
+          "V_decimal": "612887513490.98695859",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 86486730759618
+        },
+        {
+          "x": 4000000,
+          "y": 140,
+          "fy": 2744002,
+          "V": 1501942872143.122,
+          "V_decimal": "1501942872143.1221206",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 90930189572466
+        },
+        {
+          "x": 4000000,
+          "y": 158,
+          "fy": 3944314,
+          "V": 2638672740541.6343,
+          "V_decimal": "2638672740541.6342468",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 94355529598896
+        },
+        {
+          "x": 16000000,
+          "y": 54,
+          "fy": 157466,
+          "V": 35591444342.99918,
+          "V_decimal": "35591444342.999186832",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 1143436580747532
+        },
+        {
+          "x": 16000000,
+          "y": 68,
+          "fy": 314434,
+          "V": 101812816761.00923,
+          "V_decimal": "101812816761.00923174",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 1212837763366200
+        },
+        {
+          "x": 16000000,
+          "y": 92,
+          "fy": 778690,
+          "V": 396938297897.4086,
+          "V_decimal": "396938297897.40862611",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 1304323943261010
+        },
+        {
+          "x": 16000000,
+          "y": 116,
+          "fy": 1560898,
+          "V": 1168145970247.503,
+          "V_decimal": "1168145970247.5028398",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 1375112560640832
+        },
+        {
+          "x": 16000000,
+          "y": 147,
+          "fy": 3176525,
+          "V": 3478027350637.8926,
+          "V_decimal": "3478027350637.8926552",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 1448981053448970
+        },
+        {
+          "x": 16000000,
+          "y": 185,
+          "fy": 6331627,
+          "V": 9986205528105.934,
+          "V_decimal": "9986205528105.9328874",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 1525089848987166
+        },
+        {
+          "x": 16000000,
+          "y": 223,
+          "fy": 11089569,
+          "V": 24350305947970.617,
+          "V_decimal": "24350305947970.618761",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 1596072809120016
+        },
+        {
+          "x": 16000000,
+          "y": 251,
+          "fy": 15813253,
+          "V": 42225684858903.74,
+          "V_decimal": "42225684858903.738614",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 1649759713504542
+        },
+        {
+          "x": 64000000,
+          "y": 86,
+          "fy": 636058,
+          "V": 569883510436.5879,
+          "V_decimal": "569883510436.58789241",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 20538042984380766
+        },
+        {
+          "x": 64000000,
+          "y": 108,
+          "fy": 1259714,
+          "V": 1616953861387.6833,
+          "V_decimal": "1616953861387.683249",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 21639649531259856
+        },
+        {
+          "x": 64000000,
+          "y": 147,
+          "fy": 3176525,
+          "V": 6518604605741.466,
+          "V_decimal": "6518604605741.4654822",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 23134746065660466
+        },
+        {
+          "x": 64000000,
+          "y": 185,
+          "fy": 6331627,
+          "V": 19065800347972.69,
+          "V_decimal": "19065800347972.692351",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 24260911765863672
+        },
+        {
+          "x": 64000000,
+          "y": 233,
+          "fy": 12649339,
+          "V": 54921861249316.766,
+          "V_decimal": "54921861249316.763709",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 25414836131044914
+        },
+        {
+          "x": 64000000,
+          "y": 294,
+          "fy": 25412186,
+          "V": 159702891537004.25,
+          "V_decimal": "159702891537004.25669",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 26647656665221986
+        },
+        {
+          "x": 64000000,
+          "y": 355,
+          "fy": 44738877,
+          "V": 393867718492715.7,
+          "V_decimal": "393867718492715.70707",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 27795981767524236
+        },
+        {
+          "x": 64000000,
+          "y": 399,
+          "fy": 63521201,
+          "V": 677357110203793.9,
+          "V_decimal": "677357110203793.91523",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 28646200104329106
+        },
+        {
+          "x": 256000000,
+          "y": 136,
+          "fy": 2515458,
+          "V": 8935974414056.982,
+          "V_decimal": "8935974414056.9816841",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 364064907540020700
+        },
+        {
+          "x": 256000000,
+          "y": 172,
+          "fy": 5088450,
+          "V": 25932242670747.957,
+          "V_decimal": "25932242670747.957564",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 382285130502040104
+        },
+        {
+          "x": 256000000,
+          "y": 233,
+          "fy": 12649339,
+          "V": 103590198613687.94,
+          "V_decimal": "103590198613687.93702",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 405861986199796278
+        },
+        {
+          "x": 256000000,
+          "y": 294,
+          "fy": 25412186,
+          "V": 304329047255880.06,
+          "V_decimal": "304329047255880.04787",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 424111346782889946
+        },
+        {
+          "x": 256000000,
+          "y": 371,
+          "fy": 51064813,
+          "V": 889432050311085.0,
+          "V_decimal": "889432050311084.97436",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 442737797954621706
+        },
+        {
+          "x": 256000000,
+          "y": 467,
+          "fy": 101847565,
+          "V": 2557247434046515.5,
+          "V_decimal": "2557247434046515.4688",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 462275293155827196
+        },
+        {
+          "x": 256000000,
+          "y": 563,
+          "fy": 178453549,
+          "V": 6254982156901949.0,
+          "V_decimal": "6254982156901949.1292",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 480491444275431642
+        },
+        {
+          "x": 256000000,
+          "y": 634,
+          "fy": 254840106,
+          "V": 1.0851049614933518e+16,
+          "V_decimal": "10851049614933517.03",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 494319300580733220
+        }
+      ],
+      "fit_combined_two_ways": {
+        "alpha": 0.46221962574884734,
+        "alpha_se": 0.00406744556597002,
+        "beta": 1.5382976325221798,
+        "beta_se": 0.003729645446658755,
+        "alpha_plus_beta": 2.000517258271027,
+        "alpha_plus_beta_se": 0.0016229165950062843,
+        "C": 0.16501244076720084,
+        "log_C_residual_se": 0.004249733761562802,
+        "note": "Combines the largest-x beta with the mean fixed-ratio delta=alpha+beta, then fits C with those exponents. alpha_se combines marginal SEs in quadrature and ignores correlation; C residual SE is conditional on fitted exponents."
+      },
+      "fit_fixed_x": {
+        "beta": 1.5382976325221798,
+        "beta_se": 0.003729645446658755,
+        "x": 256000000,
+        "by_x": [
+          {
+            "x": 1000000,
+            "beta": 1.5225994465432329,
+            "beta_se": 0.005608751731762466,
+            "prefactor_C_times_x_alpha": 121.09654137705385,
+            "r_squared": 0.9999185901431334
+          },
+          {
+            "x": 4000000,
+            "beta": 1.5317194262684215,
+            "beta_se": 0.004424553615737486,
+            "prefactor_C_times_x_alpha": 203.67528209146388,
+            "r_squared": 0.9999499377930031
+          },
+          {
+            "x": 16000000,
+            "beta": 1.53566390273461,
+            "beta_se": 0.004278398800866016,
+            "prefactor_C_times_x_alpha": 364.44356006790275,
+            "r_squared": 0.9999534305401124
+          },
+          {
+            "x": 64000000,
+            "beta": 1.5375151409776688,
+            "beta_se": 0.003929815063410307,
+            "prefactor_C_times_x_alpha": 669.607258125398,
+            "r_squared": 0.9999608041893464
+          },
+          {
+            "x": 256000000,
+            "beta": 1.5382976325221798,
+            "beta_se": 0.003729645446658755,
+            "prefactor_C_times_x_alpha": 1249.0201382232235,
+            "r_squared": 0.9999647312322515
+          }
+        ],
+        "note": "Log-log OLS over all eight ratios; curvature in the ratio biases a pure power fit. Standard errors describe OLS residuals only."
+      },
+      "fit_fixed_ratio": {
+        "alpha_plus_beta": 2.000517258271027,
+        "se": 0.0016229165950062843,
+        "by_ratio": [
+          {
+            "ratio": 0.01,
+            "alpha_plus_beta": 1.9984741088099842,
+            "se": 0.00343578898250303,
+            "r_squared": 0.9999911330692438,
+            "actual_ratio_min": 0.009263,
+            "actual_ratio_max": 0.00993840625
+          },
+          {
+            "ratio": 0.02,
+            "alpha_plus_beta": 1.990500752665219,
+            "se": 0.002939052629629938,
+            "r_squared": 0.9999934595376793,
+            "actual_ratio_min": 0.019652125,
+            "actual_ratio_max": 0.01987725
+          },
+          {
+            "ratio": 0.05,
+            "alpha_plus_beta": 2.003187411386143,
+            "se": 0.0023148205748974365,
+            "r_squared": 0.9999959939993258,
+            "actual_ratio_min": 0.046658,
+            "actual_ratio_max": 0.049633203125
+          },
+          {
+            "ratio": 0.1,
+            "alpha_plus_beta": 1.9989044996627623,
+            "se": 0.003090407286112351,
+            "r_squared": 0.9999928292350444,
+            "actual_ratio_min": 0.09725475,
+            "actual_ratio_max": 0.0992663515625
+          },
+          {
+            "ratio": 0.2,
+            "alpha_plus_beta": 2.0028174075179077,
+            "se": 0.00192158995832116,
+            "r_squared": 0.9999972384126691,
+            "actual_ratio_min": 0.1946725,
+            "actual_ratio_max": 0.19947192578125
+          },
+          {
+            "ratio": 0.4,
+            "alpha_plus_beta": 2.0033014611548166,
+            "se": 0.0013439907763248705,
+            "r_squared": 0.9999986497299675,
+            "actual_ratio_min": 0.389019,
+            "actual_ratio_max": 0.39784205078125
+          },
+          {
+            "ratio": 0.7,
+            "alpha_plus_beta": 2.0046396596826837,
+            "se": 0.001448348074377003,
+            "r_squared": 0.9999984339925247,
+            "actual_ratio_min": 0.681474,
+            "actual_ratio_max": 0.699044953125
+          },
+          {
+            "ratio": 1.0,
+            "alpha_plus_beta": 2.0023127652887034,
+            "se": 0.0007428478794787635,
+            "r_squared": 0.9999995870884615,
+            "actual_ratio_min": 0.970301,
+            "actual_ratio_max": 0.9954691640625
+          }
+        ],
+        "note": "Top-level estimate is the mean of eight slopes; its SE is their dispersion/sqrt(8). By-ratio OLS SEs are reported separately. Fits hold the target ratio fixed; actual ratios differ because y is integral."
+      },
+      "fit_joint": {
+        "C": 0.18605008927182198,
+        "C_log_se": 0.028323362067115117,
+        "alpha": 0.45949687059336874,
+        "alpha_se": 0.0026909054019188753,
+        "beta": 1.5331309129842126,
+        "beta_se": 0.0020966598745273592,
+        "log_residual_rms": 0.019953615351831624,
+        "note": "Joint unweighted OLS log V=log C+alpha log x+beta log f(y). This power-law C is distinct from the small-ratio asymptotic-normalisation intercept."
+      },
+      "normalised": [
+        {
+          "x": 1000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.009263,
+          "V_over_x12_fy32": 0.15356193140188926
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.019685,
+          "V_over_x12_fy32": 0.1494073119655711
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.046658,
+          "V_over_x12_fy32": 0.1541818120001356
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.097338,
+          "V_over_x12_fy32": 0.15502633296125376
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.195114,
+          "V_over_x12_fy32": 0.1550872154018471
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.389019,
+          "V_over_x12_fy32": 0.15857847356935612
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.681474,
+          "V_over_x12_fy32": 0.16627767549706723
+        },
+        {
+          "x": 1000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.970301,
+          "V_over_x12_fy32": 0.17071279856846688
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.0098265,
+          "V_over_x12_fy32": 0.14471597796685837
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01987725,
+          "V_over_x12_fy32": 0.14776266946486832
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.0487785,
+          "V_over_x12_fy32": 0.14624961249722554
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.09725475,
+          "V_over_x12_fy32": 0.15159789704067134
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.1946725,
+          "V_over_x12_fy32": 0.15477980706912672
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.3902245,
+          "V_over_x12_fy32": 0.15714081149506437
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.6860005,
+          "V_over_x12_fy32": 0.16521397607159466
+        },
+        {
+          "x": 4000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.9860785,
+          "V_over_x12_fy32": 0.16842180336663926
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.009841625,
+          "V_over_x12_fy32": 0.14239850437887305
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.019652125,
+          "V_over_x12_fy32": 0.14436044453605845
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.048668125,
+          "V_over_x12_fy32": 0.1444162672459259
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.097556125,
+          "V_over_x12_fy32": 0.14975293318003072
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.1985328125,
+          "V_over_x12_fy32": 0.1535835086938567
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.3957266875,
+          "V_over_x12_fy32": 0.15669946914419855
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.6930980625,
+          "V_over_x12_fy32": 0.16484372877094775
+        },
+        {
+          "x": 16000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.9883283125,
+          "V_over_x12_fy32": 0.16787455781710423
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.00993840625,
+          "V_over_x12_fy32": 0.1404271315885408
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01968303125,
+          "V_over_x12_fy32": 0.14295511750859072
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.049633203125,
+          "V_over_x12_fy32": 0.14392499917432958
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.098931671875,
+          "V_over_x12_fy32": 0.14958638618682876
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.197645921875,
+          "V_over_x12_fy32": 0.15259964103992207
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.39706540625,
+          "V_over_x12_fy32": 0.15583311582483939
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.699044953125,
+          "V_over_x12_fy32": 0.16452533452406487
+        },
+        {
+          "x": 64000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.992518765625,
+          "V_over_x12_fy32": 0.16724365717558998
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.0098260078125,
+          "V_over_x12_fy32": 0.13998977913556712
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.0198767578125,
+          "V_over_x12_fy32": 0.1412023183299296
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.04941148046875,
+          "V_over_x12_fy32": 0.14391197570620992
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.0992663515625,
+          "V_over_x12_fy32": 0.14847741081413038
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.19947192578125,
+          "V_over_x12_fy32": 0.15233867488670183
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.39784205078125,
+          "V_over_x12_fy32": 0.15549871107156643
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.69708417578125,
+          "V_over_x12_fy32": 0.16399035588772126
+        },
+        {
+          "x": 256000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.9954691640625,
+          "V_over_x12_fy32": 0.16670556623688176
+        }
+      ],
+      "constant_extrapolated": {
+        "value": 0.1385109202424259,
+        "uncertainty": 0.00729219593369429,
+        "method": "Unweighted OLS z(r)=C+a*sqrt(r), using actual r=f(y)/x at the largest x and only target ratios at or above the stable cutoff. Uncertainty is max(2*intercept_SE, adjacent-cutoff shift, linear-in-r / quadratic-in-sqrt(r) model shifts, change on fitting the second-largest x); it is a sensitivity envelope, not a confidence interval. Functional form is empirical and not identified by these finite ratios.",
+        "ratio_cutoff": 0.05,
+        "cutoff_sensitivity": [
+          {
+            "value": 0.13788343438174583,
+            "se": 0.0009302873408315673,
+            "coefficients": [
+              0.13788343438174583,
+              0.02980222576302005
+            ],
+            "residual_rms": 0.0010437637244799472,
+            "n": 7,
+            "ratio_cutoff": 0.02,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": true
+          },
+          {
+            "value": 0.1385109202424259,
+            "se": 0.001191512360606079,
+            "coefficients": [
+              0.1385109202424259,
+              0.02896618744751877
+            ],
+            "residual_rms": 0.001032546627759642,
+            "n": 6,
+            "ratio_cutoff": 0.05,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": false
+          },
+          {
+            "value": 0.13963449382605536,
+            "se": 0.0015201325529263633,
+            "coefficients": [
+              0.13963449382605536,
+              0.027546032382873505
+            ],
+            "residual_rms": 0.0009467419962560732,
+            "n": 5,
+            "ratio_cutoff": 0.1,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": false
+          }
+        ],
+        "cutoff_spread": 0.001123573583629467,
+        "intercept_se": 0.001191512360606079,
+        "central_fit": {
+          "value": 0.1385109202424259,
+          "se": 0.001191512360606079,
+          "coefficients": [
+            0.1385109202424259,
+            0.02896618744751877
+          ],
+          "residual_rms": 0.001032546627759642,
+          "n": 6,
+          "ratio_cutoff": 0.05,
+          "degree_in_sqrt_ratio": 1,
+          "includes_unstable_rows": false
+        },
+        "alternative_quadratic_in_sqrt_ratio": {
+          "value": 0.13704261879665902,
+          "se": 0.003183950218683565,
+          "coefficients": [
+            0.13704261879665902,
+            0.03508023418571359,
+            -0.0050306939061686325
+          ],
+          "residual_rms": 0.000990995996742513,
+          "n": 6,
+          "ratio_cutoff": 0.05,
+          "degree_in_sqrt_ratio": 2,
+          "includes_unstable_rows": false
+        },
+        "alternative_linear_ratio": {
+          "value": 0.14580311617612018,
+          "se": 0.0014913574612185321,
+          "slope": 0.023007159651089164,
+          "r_squared": 0.9436026130421512
+        },
+        "second_largest_x_fit": {
+          "value": 0.13891011119062466,
+          "se": 0.0014223511245106363,
+          "coefficients": [
+            0.13891011119062466,
+            0.02910622002837771
+          ],
+          "residual_rms": 0.0012331830680537563,
+          "n": 6,
+          "ratio_cutoff": 0.05,
+          "degree_in_sqrt_ratio": 1,
+          "includes_unstable_rows": false
+        },
+        "cutoff_sensitivity_note": "The lower adjacent fit includes an unstable row intentionally as a sensitivity diagnostic.",
+        "model_shift": 0.00729219593369429,
+        "x_shift": 0.0003991909481987632,
+        "stability": [
+          {
+            "ratio": 0.01,
+            "relative_change_two_largest_x": 0.003114444110808745,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.02,
+            "relative_change_two_largest_x": 0.012261185253167217,
+            "passes_1_percent": false
+          },
+          {
+            "ratio": 0.05,
+            "relative_change_two_largest_x": 9.048788045418199e-05,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.1,
+            "relative_change_two_largest_x": 0.0074136116325005386,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.2,
+            "relative_change_two_largest_x": 0.001710136088406422,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.4,
+            "relative_change_two_largest_x": 0.0021459158504463227,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.7,
+            "relative_change_two_largest_x": 0.0032516489809376603,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 1.0,
+            "relative_change_two_largest_x": 0.003217407151909324,
+            "passes_1_percent": true
+          }
+        ]
+      }
+    },
+    "2k+1": {
+      "rows": [
+        {
+          "x": 1000000,
+          "y": 4999,
+          "fy": 9999,
+          "V": 144370760.0964546,
+          "V_decimal": "144370760.09645459766",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 3213547760004
+        },
+        {
+          "x": 1000000,
+          "y": 9999,
+          "fy": 19999,
+          "V": 419429956.7966813,
+          "V_decimal": "419429956.79668130078",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 3476310314392
+        },
+        {
+          "x": 1000000,
+          "y": 24999,
+          "fy": 49999,
+          "V": 1669393700.771345,
+          "V_decimal": "1669393700.7713449246",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 3824556393928
+        },
+        {
+          "x": 1000000,
+          "y": 49999,
+          "fy": 99999,
+          "V": 4955213246.441386,
+          "V_decimal": "4955213246.4413859031",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 4090334187200
+        },
+        {
+          "x": 1000000,
+          "y": 99999,
+          "fy": 199999,
+          "V": 14462391098.60189,
+          "V_decimal": "14462391098.60189131",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 4362332743444
+        },
+        {
+          "x": 1000000,
+          "y": 199999,
+          "fy": 399999,
+          "V": 41097379484.473564,
+          "V_decimal": "41097379484.473562926",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 4651459584972
+        },
+        {
+          "x": 1000000,
+          "y": 349999,
+          "fy": 699999,
+          "V": 106817327336.98784,
+          "V_decimal": "106817327336.98784099",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 4929103610016
+        },
+        {
+          "x": 1000000,
+          "y": 499999,
+          "fy": 999999,
+          "V": 183689495228.79962,
+          "V_decimal": "183689495228.79962898",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 5141047014944
+        },
+        {
+          "x": 4000000,
+          "y": 19999,
+          "fy": 39999,
+          "V": 2312032688.801161,
+          "V_decimal": "2312032688.8011608698",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 59817997706044
+        },
+        {
+          "x": 4000000,
+          "y": 39999,
+          "fy": 79999,
+          "V": 6712387729.948996,
+          "V_decimal": "6712387729.9489957555",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 64022374153544
+        },
+        {
+          "x": 4000000,
+          "y": 99999,
+          "fy": 199999,
+          "V": 26711157799.218403,
+          "V_decimal": "26711157799.218403094",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 69594448494788
+        },
+        {
+          "x": 4000000,
+          "y": 199999,
+          "fy": 399999,
+          "V": 79281543790.18625,
+          "V_decimal": "79281543790.186253084",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 73846998003408
+        },
+        {
+          "x": 4000000,
+          "y": 399999,
+          "fy": 799999,
+          "V": 231415021638.1755,
+          "V_decimal": "231415021638.17549743",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 78199108873612
+        },
+        {
+          "x": 4000000,
+          "y": 799999,
+          "fy": 1599999,
+          "V": 657546921856.8376,
+          "V_decimal": "657546921856.83764019",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 82825219902024
+        },
+        {
+          "x": 4000000,
+          "y": 1399999,
+          "fy": 2799999,
+          "V": 1709105466024.8599,
+          "V_decimal": "1709105466024.8598543",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 87267651336832
+        },
+        {
+          "x": 4000000,
+          "y": 1999999,
+          "fy": 3999999,
+          "V": 2939094177168.385,
+          "V_decimal": "2939094177168.3849474",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 90658835846740
+        },
+        {
+          "x": 16000000,
+          "y": 79999,
+          "fy": 159999,
+          "V": 37019444149.211914,
+          "V_decimal": "37019444149.211913198",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 1091454297786712
+        },
+        {
+          "x": 16000000,
+          "y": 159999,
+          "fy": 319999,
+          "V": 107434832229.75375,
+          "V_decimal": "107434832229.75375638",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 1158722294159588
+        },
+        {
+          "x": 16000000,
+          "y": 399999,
+          "fy": 799999,
+          "V": 427464382886.61115,
+          "V_decimal": "427464382886.61112973",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 1247872718694528
+        },
+        {
+          "x": 16000000,
+          "y": 799999,
+          "fy": 1599999,
+          "V": 1268597734967.1633,
+          "V_decimal": "1268597734967.1634459",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 1315911479914716
+        },
+        {
+          "x": 16000000,
+          "y": 1599999,
+          "fy": 3199999,
+          "V": 3702767414285.0205,
+          "V_decimal": "3702767414285.0204541",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 1385543256524540
+        },
+        {
+          "x": 16000000,
+          "y": 3199999,
+          "fy": 6399999,
+          "V": 10520971450691.59,
+          "V_decimal": "10520971450691.589682",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 1459559072640984
+        },
+        {
+          "x": 16000000,
+          "y": 5599999,
+          "fy": 11199999,
+          "V": 27345664182944.2,
+          "V_decimal": "27345664182944.197398",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 1530636085668988
+        },
+        {
+          "x": 16000000,
+          "y": 7999999,
+          "fy": 15999999,
+          "V": 47024886119814.78,
+          "V_decimal": "47024886119814.781652",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 1584893395797796
+        },
+        {
+          "x": 64000000,
+          "y": 319999,
+          "fy": 639999,
+          "V": 592251531567.3401,
+          "V_decimal": "592251531567.34006683",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 19613756411121436
+        },
+        {
+          "x": 64000000,
+          "y": 639999,
+          "fy": 1279999,
+          "V": 1718847632578.0352,
+          "V_decimal": "1718847632578.0350583",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 20690053480489884
+        },
+        {
+          "x": 64000000,
+          "y": 1599999,
+          "fy": 3199999,
+          "V": 6839004298254.881,
+          "V_decimal": "6839004298254.8808476",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 22116472182375016
+        },
+        {
+          "x": 64000000,
+          "y": 3199999,
+          "fy": 6399999,
+          "V": 20297073974791.062,
+          "V_decimal": "20297073974791.062818",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 23205101068735500
+        },
+        {
+          "x": 64000000,
+          "y": 6399999,
+          "fy": 12799999,
+          "V": 59243227754820.24,
+          "V_decimal": "59243227754820.242603",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 24319217990836040
+        },
+        {
+          "x": 64000000,
+          "y": 12799999,
+          "fy": 25599999,
+          "V": 168334234456964.56,
+          "V_decimal": "168334234456964.55672",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 25503479797633816
+        },
+        {
+          "x": 64000000,
+          "y": 22399999,
+          "fy": 44799999,
+          "V": 437530642954879.8,
+          "V_decimal": "437530642954879.78743",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 26640720644468260
+        },
+        {
+          "x": 64000000,
+          "y": 31999999,
+          "fy": 63999999,
+          "V": 752400536294382.0,
+          "V_decimal": "752400536294382.00206",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 27508844586602352
+        },
+        {
+          "x": 256000000,
+          "y": 1279999,
+          "fy": 2559999,
+          "V": 9476340500997.209,
+          "V_decimal": "9476340500997.2087867",
+          "target_ratio": 0.01,
+          "count_square_sum_weighted_exact": 348225269505500120
+        },
+        {
+          "x": 256000000,
+          "y": 2559999,
+          "fy": 5119999,
+          "V": 27502112180681.027,
+          "V_decimal": "27502112180681.026454",
+          "target_ratio": 0.02,
+          "count_square_sum_weighted_exact": 365446013118165440
+        },
+        {
+          "x": 256000000,
+          "y": 6399999,
+          "fy": 12799999,
+          "V": 109425524752405.2,
+          "V_decimal": "109425524752405.20895",
+          "target_ratio": 0.05,
+          "count_square_sum_weighted_exact": 388268693243178264
+        },
+        {
+          "x": 256000000,
+          "y": 12799999,
+          "fy": 25599999,
+          "V": 324755652736880.9,
+          "V_decimal": "324755652736880.85972",
+          "target_ratio": 0.1,
+          "count_square_sum_weighted_exact": 405686741484163800
+        },
+        {
+          "x": 256000000,
+          "y": 25599999,
+          "fy": 51199999,
+          "V": 947895901753546.9,
+          "V_decimal": "947895901753546.82717",
+          "target_ratio": 0.2,
+          "count_square_sum_weighted_exact": 423512599768956172
+        },
+        {
+          "x": 256000000,
+          "y": 51199999,
+          "fy": 102399999,
+          "V": 2693353600057741.0,
+          "V_decimal": "2693353600057740.8359",
+          "target_ratio": 0.4,
+          "count_square_sum_weighted_exact": 442460775586788540
+        },
+        {
+          "x": 256000000,
+          "y": 89599999,
+          "fy": 179199999,
+          "V": 7000488488247043.0,
+          "V_decimal": "7000488488247043.4657",
+          "target_ratio": 0.7,
+          "count_square_sum_weighted_exact": 460656609571892488
+        },
+        {
+          "x": 256000000,
+          "y": 127999999,
+          "fy": 255999999,
+          "V": 1.2038403334743052e+16,
+          "V_decimal": "12038403334743052.003",
+          "target_ratio": 1.0,
+          "count_square_sum_weighted_exact": 474546581614596284
+        }
+      ],
+      "fit_combined_two_ways": {
+        "alpha": 0.4488823484767821,
+        "alpha_se": 0.007483857124556628,
+        "beta": 1.5511714257877374,
+        "beta_se": 0.007483783937900381,
+        "alpha_plus_beta": 2.0000537742645195,
+        "alpha_plus_beta_se": 3.309730504521036e-05,
+        "C": 0.1784959988210679,
+        "log_C_residual_se": 0.004575277468397859,
+        "note": "Combines the largest-x beta with the mean fixed-ratio delta=alpha+beta, then fits C with those exponents. alpha_se combines marginal SEs in quadrature and ignores correlation; C residual SE is conditional on fitted exponents."
+      },
+      "fit_fixed_x": {
+        "beta": 1.5511714257877374,
+        "beta_se": 0.007483783937900381,
+        "x": 256000000,
+        "by_x": [
+          {
+            "x": 1000000,
+            "beta": 1.5513990760125493,
+            "beta_se": 0.007443063948685664,
+            "prefactor_C_times_x_alpha": 87.85082579555538,
+            "r_squared": 0.9998619146133598
+          },
+          {
+            "x": 4000000,
+            "beta": 1.5512850688784758,
+            "beta_se": 0.007468801913229678,
+            "prefactor_C_times_x_alpha": 163.88338454112832,
+            "r_squared": 0.9998609376673943
+          },
+          {
+            "x": 16000000,
+            "beta": 1.5511549112573493,
+            "beta_se": 0.007484233090706279,
+            "prefactor_C_times_x_alpha": 305.9004025901599,
+            "r_squared": 0.9998603390932713
+          },
+          {
+            "x": 64000000,
+            "beta": 1.5511778077057254,
+            "beta_se": 0.00748333159965501,
+            "prefactor_C_times_x_alpha": 569.6894318144817,
+            "r_squared": 0.9998603768528089
+          },
+          {
+            "x": 256000000,
+            "beta": 1.5511714257877374,
+            "beta_se": 0.007483783937900381,
+            "prefactor_C_times_x_alpha": 1061.470897828301,
+            "r_squared": 0.9998603588264333
+          }
+        ],
+        "note": "Log-log OLS over all eight ratios; curvature in the ratio biases a pure power fit. Standard errors describe OLS residuals only."
+      },
+      "fit_fixed_ratio": {
+        "alpha_plus_beta": 2.0000537742645195,
+        "se": 3.309730504521036e-05,
+        "by_ratio": [
+          {
+            "ratio": 0.01,
+            "alpha_plus_beta": 2.000271604891807,
+            "se": 9.516041614258497e-05,
+            "r_squared": 0.9999999932102157,
+            "actual_ratio_min": 0.009999,
+            "actual_ratio_max": 0.00999999609375
+          },
+          {
+            "ratio": 0.02,
+            "alpha_plus_beta": 2.0000952938180756,
+            "se": 3.280123124882944e-05,
+            "r_squared": 0.9999999991931363,
+            "actual_ratio_min": 0.019999,
+            "actual_ratio_max": 0.01999999609375
+          },
+          {
+            "ratio": 0.05,
+            "alpha_plus_beta": 2.00003655320386,
+            "se": 1.6561717186969558e-05,
+            "r_squared": 0.9999999997942897,
+            "actual_ratio_min": 0.049999,
+            "actual_ratio_max": 0.04999999609375
+          },
+          {
+            "ratio": 0.1,
+            "alpha_plus_beta": 2.000008346371284,
+            "se": 5.902439599848325e-06,
+            "r_squared": 0.9999999999738711,
+            "actual_ratio_min": 0.099999,
+            "actual_ratio_max": 0.09999999609375
+          },
+          {
+            "ratio": 0.2,
+            "alpha_plus_beta": 2.000014687378462,
+            "se": 7.21223550697643e-06,
+            "r_squared": 0.9999999999609883,
+            "actual_ratio_min": 0.199999,
+            "actual_ratio_max": 0.19999999609375
+          },
+          {
+            "ratio": 0.4,
+            "alpha_plus_beta": 2.0000007240925948,
+            "se": 2.0548487206305583e-06,
+            "r_squared": 0.9999999999968332,
+            "actual_ratio_min": 0.399999,
+            "actual_ratio_max": 0.39999999609375
+          },
+          {
+            "ratio": 0.7,
+            "alpha_plus_beta": 2.0000021695371957,
+            "se": 1.3860498150424547e-06,
+            "r_squared": 0.9999999999985592,
+            "actual_ratio_min": 0.699999,
+            "actual_ratio_max": 0.69999999609375
+          },
+          {
+            "ratio": 1.0,
+            "alpha_plus_beta": 2.000000814822876,
+            "se": 1.9439408930054538e-06,
+            "r_squared": 0.9999999999971658,
+            "actual_ratio_min": 0.999999,
+            "actual_ratio_max": 0.99999999609375
+          }
+        ],
+        "note": "Top-level estimate is the mean of eight slopes; its SE is their dispersion/sqrt(8). By-ratio OLS SEs are reported separately. Fits hold the target ratio fixed; actual ratios differ because y is integral."
+      },
+      "fit_joint": {
+        "C": 0.17853819454074038,
+        "C_log_se": 0.04051058929420612,
+        "alpha": 0.4488101997973799,
+        "alpha_se": 0.0038465695228001202,
+        "beta": 1.5512376592336665,
+        "beta_se": 0.0030092374344414534,
+        "log_residual_rms": 0.02857240922996124,
+        "note": "Joint unweighted OLS log V=log C+alpha log x+beta log f(y). This power-law C is distinct from the small-ratio asymptotic-normalisation intercept."
+      },
+      "normalised": [
+        {
+          "x": 1000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.009999,
+          "V_over_x12_fy32": 0.14439241841773667
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.019999,
+          "V_over_x12_fy32": 0.1483020058532617
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.049999,
+          "V_over_x12_fy32": 0.14931959141073112
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.099999,
+          "V_over_x12_fy32": 0.156699951999324
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.199999,
+          "V_over_x12_fy32": 0.16169566078424844
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.399999,
+          "V_over_x12_fy32": 0.1624522654896311
+        },
+        {
+          "x": 1000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.699999,
+          "V_over_x12_fy32": 0.18238771312468094
+        },
+        {
+          "x": 1000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.999999,
+          "V_over_x12_fy32": 0.18368977076338688
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.00999975,
+          "V_over_x12_fy32": 0.1445074620460302
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01999975,
+          "V_over_x12_fy32": 0.148326996178747
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.04999975,
+          "V_over_x12_fy32": 0.14932103139827568
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.09999975,
+          "V_over_x12_fy32": 0.15669449684860037
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.19999975,
+          "V_over_x12_fy32": 0.16170646551126094
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.39999975,
+          "V_over_x12_fy32": 0.16244905397568
+        },
+        {
+          "x": 4000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.69999975,
+          "V_over_x12_fy32": 0.18239043247367867
+        },
+        {
+          "x": 4000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.99999975,
+          "V_over_x12_fy32": 0.18369345495806536
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.0099999375,
+          "V_over_x12_fy32": 0.14460855941098522
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.0199999375,
+          "V_over_x12_fy32": 0.14837549708244674
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.0499999375,
+          "V_over_x12_fy32": 0.14935018910877648
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.0999999375,
+          "V_over_x12_fy32": 0.15670554835779063
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.1999999375,
+          "V_over_x12_fy32": 0.16171178758388732
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.3999999375,
+          "V_over_x12_fy32": 0.1624523475561704
+        },
+        {
+          "x": 16000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.6999999375,
+          "V_over_x12_fy32": 0.18239020396244715
+        },
+        {
+          "x": 16000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.9999999375,
+          "V_over_x12_fy32": 0.18369097862655548
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.009999984375,
+          "V_over_x12_fy32": 0.14459299796376424
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.019999984375,
+          "V_over_x12_fy32": 0.14836550795055786
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.049999984375,
+          "V_over_x12_fy32": 0.1493406804459303
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.099999984375,
+          "V_over_x12_fy32": 0.156701656837464
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.199999984375,
+          "V_over_x12_fy32": 0.16170886229288425
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.399999984375,
+          "V_over_x12_fy32": 0.16245105598614737
+        },
+        {
+          "x": 64000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.699999984375,
+          "V_over_x12_fy32": 0.18239019232338255
+        },
+        {
+          "x": 64000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.999999984375,
+          "V_over_x12_fy32": 0.1836915414865161
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.01,
+          "actual_ratio": 0.00999999609375,
+          "V_over_x12_fy32": 0.14459756551426975
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.02,
+          "actual_ratio": 0.01999999609375,
+          "V_over_x12_fy32": 0.14836834501080987
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.05,
+          "actual_ratio": 0.04999999609375,
+          "V_over_x12_fy32": 0.14934261504745203
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.1,
+          "actual_ratio": 0.09999999609375,
+          "V_over_x12_fy32": 0.15670282071489272
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.2,
+          "actual_ratio": 0.19999999609375,
+          "V_over_x12_fy32": 0.1617095744332023
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.4,
+          "actual_ratio": 0.39999999609375,
+          "V_over_x12_fy32": 0.16245140161818217
+        },
+        {
+          "x": 256000000,
+          "ratio": 0.7,
+          "actual_ratio": 0.69999999609375,
+          "V_over_x12_fy32": 0.1823901408714678
+        },
+        {
+          "x": 256000000,
+          "ratio": 1.0,
+          "actual_ratio": 0.99999999609375,
+          "V_over_x12_fy32": 0.18369145821045796
+        }
+      ],
+      "constant_extrapolated": {
+        "value": 0.14086318055191818,
+        "uncertainty": 0.008158671800752304,
+        "method": "Unweighted OLS z(r)=C+a*sqrt(r), using actual r=f(y)/x at the largest x and only target ratios at or above the stable cutoff. Uncertainty is max(2*intercept_SE, adjacent-cutoff shift, linear-in-r / quadratic-in-sqrt(r) model shifts, change on fitting the second-largest x); it is a sensitivity envelope, not a confidence interval. Functional form is empirical and not identified by these finite ratios.",
+        "ratio_cutoff": 0.01,
+        "cutoff_sensitivity": [
+          {
+            "value": 0.14086318055191818,
+            "se": 0.002189226185119517,
+            "coefficients": [
+              0.14086318055191818,
+              0.04390662456369856
+            ],
+            "residual_rms": 0.002989942602033639,
+            "n": 8,
+            "ratio_cutoff": 0.01,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": false
+          },
+          {
+            "value": 0.1411817406196267,
+            "se": 0.0028385342180127743,
+            "coefficients": [
+              0.1411817406196267,
+              0.0434692078458747
+            ],
+            "residual_rms": 0.0031826987242623583,
+            "n": 7,
+            "ratio_cutoff": 0.02,
+            "degree_in_sqrt_ratio": 1,
+            "includes_unstable_rows": false
+          }
+        ],
+        "cutoff_spread": 0.00031856006770852874,
+        "intercept_se": 0.002189226185119517,
+        "central_fit": {
+          "value": 0.14086318055191818,
+          "se": 0.002189226185119517,
+          "coefficients": [
+            0.14086318055191818,
+            0.04390662456369856
+          ],
+          "residual_rms": 0.002989942602033639,
+          "n": 8,
+          "ratio_cutoff": 0.01,
+          "degree_in_sqrt_ratio": 1,
+          "includes_unstable_rows": false
+        },
+        "alternative_quadratic_in_sqrt_ratio": {
+          "value": 0.1416863504547938,
+          "se": 0.004108887744118932,
+          "coefficients": [
+            0.1416863504547938,
+            0.03916780494798441,
+            0.0044100118186623394
+          ],
+          "residual_rms": 0.002972016474173316,
+          "n": 8,
+          "ratio_cutoff": 0.01,
+          "degree_in_sqrt_ratio": 2,
+          "includes_unstable_rows": false
+        },
+        "alternative_linear_ratio": {
+          "value": 0.1490218523526705,
+          "se": 0.0021903295019511434,
+          "slope": 0.03914479992848618,
+          "r_squared": 0.9189094815199952
+        },
+        "second_largest_x_fit": {
+          "value": 0.14085982880044867,
+          "se": 0.002189258741564712,
+          "coefficients": [
+            0.14085982880044867,
+            0.043910788303279304
+          ],
+          "residual_rms": 0.0029899872634513588,
+          "n": 8,
+          "ratio_cutoff": 0.01,
+          "degree_in_sqrt_ratio": 1,
+          "includes_unstable_rows": false
+        },
+        "cutoff_sensitivity_note": "The lower adjacent cutoff is unavailable when the chosen cutoff is 0.01, the bottom of the requested grid.",
+        "model_shift": 0.008158671800752304,
+        "x_shift": 3.351751469510278e-06,
+        "stability": [
+          {
+            "ratio": 0.01,
+            "relative_change_two_largest_x": 3.158901585709195e-05,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.02,
+            "relative_change_two_largest_x": 1.9122101162061256e-05,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.05,
+            "relative_change_two_largest_x": 1.2954283561183999e-05,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.1,
+            "relative_change_two_largest_x": 7.427346029320603e-06,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.2,
+            "relative_change_two_largest_x": 4.403842238209776e-06,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.4,
+            "relative_change_two_largest_x": 2.127607190427483e-06,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 0.7,
+            "relative_change_two_largest_x": 2.8209803448753235e-07,
+            "passes_1_percent": true
+          },
+          {
+            "ratio": 1.0,
+            "relative_change_two_largest_x": 4.533472660606108e-07,
+            "passes_1_percent": true
+          }
+        ]
+      }
+    }
+  },
+  "validation": [
+    "g(q,l)/[6/pi^2] verified with exact Fraction arithmetic against complete finite-period sieves for all q <= 50 (1275 residue classes); sieved primes are 2,3 and all primes dividing q. The finite-period product is removed exactly.",
+    "Actual squarefree densities at x=1000000 checked for every q <= 50; maximum absolute |Q/x-g| = 3.17040894156e-05. This is a finite-density check, not an exact equality to the limiting density.",
+    "At x=1000 every selected modulus (union of all three polynomial sequences, including every odd q <= 999) was checked against direct integer Q counts and exact rational density coefficients. Maximum relative/absolute scaled double-double aggregation discrepancy 4.75e-32; cumulative V discrepancies < 1e-23 relative.",
+    "C++ checks sum_l Q(x;q,l)=Q(x;1,1) and sum_l Q^2 against direct counts for all q <= 50 at every production x, and for all 2 <= q <= 1000 at x=1000. Integer NTT zero lag equals Q(x;1,1), and every correlation coefficient satisfies 0 <= C(h) <= x-h. The NTT prime exceeds x, so modular coefficients lift uniquely to exact integer counts.",
+    "At the largest x=256000000, all 24 grid-endpoint per-modulus density aggregations were independently checked against exact Fraction arithmetic. Squarefree-divisibility counts were recomputed by an integer Mobius floor sum (150 distinct divisors). Maximum scaled discrepancy: 5.46e-32.",
+    "At x=1000000 the 24 grid-endpoint exact count sums were reproduced with an independent NTT prime/root (469762049,3), agreeing exactly with the production prime/root (3221225473,5)."
+  ],
+  "notes": "All Q and autocorrelation counts and weighted count-square sums are exact integers. Density rational coefficients are evaluated using double-double arithmetic (~31 decimal digits); 6/pi^2 and final V are evaluated with mpmath at 70 digits. V is not an integer or exact rational: V=A-2*x*(6/pi^2)*B+x^2*(6/pi^2)^2*D. Decimal strings are rounded to 20 significant digits, conservatively below the roughly 31-digit double-double working precision to allow for accumulation and cancellation; small-x values are independently checked against exact rational arithmetic. All grid y are the largest integers with f(y)<=target_ratio*x. No paper, website or external source was consulted. Normalised values have persistent dependence on the ratio across the x grid, so fixed-x slopes can absorb ratio curvature. Stability can be nonmonotone in ratio; the cutoff requires every higher grid row to pass. Fits are empirical and their OLS SEs do not account for finite-x bias, ratio curvature, polynomial sampling, or extrapolation misspecification. Adjacent lower-cutoff fits are sensitivity diagnostics and may intentionally include an unstable row; the central fit excludes all rows below its cutoff.",
+  "metadata": {
+    "x_grid": [
+      1000000,
+      4000000,
+      16000000,
+      64000000,
+      256000000
+    ],
+    "target_ratios": [
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.7,
+      1.0
+    ],
+    "runtime_seconds_this_invocation": 2.2030361669894774,
+    "core_runs": [
+      {
+        "x": 1000,
+        "elapsed_seconds": 0.17946200000005774
+      },
+      {
+        "x": 1000000,
+        "elapsed_seconds": 0.3665639579994604
+      },
+      {
+        "x": 4000000,
+        "elapsed_seconds": 1.5312066669866908
+      },
+      {
+        "x": 16000000,
+        "elapsed_seconds": 6.786566875001881
+      },
+      {
+        "x": 64000000,
+        "elapsed_seconds": 31.108523667004192
+      },
+      {
+        "x": 256000000,
+        "elapsed_seconds": 131.35381570801837
+      }
+    ],
+    "reused_csv": true,
+    "integer_ntt_prime": 3221225473,
+    "ntt_primitive_root": 5,
+    "max_supported_x": 536870911,
+    "external_sources": []
+  }
+}

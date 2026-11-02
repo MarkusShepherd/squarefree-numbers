@@ -1,0 +1,5 @@
+Created [results.json](results.json), [compute.py](compute.py), [supporting C++ source](compute_core.cpp), and [README.md](README.md).
+
+Computed 120 rows through \(x=256{,}000{,}000\), with exact integer counts and high-precision density evaluation. All validation checks passed; production counting took about 171 seconds.
+
+The stability cutoffs are 0.01, 0.05, and 0.01 for the quadratic, cubic, and linear cases. Extrapolated constants include cutoff and model sensitivity uncertainties.
