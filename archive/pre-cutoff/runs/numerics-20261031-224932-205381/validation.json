@@ -1,0 +1,8 @@
+[
+ "sum_l g(q,l) = 6/pi^2 exactly (Fractions) for all q<=300: OK",
+ "g(q,l) matches brute-force Q(x;q,l)/x at x=4e6 for all q<=50, all l: max |E|/sqrt(x/q) = 0.13 at (q,l)=(30, 25) (a g wrong by relative delta would give |E| ~ delta*x/q >> sqrt(x/q))",
+ "sum_l Q(x;q,l) = Q(x;1,1) asserted in Python bincount (all tested q) and in C direct method (every modulus)",
+ "C code (double-double, direct and fft methods) vs independent exact Python V_f: 72 cases (3 polys x 4 values of x in {3000,20000,200000,1000000} x 3 y-values x 2 methods), max relative error 3.99e-17",
+ "k^2+1, x=1e6, y in [10, 100, 500, 999]: direct vs fft cumulative V agree to relative 0.00e+00",
+ "2k+1, x=5e6, y in [40,400]: direct vs fft cumulative V agree to relative 0.00e+00; FFT rounding deviation max |v-round(v)| = 2.3e-9 at x=5e6 (<<0.5)"
+]

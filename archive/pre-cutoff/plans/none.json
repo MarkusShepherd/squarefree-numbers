@@ -1,0 +1,66 @@
+{
+  "summary": "Plan for the subclass f \u2208 Z[t], retaining the original weight f\u2032(k) and including all three numerical examples. Reconstruct a fixed-modulus variance estimate, then average its multiplicative main factor over polynomial values. The resulting asymptotic range is x^(7/9+\u03b4) \u2264 f(y) \u2264 x^(1\u2212\u03b4), for fixed 0 < \u03b4 < 1/9. The main analytic proposition uses a weaker contour estimate than the supplied fixed-modulus paper. That paper cannot be applied verbatim: its residue computation omits the factor 1/2 from \u03b6(2s+2), doubling its squarefree constant, and its displayed Euler product for \u03b6(\u22121/2) requires analytic continuation. The corrected prediction agrees with the numerical extrapolations. Restricting to integer coefficients ensures that polynomial congruences have period equal to their modulus and satisfy the Chinese remainder theorem without denominator corrections. Reviewed sources: J. Br\u00fcdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011), https://doi.org/10.1093/qmath/hap029, used for motivation only; J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), https://doi.org/10.1098/rsta.1998.0183; Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023), arXiv:1912.04683v2. Neither excluded source was searched, opened, or used.",
+  "main_theorem": "Let f \u2208 Z[t] have degree d \u2265 1 and satisfy the assumptions in problem.md. All prime products below run over positive primes. Let \u03b6 denote the analytically continued Riemann zeta function. Define A_p = (p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122), B_p = (p\u00b2\u22121)/(p\u00b2+p\u22122), \u03ba = \u22124\u03b6(\u22121/2)\u03b6(2)^(\u22121) \u220f_p(1\u22122/(p(p+1))), and C(f) = (2\u03ba/3)\u220f_p[1+(A_p\u22121)\u03c1(p)/p+(B_p\u2212A_p)\u03c1(p\u00b2)/p\u00b2]. These products converge absolutely and C(f) > 0. For every 0 < \u03b5 < 1/(4d), there exists K(f,\u03b5) such that, uniformly for real x \u2265 2 and y \u2265 1 with Y = f(y) \u2264 x, |V_f(x,y)\u2212C(f)x^(1/2)Y^(3/2)| \u2264 K(f,\u03b5)[x^(4/9+\u03b5)Y^(14/9)+x^(5/3+\u03b5)log(2Y)+x^(1/2)Y^(3/2\u22121/(2d)+\u03b5)]. Consequently, for every fixed 0 < \u03b4 < 1/9 there exists K(f,\u03b4) such that, uniformly when x^(7/9+\u03b4) \u2264 Y \u2264 x^(1\u2212\u03b4), |V_f(x,y)/(C(f)x^(1/2)Y^(3/2))\u22121| \u2264 K(f,\u03b4)x^(\u2212\u03b4/(100d)).",
+  "predicted_main_term": "C(f)x^(1/2)f(y)^(3/2), with C(f) given explicitly in the main theorem. Multiplying Euler factors for primes up to 1,000,000 gives approximately C(t\u00b2+1)=0.13808, C(t\u00b3+2)=0.13561, and C(2t+1)=0.14261. These are approximations, not certified decimal evaluations.",
+  "agrees_with_numerics": "The powers x^(1/2)f(y)^(3/2) agree with results.json, including total exponent 2 at fixed f(y)/x. The predicted constants lie within the reported extrapolation uncertainties: 0.13506\u00b10.01082 for t\u00b2+1, 0.14192\u00b10.01079 for t\u00b3+2, and 0.14084\u00b10.00846 for 2t+1. At the largest available x, the normalized values at ratio 0.01 are respectively 0.14151, 0.14501, and 0.14456. Their larger values at ratio 1 are outside the asserted asymptotic regime; the stated error bound permits a contribution of main-term size there. The finite data are consistent with, but do not establish, the required limit f(y)/x \u2192 0.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Density, second moment, and elementary reduction to a triangular sum",
+      "statement": "Let \u03bc be the M\u00f6bius function, \u03b6(2)=\u03c0\u00b2/6, (a,b)=gcd(a,b), and [a,b]=lcm(a,b). All prime products run over positive primes. For integers q \u2265 1 and 1 \u2264 l \u2264 q, the density in problem.md is g(q,l) = (q\u03b6(2))^(\u22121)\u220f_{p|q}(1\u2212p^(\u22122))^(\u22121)\u220f_{p||q, p|l}(1\u2212p^(\u22121)), unless some prime p satisfies p\u00b2|q and p\u00b2|l, in which case g(q,l)=0; here p||q means p|q and p\u00b2\u2224q. Define \u03b1(q)=\u220f_p[1\u22122/p\u00b2+(q,p\u00b2)/p\u2074]. Then \u03a3_{l=1}^q g(q,l)\u00b2=\u03b1(q)/q. For real x \u2265 2 and integer 1 \u2264 q \u2264 x define L(q,a,b)=[q,(a\u00b2,b\u00b2)] and J_q(x)=\u03a3_{a,b\u22651} \u03bc(a)\u03bc(b)L(q,a,b)/[a\u00b2,b\u00b2] \u00b7 \u03a3_{1\u2264j\u2264x/L(q,a,b)}(x/L(q,a,b)\u2212j). This double series converges absolutely. For every \u03b5>0 there exists K_\u03b5, independent of x and q, such that |\u03a3_{l=1}^q E(x;q,l)\u00b2\u22122J_q(x)\u2212x/\u03b6(2)+\u03b1(q)x\u00b2/q| \u2264 K_\u03b5 x^(5/3+\u03b5)/q, uniformly throughout these ranges. No truncation parameter remains in this assertion.",
+      "depends_on": [],
+      "cites": [
+        "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 2.1, specialized to k=2; https://doi.org/10.1098/rsta.1998.0183",
+        "Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023), Lemma 2.3(B), specialized to k=2; arXiv:1912.04683v2",
+        "Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023), Lemma 2.7, specialized to k=2 and shifts 1 \u2264 N \u2264 x; arXiv:1912.04683v2"
+      ],
+      "crux": false,
+      "risk": "The weighted first moment must retain its factor 1/q before multiplication by x. Losing that factor would prevent the final asymptotic range. Terms with square factors in q must be included."
+    },
+    {
+      "id": "P2",
+      "title": "Independent analytic evaluation with the corrected residue",
+      "statement": "Let \u03bc denote the M\u00f6bius function, (a,b)=gcd(a,b), [a,b]=lcm(a,b), and \u03b6 the analytically continued Riemann zeta function. For integers q \u2265 1 define \u03b1(q)=\u220f_p[1\u22122/p\u00b2+(q,p\u00b2)/p\u2074], H(q)=\u220f_{p|q}[1\u22122/p\u00b2+(q,p\u00b2)^(\u22121/2)/p]/[1\u22122/p\u00b2+1/p], and \u03ba=\u22124\u03b6(\u22121/2)\u03b6(2)^(\u22121)\u220f_p(1\u22122/(p(p+1))); an empty product is 1. For real x \u2265 2 and 1 \u2264 q \u2264 x, define L(q,a,b)=[q,(a\u00b2,b\u00b2)] and J_q(x)=\u03a3_{a,b\u22651} \u03bc(a)\u03bc(b)L(q,a,b)/[a\u00b2,b\u00b2] \u00b7 \u03a3_{1\u2264j\u2264x/L(q,a,b)}(x/L(q,a,b)\u2212j). For every \u03b5>0 there exists K_\u03b5 such that |J_q(x)\u2212\u03b1(q)x\u00b2/(2q)+x/(2\u03b6(2))\u2212(\u03ba/2)H(q)\u221a(xq)| \u2264 K_\u03b5 x^\u03b5 q(x/q)^(4/9), uniformly for all such real x and integer q. All products displayed here converge absolutely. This assertion has no free contour or truncation parameters.",
+      "depends_on": [],
+      "cites": [
+        "Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023), Lemma 2.1, initially on Re(s)>1 and specialized to k=2; arXiv:1912.04683v2"
+      ],
+      "crux": true,
+      "risk": "This must be proved independently of Parry's Lemma 2.6 and stated main constant. The residue of \u03b6(2s+2) at s=\u22121/2 is 1/2. A plausible route shifts the triangular Perron integral to Re(s)=\u22123/4+\u03b7, with fixed \u03b7>0 chosen in terms of \u03b5, and uses the zeta mean-square estimate on Re(2s+2)>1/2. For X=x/q\u22651, height T=max(2,X^(7/9)) balances X\u00b2/T\u00b2 against X^(1/4)T^(1/4), yielding exponent 4/9 after explicit \u03b5 losses. Uniform control of the q-dependent Euler product and Perron errors, including X near 1 and integer endpoints, is essential."
+    },
+    {
+      "id": "P3",
+      "title": "Divisor expansion and summable polynomial root weights",
+      "statement": "Fix f \u2208 Z[t] of degree d \u2265 1 satisfying problem.md, and retain its root-count function \u03c1. For each prime p define A_p=(p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122) and B_p=(p\u00b2\u22121)/(p\u00b2+p\u22122). Define the multiplicative function a on positive integers by a(1)=1, a(p)=A_p\u22121, a(p\u00b2)=B_p\u2212A_p, and a(p^j)=0 for j\u22653; multiplicative means a(mn)=a(m)a(n) when gcd(m,n)=1. Define H(n)=\u220f_{p|n}[1\u22122/p\u00b2+gcd(n,p\u00b2)^(\u22121/2)/p]/[1\u22122/p\u00b2+1/p], with H(1)=1. Then H(n)=\u03a3_{r|n}a(r) for every integer n\u22651. For every \u03b5>0 there is K_\u03b5 such that \u03a3_{r|n}|a(r)|r^(1/2) \u2264 K_\u03b5 n^\u03b5 for all n\u22651. There is K_f such that \u03a3_{r\u22651}|a(r)|\u03c1(r)/r^(1/2) \u2264 K_f. Consequently, uniformly for real R\u22651, \u03a3_{r>R}|a(r)|\u03c1(r)/r \u2264 K_f R^(\u22121/2) and \u03a3_{r\u2264R}|a(r)|\u03c1(r) \u2264 K_f R^(1/2). Moreover M_f=\u03a3_{r\u22651}a(r)\u03c1(r)/r converges absolutely, equals \u220f_p[1+(A_p\u22121)\u03c1(p)/p+(B_p\u2212A_p)\u03c1(p\u00b2)/p\u00b2], and satisfies 0<M_f\u22641. Constants K_f depend only on f, and K_\u03b5 only on \u03b5.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "Repeated factors of f are allowed, so a bound \u03c1(p\u00b2)\u2264d cannot be assumed. Outside finitely many primes depending on f, the sufficient bound is \u03c1(p\u00b2)\u2264dp. Primes dividing every coefficient require separate finite local factors."
+    },
+    {
+      "id": "P4",
+      "title": "Effective arithmetic averaging with the original derivative weight",
+      "statement": "Fix f \u2208 Z[t] of degree d\u22651 satisfying problem.md. For each prime p let A_p=(p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122), B_p=(p\u00b2\u22121)/(p\u00b2+p\u22122), and define M_f=\u220f_p[1+(A_p\u22121)\u03c1(p)/p+(B_p\u2212A_p)\u03c1(p\u00b2)/p\u00b2]. For integers n\u22651 let H(n)=\u220f_{p|n}[1\u22122/p\u00b2+gcd(n,p\u00b2)^(\u22121/2)/p]/[1\u22122/p\u00b2+1/p], with H(1)=1. For every \u03b5>0 there is K(f,\u03b5) such that, uniformly for real z\u22651 and real truncation parameter R\u22651, |\u03a3_{1\u2264k\u2264z}H(f(k))\u2212M_f z| \u2264 K(f,\u03b5)[R^(1/2)+z^(1+\u03b5)R^(\u22121/2)]. In particular the choice R=z is permitted. Furthermore, for every 0<\u03b5<1/(4d), there is K\u2032(f,\u03b5) such that, uniformly for real y\u22651 and Y=f(y), |\u03a3_{1\u2264k\u2264y}f\u2032(k)\u221af(k)H(f(k))\u2212(2M_f/3)Y^(3/2)| \u2264 K\u2032(f,\u03b5)Y^(3/2\u22121/(2d)+\u03b5). All sums over k are over positive integers, and all constants are independent of z, R, and y.",
+      "depends_on": [
+        "P3"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The truncation must control omitted divisors pointwise before averaging. Partial summation must handle real endpoints and any initial interval on which the auxiliary weight f\u2032(t)\u221af(t) is not monotone. Integer coefficients are used for residue-class counting modulo r."
+    },
+    {
+      "id": "P5",
+      "title": "Summation of the uniform estimates and extraction of an asymptotic range",
+      "statement": "Fix f \u2208 Z[t] of degree d\u22651 satisfying problem.md. Let \u03b6 be the analytically continued Riemann zeta function. For each prime p define A_p=(p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122) and B_p=(p\u00b2\u22121)/(p\u00b2+p\u22122), and set \u03ba=\u22124\u03b6(\u22121/2)\u03b6(2)^(\u22121)\u220f_p(1\u22122/(p(p+1))), M_f=\u220f_p[1+(A_p\u22121)\u03c1(p)/p+(B_p\u2212A_p)\u03c1(p\u00b2)/p\u00b2], and C(f)=2\u03baM_f/3. For every 0<\u03b5<1/(4d), there is K(f,\u03b5) such that, uniformly for real x\u22652 and y\u22651 with Y=f(y)\u2264x, |V_f(x,y)\u2212C(f)x^(1/2)Y^(3/2)| \u2264 K(f,\u03b5)[x^(4/9+\u03b5)Y^(14/9)+x^(5/3+\u03b5)log(2Y)+x^(1/2)Y^(3/2\u22121/(2d)+\u03b5)]. In particular, for every fixed 0<\u03b4<1/9, there is K(f,\u03b4) such that |V_f(x,y)/(C(f)x^(1/2)Y^(3/2))\u22121| \u2264 K(f,\u03b4)x^(\u2212\u03b4/(100d)) uniformly for x^(7/9+\u03b4)\u2264Y\u2264x^(1\u2212\u03b4). Constants depend only on their displayed arguments. No lower cutoff on the individual moduli f(k) is imposed.",
+      "depends_on": [
+        "P1",
+        "P2",
+        "P4"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The fixed-modulus error must be summed over every k, including small moduli. Its reciprocal-modulus component contributes x^(5/3+\u03b5)log(2Y), which explains the lower threshold 7/9. The first error has relative size x^\u03b5(Y/x)^(1/18), so this plan does not establish a constant-only asymptotic at fixed positive Y/x."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

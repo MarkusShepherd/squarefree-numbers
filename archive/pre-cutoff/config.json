@@ -1,0 +1,67 @@
+{
+  "variant": "neutral",
+  "variants": {
+    "neutral": {"hints": ["vaughan", "simplest", "dirichlet", "none"]},
+    "thesis-informed": {"hints": ["vaughan", "no-trunc", "dirichlet", "none"]}
+  },
+  "runs_dir": "~/sqf-runs/squarefree-numbers",
+  "agent_venv": "~/sqf-runs/agent-venv",
+  "backends": ["claude", "codex"],
+  "fallback": {"codex": "claude-sonnet-5-5", "claude": "codex:gpt-6.1-sol"},
+  "models": {
+    "probe": ["claude-opus-5-5", "claude-sonnet-5-5", "codex:gpt-6.1-sol"],
+    "numerics": "claude-sonnet-5-5",
+    "planner": ["claude-opus-5-5", "codex:gpt-6.1-sol"],
+    "prover": "claude-sonnet-5-5",
+    "referees": ["claude-opus-5-5", "codex:gpt-6.1-sol"],
+    "integrator": "claude-opus-5-5",
+    "pollinator": "codex:gpt-6.1-sol",
+    "librarian": "claude-opus-5-5"
+  },
+  "codex": {
+    "effort": {"low": "low", "medium": "medium", "high": "high", "xhigh": "xhigh", "max": "max"},
+    "extra_args": ["--ignore-user-config", "--ephemeral", "-c", "web_search=\"disabled\"",
+                   "-c", "allow_login_shell=false"]
+  },
+  "effort": {
+    "probe": "high",
+    "numerics": "high",
+    "planner": "high",
+    "prover": "high",
+    "referee": "high",
+    "integrator": "high",
+    "pollinator": "medium",
+    "librarian": "high"
+  },
+  "tools": {
+    "probe": [],
+    "numerics": ["Bash", "Read", "Write", "Edit"],
+    "planner": ["Read", "WebSearch", "WebFetch"],
+    "prover": ["Read", "Write", "Edit", "Bash", "WebSearch", "WebFetch"],
+    "referee": ["Read"],
+    "pollinator": ["Read", "Write"],
+    "integrator": ["Read", "Write", "Bash"],
+    "librarian": ["Read", "WebSearch", "WebFetch"]
+  },
+  "exclusion": {
+    "blocked_domains": [
+      "riemannhypothesis.blog", "*.riemannhypothesis.blog",
+      "riemannhypothesis.info", "*.riemannhypothesis.info",
+      "primes.recommend.games",
+      "mshepherd.gitlab.io",
+      "gitlab.com"
+    ],
+    "blocked_bash": ["curl *", "wget *", "git *"],
+    "literature_cutoff_year": 2010,
+    "leak_patterns": [
+      "schepke", "shepherd", "riemannhypothesis", "primes.recommend.games",
+      "mshepherd", "squarefree-numbers", "dehnert", "s00605-014-0691",
+      "sparse variance for k-free", "monatsh. math. 177",
+      "distribution of squarefree numbers in arithmetic progressions"
+    ]
+  },
+  "max_rounds": 4,
+  "parallel": 2,
+  "timeout_s": 7200,
+  "max_budget_usd": 8
+}

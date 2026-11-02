@@ -1,0 +1,662 @@
+[
+  {
+    "run": "numerics-20261031-224932-205381",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "On the exponential sum over\n  k-free numbers*: major-arc estimates for the exponential sum over squarefree\n  numbers.\n- arXiv:1912.04683, *A variance for k-free numbers in arithmetic progressions of\n  given modulus*: the variance for a single fixed modulus"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "ponential sum over\n40\t  k-free numbers*: major-arc estimates for the exponential sum over squarefree\n41\t  numbers.\n42\t- arXiv:1912.04683, *A variance for k-free numbers in arithmetic progressions of\n43\t  given modulus*: the variance for a single fixed modu"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "WebFetch: https://arxiv.org/abs/1912.04683 Give the title, authors, abstract, and any statement of the range of the modulus q relative to x in the main results."
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "WebFetch: https://arxiv.org/pdf/1912.04683 Quote exactly the main theorem(s) and the statements of previous results (Nunes, Vaughan, others): the asymptotic formu"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": " you need it. [binary content (application/pdf, 199.9kb) also saved to /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplandirichlet20261101001114722548/f4e162f0cb5245e097883336f8f53b6c/toolresults/webfetch17934858361960ew"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "teDecode streams), and the readable text isn't in it. The only legible details are the PDF structure: an arXiv link to `arxiv.org/abs/1912.04683v2`, and outline entries for \"1 - Introduction\" and \"3.2 - Proof of theorem.\" Nothing I can read states the asymptotic f"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "shepherd",
+    "context": "ange of modulus q x^31/41 level of distribution 25/36 standard arxiv.org riemannhypothesis.blog primes.recommend.games mshepherd.gitlab.io gitlab.com"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "riemannhypothesis",
+    "context": " numbers in arithmetic progressions\" variance range of modulus q x^31/41 level of distribution 25/36 standard arxiv.org riemannhypothesis.blog primes.recommend.games mshepherd.gitlab.io gitlab.com"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "primes.recommend.games",
+    "context": "progressions\" variance range of modulus q x^31/41 level of distribution 25/36 standard arxiv.org riemannhypothesis.blog primes.recommend.games mshepherd.gitlab.io gitlab.com"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "mshepherd",
+    "context": "range of modulus q x^31/41 level of distribution 25/36 standard arxiv.org riemannhypothesis.blog primes.recommend.games mshepherd.gitlab.io gitlab.com"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "distribution of squarefree numbers in arithmetic progressions",
+    "context": "range from the search. variance context: nunes's arxiv 1402.0684 gives asymptotics for correlation sums linked with the distribution of squarefree numbers in arithmetic progressions over a fixed modulus. as a particular case it improves a r"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "stribution 25/36\"\n\nLinks: [{\"title\":\"A Note on the least squarefree number in an arithmetic progression\",\"url\":\"https://arxiv.org/pdf/1605.03347\"},{\"title\":\"Moments of the distribution of \ud835\udc58-free numbers in short intervals and arithmetic progressions\",\"url\":\"https:"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " of \ud835\udc58-free numbers in short intervals and arithmetic progressions\",\"url\":\"https://arxiv.org/html/2010.03696\"},{\"title\":\"arXiv:2010.03696v1 [math.NT] 8 Oct 2020\",\"url\":\"https://arxiv.org/pdf/2010.03696\"},{\"title\":\"Squarefree integers in large arithmetic pro"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "gressions\",\"url\":\"https://arxiv.org/html/2010.03696\"},{\"title\":\"arXiv:2010.03696v1 [math.NT] 8 Oct 2020\",\"url\":\"https://arxiv.org/pdf/2010.03696\"},{\"title\":\"Squarefree integers in large arithmetic progressions\",\"url\":\"https://arxiv.org/pdf/1602.00311\"},{\"title\":\"a"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "url\":\"https://arxiv.org/pdf/2010.03696\"},{\"title\":\"Squarefree integers in large arithmetic progressions\",\"url\":\"https://arxiv.org/pdf/1602.00311\"},{\"title\":\"arXiv:2006.04060v2 [math.NT] 10 Dec 2020\",\"url\":\"https://arxiv.org/pdf/2006.04060\"},{\"title\":\"[1602.00311] "
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "6\"},{\"title\":\"Squarefree integers in large arithmetic progressions\",\"url\":\"https://arxiv.org/pdf/1602.00311\"},{\"title\":\"arXiv:2006.04060v2 [math.NT] 10 Dec 2020\",\"url\":\"https://arxiv.org/pdf/2006.04060\"},{\"title\":\"[1602.00311] Squarefree integers in large "
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "gressions\",\"url\":\"https://arxiv.org/pdf/1602.00311\"},{\"title\":\"arXiv:2006.04060v2 [math.NT] 10 Dec 2020\",\"url\":\"https://arxiv.org/pdf/2006.04060\"},{\"title\":\"[1602.00311] Squarefree integers in large arithmetic progressions\",\"url\":\"https://arxiv.org/abs/1602.00311\""
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "/arxiv.org/pdf/2006.04060\"},{\"title\":\"[1602.00311] Squarefree integers in large arithmetic progressions\",\"url\":\"https://arxiv.org/abs/1602.00311\"},{\"title\":\"[1512.03648] On two conjectures concerning squarefree numbers in arithmetic progressions\",\"url\":\"https://ar"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "11\"},{\"title\":\"[1512.03648] On two conjectures concerning squarefree numbers in arithmetic progressions\",\"url\":\"https://arxiv.org/abs/1512.03648\"},{\"title\":\"On two conjectures concerning squarefree numbers in arithmetic progressions\",\"url\":\"https://arxiv.org/pdf/1"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "/abs/1512.03648\"},{\"title\":\"On two conjectures concerning squarefree numbers in arithmetic progressions\",\"url\":\"https://arxiv.org/pdf/1512.03648\"},{\"title\":\"[1402.0684] Square-free numbers in arithmetic progressions\",\"url\":\"https://arxiv.org/abs/1402.0684\"},{\"titl"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "https://arxiv.org/pdf/1512.03648\"},{\"title\":\"[1402.0684] Square-free numbers in arithmetic progressions\",\"url\":\"https://arxiv.org/abs/1402.0684\"},{\"title\":\"[1605.03347] A Note on the least squarefree number in an arithmetic progression\",\"url\":\"https://arxiv.org/a"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "s/1402.0684\"},{\"title\":\"[1605.03347] A Note on the least squarefree number in an arithmetic progression\",\"url\":\"https://arxiv.org/abs/1605.03347\"}]\n\nThe search turned up the 25/36 exponent but not the 2015 paper's own variance statement.\n\n- **The 25/36 result:** N"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " variance statement.\n\n- **The 25/36 result:** Nunes's note on the least squarefree number in an arithmetic progression (arXiv 1605.03347) takes squarefree moduli q below X^(25/36 \u2212 \u03b5) and treats 25/36 as an exponent of distribution for \u03bc\u00b2 on those moduli. "
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " I could not confirm its variance statement or its exact modulus range from the search.\n- **Variance context:** Nunes's arXiv 1402.0684 gives asymptotics for correlation sums linked with the distribution of squarefree numbers in arithmetic progressions ov"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "ns over a fixed modulus. As a particular case it improves a result of Blomer concerning the variance. A separate paper (arXiv 2006.04060) reports that the variance of squarefree integers in progressions mod q is controlled for q > x^5/11+\u03b5, and that under "
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "r the Lindel\u00f6f-type hypotheses this extends to q > x^(1/3+\u03b5).\n- **Prime moduli:** For prime q, a different Nunes paper (arXiv 1602.00311) gets an exponent of at least 2/3 + 1/57, which equals 13/19.\n\nTo pin down the variance range in the 2015 paper, the ne"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "WebFetch: https://arxiv.org/abs/2006.04060 Give title, authors, abstract verbatim, journal reference."
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "WebFetch: https://arxiv.org/abs/1402.0684 Give title, authors, abstract verbatim, journal reference."
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " of the 125-character limit on quoted material, so the abstract above is a summary. The full text is on the arXiv page (arXiv:2006.04060)."
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "thin the 125-character quote limit.\n\n**Journal reference:** Not listed on the page. It gives only the arXiv identifier, arXiv:1402.0684 [math.NT], submitted 4 Feb 2014 (v1) and last revised 6 Jul 2014 (v2)."
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "ead. The plan does not depend on either. (5) Nothing by the excluded authors was searched for, opened or used. A PDF of arXiv:1912.04683 was auto-saved outside the working directory; I did not read it, and only the arXiv abstract page was used.\n\nSources: O"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "ce of squarefree integers in short intervals and arithmetic progressions, Geom. Funct. Anal. 31 (2021) 111-149, https://arxiv.org/abs/2006.04060 ; R. M. Nunes, Square-free numbers in arithmetic progressions, 2014, https://arxiv.org/abs/1402.0684 ; R. M. Nunes, Mom"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": " 111-149, https://arxiv.org/abs/2006.04060 ; R. M. Nunes, Square-free numbers in arithmetic progressions, 2014, https://arxiv.org/abs/1402.0684 ; R. M. Nunes, Moments of the distribution of k-free numbers in short intervals and arithmetic progressions, 2020, http"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": ". M. Nunes, Moments of the distribution of k-free numbers in short intervals and arithmetic progressions, 2020, https://arxiv.org/abs/2010.03696 ; T. Parry, A variance for k-free numbers in arithmetic progressions of given modulus, https://arxiv.org/abs/1912.04683"
+  },
+  {
+    "run": "plan-dirichlet-20261101-001114-722548",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "arxiv.org/abs/2010.03696 ; T. Parry, A variance for k-free numbers in arithmetic progressions of given modulus, https://arxiv.org/abs/1912.04683 (abstract only). All used for context only, not as proof inputs. Notation. B(t)=t(1-t). {\u00b7} is the fractional part. gam"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "On the exponential sum over\n  k-free numbers*: major-arc estimates for the exponential sum over squarefree\n  numbers.\n- arXiv:1912.04683, *A variance for k-free numbers in arithmetic progressions of\n  given modulus*: the variance for a single fixed modulus"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "arXiv:1912.04683v2 [math.NT] 6 Jan 2023\nA variance for k-free numbers in arithmetic progressions of\ngiven modulus\nTomos Parry\n1 - Introd"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "CoreGraphics PDF has logged an error. Set environment variable \"CG_PDF_VERBOSE\" to learn more.\nPAGE 1\narXiv:1912.04683v2 [math.NT] 6 Jan 2023\nA variance for k-free numbers in arithmetic progressions of\ngiven modulus\nTomos Parry\n1 - Introd"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "mention",
+    "pattern": "post-cutoff arxiv",
+    "context": "1998.0183; Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023), arXiv:1912.04683v2. Neither excluded source was searched, opened, or used.\",\n  \"main_theorem\": \"Let f \u2208 Z[t] have degree d \u2265 1 and satis"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "mention",
+    "pattern": "post-cutoff arxiv",
+    "context": " for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023), Lemma 2.3(B), specialized to k=2; arXiv:1912.04683v2\",\n        \"Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2019, revised 2023"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "mention",
+    "pattern": "post-cutoff arxiv",
+    "context": "s in arithmetic progressions of given modulus (2019, revised 2023), Lemma 2.7, specialized to k=2 and shifts 1 \u2264 N \u2264 x; arXiv:1912.04683v2\"\n      ],\n      \"crux\": false,\n      \"risk\": \"The weighted first moment must retain its factor 1/q before multiplicat"
+  },
+  {
+    "run": "plan-none-20261101-002754-305658",
+    "kind": "mention",
+    "pattern": "post-cutoff arxiv",
+    "context": " arithmetic progressions of given modulus (2019, revised 2023), Lemma 2.1, initially on Re(s)>1 and specialized to k=2; arXiv:1912.04683v2\"\n      ],\n      \"crux\": true,\n      \"risk\": \"This must be proved independently of Parry's Lemma 2.6 and stated main c"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "On the exponential sum over\n  k-free numbers*: major-arc estimates for the exponential sum over squarefree\n  numbers.\n- arXiv:1912.04683, *A variance for k-free numbers in arithmetic progressions of\n  given modulus*: the variance for a single fixed modulus"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "mcp_tool_call codex_apps search_service.web_run https://arxiv.org/pdf/1912.04683 long  completed"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "text  (https://arxiv.org/pdf/1912.04683)\n\u3010turn615639view0\u3011 [wordlim: 200] Crawled: 3 weeks ago; Content type: application/pdf; Number of pages: 22; Source: ope"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "wordlim: 200] Crawled: 3 weeks ago; Content type: application/pdf; Number of pages: 22; Source: open({\"ref_id\":\"https://arxiv.org/pdf/1912.04683\",\"lineno\":null}); Total lines: 3157\nL0@P0: arXiv:1912.04683v2 [math.NT] 6 Jan 2023\nL1@P0: A variance for k-free numbers"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "umber of pages: 22; Source: open({\"ref_id\":\"https://arxiv.org/pdf/1912.04683\",\"lineno\":null}); Total lines: 3157\nL0@P0: arXiv:1912.04683v2 [math.NT] 6 Jan 2023\nL1@P0: A variance for k-free numbers in arithmetic progressions of\nL2@P0: given modulus\nL3@P0: T"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " 1 + (q, pk)\nL757@P5: s/pk(1+s)\n 9b3875ca-51a7-4634-948a-ca0a11fef3a8 tool web.run tool:web.run   sonic_webpage https://arxiv.org/pdf/1912.04683 arxiv.org  \u3010turn615639view0\u3011 [wordlim: 200] Crawled: 3 weeks ago; Content type: application/pdf; Number of pages: 22; S"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "wordlim: 200] Crawled: 3 weeks ago; Content type: application/pdf; Number of pages: 22; Source: open({\"ref_id\":\"https://arxiv.org/pdf/1912.04683\",\"lineno\":null}); Total lines: 3157\nL0@P0: arXiv:1912.04683v2 [math.NT] 6 Jan 2023\nL1@P0: A variance for k-free numbers"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "umber of pages: 22; Source: open({\"ref_id\":\"https://arxiv.org/pdf/1912.04683\",\"lineno\":null}); Total lines: 3157\nL0@P0: arXiv:1912.04683v2 [math.NT] 6 Jan 2023\nL1@P0: A variance for k-free numbers in arithmetic progressions of\nL2@P0: given modulus\nL3@P0: T"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "57@P5: s/pk(1+s)\n Total lines: 3157\n    1791270806.412412 turn615639view0 finished_successfully  1.0 1 1 stored https://arxiv.org/pdf/1912.04683  view application/pdf Total lines: 3157\n optional      0 False False 8192 0  4096 6144 8192   4096 6144 8192 8192 0   1"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "ic_summary  status=tool_output_no_response; tool_output=tool_output_no_response   0 0 0.0 0  False turn0view0 1 https://arxiv.org/pdf/1912.04683 long 8192 thread_6ae6667c94048329b6e0f0b0f067da37  browse_service turn615639view0  (https://arxiv.org/pdf/1912.04683)\n\u3010"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "://arxiv.org/pdf/1912.04683 long 8192 thread_6ae6667c94048329b6e0f0b0f067da37  browse_service turn615639view0  (https://arxiv.org/pdf/1912.04683)\n\u3010turn615639view0\u3011 [wordlim: 200] Crawled: 3 weeks ago; Content type: application/pdf; Number of pages: 22; Source: ope"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "wordlim: 200] Crawled: 3 weeks ago; Content type: application/pdf; Number of pages: 22; Source: open({\"ref_id\":\"https://arxiv.org/pdf/1912.04683\",\"lineno\":null});  8192 True all analysis  /connector_openai_search_service/implicit_link::connector_openai_search_serv"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "text  (https://arxiv.org/pdf/1912.04683)\n\u3010turn287572view0\u3011<<ImageDisplayed>> 4b5af4a6-5b23-4e4c-afec-11b4295487ac tool web.run tool:web.run   multimodal_text  "
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "7572view0\u3011<<ImageDisplayed>> 4b5af4a6-5b23-4e4c-afec-11b4295487ac tool web.run tool:web.run   multimodal_text  (https://arxiv.org/pdf/1912.04683)\n \u3010turn287572view0\u3011 finished_successfully  1.0 2 2 stored https://arxiv.org/pdf/1912.04683  view image/png Total lines:"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "   multimodal_text  (https://arxiv.org/pdf/1912.04683)\n \u3010turn287572view0\u3011 finished_successfully  1.0 2 2 stored https://arxiv.org/pdf/1912.04683  view image/png Total lines: 0\n optional      0 False False 8286 0  4096 6144 8192   4096 6144 8192 8192 0   1 11089037"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " False turn0view0 turn1view0 1 turn0view0 1 long 8192 thread_6ae6667c94048329b6e0f0b0f067da37 turn287572view0  (https://arxiv.org/pdf/1912.04683)\n\u3010turn287572view0\u3011 https://arxiv.org/pdf/1912.04683 Total lines: 0\n 94 True all analysis  /connector_openai_search_serv"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "2 thread_6ae6667c94048329b6e0f0b0f067da37 turn287572view0  (https://arxiv.org/pdf/1912.04683)\n\u3010turn287572view0\u3011 https://arxiv.org/pdf/1912.04683 Total lines: 0\n 94 True all analysis  /connector_openai_search_service/implicit_link::connector_openai_search_service/w"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "mcp_tool_call codex_apps search_service.web_run turn615639view0 1 https://arxiv.org/abs/1912.04683 long  completed"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "text [1912.04683] A variance for $k$-free numbers in arithmetic progressions of given modulus (https://arxiv.org/abs/1912.04683)\n\u3010turn355359view0\u3011 [wordlim: 200] Crawled: last month; Content type: text/html; Source: open({\"ref_id\":\"https://arxiv.o"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "2.04683)\n\u3010turn355359view0\u3011 [wordlim: 200] Crawled: last month; Content type: text/html; Source: open({\"ref_id\":\"https://arxiv.org/abs/1912.04683\",\"lineno\":null}); Total lines: 161\nL0: \u30100\u2020Search\u3011 \u30101\u2020Submit\u3011 \u30102\u2020Donate\u2020info.arxiv.org\u3011 \u30103\u2020Log in\u3011\nL1: \nL2: Search arXiv"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "tant revisions in Journal de Th\u00e9orie des Nombres Bordeaux\nL19: Subjects:  | Number Theory (math.NT)\nL20: Cite as:  | \u30109\u2020arXiv:1912.04683\u3011 [math.NT]\nL21: \u00a0  | (or \u301010\u2020arXiv:1912.04683v2\u3011 [math.NT] for this version)\nL22: \u00a0  | \u301011\u2020https://doi.org/10.48550/arX"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "es Bordeaux\nL19: Subjects:  | Number Theory (math.NT)\nL20: Cite as:  | \u30109\u2020arXiv:1912.04683\u3011 [math.NT]\nL21: \u00a0  | (or \u301010\u2020arXiv:1912.04683v2\u3011 [math.NT] for this version)\nL22: \u00a0  | \u301011\u2020https://doi.org/10.48550/arXiv.1912.04683\u2020doi.org\u3011 arXiv-issued DOI via Da"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " Major funding support from\n\n--------------------------------------------------------------------------------\n (https://arxiv.org/pdf/1912.04683)\n\u3010turn355359view1\u3011<<ImageDisplayed>> ded9c427-a49c-4d8b-ac66-577a92e0dbdb tool web.run tool:web.run   sonic_webpage htt"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "rn355359view1\u3011<<ImageDisplayed>> ded9c427-a49c-4d8b-ac66-577a92e0dbdb tool web.run tool:web.run   sonic_webpage https://arxiv.org/abs/1912.04683 arxiv.org [1912.04683] A variance for $k$-free numbers in arithmetic progressions of given modulus \u3010turn355359view0\u3011 [w"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " modulus \u3010turn355359view0\u3011 [wordlim: 200] Crawled: last month; Content type: text/html; Source: open({\"ref_id\":\"https://arxiv.org/abs/1912.04683\",\"lineno\":null}); Total lines: 161\nL0: \u30100\u2020Search\u3011 \u30101\u2020Submit\u3011 \u30102\u2020Donate\u2020info.arxiv.org\u3011 \u30103\u2020Log in\u3011\nL1: \nL2: Search arXiv"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "tant revisions in Journal de Th\u00e9orie des Nombres Bordeaux\nL19: Subjects:  | Number Theory (math.NT)\nL20: Cite as:  | \u30109\u2020arXiv:1912.04683\u3011 [math.NT]\nL21: \u00a0  | (or \u301010\u2020arXiv:1912.04683v2\u3011 [math.NT] for this version)\nL22: \u00a0  | \u301011\u2020https://doi.org/10.48550/arX"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "es Bordeaux\nL19: Subjects:  | Number Theory (math.NT)\nL20: Cite as:  | \u30109\u2020arXiv:1912.04683\u3011 [math.NT]\nL21: \u00a0  | (or \u301010\u2020arXiv:1912.04683v2\u3011 [math.NT] for this version)\nL22: \u00a0  | \u301011\u2020https://doi.org/10.48550/arXiv.1912.04683\u2020doi.org\u3011 arXiv-issued DOI via Da"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "nding support from\n Total lines: 161\n    1790077911.02474 turn355359view0 finished_successfully  1.0 3 3 stored https://arxiv.org/abs/1912.04683 [1912.04683] A variance for $k$-free numbers in arithmetic progressions of given modulus view text/html Total lines: 16"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " for $k$-free numbers in arithmetic progressions of given modulus view text/html Total lines: 161\n optional     https://arxiv.org/pdf/1912.04683  view image/png Total lines: 0\n optional     https://arxiv.org/search https://arxiv.org/user/create https://info.arxiv."
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "/user/create https://info.arxiv.org/about/donate.html https://arxiv.org/login https://arxiv.org/search/advanced https://arxiv.org/abs/1912.04683v1 https://arxiv.org/search/math?searchtype=author&query=Parry,+T https://arxiv.org/pdf/1912.04683 https://arxiv.org/htm"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "arch/advanced https://arxiv.org/abs/1912.04683v1 https://arxiv.org/search/math?searchtype=author&query=Parry,+T https://arxiv.org/pdf/1912.04683 https://arxiv.org/html/1912.04683v2 https://arxiv.org/abs/1912.04683 https://arxiv.org/abs/1912.04683v2 https://doi.org"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "arch/math?searchtype=author&query=Parry,+T https://arxiv.org/pdf/1912.04683 https://arxiv.org/html/1912.04683v2 https://arxiv.org/abs/1912.04683 https://arxiv.org/abs/1912.04683v2 https://doi.org/10.48550/arXiv.1912.04683 https://doi.org/10.5802/jtnb.1163 https://"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "=Parry,+T https://arxiv.org/pdf/1912.04683 https://arxiv.org/html/1912.04683v2 https://arxiv.org/abs/1912.04683 https://arxiv.org/abs/1912.04683v2 https://doi.org/10.48550/arXiv.1912.04683 https://doi.org/10.5802/jtnb.1163 https://arxiv.org/show-email/c8df2d15/191"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "https://arxiv.org/list/math.NT/new https://arxiv.org/list/math.NT/recent https://arxiv.org/list/math.NT/2019-12 https://arxiv.org/abs/1912.04683?context=math https://ui.adsabs.harvard.edu/abs/arXiv:1912.04683 https://scholar.google.com/scholar_lookup?arxiv_id=1912"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": " https://arxiv.org/list/math.NT/2019-12 https://arxiv.org/abs/1912.04683?context=math https://ui.adsabs.harvard.edu/abs/arXiv:1912.04683 https://scholar.google.com/scholar_lookup?arxiv_id=1912.04683 https://api.semanticscholar.org/arXiv:1912.04683 https://"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": ".edu/abs/arXiv:1912.04683 https://scholar.google.com/scholar_lookup?arxiv_id=1912.04683 https://api.semanticscholar.org/arXiv:1912.04683 https://info.arxiv.org/labs/showcase.html#arxiv-bibliographic-explorer https://www.connectedpapers.com/about https://ww"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "_output=tool_output_no_response   0 0 0.0 0  False turn0view0 turn1view0 turn2view0 turn2view1 1 1 turn0view0 1 https://arxiv.org/abs/1912.04683 long 8192 thread_6ae6667c94048329b6e0f0b0f067da37  browse_service turn355359view0 [1912.04683] A variance for $k$-free "
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "rvice turn355359view0 [1912.04683] A variance for $k$-free numbers in arithmetic progressions of given modulus (https://arxiv.org/abs/1912.04683)\n\u3010turn355359view0\u3011 [wordlim: 200] Crawled: last month; Content type: text/html; Source: open({\"ref_id\":\"https://arxiv.o"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "2.04683)\n\u3010turn355359view0\u3011 [wordlim: 200] Crawled: last month; Content type: text/html; Source: open({\"ref_id\":\"https://arxiv.org/abs/1912.04683\",\"lineno\":null});  https://images.openai.com/static-rsc-1/EAJyHKVCXq8LCM-tfyuI2Jr5WcA0NlV4HLU8UxxF71B5k1ZScT3k0oqXuSqTs"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "qChQK 2078 True all analysis 215e82d1-79bd-4faf-b9d5-a68960f26dd7 tool web.run tool:web.run   multimodal_text  (https://arxiv.org/pdf/1912.04683)\n \u3010turn355359view1\u3011 finished_successfully  1.0 thread_6ae6667c94048329b6e0f0b0f067da37 turn355359view1  (https://arxiv."
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": ".04683)\n \u3010turn355359view1\u3011 finished_successfully  1.0 thread_6ae6667c94048329b6e0f0b0f067da37 turn355359view1  (https://arxiv.org/pdf/1912.04683)\n\u3010turn355359view1\u3011 https://arxiv.org/pdf/1912.04683 Total lines: 0\n 94 True all analysis  /connector_openai_search_serv"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "0 thread_6ae6667c94048329b6e0f0b0f067da37 turn355359view1  (https://arxiv.org/pdf/1912.04683)\n\u3010turn355359view1\u3011 https://arxiv.org/pdf/1912.04683 Total lines: 0\n 94 True all analysis  /connector_openai_search_service/implicit_link::connector_openai_search_service/w"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "emmas\u3011\nL19:     3. \u30107\u2020References\u3011\nL20: \u30108\u2020License: arXiv.org perpetual non-exclusive license\u2020info.arxiv.org\u3011\nL21: \nL22: arXiv:1912.04683v2 [math.NT] 06 Jan 2023\nL23: # A variance for $k$-free numbers in arithmetic progressions of given modulus\nL24: \nL25: T"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "emmas\u3011\nL19:     3. \u30107\u2020References\u3011\nL20: \u30108\u2020License: arXiv.org perpetual non-exclusive license\u2020info.arxiv.org\u3011\nL21: \nL22: arXiv:1912.04683v2 [math.NT] 06 Jan 2023\nL23: # A variance for $k$-free numbers in arithmetic progressions of given modulus\nL24: \nL25: T"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "l     https://arxiv.org/ https://info.arxiv.org/about/accessible_HTML.html https://arxiv.org/html/1912.04683v2# https://arxiv.org/abs/1912.04683v2 https://arxiv.org/pdf/1912.04683v2 https://arxiv.org/html/1912.04683v2#S1 https://arxiv.org/html/1912.04683v2#S2 http"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "fo.arxiv.org/about/accessible_HTML.html https://arxiv.org/html/1912.04683v2# https://arxiv.org/abs/1912.04683v2 https://arxiv.org/pdf/1912.04683v2 https://arxiv.org/html/1912.04683v2#S1 https://arxiv.org/html/1912.04683v2#S2 https://arxiv.org/html/1912.04683v2#bib"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "i\u0142\u0142; Brad Rodgers On the variance of squarefree integers in short intervals and arithmetic progressions (2020) (https://arxiv.org/abs/2006.04060) | Zbl\n\n[4] Christopher Hooley A note on square-free numbers in arithmetic progressions, Bull. Lond. Math. Soc., Volume"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "n Brave)\n\nCopyright license Creative Commons Attribution-NoDerivs 4.0 International\n\nFull work available at URL https://arxiv.org/abs/1912.04683\n\nzbMATH Keywords\n\n\\(k\\)-free numberarithmetic progressionvariance\n\nMathematics Subject Classification ID\n\nArithmetic pr"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "i\u0142\u0142; Brad Rodgers On the variance of squarefree integers in short intervals and arithmetic progressions (2020) (https://arxiv.org/abs/2006.04060) | Zbl\n\n[4] Christopher Hooley A note on square-free numbers in arithmetic progressions, Bull. Lond. Math. Soc., Volume"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "n Brave)\n\nCopyright license Creative Commons Attribution-NoDerivs 4.0 International\n\nFull work available at URL https://arxiv.org/abs/1912.04683\n\nzbMATH Keywords\n\n\\(k\\)-free numberarithmetic progressionvariance\n\nMathematics Subject Classification ID\n\nArithmetic pr"
+  },
+  {
+    "run": "plan-simplest-20261101-000623-359107",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "b'q 0.1 0 0 0.1 0 0 cm\\n/R7 gs\\n0.5 g\\nq\\n10 0 0 10 0 0 cm BT\\n/R16 20 Tf\\n0 1 -1 0 32 247 Tm\\n(arXiv:1912.04683v2  [math.NT]  6 Jan 2023)Tj\\nET\\nQ\\n0 g\\nq\\n10 0 0 10 0 0 cm BT\\n/R17 17.2154 Tf\\n1 0 0 1 94.4398 689.02 Tm\\n[(A)-296.8"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "ponential sum over\n40\t  k-free numbers*: major-arc estimates for the exponential sum over squarefree\n41\t  numbers.\n42\t- arXiv:1912.04683, *A variance for k-free numbers in arithmetic progressions of\n43\t  given modulus*: the variance for a single fixed modu"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "s006050140691",
+    "context": "https://link.springer.com/10.1007/s40879021004954\",\"title\":\"s00605 014 0691 6\",\"url\":\"https://link.springer.com/10.1007/s0060501406916\",\"title\":\"www.arxiv.org\",\"url\":\"https://www.arxiv.org/pdf/2412.19644\",\"title\":\"export.arxiv.org\",\"url\":\"h"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "arefree\"\n\nLinks: [{\"title\":\"A variance for $k$-free numbers in arithmetic progressions of given modulus\",\"url\":\"https://arxiv.org/pdf/1912.04683\"},{\"title\":\"goettingen-research-online.de\",\"url\":\"https://publications.goettingen-research-online.de/bitstream/2/122477"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "05 014 0691 6\",\"url\":\"https://link.springer.com/10.1007/s00605-014-0691-6\"},{\"title\":\"www.arxiv.org\",\"url\":\"https://www.arxiv.org/pdf/2412.19644\"},{\"title\":\"export.arxiv.org\",\"url\":\"https://export.arxiv.org/pdf/2412.19644\"},{\"title\":\"Vaughn VariancePrimeDistr1998\""
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "\"title\":\"www.arxiv.org\",\"url\":\"https://www.arxiv.org/pdf/2412.19644\"},{\"title\":\"export.arxiv.org\",\"url\":\"https://export.arxiv.org/pdf/2412.19644\"},{\"title\":\"Vaughn VariancePrimeDistr1998\",\"url\":\"https://web.williams.edu/Mathematics/sjmiller/public_html/ntrmt11/han"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "mention",
+    "pattern": "dehnert",
+    "context": " numerics at r\u21920. now i'm verifying the literature citations (parry, br\u00fcdernwooley) for accuracy, skipping the excluded dehnert paper that turned up in search."
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "WebFetch: https://arxiv.org/abs/1912.04683 Give the title, author and abstract verbatim."
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "s006050140691",
+    "context": "\":\"https://www.emergentmind.com/papers/1706.07319\",\"title\":\"s00605 014 0691 6\",\"url\":\"https://link.springer.com/10.1007/s0060501406916\",\"title\":\"arxiv.org\",\"url\":\"https://arxiv.org/pdf/2008.05837\"] the br\u00fcdernwooley paper doesn't appear to "
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "arithmetic progression\" arXiv\"\n\nLinks: [{\"title\":\"Sparser variance for primes in arithmetic progression\",\"url\":\"https://arxiv.org/pdf/1706.07319\"},{\"title\":\"# SPARSE VARIANCE FOR PRIMES IN ARITHMETIC PROGRESSION\",\"url\":\"https://www.math.purdue.edu/~twooley/publ/20"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "s.ac.uk/en/publications/sparse-variance-for-primes-in-arithmetic-progression/\"},{\"title\":\"arxiv.org\",\"url\":\"https://pdf.arxiv.org/pdf/1706.07319\"},{\"title\":\"ems.press\",\"url\":\"https://ems.press/content/serial-article-files/32980\"},{\"title\":\"ems.press\",\"url\":\"https:"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "e\":\"s00605 014 0691 6\",\"url\":\"https://link.springer.com/10.1007/s00605-014-0691-6\"},{\"title\":\"arxiv.org\",\"url\":\"https://arxiv.org/pdf/2008.05837\"}]\n\nThe Br\u00fcdern\u2013Wooley paper doesn't appear to be on arXiv. The search turned up the original in journal and author-pag"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "exposure",
+    "pattern": "post-cutoff arxiv",
+    "context": "mial.\n- **arXiv follow-up:** Roger Baker and Tristan Freiberg, \"Sparser variance for primes in arithmetic progression,\" arXiv:1706.07319 (math.NT, submitted 22 June 2017). It obtains an analog of the Montgomery\u2013Hooley asymptotic formula for the variance of"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "attempt",
+    "pattern": "dehnert",
+    "context": " (2) 50 (1949), from memory; p3 reproves what is needed. excluded sources. a web search returned a link to the excluded dehnert paper (doi 10.1007/s0060501406916), and a g\u00f6ttingen repository pdf of unknown identity. i opened neither and use"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "attempt",
+    "pattern": "s006050140691",
+    "context": "; p3 reproves what is needed. excluded sources. a web search returned a link to the excluded dehnert paper (doi 10.1007/s0060501406916), and a g\u00f6ttingen repository pdf of unknown identity. i opened neither and used nothing from them. nothin"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "1/6}x^eps). This explains the fitted beta about 1.54; beta=1.5 is the true exponent.\n(3) Parry's C_k, as extracted from arXiv:1912.04683, appears a factor 2 larger than my single-modulus constant at k=2 (2 zeta(3/2)/pi versus zeta(3/2)/pi). I could only re"
+  },
+  {
+    "run": "plan-vaughan-20261101-000623-358977",
+    "kind": "attempt",
+    "pattern": "post-cutoff arxiv",
+    "context": "its range or error term.\n\nSOURCES. T. Parry, A variance for k-free numbers in arithmetic progressions of given modulus, arXiv:1912.04683. R. R. Hall, Squarefree numbers on short intervals, Mathematika 29 (1982), from memory, constant used only as a sanity "
+  },
+  {
+    "run": "probe-claude-opus-5-5-20261031-222825-021829",
+    "kind": "mention",
+    "pattern": "sparse variance for kfree",
+    "context": " and unchecked. ## 1. vf and closely related sums possible paper on vf (low confidence): i vaguely recall a title like \"sparse variance for kfree numbers in arithmetic progression\", possibly by br\u00fcdern and/or wooley. this could be a false m"
+  }
+]

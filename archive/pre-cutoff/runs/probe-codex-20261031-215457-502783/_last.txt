@@ -1,0 +1,16 @@
+I do **not** know a result for the specific sparse squarefree sum \(V_f(x,y)\), and I can’t give a reliable paper, constant, error term, or range for it. I also don’t know a theorem for the corresponding sparse variance for primes. I would not infer either result from the all-moduli theorems: restricting moduli to polynomial values is a substantial change.
+
+For squarefree numbers, I can’t reliably identify an all-moduli variance theorem with its exact normalization and range from memory. The centering used to define \(E(x;q,l)\) matters for such a statement, especially when summing over all residue classes, so I don’t want to supply a formula or citation I can’t verify.
+
+The related result I can identify confidently is the classical **Barban–Davenport–Halberstam theorem** for primes, in its von Mangoldt form. With
+\[
+\psi(x;q,a)=\sum_{\substack{n\le x\\n\equiv a\pmod q}}\Lambda(n),
+\]
+one standard bound is
+\[
+\sum_{q\le Q}\ \sum_{\substack{a\bmod q\\(a,q)=1}}
+\left|\psi(x;q,a)-\frac{\psi(x)}{\varphi(q)}\right|^2
+\ll xQ\log x
+\qquad (Q\le x).
+\]
+This is an all-moduli mean-square bound; it is not a theorem about the sparse polynomial moduli \(q=f(k)\), and it does not give an asymptotic with a leading constant as stated here. **Confidence: high** on the bound and its classical attribution to Barban and Davenport–Halberstam; I’m not supplying a sharper asymptotic or a more precise range from memory.

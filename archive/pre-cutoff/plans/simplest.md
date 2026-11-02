@@ -1,0 +1,67 @@
+# Plan: simplest
+
+Model: codex:gpt-6.1-sol
+
+Restrict explicitly to f in Z[t], retaining the original weight f'(k). This includes all three numerical examples and makes the congruence root counts periodic modulo their stated moduli. The simplest route is to sum a published fixed-modulus variance theorem and average its arithmetic factor along f(k). It gives an asymptotic in x^(7/9+delta) <= f(y) <= x^(1-delta), with an explicit logarithmic relative error. Use Tomos Parry's published 2021 Theorem 1, whose constant differs from the problematic displayed constant in the supplied arXiv preprint. The circle-method approach of J. Brüdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011), https://www.math.purdue.edu/~twooley/publ/2011sparse.pdf, is unnecessary for this weaker range. No excluded source was consulted or used.
+
+## Main theorem
+
+Let f in Z[t] satisfy all the polynomial hypotheses in problem.md, and let rho be its root-counting function from that file. All logarithms are natural. For each prime p define D_p = 1+p^(-1)-2p^(-2), a_p = (p^(-3/2)-p^(-1))/D_p and b_p = (p^(-2)-p^(-3/2))/D_p. Define C_2 = -4 zeta(-1/2) product_p(1-3p^(-2)+2p^(-3)), where zeta is the Riemann zeta function, and define M_f = product_p(1+a_p rho(p)/p+b_p rho(p^2)/p^2). Both products converge absolutely, and C_f = (2/3) C_2 M_f is positive. For every fixed delta with 0 < delta < 1/9 there is a constant K_{f,delta}>0 such that, uniformly for real x>=3 and integers y>=2 satisfying x^(7/9+delta) <= Y=f(y) <= x^(1-delta), one has |V_f(x,y)-C_f x^(1/2)Y^(3/2)| <= K_{f,delta} x^(1/2)Y^(3/2) log(log(3x))/log(3x).
+
+## Numerics check
+
+Consistent with results.json: the predicted exponents are 1/2 in x and 3/2 in f(y), hence total exponent 2 at fixed f(y)/x. The three predicted constants lie within the file's respective extrapolated intervals 0.13506 +/- 0.01082, 0.14192 +/- 0.01079 and 0.14084 +/- 0.00846. At the smallest reported ratio near 0.01 and the largest x, the normalized observations are approximately 0.14159, 0.14512 and 0.14456. The theorem requires f(y)/x to decrease; it does not predict that the normalized values at fixed positive ratios, including ratio 1, equal C_f. The explicit unrestricted error bound in P6 accommodates such ratio dependence.
+
+## P1: Identify the progression density
+
+Depends on: none  
+Cites: J. Brüdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 2.1 and equation (2.6), specialized to k=2; https://www.math.purdue.edu/~twooley/publ/1998%20kfree.pdf
+
+Let mu denote the Möbius function. For every integer q>=1 and every integer l, the density g(q,l) from problem.md equals the absolutely convergent series sum_{r>=1, gcd(q,r^2)|l} mu(r)/lcm(q,r^2). Equivalently, g(q,l) = (6/(pi^2 q)) product_{p|q}(p^2/(p^2-1)) product_{p||q, p|l}(1-1/p) times the indicator that no prime p satisfies p^2|gcd(q,l). Here p ranges over primes, p||q means p divides q but p^2 does not, and an indicator is 1 when its condition holds and 0 otherwise. These identities hold for every q and l, without a coprimality restriction or an error term.
+
+*Risk:* The density must include non-reduced residue classes; replacing it by a constant on all classes would change the variance.
+
+## P2: Import the published fixed-modulus variance estimate
+
+Depends on: P1  
+Cites: Tomos Parry, A variance for k-free numbers in arithmetic progressions of given modulus (2021), Theorem 1, specialized to k=2; https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1163.pdf
+
+For each integer q>=1 define A(q) = product_{p|q}[(1-2p^(-2)+p^(-1)gcd(q,p^2)^(-1/2))/(1+p^(-1)-2p^(-2))], with the empty product equal to 1. Define C_2 = -4 zeta(-1/2) product_p(1-3p^(-2)+2p^(-3)), where zeta denotes the Riemann zeta function and p ranges over primes. For every epsilon>0 there is K_epsilon>0 such that, uniformly for real x>=2 and integers 1<=q<=x, |sum_{l=1}^q E(x;q,l)^2 - C_2 sqrt(xq) A(q)| <= K_epsilon [x^(1/3+epsilon) q^(2/3) + x^(5/3+epsilon)/q]. The E in this statement is exactly the error defined in problem.md, including every residue class.
+
+*Risk:* Use the published theorem and its constant, not the supplied preprint's displayed Euler product. Check that the average is over all residue classes and that the bound is uniform down to q=1.
+
+## P3: Local arithmetic factor and its convergent polynomial mean
+
+Depends on: none  
+Cites: none
+
+Fix f in Z[t] satisfying problem.md. For each prime p put D_p=1+p^(-1)-2p^(-2), a_p=(p^(-3/2)-p^(-1))/D_p and b_p=(p^(-2)-p^(-3/2))/D_p. For integers q>=1 define A(q)=product_p(1+a_p 1_{p|q}+b_p 1_{p^2|q}), where 1_condition denotes its indicator. For real z>=2 define A_z(q) by restricting this product to p<=z, and define M_f(z)=product_{p<=z}(1+a_p rho(p)/p+b_p rho(p^2)/p^2). Then M_f=lim_{z->infinity} M_f(z) exists as an absolutely convergent positive product. There is K_f>0 such that |M_f-M_f(z)|<=K_f/z for every real z>=2. Uniformly for integers q>=1 and real z>=2, 0<A(q)<=A_z(q)<=1 and |A(q)-A_z(q)| <= sum_{p>z, p|q} 1/p. Moreover A_z(f(k)) is periodic in the integer k with period N_z=product_{p<=z}p^2, and its average over one complete period is exactly M_f(z).
+
+*Risk:* Primes dividing every coefficient of f require separate finite local treatment. Repeated polynomial factors are allowed; a bound for rho(p^2) must not assume nonsingular roots.
+
+## P4: Elementary averaging along polynomial values (CRUX)
+
+Depends on: P3  
+Cites: none
+
+Fix f in Z[t] satisfying problem.md, and let c_f be the positive greatest common divisor of its coefficients. For primes p define D_p=1+p^(-1)-2p^(-2), a_p=(p^(-3/2)-p^(-1))/D_p and b_p=(p^(-2)-p^(-3/2))/D_p. Define A(q)=product_p(1+a_p 1_{p|q}+b_p 1_{p^2|q}) for integers q>=1, where 1_condition is its indicator, and M_f=product_p(1+a_p rho(p)/p+b_p rho(p^2)/p^2). There is K_f>0 such that, uniformly for real u>=2 and real z>=max(2,c_f), |sum_{1<=k<=u} A(f(k))-u M_f| <= K_f [u/z+log(2f(u))+z^(2z)]. In particular, after choosing z=log(u)/(8 log(log(u))) whenever u is large enough that this is at least max(2,c_f), and enlarging K_f to cover the remaining u>=2, one has |sum_{1<=k<=u} A(f(k))-u M_f| <= K_f u log(log(3u))/log(3u). All sums over k are over positive integers.
+
+*Risk:* The large-prime tail must be averaged before estimating it. A pointwise tail bound alone is inadequate. The periodic averaging error must retain the full period, bounded here explicitly by z^(2z); no equidistribution assertion for growing moduli is assumed.
+
+## P5: Weighted mean and polynomial summation bounds
+
+Depends on: P4  
+Cites: none
+
+Fix f in Z[t] satisfying problem.md. For primes p define D_p=1+p^(-1)-2p^(-2), a_p=(p^(-3/2)-p^(-1))/D_p and b_p=(p^(-2)-p^(-3/2))/D_p. Put A(q)=product_p(1+a_p 1_{p|q}+b_p 1_{p^2|q}), with indicators taking values 0 or 1, and M_f=product_p(1+a_p rho(p)/p+b_p rho(p^2)/p^2). There is K_f>0 such that, uniformly for every integer y>=2, with Y=f(y), |sum_{k=1}^y f'(k) sqrt(f(k)) A(f(k))-(2/3)M_f Y^(3/2)| <= K_f Y^(3/2) log(log(3y))/log(3y). In the same range, sum_{k=1}^y f'(k) f(k)^(2/3) <= K_f Y^(5/3) and sum_{k=1}^y f'(k)/f(k) <= K_f log(2Y). The constant depends only on the fixed polynomial f.
+
+*Risk:* Partial summation must control the variation of f'(t)sqrt(f(t)); it need not be increasing on the entire initial interval. The discrete endpoint contribution must be included in the displayed error.
+
+## P6: Assemble the quantitative sparse variance formula
+
+Depends on: P2, P5  
+Cites: none
+
+Fix f in Z[t] satisfying problem.md. For primes p define D_p=1+p^(-1)-2p^(-2), a_p=(p^(-3/2)-p^(-1))/D_p and b_p=(p^(-2)-p^(-3/2))/D_p. Define C_f=-(8/3) zeta(-1/2) product_p(1-3p^(-2)+2p^(-3)) product_p(1+a_p rho(p)/p+b_p rho(p^2)/p^2), where zeta is the Riemann zeta function. For every epsilon>0 there is K_{f,epsilon}>0 such that, uniformly for real x>=2 and integers y>=2 with Y=f(y)<=x, |V_f(x,y)-C_f sqrt(x)Y^(3/2)| <= K_{f,epsilon}[sqrt(x)Y^(3/2) log(log(3y))/log(3y) + x^(1/3+epsilon)Y^(5/3) + x^(5/3+epsilon)log(2Y)]. Consequently, for each fixed 0<delta<1/9 there is K_{f,delta}>0 such that, uniformly for x>=3 and integers y>=2 satisfying x^(7/9+delta)<=Y=f(y)<=x^(1-delta), the left-hand side is at most K_{f,delta} sqrt(x)Y^(3/2) log(log(3x))/log(3x). Constants are independent of x and y.
+
+*Risk:* The accumulated x^(5/3+epsilon)/q error creates the lower threshold 7/9. The accumulated first error prevents a vanishing relative error at fixed positive Y/x; the conclusion must not be extended to that regime.

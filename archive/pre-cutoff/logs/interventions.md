@@ -1,0 +1,8 @@
+- 2026-11-01 00:06 | Markus | plan | started `./orchestrate.py plan` on main (ba89fda)
+- 2026-11-01 00:19 | operator | finding | Codex planner 'simplest' (291 s) made 8 web calls via codex_apps search_service.web_run, despite web_search="disabled"; no domain blocks. Raw scan of results and check-leaks: no excluded material. Codex probes used no tools.
+- 2026-11-01 00:22 | Markus | plan kept | keep plan 'simplest' despite its unfiltered web access
+- 2026-11-01 00:22 | Markus | harness change | approved, on branch harness-robustness: block Codex web tool (--disable apps), crossover plans (plan --cross), plan resume, transcripts written live, failed runs logged. Planner 'none' of the running batch still runs with the old settings.
+- 2026-11-01 00:27 | operator | harness fix | changes made in worktree, tests/dry_run.sh OK, not committed yet
+- 2026-11-01 00:36 | Markus | harness change | reversed: Codex must keep web access for literature search; --disable apps removed from branch harness-robustness. tools.web_search.allowed_domains tested: does not stop open_page.
+- 2026-11-01 00:36 | operator | leak | check-leaks: 2 exposure hits on Opus planner 'vaughan': the Dehnert paper's Springer link and title-less DOI appeared in two WebSearch results; agent reported it and says it opened nothing. Shown to Markus.
+- 2026-11-01 00:41 | operator | harness fix | MR !12 opened from harness-robustness (not merged): failure handling, plan resume, plan --cross, MCP results as exposure; Codex web access kept. Batch: 4 plans, 8 agent runs, $9.23 Claude, 32,386 Codex output tokens.

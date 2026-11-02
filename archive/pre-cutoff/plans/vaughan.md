@@ -1,0 +1,170 @@
+# Plan: vaughan
+
+Model: claude-opus-5-5
+
+PLAN. The asymptotic comes from an explicit arithmetic model, and that model already agrees with the exact numerics to 3-4 digits. Write W(q)=sum_l E(x;q,l)^2. Expand sum_l Q^2 through the correlations C(r)=sum_n mu^2(n)mu^2(n+r). The singular series is A(r)=B sum_{e^2|r} w(e). The Fejér identity sum_i (h-|i|)_+ 1_{m|i} = h^2/m + m phi(h/m) then cancels the x^2/q terms exactly and leaves
+M(q)= q B sum_e w(e) m_e phi(x/(q m_e)), where m_e=e^2/(e^2,q) and phi(u)={u}(1-{u}).
+This is the Montgomery-Hooley-type main term, and it is not Hooley's x^2/log-size error regime. V_f is modelled by M_f=sum_k f'(k) M(f(k)). Its size is x^{1/2}Y^{3/2}, Y=f(y).
+
+DEPARTURE FROM THE HINT, stated plainly. I do not run the Brüdern-Wooley circle method. The BW factor w_h(q) only reappears here as the densities delta(p), delta(p^2) in the Euler product. The sparse structure enters through elementary means: sums over k of multiplicative functions of f(k) (P8), and the divisor bound #{k: f(k)|r}<=tau(r) (P4). I tried a circle-method improvement for d>=2 and left it out of the theorem. It used the sup bound for K(alpha)=sum_k f'(k) sum_{|i|<=x/f(k)} e(i f(k) alpha) with Weyl on minor arcs. On paper it would reach roughly Y>=x^{11/15} for d=2. But |K| really is about Y_0 t^{1/2} near a/t for powerful t (e.g. alpha=1/p^2, f=k^2+1), so the clean major-arc bound I wanted is false as stated. A contract built on it would be unsafe. The theorem therefore has range x^{7/9+eps} for d>=2 and x^{2/3+eps} for d=1. That is correct but probably not optimal for d>=2.
+
+CAVEATS.
+(1) The problem's rho(m) is ill-defined when f has denominators, because a -> f(a) mod m need not be m-periodic. I use densities delta(m)=lim #{k<=Z: m|f(k)}/Z, which equal rho(m)/m when m is coprime to the denominator of f.
+(2) The fixed-ratio regime Y=rx is genuinely different. N(r)=V/(x^{1/2}Y^{3/2}) tends to a non-constant function N_f(r), with kinks at r=1/m from phi. The constant (2/3)C_f is only its r->0 limit, with relative error O(r^{1/6}x^eps). This explains the fitted beta about 1.54; beta=1.5 is the true exponent.
+(3) Parry's C_k, as extracted from arXiv:1912.04683, appears a factor 2 larger than my single-modulus constant at k=2 (2 zeta(3/2)/pi versus zeta(3/2)/pi). I could only read a machine extraction, so this may be a rendering artefact. The Euler factors match Parry's exactly. My constant matches Hall's short-interval variance constant as I remember it, and matches the numerics, while a factor 2 is excluded by the numerics. Provers must not cite Parry's C_k.
+(4) I had no code tool. All numeric checks below are hand computations to about 4 digits.
+(5) The local PDFs in papers/ could not be read because pdftoppm is missing. Brüdern-Wooley and BGPVW were not consulted, so nothing in the plan rests on them; `cites` is empty and every proposition is self-contained. Parry was read only through an ar5iv extraction, as a cross-check. Vaughan (2005) could not be obtained, and I could not confirm its range or error term.
+
+SOURCES. T. Parry, A variance for k-free numbers in arithmetic progressions of given modulus, arXiv:1912.04683. R. R. Hall, Squarefree numbers on short intervals, Mathematika 29 (1982), from memory, constant used only as a sanity check. L. Mirsky, Arithmetical pattern problems relating to divisibility by rth powers, Proc. LMS (2) 50 (1949), from memory; P3 re-proves what is needed.
+
+EXCLUDED SOURCES. A web search returned a link to the excluded Dehnert paper (doi 10.1007/s00605-014-0691-6), and a Göttingen repository PDF of unknown identity. I opened neither and used nothing from them. Nothing by the excluded author was searched for, opened or used.
+
+## Main theorem
+
+Notation. Y=f(y); d=deg f; B=prod_p(1-2/p^2); w(e)=mu^2(e) prod_{p|e} 1/(p^2-2); m_e(q)=e^2/(e^2,q); phi(u)={u}(1-{u}); delta(m)=lim_{Z->infty} #{k<=Z: m|f(k)}/Z, which equals rho(m)/m when m is coprime to the denominator of f; delta_1=delta(p), delta_2=delta(p^2).
+M_f(x,y)=sum_{k<=y} f'(k) f(k) B sum_{e>=1} w(e) m_e(f(k)) phi( x/(f(k) m_e(f(k))) ).
+ell_p=(1-delta_1)(1-3/p^2+2/p^3)+(delta_1-delta_2)(1-1/p)(1-2/p^2+p^{-3/2})+delta_2(1-1/p)(1-1/p^2).
+C_f=(zeta(3/2)/pi) prod_p ell_p; the product converges absolutely since ell_p=1+O_f(p^{-2}).
+Psi(u)=int_u^infty phi(t) t^{-3} dt.
+N_f(r)=r^{-3/2} B sum_{a,b,c} w(abc) pi(a,b,c) (a^2 b)^{-1} Psi(1/(r a^2 b)), the sum running over pairwise coprime squarefree a,b,c, with pi(a,b,c)=prod_{p|a}(1-delta_1) prod_{p|b}(delta_1-delta_2) prod_{p|c} delta_2.
+
+THEOREM. Let f be as in problem.md, eps>0, x>=2, y>=1, f(y)<=x. Implied constants depend only on f and eps.
+(i) For all such x,y: V_f(x,y)=M_f(x,y)+O(x^{5/3+eps}).
+(ii) If d=1: V_f(x,y)=M_f(x,y)+O(x^{eps}(x^{7/6}Y^{1/2}+x^{4/5}Y)).
+(iii) M_f(x,y)=(2/3) C_f x^{1/2} Y^{3/2}+O(x^{1/3+eps} Y^{5/3}+x^{1/2+eps} Y^{3/2} y^{-1/2}).
+(iv) M_f(x,y)=x^{1/2} Y^{3/2} N_f(Y/x)+O(x^{1+eps} Y y^{-1/4}).
+
+Consequently, for fixed eta>0, V_f(x,y)=(2/3) C_f x^{1/2} Y^{3/2} (1+O(x^{-c(eta)})) uniformly for x^{theta_d+eta}<=Y<=x^{1-eta}, with theta_1=2/3, theta_d=7/9 for d>=2, and c(eta)>0. For Y~rx with fixed r in (0,1], V_f(x,y)~N_f(r) x^{1/2} Y^{3/2}, where N_f(r)->(2/3)C_f as r->0.
+
+## Numerics check
+
+Yes, to the limit of a hand calculation.
+
+Exponents: results.json gives alpha+beta=1.9998+-0.0007 at fixed ratio, matching 1/2+3/2=2. The fitted beta about 1.54 is the drift of N(r) over r in [0.01,1], as N_f(r) predicts.
+
+Sharp test at r near 1, using N_f(1)=c+B[(gamma-3/2)S(1)+S'(1)] with S(s)=prod_p(1+w(p)[pi_0 p^{-2s}+pi_1 p^{-s}+pi_2]) and c=6/pi^2:
+- k^2+1: predicted 0.17106; data 0.17117 (x=1e7, r=0.9998), drifting down.
+- 2k+1: predicted 0.18368; data 0.1837 (x=5e6).
+- k^3+2: predicted about 0.1661; data 0.1680, still drifting down (0.1696, 0.1685, 0.1680), y<=215, so unresolved.
+
+r=1/2 for k^2+1: predicted 0.16435; data 0.16454.
+
+r->0 limit, (2/3)C_f: k^2+1 predicted 0.1382, extrapolated 0.135+-0.011 (dense median 0.141). 2k+1 predicted 0.1427, dense median 0.146. Both lie within the stated numerical uncertainty. The N(0.01) values of about 0.1415 are consistent with a positive correction of relative size O(r^{1/6}).
+
+The predicted constants differ by polynomial (0.138 versus 0.143), which the numerics cannot yet resolve. No disagreement was found.
+
+## P1: Arithmetic identities and elementary facts about f
+
+Depends on: none  
+Cites: none
+
+Notation: for real D>=1 or D=infinity, S_D(n)=sum_{d<=D, d^2|n} mu(d) (so S_infinity=mu^2) and g_D(q,l)=sum_{d<=D, (d^2,q)|l} mu(d)/[d^2,q]. B=prod_p(1-2/p^2); w(e)=mu^2(e) prod_{p|e} 1/(p^2-2); m_e(q)=e^2/(e^2,q). For q,r integers, q>=1. Claims, with absolute implied constants unless stated:
+(a) g_infinity(q,l)=g(q,l) of problem.md, and lim_{x->infinity} x^{-1} sum_{n<=x, n==l (q)} S_D(n)=g_D(q,l) for finite D.
+(b) sum_{l mod q} g_D(q,l)^2=q^{-1} sum_{d1,d2<=D} mu(d1)mu(d2) (q,(d1,d2)^2)/(d1 d2)^2 for D finite or infinite.
+(c) With a_D(g)=sum_{d1,d2<=D, (d1,d2)=g} mu(d1)mu(d2)/[d1^2,d2^2] and a=a_infinity: a(g)=B w(g) for all g>=1. Hence A(r):=sum_{g^2|r} a(g)=B sum_{e^2|r} w(e) for r>=1 is the density of n with n,n+r both squarefree, and sum_{e>=1} B w(e)=6/pi^2. Moreover |a_D(g)-a(g)|<=C/(g D) for 1<=g<=D, and a_D(g)=0 for g>D.
+(d) Fejér identity: for real h>0 and integer m>=1, sum_{i in Z} max(h-|i|,0) 1_{m|i}=h^2/m+m phi(h/m), where phi(u)={u}(1-{u}).
+(e) With f as in problem.md, Y=f(y), y>=1, and constants depending on f: sum_{k<=y} f'(k)<=C Y; sum_{k<=y} f'(k)/f(k)<=C log(2y); sum_{k<=y} f'(k) f(k)^s<=C_s Y^{1+s} for s>=0; f'(k)<=C k^{d-1}; Y>=c y^d. For integer r!=0, #{k>=1: f(k)|r}<=tau(r), since f is strictly increasing on [1,infinity).
+
+## P2: Variance of the truncated sieve weight against the model (CRUX)
+
+Depends on: P1  
+Cites: none
+
+Let x>=2, 1<=D<=x^{1/2}, 1<=q<=x integers q. S_D, g_D as in P1, i.e. S_D(n)=sum_{d<=D, d^2|n} mu(d), g_D(q,l)=sum_{d<=D,(d^2,q)|l} mu(d)/[d^2,q]. Put E_D(x;q,l)=sum_{n<=x, n==l (q)} S_D(n)-g_D(q,l)x and
+M(q)=M(q;x)=q B sum_{e>=1} w(e) m_e(q) phi(x/(q m_e(q))), with B,w,m_e,phi as in P1. Then for every eps>0,
+sum_{l mod q} E_D(x;q,l)^2=M(q)+O_eps( x^{eps}(1+x/q) D^2+x^{1+eps}/D ),
+uniformly in q,D,x; the constant depends only on eps. The series for M(q) converges absolutely. Mechanism to be verified: the terms of size x^2/q cancel exactly via P1(b),(d). The tail from replacing a_D by a costs q sum_g |a_D(g)-a(g)| min(g^2,x/q) <<x^{1+eps}/D, and the first-moment term sum_l g_D Q_D differs from x sum_l g_D^2 by O(D x^{eps}/q).
+
+*Risk:* The exact cancellation of the x^2/q main terms must be tracked for all q, including non-squarefree q, where (d^2,q) varies. A bookkeeping slip in m_e or in the (q,(d1,d2)^2) factor would change the Euler factors at p^2|q. Numerics at r=1, 1/2 support the stated form.
+
+## P3: Untruncated comparison via uniform Mirsky
+
+Depends on: P1  
+Cites: none
+
+Let x>=2 and 1<=q<=x be an integer, W(q)=sum_{l mod q} E(x;q,l)^2 with E as in problem.md, and M(q) as in P2, i.e. M(q)=q B sum_e w(e) m_e(q) phi(x/(q m_e(q))) with B=prod_p(1-2/p^2), w(e)=mu^2(e) prod_{p|e} 1/(p^2-2), m_e(q)=e^2/(e^2,q), phi(u)={u}(1-{u}). Then for every eps>0,
+W(q)=M(q)+O_eps(x^{5/3+eps}/q+x^{1/2}).
+Ingredients to be proved here:
+(1) for integer 1<=r<x, sum_{n<=x-r} mu^2(n)mu^2(n+r)=A(r)(x-r)+O_eps(x^{2/3+eps}), uniformly in r, with A(r) as in P1(c);
+(2) sum_{n<=x} mu^2(n)=6x/pi^2+O(x^{1/2});
+(3) sum_{l mod q} g(q,l) E(x;q,l)<<_eps x^{1/2+eps}/q.
+Consequently, with f as in problem.md, Y=f(y)<=x and M_f(x,y)=sum_{k<=y} f'(k) M(f(k)): V_f(x,y)=M_f(x,y)+O_{f,eps}(x^{5/3+eps}) for all y>=1 with f(y)<=x.
+
+## P4: Tail of the sieve in sparse moduli (CRUX)
+
+Depends on: P1  
+Cites: none
+
+Let f be as in problem.md, degree d, x>=2, y>=1, Y=f(y)<=x, 1<=D<=x^{1/2}. With S_D,g_D as in P1 and E_D as in P2, set R_D(x;q,l)=E(x;q,l)-E_D(x;q,l)=sum_{n<=x, n==l (q)} (mu^2(n)-S_D(n))-x(g(q,l)-g_D(q,l)). Then for every eps>0,
+sum_{k<=y} f'(k) sum_{l mod f(k)} R_D(x;f(k),l)^2<<_{f,eps} x^{eps}( x Y/D+y^{d-1} x^2/D^2 ).
+Method to be used: (mu^2-S_D)(n)=sum_{d>D, d^2|n} mu(d), bounded in absolute value by the sum over dyadic D_j=2^j D<=x^{1/2} of a_j(n)=#{d in (D_j,2D_j]: d^2|n}. The form b -> sum_k f'(k) sum_l (sum_{n==l} b(n))^2 is a squared seminorm, so the triangle inequality applies over j. The diagonal n1=n2 gives x Y/D_j times x^eps. The off-diagonal n1!=n2 uses #{k: f(k)|n1-n2}<=tau(n1-n2) and f'(k)<<y^{d-1}. The mean term satisfies sum_l (g-g_D)(q,l)^2<<_eps q^{-1+eps} D^{-2}, giving x^{2+eps}/D^2 after summing with P1(e).
+
+*Risk:* This is the only place the sparsity of the moduli is used for d>=2, and for d>=2 it loses the factor y^{d-1}, which is why the range stays at 7/9. Removing that factor needs a real input. A sup bound for K(alpha) via Weyl fails naively because K is about Y t^{1/2} near a/t with t powerful. For d=1 the statement should be routine; the prover must take care that a_j(n)<=tau(n) and that n1-n2 is nonzero with |n1-n2|<=x.
+
+## P5: Bound for the model and combination with free truncation
+
+Depends on: P1, P2, P4, P7  
+Cites: none
+
+Let f be as in problem.md, degree d, x>=2, y>=1, Y=f(y)<=x, 1<=D<=x^{1/2}, and M_f(x,y)=sum_{k<=y} f'(k) M(f(k)) with M(q) as in P2. Assume 0<=M_f(x,y)<<_f x^{1/2}Y^{3/2} (supplied by P7). Put T=x^{eps}(x Y/D+y^{d-1} x^2/D^2). Then for every eps>0,
+V_f(x,y)=M_f(x,y)+O_{f,eps}( x^{1+eps}(D^2+Y/D)+T+(x^{1/2}Y^{3/2} T)^{1/2} ).
+Proof shape: E=E_D+R_D, expand the square, apply P2 summed with weights via P1(e), P4 for R_D, and Cauchy-Schwarz for the cross term.
+
+## P6: A sum of phi over squares
+
+Depends on: none  
+Cites: none
+
+For real z>0, with phi(u)={u}(1-{u}),
+| sum_{l>=1} phi(z/l^2)-(zeta(3/2)/pi) z^{1/2} |<=C z^{1/3}, C absolute.
+This includes the evaluation int_0^infty phi(u) u^{-3/2} du=2 zeta(3/2)/pi=-8 zeta(-1/2), and the elementary bounds 0<=phi(u)<=min(u,1/4). Suggested proof: for z>=1 split at l=z^{1/3}, bound trivially below, and compare sum to integral via total variation (<<z/L^2) above. For z<1 use sum_l phi(z/l^2)<=zeta(2) z<<z^{1/3}, noting that the main term is also <<z^{1/3}.
+
+## P7: Evaluation of the model for a single modulus
+
+Depends on: P1, P6  
+Cites: none
+
+Let q>=1 be an integer and z>0. Put G(q,z)=sum_{e>=1} w(e) m_e(q) phi(z/m_e(q)), with w,m_e,phi as in P1, and
+L(q)=prod_{p not dividing q}(1-3/p^2+2/p^3) prod_{p||q}(1-1/p)(1-2/p^2+p^{-3/2}) prod_{p^2|q}(1-1/p)(1-1/p^2).
+Then for every eps>0:
+(a) G(q,z)=(zeta(3/2)/pi) (L(q)/B) z^{1/2}+O_eps(q^{eps} z^{1/3}), uniformly in q,z, where B=prod_p(1-2/p^2);
+(b) 0<=G(q,z)<=C z^{1/2} with C absolute.
+Consequently, with M(q)=q B G(q,x/q) as in P2 and q<=x: 0<=M(q)<<(q x)^{1/2}, and for f as in problem.md, Y=f(y)<=x: 0<=M_f(x,y)=sum_{k<=y} f'(k) M(f(k))<<_f x^{1/2}Y^{3/2}.
+Method: write e=abc with (a,q)=1, b|prod_{p||q} p, c|prod_{p^2|q} p, so m_e=a^2 b. Write mu^2(a) v(a) 1_{(a,q)=1}=(1*eta)(a) with v(a)=a^2 w(a) and sum_n |eta(n)| n^{-2/3}<<_eps q^{eps}. Apply P6 to each inner l-sum. For (b) use m phi(z/m)<=min(m/4,z) and m_e<=e^2.
+
+## P8: Average of L over polynomial values
+
+Depends on: P7  
+Cites: none
+
+Let f be as in problem.md, degree d, y>=1, Y=f(y), L(q) as in P7. Define delta(m)=lim_{Z->infinity} #{k<=Z: m|f(k)}/Z; this exists, is multiplicative in m, and equals rho(m)/m if m is coprime to the denominator of f. Let delta_1=delta(p), delta_2=delta(p^2) and
+ell_p=(1-delta_1)(1-3/p^2+2/p^3)+(delta_1-delta_2)(1-1/p)(1-2/p^2+p^{-3/2})+delta_2(1-1/p)(1-1/p^2).
+Then ell_p=1+O_f(p^{-2}) (using delta_2<=delta_1<<_f 1/p), and for every eps>0,
+sum_{k<=y} f'(k) f(k)^{1/2} L(f(k))=(2/3) (prod_p ell_p) Y^{3/2}+O_{f,eps}(Y^{3/2+eps} y^{-1/2}).
+Method: L(q)=L(1) sum_{t|q} beta(t), beta multiplicative, supported on cube-free t, |beta(p)|<<1/p, |beta(p^2)|<<p^{-3/2}, so sum_{t|q} |beta(t)| t^{1/2}<<_eps q^{eps}. Truncate at t<=y; for t<=y count k in residue classes modulo t times the denominator of f, with ρ-type bound rho(p^2)<<_f p. This holds even if f has a repeated factor, so f is not assumed squarefree. Finish by partial summation.
+
+## P9: Asymptotic of the model as Y/x->0
+
+Depends on: P1, P7, P8  
+Cites: none
+
+Let f be as in problem.md, x>=2, y>=1, Y=f(y)<=x, M_f(x,y)=sum_{k<=y} f'(k) f(k) B G(f(k),x/f(k)) with G as in P7, and C_f=(zeta(3/2)/pi) prod_p ell_p with ell_p as in P8. Then for every eps>0,
+M_f(x,y)=(2/3) C_f x^{1/2} Y^{3/2}+O_{f,eps}( x^{1/3+eps} Y^{5/3}+x^{1/2} Y^{3/2+eps} y^{-1/2} ).
+
+## P10: The model at fixed ratio Y/x
+
+Depends on: P1, P8  
+Cites: none
+
+Let f be as in problem.md, degree d, x>=2, y>=1, Y=f(y)<=x, r=Y/x, and M_f as in P9. Let delta_1,delta_2 be as in P8, Psi(u)=int_u^infty phi(t) t^{-3} dt (so Psi(u)<<min(1/u,u^{-2})), and
+N_f(r)=r^{-3/2} B sum_{a,b,c} w(abc) pi(a,b,c) (a^2 b)^{-1} Psi(1/(r a^2 b)),
+sum over pairwise coprime squarefree a,b,c>=1, pi(a,b,c)=prod_{p|a}(1-delta_1(p)) prod_{p|b}(delta_1(p)-delta_2(p)) prod_{p|c} delta_2(p), with B,w as in P1. The series converges absolutely. For every eps>0,
+M_f(x,y)=x^{1/2} Y^{3/2} N_f(r)+O_{f,eps}( x^{1+eps} Y y^{-1/4} ).
+Method: truncate at e<=E=y^{1/4}, the tail being <<x Y/E. For e<=E, split k into residue classes modulo e^2 times the denominator of f, on which (e^2,f(k)) is constant. Compare each class sum with (class density) times int F, with F(t)=f'(t) f(t) phi(x/(f(t) m)), using the total variation bound TV(F)<<y^{d-1} x log(2x). Then substitute u=f(t) and x/(u m), using int_0^Y u phi(x/(u m)) du=(x/m)^2 Psi(x/(m Y)).
+
+## P11: Assembly
+
+Depends on: P3, P5, P7, P9, P10  
+Cites: none
+
+With notation of the main theorem: (i) follows from P3. (ii) If d=1, take D=max(x^{1/12}Y^{1/4},x^{-1/10}Y^{1/2}), which satisfies 1<=D<=x^{1/2}, in P5. This gives error O(x^{eps}(x^{7/6}Y^{1/2}+x^{4/5}Y)); the two regimes meet at Y=x^{11/15}. (iii) is P9 and (iv) is P10. For the corollary: for fixed eta>0 and x^{theta_d+eta}<=Y<=x^{1-eta}, with theta_1=2/3, theta_d=7/9 for d>=2, every error term in (i)-(iii) is O(x^{1/2}Y^{3/2-c}) for some c=c(eta,d)>0 once eps is small enough, using y>>Y^{1/d}. For d=1 note that (ii) beats x^{1/2}Y^{3/2} exactly when Y>x^{2/3} (first term) and Y>x^{3/5} (second term). For d>=2, (i) beats it exactly when Y>x^{7/9}. For fixed r in (0,1] and Y~rx, (i) and (iv) give V_f~N_f(r) x^{1/2}Y^{3/2}, since the errors x^{5/3+eps} and x^{1+eps}Y y^{-1/4} are both o(x^2). Also N_f(r)->(2/3)C_f as r->0 follows by comparing (iii) and (iv) along suitable Y. Here M_f>>x^{1/2}Y^{3/2} in the stated ranges follows from C_f>0, which holds because each ell_p>0.
