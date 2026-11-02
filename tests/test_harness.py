@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -221,6 +222,63 @@ class HarnessTest(unittest.TestCase):
         self.assertIn('timed out', row['failure'])
         self.assertTrue((wd / 'child-started').exists())
         self.assertTrue((wd / 'child-terminated').exists(), 'descendant did not receive group termination')
+
+    def test_structured_output_tool_needs_a_schema(self):
+        o = self.load_driver()
+        event = json.dumps({'type': 'assistant', 'message': {'content': [
+            {'type': 'tool_use', 'name': 'StructuredOutput', 'input': {}}]}})
+        caps = o.role_capabilities('referee')
+        self.assertEqual(o.capability_violations(event, 'claude', caps, 'verdict'), [])
+        self.assertTrue(o.capability_violations(event, 'claude', caps))
+
+    def test_interrupt_stops_agents_and_queued_work(self):
+        pids = self.root / 'agent-pids'
+        stub = self.root / 'slow.sh'
+        stub.write_text('#!/bin/sh\n[ "$1" = --version ] && { echo stub; exit 0; }\n'
+                        f'echo $$ >> {pids}\nexec sleep 60\n')
+        stub.chmod(0o755)
+        env = dict(self.env, CLAUDE_BIN=str(stub), CODEX_BIN=str(stub))
+        driver = subprocess.Popen([sys.executable, str(self.root / 'orchestrate.py'), 'probe'], cwd=self.root,
+                                  env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        self.addCleanup(driver.kill)
+        deadline = time.time() + 15
+        while time.time() < deadline and not (pids.exists() and len(pids.read_text().split()) == 2):
+            time.sleep(0.05)
+        started = [int(pid) for pid in pids.read_text().split()]
+        self.assertEqual(len(started), 2, 'expected the two parallel agents, with the third queued')
+        driver.send_signal(signal.SIGINT)
+        self.assertEqual(driver.wait(timeout=15), 130)
+        for pid in started:
+            with self.assertRaises(ProcessLookupError):
+                os.kill(pid, 0)
+        self.assertEqual(len(pids.read_text().split()), 2, 'queued agent started after the interrupt')
+        rows = [json.loads(line) for line in (self.root / 'logs/costs.jsonl').read_text().splitlines()]
+        self.assertEqual([row['failure'] for row in rows], ['interrupted', 'interrupted'])
+
+    def test_failed_round_restarts_with_same_number_and_model(self):
+        self.ready()
+        real = self.env['CLAUDE_BIN']
+        broken = self.root / 'broken.sh'
+        broken.write_text('#!/bin/sh\n[ "$1" = --version ] && { echo stub; exit 0; }\nexit 1\n')
+        broken.chmod(0o755)
+        self.env['CLAUDE_BIN'] = str(broken)
+        self.run_step('prove', 'P1', success=False)
+        self.assertEqual(json.loads((self.root / 'props/P1/status.json').read_text())['round'], 0)
+        self.env['CLAUDE_BIN'] = real
+        self.run_step('prove', 'P1')
+        self.assertEqual(json.loads((self.root / 'props/P1/status.json').read_text())['round'], 2)
+        self.assertEqual(sorted(p.name for p in (self.root / 'props/P1').glob('proof-v*.md')),
+                         ['proof-v1.md', 'proof-v2.md'])
+
+    def test_os_metadata_does_not_invalidate_approvals(self):
+        self.ready()
+        self.finish_two_props()
+        (self.root / 'papers/.DS_Store').write_bytes(b'finder')
+        self.assertRegex(self.run_step('status').stdout, r'P1\s+passed')
+        o = self.load_driver()
+        self.assertFalse((o.sandbox('metadata', {'papers': self.root / 'papers'}) / 'papers/.DS_Store').exists())
+        (self.root / 'papers/note.txt').write_text('real corpus change')
+        self.assertRegex(self.run_step('status').stdout, r'P1\s+open')
 
     def test_global_concurrency(self):
         o = self.load_driver()

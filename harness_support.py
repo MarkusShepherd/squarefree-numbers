@@ -5,6 +5,9 @@ import json
 import re
 from pathlib import Path
 
+# Written by the OS when a folder is browsed: neither corpus content nor agent input.
+OS_METADATA = ('.DS_Store',)
+
 
 def strict_schema(schema):
     """Require every field for both providers; use empty optional values, not omissions."""
@@ -62,7 +65,8 @@ def digest(path):
         return None
     if path.is_file():
         return hashlib.sha256(path.read_bytes()).hexdigest()
-    return hash_json({str(p.relative_to(path)): digest(p) for p in sorted(path.rglob('*')) if p.is_file() or p.is_symlink()})
+    return hash_json({str(p.relative_to(path)): digest(p) for p in sorted(path.rglob('*'))
+                      if (p.is_file() or p.is_symlink()) and p.name not in OS_METADATA})
 
 
 def hash_json(value):

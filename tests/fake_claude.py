@@ -45,6 +45,10 @@ def finish(structured=None):
     out = {"type": "result", "subtype": "success", "result": "ok", "total_cost_usd": 0.0}
     if structured is not None:
         out["structured_output"] = fill(structured, json.loads(args[args.index("--json-schema") + 1]))
+        # Real Claude Code delivers schema output as a tool call.
+        emit({"type": "assistant", "message": {"content": [
+            {"type": "tool_use", "id": "structured", "name": "StructuredOutput",
+             "input": out["structured_output"]}]}})
     emit(out)
 
 

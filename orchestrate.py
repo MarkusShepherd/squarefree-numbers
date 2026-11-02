@@ -38,7 +38,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
-from harness_support import strict_schema, validate, validate_verdict, digest, hash_json, input_hashes, artifact_files, verify_inputs, validate_artifact_tree, read_text_nofollow
+from harness_support import OS_METADATA, strict_schema, validate, validate_verdict, digest, hash_json, input_hashes, artifact_files, verify_inputs, validate_artifact_tree, read_text_nofollow
 
 ROOT = Path(__file__).resolve().parent
 CFG = json.loads((ROOT / "config.json").read_text())
@@ -48,6 +48,7 @@ CODEX = os.environ.get("CODEX_BIN", "codex")
 CODEX_CFG = CFG.get("codex", {})
 RUNS = Path(os.environ.get("RUNS_DIR") or CFG["runs_dir"]).expanduser().resolve()
 AGENT_SLOTS = threading.BoundedSemaphore(CFG["parallel"])
+STOPPING = threading.Event()
 VERSION_LOCK = threading.Lock()
 VERSIONS = {}
 
@@ -71,7 +72,7 @@ def sandbox(name, files):
         if src.is_symlink() or src.is_dir() and any(p.is_symlink() for p in src.rglob("*")):
             raise ValueError(f"symlink input is not supported: {src}")
         if src.is_dir():
-            shutil.copytree(src, target)
+            shutil.copytree(src, target, ignore=shutil.ignore_patterns(*OS_METADATA))
         elif src.exists():
             shutil.copy(src, target)
     return d
@@ -146,8 +147,10 @@ def claude_tools(caps):
     return tools
 
 
-def capability_violations(stream, kind, caps):
+def capability_violations(stream, kind, caps, schema=None):
     violations = []
+    # Claude Code returns --json-schema output through this tool.
+    allowed = claude_tools(caps) + (["StructuredOutput"] if schema else [])
     for line in stream.splitlines():
         try:
             event = json.loads(line)
@@ -166,7 +169,7 @@ def capability_violations(stream, kind, caps):
                 violations.append(f"tool {t} in memory-only probe")
         else:
             for block in _blocks(event):
-                if block.get("type") == "tool_use" and block.get("name") not in claude_tools(caps):
+                if block.get("type") == "tool_use" and block.get("name") not in allowed:
                     violations.append(f"unexpected tool {block.get('name')}")
     return sorted(set(violations))
 
@@ -193,9 +196,25 @@ def source_snapshot():
     return {n: (ROOT / n).read_text() for n in names if (ROOT / n).is_file()}
 
 
+def stop_process_group(p):
+    # TERM lets the container runner remove its container, then kill leftovers.
+    for sig in (signal.SIGTERM, signal.SIGKILL):
+        try:
+            os.killpg(p.pid, sig)
+        except ProcessLookupError:
+            pass
+        try:
+            p.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            pass
+    p.wait()
+
+
 def run_agent(role, workdir, model, effort, task="", schema=None, rules=True):
     # A single global limit includes nested referee workers.
     with AGENT_SLOTS:
+        if STOPPING.is_set():
+            raise RuntimeError(f"{role} in {workdir.name} not started: interrupted")
         return _run_agent(role, workdir, model, effort, task, schema, rules)
 
 
@@ -252,23 +271,18 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
         with open(record / "_stream.jsonl", "w") as stdout, open(record / "_stderr.txt", "w") as stderr:
             p = subprocess.Popen(cmd, cwd=workdir, env=env, stdin=subprocess.DEVNULL,
                                  stdout=stdout, stderr=stderr, text=True, start_new_session=True)
-            try:
-                p.wait(timeout=CFG["timeout_s"])
-                if p.returncode != 0:
-                    failure = f"exited {p.returncode}"
-            except subprocess.TimeoutExpired:
-                # TERM lets the container runner remove its container, then kill leftovers.
-                os.killpg(p.pid, signal.SIGTERM)
+            # Agents have their own session, so a terminal Ctrl-C reaches them only via STOPPING.
+            deadline = time.monotonic() + CFG["timeout_s"]
+            while p.poll() is None and not STOPPING.is_set() and time.monotonic() < deadline:
                 try:
-                    p.wait(timeout=5)
+                    p.wait(timeout=0.2)
                 except subprocess.TimeoutExpired:
                     pass
-                try:
-                    os.killpg(p.pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-                p.wait()
-                failure = f"timed out after {CFG['timeout_s']}s"
+            if p.poll() is None:
+                failure = "interrupted" if STOPPING.is_set() else f"timed out after {CFG['timeout_s']}s"
+                stop_process_group(p)
+            elif p.returncode != 0:
+                failure = f"exited {p.returncode}"
         stream = (record / "_stream.jsonl").read_text()
         validate_artifact_tree(workdir)
         validate_artifact_tree(record / "outputs", missing_ok=True)
@@ -278,7 +292,7 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
         if not failure and (out is None or out.get("is_error") or out.get("subtype", "success") != "success"):
             failure = "gave no usable successful result"
         if not failure:
-            violations = capability_violations(stream, kind, caps)
+            violations = capability_violations(stream, kind, caps, schema)
             if violations:
                 raise ValueError("capability violation: " + "; ".join(violations))
         if not failure and schema:
@@ -1122,7 +1136,10 @@ def prove_one(pid, override=None):
     objections_file = pdir / "objections.md"
 
     for rnd in range(st["round"] + 1, st["round"] + 1 + CFG["max_rounds"]):
-        set_status(pid, state="open", round=rnd)
+        # `round` advances only when a round completes; an interrupted one restarts.
+        set_status(pid, state="open")
+        for stale in [pdir / f"proof-v{rnd}.md", *pdir.glob(f"review-v{rnd}-*.json")]:
+            stale.unlink(missing_ok=True)
         contract = contract_hash(pid)
         # ---- prover ----
         files = common_inputs() | dep_statements(pid) | {"statement.md": pdir / "statement.md"}
@@ -1139,6 +1156,7 @@ def prove_one(pid, override=None):
         run_agent("prover", wd, model, CFG["effort"]["prover"])
         if not (wd / "proof.md").exists():
             log(f"{pid} round {rnd}: prover wrote no proof.md")
+            set_status(pid, round=rnd)
             continue
         proof = pdir / f"proof-v{rnd}.md"
         shutil.copy(wd / "proof.md", proof)
@@ -1333,6 +1351,17 @@ def cmd_status(_):
             print(f"{len(cx)} of them Codex: {tok:,} output tokens (Codex reports no USD cost)")
 
 
+def install_stop_handlers():
+    """First signal stops every agent; a second one interrupts the driver itself."""
+    def stop(signum, frame):
+        STOPPING.set()
+        signal.signal(signal.SIGINT, signal.default_int_handler)
+        signal.signal(signal.SIGTERM, signal.SIG_DFL)
+        os.write(2, b"stopping agents; signal again to abort the driver\n")
+    signal.signal(signal.SIGINT, stop)
+    signal.signal(signal.SIGTERM, stop)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1351,13 +1380,14 @@ def main():
     try:
         for d in ("logs", "plans", "papers"):
             (ROOT / d).mkdir(exist_ok=True)
+        install_stop_handlers()
         if args.cmd in ("probe", "literature", "plan", "prove", "pollinate", "integrate") or args.cmd == "numerics" and not args.accept:
             if CFG.get("isolation", {}).get("mode", "host") == "host":
                 check_agent_venv()
         check_runs_dir()
         args.fn(args)
     except (OSError, RuntimeError, ValueError) as e:
-        ap.exit(1, f"error: {e}\n")
+        ap.exit(130 if STOPPING.is_set() else 1, f"error: {e}\n")
 
 
 if __name__ == "__main__":
