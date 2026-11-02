@@ -3,8 +3,8 @@ ROLE: probe
 Answer from memory only; you have no tools.
 
 Let $E(x;q,l)$ be the error term in counting squarefree $n \le x$ with
-$n \equiv l \pmod q$, and let $f$ be an integer-valued polynomial. Consider the
-"sparse" variance
+$n \equiv l \pmod q$, and let $f$ be a polynomial with integer coefficients.
+Consider the "sparse" variance
 
 $$
 V_f(x,y) = \sum_{k \le y} f'(k) \sum_{l=1}^{f(k)} E(x; f(k), l)^2 ,
