@@ -145,6 +145,11 @@ the post.
   use Python for long context windows.
 - **Numerics:** preserve supporting code as well as compute.py. The Docker
   image includes Python, a C compiler, Poppler and ripgrep.
+- **Reading PDFs:** Poppler's `pdfinfo`, `pdftotext` and `pdftoppm` should
+  be available to you. Use text extraction and visual page inspection as
+  needed, or a different tool if it works better for you. If Poppler is
+  unavailable, flag this to the user for installation. Harness agents receive
+  the corresponding guidance through `prompts/_rules.md`.
 - **Usage:** the operator shares its provider subscription with agent runs;
   don't read whole transcripts when a grep will do
   (they reach several MB).

@@ -80,8 +80,12 @@ locally. Read `papers/INDEX.md` for the actual approved corpus. Literature is
 limited to **2010 or earlier, plus the explicitly supplied papers in papers/**.
 The former 2019 arXiv background paper is excluded. Post-cutoff and pre-cutoff
 experiments are separate: archive the earlier run and restart all agent stages.
-Supply text extractions alongside PDFs when useful; the Docker image includes
-`pdftotext` so both providers can inspect the same corpus.
+Poppler (`pdfinfo`, `pdftotext`, `pdftoppm`) should be available to agents;
+the Docker image includes it. For macOS host runs, install it with
+`brew install poppler`. Shared agent rules describe text extraction and visual
+page inspection, allow other tools when they work better, and ask agents to
+flag missing Poppler tools to the user for installation. Supply text
+extractions alongside PDFs when useful.
 
 Before spending subscription usage, run:
 

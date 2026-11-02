@@ -25,3 +25,10 @@
 5. **Python.** If you can run commands, `python3` has numpy, scipy, mpmath
    and sympy installed, besides the standard library; use them as you like.
    Installing anything else is not possible in your sandbox, so don't try.
+6. **Reading PDFs.** Poppler's `pdfinfo`, `pdftotext` and `pdftoppm` should
+   be available to you. Use `pdftotext -layout` to extract text and, when
+   supported, render relevant pages with `pdftoppm` to check equations,
+   tables or unclear extraction visually. You are free to use a different
+   tool if it works better for you. If Poppler is unavailable, flag this to
+   the user for installation; do not try to install it in your sandbox.
+   Keep any extracted text or rendered pages within your current directory.
