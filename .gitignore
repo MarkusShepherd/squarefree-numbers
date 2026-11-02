@@ -128,8 +128,9 @@ sitepackages/
 # Hugo
 .hugo_build.lock
 
-# Papers
-papers/
+# Papers (PDFs stay local; the index is tracked)
+papers/*
+!papers/INDEX.md
 
 # Agent sandboxes live outside the repo (runs_dir); runs is a symlink to them
 /runs
