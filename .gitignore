@@ -144,6 +144,10 @@ papers/*
 /report/
 /plan.json
 
+# Archives and write-ups are committed whole, including their logs
+!/archive/**/*.log
+!/writeups/**/*.log
+
 # Claude
 .claude/
 
