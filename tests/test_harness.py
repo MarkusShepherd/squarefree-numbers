@@ -172,6 +172,18 @@ class HarnessTest(unittest.TestCase):
         self.run_step('writeup', 'test')
         self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'passed')
 
+    def test_writeup_tolerates_invisible_overfull_boxes_and_drops_aux_files(self):
+        self.ready_writeup()
+        self.env['WRITEUP_OVERFULL'] = '3.5'
+        self.run_step('writeup', 'test', success=False)
+        dest = self.root / 'writeups/test'
+        self.assertIn('overfull', (dest / 'round-1/build-feedback.txt').read_text())
+        self.env['WRITEUP_OVERFULL'] = '0.4'
+        self.run_step('writeup', 'test')
+        self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'passed')
+        self.assertFalse(list(dest.rglob('*.aux')))
+        self.assertTrue(list(dest.rglob('main.pdf')))
+
     def test_writeup_retains_completed_review_after_provider_failure(self):
         self.ready_writeup()
         self.env['WRITEUP_FAIL_REVIEW'] = 'codex'

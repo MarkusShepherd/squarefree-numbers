@@ -14,6 +14,11 @@ from harness_support import (digest, hash_json, input_hashes, validate_artifact_
                              validate_verdict, verify_inputs, OS_METADATA)
 
 
+OVERFULL_PT = 1.0
+BUILD_FILES = ('.aux', '.toc', '.lof', '.lot', '.out', '.fls', '.fdb_latexmk', '.bbl', '.blg',
+               '.bcf', '.run.xml', '.synctex.gz', '.nav', '.snm', '.xdv', '.dvi')
+
+
 def read_json(path):
     return json.loads(path.read_text())
 
@@ -359,8 +364,16 @@ def build_manuscript(driver, wd):
     if not (manuscript / 'main.pdf').is_file() or not (manuscript / 'main.pdf').read_bytes().startswith(b'%PDF-'):
         raise ValueError('latexmk did not create a PDF')
     log = (manuscript / 'main.log').read_text(errors='replace')
-    if re.search(r'(?:LaTeX Warning: (?:There were undefined references|Reference .* undefined|Citation .* undefined)|(?:Package .* Warning:.*(?:[Uu]ndefined|[Cc]itation.*not found))|Overfull \\[hv]box)', log):
-        raise ValueError('LaTeX has unresolved references/citations or overfull boxes; see main.log')
+    if re.search(r'(?:LaTeX Warning: (?:There were undefined references|Reference .* undefined|Citation .* undefined)|(?:Package .* Warning:.*(?:[Uu]ndefined|[Cc]itation.*not found)))', log):
+        raise ValueError('LaTeX has unresolved references/citations; see main.log')
+    # Sub-point overflows are invisible; only a visible overflow needs a revision.
+    overfull = [float(x) for x in re.findall(r'Overfull \\[hv]box \(([0-9.]+)pt too (?:wide|high)\)', log)]
+    if any(x > OVERFULL_PT for x in overfull):
+        raise ValueError(f'LaTeX has boxes overfull by more than {OVERFULL_PT}pt; see main.log')
+    # Remove regenerable build files; the reviewed manuscript keeps sources, PDF and logs.
+    for path in manuscript.rglob('*'):
+        if path.is_file() and path.name.endswith(BUILD_FILES):
+            path.unlink()
     save(manuscript / 'build-inputs.json', {'accepted_snapshot': digest(wd / 'source/numerics/snapshot'),
                                      'artifacts': {n: digest(manuscript / n) for n in artifacts},
                                      'pdf': digest(manuscript / 'main.pdf')})

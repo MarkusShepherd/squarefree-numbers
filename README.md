@@ -366,7 +366,9 @@ without claiming human authorship. Versions missing from the records stay unknow
 The writer produces LaTeX, a source/correction map and `reproduce.py`. The driver
 runs the reproduction code and compiles with `latexmk` and shell escape disabled
 before two independent offline reviewers inspect mathematics, citations,
-numerical reproduction and PDF layout. Both host and Docker modes need TeX;
+numerical reproduction and PDF layout. Unresolved references or citations, or a box
+overfull by more than 1pt, send the draft back to the writer. Auxiliary
+build files are deleted; the sources, PDF and logs are kept. Both host and Docker modes need TeX;
 rebuild the Docker image after the TeX-package change.
 The writer and write-up reviewers have their own time and USD limits in
 `role_limits` in config.json; other roles keep the global limits. The host needs `latexmk`
