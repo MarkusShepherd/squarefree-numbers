@@ -21,6 +21,7 @@ Steps (run in order; you read the output between steps):
     ./orchestrate.py status            table of where everything stands
     ./orchestrate.py check-leaks       scan all transcripts for excluded sources
     ./orchestrate.py archive [label]   copy the finished run into archive/<label>/
+    ./orchestrate.py writeup <label>   write and review an archived run -> writeups/<label>/
 """
 import argparse
 import concurrent.futures as cf
@@ -92,12 +93,14 @@ def build_prompt(role, task="", rules=True):
     prompt = variant_file(f"prompts/{role}.md").read_text()
     if rules:
         prompt += "\n\n" + (ROOT / "prompts" / "_rules.md").read_text()
+        if role in ("writer", "writeup_referee"):
+            prompt += "\n\n" + (ROOT / "prompts" / "_writeup_rules.md").read_text()
     if task:
         prompt += f"\n\n## This run\n\n{task}\n"
     return prompt
 
 
-def build_cmd(prompt, tools, model, schema=None):
+def build_cmd(prompt, tools, model, schema=None, budget=None):
     """The `claude -p` invocation. Restrictions, all tested on Claude Code:
 
     --tools               the agent sees only these built-in tools (--allowedTools
@@ -123,7 +126,7 @@ def build_cmd(prompt, tools, model, schema=None):
         "--settings", json.dumps({"disableAllHooks": True}),   # no user hooks in agents
         "--permission-mode", "dontAsk",
         "--output-format", "stream-json", "--verbose",   # full transcript, for auditing
-        "--max-budget-usd", str(CFG["max_budget_usd"]),
+        "--max-budget-usd", str(budget or CFG["max_budget_usd"]),
     ]
     if schema:
         cmd += ["--json-schema", json.dumps(SCHEMAS[schema])]
@@ -132,6 +135,11 @@ def build_cmd(prompt, tools, model, schema=None):
 
 def role_capabilities(role):
     return CFG["capabilities"][role]
+
+
+def role_limit(role, key):
+    """Per-role override from config "role_limits", else the global limit."""
+    return CFG.get("role_limits", {}).get(role, {}).get(key, CFG[key])
 
 
 def claude_tools(caps):
@@ -187,7 +195,7 @@ def cli_version(binary):
 
 def source_snapshot():
     # Include exact harness sources, not just HEAD (which may have local changes).
-    names = ["orchestrate.py", "harness_support.py", "config.json", "problem.md", "prompts/schemas.json"]
+    names = ["orchestrate.py", "harness_support.py", "writeup_support.py", "config.json", "problem.md", "prompts/schemas.json", "prompts/_writeup_rules.md"]
     names += [f"prompts/{r}.md" for r in CFG["capabilities"]] + ["prompts/_rules.md"]
     names += ["isolation/docker_runner.py", "isolation/Dockerfile",
               "agent-env/pyproject.toml", "agent-env/uv.lock"]
@@ -234,7 +242,7 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
         cmd = build_codex_cmd(prompt, caps, name, effort, agent_dir, schema)
         env = dict(os.environ)
     else:
-        cmd = build_cmd(prompt, claude_tools(caps), name, schema)
+        cmd = build_cmd(prompt, claude_tools(caps), name, schema, role_limit(role, "max_budget_usd"))
         env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
                    ENABLE_CLAUDEAI_MCP_SERVERS="false")
     if mode == "host":
@@ -272,21 +280,22 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
             p = subprocess.Popen(cmd, cwd=workdir, env=env, stdin=subprocess.DEVNULL,
                                  stdout=stdout, stderr=stderr, text=True, start_new_session=True)
             # Agents have their own session, so a terminal Ctrl-C reaches them only via STOPPING.
-            deadline = time.monotonic() + CFG["timeout_s"]
+            timeout = role_limit(role, "timeout_s")
+            deadline = time.monotonic() + timeout
             while p.poll() is None and not STOPPING.is_set() and time.monotonic() < deadline:
                 try:
                     p.wait(timeout=0.2)
                 except subprocess.TimeoutExpired:
                     pass
             if p.poll() is None:
-                failure = "interrupted" if STOPPING.is_set() else f"timed out after {CFG['timeout_s']}s"
+                failure = "interrupted" if STOPPING.is_set() else f"timed out after {timeout}s"
                 stop_process_group(p)
             elif p.returncode != 0:
                 failure = f"exited {p.returncode}"
         stream = (record / "_stream.jsonl").read_text()
         validate_artifact_tree(workdir)
         validate_artifact_tree(record / "outputs", missing_ok=True)
-        if role == "referee":
+        if role in ("referee", "writeup_referee"):
             verify_inputs(workdir, manifest["inputs"])
         out = parse_codex(stream, workdir, schema) if kind == "codex" else parse_stream(stream)
         if not failure and (out is None or out.get("is_error") or out.get("subtype", "success") != "success"):
@@ -300,6 +309,9 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
             validate(value, SCHEMAS[schema])
             if schema == "verdict":
                 validate_verdict(value)
+            elif schema == "writeup_review":
+                from writeup_support import validate_review
+                validate_review(value)
             elif schema == "plan":
                 check_acyclic(value["propositions"])
     except (OSError, ValueError, TypeError, KeyError) as e:
@@ -1352,6 +1364,11 @@ def cmd_archive(args):
             "git add will leave them out")
 
 
+def cmd_writeup(args):
+    import writeup_support
+    writeup_support.writeup(sys.modules[__name__], args)
+
+
 def cmd_status(_):
     invalidate_stale()
     if not (ROOT / "props").exists():
@@ -1398,15 +1415,17 @@ def main():
     s = sub.add_parser("integrate"); s.add_argument("--model"); s.set_defaults(fn=cmd_integrate)
     sub.add_parser("status").set_defaults(fn=cmd_status)
     s = sub.add_parser("archive"); s.add_argument("label", nargs="?"); s.set_defaults(fn=cmd_archive)
+    s = sub.add_parser("writeup"); s.add_argument("label"); s.add_argument("--papers-dir", type=Path); s.add_argument("--brief", type=Path, help="optional briefing supplied to the writer and reviewers"); s.add_argument("--check", action="store_true", help="validate archived approvals and sources without starting agents"); s.set_defaults(fn=cmd_writeup)
     args = ap.parse_args()
     try:
         for d in ("logs", "plans", "papers"):
             (ROOT / d).mkdir(exist_ok=True)
         install_stop_handlers()
-        if args.cmd in ("probe", "literature", "plan", "prove", "pollinate", "integrate") or args.cmd == "numerics" and not args.accept:
+        if args.cmd in ("probe", "literature", "plan", "prove", "pollinate", "integrate") or args.cmd == "numerics" and not args.accept or args.cmd == "writeup" and not args.check:
             if CFG.get("isolation", {}).get("mode", "host") == "host":
                 check_agent_venv()
-        check_runs_dir()
+        if args.cmd != "writeup" or not args.check:
+            check_runs_dir()
         args.fn(args)
     except (OSError, RuntimeError, ValueError) as e:
         ap.exit(130 if STOPPING.is_set() else 1, f"error: {e}\n")

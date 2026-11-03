@@ -83,5 +83,49 @@
       "summary": {"type": "string"}
     },
     "required": ["diagnosis", "needs_replan", "summary"]
+  },
+  "writeup_review": {
+    "type": "object",
+    "properties": {
+      "verdict": {
+        "enum": [
+          "pass",
+          "revise",
+          "source-gap"
+        ]
+      },
+      "summary": {
+        "type": "string"
+      },
+      "issues": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "statement_checks": {
+        "type": "string"
+      },
+      "dependency_checks": {
+        "type": "string"
+      },
+      "numerics_checks": {
+        "type": "string"
+      },
+      "citation_checks": {
+        "type": "string"
+      },
+      "provenance_checks": {
+        "type": "string"
+      },
+      "layout_checks": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "verdict",
+      "summary",
+      "issues"
+    ]
   }
 }

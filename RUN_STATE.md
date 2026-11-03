@@ -42,3 +42,72 @@ acceptance. No agent-visible mathematical files were changed and no new agent
 stage was invoked. The leak scan remains at 21 hits with the previously logged
 tool-path/compliance-note contexts. Await Markus's judgment; do not archive or
 change mathematical statements on the basis of this audit alone.
+
+## Write-up decisions (3 Nov 2026)
+
+- Markus chose a harness writer agent for the archived-run write-up.
+- All write-up work belongs in a dedicated worktree inside this repository,
+  never the main checkout. Current worktree: `.worktrees/writeup`, branch
+  `writeup/policy`. The main checkout's tracked files have been restored.
+- The write-up belongs in this repository. Previous write-ups are excluded
+  from later independent runs; this is now explicit in AGENTS.md and
+  prompts/_rules.md. A write-up task may access its designated archive and
+  manuscript only, not manuscripts from other runs.
+- Scope: present the proof work recorded in the archive; no new literature
+  search. Existing wishlist entries and references cited by available works
+  are allowed, subject to the 2010 cutoff plus Brüdern–Wooley 2011.
+  papers/ records available PDFs, not an exhaustive permitted bibliography.
+- Include provenance for open science and reproducibility: the models used,
+  their recorded versions, and a repository link identifying the source commit.
+  This is a provenance account, not a separate AI authorship disclosure.
+  Do not claim human authorship. Do not invent model version details absent
+  from the records.
+- These are write-up policy changes, not a new agent stage or a modification
+  of the accepted mathematical artifacts.
+- Validation: tests/dry_run.sh passed all 37 tests (37 seconds);
+  git diff --check passed.
+
+## Write-up implementation (3 Nov 2026)
+
+- Review correction: Markus approved `writeups/` as the output directory.
+  The document is an accessible, self-contained write-up of the archived proof
+  work for readers beyond the specialist audience; no degree-submission
+  framing or fixed page target. Internal revision folders use `manuscript/`.
+  Removed the added Git ignore overrides during review.
+
+- Implemented `writeup <archive-label>` in the dedicated worktree, including
+  archive-only proof inputs, original approval/input-integrity verification,
+  an offline writer and two independent offline reviewers, resumable revision
+  rounds, numerical reproduction, LaTeX compilation and source-gap stops.
+- Review correction: removed the per-run brief and its mandatory pipeline
+  requirement. Optional per-write-up briefings remain supported via `--brief`;
+  no default briefing is generated. The writer chooses structure, ordering and
+  exposition unless explicitly directed in a supplied briefing; shared prompts
+  set the scope and standards.
+- Archive packaging gap: the general `*.log` ignore rule kept 14 `.log` files
+  of archive/zt-neutral out of Git, four of them in the accepted numerical
+  snapshot and bound by its acceptance hashes. They were copied into this
+  worktree from the main checkout and match the recorded hashes, but remain
+  untracked; the ignore exception was removed during review. No mathematical
+  artifact was edited.
+- With those local copies, the real zt-neutral archive, original approval
+  hashes, integration inputs, numerical snapshot and original supplied corpus
+  pass `writeup --check`. A clean checkout of dc3dfe5 fails it ("archived
+  accepted numerical snapshot changed") until the logs are committed on main.
+- Validation: tests/dry_run.sh passed 42 tests in 76.623 seconds; real host
+  latexmk compilation of a tiny fixture passed. All 7 write-up tests also
+  passed in 31.687 seconds, including the two added retry/corpus tests.
+- No real writer/reviewer invocation has started; additional provider usage
+  and cost for this implementation stage are zero. Next operational step is
+  the first write-up invocation using a fresh external RUNS_DIR, after this
+  implementation is reported and reviewed.
+- Review (3 Nov 2026): tests/dry_run.sh passed all 48 tests in 81 seconds.
+  Added per-role time and USD limits (`role_limits`): writer 6 h / $60,
+  write-up reviewers 3 h / $25; other roles unchanged.
+- Cleanup review fixes (3 Nov 2026, uncommitted): preserve explicitly declared
+  numerical artifacts even when their extensions match TeX auxiliaries; mirror
+  build-time deletions into the saved manuscript before hashing and review.
+  Added regressions for a numerical `.out` file and writer-generated top-level
+  and chapter auxiliary files, including reuse of the completed review.
+  tests/dry_run.sh passed all 51 tests in 101.461 seconds; git diff --check
+  passed. No real agent invocation or additional provider usage/cost.

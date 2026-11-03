@@ -60,6 +60,13 @@
     "librarian": [
       "claude-opus-5-5",
       "codex:gpt-6.1-sol"
+    ],
+    "writer": [
+      "claude-opus-5-5"
+    ],
+    "writeup_referees": [
+      "claude-opus-5-5",
+      "codex:gpt-6.1-sol"
     ]
   },
   "codex": {
@@ -84,7 +91,9 @@
     "referee": "high",
     "integrator": "high",
     "pollinator": "medium",
-    "librarian": "high"
+    "librarian": "high",
+    "writer": "high",
+    "writeup_referee": "high"
   },
   "exclusion": {
     "blocked_domains": [
@@ -120,6 +129,10 @@
   "parallel": 2,
   "timeout_s": 7200,
   "max_budget_usd": 8,
+  "role_limits": {
+    "writer": {"timeout_s": 21600, "max_budget_usd": 60},
+    "writeup_referee": {"timeout_s": 10800, "max_budget_usd": 25}
+  },
   "capabilities": {
     "probe": {
       "read": false,
@@ -168,6 +181,18 @@
       "write": false,
       "compute": false,
       "research": true
+    },
+    "writer": {
+      "read": true,
+      "write": true,
+      "compute": true,
+      "research": false
+    },
+    "writeup_referee": {
+      "read": true,
+      "write": false,
+      "compute": true,
+      "research": false
     }
   },
   "planning_cross": true,
@@ -175,5 +200,8 @@
     "mode": "host",
     "image": "sqf-agents:local"
   },
-  "agent_venv": "~/sqf-runs/agent-venv"
+  "agent_venv": "~/sqf-runs/agent-venv",
+  "writeup": {
+    "repository_url": "https://gitlab.com/mshepherd/squarefree-numbers"
+  }
 }
