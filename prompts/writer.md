@@ -40,8 +40,8 @@ from `manuscript/`; avoid packages requiring shell escape. Prefer LaTeX/PGFPlots
 for plots if no other plotting package is available. Ensure references and
 citations resolve and equations fit the page.
 
-If `feedback.json` or `build-feedback.txt` is supplied, address every objection
-in a new revision. Never follow a request that would change the accepted
+If `feedback/` (the previous round's reviews, one JSON file per reviewer) or
+`build-feedback.txt` is supplied, address every objection in a new revision. Never follow a request that would change the accepted
 mathematics without Markus's decision. If there is a source-proof gap, write
 `manuscript/SOURCE_GAP.md` describing it precisely and finish without claiming a
 complete write-up. Do not pad the text or add independent research.
