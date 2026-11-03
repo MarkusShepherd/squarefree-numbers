@@ -322,16 +322,16 @@ usage-limit retries, formal proof checking or automatic publication is provided.
 ## Writing up an archived run
 
 `writeup` presents an accepted archived proof; it does not start a new proof
-attempt or authorize new mathematical research. Do all write-up development and
-manuscript generation in a dedicated Git worktree under `.worktrees/`, never in
-the main checkout. Give it a fresh external `RUNS_DIR`, as for any worktree.
+attempt or authorize new mathematical research. Develop harness changes in a
+dedicated worktree. After merging, run the write-up stage from the main checkout
+with a fresh external `RUNS_DIR`.
 
 The document should be accessible and self-contained for mathematically trained
 readers who are not specialists in this problem. Explain the definitions,
 methods and intermediate reasoning; do not assume the audience of a specialized
 research article. Completeness and readability determine its length.
 
-From that worktree, validate sources without launching agents:
+From the repository directory, validate sources without launching agents:
 
 ```sh
 python3 orchestrate.py writeup zt-neutral --check --papers-dir /path/to/original/papers

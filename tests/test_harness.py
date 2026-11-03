@@ -80,7 +80,7 @@ class HarnessTest(unittest.TestCase):
         (self.root / 'plan.json').write_text(json.dumps(plan))
         self.run_step('prove')
 
-    def ready_writeup(self):
+    def ready_writeup(self, linked_worktree=True):
         self.ready()
         self.finish_two_props()
         self.run_step('integrate')
@@ -100,9 +100,10 @@ class HarnessTest(unittest.TestCase):
             'tests', 'isolation', 'agent-env')
         git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
             'commit', '-qm', 'Fixture archived run')
-        worktree = Path(self.temp.name) / 'writeup-worktree'
-        git('worktree', 'add', '-qb', 'writeup', str(worktree))
-        self.root = worktree
+        if linked_worktree:
+            worktree = Path(self.temp.name) / 'writeup-worktree'
+            git('worktree', 'add', '-qb', 'writeup', str(worktree))
+            self.root = worktree
         self.env.update(RUNS_DIR=str(Path(self.temp.name) / 'writeup-runs'),
                         CLAUDE_BIN=str(self.root / 'tests/fake_claude.py'),
                         CODEX_BIN=str(self.root / 'tests/fake_codex.py'))
@@ -113,6 +114,14 @@ class HarnessTest(unittest.TestCase):
         (binaries / 'latexmk').symlink_to(tex)
         (binaries / 'pdflatex').symlink_to(tex)
         self.env['PATH'] = str(binaries) + os.pathsep + self.env['PATH']
+
+    def test_writeup_runs_from_main_checkout(self):
+        self.ready_writeup(linked_worktree=False)
+        self.assertTrue((self.root / '.git').is_dir())
+        self.run_step('writeup', 'test')
+        dest = self.root / 'writeups/test'
+        self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'passed')
+        self.assertTrue((dest / 'round-1/manuscript/main.pdf').is_file())
 
     def test_writeup_end_to_end_and_cache_integrity(self):
         self.ready_writeup()

@@ -54,9 +54,9 @@ the thesis:
   indirectly as hints. This applies to local, published and remembered
   versions. Report accidental exposure. A write-up task may use its explicitly
   designated archive and manuscript, but not write-ups of other runs.
-- Do all write-up work, including harness development and manuscript output,
-  in a dedicated Git worktree under this repository's `.worktrees/`, never
-  in the main checkout. Keep worktree run state and external RUNS_DIR separate.
+- Develop write-up harness changes in a dedicated worktree. After merging,
+  the write-up stage may run from the main checkout with a fresh external
+  RUNS_DIR. Keep separate experiments' run state and RUNS_DIR separate.
 
 ## Current state
 

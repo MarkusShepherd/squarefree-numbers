@@ -46,9 +46,9 @@ change mathematical statements on the basis of this audit alone.
 ## Write-up decisions (3 Nov 2026)
 
 - Markus chose a harness writer agent for the archived-run write-up.
-- All write-up work belongs in a dedicated worktree inside this repository,
-  never the main checkout. Current worktree: `.worktrees/writeup`, branch
-  `writeup/policy`. The main checkout's tracked files have been restored.
+- The worktree requirement applied to harness development. After merging,
+  the write-up stage runs from the main checkout with a fresh external RUNS_DIR;
+  the development worktree has been removed.
 - The write-up belongs in this repository. Previous write-ups are excluded
   from later independent runs; this is now explicit in AGENTS.md and
   prompts/_rules.md. A write-up task may access its designated archive and
@@ -111,3 +111,8 @@ change mathematical statements on the basis of this audit alone.
   and chapter auxiliary files, including reuse of the completed review.
   tests/dry_run.sh passed all 51 tests in 101.461 seconds; git diff --check
   passed. No real agent invocation or additional provider usage/cost.
+- Main-checkout execution fix (3 Nov 2026, uncommitted): removed the erroneous
+  runtime worktree guard and corrected the operator/readme instructions.
+  Added a full main-checkout regression with stub providers.
+  tests/dry_run.sh passed all 52 tests in 100.813 seconds; git diff --check
+  passed. No real write-up agents started; no commit or push.

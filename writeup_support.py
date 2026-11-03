@@ -383,8 +383,6 @@ def build_manuscript(driver, wd):
 
 def writeup(driver, args):
     label = safe_label(args.label)
-    if not args.check and not (driver.ROOT / '.git').is_file():
-        raise ValueError('writeup must run in a dedicated Git worktree, never the main checkout')
     archive, files, provenance = archive_sources(driver.ROOT, label, args.papers_dir)
     files.update(briefing_input(args.brief))
     if args.check:
