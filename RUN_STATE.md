@@ -104,3 +104,10 @@ change mathematical statements on the basis of this audit alone.
 - Review (3 Nov 2026): tests/dry_run.sh passed all 48 tests in 81 seconds.
   Added per-role time and USD limits (`role_limits`): writer 6 h / $60,
   write-up reviewers 3 h / $25; other roles unchanged.
+- Cleanup review fixes (3 Nov 2026, uncommitted): preserve explicitly declared
+  numerical artifacts even when their extensions match TeX auxiliaries; mirror
+  build-time deletions into the saved manuscript before hashing and review.
+  Added regressions for a numerical `.out` file and writer-generated top-level
+  and chapter auxiliary files, including reuse of the completed review.
+  tests/dry_run.sh passed all 51 tests in 101.461 seconds; git diff --check
+  passed. No real agent invocation or additional provider usage/cost.

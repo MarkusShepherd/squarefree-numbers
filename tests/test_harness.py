@@ -200,6 +200,35 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(sum(r['role'] == 'writer' for r in rows), 1)
         self.assertEqual(sum(r['role'] == 'writeup_referee' and r['backend'] == 'claude' for r in rows), 1)
 
+    def test_writeup_preserves_declared_outputs_with_auxiliary_extensions(self):
+        self.ready_writeup()
+        self.env['WRITEUP_NUMERICAL_OUT'] = '1'
+        self.run_step('writeup', 'test')
+        manuscript = self.root / 'writeups/test/round-1/manuscript'
+        output = manuscript / 'measurements.out'
+        self.assertEqual(output.read_text(), 'Recomputed numerical output.\n')
+        from harness_support import digest
+        build = json.loads((manuscript / 'build-inputs.json').read_text())
+        self.assertEqual(build['artifacts']['measurements.out'], digest(output))
+        self.assertIsNotNone(build['artifacts']['measurements.out'])
+
+    def test_writeup_saved_revision_drops_writer_generated_auxiliaries(self):
+        self.ready_writeup()
+        self.env['WRITEUP_WRITER_AUX'] = '1'
+        self.run_step('writeup', 'test')
+        dest = self.root / 'writeups/test'
+        state = json.loads((dest / 'state.json').read_text())
+        self.assertEqual(state['stage'], 'passed')
+        manuscript = dest / 'round-1/manuscript'
+        self.assertFalse(list(manuscript.rglob('*.aux')))
+        writer_output = Path(self.env['RUNS_DIR']) / state['writer_run'] / 'manuscript'
+        self.assertTrue((writer_output / 'main.aux').is_file())
+        self.assertTrue((writer_output / 'chapters/intro.aux').is_file())
+        self.assertTrue((manuscript / 'main.pdf').is_file())
+        before = (self.root / 'logs/costs.jsonl').read_bytes()
+        self.run_step('writeup', 'test')
+        self.assertEqual(before, (self.root / 'logs/costs.jsonl').read_bytes())
+
     def test_writeup_requires_original_hash_matched_corpus(self):
         (self.root / 'papers').mkdir()
         paper = self.root / 'papers/fixture.pdf'

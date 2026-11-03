@@ -6,6 +6,10 @@ import os
 def draft(cwd):
     manuscript = cwd / 'manuscript'
     manuscript.mkdir(exist_ok=True)
+    if os.environ.get('WRITEUP_WRITER_AUX'):
+        (manuscript / 'main.aux').write_text('writer compiler auxiliary\n')
+        (manuscript / 'chapters').mkdir(exist_ok=True)
+        (manuscript / 'chapters/intro.aux').write_text('writer chapter auxiliary\n')
     if os.environ.get('WRITEUP_SOURCE_GAP') == 'writer':
         (manuscript / 'SOURCE_GAP.md').write_text('Fixture: archived proof gap.\n')
         return
@@ -19,10 +23,14 @@ def draft(cwd):
     (manuscript / 'changes.md').write_text('Fixture mapping to P1 and P2.\n')
     (manuscript / 'README.md').write_text('Fixture reproduction.\n')
     (manuscript / 'reproduce.py').write_text('''from pathlib import Path
-import json
+import json, os
 assert Path('source/numerics/snapshot/compute.py').is_file()
 Path('manuscript/table.tex').write_text('Recomputed fixture table.\\n')
-Path('manuscript/reproduction.json').write_text(json.dumps({'artifacts':['table.tex']}))
+artifacts = ['table.tex']
+if os.environ.get('WRITEUP_NUMERICAL_OUT'):
+    Path('manuscript/measurements.out').write_text('Recomputed numerical output.\\n')
+    artifacts.append('measurements.out')
+Path('manuscript/reproduction.json').write_text(json.dumps({'artifacts':artifacts}))
 ''')
 
 

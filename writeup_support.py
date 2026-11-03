@@ -370,9 +370,11 @@ def build_manuscript(driver, wd):
     overfull = [float(x) for x in re.findall(r'Overfull \\[hv]box \(([0-9.]+)pt too (?:wide|high)\)', log)]
     if any(x > OVERFULL_PT for x in overfull):
         raise ValueError(f'LaTeX has boxes overfull by more than {OVERFULL_PT}pt; see main.log')
-    # Remove regenerable build files; the reviewed manuscript keeps sources, PDF and logs.
+    # Numerical outputs can share extensions with TeX auxiliaries (e.g. .out).
+    artifact_paths = {manuscript / name for name in artifacts}
+    # Remove regenerable build files; keep declared numerical outputs too.
     for path in manuscript.rglob('*'):
-        if path.is_file() and path.name.endswith(BUILD_FILES):
+        if path.is_file() and path.name.endswith(BUILD_FILES) and path not in artifact_paths:
             path.unlink()
     save(manuscript / 'build-inputs.json', {'accepted_snapshot': digest(wd / 'source/numerics/snapshot'),
                                      'artifacts': {n: digest(manuscript / n) for n in artifacts},
@@ -497,6 +499,15 @@ def writeup(driver, args):
                 driver.log(f'{label} round {rnd}: build needs revision; retained logs in {folder}')
                 continue
             shutil.copytree(wd / 'manuscript', manuscript, dirs_exist_ok=True)
+            # Mirror build-time deletions, including auxiliaries left by the writer,
+            # before binding reviews to the saved revision. Copy first so a failed
+            # copy leaves the original draft available for a retry.
+            for path in sorted(manuscript.rglob('*'), key=lambda p: len(p.parts), reverse=True):
+                if not (wd / 'manuscript' / path.relative_to(manuscript)).exists():
+                    if path.is_dir():
+                        path.rmdir()
+                    else:
+                        path.unlink()
             state.update(stage='built', manuscript_hash=digest(manuscript))
             save(state_path, state)
         if state['stage'] in ('built', 'reviewing'):
