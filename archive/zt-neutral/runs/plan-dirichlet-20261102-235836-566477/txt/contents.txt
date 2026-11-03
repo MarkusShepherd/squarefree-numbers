@@ -1,0 +1,151 @@
+                                              Contents
+
+
+
+
+               Preface                                                                     page xi
+               List of notation                                                               xiii
+        1      Dirichlet series: I                                                              1
+        1.1    Generating functions and asymptotics                                             1
+        1.2    Analytic properties of Dirichlet series                                         11
+        1.3    Euler products and the zeta function                                            19
+        1.4    Notes                                                                           31
+        1.5    References                                                                      33
+        2      The elementary theory of arithmetic functions                                   35
+        2.1    Mean values                                                                     35
+        2.2    The prime number estimates of Chebyshev and of Mertens                          46
+        2.3    Applications to arithmetic functions                                            54
+        2.4    The distribution of (n) − ω(n)                                                 65
+        2.5    Notes                                                                           68
+        2.6    References                                                                      71
+        3      Principles and ﬁrst examples of sieve methods                                   76
+        3.1    Initiation                                                                      76
+        3.2    The Selberg lambda-squared method                                               82
+        3.3    Sifting an arithmetic progression                                               89
+        3.4    Twin primes                                                                     91
+        3.5    Notes                                                                          101
+        3.6    References                                                                     104
+        4      Primes in arithmetic progressions: I                                           108
+        4.1    Additive characters                                                            108
+        4.2    Dirichlet characters                                                           115
+        4.3    Dirichlet L-functions                                                          120
+
+                                                     vii
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        viii                                     Contents
+
+
+        4.4    Notes                                                                       133
+        4.5    References                                                                  134
+        5      Dirichlet series: II                                                        137
+        5.1    The inverse Mellin transform                                                137
+        5.2    Summability                                                                 147
+        5.3    Notes                                                                       162
+        5.4    References                                                                  164
+        6      The Prime Number Theorem                                                    168
+        6.1    A zero-free region                                                          168
+        6.2    The Prime Number Theorem                                                    179
+        6.3    Notes                                                                       192
+        6.4    References                                                                  195
+        7      Applications of the Prime Number Theorem                                    199
+        7.1    Numbers composed of small primes                                            199
+        7.2    Numbers composed of large primes                                            215
+        7.3    Primes in short intervals                                                   220
+        7.4    Numbers composed of a prescribed number of primes                           228
+        7.5    Notes                                                                       239
+        7.6    References                                                                  241
+        8      Further discussion of the Prime Number Theorem                              244
+        8.1    Relations equivalent to the Prime Number Theorem                            244
+        8.2    An elementary proof of the Prime Number Theorem                             250
+        8.3    The Wiener–Ikehara Tauberian theorem                                        259
+        8.4    Beurling’s generalized prime numbers                                        266
+        8.5    Notes                                                                       276
+        8.6    References                                                                  279
+        9      Primitive characters and Gauss sums                                         282
+        9.1    Primitive characters                                                        282
+        9.2    Gauss sums                                                                  286
+        9.3    Quadratic characters                                                        295
+        9.4    Incomplete character sums                                                   306
+        9.5    Notes                                                                       321
+        9.6    References                                                                  323
+        10 Analytic properties of the zeta function and L-functions                        326
+        10.1 Functional equations and analytic continuation                                326
+        10.2 Products and sums over zeros                                                  345
+        10.3 Notes                                                                         356
+        10.4 References                                                                    356
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                                 Contents                                   ix
+
+
+        11 Primes in arithmetic progressions: II                                           358
+        11.1 A zero-free region                                                            358
+        11.2 Exceptional zeros                                                             367
+        11.3 The Prime Number Theorem for arithmetic
+             progressions                                                                  377
+        11.4 Applications                                                                  386
+        11.5 Notes                                                                         391
+        11.6 References                                                                    393
+
+        12 Explicit formulæ                                                                397
+        12.1 Classical formulæ                                                             397
+        12.2 Weil’s explicit formula                                                       410
+        12.3 Notes                                                                         416
+        12.4 References                                                                    417
+
+        13 Conditional estimates                                                           419
+        13.1 Estimates for primes                                                          419
+        13.2 Estimates for the zeta function                                               433
+        13.3 Notes                                                                         447
+        13.4 References                                                                    449
+
+        14 Zeros                                                                           452
+        14.1 General distribution of the zeros                                             452
+        14.2 Zeros on the critical line                                                    456
+        14.3 Notes                                                                         460
+        14.4 References                                                                    461
+
+        15 Oscillations of error terms                                                     463
+        15.1 Applications of Landau’s theorem                                              463
+        15.2 The error term in the Prime Number Theorem                                    475
+        15.3 Notes                                                                         482
+        15.4 References                                                                    484
+
+        APPENDICES
+        A The Riemann–Stieltjes integral                                                   486
+        A.1 Notes                                                                          492
+        A.2 References                                                                     493
+
+        B  Bernoulli numbers and the Euler–MacLaurin
+           summation formula                                                               495
+        B.1 Notes                                                                          513
+        B.2 References                                                                     517
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        x                                        Contents
+
+
+        C The gamma function                                                               520
+        C.1 Notes                                                                          531
+        C.2 References                                                                     533
+        D Topics in harmonic analysis                                                      535
+        D.1 Pointwise convergence of Fourier series                                        535
+        D.2 The Poisson summation formula                                                  538
+        D.3 Notes                                                                          542
+        D.4 References                                                                     542
+
+               Name index                                                                  544
+               Subject index                                                               550
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+

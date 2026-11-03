@@ -1,0 +1,320 @@
+                                            Name index
+
+
+
+
+        Abel, N. H., 143, 147                             Bernstein, S. N., 321, 323
+        Addison, A. W., 238, 240                          Besenfelder, H.-J., 417
+        Alladi, K., 211, 241                              Beukers, F., 514, 517
+        Allison, D., 194, 195                             Beurling, A., 268, 277, 279
+        Almkvist, G., 513, 517                            Beyer, W. A., 32, 33
+        Anderson, R. J., 481, 484                         Binet, J. P. M., 532
+        Andrews, G. E., 31, 33                            Birch, B. J., 134, 392, 394
+        Ankeny, N. C., 104, 448, 449                      Boas, R. P., 513, 517
+        Apéry, R., 514, 517                              Bohr, H., 18, 31, 33, 160, 163, 164, 448, 449
+        Apostol, T. M., 163, 164, 292, 323, 493, 515,     Bollobas, B., 166
+          517                                             Bombieri, E., 41, 71, 103, 104, 106, 277, 279,
+        Arno, S., 393                                       322, 417
+        Artin, E., 532, 533                               Borel, E., 192, 195
+        Aubert, K. E., 106                                Borel, J.-P., 279
+        Axer, A., 247, 276, 279, 446, 449                 Borevich, Z. I., 513, 514, 517
+                                                          Borwein, P., 70, 71
+        Bach, E., 69, 71                                  Brauer, A., 240, 241
+        Bachmann, P., 31, 33                              Brent, R. P., 32, 33, 516, 517
+        Backlund, R. J., 240, 241, 339, 340, 356, 460,    Breusch, R., 276, 279
+          461, 515, 517                                   Brown, J. W., 482, 484
+        Baker, A., 134, 392, 393, 394                     de Bruijn, N. G., 88, 211, 213ff, 239, 241
+        Baker, R. C., 323                                 Brun, V., 78, 90, 95, 101–104
+        Balanzario, E. P., 279                            Buchstab, A. A., 102, 104, 217, 239, 240, 241
+        Balasubramanian, R., 449                          Buell, D. A., 394
+        Ball, K., 514, 517                                Bundschuh, P., 394
+        Barner, K., 417                                   Burgess, D. A., 315, 323
+        Barnes, E. W., 514, 517, 531, 533
+        Bartle, R. G., 493                                Cahen, E., 31, 33, 162
+        Bartz, K., 512, 517                               Cai, J.-Y., 69, 71
+        Bateman, P. T., v, 63, 64, 71, 80, 103, 104,      Carathéodory, C., 192
+          131, 134, 135, 264, 276, 278, 279, 377, 394,    Carlitz, L., 507, 512, 514, 517
+          482, 484, 493                                   Carmichael, R., 113, 135
+        Bays, C., 483, 484                                Cassels, J. W. S., 514, 517
+        Behrend, F. A., 81, 104                           Cauchy, A. L., 529, 533
+        Berlekamp, E., 10                                 Cesàro, E., 142, 147
+        Berndt, B. C., 341, 356                           Chalk, J. H. H., v
+
+
+                                                        544
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                                  Name index                                           545
+
+
+        Chang, T.-H., 240, 241                             Estermann, T., v, 33, 370, 392, 393, 394
+        Chebyshev, P. L., 3ff, 46ff, 54, 69, 71, 475,      Euler, L., 20, 32, 33, 194, 195, 500, 514, 517,
+          484                                                524, 530, 531, 532, 533
+        Chih, T.-T., 69, 71                                Evelyn, C. J. A., 39, 40, 72, 73
+        Chowla, S. D., 68, 71, 74, 87, 104, 134, 135,
+          211, 226, 239, 242, 305, 322, 323, 377,          Fatou, P., 277, 280
+          394                                              Fekete, M., 376, 394
+        Chudakov, N. G., 193, 195                          Feller, W., 44, 72, 532, 533
+        Chung, K.-L., 81, 104                              Fine, N. J., 49
+        Cipolla, M., 183, 195                              Ford, K., 103, 105
+        Clausen, Th., 512, 514, 517                        Fouvry, E., 103, 105
+        Coates, J., 393, 394                               Freud, G., 163, 164
+        Cochrane, T., 322, 323                             Friedlander, J. B. 102–105, 220, 242, 322
+        Cohen, E., 71                                      Friedman, A., 112, 135
+        Cohen, H., 391, 394                                Fujii, A., 323
+        Cohn, H., 542                                      Fuss, P.-H., 531, 533
+        Conrey, J. B., 461, 462
+        Conway, J. H., 303, 323                            Gallagher, P. X., 323, 417
+        van der Corput, J. G., 68, 69, 71, 81, 104, 276,   Ganelius, T., 163, 164
+          279                                              Gauss, C. F., 5, 9, 32, 133, 134, 294, 300, 391,
+        Costa Pereira, N., 69, 71                            392, 394, 527, 528, 531, 532, 533
+        Cramér, H., 31, 33, 240, 241, 416, 417, 421,      Gegenbauer, L., 68, 72
+          447, 448, 449                                    Gel’fand, I. M., 162, 164
+                                                           Gel’fond, A. O., 69, 134, 135, 392, 394
+        Darst, R., 492, 493                                Glaisher, J. W. L., 508, 517
+        Davenport, H., v, 31, 33, 63, 71, 134, 135, 374,   Goldbach, C., 531, 532
+          391, 394, 416, 417                               Goldberg, R. R., 162, 164
+        DeKoninck, J.-M., 241                              Goldfeld, D. M., 102, 105, 106, 276, 280, 374,
+        Delange, H., 71, 72, 135, 163, 164                   391, 392, 393, 394, 395, 417, 418
+        Deléglise, M., 31, 33                             Goldston, D. A., 432, 449
+        Demichel, P., 516, 517                             Golomb, S., 54, 72
+        Deuring, M., 392, 394                              Goodman, A., 163, 164
+        Diamond, H. G., 69, 72, 103, 104, 276, 277,        Gorshkov, L. S., 70, 72
+          278, 279, 493                                    Gourdon, X., 31, 32, 516, 517
+        Dickman, K., 202, 239, 241                         Graham, S. W., 265, 277, 280
+        Dirichlet, P. G. L., 38, 68, 72, 115, 133–135,     Gram, J. P., 515, 517, 529, 533
+          391, 530, 533                                    Granville, A., 322, 324
+        Dodgson, C., 79                                    Greaves, G., 103, 105, 240, 242
+        Dressler, R. E., 264, 279                          Gronwall, T. H., 193, 195, 391, 395
+        Duncan, R. L., 39, 72, 241                         Gross, B. H., 393, 395
+        Dusart, P., 69, 72                                 Grosswald, E., 42, 63, 71, 72, 514, 517
+                                                           Grytczuk, A., 113, 135
+        Edwards, D. A., 164                                Guinand, A. P., 417
+        Edwards, H. M., 416, 417
+        Eggleston, H. G., 163, 164                         Hadamard, J., 3, 192, 194, 195, 345, 356
+        Elkies, N., 542                                    Halberstam, H., v, 70, 72, 103, 105, 240,
+        Ellison, W. J., 393, 394                             242
+        Eratosthenes, 76                                   Hall, R. R., 70, 72
+        Erdős, P., 43, 68, 69, 72, 100, 101, 103, 104,    Hall, R. S., 278, 280, 482, 484
+          105, 131, 135, 211, 212, 215, 225, 227, 240,     Haneke, W., 374, 391, 395
+          241, 242, 276, 279, 390, 393, 394                Hankel, H., 525, 532, 533
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        546                                       Name index
+
+
+        Hardy, G. H., 31, 32, 33, 59, 69, 70, 72, 101,     Karamata, J., 163, 165
+          103, 105, 133, 150, 151, 162, 163, 164, 165,     Karatsuba, A. A., 193, 195
+          185, 186, 193, 195, 242, 409, 418, 456, 461,     Kátai, I., 71, 73
+          462, 473, 482, 484, 514, 517                     Katznelson, Y., 540, 542
+        Hartman, P., 40, 72                                Kestelman, H., 493, 494
+        Haselgrove, C. B., 472, 484                        Kinkelin, H., 508, 518
+        Hasse, H., 321, 324                                Kloss, K. E., 482, 484
+        Hausman, M., 226, 242                              Knapowski, S., 483, 484
+        Heath-Brown, D. R., 70, 461, 462                   Knopfmacher, J., 278, 280
+        Hecke, E., 194, 195, 356, 391                      Knuth, D. E., 32, 34
+        Heegner, K., 392, 395                              Knutson, D. E., 183
+        Heilbronn, H., 81, 105, 335, 356, 376, 392, 395    Koblitz, N., 514, 518
+        Hejhal, D. A., 278, 280                            von Koch, H., 416, 418, 447, 450
+        Henrici, P., 532, 533                              Körner, T. W., 542, 543
+        Hensley, D., 88, 105, 240, 242                     Kojima, T., 157, 163, 165
+        Hermite, Ch., 528, 533                             Kolesnik, G., 69, 73
+        Hewitt, E., 162, 165                               Korevaar, J., 163, 164, 165, 277, 280
+        Hildebrand, A., 70, 72, 133, 135, 239, 240,        Korobov, N. M., 193, 195
+          242, 322, 324                                    Kowalski, E., 103, 105
+        Hildebrandt, T. H., 493, 494                       Kronecker, L., 514, 518
+        Hille, E., 40, 72                                  Kubilius, I. P., 70, 71, 73, 240, 242
+        Hock, A., 394                                      Kuhn, P., 276, 280
+        Hölder, O., 133, 135, 533                         Kumar, A., 542
+        Hooley, C., 89, 102, 103, 105                      Kummer, E. E., 514, 532, 534, 542
+        Hua, L. K., 193, 195                               Kurokawa, N., 33
+        Hudson, R. H., 483, 484                            Kusmin, R. O., 31, 32
+        Hutchinson, J. I., 515, 517
+        Huxley, M. N., 69, 73                              Lagarias, J. C., 31, 34, 417, 448, 450
+                                                           Landau, E., 16, 17, 31, 32, 34, 39, 41, 70, 73,
+        Ikehara, S., 259, 261, 264, 265, 277, 280             134, 135, 160, 163, 165, 166, 178, 182, 183,
+        Ingham, A., 163                                       184, 185, 187, 192, 193, 194, 195, 196, 267,
+        Ingham, A. E., v, 31, 32, 33, 128, 135, 163,          276, 277, 278, 280, 321, 322, 324, 337, 350,
+           165, 186, 192, 193, 194, 195, 280, 409, 418,       353, 356, 367ff, 391, 392, 395, 416, 418,
+           472, 480, 482, 483, 484, 494                       448, 449, 450, 473, 485
+        Ivić, A., 215                                     Lang, S., 417, 418
+        Iwaniec, H., 69, 73, 104, 105, 322, 323            Laurinčikas, A., 449, 450
+        Iwaniec, H. 102ff, 102                             Lavrik, A. F., 277, 280, 335, 356, 357
+                                                           Legendre, A. M., 3, 76, 242, 532, 534
+        Jacobi, C. G. J., 514, 518                         Lehman, R. S., 483, 484, 485, 516,
+        Jacobsthal, E., 220                                   518
+        Jarnı́k, V., 41, 73                                Lehmer, D. H., 31, 34, 65, 80, 106, 504, 516,
+        Jensen, J. L. W. V., 31, 34, 192, 195, 532, 533,      518
+           534                                             Lenstra, H., 391, 394
+        Jordan, C., 514, 518                               Lerch, M., 341, 357
+        Jorgenson, J., 417, 418                            LeVeque, W. J., 240, 242
+        Joris, H., 321, 324                                Levinson, N., 276, 280, 461, 462
+        Joyner, D., 449                                    Lévy, P., 162, 163, 166
+        Jurkat, W. B., 106, 481, 484                       Linfoot, E. H., 39, 40, 72, 73, 392, 395
+                                                           Linnik, Yu. V., 134, 135, 392, 394
+        Kac, M., 71, 73, 240, 242                          van Lint, J. H., 88, 106
+        Kahane, J.-P., 277, 278, 280, 483, 484             Liouville, J., 529, 530, 534
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                                   Name index                                           547
+
+
+        Littlewood, J. E., 5, 31, 33, 101, 103, 105, 150,   Niven, I., 69, 74
+          151, 160, 162, 163, 164, 165, 166, 193, 196,      Norton, K. K., 239, 242
+          242, 340, 357, 409, 418, 432, 448, 449, 450,      Nowak, W. G., 41, 74
+          461, 462, 473, 478, 482, 483, 484, 485, 516,      Nyman, B., 278, 281
+          518
+        Lucas, É., 512, 514, 518                           Odlyzko, A. M., 31, 34, 448, 450, 482, 485,
+        van de Lune, 166, 516, 517, 518                       516, 518
+        Lunnon, W. F., 394                                  Oesterlé, J., 393, 395
+                                                            Onishi, H., 104
+        Maclaurin, C., 500, 514, 518                        Orr, R. C., 39, 74
+        Mahler, K., 374, 395                                Ostrowski, A., 533, 534
+        Maier, H., 240, 242, 449, 450
+        Ma̧kowski, A., 69, 73                               Page, A., 369, 379, 391, 393, 395
+        Malliavin, P., 278, 280                             Paley, R. E. A. C., 312, 322, 324
+        Mallik, A., 336, 357                                Palm, G., 417
+        von Mangoldt, H., 194, 195, 196, 416, 418,          Parry, W., 278, 281
+          460, 462                                          Perron, O., 138, 162, 166
+        Mapes, D. C., 31, 34                                Pesek, J., 394
+        Martin, G., 286, 324                                Peyerimhoff, A., 163, 166
+        Mascheroni, L., 32, 34                              Phragmén, E., 160
+        Massias, J.-P., 69, 73, 184, 196                    Pila, J., 41, 71
+        Mattics, L. E., 293, 324                            Pillai, S. S., 68, 74, 226, 242
+        McMillan, E. M., 32, 33                             Pincherle, S., 532, 534
+        Meissel, E. D. F., 31                               Pintz, J., 134, 136, 194, 197, 240, 243
+        Meller, N. A., 516, 518                             Pitt, H. R., 164, 166, 277, 281
+        Mellin, H., 162, 166, 525, 529, 531, 532, 534       Poisson, S. D., 356, 357
+        Mertens, F., 46ff, 68, 70, 73, 127, 134, 135,       Pollard, H., 492, 493
+          176, 193, 197, 482, 485                           Pollicott, M., 278, 281
+        Meurman, A., 513, 517                               Pólya, G., 190, 197, 307, 309, 322, 324, 376,
+        Miller, V. S., 31, 34                                  394, 395, 484, 485, 542, 543
+        Mirsky, L., 7, 393, 395                             Pomerance, C., 65, 74, 131, 135, 240, 242
+        Mittag-Lefﬂer, M. G., vi                            van der Poorten, A., 514, 518
+        Möbius, A. F., 35                                  Postnikov, A. G., 163, 166
+        Monach, W. R., 483, 485                             Pringsheim, A., 18, 32, 34
+        Monsky, P., 134, 136                                Pritsker, I. E., 70, 74
+        Montgomery, H. L., 68, 69, 70, 73, 74, 89,
+          102, 106, 163, 166, 177, 193, 197, 225, 226,      Raabe, J., 531, 534
+          242, 278, 279, 321, 322, 323, 324, 393, 395,      Rademacher, H., 513, 518
+          432, 446, 448, 449, 450, 483                      Ramachandra, K., 449
+        Moore, E. H., 533, 534                              Ramanujan, S., 59, 60, 70, 72, 74, 113, 114,
+        Mordell, L. J., 32, 34, 134, 135, 293, 305, 323,       133, 136
+          324, 392, 395                                     Ramaswami, V., 239, 243
+        Moser, L., 10                                       Rankin, R. A., 222, 240, 243, 493, 494
+        Motohashi, Y., 102, 103, 106                        Redmond, D., 113, 136
+        Mozzochi, C. J., 69, 73                             Rényi, A., 65, 71, 74, 240, 243
+                                                            Reznick, B., 112, 136
+        Narkiewicz, W., 71, 73, 134, 136, 276, 281          Ricci, G., 100, 106, 240, 243
+        Newman, D. J., 7, 162, 163, 164, 166                Richards, I., 228, 240, 242, 243
+        Newman, F. W., 532, 534                             Richert, H.-E., 69, 70, 72, 74, 88, 103, 105,
+        Nicolas, J.-L., 70, 73, 184, 196, 212, 242             106, 193, 197, 240, 242
+        Nielsen, N., 32, 34, 518, 532, 534                  te Riele, H. J. J., 482, 483, 485, 516, 517, 518
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        548                                      Name index
+
+
+        Riemann, B., 162, 328, 356, 357, 416, 418,        Stark, H. M., 392, 393, 396
+          460, 462, 515                                   Stás, W., 194, 197
+        Riesel, H., 31, 34, 106                           von Staudt, K. G. C., 512, 514, 519
+        Riesz, M., 31, 32, 33, 143, 160, 162, 165, 166,   Stein, E., 542, 543
+          277, 281                                        Steinhaus, H., 163, 166
+        Rivat, J., 31, 33                                 Steinig, J., 277, 279
+        Rivoal, T., 514, 517                              Stemmler, R. M., 482, 484
+        Robbins, H., 532, 534                             Stepanov, S. A., 322
+        Robin, G., 69, 73, 184, 196                       Stieltjes, T. J., 27, 29, 34, 41, 75
+        Robinson, M. L., 393                              Stirling, J., 514, 532, 534
+        Robinson, R. L., 74                               Sweeney, D. W., 32, 34
+        Rogers, K., 39, 74                                Swinnerton-Dyer, H. P. F., 393
+        Rohrbach, H., 81, 106                             Sylvester, J. J., 69, 75
+        Romanoff, N. P., 97, 103, 106                     Szegö, G., 190, 197, 376, 395
+        Rosser, J. B., 69, 74, 182, 183, 197, 377, 395,   Szekeres, G., 43, 72
+          516, 518
+        Rubel, L., 163, 166                               Tate, J. T., 356, 357
+        Runge, C., 70, 74                                 Tatuzawa, T., 193, 197, 375, 396
+        Rutkowski, J., 512, 517                           Tauber, A., 150, 160, 163, 166
+                                                          Taylor, P. R., 354, 357
+        Saalschütz, L., 529, 534                         Teege, H., 134, 136
+        Saffari, B., 71, 74, 131                          Tenenbaum, G., 70, 71, 72, 75, 239, 240, 242
+        Sampath, A., 277, 281                             Terras, A., 514, 519
+        Sathe, L. G., 240, 243                            Titchmarsh, E. C., 90, 102, 107, 162, 163, 166,
+        Schinzel, A., 163, 166, 243, 374, 391, 395           167, 193, 194, 197, 356, 357, 391, 396, 448,
+        Schlömilch, O., 532, 534                            449, 451, 461, 462, 516, 519
+        Schmidt, E., 482, 485                             Toeplitz, O., 148, 163, 167
+        Schmidt, P. G., 43, 74                            Tornier, E., 44, 72
+        Schmidt, W. M., 314, 322, 324                     Tsang, K. M., 107
+        Schoenberg, I. J., 160, 166                       Turán, P., 58, 64, 70, 75, 103, 105, 194, 197,
+        Schoenfeld, L., 69, 74, 182, 197, 516, 518           240, 243, 448, 451, 472, 483, 485
+        Schönhage, A., 240, 243, 516, 518                Turing, A., 516, 519
+        Schur, I., 148, 163, 166, 321, 324
+        Schwarz, W., 71, 74, 133, 135, 136, 276, 281      Vaaler, J. D., 265, 277, 280
+        Sebah, P., 31, 32                                 de la Vallée Poussin, C. J., 3, 39, 75, 192ff,
+        Selberg, A., 102, 103, 106, 107, 240, 243, 251,     193, 194, 197, 321, 324, 356, 357, 409, 418
+           276, 281, 445, 448, 450, 460–462               Vaughan, R. C., 31, 34, 89, 102, 104, 106, 107,
+        Serre, J.-P., 133, 136                              131, 135, 136, 177, 193, 197, 226, 242, 321,
+        Shafarevich, I. R., 513, 514, 517                   322, 324, 325, 390, 396, 446, 450
+        Shafer, R. E., 29, 34                             Vijayaraghavan, T., 80, 107, 211, 239, 241
+        Shan, Z., 65, 75                                  Vinogradov, I. M., 31, 193, 197, 307, 309, 322,
+        Shapiro, H. N., 68, 72, 226, 242                    325
+        Siegel, C. L., 372, 381, 392, 396, 515, 519,      Vivanti, G., 18, 32, 34
+           542, 543                                       Vorhauer, U. M. A., 278, 279, 325, 355, 356,
+        Sitaramachandrarao, R., 41, 75                      357, 416, 418, 445, 451
+        Skewes, S., 483, 485                              Vorhauer, V. M. A, 286
+        Sobirov, A. Š., 277, 280                         Voronin, S. M., 193, 195
+        Soundararajan, K., 69, 75, 322, 324               Voronoı̈, G., 68, 75
+        Spilker, J., 133, 135
+        Srinivasan, B. R., 277, 281                       Wagner, C., 393, 396
+        Stall, D. S., 394                                 Wagon, S., 10, 34
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                                 Name index                                          549
+
+
+        Walﬁsz, A., 32, 34, 68, 75, 193, 198, 322, 325,   Wigert, S., 70, 75, 409, 418
+         336, 357, 381, 386, 393, 396                     Wilf, H., 31, 34
+        Wallis, J., 507, 519                              Williamson, H., 162, 165
+        Ward, D. R., 43, 75                               Wilson, B. M., 71, 75
+        Waterman, M. S., 32, 33                           Winter, D. T., 516, 517, 518
+        Watkins, M., 393, 396                             Wintner, A., 40, 43, 72, 75, 113, 136, 158, 167,
+        Watson, G. N., 514, 519, 532, 534                  447, 451
+        Weber, H., 392                                    Wirsing, E. A., 70, 75, 134, 277, 281
+        Wedeniwski, S., 516                               Wirtinger, W., 514, 519
+        Weierstrass, K., 345, 532, 534                    Witt, E., 514
+        Weil, A., 314, 322, 335, 357, 410, 417,           Wrench, W. R., 32, 34
+         418                                              Wright, E. M., 276, 281
+        Weinberger, P. J., 393, 395
+        Weiss, G., 542, 543                               Yohe, J. M., 516, 518
+        Westzynthius, E., 221, 240, 243                   Yoshida H., 417, 418
+        Wheeler, F. S., 393
+        Whittaker, E. T., 514, 519, 532, 534              Zagier, D. M., 393, 395, 396
+        Widder, D. V., 34, 162, 163, 164, 167, 281,       Zeitz, H., 240, 241
+         493, 494                                         Zhang, W. B., 278, 281
+        Wielandt, H., 163, 167                            Zolotarev, G., 303
+        Wiener, N., 162–164, 167, 259, 261, 264–265,      Zuckerman, H. S., 69, 74
+         277, 281                                         Zygmund, A., 162, 167, 482, 485, 542, 543
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+

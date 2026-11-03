@@ -1,0 +1,11 @@
+{
+  "id": "P4",
+  "title": "Trivial-size error pieces",
+  "statement": "Notation: Q(x) = #{n <= x : n squarefree}; g and E as in problem.md.\n\nClaim. There is an absolute constant c_0 such that for all real x >= 1 and all integers 1 <= q <= x:\n\n(i) |Q(x) - 6x/pi^2| <= c_0 sqrt(x);\n\n(ii) |sum_{l=1}^q g(q,l) E(x;q,l)| <= c_0 sqrt(x)/q.",
+  "depends_on": [
+    "P1"
+  ],
+  "cites": [],
+  "crux": false,
+  "risk": "Low.\n\nFor (ii):\n1. sum_l g E = sum_{n<=x} mu^2(n) g(q,n) - x sum_l g(q,l)^2.\n2. By P1(iii), q g(q,n) = c_q sum_{a | gcd(n, q_1)} mu(a)/a for squarefree n, where q_1 = prod_{p||q} p and c_q = (6/pi^2) prod_{p|q} (1 - p^{-2})^{-1} <= 1.\n3. Use #{m <= Z : mu^2(m) = 1, gcd(m,a) = 1} = (6/pi^2) Z prod_{p|a} p/(p+1) + O(2^{omega(a)} sqrt Z). Sum this with weight 1/a over a | q_1, using prod_p (1 + 2p^{-3/2}) < infinity.\n4. The main terms must reproduce x sum_l g^2 exactly. They do, because both equal x times the same limit, by P1(i)."
+}

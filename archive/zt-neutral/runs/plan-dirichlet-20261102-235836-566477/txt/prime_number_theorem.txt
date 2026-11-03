@@ -1,0 +1,1845 @@
+                                                          6
+                             The Prime Number Theorem
+
+
+
+
+                                        6.1      A zero-free region
+        The Prime Number Theorem (PNT) asserts that
+                                                                x
+                                                  π (x) ∼
+                                                              log x
+
+        as x tends to inﬁnity. We shall prove this by using Perron’s formula, but in
+        the course of our arguments it will be important to know that ζ (s) = 0 for
+        σ ≥ 1. In Chapter 1 we saw that ζ (s) = 0 for σ > 1, but it remains to show
+        that ζ (1 + it) = 0. To obtain a quantitative form of the Prime Number The-
+        orem we take some care to show that ζ (s) = 0 for σ ≥ 1 − δ(t) where δ(t)
+        is some function of t. We would like the width δ(t) of the zero-free region
+        to be as large as possible, as the rate at which δ(t) tends to 0 determines the
+        size of the estimate we can derive for the error term in the Prime Number
+        Theorem.
+           We begin by reviewing some basic facts concerning functions of a complex
+        variable. If P(z) is a polynomial, then the rate of growth of |P(z)| as |z| →
+        ∞ reﬂects the number of zeros of P(z). This is generalized to other analytic
+        functions by Jensen’s formula. For our purposes we are content to establish the
+        following simple consequence of Jensen’s formula.
+
+        Lemma 6.1 (Jensen’s inequality) If f (z) is analytic in a domain containing
+        the disc |z| ≤ R, if | f (z)| ≤ M in this disc, and if f (0) = 0, then for r < R the
+        number of zeros of f in the disc |z| ≤ r does not exceed
+
+                                                  log M/| f (0)|
+                                                                 .
+                                                     log R/r
+
+        Proof       Let z 1 , z 2 , . . . , z K denote the zeros of f in the disc |z| ≤ R, and
+
+                                                         168
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                  6.1 A zero-free region                            169
+
+
+        put
+                                                                K
+                                                                   R 2 − zz k
+                                                g(z) = f (z)                   .
+                                                               k=1
+                                                                   R(z − z k )
+
+        The k th factor of the product has been constructed so that it has a pole at z k , and
+        so that it has modulus 1 on the circle |z| = R. Hence g is an analytic function
+        in the disc |z| ≤ R, and if |z| = R, then |g(z)| = | f (z)| ≤ M. Hence by the
+        maximum modulus principle, |g(0)| ≤ M. But
+                                                                     K
+                                                                         R
+                                                 |g(0)| = | f (0)|           .
+                                                                        |z |
+                                                                     k=1 k
+
+        Each factor in the product is ≥ 1, and if |z k | ≤ r , then the factor is ≥ R/r . If
+        there are L such zeros, then the above is ≥ | f (0)|(R/r ) L , which gives the stated
+        upper bound for L.                                                                  
+
+           We now show that a bound for the modulus of an analytic function can be
+        derived from a one-sided bound for its real part in a slightly larger region.
+        Lemma 6.2 (The Borel–Carathéodory Lemma) Suppose that h(z) is analytic
+        in a domain containing the disc |z| ≤ R, that h(0) = 0, and that h(z) ≤ M
+        for |z| ≤ R. If |z| ≤ r < R, then
+                                                    2Mr
+                                        |h(z)| ≤
+                                                   R −r
+        and
+                                                   2M R
+                                      |h  (z)| ≤           .
+                                                  (R − r )2
+        Proof       It sufﬁces to show that
+                                                        h (k) (0)  2M
+                                                                  ≤ k                              (6.1)
+                                                           k!      R
+        for all k ≥ 1, for then
+                                          
+                                          ∞
+                                            h (k) (0)                   
+                                                                        ∞
+                                                                                r k   2Mr
+                         |h(z)| ≤                         r k ≤ 2M                  =      ,
+                                          k=1
+                                                   k!                   k=1
+                                                                                R     R −r
+        and
+                                    
+                                    ∞
+                                      |h (k) (0)|kr k−1            
+                                                                2M ∞     r k−1    2M R
+                  |h  (z)| ≤                              ≤           k       =           .
+                                    k=1
+                                                 k!              R k=1   R       (R − r )2
+        To prove (6.1) we ﬁrst note that
+                                1                              
+                                                          1                    dz
+                                    h(Re(θ )) dθ =                      h(z)      = h(0) = 0.
+                            0                            2πi    |z|=R           z
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        170                                  The Prime Number Theorem
+
+
+        Moreover, if k > 0, then
+                                                                         
+                                    1
+                                                          R −k
+                                     h(Re(θ ))e(kθ ) dθ =                            h(z)z k−1 dz = 0,
+                                   0                      2πi                |z|=R
+
+        and
+                       1                                     
+                                                       Rk                                         R k h (k) (0)
+                           h(Re(θ ))e(−kθ ) dθ =                              h(z)z −k−1 dz =                   .
+                   0                                  2πi     |z|=R                                    k!
+        By forming a linear combination of these identities we see that if k > 0, then
+                               1
+                                                                                       R k e(−φ)h (k) (0)
+                                   h(Re(θ ))(1 + cos 2π (kθ + φ)) dθ =                                    .
+                           0                                                                 2 · k!
+        By taking real parts it follows that
+                                                                   1
+                 1 k
+                  R e(−φ)h (k) (0)/k! ≤ M                               (1 + cos 2π (kθ + φ)) dθ = M
+                 2                                               0
+
+        for k > 0. Since this holds for any real φ, we are free to choose φ so that
+        e(−φ)h (k) (0) = |h (k) (0)|. Then the above inequality gives (6.1), and the proof
+        is complete.                                                                    
+                        K
+            If P(z) = c k=1 (z − z k ), then
+
+                                                  P       K
+                                                                 1
+                                                     (z) =            .
+                                                  P        k=1
+                                                               z − zk
+
+        We now generalize this to analytic functions f (z), to the extent that f  / f can
+        be approximated by a sum over its nearby zeros.
+
+        Lemma 6.3 Suppose that f (z) is analytic in a domain containing the disc
+        |z| ≤ 1, that | f (z)| ≤ M in this disc, and that f (0) = 0. Let r and R be ﬁxed,
+        0 < r < R < 1. Then for |z| ≤ r we have
+                                                                     
+                               f        K
+                                              1                  M
+                                  (z) =            + O log
+                               f        k=1
+                                            z − zk            | f (0)|
+
+        where the sum is extended over all zeros z k of f for which |z k | ≤ R. (The implicit
+        constant depends on r and R, but is otherwise absolute.)
+
+        Proof If f (z) has zeros on the circle |z| = R, then we replace R by a very
+        slightly larger value. Thus we may assume that f (z) = 0 for |z| = R. Set
+                                                              K
+                                                                 R 2 − zz k
+                                              g(z) = f (z)                   .
+                                                             k=1
+                                                                 R(z − z k )
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             6.1 A zero-free region                                 171
+
+
+        By Lemma 6.1 we know that
+                                             log M/| f (0)|                   M
+                                     K ≤                           log              .              (6.2)
+                                                log 1/R                    | f (0)|
+        If |z| = R, then each factor in the product has modulus 1. Consequently |g(z)| ≤
+        M when |z| = R, and by the maximum modulus principle |g(z)| ≤ M for |z| ≤
+        R. We also note that
+                                                           K
+                                                              R
+                                      |g(0)| = | f (0)|           ≥ | f (0)|.
+                                                             |z
+                                                          k=1 k
+                                                                |
+        Since g(z) has no zeros in the disc |z| ≤ R, we may put h(z) = log(g(z)/g(0)).
+        Then h(0) = 0, and
+                         h(z) = log |g(z)| − log |g(0)| ≤ log M − log | f (0)|
+        for |z| ≤ R. Hence by the Borel–Carathéodory lemma we see that
+                                                                   M
+                                               h  (z)    log                                      (6.3)
+                                                                | f (0)|
+        for |z| ≤ r . But
+                                    g      f     K
+                                                         1      K
+                                                                        1
+                        h  (z) =      (z) = (z) −            +                 .                  (6.4)
+                                    g        f     k=1
+                                                       z − zk   k=1
+                                                                    z − R 2/z k
+
+        Now |R 2/z k | ≥ R, so that if |z| ≤ r then |z − R 2/z k | ≥ R − r . Hence for |z| ≤ r
+        the last sum above has modulus
+                                             K              M
+                                       ≤             log
+                                           R −r          | f (0)|
+        by (6.2). To obtain the stated result it sufﬁces to combine this estimate and (6.3)
+        in (6.4).                                                                        
+
+            We now apply these general principles to the zeta function.
+        Lemma 6.4 If |t| ≥ 7/8 and 5/6 ≤ σ ≤ 2, then
+                            ζ        1
+                               (s) =         + O(log τ )
+                            ζ        ρ s −ρ
+
+        where τ = |t| + 4 and the sum is extended over all zeros ρ of ζ (s) for which
+        |ρ − (3/2 + it)| ≤ 5/6.
+        Proof We apply Lemma 6.3 to the function f (z) = ζ (z + (3/2 + it)), with
+        R = 5/6 and r = 2/3. To complete the proof it sufﬁces to note that | f (0)| 1
+        by the (absolutely convergent) Euler product formula (1.17), and that f (z) τ
+        for |z| ≤ 1 by Corollary 1.17.                                              
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        172                               The Prime Number Theorem
+
+
+          If the zeta function were to have a zero of multiplicity m at 1 + iγ , then we
+        would have
+                                              ζ                 m
+                                                 (1 + δ + iγ ) ∼
+                                              ζ                  δ
+        as δ → 0+ . But
+                              ζ                   ∞
+                                (1 + δ + iγ ) = −     (n)n −1−δ cos(γ log n),
+                              ζ                    n=1
+
+        and in the very worst case this could be no larger than
+                                    
+                                    ∞
+                                                               ζ          1
+                                          (n)n −1−δ = −          (1 + δ) ∼ .
+                                    n=1
+                                                               ζ           δ
+
+        Thus m is at most 1, and even in this case ζ  /ζ would be essentially as large as
+        it could possibly be. Roughly speaking, this would imply that piγ is near −1
+        for most primes. But then it would follow that p 2iγ is near 1 for most primes,
+        so that
+                                            ζ                    1
+                                               (1 + δ + 2iγ ) ∼ −
+                                            ζ                     δ
+        as δ → 0+ . Then ζ (s) would have a pole at 1 + 2iγ , contrary to Corollary
+        1.13. The essence of this informal argument is captured very effectively by the
+        following elementary inequality.
+
+        Lemma 6.5 If σ > 1, then
+                                                   
+                         ζ      ζ       ζ
+                   −3 (σ ) − 4 (σ + it) − (σ + 2it) ≥ 0.
+                         ζ       ζ        ζ
+        Proof       From Corollary 1.11 we see that the left-hand side above is
+                          
+                          ∞
+                                                                             
+                                 (n)n −1−δ 3 + 4 cos(t log n) + cos(2t log n) .
+                           n=1
+
+        It now sufﬁces to note that 3 + 4 cos θ + cos 2θ = 2(1 + cos θ )2 ≥ 0 for
+        all θ .                                                                
+
+           We now use Lemmas 6.4 and 6.5 to establish the existence of a zero-free
+        region for the zeta function.
+
+        Theorem 6.6 There is an absolute constant c > 0 such that ζ (s) = 0 for
+        σ ≥ 1 − c/ log τ .
+
+            This is the classical zero-free region for the zeta function.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             6.1 A zero-free region                                 173
+
+
+        Proof Since ζ (s) is given by the absolutely convergent product (1.17) for
+        σ > 1, it sufﬁces to consider σ ≤ 1. From (1.24) we see that
+                                                       ∞
+                                            s                         |s|
+                                 ζ (s) −       ≤ |s|     u −σ −1 du =                              (6.5)
+                                           s−1       1                 σ
+        for σ > 0. From this we see that ζ (s) = 0 when σ > |s − 1|, i.e., in the parabolic
+        region σ > (1 + t 2 )/2. In particular, ζ (s) = 0 in the rectangle 8/9 ≤ σ ≤ 1,
+        |t| ≤ 7/8. Now suppose that ρ0 = β0 + iγ0 is a zero of the zeta function with
+        5/6 ≤ β0 ≤ 1, |γ0 | ≥ 7/8. Since ρ ≤ 1 for all zeros ρ of ζ (s), it follows that
+        1/(s − ρ) > 0 whenever σ > 1. Hence by Lemma 6.4 with s = 1 + δ + iγ0
+        we see that
+                            ζ                         1
+                      −       (1 + δ + iγ0 ) ≤ −            + c1 log(|γ0 | + 4).
+                            ζ                     1 + δ − β0
+        Similarly, by Lemma 6.4 with s = 1 + δ + 2iγ0 we ﬁnd that
+                                       ζ
+                               −         (1 + δ + 2iγ0 ) ≤ c1 log(|2γ0 | + 4).
+                                       ζ
+        From Corollary 1.13 we see that
+                                               ζ          1
+                                           −      (1 + δ) = + O(1).
+                                               ζ           δ
+        On combining these estimates in Lemma 6.5 we conclude that
+                                 3        4
+                                   −            + c2 log(|γ0 | + 4) ≥ 0.
+                                 δ   1 + δ − β0
+        We take δ = 1/(2c2 log(|γ0 | + 4)). Thus the above gives
+                                                                      4
+                                     7c2 log(|γ0 | + 4) ≥                   ,
+                                                                 1 + δ − β0
+        which is to say that
+
+                                         1                         4
+                           1+                       − β0 ≥                    .
+                                 2c2 log(|γ0 | + 4)        7c2 log(|γ0 | + 4)
+        Hence
+
+                                                              1
+                                       1 − β0 ≥                           ,
+                                                      14c2 log(|γ0 | + 4)
+        so the proof is complete.                                                                     
+
+           In the above argument it is essential that the coefﬁcient of ζ (s) is larger
+        than the coefﬁcient of ζ (σ ). Among non-negative cosine polynomials T (θ ) =
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        174                              The Prime Number Theorem
+
+
+        a0 + a1 cos 2πθ + · · · + a N cos 2π N θ , the ratio a1 /a0 can be arbitrarily close
+        to 2, as we see in the Fejér kernel
+                                  −1                                       
+                                 N
+                                            n                 1 sin π N θ 2
+                  N (θ ) = 1 + 2       1 −    cos   2nπ  θ =                    ≥ 0,
+                                 n=1
+                                           N                  N      sin π θ
+        but it must be strictly less than 2 since
+                                                     1
+                               a0 − 12 a1 =              T (θ )(1 − cos 2π θ) dθ > 0.
+                                                 0
+
+            It is useful to have bounds for the zeta function and its logarithmic derivative
+        in the zero-free region.
+        Theorem 6.7 Let c be the constant in Theorem 6.6. If σ > 1 − c/(2 log τ )
+        and |t| ≥ 7/8, then
+                                                      ζ
+                                                         (s)    log τ ,                                (6.6)
+                                                      ζ
+                                     | log ζ (s)| ≤ log log τ + O(1) ,                                 (6.7)
+        and
+                                                                1
+                                                                         log τ .                       (6.8)
+                                                              ζ (s)
+                                                                                                   
+        On the other hand, if 1 − c/(2 log τ ) < σ ≤ 2 and |t| ≤ 7/8, then ζζ (s) =
+                                           
+        −1/(s − 1) + O(1), log ζ (s)(s − 1)     1, and 1/ζ (s)  |s − 1|.
+        Proof      If σ > 1, then by Corollary 1.11 and the triangle inequality we see that
+                               ζ       ∞
+                                                        ζ                           1
+                                  (s) ≤     (n)n −σ = − (σ )                           .
+                               ζ        n=1
+                                                        ζ                          σ −1
+        Hence (6.6) is obvious if σ ≥ 1 + 1/ log τ . Let s1 = 1 + 1/ log τ + it. In par-
+        ticular we have
+                                                  ζ
+                                                     (s1 )      log τ.                                 (6.9)
+                                                  ζ
+        From this estimate and Lemma 6.4 we deduce that
+                                         1
+                                                log τ                                             (6.10)
+                                   ρ   s1 − ρ
+
+        where the sum is over those zeros ρ for which |ρ − (3/2 + it)| ≤ 5/6. Suppose
+        that 1 − c/(2 log τ ) ≤ σ ≤ 1 + 1/ log τ . Then by Lemma 6.4 we see that
+                 ζ       ζ        1                1
+                                                           
+                    (s) − (s1 ) =               −            + O(log τ ).       (6.11)
+                  ζ        ζ        ρ    s−ρ        s1 − ρ
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             6.1 A zero-free region                                175
+
+
+        Since |s − ρ|         |s1 − ρ| for all zeros ρ in the sum, it follows that
+                             1       1                       1                        1
+                                −                                                        .
+                            s−ρ   s1 − ρ              |s1 − ρ|2 log τ              s1 − ρ
+        Now (6.6) follows on combining this with (6.9) and (6.10) in (6.11).
+           To derive (6.7) we begin as in our proof of (6.6). From Corollary 1.11 and
+        the triangle inequality we see that if σ > 1, then
+                                                   
+                                                   ∞
+                                                     (n)
+                                  | log ζ (s)| ≤               n −σ = log ζ (σ ).
+                                                   n=2
+                                                       log n
+
+        But by Theorem 1.14 we know that ζ (σ ) < 1 + 1/(σ − 1), so that (6.7)
+        holds when σ ≥ 1 + 1/ log τ . In particular (6.7) holds at the point s1 =
+        1 + 1/ log τ + it, so that to treat the remaining s it sufﬁces to bound the
+        difference
+                                                                    s
+                                                                      ζ
+                                   log ζ (s) − log ζ (s1 ) =             (w) dw.
+                                                                   s1 ζ
+
+        We take the path of integration to be the line segment joining the endpoints.
+        Then the length of this interval multiplied by the bound (6.6) gives the error
+        term O(1) in (6.7).
+           The estimate (6.8) follows directly from (6.7), since log 1/|ζ | = − log ζ .
+        The remaining estimates follow trivially from (6.5).                         
+
+           The ideas we have used enable us not only to derive a zero-free region but
+        also to place a bound on the number of zeros ρ that might lie near the point
+        1 + it.
+
+        Theorem 6.8 Let n(r ; t) denote the number of zeros ρ of ζ (s) in the disc
+        |ρ − (1 + it)| ≤ r . Then n(r ; t) r log τ , uniformly for r ≤ 3/4.
+
+        Proof If c1 is a small positive constant and r < c1 / log τ , then n(r ; t) = 0 by
+        Theorem 6.6. Suppose that c1 / log τ ≤ r ≤ 1/6, |t| ≥ 7/8. As in the proof of
+        Theorem 6.7, the estimate (6.10) holds when we take s1 = 1 + r + it. In the sum
+        over ρ, each term is non-negative, and those zeros ρ counted in n(r ; t) contribute
+        at least 1/(2r ) apiece. Hence their number is r log τ . If 1/6 < r ≤ 3/4 and
+        |t| ≥ 3, then the desired bound follows at once by applying Jensen’s inequality
+        (Lemma 6.1 above) to the function f (z) = ζ (z + 2 + it), with R = 11/6, in
+        view of the bounds provided by Corollary 1.17. Note that | f (0)|        1 because
+        of the absolute convergence of the Euler product. If 1/6 < r ≤ 3/4 and |t| ≤ 3,
+        then we apply Jensen’s inequality to the function f (z) = (z + 1 + it)ζ (z + 2 +
+        it).                                                                             
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        176                              The Prime Number Theorem
+
+
+                                                 6.1.1    Exercises
+          1. (a) Show that if |z| < R, |w| ≤ R, and z = w, then
+                                                         zw − R 2
+                                                                  ≥ 1.
+                                                         (z − w)R
+              (b) Show that if |w| ≤ ρ < R, |z| = r < R, and z = w, then
+                                                  zw − R 2   rρ + R 2
+                                                           ≥          .
+                                                  (z − w)R   (r + ρ)R
+              (c) Suppose that f is analytic in the disc |z| ≤ R. For r ≤ R put M(r ) =
+                  max|z|≤r | f (z)|. Show that if 0 < r < R and 0 < ρ < R, then the num-
+                  ber of zeros of f in the disc |z| ≤ ρ does not exceed
+                                                               M(R)
+                                                          log
+                                                               M(r )
+                                                                      .
+                                                             rρ + R 2
+                                                         log (r + ρ)R
+
+          2. Suppose that R, M, and ε are positive real numbers, and set h(z) =
+             2M z/(z + R + ε).
+             (a) Show that h(0) = 0, that h(z) is analytic for |z| < R + ε, and that
+                 h(z) ≤ M for |z| ≤ R + ε.
+             (b) Show that if 0 < r < R, then
+                                                                            2Mr
+                                        max |h(z)| = −h(−r ) =                   .
+                                         |z|≤r                            R +ε−r
+              (c) Show that if 0 < r < R, then
+                                                                         2M(R + ε)
+                                       max |h  (z)| = h  (−r ) =                    .
+                                       |z|≤r                            (R + ε − r )2
+          3. Show that, in the situation of the Borel–Carathéodory lemma (Lemma 6.2),
+             if |z| ≤ r < R, then
+                                                                  4M R
+                                                  |h  (z)| ≤             .
+                                                                 (R − r )3
+          4. (Mertens 1898) Use the Dirichlet series expansion of log ζ (s) to show that
+             if σ > 1, then
+                                        |ζ (σ )3 ζ (σ + it)4 ζ (σ + 2it)| ≥ 1.
+          The method used to establish a zero-free region for the zeta function can be
+        applied to any particular Dirichlet L-function, though the constants involved
+        may depend on the function. We shall pursue this systematically in Chapter 11,
+        but in the exercise below we treat one interesting example.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             6.1 A zero-free region                                177
+
+
+          5. Let χ0 denote the principal character (mod 4), and χ1 the non-principal
+             character (mod 4).
+             (a) Show that L(1, χ1 ) = π/4, and hence that there is a neighbourhood of
+                 1 in which L(s, χ1 ) = 0.
+             (b) Show that if σ > 1, then
+                                                                           
+                            L              L              L
+                      −3 (σ, χ0 ) − 4 (σ + it, χ1 ) − (σ + 2it, χ0 ) ≥ 0.
+                            L               L               L
+              (c) Show that there is a constant c > 0 such that L(s, χ1 ) = 0 for σ >
+                  1 − c/ log τ .
+              (d) Show that there is a constant c > 0 such that if σ > 1 − c/ log τ , then
+                                                L
+                                                   (s, χ1 )    log τ,
+                                                L
+                                       | log L(s, χ1 )| ≤ log log τ + O(1),
+                                                      1
+                                                                   log τ.
+                                                   L(s, χ1 )
+          6. (a) Show that if 1 < σ1 ≤ σ2 , then
+                                             ζ (σ2 )   ζ (σ2 + it)   ζ (σ1 )
+                                                     ≤             ≤
+                                             ζ (σ1 )   ζ (σ1 + it)   ζ (σ2 )
+                  for all real t.
+              (b) Show that if 1 < σ1 ≤ σ2 ≤ 2, then
+                                          σ1 − 1          ζ (σ2 + it)         σ2 − 1
+                                          σ2 − 1          ζ (σ1 + it)         σ1 − 1
+                 uniformly in t.
+          7. (Montgomery & Vaughan 2001)
+             (a) Show that if σ > 1, then
+                                                                               
+                           ζ (σ + i(t + 1))          (n)
+                                                     ∞
+                                                                     1       
+                                            ≤ exp 2               sin 2 log n
+                               ζ (σ + it)           n=1
+                                                        n σ log n
+
+                  uniformly for all real t.                              1
+              (b) Put f (θ ) = | sin πθ |, and for integers k set *
+                                                                  f (k) = 0 f (θ )e(−kθ ) dθ
+                  where e(θ ) = e2πiθ . Show that f*(k) = −2/(π (4k 2 − 1)).
+              (c) By Corollary D.3, or otherwise, show that
+                                                               
+                                                               ∞
+                                              | sin π θ| =           *
+                                                                     f (k)e(kθ ) .
+                                                             k=−∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        178                              The Prime Number Theorem
+
+
+              (d) Show that if 1 < σ ≤ 2, then
+                                                           ∞
+                                      ζ (σ + i(t + 1))                      *
+                                                       ≤      |ζ (σ + ik)|2 f (k)
+                                          ζ (σ + it)     k=−∞
+
+                  uniformly for all real t.
+              (e) Show that if σ > 1, then
+                                                      ζ (σ + i(t + 1))
+                                 (σ − 1)4/π                                     (σ − 1)−4/π
+                                                          ζ (σ + it)
+                  uniformly in t.
+              (f) Show that
+                                                        ζ (1 + i(t + 1))
+                                   (log t)−4/π                                    (log t)4/π
+                                                            ζ (1 + it)
+                  uniformly for t ≥ 2.
+          8. Suppose that a and b are ﬁxed, 0 < a < b < 1. Suppose that f is analytic
+             in a domain containing the disc |z| ≤ R, that f (0) = 0, and that | f (z)| ≤ M
+             for |z| ≤ R. Show that
+                                        1                                 
+                              f        K
+                                                           1          M
+                                 (z) =             +O         log
+                              f        k=1
+                                           z − zk          R       | f (0)|
+             for |z| ≤ a R where the sum is over those zeros z k of f (z) for which
+             |z k | ≤ b R.
+          9. (Landau 1924a) Suppose that θ (t) and φ(t) are functions with the following
+             properties: φ(t) > 0, φ(t) , e−φ(t) ≤ θ(t) ≤ 1/2, θ (t) . Suppose also
+             that
+                                                      ζ (s)      eφ(t)
+              for σ ≥ 1 − θ (t), t ≥ 2.
+              (a) Show that
+                                                   1                                   
+                                         ζ                                  φ(t + 1)
+                                            (s) =        +O
+                                         ζ        ρ s −ρ                     θ (t + 1)
+
+                  for σ ≥ 1 − θ(t + 1)/3 where the sum is over zeros ρ for which |ρ −
+                  (1 + θ (t + 1) + it)| ≤ 5θ (t + 1)/3.
+              (b) Show that there is an absolute constant c > 0 such that ζ (s) = 0 for
+                                                                θ (2t + 1)
+                                                  σ ≥1−c                   .
+                                                                φ(2t + 1)
+              (c) Show that the zero-free region (6.26) follows from the estimate (6.25).
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                      6.2 The Prime Number Theorem                                     179
+
+
+              (d) By mimicking the proof of Theorem 6.7, but with s1 = 1 +
+                  θ (2t + 1)/φ(2t + 1) + it, show that
+                                                 ζ      φ(2t + 2)
+                                                    (s)              ,
+                                                 ζ       θ(2t + 2)
+                                                         φ(2t + 2)
+                                      | log ζ (s)| ≤ log             + O(1),
+                                                         θ(2t + 2)
+                                                   1     φ(2t + 2)
+                                                 ζ (s)    θ (2t + 2)
+               for σ ≥ 1 − 12 cθ (2t + 2)/φ(2t + 2).
+        10. Suppose that ζ (s) = 0 for σ ≥ η(t), t ≥ 2, where η(t) , η(t)                        1/ log t.
+            Show that
+                                                      ζ
+                                                         (s)     log t
+                                                      ζ
+              for σ ≥ 1 − 12 η(t + 1), t ≥ 2.
+
+
+                               6.2     The Prime Number Theorem
+        We are now in a position to prove the Prime Number Theorem in a quantitative
+                                              
+        form. We apply Perron’s formula to ζζ (s) to obtain an asymptotic estimate for
+                                                
+                                      ψ(x) =       (n),
+                                                           n≤x
+
+        and then use partial summation to derive an estimate for π (x). It would be more
+        direct to apply Perron’s formula to log ζ (s), but our approach is technically
+                                                                                 
+        simpler since log ζ (s) has a logarithmic singularity at s = 1 while ζζ (s) has
+        only a simple pole there.
+
+        Theorem 6.9          There is a constant c > 0 such that
+                                                                
+                                                          x
+                                  ψ(x) = x + O           √         ,                                 (6.12)
+                                                    exp(c log x)
+                                                                
+                                                          x
+                                  ϑ(x) = x + O           √         ,                                 (6.13)
+                                                    exp(c log x)
+        and
+                                                                                   
+                                                                       x
+                                   π(x) = li(x) + O                    √                             (6.14)
+                                                               exp(c       log x)
+        uniformly for x ≥ 2.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        180                              The Prime Number Theorem
+
+
+            Here li(x) is the logarithmic integral,
+                                                             x
+                                                                   1
+                                             li(x) =                   du.
+                                                         2       log u
+        By integrating this integral by parts K times we see that
+                                      −1                           
+                                     K
+                                          (k − 1)!             x
+                          li(x) = x                + O K               .                           (6.15)
+                                     k=1
+                                          (log x)k         (log x) K
+        On combining this with (6.14) we see that
+                                                                                
+                                                x                        x
+                                      π (x) =       +O                               .
+                                              log x                   (log x)2
+        This is a quantitative form of the Prime Number Theorem. When this main term
+        is used, the error term is genuinely of the indicated size, since by (6.14) and
+        (6.15) again we see that
+                                                                    
+                                     x          x              x
+                           π(x) =         +           + O              .
+                                   log x     (log x)2       (log x)3
+        Thus we see that in order to obtain a precise estimate of π (x), it is essential
+        to use the logarithmic integral (or some similar function) to express the main
+        term.
+        Proof From Corollary 1.11 and Theorem 5.2 we see that
+                                                       σ0 +i T
+                                              −1                  ζ  xs
+                                   ψ(x) =                            (s) ds + R                    (6.16)
+                                              2πi     σ0 −i T     ζ     s
+        for σ0 > 1, where by Corollary 5.3 we see that
+                                                                (n)
+                                                x          (4x)σ0 ∞
+                 R             (n) min 1,               +               .
+                      x/2<n<2x
+                                            T |x − n|        T n=1 n σ0
+                                              
+        Here the second sum is − ζζ (σ0 ), which is 1/(σ0 − 1) for 1 < σ0 ≤ 2. To
+        estimate the ﬁrst sum we note that (n) ≤ log n       log x. For the n that is
+        nearest to x we replace the minimum by its ﬁrst member, and for all other
+        values of n we replace it by its second member. Thus the ﬁrst sum is
+                                                
+                                        x  1                 x
+                        (log x) 1 +                  log x + (log x)2 .
+                                       T 1≤k≤x k              T
+
+        Suppose that 2 ≤ T ≤ x and that σ0 = 1 + 1/ log x. Then
+                                           x
+                                     R       (log x)2 .
+                                           T
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                          6.2 The Prime Number Theorem                                181
+
+
+        Put σ1 = 1 − c/ log T where c is a small positive constant, and let C denote
+        the closed contour that consists of line segments joining the points σ0 − i T ,
+                                                                         
+        σ0 + i T , σ1 + i T , σ1 − i T . From Theorem 6.6 we know that ζζ (s) has a simple
+        pole with residue −1 at s = 1, but that it is otherwise analytic within C. Hence
+        by the calculus of residues,
+                                             −1       ζ  xs
+                                                         (s) ds = x.
+                                             2πi    C ζ     s
+        If c is small, then the estimate (6.6) of Theorem 6.7 applies on this contour.
+        Hence
+                                 σ1 +i T
+                                           ζ  xs              log T σ0                  x
+                            −                 (s) ds                x (σ0 − σ1 )           ,
+                                σ0 +i T    ζ     s               T                       T
+        and similarly for the integral from σ1 − i T to σ0 − i T . Using (6.6) again, we
+        also see that
+                  σ1 −i T
+                            ζ  xs                                  T
+                                                                     dt               1
+                                                                                               dt
+            −                  (s) ds          x σ1 (log T )                + x σ1
+                 σ1 +i T    ζ     s                           −T  1 +   |t|          −1 |σ 1  + it − 1|
+                                                                     σ1
+                                                                   x
+                                               x σ1 (log T )2 +               x σ1 (log T )2 .
+                                                                 1 − σ1
+        On combining these estimates we conclude that
+                                                               
+                                                  1    −c/ log T
+                      ψ(x) = x + O x(log x)   2
+                                                    +x              .
+                                                  T
+        We choose T so that the two terms in the last factor of the error term are equal,
+                      √
+        i.e., T = exp c log x . With this choice of T , the error term above is
+                                                                         
+                      x(log x)2 exp − c log x            x exp − c log x
+
+        since we may suppose that 0 < c < 1. Thus the proof of (6.12) is complete.
+           To derive (6.13) it sufﬁces to combine (6.12) with the ﬁrst estimate of Corol-
+        lary 2.5. As for (6.14), we note that
+                                     x                                   x
+                                        1                                    1
+                      π(x) =                dϑ(u) = li(x) +                      d(ϑ(u) − u).
+                                   2− log u                             2− log u
+
+        By integrating by parts we see that this last integral is
+                                          ϑ(u) − u x           ϑ(u) − u
+                                                                x
+                                                     +                2
+                                                                        du,
+                                           log u 2−         2 u(log u)
+                                                                    √
+        and by (6.13) it follows that this is              x exp(−c log x). Thus we have (6.14),
+        and the proof is complete.                                                                        
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        182                              The Prime Number Theorem
+
+
+           The method we used to derive Theorem 6.9 is very ﬂexible, and can be
+        applied to many other situations. For example, the summatory function
+                                                
+                                      M(x) =      µ(n)
+                                                              n≤x
+
+        can be estimated by applying the above method with ζ  /ζ replaced by 1/ζ .
+        Thus it may be shown that
+                                                      
+                               M(x)     x exp − c log x                     (6.17)
+        for x ≥ 2. If instead we were to apply the method to the function 1/ζ (s + 1),
+        we would ﬁnd that
+                                µ(n)                     
+                                            exp − c log x ,                     (6.18)
+                               n≤x  n
+        since 1/(sζ (s + 1)) is analytic at s = 0. Hence in particular,
+                                                  
+                                                  ∞
+                                                    µ(n)
+                                                                = 0.                               (6.19)
+                                                  n=1
+                                                          n
+
+
+                                               6.2.1      Exercises
+
+          1. (Landau 1901b; cf. Rosser & Schoenfeld 1962) Use Theorem 6.9 to show
+             that
+                         π (2x) − 2π (x) = −2(log 2)x(log x)−2 + O(x(log x)−3 ).
+             Deduce that for all large x, the interval (x, 2x] contains fewer prime num-
+             bers than the interval (0, x].
+                                                                       
+          2. Use Theorem 6.9 to show that if n is of the form n = p≤y p where y is
+             sufﬁciently large, then d(n) > n (log 2)/ log log n .
+          3. (a) Use Theorem 6.9 to show that
+                               1             log y                     
+                                       = log         + O exp − c log x .
+                             x< p≤y  p        log x
+             (b) Use the above and Theorem 2.7 to show that
+                            1                                    
+                                   = log log x + b + O exp − c log x
+                             p≤x p
+                                    
+                 where b = C0 − p ∞               k
+                                         k=2 1/(kp ) .
+          4. Show that for x ≥ 2,
+                         (n)                                 
+                                   = log x − C0 + O exp − c log x .
+                         n≤x   n
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                      6.2 The Prime Number Theorem                                  183
+
+
+          5. (cf. Cipolla 1902; Rosser 1939) Let p1 < p2 < · · · denote the prime num-
+             bers. Show that
+                                                                                     
+                                              log log n     2            (log log n)2
+              pn = n log n + log log n − 1 +            −        +O                     .
+                                                 log n    log n            (log n)2
+          6. (Landau 1900) Let πk (x) denote the number of integers not exceeding x
+             that are composed of exactly k distinct primes.
+             (a) Show that
+                                                                   
+                               π2 (x) =       π (x/ p) + O x(log x)−2 .
+                                                           √
+                                                         p≤ x
+
+              (b) Show that the sum above is
+                                      x                              
+                                              + O x(log log x)(log x)−2 .
+                                 √ p log x/ p
+                              p≤ x
+
+              (c) Using Theorem 6.9 and integration by parts, show that the sum above
+                  is
+                                                √
+                                                    x
+                                                               du
+                                       x                                 + O(x/ log x).
+                                            2           u(log x/u) log u
+             (d) Conclude that π2 (x) = x(log log x)/ log x + O(x/ log x).
+          7. (D. E. Knutson) Let dn denote the least common multiple of the numbers
+             1, 2, . . . , n.
+             (a) Show that dn = exp(ψ(n)).
+                                 
+             (b) Let E(z) = ∞      n=1 z /dn . Show that this power series has radius of
+                                        n
+
+                 convergence e.
+             (c) Show that E(1) is irrational.
+          8. (Landau 1905) Let Q(x) denote the number of square-free integers not
+             exceeding x, and deﬁne R(x) by the relation Q(x) = (6/π 2 )x + R(x).
+             (a) Show that
+                                                  
+                            R(x) = M(y){x/y 2 } −     µ(d){x/d 2 }
+                                                                  d≤y
+                                                                             ∞
+                                       +                 M        x/m − 2x           M(u)u −3 du.
+                                           m≤x/y 2                           y
+
+                                        √
+             (b) Taking y = x 1/2 exp(−c log x) where c is sufﬁciently small, show
+                                         √
+                 that R(x)   x 1/2 exp(−c log x).
+                                    
+          9. Let N = N (Q) = 1 + q≤Q ϕ(q) be the number of Farey points of order
+             Q, and for 0 ≤ α ≤ 1 write
+
+                          card{(a, q) : q ≤ Q, (a, q) = 1, a/q ≤ α} = N α + R
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        184                              The Prime Number Theorem
+
+
+              where R = R(Q, α).
+              (a) Show that if α = (1/Q)− , then R = −N /Q −Q.
+              (b) Show that if α = 1 − 1/Q, then R = N /Q − 1 Q.
+              (c) Show that
+                                               
+                                        R=−        {r α}M(Q/r )
+                                                           r ≤Q
+
+                for 0 ≤ α ≤ 1.
+            (d) Show that R        Q uniformly for 0 ≤ α ≤ 1.
+        10. (Landau 1903b; Massias, Nicolas & Robin 1988, 1989) Let f (n) denote
+            the maximal order of any element of the symmetric group Sn .
+            (a) Show that f (n) = max lcm(n 1 , n 2 , . . . , n k ) where the maximum is ex-
+                tended over all sets {n 1 , n 2 , . . . , n k ) of natural numbers for which
+                n 1 + n 2 + · · · + n k ≤ n.
+                                                               
+            (b) Choose y as large as possible so that p≤y p ≤ n. Show that
+                                                  
+                                   log f (n) ≥          log p = (1 + o(1))(n log n)1/2 .
+                                                  p≤y
+
+            (c) Show that f (n) = max q1 q2 · · · qk where qi = pia(i) , pi = p j for i =
+                        
+                 j, and qi ≤ n.
+                                                                                   
+            (d) Use the arithmetic–geometric mean inequality to show that qi ≤
+                 (n/k)k .
+            (e) Show that if k is the number of qi ’s in (c), then k ≤ (2 +
+                 o(1))(n/ log n)1/2 .
+             (f) Conclude that log f (n) (n log n)1/2 .
+        11. Let λ(n) = (−1)(n) be Liouville’s lambda function.
+                            
+            (a) Show that ∞    n=1 λ(n)n
+                                         −s
+                                            = ζ (2s)/ζ (s) for σ > 1.
+            (b) Using the method of proof of Theorem 6.9, show that
+                                                                 
+                                        λ(n)     x exp − c log x .
+                                            n≤x
+                                                    
+            (c) Use (6.17) and the fact that λ(n) = d 2 |n µ(n/d 2 ) to give a second
+                proof of the above estimate.
+        12. (Landau 1907, Section 14) Let cn = 1 if n is a prime or a prime power,
+            cn = 0 otherwise.
+                                         
+            (a) Show that µ(n)ω(n) = − d|n cd µ(n/d).
+            (b) Use (6.18) and the method of the hyperbola to show that
+                                                    
+                                                    ∞
+                                                        µ(n)ω(n)
+                                                                 = 0.
+                                                    n=1
+                                                           n
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       6.2 The Prime Number Theorem                                185
+
+
+        13. Use the method of proof of Theorem 6.9 to show that
+                                   x 1−it                    
+                       (n)n −it =         + O(x exp − c log x
+                   n≤x             1 − it
+                                                              
+                                                          log x
+                                   + O x(log x) exp −c
+                                                 2
+                                                          log τ
+            uniformly for |t| ≤ x.
+        14. Use the method of proof of Theorem 6.9 to show that for any ﬁxed real t,
+                                           
+                                           ∞
+                                                                         1
+                                                  µ(n)n −1−it =                .
+                                           n=1
+                                                                    ζ (1 + it)
+        15. (a) Use the method of proof of Theorem 6.9 to show that for any ﬁxed
+                t = 0,
+                                           
+                                           ∞
+                                             (n)
+                                                        n −1−it = log ζ (1 + it).
+                                            n=1
+                                                log n
+              (b) Deduce that for any t = 0,
+                                                  (1 − p −1−it )−1 = ζ (1 + it).
+                                              p
+
+        16. (Landau 1899b, 1901a, 1903c) Use the method of proof of Theorem 6.9 to
+            show that
+                                         ∞
+                                              µ(n) log n
+            (a)                                           = −1;
+                                         n=1
+                                                  n
+                                       µ(n)(log n)2
+                                        ∞
+            (b)                                           = −2C0 ;
+                                       n=1
+                                                n
+                                        ∞
+                                            λ(n) log n
+            (c)                                         = −ζ (2).
+                                        n=1
+                                                n
+        17. Taking (6.18) and a quantitative form of the ﬁrst part of the preceding
+            exercise for granted, use elementary reasoning to show that if q ≤ x then
+                                     µ(n)                       
+            (a)                                    exp − c log x ,
+                                    n≤x     n
+                                          (n,q)=1
+                                µ(n) log n     q                 
+              (b)                           =−      + O exp − c log x .
+                               n≤x   n         ϕ(q)
+                             (n,q)=1
+        18. (Hardy 1921) Use the method of proof of Theorem 6.9 to show that
+                                         ∞
+                                             µ(n)
+            (a)                                     = 0;
+                                         n=1
+                                              ϕ(n)
+                                      ∞
+                                           µ(n) log n
+            (b)                                       = 0;
+                                      n=1
+                                              ϕ(n)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        186                              The Prime Number Theorem
+
+
+                                              
+                                              ∞
+                                                  µ(n)(log n)2
+              (c)                                              = 4A log 2
+                                              n=1
+                                                     ϕ(n)
+                          
+                where A = p>2 1 − ( p−1)
+                                       1
+                                          2 .
+
+        19. Let Q(x) denote the number of square-free integers not exceeding x, and
+            recall Theorem 2.2.
+            (a) Show that
+                                              6        µ(n)     
+                                  Q(x) =         x−x          −      µ(n){x/n 2 }
+                                             π 2       √
+                                                     n> x
+                                                          n 2     √
+                                                                n≤ x
+
+                  where {θ } = x − [x] is the fractional part of θ.
+                                                             √
+              (b) Show that n>y µ(n)/n 2         y −1 exp(−c log y) for y ≥ 2.
+              (c) Note that if k is a positive integer, then {x/n 2 } is monotonic for n in
+                              √                     √
+                  the interval x/(k + 1) < n ≤ x/k. Deduce that if x ≥ 2k 2 , then
+                                                                              
+                                          µ(n){x/n 2 }       x/k exp − c log x .
+                            √             √
+                                x/(k+1)<n≤ x/k
+                                                                              √
+              (d) By using the above for 1 ≤ k ≤ K = exp(−b                       log x) where b is suit-
+                  ably chosen in terms of c, show that
+                                       6                       c
+                                    Q(x) =x + O x 1/2 exp −        log x .
+                                      π 2                      2
+                                          
+        20. (Ingham 1945) Let F(n) = d|n f (d) for all n. From our remarks at the
+            beginning of Chapter 2 we see that it is natural to expect a connection
+            between
+                            
+             (i) S(x) := n≤x F(n) = cx + o(x);
+                 ∞
+            (ii)    n=1 f (n)/n = c.
+            Neither of these implies the other, but we show now that (i) implies that the
+            series (ii) is (C,1) summable to c.
+                                    
+            (a) Show that S(x) = n≤x f (n)[x/n].
+            (b) Show that
+                                                                        
+                             f (n)       n         x                     dv
+                                     1−       =       S(v)        µ(d)/d      .
+                            n≤x   n        x      1         d≤x/v
+                                                                           v2
+
+              (c) Show that
+                                                       x    µ(d) dv
+                                                                           →1
+                                                   1       d≤x/v
+                                                                   d   v
+
+                    as x → ∞.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                      6.2 The Prime Number Theorem                                 187
+
+                                          
+              (d) Use the estimate            d≤y µ(d)/d            (log 2y)−2 to show that
+                                                     x     µ(d) dv
+                                                                               1.
+                                                 1       d≤x/v
+                                                               d  v
+
+              (e) Mimic the proof of Theorem 5.5, or use Exercise 5.2.6 to show that if
+                  (i) holds, then
+                                           f (n)        n
+                                      lim            1−      = c.
+                                     x→∞
+                                          n≤x  n         x
+             (f) Use Theorem 5.6 to show that if (i) holds and f (n) = O(1), then (ii)
+                 follows.
+                                                    
+            (g) Take f (n) = µ(n) to deduce that ∞     n=1 µ(n)/n = 0. (Of course we
+                 used much more above in (d). For a result in the converse direction, see
+                 Exercise 8.1.5.)
+        21. (Landau 1908b) Let R be the set of positive integers that can be expressed
+            as a sum of two squares, let R(x) denote the number of such integers not
+            exceeding x, and let χ1 denote the non-principal character (mod 4), as in
+            Exercise 6.1.5.
+            (a) Show that
+                      
+                          n −s = (1 − 2−s )−1     (1 − p −s )−1       (1 − p −2s )−1
+                         n∈R                              p≡1 (4)               p≡3 (4)
+
+                  for σ > 1.
+                                                               √
+              (b) Show that the Dirichlet series above is f (s) ζ (s)L(s, χ1 ) where
+                                      f (s) = (1 − 2−s )−1/2              (1 − p −2s )−1/2
+                                                                    p≡3 (4)
+
+                  is a Dirichlet series with abscissa of convergence σc = 1/2.
+              (c) Deduce that the Dirichlet series generating function for R has a
+                  quadratic singularity at s = 1.
+              (d) Show that
+                             1                          xs                   
+                   R(x) =            f (s) ζ (s)L(s, χ1 ) ds + O x exp − c log x
+                            2πi C                         s
+                  where C is the contour running from 1 − c − iδ along a straight line
+                  to 1 − iδ, then along the semicircle 1 + δeiθ , −π/2 ≤ θ ≤ π/2, and
+                  ﬁnally along a straight line to 1 − c + iδ. Here c should be sufﬁciently
+                  small and δ = 1/ log x.
+              (e) Show that the integral above is
+                                                          1       g(s)x s
+                                                     =            √       ds
+                                                         2πi    C   s−1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        188                              The Prime Number Theorem
+
+
+                   where
+                                                         f (s) 
+                                          g(s) =                (s − 1)ζ (s)L(s, χ1 )
+                                                           s
+                  is analytic in a neighbourhood of 1.
+              (f) Show that
+                                             ,
+                                               π
+                                      g(1) =            (1 − p −2 )−1/2 .
+                                               2 p≡3 (4)
+
+              (g) Show that g(s) = g(1) + O(|s − 1|) when s is near 1.
+              (h) By means of Theorem C.3 with s = 1/2, or otherwise, show that
+                                     1              xs                   x
+                                                √           ds = √             + O(x 1−c ).
+                                    2πi     C       s−1                π log x
+              (i) Show that if δ = 1/ log x, then
+                                                                               x
+                                                |s − 1|1/2 x σ |ds|                   .
+                                            C                              (log x)3/2
+              (j) Show that
+                                                          bx                    
+                                          R(x) = √              + O x(log x)−3/2
+                                                          log x
+                   where
+
+                                             b = 2−1/2             (1 − p −2 )−1/2 .
+                                                             p≡3 (4)
+
+        22. Let A denote the set of those positive integers that are composed entirely
+            of the prime 2 and primes ≡ 1 (mod 4), and let B be the the set of those
+            positive integers that are composed entirely of primes ≡ 3 (mod 4).
+            (a) Explain why any positive integer n has a unique representation in the
+                form n = a(n)b(n) where a(n) ∈ A and b(n) ∈ B.
+            (b) Let A(x) denote the number of a ∈ A, a ≤ x. Show that
+                                                                    
+                                            αx                 x
+                                   A(x) = √        +O
+                                             log x        (log x)3/2
+                               √
+                where α = 1/ 2.
+            (c) Let B(x) denote the number of b ∈ B, b ≤ x. Show that
+                                                                    
+                                            βx                 x
+                                   B(x) = √        +O
+                                             log x        (log x)3/2
+                            √
+                where β = 2/π .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                         6.2 The Prime Number Theorem                                                 189
+
+
+              (d) For 0 ≤ κ ≤ 1 let Nκ (x) denote the number of n ≤ x such that a(n) ≤
+                  n κ . Show that
+                                                       
+                                      Nκ (x) =                  1.
+                                                             a≤x κ a 1/κ−1 ≤b≤x/a
+                                                             a∈A         b∈B
+
+              (e) Show that if κ is ﬁxed, 0 ≤ κ ≤ 1, then
+                                                                                                        
+                                                                                             x
+                                             Nk (x) = c(κ)x + O                           √
+                                                                                            log x
+                   where
+                                                                         κ
+                                                            1                    du
+                                                  c(κ) =                      √         .
+                                                            π        0         u(1 − u)
+        23. The deﬁnition of li(x) is somewhat arbitrary because of the casual choice
+            of the lower endpoint of integration. A more intrinsic logarithmic integral
+            is Li(x), which is deﬁned to be
+                                              1−ε        x 
+                                                                dt
+                                Li(x) = lim+         +                           (6.20)
+                                        ε→0      0      1+ε    log t
+                 for x > 1. (Note that li(x) = Li(x) − Li(2).)
+              (a) Show that
+                                                 1−ε             ∞
+                                                        dt                     dv
+                                                             =−            e−v    .
+                                             0         log t    − log(1−ε)     v
+              (b) Show that
+                                  1−ε                            ∞
+                                         dt
+                                              = log ε −              (log v)e−v dv + O(ε log 1/ε),
+                             0          log t                0
+                                                                                                  
+                  and explain why the integral on the right is                                        (1) = −C0 .
+              (c) Show that if x > 1, then
+                                                       x                      log x
+                                                        dt                                        dv
+                                                             =                              ev       .
+                                                   1+ε log t                 log(1+ε)              v
+              (d) Show that if x > 1, then
+                              x
+                                 dt                                                       log x
+                                                                                                  ev − 1
+                                      = log log x − log ε +                                              dv + O(ε).
+                            1+ε log t                                                 1              v
+              (e) Show that if x > 1, then
+                                                                                          log x
+                                                                                                      ev − 1
+                                        Li(x) = log log x + C0 +                                             dv.
+                                                                                      0                  v
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        190                              The Prime Number Theorem
+
+
+              (f) Expand ev as a power series, and integrate term-by-term, to show that
+                  if x > 1, then
+                                                                               
+                                                                               ∞
+                                                                                 (log x)n
+                                       Li(x) = log log x + C0 +                                  .        (6.21)
+                                                                               n=1
+                                                                                          n!n
+
+        24. For 0 < x < 1 let
+                                                                   x
+                                                                        dt
+                                                  Li(x) =                    .
+                                                               0       log t
+
+              (a) Show that if 0 < x < 1, then
+                                                                           ∞
+                                    Li(x) = x log log 1/x −                        e−v log v dv.
+                                                                         − log x
+
+              (b) Show that if 0 < x < 1, then
+                                                                                − log x
+                               Li(x) = x log log 1/x + C0 +                               e−v log v dv.
+                                                                            0
+
+              (c) Show that if 0 < x < 1, then
+                                                                               − log x
+                                                                                          1 − e−v
+                                 Li(x) = log log 1/x + C0 −                                       dv.
+                                                                           0                 v
+              (d) Show that if 0 < x < 1, then
+                                                                                 
+                                                                                 ∞
+                                                                                   (log x)n
+                                      Li(x) = log log 1/x + C0 +                                     .
+                                                                                 n=1
+                                                                                           n!n
+
+              (e) (Pólya & Szegö 1972, p. 8) Show that
+                                                             
+                                   ∞
+                                        zn          ∞   
+                                                         n
+                                                            1 (−z)n
+                                            = −e  z
+                                                                    .
+                                   n=1
+                                       n!n          n=1 k=1
+                                                            k   n!
+
+              (f) Show that if 0 < x < 1, then
+                                                               
+                                                      ∞   1 (log 1/x)n
+                                                           n
+                         Li(x) = log log 1/x + C0 − x                    .                                (6.22)
+                                                      n=1 k=1
+                                                              k   n!
+
+        25. By repeated integration by parts we know that
+                                     (k − 1)!
+                                     K                                
+                                                               x
+                          Li(x) = x              + OK                    .
+                                    k=1
+                                        (log x)k          (log x) K +1
+
+              Our object is to determine how closely one can approximate to Li(x) by
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                        6.2 The Prime Number Theorem                                  191
+
+
+              partial sums of the formal asymptotic expansion
+                                                               
+                                                               ∞
+                                                                 (k − 1)!
+                                                   Li(x) ∼ x                        .
+                                                               k=1
+                                                                        (log x)k
+
+              (a) Show that the least term in the sum above occurs when k = [log x] + 1.
+              (b) Show that if x ≥ e K , then
+                                             
+                                             K
+                                               (k − 1)!
+                            Li(x) = x                     + Li(e)
+                                             k=1
+                                                (log x)k
+                                                                                    
+                                           
+                                           K −1         ek+1
+                                                                 dt       (k − 1)!ek
+                                         +        k!                    −
+                                           k=1        ek     (log t)k+1       kk
+                                             (K − 1)!e K         x
+                                                                       dt
+                                         −               + K !                  .
+                                                KK             e K (log t) K +1
+              (c) Deﬁne R(x) by the relation
+                                                           x]
+                                                          [log
+                                                              (k − 1)!
+                                             Li(x) = x                 + R(x).
+                                                          k=1
+                                                              (log x)k
+
+                  Show that R(x) is increasing, continuous, and convex downward for
+                  x ∈ [e K , e K +1 ). Let α K = R(e K ), and let β K be the limit of R(x) as x
+                  tends to e K +1 from below.
+              (d) Show that
+                                    e K +1
+                                                 dt         eK               1/K
+                                                                                       eK w
+                                                          =                                     dw.
+                                   eK        (log t) K +1   KK           0         (1 + w) K +1
+              (e) Show that the integrand on the right above is ≤ 1 in the range of inte-
+                   gration.
+               (f) Show that the minimum of e K w /(1 + w) K +1 for w > 0 occurs when
+                   w = 1/K .
+              (g) Show that
+                                                               e K +1
+                                       e K +1                               dt          eK
+                                                 <                                   <        .
+                                    (K + 1) K +1           eK           (log t) K +1   K K +1
+              (h) Show that α K  and that β K  .
+               (i) Show that β K − α K    K −1/2
+               (j) Show that R(x) = c + O((log x)−1/2 ) where
+                                                                               
+                                       ∞          ek+1
+                                                            dt       (k − 1)!ek
+                          c = Li(e) +        k!                    −              .
+                                       k=1       ek     (log t)k+1       kk
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        192                              The Prime Number Theorem
+
+
+              (k) Show that if x ≥ e, then
+                                                               x]
+                                                              [log
+                                                                   (k − 1)!
+                                          α1 ≤ Li(x) − x                    ≤ β1                   (6.23)
+                                                               k=1
+                                                                   (log x)k
+                where α1 = −0.82316 . . . and β1 = 1.259706 . . . . .
+        26. (Ingham 1932, pp. 60–63) Suppose that η(t) is deﬁned for t ≥ 2, that η (t) is
+            continuous, η (t) → 0 as t → ∞, that η(t) , that 1/ log t   η(t) ≤ 1/2,
+            and that ζ (s) = 0 for σ ≥ 1 − η(t), t ≥ 2. For x ≥ 2, put
+
+                                         ω(x) = min η(t) log x + log t .
+                                                   2≤t<∞
+
+
+              (a) Show that there is an absolute constant c > 0 such that
+                                          π (x) = li(x) + O(x exp(−cω(x))).
+              (b) Show that if a > 0 is ﬁxed and (6.24) below holds, then (6.27) below
+                  holds with b = 1/(1 + a).
+              (c) Show that (6.28) follows from (6.26).
+
+
+                                                  6.3      Notes
+        Section 6.1. Jensen (1899) proved that if f satisﬁes the hypotheses of
+        Lemma 6.1, then
+                              n                  2π                     
+                                 R            1
+                    | f (0)|         = exp           log | f (Reiθ )| dθ
+                                |z |
+                             k=1 k
+                                             2π 0
+        where z 1 , . . . , z n are the zeros of f in the disc |z| ≤ R. Here the right-hand side
+        may be regarded as being the geometric mean of | f (z)| for z on the circle |z| =
+        R. Each factor of the product above is ≥ 1, and if |z k | ≤ r , then R/|z k | ≥ R/r .
+        Thus Lemma 6.1 follows easily from the above. The products used in the proofs
+        of Lemmas 6.1 and 6.3 are known as Blaschke products. Their use (usually with
+        inﬁnitely many factors) is an important tool of complex analysis. Lemma 6.2 is
+        due to Borel (1897); it reﬁnes an earlier estimate of Hadamard. Carathéodory’s
+        contributions on this subject are recounted by Landau (1906; Section 4).
+            Lemma 6.4 is implicit in Landau (1909, p. 372), and may have been known
+        earlier. It can also be easily derived from the identity (10.29) that arises by
+        applying Hadamard’s theory of entire functions to the zeta function.
+            The Prime Number Theorem was ﬁrst proved, in the qualitative form π (x) ∼
+        x/ log x, independently by Hadamard (1896) and de la Vallée Poussin (1896).
+        In these papers, it was shown that ζ (1 + it) = 0, but no speciﬁc zero-free region
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     6.3 Notes                                       193
+
+
+        was established. The ﬁrst proof that ζ (1 + it) = 0 given by de la Vallée Poussin
+        was rather complicated, but later in his long paper he gave a second proof
+        depending on the inequality 1 − cos 2θ ≤ 4(1 + cosθ). This is equivalent to the
+        non-negativity of the cosine polynomial 3 + 4 cos θ + cos 2θ , which Mertens
+        (1898) used to obtain the result of Exercise 6.4. Our Lemma 6.5 is derived by
+        the same method. The classical zero-free region of Theorem 6.6 was established
+        ﬁrst by de la Vallée Poussin (1899). The estimates (6.6) and (6.8) of Theorem 6.7
+        were ﬁrst proved by Gronwall (1913).
+           Wider zero-free regions have been established by using exponential sum es-
+        timates to obtain better upper bounds for |ζ (s)| when σ is near 1 . The ﬁrst such
+        improvement was derived by Hardy & Littlewood. Their paper on this was never
+        published, but accounts of their approach have been given by Landau (1924b)
+        and Titchmarsh (1986, Chapter 5). Littlewood (1922) announced that from
+        these estimates he had deduced that ζ (s) = 0 for σ ≥ 1 − c(log log τ )/ log τ .
+        As explained by Ingham (1932, p. 66), Littlewood never published his com-
+        plicated proof, because the simpler method of Landau (1924a) had become
+        available.
+           In 1935, Vinogradov introduced a new method for estimating Weyl sums. A
+                                          N
+        Weyl sum is a sum of the form n=1       e( f (n)) where f ∈ R[x]. The quality of
+        Vinogradov’s estimate depends on rational approximations to the coefﬁcients
+        of f , and on the degree of f . The function f (x) = t log x is not a polynomial,
+        but by approximating to it by polynomials one can make Vinogradov’s method
+        apply. This was ﬁrst done by Chudakov (1936 a, b, c), who derived estimates
+        for ζ (s) for σ near 1 that allowed him to deduce that ζ (s) = 0 for
+                                               σ > 1 − c(log τ )−a                                 (6.24)
+        for a > 10/11. Vinogradov (1936b) gave stronger exponential sum estimates,
+        which Titchmarsh (1938) used to obtain a zero-free region of the above form for
+        a > 4/5. Hua (1949) introduced a further reﬁnement of Vinogradov’s method,
+        from which Titchmarsh (1951, Chapter 6) and Tatuzawa (1952) derived the
+        zero-free region
+                                   σ > 1 − c(log τ )−3/4 (log log τ )−3/4 .
+        By reﬁning the passage from Weyl sums to the zeta function, Korobov (1958a)
+        obtained (6.24) for a > 5/7, and then Korobov (1958b, c) and Vinogradov
+        (1958) obtained a > 2/3. In fact, Vinogradov claimed that one can take a =
+        2/3, but this seems to be still out of reach. Richert’s polished exposition of
+        Vinogradov’s method is reproduced in Walﬁsz (1963). Other expositions have
+        since been given by Karatsuba & Voronin (1992, Chapter 4), Montgomery
+        (1994, Chapter 4), and Vaughan (1997). Richert (1967) used Vinogradov’s
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        194                              The Prime Number Theorem
+
+
+        method to show that
+                                                               3/2
+                                          ζ (s)     t 100(1−σ ) (log t)2/3                         (6.25)
+
+        for σ ≤ 1, t ≥ 2. From this it follows that ζ (s) = 0 for
+
+                                    σ ≥ 1 − c(log τ )−2/3 (log log τ )−1/3 .                       (6.26)
+
+        The methods of Hadamard and de la Vallée Poussin depended on the analytic
+        continuation of ζ (s), on bounds for the size of ζ (s) in the complex plane, and
+        on Hadamard’s theory of entire functions. The ﬁrst two of these are achieved
+        most easily by Riemann’s functional equation (see Corollaries 10.3–10.5). An
+        abbreviated account of the third is found in Lemma 10.11. Landau (1903a)
+        showed that one can obtain a zero-free region using only the local analytic
+        properties of the zeta function. This enabled Landau to prove the Prime Ideal
+        Theorem, which is the natural extension of the Prime Number Theorem to
+        algebraic number ﬁelds: If K is an algebraic number ﬁeld, then the number
+        of prime ideals p in K with N (p) ≤ x is asymptotic to x/ log x as x → ∞.
+        This could not have been done at that time by the methods of Hadamard and
+        de la Vallée Poussin, since the analytic continuation and functional equation of
+        the Dedekind zeta function ζ K (s) was established only later, by Hecke (1917).
+        Landau did not achieve Theorem 6.6 at the ﬁrst attempt, but he reﬁned his
+        approach in a series of papers culminating in the polished exposition of Landau
+        (1924a).
+           Section 6.2. Ingham (1932, pp. 60–65; cf. Titchmarsh 1986, pp. 56–60)
+        developed a general system by which any given zero-free region of the zeta
+        function can be used to derive an associated bound for the error term in the
+        Prime Number Theorem. In particular, he showed that if ζ (s) = 0 for s in the
+        region (6.24), then
+
+                                     ψ(x) = x + O(x exp(−c(log x)b ))                              (6.27)
+
+        where b = 1/(1 + a). Similarly, from the zero-free region (6.26) it follows that
+                                                                    
+               π(x) = li(x) + O x exp − c(log x)3/5 (log log x)−1/5 .             (6.28)
+
+        Turán (1950) used his method of power sums to show conversely that (6.27)
+        implies (6.24). More general converse theorems have since been established by
+        Stás (1961) and Pintz (1980, 1983, 1984). A similar converse theorem in which
+                                      
+        an upper bound for M(x) = n≤x µ(n) is used to produce a zero-free region
+        has been given by Allison (1970).
+            That M(x) = o(x) was ﬁrst proved by von Mangoldt (1897). The quantitative
+        estimate (6.17) is due to Landau (1908a). The relation (6.19), asserted by Euler
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 6.4 References                                    195
+
+
+        (1748; Chapter 15, no. 277), was ﬁrst proved by von Mangoldt (1897). Landau
+        (1899a) and de la Vallée Poussin (1899) shortly gave simpler proofs.
+
+
+
+                                              6.4      References
+        Allison, D. (1970). On obtaining zero-free regions for the zeta-function from estimates
+             of M(x), Proc. Cambridge Philos. Soc. 67, 333–337.
+        Borel, E. (1897). Sur les zéros des fonctions entièrs, Acta Math. 20, 357–396.
+        Chudakov, N. G. (1936a). Sur les zéros de la fonction ζ (s), C. R. Acad. Sci. Paris 202,
+             191–193.
+          (1936b). On zeros of the function ζ (s), Dokl. Akad. Nauk SSSR 1, 201–204.
+          (1936c). On zeros of Dirichlet’s L-functions, Mat. Sb. (1) 43, 591–602.
+          (1937). On Weyl’s sums, Mat. Sb. (2) 44, 17–35.
+          (1938). On the functions ζ (s) and π(x), Dokl. Akad. Nauk SSSR 21, 421–422.
+        Cipolla, M. (1902). La determinazione assintotica dell’ n imo numero primo, Rend. Accad.
+             Sci. Fis-Mat. Napoli (3) 8, 132–166.
+        Euler, L. (1748). Introductio in analysin inﬁnitorum, I, Lausanne; Opera omnia Ser 1,
+             Vol. 8, Teubner, 1922.
+        Gronwall, T. H. (1913). Sur la fonction ζ (s) de Riemann au voisinage de σ = 1, Rend.
+             Mat. Cir. Palermo 35, 95–102.
+        Hadamard, J. (1896). Sur la distribution des zéros de la fonction ζ (s) et ses conséquences
+             arithmétiques, Bull. Soc. Math. France 24, 199–220.
+        Hardy, G. H. (1921). Note on Ramanujan’s trigonometrical function cq (n), and certain
+             series of arithmetical functions, Proc. Cambridge Philos. Soc. 20, 263–271.
+        Hecke, E. (1917). Über die Zetafunktion beliebiger algebraischer Zahlkörper, Nachr.
+             Akad. Wiss. Göttingen, 77–89; Mathematische Werke, Göttingen: Vandenhoeck &
+             Ruprecht, 1959, pp. 159–171.
+        Hua, L. K. (1949). An improvement of Vinogradov’s mean-value theorem and several
+             applications, Quart. J. Math. Oxford Ser. 20, 48–61.
+        Ingham, A. E. (1932). The Distribution of Prime Numbers, Cambridge Tracts Math. 30.
+             Cambridge: Cambridge University Press.
+          (1945). Some Tauberian theorems connected with the Prime Number Theorem, J.
+             London Math. Soc. 20, 171–180.
+        Jensen, J. L. W. V. (1899). Sur un nouvel et important théorème de la théorie des
+             fonctions, Acta Math. 22, 359–364.
+        Karatsuba, A. A. & Voronin, S. M. (1992). The Riemann Zeta-function. Berlin: de
+             Gruyter.
+        Korobov, N. M. (1958a). On the zeros of the function ζ (s), Dokl. Akad. Nauk SSSR 118,
+             231–232.
+          (1958b). Weyl’s estimates of sums and the distribution of primes, Dokl. Akad. Nauk
+             SSSR 123, 28–31.
+          (1958c). Evaluation of trigonometric sums and their applications, Usp. Mat. Nauk 13,
+             no. 4, 185–192.                               
+        Landau, E. (1899a). Neuer Beweis der Gleichung ∞           µ(k)
+                                                               k=1 k = 0, Inaugural Dissertation,
+             Berlin; Collected Works, Vol. 1. Essen: Thales Verlag, pp. 69–83.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        196                              The Prime Number Theorem
+
+
+          (1899b). Contribution à la théorie de la fonction ζ (s) de Riemann, C. R. Acad. Sci.
+              Paris, 129, 812–815; Collected Works, Vol. 1. Essen: Thales Verlag, 1985, pp.
+              84–88.
+          (1900). Sur quelques problèmes rélatifs à la distribution des nombres premiers, Bull.
+              Soc. Math. France 28, 25–38; Collected Works, Vol. 1. Essen: Thales Verlag, 1985,
+              pp. 92–105.
+          (1901a). Über die asymptotischen Werthe einiger zahlentheoretischer Functionen,
+              Math. Ann. 54, 570–591; Collected Works, Vol. 1. Essen: Thales Verlag, 1985, pp.
+              141–162.
+          (1901b). Solutions de questions proposées, Nouv. Ann. de Math. (4) 1, 281–283;
+              Collected Works, Vol. 1. Essen: Thales Verlag, 1985, pp. 181–182.
+          (1903a). Neuer Beweis des Primzahlsatzes und Beweis des Primidealsatzes, Math.
+              Ann. 56, 645–670; Collected Works, Vol. 1. Essen: Thales Verlag, 1985, pp. 327–
+              353.
+          (1903b). Über die Maximalordnung der Permutationen gegebenen Grades, Arch.
+              Math. Phys. (3) 5, 92–103; Collected Works, Vol. 1. Essen: Thales Verlag, 1985,
+              pp. 384–396.
+          (1903c). Über die zahlentheoretische Funktion µ(k), Sitzungsber. Kaiserl. Akad. Wiss.
+              Wien math-natur. Kl. 112, 537–570; Collected Works, Vol. 2. Essen: Thales Verlag,
+              1986, pp. 60–93.
+          (1905). Sur quelques inégalités dans la théorie de la fonction ζ (s) de Riemann, Bull.
+              Soc. Math. France 33, 229–241; Collected Works, Vol. 2. Essen: Thales Verlag,
+              1986, pp. 167–179.
+          (1906). Über den Picardschen Satz, Vierteljahrschr. der Naturf. Ges. Zürich 51, 252–
+              318; Collected Works, Vol. 3. Essen: Thales Verlag, 1986, pp. 113–179.
+          (1907). Über die Multiplikation Dirichlet’scher Reihen, Rend. Circ. Mat. Palermo 24,
+              81–160; Collected Works, Vol. 3. Essen: Thales Verlag, 1986, pp. 323–401.
+          (1908a). Beiträge zur analytischen Zahlentheorie, Rend. Mat. Circ. Palermo 26, 169–
+              302; Collected Works, Vol. 3. Essen: Thales Verlag, 1986, pp. 411–544.
+          (1908b). Über die Einteilung der positiven ganzen Zahlen in vier Klassen nach der
+              Mindestzahl der zu ihrer additiven Zusammensetzung erforderlichen Quadrate,
+              Arch. Math Phys. (3) 13, 305–312; Collected Works, Vol. 4. Essen: Thales Verlag,
+              1986, 59–66.
+          (1909). Handbuch der Lehre von der Verteilung der Primzahlen, Leipzig: Teubner.
+          (1924a). Über die Wurzeln der Zetafunktion, Math. Z. 20, 98–104; Collected Works,
+              Vol. 8. Essen: Thales Verlag, 1987, pp. 70–76.
+          (1024b). Über die ζ -funktion und die L-funktionen, Math. Z. 20, 105–125; Collected
+              Works, Vol. 8. Essen: Thales Verlag, 1987, pp. 77–98.
+        Littlewood, J. E. (1922). Researches in the theory of the Riemann ζ -function, Proc.
+              London Math. Soc. (2), 20, xxii–xxvii; Collected papers, Vol. 2. Oxford: Oxford
+              University Press, 1982, pp. 844–850.            
+        von Mangoldt, H. (1897). Beweis der Gleichung ∞              µ(k)
+                                                                 k=1 k = 0, Sitzungsber. Königl.
+              Preuß. Akad. Wiss. Berlin, 835–852.
+        Massias, J.-P., Nicolas, J.-L., & Robin, G. (1988). Évaluation asymptotique de l’ordre
+              maximum d’un élément du groupe symétrique, Acta Arith. 50, 221–242.
+          (1989). Effective bounds for the maximal order of an element in the symmetric group,
+              Math. Comp. 53, 665–678.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 6.4 References                                    197
+
+
+        Mertens, F. (1897). Ueber eine Zahlentheoretische Function, Sitzungsber. Akad. Wiss.
+              Wien Abt. 2a 106.
+           (1898). Über eine Eigenschaft der Riemannscher ζ -Funktion, Sitzungsber. Kais. Akad.
+              Wiss. Wien Abt. 2a 107, 1429–1434.
+        Montgomery, H. L. (1994). Ten Lectures on the Interface Between Analytic Number The-
+              ory and Harmonic Analysis, CBMS Regional Conf. Series in Math. 84. Providence:
+              Amer. Math. Soc.
+        Montgomery, H. L. & Vaughan, R. C. (2001). Mean values of multiplicative functions,
+              Period. Math. Hungar. 43, 199–214.
+        Pintz, J. (1980). On the remainder term of the prime number formula, II. On a theorem
+              of Ingham, Acta Arith. 37, 209–220.
+           (1983). Oscillatory Properties of the Remainder Term of the Prime Number Formula,
+              Studies in Pure Math. Basel: Birkhäuser, pp. 551–560.
+           (1984). On the remainder term of the prime number formula and the zeros of Rie-
+              mann’s zeta-function, Number Theory (Noordwijkerhout, 1983). Lecture notes in
+              math. 1068. Berlin: Springer-Verlag, pp. 186–197.
+        Pólya, G. & Szegö, G. (1972). Problems and Theorems in Analysis, Vol. 1. Grundl.
+              math. Wiss. 193. New York: Springer-Verlag.
+        Richert, H.-E. (1967). Zur Abschätzung der Riemannschen Zetakunktion in der Nähe
+              der Vertikalen σ = 1, Math. Ann. 169, 97–101.
+        Rosser, J. B. (1939). The n-th prime is greater than n log n, Proc. London Math. Soc. (2)
+              45, 21–44.
+        Rosser, J. B. & Schoenfeld, L. (1962). Approximate formulas for some functions of
+              prime numbers, Illinois J. Math. 6, 64–94.
+        Stás, W. (1961). Über die Umkehrung eines Satzes von Ingham, Acta Arith. 6, 435–
+              446.
+        Tatuzawa, T. (1952). On the number of primes in an arithmetic progression, Jap. J. Math.
+              21, 93–111.
+        Titchmarsh, E. C. (1938). On ζ (s) and π(x), Quart. J. Math. Oxford Ser. 9, 97–108.
+           (1951). The Theory of the Riemann Zeta-function, Oxford: Oxford University
+              Press.
+           (1986). The Theory of the Riemann Zeta-function, Second Ed. Oxford: Oxford
+              University Press.
+        Turán, P. (1950). On the remainder-term in the prime-number formula, II, Acta. Math.
+              Acad. Sci. Hungar. 1, 155–166; Collected Papers, Vol. 1. Budapest: Akadémiai
+              Kiado, 1990, pp. 541–551.
+        de la Vallée Poussin, C. J. (1896). Recherches analytiques sur la théorie des nombres
+              premiers, I–III, Ann. Soc. Sci. Bruxelles 20, 183–256, 281–362, 363–397.
+           (1899). Sur la fonction ζ (s) et le nombre des nombres premiers inférieurs à une limite
+              donnée, Mem. Couronnés de l’Acad. Roy. Sci. Bruxelles 59.
+        Vaughan, R. C. (1997). The Hardy–Littlewood Method, Second Edition, Cambridge
+              Tracts in Math. 125, Cambridge: Cambridge University Press.
+        Vinogradov, I. M. (1935). On Weyl’s sums, Mat. Sb. 42, 521–530.
+           (1936a). A new method for resolving certain general questions in the theory of num-
+              bers, Mat. Sb. (1) 43, 9–19.
+           (1936b). A new method of estimation of trigonometrical sums, Mat. Sb. (1) 43, 175–
+              188.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        198                              The Prime Number Theorem
+
+
+         (1947). The Method of Trigonometrical Sums in the Theory of Numbers, Trav. Inst.
+            Math. Stecklov 23; English translation, London: Interscience Publishers, 1954.
+         (1958). A new evaluation of ζ (1 + it), Izv. Akad. Nauk SSSR 22, 161–164.
+        Walﬁsz, A. (1963). Weylsche Exponentialsummen in der neuren Zahlentheorie, Math.
+            Forschungsberichte 15. Berlin: Deutscher Verlag Wiss.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.008 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

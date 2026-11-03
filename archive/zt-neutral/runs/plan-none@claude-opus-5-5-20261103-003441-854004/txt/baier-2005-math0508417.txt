@@ -1,0 +1,777 @@
+arXiv:math/0508417v1 [math.NT] 22 Aug 2005
+                                                The large sieve with sparse sets of moduli
+                                                                        Stephan Baier
+                                                                              22.08.05
+
+
+
+
+                                             Address of the author:
+                                             Stephan Baier
+                                             Jeffery Hall
+                                             Department of Mathematics and Statistics
+                                             Queen‘s University
+                                             University Ave
+                                             Kingston, Ontario, Canada
+                                             K7L 3N6
+                                             e-mail: sbaier@mast.queensu.ca
+
+
+
+
+                                                                                 1
+Abstract: Extending a method of D. Wolke [7], we establish a general re-
+sult on the large sieve with sparse sets S of moduli which are in a sense
+well-distributed in arithmetic progressions. We then apply our result to the
+case when S consists of sqares. In this case we obtain an estimate which
+improves a recent result by L. Zhao [8].
+
+Mathematics Subject Classification (2000): 11N35, 11L07, 11B57
+
+Key words: large sieve, sparse set of moduli, square moduli, Farey frac-
+tions in short intervals, estimates on exponential sums
+
+
+
+
+1       Introduction
+Throughout this paper, we reserve the symbols c, ci (i = 1, 2, ...) for absolute
+constants. Further, we suppose that (an ) is a sequence of complex numbers
+and that Q, N ≥ 1. We set
+                                   X
+(1)                       S(α) :=       an e(nα).
+                                            n≤N
+
+
+      Bombieri’s [1] classical large sieve inequality asserts that
+                              q             2
+                      X       X             a
+(2)                                      S      ≪ (N + Q2 )Z,
+                      q≤Q
+                                            q
+                              a=1
+                            (a, q) = 1
+
+
+where                                       X
+                                     Z :=         |an |2 .
+                                            n≤N
+
+It is natural to ask whether (2) can be improved if the moduli q run over a
+sparse set S of natural numbers ≤ Q. In the sequel, let S be the cardinality
+of S.
+
+
+
+
+                                             2
+   P.D.T.A. Elliott [3] considered the case when S consists of primes. Es-
+sentially, he proved that
+                         p−1       2
+                                             N2
+                                                    
+                        XX         a
+(3)                             S      ≪         + QS Z
+                        p∈S a=1
+                                   p       log N
+
+and conjectured that the right-hand side can always be replaced by
+
+(4)                                         ≪ (N + QS)Z.
+
+    For the case when S consists of all primes p ≤ Q D. Wolke [7] found the
+estimate
+                      p−1    2
+                  XX          a           c Q2 log log Q
+(5)                       S         ≤                    Z
+                  p≤Q a=1
+                              p         1 − δ   log Q
+
+if Q ≥ 10, N = Q1+δ , 0 < δ < 1.
+    L. Zhao [8] studied the case when S consists of squares. He established
+the bound
+             q2       2
+     X X                a                 
+                                            3
+                                                    p      √     2   ε
+                                                                       
+(6)                S          ≪ (log 2Q1 ) Q1 + (N Q1 + NQ1 )N Z.
+     q≤Q
+                       q2
+       1     a=1
+           (a, q) = 1
+
+
+The classical form (2) of the large sieve implies only the bound
+                                   q   2                      2
+                        X          X                   a
+(7)                                           S                     ≪ (N + Q41 )Z,
+                        q≤Q1
+                                                       q2
+                                   a=1
+                                 (a, q) = 1
+
+
+which is weaker than (6) if Q1 ≫ N 2/7+ε . Using the later Lemma 1, which
+gives a general large sieve bound, one can also show that (see [8])
+                                 q 2                      2
+                        X        X                    a
+(8)                                           S                 ≪ Q1 (N + Q21 )Z,
+                    q≤Q1
+                                                      q2
+                                 a=1
+                               (a, q) = 1
+
+
+which is weaker than (6) if Q1 ≪ N 1/2−ε . So (6) is sharper than both (7)
+and (8) if N 2/7+ε ≪ Q1 ≪ N 1/2−ε .
+
+                                                           3
+    The aim of the present paper is to establish a general large sieve bound
+for the case when S is a sparse set which is in a certain sense well-distributed
+in arithmetic progressions. To do so, we shall use an extension of the method
+developed in [7]. Our main result, the later Theorem 2, will imply Wolke’s
+estimate (5) and a sharpened version of Zhao’s estimate (6). For the sake
+of its generality, the later Theorem 2 might have a number of other appli-
+cations.
+
+
+
+2     Statement of the results
+In the sequel, for t ∈     N let
+                               St := {q ∈      N : tq ∈ S}
+and St := |St |. We first give a general estimate for the sum in question
+in terms of the number of elements of St in short segments of arithmetic
+progressions.
+
+   Theorem 1: Suppose that 0 ≤ M ≤ Q and S ⊂ (M, M + Q]. For
+                  N
+u > 0, t, k ∈ , l ∈ defineZ
+      At (u, k, l) :=         max         |{q ∈ St ∩ (y, y + u] : q ≡ l mod k}|.
+                        M/t≤y≤(M +Q)/t
+
+Put                                                      √
+                                      1,       if M <        N,
+                              U :=
+                                          0,    otherwise.
+                                     
+
+Then,
+(9)
+                                      
+              q           2
+    X       X             a
+                       S      ≤ c1 NZ U + max       max √                        max
+                                      
+    q∈S     a=1
+                          q                  √
+                                           r≤ N 1/N ≤z≤1/(r N )                    h∈  Z
+                                                                                 (h, r) = 1
+          (a, q) = 1
+                                                                                    
+                                                                                 
+                                      X             X                     Q r
+                                                                At          , , hm  .
+                                                                                   
+                                                                         tzN t     
+                                         t|r   0 < m ≤ 4rzQ/t
+                                                 (m, r/t) = 1
+
+
+                                                4
+    To simplify the estimate (9), we now set some natural conditions to the
+terms At (u, k, l) with (k, l) = 1. We motivate these conditions by heuristic
+ideas.                  √
+    Suppose that t ≤ N and 0 < u ≤ Q/t. If the set St is nearly evenly
+distributed on the interval (M/t, (M + Q)/t], we would expect that
+                                                    
+                                              St
+                         At (u, 1, 0) ≤ C 1 +     ·u
+                                              Q/t
+with C ≥ 1 not too large. If we, more generally, assume the set St to be
+nearly evenly distributed in the residue classes mod k, we get
+                                                   
+                                            St /k
+(10)                  At (u, k, l) ≤ C 1 +        ·u .
+                                            Q/t
+For many sets St naturally appearing in arithmetic, the term on the right
+side of (10) will roughly give the correct order of magnitude, but in ad-
+dition we have to take into consideration possible fluctuations on varying
+l. Therefore we multiply the right side of (10) by a non-negative constant
+δt (k, l) depending on the residue class l mod k. Thus, our first condition to
+At (u, k, l) is
+                                                  
+                                          St /k
+(11)                At (u, k, l) ≤ C 1 +        · u δt (k, l).
+                                           Q/t
+
+     Since kl=1 At (u, k, l) should be roughly of the same size as At (u, 1, 0),
+            P
+we may further assume that
+                                k
+                                X
+(12)                                       δt (k, l) ≤ k,
+                                l=1
+                              (k, l) = 1
+
+
+which is our second condition.
+   Finally, we suppose that
+
+(13)                               δt (k, l) ≤ X
+           √
+                       Z
+for all k ≤ N/t, l ∈ with (k, l) = 1, where we think of X as a quantity
+which is small compared with Q and N.
+
+                                           5
+   In the sections 3 and 4 we will examplify our heuristics by the cases
+when S consists of primes as well as of squares.
+   We shall later bound the right side of (9) by using the conditions (11),
+(12), (13). This shall lead us to the following
+
+    Theorem 2: Suppose that 0 ≤ M ≤ Q and S ⊂ (M, M + Q]. Define
+At (u, k, l) and U as√in Theorem
+                              √ 1. Assume the conditions (11), (12),
+                                                                  √ (13)
+                                                 Z
+to hold for all t ≤ N, k ≤ N/t, l ∈ with (k, l) = 1, and kQ/ N ≤
+u ≤ Q/t. Then,
+ (14)
+                    q              2
+        X           X              a
+                                S
+        q∈S
+                                   q
+                    a=1
+                  (a, q) = 1
+                                                        
+                                √                    X
+ ≤ c2 C NU + (min{QX, N} + Q)  N log log 10N + max
+                                                  √    St  Z.
+                                                                r≤ N
+                                                                       t|r
+
+
+   Using St ≤ S for all t ∈          N and P 1 ≪ rε, we deduce from Theorem 2
+                                           t|r
+
+   Corollary: Let the conditions and assumptions of Theorem 2 be kept.
+Fix any ε > 0. Then,
+                 q      2                   √
+          X X            a       
+                                          ε
+                                                       
+                     S        ≪ N + QN X         N + S Z.
+          q∈S
+                         q
+                          a=1
+                        (a, q) = 1
+
+
+    This bound should be compared with Elliot’s estimate (3) and conjecture
+(4) for the case when S consists of primes.
+    Employing Theorem 2 with S the set of squares lying in the interval
+(Q, 2Q], we shall later derive the following improvement of Zhao’s bound
+(6) from Theorem 2.
+
+   Theorem 3: Suppose that Q1 ≥ 1. Fix any ε > 0. Then,
+          q2      2
+     X X           a
+(15)           S     2
+                         ≪ (log log 10NQ)2 (Q31 + N + N 1/2+ε Q21 )Z.
+     q≤Q
+                   q
+              1      a=1
+                   (a, q) = 1
+
+
+                                             6
+    The bound (15) is sharper than the three bounds (6), (7) and (8) if
+N 1/4+ε ≪ Q1 ≪ N 1/3−ε .
+
+
+
+3      Theorem 2 implies Wolke’s bound (5)
+In this section we shall see that Theorem 2 contains Wolke’s bound (5) as
+a special case.
+    As in [7], we assume that Q ≥ 10, N = Q1+δ , 0 < δ < 1. Further, we
+choose M := 0 and S to be the set of all primes ≤ Q.
+    First we consider the case when t = 1. Then, by the Brun-Titchmarsh
+inequality (see [5]), we have
+
+                                                2u     k
+(16)                       A1 (u, k, l) ≤            ·
+                                            k log u/k ϕ(k)
+
+if u ≥ k.      √
+    For u ≥ kQ/ N the inequality (16), our assumption N = Q1+δ and the
+prime number theorem yield
+                                 4u        k        c3 uS   k
+          A1 (u, k, l) ≤                 ·     ≤          ·     .
+                           (1 − δ)k log Q ϕ(k)   (1 − δ)kQ ϕ(k)
+
+Thus, the condition (11) is satisfied if we set C := c3 /(1 − δ) and δ1 (k, l) :=
+k/ϕ(k). Obviously, the condition (12) is also satisfied, and the condition
+(13) holds with X = c4 log log Q (see [2]).
+    Now, we assume that t ≥ 2. Then, St ≤ 1. Thus, the conditions (11),
+(12), (13) hold trivially with δt (k, l) = 1 and C, X chosen as above.
+    Therefore, we can apply Theorem 2 to this situation. Taking into ac-
+count S ≤ c5 Q/ log Q by the prime number theorem, we obtain the bound
+(5) from (14). ✷
+
+
+
+4      Proof of Theorem 3
+Next, we shall derive Theorem 3 from Theorem 2.
+
+
+                                            7
+   If Q41 ≤ N, then (15) follows from (7). In the following, we assume that
+ 4
+Q1 > N.
+   First, we rewrite the sum in question in the form
+                      q 2                      2               q             2
+             X        X                    a             X       X             a
+(17)                               S                 =                      S      ,
+             q≤Q1
+                                           q2            q∈S
+                                                                               q
+                      a=1                                        a=1
+                    (a, q) = 1                                 (a, q) = 1
+                                                              √
+where S is the set of squares ≤ Q21 . We spit up the set S ∩ ( N , Q21 ] into
+subsets of the form
+                           S(Q) := S ∩ (Q, 2Q],
+            √
+where Q ≥ N. Our aim is to estimate the partial sums
+                                  q        2
+                          X      X           a
+                                        S         .
+                                             q
+                                 q∈S(Q)       a=1
+                                            (a, q) = 1
+
+For the remaining sum we have
+                                            q               2
+                            X               X               a
+(18)                                                     S      ≪ NZ
+                             √                              q
+                      q∈S∩(0, N ]           a=1
+                                          (a, q) = 1
+
+from (2).
+   As previously, we define
+                            St (Q) := {q ∈           N : tq ∈ S(Q)}
+and St (Q) := |St (Q)|. We now determine the set St (Q). Let t = pv11 · · · pvnn
+be the prime number factorization of t. For i = 1, ..., n let
+                             
+                              vi ,     if vi is even,
+                       ui :=
+                               vi + 1, if vi is odd.
+                             
+
+Put
+                                                 u /2
+                                    ft := p1 1 · · · pnun /2 .
+Then q = q12 ∈ S is divisible by t iff q1 is divisible by ft . Thus,
+                 n         p                 p         o
+        St (Q) = q22 gt :     Q/ft < q2 ≤ 2Q/ft ⊂ (Q/t, 2Q/t],
+
+                                                     8
+where
+                                    ft2
+                              gt :=     = pu1 1 −v1 · · · punn −vn .
+                                     t
+Hence,
+                                                    √
+                                                     2Q
+(19)                                   St (Q) ≤         .
+                                                     ft
+   As previously, we suppose that k ∈               N, l ∈ Z and (k, l) = 1, and define
+       At (u, k, l) :=     max        |{q ∈ St (Q) ∩ (y, y + u] : q ≡ l mod k}|.
+                         Q/t≤y≤2Q/t
+
+
+Let δt (k, l) be the number of solutions x mod k to the congruence
+
+(20)                                   x2 gt ≡ l mod k.
+
+Then it is easily seen that the condition (11) with St = St (Q) holds true
+for all positive u ≤ Q/t and some absolute constant C ≥ 1. Clearly, (12) is
+also valid. The remaining task is to bound δt (k, l).
+    If (gt , k) > 1, then δt (k, l) = 0 since k and l are supposed to be coprime.
+Therefore, we can assume that (gt , k) = 1. Let g mod k be the multiplicative
+inverse of gt mod k, i.e. ggt ≡ 1 mod k. Put l∗ = gl. Then (20) is equivalent
+to
+
+(21)                                   x2 ≡ l∗ mod k.
+
+Taking into account that (k, l∗ ) = 1, and using some elementary facts on the
+number of solutions of polynomial congruences modulo prime powers (see
+[6], for example), we see that (21) has at most 2 solutions if k is a power
+of an odd prime and at most 4 solutions if k is a power of 2. From this it
+                             N
+follows that for all k ∈ we have
+
+                                      δt (k, l) ≤ 2ω(k)+1 ,
+                                                                                √
+where ω(k) is the number of distinct prime divisors of k. For k ≤                   N we
+have
+                               2ω(k) ≪ N ε
+(see [2]). Therefore, (13) holds with
+
+(22)                                     X := c6 N ε .
+
+                                                9
+   Now we can apply Theorem √ 2. Combining (14), (19) and (22), and
+taking into account that Q ≥ N , we obtain
+                     q             2
+           X         X             a
+(23)                            S
+                                   q
+          q∈S(Q)     a=1
+                   (a, q) = 1
+                                                             
+                                 √               p       X 1
+       ≤ c7 (min{QN ε , N} + Q)  N log log 10N + Q max
+                                                      √
+                                                               Z.
+                                                    r≤ N   ft
+                                                                                            t|r
+
+
+   Next, we bound the function
+                                                       X 1
+                                              σ(r) =              .
+                                                             ft
+                                                       t|r
+
+
+Clearly, this function is multiplicative. If r is a prime power pv , then
+                                                                                   2                       2
+                                                                                                    pk
+                                                                                         
+                    1   1                      2                              1
+ σ(r) ≤ 1 + 2         + 2 + ...           =1+     ≤                       1+            =                        .
+                    p p                       p−1                            p−1                  ϕ (pk )
+
+Hence, for all r ∈    N we have
+                                                2
+                                           r
+                          σ(r) ≤                       ≪ (log log 10r)2 .
+                                          ϕ(r)
+
+Therefore, from (23), we obtain
+                            q            2
+                X           X            a
+(24)                                  S
+                                         q
+               q∈S(Q)      a=1
+                         (a, q) = 1
+                                                                            √      p 
+                                          2              ε
+          ≤ c8 (log log 10NQ) (min{QN , N} + Q)                                  N + Q Z.
+
+   Considering the cases QN ε ≤ N, N < QN ε ≤ N 1+ε and N 1+ε < QN ε
+separately, we see that the right-hand side of (24) is always bounded by
+
+             ≤ c9 (log log 10NQ)2 Q3/2 + N 1/2+ε Q Z =: T (Q).
+                                                   
+
+
+
+
+                                                   10
+Thus, we have
+                                                          √
+                      q           2   [log2 (QX      ]
+                                                2 / N ) +1
+                                                1             2
+       X            X             a                           Q1
+                               S      ≤                    T
+      √                           q             j=0
+                                                              2j
+ q∈S∩( N ,Q21 ]     a=1
+                  (a, q) = 1
+
+                                          ≪ (log log 10NQ1 )2 Q31 + N 1/2+ε Q21 Z.
+                                                                               
+
+Combining this with (18), we obtain (15). ✷
+
+
+
+5      Counting Farey fractions in short intervals
+Our later proof of Theorem 1 relies on the following variant of the large
+sieve, which follows immediately from Theorem 2.11 in [4].
+
+    Lemma 1: Let (αr )r∈N be a sequence of real numbers and (an )n∈N be a
+sequence of complex numbers. Define the trigonometrical polynomial S(α)
+as in (1). Suppose that 0 < ∆ ≤ 1/2 and R ∈ . Put             N
+                                                         R
+                                                         X
+                                 K(∆) := max                       1,
+                                           α∈R
+                                                       r=1
+                                                  ||αr − α|| ≤ ∆
+
+where ||x|| denotes the distance of a real x to its closest integer. Then
+                          R
+                          X
+                                 |S (αr )|2 ≤ c10 K(∆)(N + ∆−1 )Z.
+                           r=1
+
+
+
+    In our situation, the sequence α1 , ..., αR equals the sequence of Farey
+fractions a/q with q ∈ S, 1 ≤ a ≤ q and (a, q) = 1. For α ∈ put                 R
+                                                         X
+          I(α) := [α − ∆, α + ∆] and P (α) :=                    1.
+                                                                   q ∈ S, (a, q) = 1
+                                                                      a/q ∈ I(α)
+
+Then we have
+(25)                                 K(∆) = max P (α).
+                                                 α∈  R
+                                                11
+The next lemma provides an estimate for P (α).
+
+   Lemma 2: Suppose that 0 ≤ M ≤ Q, S ⊂ (M, M + Q] and 0 < ∆ ≤
+             R
+1/2. Let α ∈ . Define At (u, k, l) as in Theorem 1. Put
+                                             √
+                           1, if M < 1/ ∆,
+                    U :=
+                              0, otherwise.
+                          
+
+Then,
+                                  
+
+(26)         P (α) ≤ c11 U + max                max         max
+                         
+                                √                  √
+                                        r≤1/ ∆ ∆≤z≤ ∆/r       h∈  Z
+                                                            (h, r) = 1
+                                                                  
+                                                                
+                        X               X                ∆Q r
+                                                    At     , , hm  .
+                                                                  
+                                                         tz t     
+                            t|r    0 < m ≤ 4rzQ/t
+                                     (m, r/t) = 1
+
+
+
+
+   Proof: We adapt Wolke’s method used to prove Lemma 1 in [7]. Let
+                                             1
+(27)                                   τ := √ .
+                                              ∆
+Then, by Dirichlet’s approximation theorem, α can be written in the form
+                   b                                                      1
+(28)         α=      + z,         where r ≤ τ, (b, r) = 1, |z| ≤            .
+                   r                                                     rτ
+For r ≤ τ we have
+                                       1   1
+(29)                                     ≥ 2 = ∆.
+                                      rτ  τ
+   We first note that we can restrict ourselves to the case when
+
+(30)                                     z ≥ ∆.
+
+If |z| < ∆, then
+                     P (α) ≤ P (b/r − ∆) + P (b/r + ∆).
+
+                                            12
+Furthermore, by (29), we have ∆ ≤ 1/(rτ ). Therefore this case can be
+reduced to the case |z| = ∆. Moreover, as P (α) = P (−α), we can choose z
+positive. So we can assume (30).
+   Write
+                                  ∆
+(31)                    ∆1 :=               (0 < ∆1 ≤ 1),
+                                  z
+
+                              
+                            1                              1
+(32)                   j :=      + 1,                 ∆2 := .
+                            ∆1                             j
+Then, obviously,
+                                  ∆1
+(33)                                 ≤ ∆2 ≤ ∆1 .
+                                  2
+Put
+
+(34)      yi := M + i∆2 Q,            Yi = (yi , yi+1 ],          (i = 0, 1, ...)
+
+and
+                      j−1                                  j−1
+                      X   X              X                 X
+(35)        P (α) =                                 1 =:         Pi (α), say.
+                      i=0 q∈S∩Yi       (a, q) = 1          i=0
+                                      a/q ∈ I(α)
+
+   Now, for 0 ≤ i ≤ j − 1 and
+                                                           a
+(36)               q ∈ Yi ,        (a, q) = 1,               ∈ I(α),
+                                                           q
+we have q(α − ∆) ≤ a ≤ q(α + ∆) or, by (28) and (30), yi r(z − ∆) ≤
+ar − bq ≤ yi+1r(z + ∆). Write
+
+(37)           Wi := [wi , wi′ ] := [yi r(z − ∆), yi+1 r(z + ∆)].
+
+Thus, (36) implies ar − bq = m, m ∈ Wi . If m = 0, then q = r since
+(a, q) = 1 = (b, r). Hence,
+                                   X     X
+(38)                 Pi (α) ≤ νi +              1,
+                                      m ∈ Wi           q ∈ S ∩ Yi
+                                      m 6= 0        q ≡ −bm mod r
+
+
+                                           13
+where                                      
+                                            1,      if r ∈ Yi ,
+                             νi :=
+                                               0,    otherwise,
+                                           
+
+and b mod r is the multiplicative inverse of b mod r, i.e. bb ≡ 1 mod r.
+           N
+   For t ∈ write
+
+                Wi /t := [wi /t, wi′ /t],                Yi /t := (yi /t, yi+1/t].
+
+Then from (38) it follows that
+                            X                   X                     X
+(39)          Pi (α) ≤ νi +                                                          1.
+                                     t|r     m ∈ Wi /t            q ∈ St ∩ (Yi /t)
+                                            (m, r/t) = 1        q ≡ −bm mod r/t
+                                              m 6= 0
+
+
+By (31), (33) and (34), we get yi+1 −yi ≤ ∆Q/z. Thus, from (39), we obtain
+
+                                                                            
+                               X               X                    ∆Q r
+(40)           Pi (α) ≤ νi +                               At         , , −bm .
+                                                                    tz t
+                                t|r         m ∈ Wi /t
+                                           (m, r/t) = 1
+                                             m 6= 0
+
+
+   From (31), (32), (33), (34) and (37) it follows that wi′ ≤ rz(yi+1 +
+2Q∆2 ) = rzyi+3 and, similarly, wi ≥ rzyi−2 . Moreover, we have w0 ≥ 0 by
+(30) and M ≥ 0. Thus, the intervals Wi (0 ≤ i ≤ j − 1) cover the interval
+V = [0, rzyj+2] at most 6 times. Furthermore, by (32), (34) and M ≤ Q,
+we have rzyj+2 ≤ 4rzQ. Hence, (35) and (40) imply
+                                                           
+                         X         X             ∆Q r
+(41)       P (α) ≤ U + 6                    At      , , −bm ,
+                                                 tz t
+                               t|r     0 < m ≤ 4rzQ/t
+                                         (m, r/t) = 1
+
+
+where U is defined as in Lemma 2. From (27), (28), (30) and (41), we de-
+duce (26). This completes the proof. ✷
+
+
+
+
+                                                    14
+6        Proofs of Theorems 1 and 2
+We are now in a position to prove our Theorems 1 and 2.
+
+   Proof of Theorem 1: Taking ∆ := 1/N, the result of Theorem 1 fol-
+lows from Lemma 1, (25) and Lemma 2. ✷
+                                                √                     √
+    Proof of Theorem 2: Suppose that r ≤ N, 1/N ≤ z ≤ 1/(r N ),
+(h, r) = 1 and t|r. Then, by condition (11), we have
+                                                      
+              X              Q r                     tSt
+(42)                   At       , , hm ≤ C 1 +             Fh (r, t),
+                            tzN t                   rzN
+             0 < m ≤ 4rzQ/t
+               (m, r/t) = 1
+
+where                                       X
+                        Fh (r, t) :=                      δt (r/t, hm).
+                                       0 < m ≤ 4rzQ/t
+                                         (m, r/t) = 1
+
+    If z ≥ 1/(4Q), then the condition (12) gives
+                                        8rzQ
+(43)                                Fh (r, t) ≤
+                                              .
+                                          t
+If z < 1/(4Q), then the conditions (12) and (13) imply
+                                                   
+                                        4rzQX r
+(44)                  Fh (r, t) ≤ min           ,     .
+                                           t      t
+            √                           √
+    For r ≤ N and 1/N ≤ z ≤ 1/(r N), from (42), (43) and (44), we
+derive
+                                                       
+                   X          X              Q r
+(45)             N                    At        , , hm
+                                           tzN t
+                         t|r   0 < m ≤ 4rzQ/t
+                                 (m, r/t) = 1
+                                                                                    
+                                           √                  X1             X
+                ≤ c12 C (min {QX, N} + Q)  N                            +         St 
+                                                                     t
+                                                               t|r           t|r
+
+by a short calculation. From Theorem 1, (45) and
+   X 1 Y             1    1
+                                 Y
+                                          p      r
+         ≤       1 + + 2 + ... =              =      ≤ c13 log log 10r,
+       t              p p               p−1     ϕ(r)
+       t|r      p|r                             p|r
+
+
+                                             15
+we obtain the result of Theorem 2. ✷
+
+
+Acknowledgement. This paper was written when the author held a post-
+doctoral position at the Harish-Chandra Research Institute at Allahabad
+(India). The author wishes to thank this institute for financial support.
+
+
+
+References
+[1] Bombieri, E., On the large sieve, Mathematika 12 (1965) 201-225.
+
+[2] B. Crstici, D.S. Mitrinović, J. Sándor, Handbook of number theory,
+    Kluwer Academic Publishers Group, Dordrecht, 1996.
+
+[3] P.D.T.A. Elliott, On inequalities of large sieve type, Acta Arith. 18
+    (1971) 405-422.
+
+[4] H.L. Montgomery, Topics in multiplicative number theory, Lecture Notes
+    in Mathematics, Vol. 227, Springer-Verlag, Berlin-New York, 1971.
+
+[5] H.L. Montgomery, R.C. Vaughan, The large sieve, Mathematika 20
+    (1973) 119-134.
+
+[6] I. Niven, H.S. Zuckerman, H.L. Montgomery, An introduction to the
+    theory of numbers, John Wiley & Sons, New York, 1991.
+
+[7] D. Wolke, On the large sieve with primes, Acta Math. Acad. Sci. Hungar.
+    22 (1971/72) 239-247.
+
+[8] L. Zhao, Large sieve inequality with characters to square moduli, Acta
+    Arith. 112 (2004) 297-308.
+
+
+
+
+                                    16
+

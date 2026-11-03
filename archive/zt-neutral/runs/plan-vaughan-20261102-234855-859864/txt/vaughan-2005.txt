@@ -1,0 +1,1866 @@
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                           Proc. London Math. Soc. (3) 91 (2005) 573--597 q 2005 London Mathematical Society
+                                                                                doi:10.1112/S0024611505015352
+
+
+                                   A VARIANCE FOR k-FREE NUMBERS IN
+                                       ARITHMETIC PROGRESSIONS
+
+
+                                                             R. C. VAUGHAN
+
+                                                               1. Introduction
+               Let k > 2 and k denote the characteristic function of the k-free numbers, and dene
+                                              X
+                              Qk ðx; q; aÞ ¼        k ðnÞ;      Qk ðxÞ ¼ Qk ðx; 1; 0Þ;        ð1:1Þ
+                                                           n6x
+                                                        na ðmod qÞ
+
+                                                                      X1
+                                                                          ðmÞðm k ; qÞ
+                                                      fðq; aÞ ¼                         ;                              ð1:2Þ
+                                                                      m¼1
+                                                                             mkq
+                                                                    ðm k ; qÞja
+
+                                           X
+                                           q
+                                                                        2                             X
+                                V ðqÞ ¼           Qk ðx; q; aÞ  xfðq; aÞ ;                V ðx; QÞ ¼         V ðqÞ:   ð1:3Þ
+                                           a¼1                                                          q6Q
+
+               As promised by the author on page 796 of [7], we return to the study of V ðx; QÞ.
+               It is a straightforward calculation to show that
+                                                       fðq; aÞ ¼ lim x1 Qk ðx; q; aÞ;                                 ð1:4Þ
+                                                                    x!1
+
+               and the variance V ðx; QÞ has been studied by several authors, mostly in the
+               special case of squarefree numbers, k ¼ 2. For general k > 2 in [1, Lemma 2.2]
+               Br€
+                 udern et al. show that
+                                             (
+                                               x2=kþ" Q22=k when 1 6 Q 6 x;
+                                  V ðx; QÞ                                             ð1:5Þ
+                                               Q2 logð2QÞ    when Q > x;
+               it being obvious from (1.5) above that the gk ðq; aÞ featuring in (2.6) of that paper
+               satisfy
+                                           ðkÞ1 gk ðq; aÞ ¼ lim x1 Qk ðx; q; aÞ ¼ fðq; aÞ:
+                                                                   x!1
+
+                 Theorem 1.2 of [7] concerns the distribution of general sequences. In the special
+                                                                                   11=k
+               pﬃﬃﬃ an ¼ k ðnÞ it is known that it is possible to take ðxÞ ¼ x
+               case                                                                       and so, when
+                 x logð2xÞ < Q 6 x,
+                                                                                         
+                            V ðx; QÞ ¼ x2 F ðx=QÞ þ O x3=2 log x þ x4=3þ2=ð3kÞ ðlog xÞ4=3         ð1:6Þ
+               where
+                                                       F ðyÞ  ck y1=k2          as y ! 1                             ð1:7Þ
+
+
+
+                  Received 27 April 2004.
+                  2000 Mathematics Subject Classication 11N25.
+                  Research supported by NSA grant, no. MDA904-03-1-0082.
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       574                                               R. C. VAUGHAN
+
+                       and ck is a positive constant. For the particular case of k-free numbers the part of
+                       the hypothesis of that theorem expressed by [7, (1.12)] can be replaced by a more
+                       precise statement of the form
+                                                   X
+                                                       gðqÞ ¼ ck y1=k1 þ Oðyk Þ                    ð1:8Þ
+                                                                q>y
+
+
+                       where k < 1=k  1 and this leads to the conclusion (1.6) with (1.7) replaced by
+                                                                              
+                                               F ðyÞ ¼ ck y1=k2 þ O y1=k2k                     ð1:9Þ
+                       where k > 0.
+                         In the special case of squarefree numbers, following earlier work of Orr [3, 4],
+                       Warlimont [8, 9] and Croft [2], Warlimont [10] has shown that when 1 6 Q 6 x,
+                                                                                     
+                                            V ðx; QÞ ¼ x2 F ðx=QÞ þ O x3=2 ðlog xÞ7=2             ð1:10Þ
+                       where
+                                                                                                   
+                                                     F ðyÞ ¼ ck y3=2 þ O y7=4 expðe
+                                                                                     ck ðlog yÞ1=5 Þ :                         ð1:11Þ
+
+                       It should be noted that the argument leading to (6.6) in Croft’s paper is faulty as
+                       kq ðsÞ has innitely many singularities with
+                                                                          
+                                                           1            2
+                                                   <s ¼       log 1 þ 2
+                                                        log p        p 2
+
+                       whenever p j q and F ðsÞ has the line <s ¼ 0 as a natural barrier. In particular, the
+                       value given for the constant B in (7.2) (with (7.3), (6.17) and (6.3)) is incorrect.
+                       However, Warlimont in [10] avoids this diculty, which could also be overcome
+                       by adapting the proof of Theorem 1.2 of [7].
+                          In all of the methods used hitherto to establish the asymptotic formula for
+                       V ðx; QÞ, even in the special case k ¼ 2, there is a natural limit to the method
+                       which forces the error term to be at least as large as x1þ1=k log x (and when k > 2
+                       there is no published literature with the exponent of x as small as 1 þ 1=k). In this
+                       memoir it is shown how this limitation can be overcome.
+
+                          THEOREM. There are positive constants ck and cek such that, whenever
+                                                                                  Q 6 x;                                       ð1:12Þ
+                                                                                                                          !!
+                                                                                                       ðlog 2x=QÞ3=5
+                       V ðx; QÞ ¼ ck x     1=k
+                                                 Q21=k
+                                                             þO x    1=ð2kÞ   21=ð2kÞ
+                                                                              Q          exp   ck
+                                                                                                      ðlog log 3x=QÞ1=5
+                                                                                       !!
+                                                     1þ1=k            cek ðlog xÞ3=5
+                                       þO x                  exp                                                              ð1:13Þ
+                                                                      ðlog log xÞ1=5
+                       where
+                                                                                           
+                                                                         2C1 k2  ð1=k  1Þ
+                                                                ck ¼                                                           ð1:14Þ
+                                                                         ðkÞ2 ð2k  1Þðk  1Þ
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                  575
+               and
+                                                        P k1                                                !
+                               Y            ðp  1Þ2        j¼1 p
+                                                                    ð21=kÞj
+                                                                                2p2k þ p2k1 þ 2p kþ1  p
+                       C1 ¼           1þ                                                                     :   ð1:15Þ
+                                 p                                      p2 ð p k  1Þ2
+                  The approximation (1.13) is superior to (1.5) when Q  x1=2 , and the main
+               term in (1.13) dominates the error terms when x=Q is large and Q is large
+               compared with
+                                                                                  
+                                   k=ð2k1Þ         k             3=5         1=5
+                            Q1 ¼ x          exp        ce ðlog xÞ ðlog log xÞ      :  ð1:16Þ
+                                                  2k  1 k
+                  One curiosity is that improvements in both error terms would follow from a
+               better zero-free region for the Riemann zeta function alone. Indeed, for the second
+               error term one can speculate whether the two principal places where the zero-free
+               region of the Riemann zeta function is relevant are complementary and cancelling.
+               These places are the error term for S1 in x 3 and the bound for T2 in x 4, both of
+               which use Lemma 2.2. If this were to be so, then the second error term would be
+               of the form x1þ1=k for some  > 0.
+                  The core of the proof depends heavily on [1] where excellent bounds for
+                                                  X
+                                                    k ðnÞeðnÞ;
+                                                                n6x
+
+               and related expressions, are obtained.
+                 In general, c will denote a positive number, not necessarily the same one at each
+               occurrence, which depends at most on k. Formul containing " hold for any
+               suciently small positive number ". Implicit constants may depend on k and ".
+               We also assume throughout that x is suciently large, that is, x > x0 ðk; "Þ,
+               and thus, by (1.5), that Q is suciently large. Extensive use is made of
+               kk ¼ minj2Z j  jj.
+
+                                             2. Useful lemmata
+                                                           P
+                 A basic requirement is a good estimate for n6y k ðnqÞ which is uniform in y
+               and q.
+
+                 LEMMA 2.1. There is a c > 0 such that if y is a real number with y > 2 and
+               q 2 N satises q 6 exp ðexp ððlog yÞ1=9 ÞÞ, then
+                                  X                                            
+                                       ðnÞ  y exp cðlog yÞ3=5 ðlog log yÞ1=5 :
+                                           n6y
+                                         ðn;qÞ¼1
+
+
+
+                  Proof. When 23 6  the product
+                                                                     Y      ps
+                                                                      pjq
+                                                                          ps  1
+               satises                                                                 !
+                                                       Y     ps                    X 
+                                                                   exp             p    :
+                                                       pjq
+                                                           ps  1                  pjq
+
+               Since there are at most 1 þ log q dierent prime divisors of q and x is a
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       576                                               R. C. VAUGHAN
+
+                       decreasing function of x, this is
+                                                                                                       !
+                                                                                     X            
+                                                                     exp                     p            :
+                                                                                    p6log q
+
+                       When O < 1   6 ðlog yÞ1=9 and p 6 log q we have ð1  Þ log p 6 1, and so
+                       p1 6 1 þ eð1  Þ log p. Thus
+                                                   X 
+                                                       p 6 log log log q þ Oð1Þ
+                                                              p6log q
+
+                       and this holds also when  > 1. Hence, whenever 1   6 ðlog yÞ1=9 ,
+                                                                   Y      ps
+                                                                          s     ðlog yÞ1=9 :
+                                                                    pjq
+                                                                        p   1
+
+                       For  > 1,
+                                                                 X
+                                                                 1
+                                                                     ðnÞ    1 Y ps
+                                                                       s  ¼                 :
+                                                                 n¼1
+                                                                      n     ðsÞ pjq ps  1
+                                                               ðn;qÞ¼1
+
+                       Thus the bound given for 1=ðsÞ in x 6.19 of Titchmarsh [5] when combined with
+                       the above estimate enables the arguments of xx 3.12 --3.13 of [5] to be adapted
+                       readily to give the required estimate.                                        
+
+                         LEMMA 2.2. (i) Given any positive number  there is a c > 0 such that if x is
+                       a large real number and q 2 N satises q 6 x1 , then
+                             X                                                                     
+                                 k ðnÞ ¼ fðq; qÞx þ O dðqÞðx=qÞ1=k exp  cðlog xÞ3=5 ðlog log xÞ1=5 :
+                                n6x
+                                 qjn
+
+
+                          (ii) Suppose that q 6 x. Then
+                                             X                                    
+                                                 k ðnÞ ¼ fðq; qÞx þ O dðqÞðx=qÞ1=k :
+                                                       n6x
+                                                        qjn
+
+
+                         Proof. (i) When q is not k-free, the sum in question is 0, as is the main term
+                       on the right. Thus it can be supposed that q is k-free. For brevity write y ¼ x=q.
+                       Then the sum is
+                                                          X
+                                                             k ðmqÞ
+                                                                              m6y
+                                                                                                               P
+                       and y > x . Thus y is large, and q 6 yð1Þ= . Since k ðnÞ ¼
+                                       
+                                                                                                                   t k jn ðtÞ,   the sum
+                       above can be rewritten as
+                                                          X
+                                                                ðtÞ:
+                                                                                t; l
+                                                                          t k l6yðt k ;qÞ
+
+                       The terms in this sum may be sorted according to the value of d ¼ ðt k ; qÞ. Since q
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                           k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                                   577
+                                                            Q
+               is k-free, so is d. Let d0 ¼                     pjd p. Then the sum becomes
+                                        X             X                               X                      X
+                                                                    ðrd0 Þ ¼                    ðd0 Þ                 ðrÞ:
+                                         djq       r k l6yddk
+                                                             0
+                                                                                       djq                r k l6yddk
+                                                                                                                   0
+                                               ðr k d0k =d;q=dÞ¼1               ðd0k =d;q=dÞ¼1              ðr;qÞ¼1
+
+
+               Let ¼ k be a (suciently) small but xed positive number. Each term with
+               d0k =d > y contributes
+
+                                          X                     yd     X1
+                                                                                yd                 
+                                                      ðrÞ      k  k
+                                                                     ¼     ðrÞ k k þ O ðydÞ1=k d1
+                                                                                                 0 :
+                                                               r d0    r¼1
+                                                                               r d0
+                                      r6ðydÞ1=k =d0
+                                                                            ðr;qÞ¼1
+                                        ðr;qÞ¼1
+
+
+               Thus these terms contribute in total
+
+                                                 X                     X
+                                                                       1
+                                                                                yd
+                                                            ðd0 Þ         ðrÞ k k þ OðdðqÞyð1 Þ=k Þ:
+                                                                       r¼1
+                                                                               r d0
+                                            djq;d0k =d>y
+                                                                      ðr;qÞ¼1
+                                           ðd0k =d;q=dÞ¼1
+
+
+               To treat the contribution from each term with d0k =d 6 y we introduce a parameter
+               A which satises 1 6 A 6 y and is otherwise at our disposal. Then the sum over r
+               and l can be rewritten as
+
+                          X             X                              X                   yd                   X
+                                                      ðrÞ þ                      ðrÞ                                     ðrÞbAc:
+                          l6A r6ðyd=lÞ1=k =d0
+                                                                                          r k d0k
+                                                                r6ðyd=AÞ1=k =d0                           r6ðyd=AÞ1=k =d0
+                                 ðr;qÞ¼1                           ðr;qÞ¼1                                   ðr;qÞ¼1
+
+
+               Since ðyd=AÞ1=k =d0 > yð12 Þ=k , Lemma 2.1 can be applied to the rst and last sums
+               over r. Thus the above is
+
+                      X                yd                                                            
+                                  ðrÞ k k þ O ðy=AÞ1=k þ A11=k y1=k exp  cðlog yÞ3=5 ðlog log yÞ1=5 :
+                                      r d0
+                r6ðyd=AÞ1=k =d0
+                   ðr;qÞ¼1
+
+
+
+               By partial summation and Lemma 2.1, the sum here is
+
+                               X
+                               1
+                                         yd                                                   
+                                    ðrÞ k k þ O A11=k y1=k expðcðlog yÞ3=5 ðlog log yÞ1=5 Þ :
+                                r¼1
+                                        r d0
+                              ðr;qÞ¼1
+                                                                                    
+               A judicious choice of A in the form exp c 0 ðlog yÞ3=5 ðlog log yÞ1=5 establishes that
+
+                           X                        X
+                                                    1
+                                                             yd                                             
+                                      ðrÞ ¼            ðrÞ k k þ O y1=k expðcðlog yÞ3=5 ðlog log yÞ1=5 Þ
+                                                            r d0
+                        r k l6yddk
+                                 0
+                                                    r¼1
+                                                  ðr;qÞ¼1
+                          ðr;qÞ¼1
+
+
+               for some c > 0.
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       578                                               R. C. VAUGHAN
+
+                          With the estimate for the terms with d0k =d > y this gives
+                                         X                         X                     X
+                                                                                         1
+                                                                                                  yd
+                                              k ðmqÞ ¼                       ðd0 Þ         ðrÞ k k
+                                        m6y                         djq                  r¼1
+                                                                                                 r d0
+                                                             ðd0k =d;q=dÞ¼1            ðr;qÞ¼1
+                                                                                                           
+                                                             þ O dðqÞy1=k expðcðlog yÞ3=5 ðlog log yÞ1=5 Þ :
+
+                       The main term here is yqfðq; qÞ, and part (i) of the lemma follows.
+                         For part (ii) the above argument can be simplied greatly by applying the
+                       approximation
+                                               X                    yd     X1
+                                                                                    yd                 
+                                                           ðrÞ     k  k
+                                                                         ¼     ðrÞ k k þ O ðydÞ1=k d1
+                                                                                                     0 ;
+                                                                   r d0    r¼1
+                                                                                   r d0
+                                           r6ðydÞ1=k =d0
+                                                                                ðr;qÞ¼1
+                                             ðr;qÞ¼1
+
+                       for all choices of d. This gives the desired estimate.                                       
+
+                          There are several useful formul concerning fðq; aÞ.
+
+                          LEMMA 2.3. Suppose that q 2 N and r j q. Then
+                                            X
+                                                ðtÞfðrt; rtÞ ¼ fðq; rÞ ðq=rÞ:
+                                                             tjq=r
+
+
+
+                          This follows from Lemma 2.2 of Vaughan [7].
+
+                          LEMMA 2.4. Suppose that q 2 N. Then
+                                                             X
+                                                             q                    X
+                                                                     fðq; aÞ2 ¼           fðq; rÞ2 ðq=rÞ:
+                                                             a¼1                   rjq
+
+
+
+                          This is immediate from the observation that fðq; aÞ ¼ fðq; ðq; aÞÞ.
+                          Let
+                                                            X
+                                                     fðÞ ¼     k ðnÞeðnÞ;                                     ð2:1Þ
+                                                                                  n6x
+                                                                                  Xq
+                                                                        ðqÞ ¼             fðq; bÞeðb=qÞ;         ð2:2Þ
+                                                                                  b¼1
+                                                                                  X
+                                                                       Ið Þ ¼             eðn Þ;                 ð2:3Þ
+                                                                                  n6x
+
+                                                             f  ð; q; aÞ ¼ ðqÞIð  a=qÞ;                      ð2:4Þ
+                                                                                                 
+                                                              ð; q; aÞ ¼ fðÞ  f ð; q; aÞ:                   ð2:5Þ
+
+
+                          LEMMA 2.5. Let q 2 N. Then
+                                                                         ðqÞ ¼ ðkÞ1 GðqÞ
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                       579
+               where GðqÞ is the multiplicative function that satises
+                                                              ð p k  1Þ1         when 1 6 t 6 k;
+                                              Gðpt Þ ¼
+                                                              0                     when t > k:
+
+                  Proof. By (1.2) and (2.2),
+                                        X
+                                        q
+                                                                 X
+                               ðqÞ ¼          f q; ðq; bÞ eðb=qÞ ¼   ðq=dÞfðq; dÞ
+                                        b¼1                                djq
+                                        X        X1
+                                                     ðmÞðm k ; qÞ X 1
+                                                                        ðmÞ
+                                    ¼     ðq=dÞ          k
+                                                                  ¼        k
+                                                                             ¼ ðkÞ1 GðqÞ:               
+                                      djq        m¼1
+                                                        m   q       m¼1
+                                                                         m
+                                                       ðm k ;qÞjd                      qjm k
+                                                                                    
+                                                 pﬃﬃﬃ
+                 LEMMA 2.6. Suppose that 2 x 6 R 6 x, and m is the set of real numbers
+                2 ½0; 1 such that every q with kqk 6 R1 satises q > x=R. Then
+                                    ð
+                                      jfðÞj2 d  x1=kþ" R11=k þ x2þ" R2=k3 :
+                                               m
+
+
+                  This follows immediately from Theorem 1.3 of [1].
+                  Let
+                                       Mðq; a; T Þ ¼ f : jq  aj 6 T =xg:                            ð2:6Þ
+                                                                     pﬃﬃﬃ
+                  LEMMA 2.7. Let T be a real number with 1 6 T 6 12 x. Then
+                             X X q  ð
+                                            jð; q; aÞj2 d  x2=k1þ" T 32=k :
+                                       q6T     a¼1   Mðq;a;T Þ
+                                             ða;qÞ¼1
+
+
+                  This is Lemma 3.2 of [1].
+                                                                        pﬃﬃﬃ
+                  LEMMA 2.8. Let T be a real number with 1 6 T 6 12 x. Then
+                         X X q   ð
+                                        jf  ð; q; aÞð; q; aÞj d  x1=kþ" T 11=ð2kÞ :
+                                q6T     a¼1   Mðq;a;T Þ
+                                      ða;qÞ¼1
+
+
+                  This is Lemma 4.2 of [1].
+                  Let
+                                                                        X X
+                                                          KðÞ ¼                    eðuvÞ:            ð2:7Þ
+                                                                        u6Q v6x=u
+                       pﬃﬃﬃ
+               When Q 6 x dene
+                                                               X X
+                                                Kq ðÞ ¼                         eðquvÞ;              ð2:8Þ
+                                                              u6Q=q v6x=qu
+                                                              8X X
+                                                              >
+                                                              <    eðuvÞ                   ðq > 1Þ,
+                                                   Hq ðÞ ¼ u6Q   v6x=u
+                                                                                                       ð2:9Þ
+                                                           > q -u
+                                                              :
+                                                                    0                       ðq ¼ 1Þ,
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       580                                              R. C. VAUGHAN
+                                   pﬃﬃﬃ
+                       and when Q > x dene
+                                                                                                               !
+                                              X           X                                X
+                               Kq ðÞ ¼                           eðquvÞ þ                        eðquvÞ ;              ð2:10Þ
+                                              pﬃﬃ                               pﬃﬃ
+                                            u6 x=q       v6x=qu                  x<v6minðQ;x=quÞ
+                                       8                                                                   !
+                                       >
+                                       > X                 X                           X
+                                       >
+                                       <                          eðuvÞ þ                        eðuvÞ       ðq > 1Þ;
+                                            pﬃﬃ                                 pﬃﬃ
+                               Hq ðÞ ¼ u6 x              v6x=u                  x<v6minðQ;x=uÞ                           ð2:11Þ
+                                       >
+                                       >  q -u
+                                       >
+                                       :
+                                         0                                                                     ðq ¼ 1Þ:
+
+                          LEMMA 2.9. Suppose that Q 6 x and q 2 N. Then
+                                                                  KðÞ ¼ Kq ðÞ þ Hq ðÞ:
+
+                                             pﬃﬃﬃ
+                          Proof. When Q 6 x this is immediate. Otherwise observe that pﬃﬃﬃ the summation
+                       indices
+                       pﬃﬃﬃ    u and  v in K  can be partitioned into  those with u 6   x and those with
+                         x < u 6 Q and in the latter case invertingpﬃﬃﬃ   the  order
+                                                                             pﬃﬃﬃ    of   summation and
+                       interchanging the letters u and v gives u 6 x and x < v 6 minðQ; x=uÞ. Then
+                       for q > 1 the terms can be sorted according as q j u or not.                    
+
+                          LEMMA 2.10. Suppose that ða; qÞ ¼ 1 and jq  aj 6 q1 . Then
+                                                                  KðÞ  ðxq1 þ qÞ log x:
+
+                         Proof. This is a standard exponential sum estimate. It is trivial when q > x,
+                       and generally, by Lemma 2.9 with q ¼ 1 and (2.10) and (2.11), one has
+                                                      X        
+                                              KðÞ         min x=u; 1=kukÞ:
+                                                        pﬃﬃ
+                                                                         u6 x
+
+                       Then the conclusion follows from Lemma 2.2 of Vaughan [6] when q 6 x.                                  
+
+                        LEMMA 2.11. Suppose that q 2 N and  ¼ a=q þ . Then
+                                                                 X         x
+                                              Kq ðÞ ¼ Kq ð Þ                    :                                       ð2:12Þ
+                                                                  pﬃﬃ qu þ xkqu k
+                                                                u6 x=q
+                                              pﬃﬃﬃ
+                       Moreover, if j j 6 1=ð2 x Þ, then
+                                                                                    x log x
+                                                                     Kq ðÞ                 :                            ð2:13Þ
+                                                                                   q þ qxj j
+
+                          Proof. Obviously Kq ðÞ ¼ Kq ð Þ. By (2.8) and (2.10),
+                                                         X                  
+                                                                     x   1
+                                              Kq ð Þ          min     ;
+                                                          pﬃﬃ       qu kuq k
+                                                        u6 x=q
+
+                       and (2.12) follows on noting that when  and                  are positive,
+                       minð1=; 1=
+                                 pﬃﬃﬃ Þ 6 2=ð þ Þ. pﬃﬃﬃ
+                          If u 6 x=q and j j 6 1=ð2 x Þ, then juq j 6 12 and so kuq k ¼ juq j, and
+                       (2.13) follows.                                                           
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                    581
+                                                                         pﬃﬃﬃ
+                  LEMMA 2.12. Suppose that ðq; aÞ ¼ 1 and jq  aj 6 1=ð2 x Þ. Then
+                                                     pﬃﬃﬃ    
+                                   Hq ðÞ  minðQ; x Þ þ q log x:
+
+
+                 Proof. The conclusion is trivial unless 1 < q 6 x, which we assume. By (2.9)
+               and (2.11),
+                                                      X         1
+                                        Hq ðÞ                    :
+                                                          pﬃﬃ kuk
+                                                                       u6minðQ; x Þ
+                                                                           q -u
+                                                                                                pﬃﬃﬃ
+               In general, kuk > kua=qk
+                                  pﬃﬃﬃ    juð  a=qÞj. If q - u, then kua=qk > 1=q, and if u 6 x
+               and jq  aj 6 1=ð2 x Þ, then juð  a=qÞj 6 1=ð2qÞ. Hence
+
+                                                X           1           pﬃﬃﬃ        X 1                  q1
+                             Hq ðÞ                              minðQ; x Þq1 þ 1
+                                                      pﬃﬃ kua=qk                          kra=qk
+                                            u6minðQ; x Þ                              r¼1
+                                                q -u
+
+               and the lemma is immediate.                                                                            
+                                                                               pﬃﬃﬃ
+                  LEMMA 2.13. There is a positive number c such that if 1 6 q 6 x, then
+                            X
+                            q
+                                    ð þ a=q; q; aÞ
+                            a¼1
+                          ða;qÞ¼1
+                                                    X                                                    
+                                  ð1 þ xj jÞ              rdðrÞðx=rÞ1=k exp  cðlog xÞ3=5 ðlog log xÞ1=5 :
+                                                     rjq
+
+
+
+                  Proof. By (2.1), (2.2), (2.3), (2.5),
+                                    X
+                                    q                                 X                          
+                                            ð þ a=q; q; aÞ ¼               k ðnÞcq ðnÞ  ðqÞ ðqÞ eðn Þ
+                                    a¼1                               n6x
+                                  ða;qÞ¼1
+
+               where cq ðnÞ is Ramanujan’s sum
+                                                             X
+                                                             q                      X
+                                                cq ðnÞ ¼              eðan=qÞ ¼               rðq=rÞ:
+                                                              a¼1                   rjðq;nÞ
+                                                            ða;qÞ¼1
+                                                                            Ðx
+               Hence, on writing eðn Þ as eðx Þ  2 i                       n eðy    Þ dy and interchanging the order of
+               summation, we have
+                                    X
+                                    q                                                           ðx
+                                            ð þ a=q; q; aÞ ¼ UðxÞeðx Þ  2 i                         UðyÞeðy Þ dy
+                                    a¼1                                                           1
+                                  ða;qÞ¼1
+
+               where
+                                                             X                          
+                                                 UðyÞ ¼            k ðnÞcq ðnÞ  ðqÞ ðqÞ :
+                                                             n6y
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       582                                                           R. C. VAUGHAN
+
+                       Moreover,
+                                                                       X                   X
+                                                          UðyÞ ¼               rðq=rÞ           k ðnÞ  ðqÞ ðqÞbyc:
+                                                                        rjq                n6y
+                                                                                           rjn
+
+                       By (1.2),
+                                                    X                                     X
+                                                                                          1
+                                                                                            ðmÞ X
+                                                            rðq=rÞfðr; rÞ ¼                                      ðq=rÞðm k ; rÞ:
+                                                     rjq                                  m¼1
+                                                                                              mk            rjq
+
+                       The innermost sum is
+                                                                         Y                                           
+                                                                                     ðm k ; pt Þ  ðm k ; pt1 Þ
+                                                                       pt kq;t>0
+
+                       and for squarefree m the general term in the product is 0 unless 1 6 t 6 k and
+                       p j m. Thus, when q is k þ 1-free, by Lemma 2.5,
+                                                   X                                                  X
+                                                                                                      1
+                                                                                                              ðmÞ
+                                                           rðq=rÞfðr; rÞ ¼ ðqÞ                                    ¼ ðqÞ ðqÞ
+                                                    rjq                                            m¼1
+                                                                                                               mk
+                                                                                                pjq ¼) pjm
+
+                       and this conclusion is trivial when q is not k þ 1-free. Hence
+                                                                                 !
+                                               X            X
+                                       UðyÞ ¼      rðq=rÞ      k ðnÞ  yfðr; rÞ þ Oð1Þ:
+                                                                 rjq                      n6y
+                                                                                          rjn
+
+                       Let  ¼ 15. By (1.4), fðr; rÞ 6 limx!1 ðx=rÞ=x ¼ 1=r. Hence, by Lemma 2.2(i),
+                                         X           X
+                              UðyÞ            yþ        r11=k dðrÞy1=k expðcðlog yÞ3=5 ðlog log yÞ1=5 Þ:
+                                                 rjq;r>y1             rjq
+                                pﬃﬃﬃ
+                       Since q 6 x, the rst sum is empty when y ¼ x. Therefore
+                              X
+                              q
+                                       ð þ a=q; q; aÞ
+                               a¼1
+                             ða;qÞ¼1
+                                           X 2=ð1Þ
+                                           r        j j
+                                           rjq
+                                                                 X 11=k
+                                           þ ð1 þ xj jÞ           r      dðrÞx1=k expðcðlog xÞ3=5 ðlog log xÞ1=5 Þ:
+                                                                 rjq
+                                       P           2=ð1Þ
+                                                                 P             5=2
+                                                                                          P           1=2
+                       Moreover            rjq r             ¼         rjq r         6x       rjq r         and the lemma follows.       
+
+                          LEMMA 2.14. The function                                   satises
+                                                                              X
+                                                                              1
+                                                                                     ðqÞ ðqÞ2 ¼ ðkÞ1 :                             ð2:14Þ
+                                                                              q¼1
+
+                       Moreover if y > 1, then
+                                                                       X
+                                                                                q ðqÞ2  y1=k1 ðlog 2yÞ2 :                          ð2:15Þ
+                                                                   y<q62y
+
+
+                          By Lemma 2.5 this is Lemma 3.1 of [1].
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                         583
+                  LEMMA 2.15. Let
+                                                                              X
+                                                                              1
+                                                           SðnÞ ¼                         ðqÞ2 cq ðnÞ                   ð2:16Þ
+                                                                                q¼1
+
+               Then
+                                                                                 Yp k  1
+                                                           SðnÞ ¼ C                                                     ð2:17Þ
+                                                                                 p k jn
+                                                                                           pk  2
+               where
+                                                                    Y   2
+                                                                           
+                                                                 C¼   1 k :                                            ð2:18Þ
+                                                                    p   p
+
+
+                  Proof. By (2.16),
+                                                 X
+                                                 1                  X                          X X1
+                                     SðnÞ ¼              ðqÞ2             dðq=dÞ ¼             d   ðrdÞ2 ðrÞ:
+                                                 q¼1            djðq;nÞ                         djn        r¼1
+
+               Put s ¼ ðr; dÞ and t ¼ r=s. Then, by Lemma 2.5,
+                                                  X X      X
+                                                           1
+                                       SðnÞ ¼      d  ðsÞ                                 ðtsdÞ2 ðtÞ
+                                                   djn     sjd                 t¼1
+                                                                             ðt;dÞ¼1
+                                                            X X            X
+                                                                           1
+                                               ¼ ðkÞ2      d  ðsÞGðsdÞ2   GðtÞ2 ðtÞ:
+                                                             djn          sjd                           t¼1
+                                                                                                      ðt;dÞ¼1
+
+               By Lemma 2.5, GðqÞ is zero unless q is k þ 1-free. Hence the summation variable d
+               is of the form d1 d22 . . . dkk where the dj are squarefree and pairwise coprime.
+               Moreover GðsdÞ will be 0 unless s j d1k1 d2k2 . . . dk1 , in which case GðsdÞ2 ¼ GðdÞ2
+               and it can be supposed that s j ðd1 d22 . . . dk1
+                                                              k1 k1 k2
+                                                                  ; d1 d2 . . . dk1 Þ. The sum over these
+               s is 0 unless d1 ¼ d2 ¼ . . . ¼ dk1 ¼ 1. Hence
+                                                                    X                             X
+                                                                                                  1
+                                            SðnÞ ¼ ðkÞ2                    dkk Gðdkk Þ2                  GðtÞ2 ðtÞ
+                                                                    dkk jn                        t¼1
+                                                                                               ðt;dk Þ¼1
+
+               and now it is easy to verify the formula (2.17).                                                             
+
+                  For any real number  let
+                                               B1 ðÞ ¼   bc  12;                                                   ð2:19Þ
+                                                        ð            ð1ð
+                                               B2 ðÞ ¼ B1 ð Þ d         B1 ð Þ d d :                                  ð2:20Þ
+                                                                0                           0 0
+
+               Each of these functions is periodic with period 1 and
+                                              B2 ðÞ ¼ 12 2  12  þ 12
+                                                                       1
+                                                                                            when 0 6  < 1:             ð2:21Þ
+               It is also useful to dene
+                                                          B2 ðÞ ¼ B2 ðÞ  B2 ð0Þ:                                    ð2:22Þ
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       584                                                     R. C. VAUGHAN
+
+                          LEMMA 2.16. Suppose that y > 0. Then
+                                            X
+                                                ðy  nÞ ¼ 12 y2  12 y  B2 ðyÞ:
+                                                                   n6y
+
+                                                      P    Ðy
+                         Proof. The sum above is        n6y n d and on interchanging the order of
+                       summation and integration it becomes
+                                              ðy          ðy
+                                                                             
+                                                 bc d ¼        12  B1 ðÞ d
+                                                                   0                 0
+
+                       and the lemma is immediate.                                                                             
+
+                          LEMMA 2.17. Suppose that q 2 N. Then
+                                       X                              X
+                                          fðq; rÞ2 ðq=rÞ ¼ ðkÞ2 q1   ðrÞGðrÞ2 :
+                                                       rjq                                           rjq
+
+
+                          Proof. By Lemma 2.4 of [7],
+                                                                                                                       !2
+                                                  X                    2
+                                                                                   X             X
+                                              q          fðq; rÞ ðq=rÞ ¼                   ðrÞ         fðr; sÞðr=sÞ
+                                                   rjq                               rjq         sjr
+
+                       and by (2.2),
+                                                             X                 X
+                                                                               r=s                     X
+                                               ðrÞ ¼               fðr; sÞ               eðas=rÞ ¼           fðr; sÞðr=sÞ:
+                                                             sjr                a¼1                    sjr
+                                                                             ða;r=sÞ¼1
+
+                       The lemma now follows from Lemma 2.5.                                                                   
+
+                          LEMMA 2.18. Suppose that 2 <  < 1 and y > 0. Then
+                                       ð1               ð
+                                          B2 ðÞ       1 þi1 ðs þ 1Þys
+                                                 d ¼                          ds:
+                                        y  3         2 i i1 sðs þ 1Þðs þ 2Þ
+
+                          Proof. It is well known that
+                                            X1                                                             ð1
+                                                                       2   2                 2                 2y2 
+                                                       ðy  nÞ ¼ y log y þ C2 y þ y þ                            3
+                                                                                                                   B2 ðÞ d
+                                             n6y
+                                                   n                                                         y 
+
+                       where C2 is a constant. See, for example, the bottom of page 806 of [7]. A
+                       standard application of the theory of the Riemann zeta function gives the
+                       alternative formula
+                                          X1                   ð
+                                                             1 0 þi1 ðs þ 1Þ2ysþ2
+                                                 ðy  nÞ2 ¼                            ds
+                                           n6y
+                                               n            2 i 0 i1 sðs þ 1Þðs þ 2Þ
+
+                       when 0 > 1. Moving the path to the vertical line <s ¼  picks up residues at 0
+                       and 1 and gives
+                            X1                                           ð
+                                         2   2         0 2             1 þi1 ðs þ 1Þ2ysþ2
+                                  ðy  nÞ ¼ y log y þ C2 y  2yð0Þ þ                          ds;
+                            n6y
+                                n                                     2 i i1 sðs þ 1Þðs þ 2Þ
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                        585
+               the argument being justied by standard bounds for ðsÞ (see [5, x 5.1]). Moreover,
+               by considering the behaviour of the various expressions as y ! 1 it follows that
+               C20 ¼ C2 and ð0Þ ¼  12. Thus
+                                          ð1                     ð
+                                             2y2              1 þi1 ðs þ 1Þ2ysþ2
+                                               3
+                                                 B 2 ðÞ d ¼                          ds
+                                           y                 2 i i1 sðs þ 1Þðs þ 2Þ
+
+               as required.                                                                                
+
+                  Let
+                                                            X1
+                                                                  ðlÞ
+                                                 GðsÞ ¼          sþ1
+                                                                      GðlÞ2 ;                          ð2:23Þ
+                                                            l¼1
+                                                                l
+                                                            X ðmÞ ðn=m k ÞGðn=m k Þ2
+                                                 hðnÞ ¼                                       ;        ð2:24Þ
+                                                            m kjn
+                                                                                nm k
+                                                            X
+                                                            1
+                                                HðsÞ ¼              hðnÞns ;                          ð2:25Þ
+                                                            n¼1
+                                                            X ðmÞ ðn=m k ÞGðn=m k Þ2
+                                                 jðnÞ ¼                                       ;        ð2:26Þ
+                                                            m kjn
+                                                                                nm k
+                                                            X
+                                                            1
+                                                J ðsÞ ¼             jðnÞns :                          ð2:27Þ
+                                                            n¼1
+
+
+
+                 LEMMA 2.19. The series in (2.23), (2.25) and (2.27) converge absolutely
+               and uniformly, and are analytic, for <s > 1=k  2 þ ", <s > 1=ð2kÞ  2 þ " and
+               <s >  2 þ " respectively, and
+
+                                           GðsÞ ¼ HðsÞðks þ 2kÞ                ð<s > 2 þ 1=kÞ;
+                                                         ðks þ 2kÞ
+                                           GðsÞ ¼ J ðsÞ                           ð<s > 2 þ 1=kÞ;
+                                                        ð2ks þ 4kÞ
+
+                                                J ð1=k  2Þ=ð2Þ ¼ Hð1=k  2Þ ¼ C1 :
+
+
+                  Proof. The absolute and uniform convergence of GðsÞ is immediate from
+               its Euler product, as are the identities connecting G, H and J . Likewise
+               the convergence properties of H and J when <s >  2 þ 1=k þ ". When
+               2 þ " 6 <s 6  43, the Euler product for J ðsÞ has the general term
+                                                                          !
+                                          1              1  psk 1  p1                 k2k1
+                              1þ                                    2  1 ¼ 1 þ Oðp          Þ:
+                                    p ksþ2k þ 1         1  ps 1  pk
+
+               Thus the series J ðsÞ has the desired convergence properties. Moreover
+               the Euler product for ð2ks þ 4kÞ1 converges absolutely and uniformly for
+               <s >  2 þ 1=ð2kÞ þ ". Hence the conclusion for HðsÞ follows also.
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       586                                                R. C. VAUGHAN
+
+                          The Euler product for Hð1=k  2Þ has the general term
+                                             P k 2jj=k !               P k 2jj=k
+                               1       ðp  1Þ j¼1  p             ðp  1Þ2 j¼1   p       pðp k  1Þ2
+                            1      1þ                      ¼ 1 þ                                     :
+                               p           pðp k  1Þ2                       p2 ðp k  1Þ2
+
+                       Thus, by (1.15), Hð1=k  2Þ ¼ C1 :                                                                       
+
+                         It can be shown that the line <s ¼ 2 is a natural boundary for G, and indeed
+                       every point of that line has arbitrarily close to it innitely many zeros  of G with
+                       < > 2.
+
+                                                                      3. Initial dispositions
+                          By (1.1) and (1.3),
+
+                                          V ðx; QÞ ¼ bQcQk ðxÞ þ 2Sðx; QÞ  2xS1 ðx; QÞ þ x2 S2 ðQÞ                          ð3:1Þ
+                       where
+                                                                        XX               X
+                                                       Sðx; QÞ ¼                                   k ðmÞk ðnÞ;             ð3:2Þ
+                                                                        q6Q n6x     m<n
+                                                                                  mn ðmod qÞ
+                                                                         X
+                                                                        X q
+                                                      S1 ðx; QÞ ¼                 Qk ðx; q; aÞfðq; aÞ;                       ð3:3Þ
+                                                                        q6Q a¼1
+                                                                        XX   q
+                                                         S2 ðQÞ ¼                 fðq; aÞ2 :                                 ð3:4Þ
+                                                                        q6Q a¼1
+
+                       By (1.2),
+                                                                                           
+                                                                       fðq; aÞ ¼ f q; ðq; aÞ :
+                       Thus
+                                                                     XX                    X
+                                                                                           q=r
+                                                 S1 ðx; QÞ ¼                   fðq; rÞ               Qk ðx; q; brÞ
+                                                                     q6Q rjq                b¼1
+                                                                                         ðb;q=rÞ¼1
+                                                                     XX                     X
+                                                              ¼                fðq; rÞ                  k ðmrÞ
+                                                                     q6Q rjq              m6x=r
+                                                                                         ðm;q=rÞ¼1
+                                                                     XX                  X               X
+                                                              ¼                fðq; rÞ           ðtÞ            k ðnrtÞ:   ð3:5Þ
+                                                                     q6Q rjq             tjq=r          n6x=rt
+
+
+                       We now divide into two cases. When Q 6 x7=8 , Lemma 2.2(i) applied to the
+                       innermost sum gives
+
+                                       fðrt; rtÞx þ OðdðrtÞðx=rtÞ1=k expðcðlog xÞ3=5 ðlog log xÞ1=5 ÞÞ:                    ð3:6Þ
+
+                       The error term here contributes
+                                  XX             X
+                                        fðq; rÞ   dðrtÞðx=rtÞ1=k expðcðlog xÞ3=5 ðlog log xÞ1=5 Þ
+                                        q6Q rjq              tjq=r
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                          587
+                                                                        1                   1
+               to (3.5). By (1.4), fðq; rÞ 6 limx!1 ðxq þ 1Þ=x ¼ q . Thus the above is
+                                X1X
+                                          dðlÞ2 l1=k x1=k expðcðlog xÞ3=5 ðlog log xÞ1=5 Þ
+                                q6Q
+                                    q  ljq
+
+                                    ðlog QÞx1=k expðcðlog xÞ3=5 ðlog log xÞ1=5 Þ:
+               Hence, by (3.5) and (3.6),
+                                                       XX                    X
+                                    S1 ðx; QÞ ¼ x                 fðq; rÞ            ðtÞfðrt; rtÞ
+                                                       q6Q rjq               tjq=r
+
+                                                                   ck ðlog xÞ3=5 ðlog log xÞ1=5 ÞÞ:
+                                                     þ Oðx1=k expðe
+               By Lemma 2.3 this is
+                                                       XX
+                                    S1 ðx; QÞ ¼ x                 fðq; rÞ2 ðq=rÞ
+                                                       q6Q rjq
+
+                                                                   ck ðlog xÞ3=5 ðlog log xÞ1=5 ÞÞ:
+                                                     þ Oðx1=k expðe
+               When x7=8 < Q 6 x the use of part (ii) of Lemma 2.2 instead gives rise to the error
+               estimate
+                                                                 Oðx1=k log QÞ:
+               However, in this case this is
+                                                                          
+                                                                   O Q2 x1 :
+               Therefore, in either case,
+                                       XX
+                         S1 ðx; QÞ ¼ x    fðq; rÞ2 ðq=rÞ
+                                                q6Q rjq
+
+                                               þ OðQ2 x1 þ x1=k expðe
+                                                                      ck ðlog xÞ3=5 ðlog log xÞ1=5 ÞÞ:   ð3:7Þ
+
+                  By Lemma 2.4 and (3.4),
+                                                                  XX
+                                                     S2 ðQÞ ¼                 fðq; rÞ2 ðq=rÞ:             ð3:8Þ
+                                                                  q6Q rjq
+
+               Hence, by (3.1) and Lemma 2.2,
+                               V ðx; QÞ ¼ ðkÞ1 bQcx þ 2Sðx; QÞ  x2 S2 ðQÞ
+                                                                    ck ðlog xÞ3=5 ðlog log xÞ1=5 ÞÞ:
+                                               þ OðQ2 þ x1þ1=k expðe                                     ð3:9Þ
+
+                  The remainder of the proof is concerned exclusively with Sðx; QÞ.                          A
+
+                                               4. The Hardy --Littlewood dissection
+                  By (2.1), (2.7) and (3.2),
+                                                                      ð1
+                                                       Sðx; QÞ ¼            jfðÞj2 KðÞ d:              ð4:1Þ
+                                                                        0
+
+               Let R be a parameter which satises
+
+                                                                   R ¼ x1=2þ :                           ð4:2Þ
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       588                                                 R. C. VAUGHAN
+
+                       where  ¼ k is a suciently small positive number, and put
+                                                             Mðq; aÞ ¼ f : jq  aj 6 R1 g:                            ð4:3Þ
+                       Further dene M to be the union of the Mðq; aÞ with 1 6 a 6 q 6 x=R and
+                       ðq; aÞ ¼ 1, and m ¼ R1 ; 1 þ R1 nM.
+                          By Dirichlet’s theorem on diophantine approximation and Lemma 2.10,
+                                                                      sup jKðÞj  R log x:
+                                                                       m
+                       Hence, by Lemma 2.6,
+                                      ð
+                                        jfðÞj2 KðÞ d  x1=kþ" R21=k þ x2þ" R2=k2
+                                                   m
+
+                                                                               x1þ1=k=2
+                       and so, by (4.1),
+                                                                  ð
+                                                  Sðx; QÞ ¼               jfðÞj2 KðÞ d þ Oðx1þ1=k =2 Þ:             ð4:4Þ
+                                                                      M
+
+                          By Lemma 2.7,
+                                                   X X
+                                                     q ð
+                                                                             jð; q; aÞj2 d  x2þ" R2=k3 :
+                                                                   Mðq;aÞ
+                                                 q6x=R a¼1
+                                                      ða;qÞ¼1
+
+                       Hence, by Lemma 2.12,
+                             X X   q ð
+                                          jð; q; aÞj2 jHq ðÞj d  x5=2þ" R2=k3  x1þ1=k :                         ð4:5Þ
+                                                 Mðq;aÞ
+                               q6x=R a¼1
+                                    ða;qÞ¼1
+
+                          By Lemma 2.8,
+                                       X X
+                                         q ð
+                                                                jf  ð; q; aÞð; q; aÞj d  x1þ1=ð2kÞþ" R1=ð2kÞ1 :
+                                                       Mðq;aÞ
+                                     q6x=R a¼1
+                                          ða;qÞ¼1
+
+                       Hence, by Lemma 2.12,
+                           X    X ð
+                                 q
+                                         jf  ð; q; aÞð; q; aÞHq ðÞj d  x3=2þ1=ð2kÞþ" R1=ð2kÞ1
+                                          Mðq;aÞ
+                             q6x=R a¼1
+                                  ða;qÞ¼1
+
+                                                                                                x1þ1=k :              ð4:6Þ
+
+                         Let M0 ð1; 1Þ ¼ f : j  1j 6 1=xg and for j 2 N dene Mj ðq; aÞ to be the set of
+                        with
+                                                                 2j1 x1 < jq  aj 6 2j x1
+                       when q 6 2j1 , and to be the set of  with
+                                                                           jq  aj 6 2j x1
+                       when 2j1 < q 6 2j . Choose J so that 2J1 < x=R 6 2J . For any a and q with
+                       1 6 a 6 q 6 x=R and ða; qÞ ¼ 1, the union of the Mj ðq; aÞ with 0 6 j 6 J and q 6 2j
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                          k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                           589
+                                                                                                                          j
+               contains Mðq; aÞ. Let Mj denote the union of the Mj ðq; aÞ with 1 6 a 6 q 6 2 and
+               ðq; aÞ ¼ 1. Then the union of the Mj with 0 6 j 6 J contains M.
+                  By (2.13), when  2 Mj ðq; aÞ with 1 6 a 6 q 6 2j and ða; qÞ ¼ 1,
+                                                                 Kq ðÞ  2j x log x:                                     ð4:7Þ
+               By Lemma 2.7,
+                                         X ð
+                                       X q
+                                                                  jð; q; aÞj2 d  x2=k1þ" 23j2j=k :
+                                                      Mj ðq;aÞ
+                                       q62j     a¼1
+                                              ða;qÞ¼1
+
+               Hence
+                                    X X
+                                      q ð
+                                                                jð; q; aÞj2 jKq ðÞj d  x2=kþ" 22j2j=k
+                                            a¼1      Mj ðq;aÞ
+                                   q62j
+                                          ða;qÞ¼1
+
+               and summing this over all j with 0 6 j 6 J gives
+                      X X   q   ð
+                                      jð; q; aÞj2 jKq ðÞj d  x2þ" R2=k2  x1þ1=k=2 :
+                                       Mðq;aÞ
+                          q6x=R a¼1
+                               ða;qÞ¼1
+
+               Thus, by (4.5) and Lemma 2.9,
+                              X X   q ð
+                                                                  jð; q; aÞj2 jKðÞj d  x1þ1=k=2 :                   ð4:8Þ
+                                                         Mðq;aÞ
+                                     q6x=R a¼1
+                                          ða;qÞ¼1
+
+                  By (2.5) and Lemma 2.9, when  2 Mðq; aÞ,
+                               jfðÞj2 KðÞ ¼ jf  ð; q; aÞj2 KðÞ
+                                                                          
+                                               þ 2 < f  ð; q; aÞð; q; aÞ ðKq ðÞ þ Hq ðÞÞ
+                                                       þ jð; q; aÞj2 KðÞ:
+               Hence, by (4.4), (4.6) and (4.8),
+
+                                                    Sðx; QÞ ¼ T1 þ T2 þ Oðx1þ1=k=2 Þ;                                    ð4:9Þ
+               where
+                                                      X X
+                                                        q ð
+                                              T1 ¼                               jf  ð; q; aÞj2 KðÞ d                 ð4:10Þ
+                                                                        Mðq;aÞ
+                                                      q6x=R a¼1
+                                                           ða;qÞ¼1
+
+               and
+                                          X X ð
+                                            q
+                                                                                                
+                                 T2 ¼                                2 <ðf  ð; q; aÞð; q; aÞÞ Kq ðÞ d:              ð4:11Þ
+                                                            Mðq;aÞ
+                                          q6x=R a¼1
+                                               ða;qÞ¼1
+
+                  By (2.4), (2.8) and (2.10),
+                                                                                                        !!
+                              X ð 1=qR                                       X
+                                                                             q
+                       T2 ¼             2 <                       ðqÞIð Þ             ða=q þ ; q; aÞ        Kq ð Þ d :
+                                              1=qR                           a¼1
+                                   q6x=R
+                                                                            ða;qÞ¼1
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       590                                                 R. C. VAUGHAN
+
+                       By (2.3), if j j 6 12, then Ið Þ  x=ð1 þ xj jÞ. Hence, by (2.13) and Lemma 2.13,
+                               ð 1=qR                                      !!
+                                                        Xq
+                                      2 < ðqÞIð Þ          ða=q þ ; q; aÞ     Kq ð Þ d
+                                     1=qR                           a¼1
+                                                                   ða;qÞ¼1
+
+                                                j ðqÞj X
+                                                        rdðrÞðx=rÞ1=k
+                                                  q rjq
+                                                                                      ð 1=qR 2
+                                                                                              x log x
+                                                    expðcðlog xÞ3=5 ðlog log xÞ1=5 Þ                 d :
+                                                                                        1=qR 1 þ xj j
+
+                       Therefore
+                                           X j ðqÞj X
+                                  T2                            r11=k dðrÞx1þ1=k expðc 0 ðlog xÞ3=5 ðlog log xÞ1=5 Þ:
+                                          q6x=R
+                                                     q     rjq
+
+                       By Lemma 2.5,
+                                            X j ðqÞj X 11=k         X 2 X 11=k
+                                                       r     dðrÞ        q     r dðrÞ  1:
+                                           q6x=R
+                                                 q rjq              q6x=R   rjq
+
+                       Thus
+                                                   T2  x1þ1=k expðc 0 ðlog xÞ3=5 ðlog log xÞ1=5 Þ:
+                       Hence, by (4.9),
+                                                                                                    
+                                                                      ck ðlog xÞ3=5 ðlog log xÞ1=5 Þ :
+                                         Sðx; QÞ ¼ T1 þ O x1þ1=k expðe                                                     ð4:12Þ
+
+
+                                                                           5. The term T1
+                          By (4.10) and (2.4),
+                                                                             T 1 ¼ U  U1                                    ð5:1Þ
+                       where
+                                                          X X ð 1=2
+                                                            q
+                                                  U¼                             j ðqÞIð Þj2 Kða=q þ Þ d                     ð5:2Þ
+                                                                      1=2
+                                                         q6x=R a¼1
+                                                              ða;qÞ¼1
+
+                       and
+                                                     X X
+                                                       q ð
+                                           U1 ¼                                          j ðqÞIð Þj2 Kða=q þ Þ d :           ð5:3Þ
+                                                                      1=qR 6 j j 6 1=2
+                                                    q6x=R a¼1
+                                                         ða;qÞ¼1
+
+                          By (2.9), (2.11), Lemma 2.9 and (2.12) with q ¼ 1,
+                                                           X         x
+                                                   KðÞ                   :
+                                                             pﬃﬃ u þ xkuk
+                                                           u6 x
+
+                       Hence, by (2.3),
+                                                 X           2
+                                                                  X
+                                                                  q Xð                        x 2
+                                       U1               ðqÞ                                             d :
+                                                                        pﬃﬃ             u þ xkua=q þ u k
+                                                q6x=R             a¼1 u6 x 1=qR6j j61=2
+                                                                 ða;qÞ¼1
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                                           591
+               By the change of variable                      ¼u            the integral here is
+                                                        ð
+                                                                              x 2
+                                                    u                                   d :
+                                                            u=qR6j j6u=2 u þ xkua=q þ k
+
+
+               The part with j j > 12 is
+
+                                                        X                   ð 1=2
+                                                                       2                            x
+                                            u                     j                                                   d
+                                                                             1=2 u þ xkua=q þ                  þ jk
+                                                  0<jjj6u=2
+
+                                             u log x:
+
+               Hence, by (2.15),
+
+                                                 X             2
+                                                                       X
+                                                                       q   X ð                       x 2
+                        U1  x log x þ                       ðqÞ                 u                             d :
+                                                                             pﬃﬃ   u=qR6j j61=2 u þ xkua=q þ k
+                                                q6x=R                  a¼1 u6 x
+                                                                   ða;qÞ¼1
+
+
+               In the multiple sum above, the terms with q j u contribute
+
+                                            X                               X              ð
+                                                                                                              x 2
+                                                       ðqÞ2 ðqÞ                    vq                               d
+                                                                             pﬃﬃ               v=R6j j61=2 vq þ xk k
+                                            q6x=R                          v6 x=q
+                                            X                               X              ð
+                                                                                                           3
+                                                       ðqÞ2 ðqÞ                    vq                          d
+                                                                             pﬃﬃ               v=R6 61=2
+                                            q6x=R                          v6 x=q
+                                            X                               X
+                                                       ðqÞ2 ðqÞ                    qv1 R2  x1=kþ" R21=k ;
+                                                                             pﬃﬃ
+                                            q6x=R                          v6 x=q
+
+
+               by (2.15). Hence
+
+                                  1þ1=k
+                                                 X                  X ð2
+                                                                                        Xq
+                                                                                                 x 2
+                      U1  x                þ                  ðqÞ       u                                 d :
+                                                                     pﬃﬃ   u=qR6j j61=2 a¼1 u þ xkua=q þ k
+                                                1<q6x=R            u6 x
+                                                                            q -u                         ða;qÞ¼1
+
+
+               Let u 0 ¼ u=ðq; uÞ and q 0 ¼ q=ðq; uÞ. Then q 0 > 1 and the innermost sum becomes
+
+                         X
+                         q
+                                    x 2             X            ðq; uÞx 2
+                                                 6
+                          a¼1
+                              u þ xku 0 a=q 0 þ k 0<jvj6q 0 =2 u þ xkv=q 0 þ k
+                        ða;qÞ¼1
+                                                                                   X                 ðq; uÞx 2            2
+                                                                                                                 þ             q log 2q:
+                                                                          0<jvj6q =2   0          u þ xkv=q 0 þ k
+                                                                       kv=q 0 þ k61=ð3q 0 Þ
+
+
+               If j j 6 12, kv=q 0 þ k 6 1=3q 0 and 0 < jvj 6 12 q 0 , then
+
+                                       j j ¼ k k > kv=q 0 k  kv=q 0 þ k  kv=q 0 k ¼ jvj=q 0 :
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       592                                               R. C. VAUGHAN
+                                     pﬃﬃﬃ
+                       Hence, for u 6 x,
+                         ð            X q
+                                                        x 2
+                                                                  d
+                              u=qR6j j61=2     a¼1
+                                                   u þ xkua=q þ k
+                                             ða;qÞ¼1
+
+                                                        R 2              X ð                          ðq; uÞxðq 0 Þ2 v2
+                                                        q ðlog 2qÞ þ               u=qR6j j61=2                         d
+                                                        u             0<jvj6q 0 =2 kv=q 0 þ k61=3q 0
+                                                                                                     u þ xkv=q 0 þ k
+                                                           R 2               X                                  R
+                                                            q ðlog 2qÞ þ              ðq; uÞðq 0 Þ2 v2 log x  q2 log x:
+                                                           u              0<jvj6q 0 =2
+                                                                                                                u
+
+                       Therefore, by (2.15),
+                                                                              X                   X
+                                                   U1  x1þ1=k þ                         ðqÞ2           q2 R log x
+                                                                                                    pﬃﬃ
+                                                                           1<q6x=R                u6 x
+                                                               1þ1=k
+                                                       x                þ x1=kþ1=2þ" R11=k  x1þ1=k :
+
+                       Hence, by (5.1),
+                                                                   T1 ¼ U þ Oðx1þ1=k Þ:                                                   ð5:4Þ
+
+                          By (2.3), (2.7) and (5.2),
+                                                       X                 X
+                                                                         q    X X X X
+                                               U¼               ðqÞ2                                           eðauv=qÞ
+                                                       q6x=R             a¼1 u6Q v6x=u m6x n6x
+                                                                       ða;qÞ¼1            n¼mþuv
+                                                       X X
+                                                  ¼                Sðuv; x=RÞbx  uvc
+                                                       u6Q v6x=u
+
+                       where
+                                                                                   X
+                                                               Sðn; x=RÞ ¼                   ðqÞ2 cq ðnÞ:                                   ð5:5Þ
+                                                                                 q6x=R
+
+                       By (2.15),
+
+                                                                         Sðn; x=RÞ  1:
+
+                       Hence
+                                                        X X
+                                                 U¼                    Sðuv; x=RÞðx  uvÞ þ Oðx log xÞ:
+                                                        u6Q v6x=u
+                                          P
+                       Moreover jcq ðnÞj 6 djðq;nÞ d. Therefore
+                               X X X                                          X X                                             X
+                                                ðqÞ2 jcq ðuvÞjðx  uvÞ  x1þ"                                          ðqÞ2             d
+                                     u6Q v6x=u q>x=R                                                  n6x q>x=R               djðq;nÞ
+                                                                                                          X            XX
+                                                                                           ¼ x1þ"               ðqÞ2              d
+                                                                                                      q>x=R            djq n6x
+                                                                                                                           djn
+                                                                                                      X
+                                                                                           6 x2þ"              ðqÞ2 dðqÞ:
+                                                                                                     q>x=R
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                             593
+               Thus, by (2.15),
+                     X X X
+                                                ðqÞ2 jcq ðuvÞjðx  uvÞ  x2þ" ðx=RÞ1=k2 ¼ x1=kþ" R21=k :
+                         u6Q v6x=u q>x=R
+
+               Therefore, by (2.16),
+                                                   X X
+                                            U¼                  SðuvÞðx  uvÞ þ Oðx1þ1=k Þ:
+                                                   u6Q v6x=u
+
+               Hence, by (5.4),
+                                                           T1 ¼ V þ Oðx1þ1=k Þ;                            ð5:6Þ
+               where
+                                                             X X
+                                                      V ¼                 SðuvÞðx  uvÞ:                     ð5:7Þ
+                                                             u6Q v6x=u
+
+
+
+                                                      6. Completion of the proof
+                  By Lemma 2.15,
+                                                                            X
+                                                             SðnÞ ¼ C                gðmÞ
+                                                                            m k jn
+
+               where g is the multiplicative function dened by
+                                                  8
+                                                  < 1
+                                             t              when t ¼ 1;
+                                         gð p Þ ¼ p k  2                                                    ð6:1Þ
+                                                  :
+                                                    0       when t > 1:
+               Hence, by (5.7),
+                                 X X X
+                           V ¼C                  gðmÞðx  uvÞ
+                                           u6Q v6x=u m k juv
+                                           XX
+                                            1                       X                           
+                                                      um k                          xðu; m k Þ
+                                     ¼C         gðmÞ                                           w :          ð6:2Þ
+                                        u6Q m¼1
+                                                     ðu; m k Þ w6xðu;m k Þ=ðum k Þ    um k
+
+               Therefore, by Lemma 2.16,
+                                                               V ¼ V1  V2  V3                              ð6:3Þ
+               where
+                                                                    XX
+                                                                     1
+                                                                                       ðu; m k Þ
+                                                    V1 ¼ 12 Cx2                gðmÞ              ;           ð6:4Þ
+                                                                  u6Q m¼1
+                                                                                        um k
+                                                                  XX  1
+                                                    V2 ¼ 12 Cx                gðmÞ                           ð6:5Þ
+                                                                  u6Q m¼1
+
+               and
+                                                    XX
+                                                     1
+                                                                       um k                     
+                                         V3 ¼ C                gðmÞ        k
+                                                                              B2 xðu; m k Þ=um k :          ð6:6Þ
+                                                    u6Q m¼1
+                                                                      ðu; m Þ
+
+               Note that by (6.1) the innite series in (6.4) and (6.5) converge absolutely. By
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       594                                                    R. C. VAUGHAN
+
+                       (2.20) and (2.22), B2 ðÞ is bounded and satises
+                                                                                       ð
+                                                                       B2 ðÞ ¼            B1 ð Þ d
+                                                                                        0
+                       and
+                                                                              jB2 ðÞj 6 12 jj:                 ð6:7Þ
+                       Thus the innite series in (6.6) also converges absolutely.
+                         By interchanging the order of summation, we have
+                                                X 1
+                                                 X                    ðu; m k Þ   X gðmÞ X 1 X
+                                                                                   1
+                                                           gðmÞ                 ¼                          ðlÞ
+                                                u6Q m¼1
+                                                                       um k       m¼1
+                                                                                      m k u6Q u ljðu;m k Þ
+                                                                                       X ðlÞ X1
+                                                                                                gðmÞ X 1
+                                                                                   ¼                         :
+                                                                                       l6Q
+                                                                                           l m¼1 m k w6Q=l w
+                                                                                                    ljm k
+
+                       Then the sum over m is 0 unless l is k þ 1-free. In the latter case, by (2.18)
+                       and (6.1),
+                                             X1
+                                                 gðmÞ          Y        1
+                                           C        k
+                                                      ¼ ðkÞ2        k     2
+                                                                              :
+                                             m¼1
+                                                  m             pjl ðp  1Þ
+                                                              ljm k
+
+                       Thus, in any case, by Lemma 2.5,
+                                                                      X
+                                                                      1
+                                                                          gðmÞ
+                                                                C              ¼ ðkÞ2 GðlÞ2 :                   ð6:8Þ
+                                                                      m¼1
+                                                                           mk
+                                                                      ljm k
+
+                       Hence, by (6.4),
+                                                                                   X ðlÞ        X 1
+                                                         V1 ¼ 12 ðkÞ2 x2               GðlÞ2         :          ð6:9Þ
+                                                                                   l6Q
+                                                                                       l       w6Q=l
+                                                                                                     w
+
+                          By (2.18) and (6.1),
+                                                                           X
+                                                                           1
+                                                                       C          gðmÞ ¼ ðkÞ1
+                                                                           m¼1
+                       and so, by (6.5),
+                                                                        V2 ¼ 12 ðkÞ1 bQcx:                     ð6:10Þ
+                       By (3.8) and Lemma 2.17,
+                                                         X 1 X                      X ðlÞ        X 1
+                                   S2 ðQÞ ¼ ðkÞ2           q     ðlÞGðlÞ2 ¼ ðkÞ2       GðlÞ2         :
+                                                         q6Q   ljq                   l6Q
+                                                                                         l       w6Q=l
+                                                                                                       w
+
+                       Hence, by (3.9), (4.12), (5.6), (6.3), (6.9) and (6.10),
+                                                                                                   
+                           V ðx; QÞ ¼ 2V3 þ O Q2 þ x1þ1=k expðe    ck ðlog xÞ3=5 ðlog log xÞ1=5 Þ :           ð6:11Þ
+
+                         It remains to analyse V3 . Initially the argument has some similarities with the
+                       path taken by [10] in the squarefree case. However, by diverging from that route,
+                       a more precise representation for V3 is obtained.
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                         k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                                                  595
+                  By (6.6), (2.20) and (2.22),
+                                                 X
+                                                 1                      X             X                          
+                                                                                                            x
+                                    V3 ¼ C              gðmÞm k                                 vB2
+                                                 m¼1                    njm k       v6Q=n
+                                                                                                           vm k
+                                                                                 ðv;m k =nÞ¼1
+
+                                                 X
+                                                 1                      X ð xmk                  X
+                                        ¼C              gðmÞm k                                                       vB1 ðÞ d:
+                                                 m¼1                              0
+                                                                        n6Q             v6minðQ=n;x=m k Þ
+                                                                        njm k              ðv;m k =nÞ¼1
+
+
+                  A standard argument gives, for any real y > 0,
+                                                            X               1 ðqÞ 2        
+                                                                    v¼           y þ O ydðqÞ :
+                                                          v6y
+                                                                            2 q
+                                                        ðv;qÞ¼1
+
+               Thus, by (6.7), when n 6 Q,
+                     ð xmk     X
+                                        vB1 ðÞ d
+                          0
+                                  v6minðQ=n;x=m k Þ
+                                     ðv;m k =nÞ¼1
+
+                                     X                                    ð xmk               X
+                                                          xn
+                              ¼                  vB2                   þ                                   vB1 ðÞ d:
+                                                         Qm k                xn=ðQm k Þ
+                                     v6Q=n                                                 v6x=ðm k Þ
+                                  ðv;m k =nÞ¼1                                             ðv;m k =nÞ¼1
+                                                           
+                                  Q2 ðm k =nÞ  xn                              
+                              ¼            k
+                                                 B 2      k
+                                                              þ O dðm k =nÞxmk
+                                    2nm                Qm
+                                    ð xmk                                   ð xmk                    !
+                                                  2
+                                                 x n ðm k =nÞ                             xdðm k =nÞ
+                                  þ                            B1 ðÞ d þ O                         d :
+                                      xn=ðQm k Þ    2m3k 2                    xn=ðQm k Þ   mk
+
+               The error terms contribute
+                                             X
+                                             1                      X
+                                                   gðmÞm k                 dðm k =nÞxmk log x  x log x
+                                             m¼1                    njm k
+
+               to V3 and by integration by parts the main terms become
+                                                                ð k
+                              ðm k =nÞ       k     x2 ðm k =nÞ xm        B2 ðÞ
+                                      B 2 ðxm    Þ þ                            3
+                                                                                   d:
+                              2m k =n                  m3k =n    xn=ðQm k Þ 
+
+               By (6.7) the contribution to V3 from the rst term here is
+                                                               X
+                                                               1                   X ðm k =nÞ
+                                                        x              gðmÞ                     x:
+                                                               m¼1                 njm k
+                                                                                         m k =n
+
+               Therefore
+                                      X
+                                      1                     X x2 ðm k =nÞ ð xmk                    B2 ðÞ
+                           V3 ¼ C           gðmÞm k                         3k                           3
+                                                                                                            d þ Oðx log xÞ:
+                                      m¼1
+                                                                        m =n              xn=ðQm k Þ 
+                                                            n6Q
+                                                            njm k
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                       596                                                R. C. VAUGHAN
+
+                       Again by (6.7), the integral can be completed to 1 with a total error in V3
+                                                                 X
+                                                                 1               X x ðm k =nÞ
+                                                                        gðmÞ                            x:
+                                                                 m¼1            njm k
+                                                                                           m k =n
+
+                       Likewise the sum over n can be completed to include the divisors of m k with
+                       n > Q with a total error
+                                            X
+                                            1            X xQ ðm k =nÞ                     X
+                                                                                           1            X x ðm k =nÞ
+                                                 gðmÞ                                          gðmÞ                     x:
+                                            m¼1          n>Q
+                                                                         mk                m¼1          njm k
+                                                                                                                m k =n
+                                                         njm k
+
+                       Therefore
+                                             X
+                                             1                   X x2 ðm k =nÞ ð 1                    B2 ðÞ
+                                  V3 ¼ C           gðmÞmk                                                 3
+                                                                                                              d þ Oðx log xÞ:
+                                             m¼1                 njm k
+                                                                              m k =n        xn=ðQm k Þ 
+
+
+                       By replacing m k =n by l, the main term above becomes
+                                        X                ð
+                                      2
+                                         1
+                                            gðmÞ X ðlÞ 1        B2 ðÞ
+                                   Cx                                   d
+                                        m¼1
+                                             m ljm k l x=ðQlÞ 3
+                                               k
+
+                                                                      ð
+                                                  X1
+                                                      ðlÞ X  1
+                                                                gðmÞ 1     B2 ðÞ
+                                             ¼ x2         C                        d
+                                                  l¼1
+                                                      l     m¼1
+                                                                 m k x=ðQlÞ 3
+                                                                               ljm k
+                                                                         X
+                                                                         1                ð1
+                                                                                ðlÞ              B2 ðÞ
+                                                      ¼ ðkÞ2 x2                   GðlÞ2             3
+                                                                                                         d;
+                                                                         l¼1
+                                                                                l          x=ðQlÞ 
+
+                       by (6.8). Hence, by Lemma 2.18, if 1=k  2 <  < 1, then
+                                            X1               ð þi1
+                                       2 2     ðlÞ      2 1        ðs þ 1Þðx=QlÞs
+                              V3 ¼ ðkÞ x           GðlÞ                            ds þ Oðx log xÞ:
+                                            l¼1
+                                                l         2 i i1 sðs þ 1Þðs þ 2Þ
+
+                       Therefore, by (2.23) and Lemma 2.19,
+                                                          V3 ¼ ðkÞ2 x2 F ðx=QÞ þ Oðx log xÞ                                    ð6:12Þ
+                       where
+                                                                              ð þi1
+                                                                  1                 GðsÞðs þ 1Þys
+                                                         F ðyÞ ¼                                    ds;
+                                                                 2 i           i1 sðs þ 1Þðs þ 2Þ
+
+                       the interchange of summation and integration being justied by absolute
+                       convergence. Here and below standard bounds for the zeta function are used
+                       (see [5, xx 5.1 and 6.19]). By Lemma 2.19,
+                                                      ð
+                                                    1 þi1 J ðsÞðks þ 2kÞðs þ 1Þys
+                                          F ðyÞ ¼                                      ds
+                                                   2 i i1 ð2ks þ 4kÞsðs þ 1Þðs þ 2Þ
+                       and J is analytic and uniformly bounded for s with 2 þ " 6 <s 6  1. The path of
+                       integration can be moved rst to the line <s ¼ 1=ð2kÞ  2, picking up the residue
+                                      k2 J ð1=k  2Þð1=k  1Þy1=k2 k2 Hð1=k  2Þð1=k  1Þy1=k2
+                                                                    ¼
+                                            ð2Þðk  1Þð2k  1Þ             ðk  1Þð2k  1Þ
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+   PLMS 1535---11/10/2005---SRUMBAL---146801
+
+                                        k-FREE NUMBERS IN ARITHMETIC PROGRESSIONS                          597
+               of the integrand at s ¼ 1=k  2. Then the integral can be truncated at  iT for a
+               suitable choice of T , and the nite part moved into the zero free region for
+               ð2ks þ 4kÞ. This gives
+                                                                                               !!
+                                                                                          3=5
+                          k2 Hð1=k  2Þð1=k  1Þy1=k2                          ðlog 2yÞ
+                  F ðyÞ ¼                               þ O y1=ð2kÞ2 exp ck
+                                 ðk  1Þð2k  1Þ                               ðlog log 3yÞ1=5
+               when y > 1. Therefore, by (6.11) and (6.12),
+                              V ðx; QÞ ¼  2ðkÞ2 x2 F ðx=QÞ
+                                                                                                 
+                                         þ O Q2 þ x1þ1=k exp e      ck ðlog xÞ3=5 ðlog log xÞ1=5
+                                                                          
+                                         2k2 Hð1=k  2Þ  ð1=k  1Þ 1=k 21=k
+                                       ¼                                     x Q
+                                              ðkÞ2 ðk  1Þð2k  1Þ
+                                                                                                   !
+                                                                                             3=5
+                                                1=ð2kÞ 21=ð2kÞ               ðlog 2x=QÞ
+                                         þO x         Q          exp  ck
+                                                                              ðlog log 3x=QÞ1=5
+                                                                             !!
+                                                             ce ðlog xÞ3=5
+                                         þ x1þ1=k exp  k
+                                                            ðlog log xÞ1=5
+               and an appeal to the last part of Lemma 2.19 completes the proof of the theorem.
+
+
+                                                                   References
+                1.   J. BR U€ DERN , A. GRANVILLE , A. PERELLI , R. C. VAUGHAN and T. D. WOOLEY , ‘On the
+                      exponential sum over k-free numbers’, Philos. Trans. Roy. Soc. London Ser. A 356 (1998)
+                      739 --761.
+                2. M. J. CROFT , ‘Square-free numbers in arithmetic progressions’, Proc. London Math. Soc. (3)
+                      30 (1975) 143 --159.
+                3. R. ORR , ‘Remainder estimates for square-free integers in arithmetic progressions’,
+                      Dissertation, Syracuse University, 1969.
+                4. R. ORR , ‘Remainder estimates for square-free integers in arithmetic progressions’, J. Number
+                      Theory 3 (1971) 474 --497.
+                5. E. C. TITCHMARSH , The theory of the Riemann zeta-function, 2nd edn, revised by D. R.
+                      Heath-Brown (Oxford University Press, 1986).
+                6. R. C. VAUGHAN , The Hardy --Littlewood method, 2nd edn, Cambridge Tracts in
+                      Mathematics 125 (Cambridge University Press, 1997).
+                7. R. C. VAUGHAN , ‘On a variance associated with the distribution of general sequences in
+                      arithmetic progressions’, Philos. Trans. Roy. Soc. London Ser. A 356 (1998) 793 --809.
+                8. R. WARLIMONT , ‘On squarefree numbers in arithmetic progressions’, Monatsh. Math. 73
+                      (1969) 433 --448.
+                9. R. WARLIMONT , ‘U    € ber quadratfreie Zahlen in arithmetischen Progressionen’, Monatsh.
+                      Math. 76 (1972) 272 --275.
+               10. R. WARLIMONT , ‘Squarefree numbers in arithmetic progressions’, J. London Math. Soc. (2)
+                      22 (1980) 21 --24.
+
+
+                  R. C. Vaughan
+                  Department of Mathematics
+                  McAllister Building
+                  Pennsylvania State University
+                  University Park
+                  PA 16802
+                  USA
+                  rvaughan@math.psu.edu
+
+
+
+
+https://doi.org/10.1112/S0024611505015352 Published online by Cambridge University Press
+

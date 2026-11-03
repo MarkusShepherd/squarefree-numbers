@@ -1,0 +1,128 @@
+[
+  {
+    "run": "integrate-claude-opus-5-5-20261103-094323-223063",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (32.8kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersintegrateclaudeopus5520261103094323223063/42fa9ac3061642ca8b7bfec709f999fc/toolresults/b9kkj1ez0.txt pr"
+  },
+  {
+    "run": "plan-dirichlet-20261102-235836-566477",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (41.7kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplandirichlet20261102235836566477/10504647ac8b46088b9dde002a18d495/toolresults/bcee15x3o.txt preview (f"
+  },
+  {
+    "run": "plan-dirichlet-20261102-235836-566477",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (68.4kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplandirichlet20261102235836566477/10504647ac8b46088b9dde002a18d495/toolresults/bfltfb9ir.txt preview (f"
+  },
+  {
+    "run": "plan-dirichlet-20261102-235836-566477",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (31.2kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplandirichlet20261102235836566477/10504647ac8b46088b9dde002a18d495/toolresults/b0j0udgtd.txt preview (f"
+  },
+  {
+    "run": "plan-dirichlet-20261102-235836-566477",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "t and was moved to the background (id: bhbao7ym5). output is being written to: /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersplandirichlet20261102235836566477/10504647ac8b46088b9dde002a18d495/tasks/bhbao7ym5.output. you will be "
+  },
+  {
+    "run": "plan-dirichlet-20261102-235836-566477",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (34.7kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplandirichlet20261102235836566477/10504647ac8b46088b9dde002a18d495/toolresults/bevrsjva3.txt preview (f"
+  },
+  {
+    "run": "plan-dirichlet-20261102-235836-566477",
+    "kind": "attempt",
+    "pattern": "squarefreenumbers",
+    "context": "read: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplandirichlet20261102235836566477/10504647ac8b46088b9dde002a18d495/toolresults/bevrsjva3.txt 40 300"
+  },
+  {
+    "run": "plan-none@claude-opus-5-5-20261103-003441-854004",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (66.2kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplannoneclaudeopus5520261103003441854004/375f928b2a2043ceaa50c69b8b910f05/toolresults/b7n4k1i9x.txt pre"
+  },
+  {
+    "run": "plan-simplest@claude-opus-5-5-20261103-001851-060021",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (51.7kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplansimplestclaudeopus5520261103001851060021/4872f2dbb6aa42848c40a5ead89e77d4/toolresults/b4z2azb6n.txt"
+  },
+  {
+    "run": "plan-simplest@claude-opus-5-5-20261103-001851-060021",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (31.7kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplansimplestclaudeopus5520261103001851060021/4872f2dbb6aa42848c40a5ead89e77d4/toolresults/bbc9jl7xz.txt"
+  },
+  {
+    "run": "plan-simplest@claude-opus-5-5-20261103-001851-060021",
+    "kind": "attempt",
+    "pattern": "squarefreenumbers",
+    "context": "read: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplansimplestclaudeopus5520261103001851060021/4872f2dbb6aa42848c40a5ead89e77d4/toolresults/bbc9jl7xz.txt"
+  },
+  {
+    "run": "plan-simplest@claude-opus-5-5-20261103-001851-060021",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (29.4kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplansimplestclaudeopus5520261103001851060021/4872f2dbb6aa42848c40a5ead89e77d4/toolresults/bks3dm7a1.txt"
+  },
+  {
+    "run": "plan-simplest@claude-opus-5-5-20261103-001851-060021",
+    "kind": "attempt",
+    "pattern": "squarefreenumbers",
+    "context": "read: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplansimplestclaudeopus5520261103001851060021/4872f2dbb6aa42848c40a5ead89e77d4/toolresults/bks3dm7a1.txt"
+  },
+  {
+    "run": "plan-simplest@claude-opus-5-5-20261103-001851-060021",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (31.2kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplansimplestclaudeopus5520261103001851060021/4872f2dbb6aa42848c40a5ead89e77d4/toolresults/b5q40ni4l.txt"
+  },
+  {
+    "run": "plan-vaughan-20261102-234855-859864",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (41.7kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplanvaughan20261102234855859864/fc41ea08672945d792af5ada8acca2a6/toolresults/b60j9weiy.txt preview (fir"
+  },
+  {
+    "run": "plan-vaughan-20261102-234855-859864",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (34.3kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplanvaughan20261102234855859864/fc41ea08672945d792af5ada8acca2a6/toolresults/bwwghjw8h.txt preview (fir"
+  },
+  {
+    "run": "plan-vaughan-20261102-234855-859864",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (38.1kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersplanvaughan20261102234855859864/fc41ea08672945d792af5ada8acca2a6/toolresults/bhfyo9t6i.txt preview (fir"
+  },
+  {
+    "run": "plan-vaughan-20261102-234855-859864",
+    "kind": "attempt",
+    "pattern": "dehnert",
+    "context": "vs predicted 0.1381; still within \u00b10.0073). no web search was done. nothing by the excluded author and not the excluded dehnert paper was consulted. sources: the papers in papers/: vaughan 2005 (doi:10.1112/s0024611505015352); bgpvw 1998 (p"
+  },
+  {
+    "run": "prove-P1-r1-20261103-090528-539942",
+    "kind": "mention",
+    "pattern": "schepke",
+    "context": "ries. i also verified by hand that q=1 in (iv) reduces to 36/pi^4. i did not search for, open or use anything by markus schepke or dehnert."
+  },
+  {
+    "run": "prove-P1-r1-20261103-090528-539942",
+    "kind": "mention",
+    "pattern": "dehnert",
+    "context": "o verified by hand that q=1 in (iv) reduces to 36/pi^4. i did not search for, open or use anything by markus schepke or dehnert."
+  },
+  {
+    "run": "referee-P1-r1-0-20261103-090702-946708",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "t and was moved to the background (id: b7fy84qq7). output is being written to: /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersrefereep1r1020261103090702946708/7aea3df5db3844dfac4be79392f97f99/tasks/b7fy84qq7.output. you will be n"
+  }
+]

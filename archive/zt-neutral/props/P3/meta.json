@@ -1,0 +1,9 @@
+{
+  "id": "P3",
+  "title": "Uniform asymptotic for squarefree pairs with shift m",
+  "statement": "Notation: A_0 = prod_p (1 - 2/p^2) and eta(t) = mu^2(t) prod_{p|t} (p^2-2)^{-1}. For real x >= 2 and integer m >= 1:\n- C_x(m) = #{n in N : n + m <= x, mu^2(n) = mu^2(n+m) = 1};\n- A(m) = A_0 sum_{t: t^2 | m} eta(t);\n- D_x(m) = C_x(m) - A(m)(x - m).\n\nClaim. For every eps > 0 there is a constant c(eps), depending only on eps, such that\n\n  |D_x(m)| <= c(eps) x^{2/3+eps}\n\nfor all real x >= 2 and all integers 1 <= m <= x.",
+  "depends_on": [],
+  "cites": [],
+  "crux": false,
+  "risk": "Classical (Mirsky's method); the prover must prove it here.\n\nRoute:\n1. Set z = x^{1/3}. Write mu^2 = mu_z^2 + nu_z, where mu_z^2(n) = sum_{d<=z, d^2|n} mu(d) and nu_z(n) = sum_{d>z, d^2|n} mu(d).\n2. Use |mu_z^2(n)| <= tau(n) << x^eps and sum_{n<=x} |nu_z(n)| <= sum_{d>z} x/d^2 <= 2x/z. The terms involving nu_z cost O(x^{1+eps}/z).\n3. For d, e <= z: #{n <= x - m : d^2 | n, e^2 | n+m} = (x - m) \u00b7 1[gcd(d^2,e^2) | m]/lcm(d^2,e^2) + O(1), which costs O(z^2).\n4. Complete the (d,e)-sum, using sum_{d>z} sum_e gcd(d,e)^2/(d^2 e^2) << (log z)/z.\n5. Check that sum_{d,e} mu(d) mu(e) 1[gcd(d^2,e^2) | m]/lcm(d^2,e^2) = A(m), by comparing Euler factors.\n\nThis bound is the bottleneck that limits the final range to f(y) >= x^{7/9+delta}."
+}

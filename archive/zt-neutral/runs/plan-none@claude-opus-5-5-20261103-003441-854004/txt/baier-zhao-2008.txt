@@ -1,0 +1,991 @@
+                                                       AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI
+
+                                                                                     STEPHAN BAIER AND LIANGYI ZHAO
+
+
+
+
+arXiv:math/0512271v3 [math.NT] 20 Apr 2007
+                                                     Abstract. We establish a result on the large sieve with square moduli. These bounds improve recent results
+                                                     by S. Baier [3] and L. Zhao [18].
+                                             Mathematics Subject Classification (2000): 11B57, 11L07, 11L40, 11N35, 11L15.
+
+                                             Keywords: large sieve, Farey fractions in short intervals, estimates on exponential sums and integrals.
+
+                                                                         1. Introduction and Statement of the Main Results
+                                                Large sieve was an idea originated by J. V. Linnik [12] in 1941 while studying the distribution of quadratic
+                                             non-residues. Refinements of this idea were made by many. In this paper, we develop an improvement for large
+                                             sieve inequality for square moduli. More in particular, we aim to have an estimate for the following sum
+                                                                                           q2    M+N              2
+                                                                                     X X          X           a
+                                             (1.1)                                                     an e      n    ,
+                                                                                          a=1
+                                                                                                              q2
+                                                                                        q≤Q             n=M+1
+                                                                                              (a,q)=1
+
+                                             where henceforth M ∈ Z, Q, N ∈ N and {an } is an arbitrary sequence of complex numbers. In the sequel, we
+                                             set
+                                                                                 M+N
+                                                                                  X                          M+N
+                                                                                                              X
+                                                                         S(x) :=        an e (xn) , and Z :=        |an |2 .
+                                                                                        n=M+1                         n=M+1
+                                               With q 2 replaced by q in (1.1), it is
+                                             (1.2)                                                 ≪ (Q2 + N )Z.
+                                             This is in fact the consequence of a more general result first introduced by H. Davenport and H. Halberstam
+                                             [6] in which the Farey fractions in the outer sums of (1.1) can be replaced by any set of well-spaced points.
+                                             Montgomery and Vaughan [14] showed that the ≪ can be replaced by ≤ in (1.2). Literature abound on the
+                                             subject of the classical large sieve. See [4, 6, 7, 9, 12, 14–16]. Applying the said more general result, (1.1) is
+                                             bounded above by
+                                             (1.3)                                   ≪ (Q3 + QN )Z, and ≪ (Q4 + N )Z
+                                             (See [1, 18]). In [18] it was proved that the sum (1.1) can be estimated by
+                                                                                                   p       √         
+                                             (1.4)                               ≪ log(2Q) Q3 + N Q + N Q2 N ε Z,
+                                             where the implied constant depends on ε. Also in [3], it was shown that (1.1) is
+                                                                                                         √     
+                                             (1.5)                                ≪ (QN )ε Q3 + N + N Q2 Z.
+                                             Moreover, in the same paper [3], Baier showed that (1.1) is
+                                                                                       3/5+ε
+                                                                                        Q      N Z, if Q ≤ N 5/12 ,
+                                                                                   ≪        3+ε
+                                                                                          Q Z,        if Q > N 5/12 .
+                                             It was conjectured in [18] that (1.1) is
+                                             (1.6)                                                ≪ Qε (Q3 + N )Z.
+
+                                               Date: October 17, 2018.
+                                                                                                           1
+2                                      STEPHAN BAIER AND LIANGYI ZHAO
+
+Furthermore, the inequality for higher power moduli was also studied in [1, 18].
+
+    In this paper, we prove the following.
+Theorem 1. With ε > 0 given and under the usual notations, we have
+                        q2      2
+                  X X            a                                p √  
+(1.7)                        S    2
+                                       ≪ (QN )ε Q3 + N + min{N Q, N Q2 } Z,
+                       a=1
+                                q
+                       q≤Q
+                             (a,q)=1
+
+where the implied constant depends on ε alone.
+    This theorem provides a better majorant in the range N 1/3+ε ≤ Q ≤ N 5/12−ε and establishes the conjecture
+in (1.6) for the range Q ≫ N 2/5 . Theorem 1 reduces to counting Farey fractions with square denominators in
+short intervals. We do this counting in two ways. The first is a generalization of the techniques in [18] using
+estimates for certain Weyl sums, and the second is a more refined treatment of certain exponential integrals in
+[3]. The improvement comes from using different estimates for the integrals depending on the location of the
+stationary points of the integrals of interest and a more explicit evaluation of the quadratic Gauss sums from
+[3]. Theorem 1 follows when the two estimates are combined and compared with previously known results.
+
+   Furthermore, as an application of the large sieve for square moduli, we note the following Bombieri-Vinogradov
+type bound for prime squares. We have that, using (1.5) and arguments similar to those in the proof of the
+classical Bombieri-Vinogradov theorem,
+                              X                                     y            x
+                                      p max max 2 ψ(y; p2 , a) −      2)
+                                                                          ≪            ,
+                                2/9−ε
+                                        y≤x a mod p               ϕ(p        (log x)A
+                               p≤x             p∤a
+
+for any A > 0. The restriction to only prime square moduli provides additional convenience in the reduction
+to primitive characters and the authors also believe that it is worthwhile to investigate results of this type for
+general sparse sets of moduli.
+
+   We note here that a Bombieri-Vinogradov type theorem more general than the above in which all square
+moduli are considered, not just the prime square moduli, has appeared in [2] while the present paper was under
+review. Moreover, the more general result improves some earlier results of Elliott [8] and Mikawa and Peneva
+[13].
+
+                                             2. Preliminary Lemmas
+   In this section, we quote some lemmas that we shall use later. We shall need the following general version of
+the large sieve inequality.
+                      R
+Lemma 1. Let {αr }r=1 be a sequence of real numbers. Suppose that 0 < ∆ ≤ 1/2 and R ∈          N. Set
+                                                                 R
+                                                                 X
+                                             K(∆) := max                   1,
+                                                      α∈   R       r=1
+                                                               kαr −αk≤∆
+
+where kxk denotes the distance of a real x to its closest integer. Then
+                                       R
+                                             |S (αr )|2 ≪ K(∆)(N + ∆−1 )Z,
+                                       X
+
+                                       r=1
+
+with an absolute ≪-constant.
+Proof. This is Theorem 2.11 in [15].                                                                            
+
+    We also need the Poisson summation formula.
+                         AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI                                      3
+
+Lemma 2 (Poisson Summation Formula). Let f (x) be a function on the real numbers that is piece-wise con-
+tinuous with only finitely many discontinuities and for all real numbers, a ∈ R, satisfies
+                                                                       
+                                              1
+                                     f (a) =      lim f (x) + lim f (x) .
+                                              2 x→a−           x→a+
+
+Moreover, f (x) ≪ (1 + |x|)−c for some c > 1 with an absolute implied constant. Then we have
+                            ∞            ∞                        Z ∞
+                                             fˆ(n), where fˆ(x) =
+                           X             X
+                                 f (n) =                               f (y)e(xy)dy,
+                           n=−∞           n=−∞                             −∞
+
+the Fourier transform of f (x).
+Proof. This is quoted in [5].                                                                                     
+
+  We shall not succeed in proving our contention without the following lemma.
+Lemma 3 (Weyl Shift). Let I be an interval of length N and f (x) be a polynomial of degree k ≥ 2 with real
+coefficients. Set κ = 2k−1 and let the leading coefficient, the coefficient of xk , of f (x) be α. Also set
+                                                      X
+                                                 S=       e(f (n)).
+                                                       n∈I
+
+Then we have                                                                                        
+                                                          X                           1
+                        |S|κ ≤ 22κ N κ−1 + 2κ N κ−k                   min N,                             ,
+                                                      r1 ,··· ,rk−1
+                                                                               kαk!r1 · · · rk−1 k
+
+where each r runs from 1 to N − 1 and kxk = minl∈Z |x − l|.
+Proof. This is Lemma 5.6 in [17].                                                                                 
+
+  We also need the following asymptotic formula for exponential integrals with weights.
+Lemma 4 (Stationary Phase with Weights). Let f (z), g(z) be two functions of the complex variable z and [a, b]
+a real interval such that:
+    (1) For a ≤ x ≤ b the function f (x) is real and f ′′ (x) > 0.
+    (2) For a certain positive differentiable function µ(x), defined on a ≤ x ≤ b, f (z) and g(z) are analytic for
+        a ≤ x ≤ b, |z − x| ≤ µ(x).
+    (3) There exist positive functions F (x), G(x) defined on [a, b] such that for a ≤ x ≤ b, |z − x| ≤ µ(x) we
+        have
+                                                         F (x)                    µ(x)2
+                           g(z) ≪ G(x),        f ′ (z) ≪       ,   |f ′′ (z)|−1 ≪       ,
+                                                         µ(x)                     F (x)
+        and the ≪-constants are absolute.
+   Let k be any real number, and if f ′ (x) + k has a zero in [a,b] denote it by x0 . Let the values of f (x), g(x),
+and so on, at a, x0 , and b be characterized by the suffixes a, 0, and b respectively. Then, for some absolute
+constant C > 0, we have
+                                                           b                                                   
+  Z b                                              
+                              g0                  1
+                                                            Z
+      g(x)e(f (x) + kx)dx = p ′′ e f0 + kx0 +         + O  G(x) exp (−C|k|µ(x) − CF (x)) (dx + |dµ(x)|)
+   a                           f 0
+                                                  8
+                                                             a
+                                                                                                              !
+                                                                       p −1
+                                                                                                   q −1
+                                                 −3/2          ′                            ′
+                                   + O G0 µ0 F0       + Ga |fa + k| + fa′′       + Gb |fb + k| + fb′′           .
+
+Proof. This is Theorem 2.2. in [11].                                                                              
+
+  Then we need the following lemma for the estimation of exponential integrals.
+4                                       STEPHAN BAIER AND LIANGYI ZHAO
+
+Lemma 5. Assume that f and g are real-valued, twice differentiable functions on [a, b]. Also assume that g/f ′
+is monotonic and that
+                                              f ′ (x)
+                                                      ≥ λ.
+                                               g(x)
+Then we have                          Z             b
+                                                        g(x)e(f (x))dx ≪ λ−1 .
+                                                a
+
+Proof. This is Lemma 3.1 in [10].                                                                             
+   We shall also need to transform and estimate certain Gauss sums. We define
+                                                            2      
+                                                   X        ad + ld
+(2.1)                                G(a, l; c) =        e            .
+                                                                c
+                                                          d   (mod c)
+
+We have the following lemma.
+Lemma 6. Assuming that (a, c) = 1 and aa ≡ 1 mod c, we have
+   (1) If l is even, then
+                                                     al2
+                                                        
+                                   G(a, l; c) = e −        G(a, 0; c);
+                                                     4c
+   (2) If l is odd, then
+                                                  a(l2 − 1)
+                                                           
+                                 G(a, l; c) = e −             G(a, 1; c).
+                                                     4c
+Proof. This is Lemma 7.11 in [10].                                                                            
+    To estimate these Gauss sums, we use the following Lemma.
+Lemma 7. If (a, c) = 1, then we have                                    √
+                                                        |G(a, l; c)| ≤ 2 c.
+Proof. This is (7.4.2) in [10].                                                                               
+
+                             3. Counting Farey fractions in short intervals
+    We aim to estimate
+                                                              2
+                                                   q                            2
+                                                 X X                        a
+(3.1)                                                               S                 .
+                                                            a=1
+                                                                            q2
+                                                 q≤Q
+                                                          (a,q)=1
+
+It suffices to consider the above expression with the outer-most sum running over dyadic intervals. To that end,
+we begin with the following modified version of Lemma 1.
+                      R             L
+Lemma 8. Let {αr }r=1 and {βl }l=1 be two sequences of real numbers. Suppose that 0 < ∆ ≤ 1/2 and for every
+α ∈ R there exists βl with 1 ≤ l ≤ L such that
+                                                          kβl − αk ≤ ∆.
+Put
+                                                                            R
+                                                                            X
+                                              K ′ (∆) := max                              1.
+                                                              1≤l≤L
+                                                                            r=1
+                                                                        kαr −βl k≤∆
+Then
+                                        R
+                                                          2
+                                        X
+                                              |S (αr )| ≪ K ′ (∆)(N + ∆−1 )Z,
+                                        r=1
+with an absolute ≪-constant.
+Proof. This follows easily from Lemma 1.                                                                      
+                         AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI                                 5
+
+   In our situation, let α1 , ..., αR be the sequence of Farey fractions a/q 2 with Q < q ≤ 2Q, 1 ≤ a ≤ q and
+(a, q) = 1. We shall use Lemma 8 to estimate
+                                                    R
+                                                                      2
+                                                    X
+                                                          |S (αr )|
+                                                    r=1
+and choose the βl ’s in an appropriate way. First we set
+                                                           1
+(3.2)                                                τ := √ .
+                                                            ∆
+Let β1 , . . . , βL be
+                                                     b    1
+(3.3)                                                  + 2
+                                                     r kr
+with r ∈ N and r ≤ τ , (b, r) = 1, 1 ≤ b ≤ r and k ∈ Z with ⌈r−1 ∆−1/2 ⌉ ≤ |k| ≤ ⌈r−2 ∆−1 ⌉. Here and after, we
+set ⌈x⌉ = minl∈Z {l ≥ x} for x ∈ R. We want to show that the βl ’s above satisfy the conditions of Lemma 8.
+By Dirichlet’s approximation theorem, every α ∈ R can be written in the form
+                                     b                                         1
+(3.4)                           α = + z, where r ≤ τ, (b, r) = 1, |z| ≤          .
+                                     r                                        rτ
+We must show that for every |z| ≤ (rτ )−1 , there is a k ∈ Z with ⌈r−1 ∆−1/2 ⌉ ≤ |k| ≤ ⌈r−2 ∆−1 ⌉ such that
+                                                           1
+                                                    z−        ≤ ∆.
+                                                          kr2
+First, we have if 0 ≤ z ≤ (κr2 )−1 with κ = ⌈r−2 ∆−1 ⌉, then
+                                                           1
+                                                    z−        ≤ ∆.
+                                                          κr2
+Otherwise, if z > (κr2 )−1 , it suffices to show that
+                                                 1         1
+(3.5)                                              2
+                                                     −           ≤ ∆,
+                                                kr     (k + 1)r2
+for the k’s in question and for K = ⌈r−1 ∆−1/2 ⌉,
+                                                  1    1
+(3.6)                                               −     ≤ ∆.
+                                                 rτ   Kr2
+The left-hand side of (3.5) is
+                                                 1        1
+                                                        ≤ 2 2 ≤ ∆,
+                                             k(k + 1)r2  k r
+provided k ≥ K. Furthermore, we have
+                                               1            1     1
+                                            √            ≤     ≤
+                                         ((r ∆)−1 + 1)r2   Kr2   rτ
+and thus the left-hand of (3.6) is
+                                     1         1            ∆
+                                  ≤    −    √           =    √ ≤ ∆.
+                                    rτ         −1
+                                         ((r ∆) + 1)r 2   1+r ∆
+For z < 0, the arguments are similar.
+
+   For α ∈    R we put                                        X
+                                            P (α) :=                      1.
+                                                       Q<q≤2Q,(a,q)=1
+                                                        |a/q2 −α|≤∆
+Then we have
+(3.7)                                        K ′ (∆) ≤ 2 max P (βl ).
+                                                            1≤l≤L
+6                                             STEPHAN BAIER AND LIANGYI ZHAO
+
+    Summarizing the above observations, we deduce the following.
+Lemma 9. We have
+                                                                                         
+                                         ′                                        b   1
+(3.8)                                   K (∆) ≤ 2 max max            max P          +          .
+                                                     r∈  N b∈
+                                                     r≤τ (b,r)=1
+                                                                ZK≤|k|≤κ          r kr2
+
+    Therefore, by the virtue of the preceding lemma, it suffices to estimate P (α) for α with
+(3.9)                                α = b/r + z,            r ≤ τ, (b, r) = 1, z = 1/(kr2 ),
+where k ∈ Z and ⌈r−1 ∆−1/2 ⌉ ≤ |k| ≤ ⌈r−2 ∆−1 ⌉. We note that α satisfies (3.4) if it satisfies (3.9). Moreover, it
+is enough to consider only k > 0 since
+                                                                   
+                                          b   1          r−b      1
+                                      P     + 2 =P             − 2 .
+                                          r  kr            r     kr
+Consequently, we assume henceforth that
+(3.10)                          z = 1/(kr2 ) with k ∈ N and ⌈r−1 ∆−1/2 ⌉ ≤ k ≤ ⌈r−2 ∆−1 ⌉.
+
+                                        4. A first estimate for P (α)
+                                           2
+   First, we henceforth set φ(x) = sin2xπx , a constant multiple of Féjer kernel. We note that φ(x) is non-
+negative, φ(x) ≥ 1 for |x| ≤ 21 and φ(0) = π 2 /4. Therefore
+                                                         ∞
+                                                                 a − αq 2
+                                                  X     X                
+(4.1)                                 P (α) ≤                φ              .
+                                                       a=−∞
+                                                                  8Q2 ∆
+                                                         Q<q≤2Q
+
+We find it most convenient to choose φ(x) this way, since its Fourier transform is a function of compact support,
+specifically
+                                                   π2
+                                           φ̂(s) =    max(1 − |s|, 0).
+                                                   4
+   Now applying Poisson summation, Lemma 2, with a linear change of variable, to (4.1), we get that it is
+                                                     X         ∞
+                                                               X
+                                               2
+                                                                    φ̂(8Q2 ∆j)e αjq 2 .
+                                                                                     
+(4.2)                                        8Q ∆
+                                                    Q<q≤2Q j=−∞
+
+    More precisely, the above is
+
+                        X       X                                                              X           X
+         8Q2 ∆                          1 − 8|j|Q2 ∆ e αjq 2 ≪ Q3 ∆ + Q2 ∆                                     e αjq 2
+                                                                                                                       
+                                                                                                                             ,
+                 |j|<(8Q2 ∆)−1 Q<q≤2Q                                                 0<j<(8Q2 ∆)−1 Q<q≤2Q
+
+where the first term above corresponds to the contribution of j = 0. Applying Cauchy-Schwarz inequality, we
+see that the square of the above expression is bounded by
+                                                                                                   2
+                                                                X           X
+                                         6    2      2                                     2
+                                                                                               
+                                    ≪Q ∆ +Q ∆                                      e αjq               .
+                                                          0<j<(8Q2 ∆)−1   Q<q≤2Q
+
+Applying Weyl Shift, Lemma 3, to the inner-most sum of the second term of the above, we see that the double
+sum of the said term is
+                                   n             o                                   n            o
+                                              −1                                               −1
+               X        X X                                         X
+(4.3)       ≪      Q+          min Q, k2αjlk       ≪ (Q∆)−1 +               τ (m) min Q, kαmk       ,
+                    j       j   0<l<Q                                             0<m<(Q∆)−1
+
+where τ (m) is the divisor function, is O(mε ) and estimates the multiplicity of representations of m = 2jl.
+                        AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI                                       7
+
+  Now we have α = b/r + z with b, r and z as in (3.4). The second term in (4.3) is
+                                                               (                      )
+                                                                                 −1
+                           −1 ε
+                                     X             X                   b
+                    ≪ (Q∆ )                               min Q,         +z m
+                                                                       r
+                                0≤n<(Q∆r)−1 m∈(nr,(n+1)r]
+                                              r
+                                                      (                          )
+                                                                            −1
+                           −1 ε
+                                     X       X                b
+                    = (Q∆ )                      min Q,         + z (nr + l)        .
+                                                              r
+                                     0≤n<(Q∆r)
+                                          −1              l=1
+
+The inner sum of the above is
+                        r                               r−1
+                              (                   )
+                                               −1
+                       X                 b              X   r
+                           min Q, znr + l + lz      ≪Q+       ≪ Q + r log r.
+                                         r                  l
+                         l=1                                                       l=1
+The first of the above inequalities arrives since for each p/r with 0 ≤ p ≤ r − 1, we find at most three l’s such
+that
+                                            p             b          1
+                                               − (znr + l + lz) ≤ ,
+                                             r            r          2r
+as
+                                                           √     1
+                                                lz ≤ rz ≤ ∆ ≤ ,
+                                                                 r
+where we have used (3.4).
+
+  Combining everything, we have the following.
+Theorem 2. Let ε > 0 be given and α satisfy (3.4). We have
+                                                           √       √
+                                                                    
+                                                  Q   p
+(4.4)                   P (α) ≪ Q3 ∆ + (Q∆−1 )ε √ + Q + Q r∆ + Q3/2 ∆ ,
+                                                   r
+where the implied constant depends on ε alone.
+
+                                       5. Transformation of P (α)
+                                                 √
+   We first note that z ≥ ∆/2 by (3.9) and r ≤ 1/ ∆. If ∆/2 ≤ z ≤ ∆, then we have
+                                                                   
+                                                                3/2
+(5.1)                                P (α) ≪ ∆−ε 1 + Q0 ∆r + Q0 ∆
+by the first inequality of Lemma 6 in [3]. We note that this lemma remains valid, with a different ≪-constant,
+if the condition z ≥ ∆ in this lemma is replaced by z ≥ ∆/2.
+    Throughout the following, we assume that z ≥ ∆. With α of the form of (3.4),
+                                                        Q0 ∆
+                                         Q0 = Q2 , and        ≤ δ ≤ Q0 ,
+                                                          z
+we have, in a manner similar to Section 9 of [3], for some absolute constant c,
+                                         Z 4Q0                      Z ∞
+(5.2)                   P (α) ≪ 1 + δ −1       Ω(δ, y)dy ≪ 1 + δ −1      e−y/Q0 Ω(δ, y)dy,
+                                                  Q0                                   0
+where                                                     √ 
+                                                      q− y
+                                                                                                       
+                                     X                                    X                    m − yrz
+                         Ω(δ, y) =            φ          √                             φ                     dy.
+                                     q∈   Z           cδ/ Q0          m∈     Z                  8δrz
+                                                                  m≡−bq2 (mod r)
+Applying Poisson summation, Lemma 2, twice in the same way as in Section 9 of [3], we have
+                                                                
+                              δz X φ̂(8jδz) X              clδ
+(5.3)                P (α) ≪ √                     φ̂      √       G(j ∗ b, l; r∗ )E(j, l) ,
+                               Q0 j∈Z r∗       l∈Z
+                                                        r ∗ Q
+                                                               0
+
+where
+                                                                r             j
+                                                       r∗ =          , j∗ =        ,
+                                                              (j, r)        (j, r)
+8                                             STEPHAN BAIER AND LIANGYI ZHAO
+
+G(j ∗ b, l; r∗ ) is defined as in (2.1) and
+                                                        Z ∞                     √ 
+                                                                                   y
+                                                                      
+                                       E(j, l) =              e−y/Q0 e jyz − l · ∗   dy.
+                                                         0                       r
+                                  6. Evaluation of the exponential integrals
+    We shall prove the following lemma in this section.
+Lemma 10. Suppose that N ≥ 1, A, B ∈ R. Then we have
+    (1) If B 6= 0 and A/B > 0, then
+          Z ∞                                                                                                                       !
+                                                           B2        B2
+                                                                   
+                             √          1   2B                                                                        1     1
+(6.1)          e−y/N e(Ay − B y)dy = e            exp   −        e −      +O                                             +p             ;
+           0                            8 (2A)3/2         4A2 N      4A                                              |A|   |A||B|
+     (2) If B 6= 0 and A/B ≤ 0, then
+                                              Z ∞                                              √
+                                                        −y/N           √                        N
+(6.2)                                               e          e(Ay − B y)dy ≪                     ;
+                                              0                                                |B|
+     (3) If B = 0 and A 6= 0, then
+                                              Z ∞
+                                                                  √        1
+(6.3)                                               e−y/N e(Ay − B y)dy ≪     .
+                                               0                          |A|
+Proof. In (1) of the lemma, we may assume, without the loss of generality, that B > 0 and A > 0. Then the
+                                                             √
+left-hand side of (6.1) is, after the change of variables x = y,
+                                             Z ∞
+                                                     2
+(6.4)                                      2     e−x /N e(Ax2 − Bx)xdx.
+                                                    0
+We split the above integral into
+                                                             Z a       Z b       Z ∞
+                                                                   +         +         ,
+                                                               0        a        b
+where 0 < a < B/(4A) < B/A < b. We observe that
+                                       Z a              Z ∞
+(6.5)                              lim     = 0, and lim     = 0.
+                                               a→0       0                   b→∞           b
+By the lemma concerning stationary phase, Lemma 4, with the choices
+                                                                                     x2                x
+                        f (x) = F (x) = Ax2 , k = −B, g(x) = xe− N , µ(x) =                              , and G(x) = x,
+                                                                                                       2
+we have
+            Z b
+                                          B2        B2
+                                                                                      
+                        1   B                                  1     1       b         a
+(6.6)             =e              exp  −        e −      + O     + √   +          +            .
+             a          8 (2A)3/2        4A2 N      4A         A    AB   |2Ab − B| |2Aa − B|
+Now (6.5) and (6.6) imply (1) of the lemma upon taking a and b to zero and infinity, respectively.
+
+    To prove (2) of the lemma, we split the integral in (6.4) into
+                                                    Z b Z ∞
+                                                        +
+                                                                   0         b
+with large b, apply Lemma 5 to the first integral after breaking up the interval [0, b] into two subintervals on
+which x exp(−x2 /N )/(2Ax − B) is monotonic and using the second identity in (6.5).
+
+  Finally, if B = 0, then the integral on the left-hand side of (6.3) is
+                           Z ∞                                        −1
+                                                   1                     1        1
+                                exp y 2πiA −            dy = 2πiA −            ≪     .
+                            0                     N                      N       |A|
+Hence we have proved the lemma.                                                                                                             
+                         AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI                                                 9
+
+                                             7. Treatment of the simple cases
+   We now estimate the contributions of the simple parts of (5.3). The contribution of (5.3) with j = l = 0 is,
+taking note that r∗ = 1 if j = 0,
+                                                      p
+(7.1)                                            ≪ δz Q0 .
+The contribution of j 6= 0 and l = 0 is
+                                    δ                 X       1    δ
+(7.2)                             ≪√                          √ ≪ √ (Q0 ∆−1 )ε r−1/2 ,
+                                    Q0                      j  r ∗ Q0
+                                                1≤j≤1/(8δz)
+
+where the first of the above inequalities comes by the virtue of (6.3) and Lemma 7, and the second arrives by
+the following estimate.
+                 X         1      1 X√          X        1   (Q0 ∆−1 )ε X 1
+                           √ = √           t               ≪    √           √ ≪ (Q0 ∆−1 )2ε r−1/2 .
+                         j  r ∗    r                     j        r          t
+             1≤j≤1/(8δz)              t|r    1≤j≤1/(8δz)                t|r
+                                                           (r,j)=t
+
+  If l 6= 0 and j/l ≤ 0, then it suffices to only consider that case in which j ≥ 0 since the other case is similar
+and satisfies the same upper bound. The contribution in question is, by the virtue of (6.2) and Lemma 7,
+                                           √
+                     X            X          r∗                    X       √                      √
+            ≪ δz                                ≪ δz(Q0 ∆−1 )ε              r∗ ≪ (Q0 ∆−1 )ε (δz + r),
+                                 √          |l|
+                 0≤j≤(8δz)−1 −r∗        Q0                              −1            0≤j≤(8δz)
+                                  2cδ        <l<0
+
+where we have used r∗ = 1 if j = 0. Consequently, the total contribution to (5.3) of the above cases is
+
+                                          −1 ε √
+                                                                        
+                                                          p         δ
+(7.3)                              ≪ (Q0 ∆ )       r + δz Q0 + √           .
+                                                                    Q0 r
+
+                                  8. Transformation of the remaining terms
+   We now consider the critical case when j/l > 0. Then it again suffices to only consider that case in which
+j > 0 since the other case is similar and satisfies the same upper bound. By the virtue of (6.1), Lemma 6 and
+Lemma 7, the contribution in question is majorized by the sum of
+                                                              ∗ 2
+                                                                                 l2
+                                                                                        
+                        δz X X                ∗          ∗    j b(l − χ(l))
+(8.1)                  √            g(j, l)G(j b, χ(l), r )e                +             ,
+                         Q0 j>0 l>0                                4r∗        4jz(r∗ )2
+
+and
+                                                                                                    r∗
+                                                                                                          
+                                     δz             X                X                1         1
+(8.2)                               √                                                √            +√           ,
+                                      Q0                                  √           r∗       jz    jzl
+                                              0<j<1/(8δz)            r∗     Q0
+                                                             0<l<         cδ
+
+
+where
+                                                                                                         −l2
+                                                                                                                   
+                                        φ̂(8jδz)             clδ                 l
+                        g(j, l) =                φ̂          √                      exp                                   ,
+                                           r∗              ∗
+                                                          r Q0           (jz)3/2 r∗                 4(jz) Q0 (r∗ )2
+                                                                                                         2
+
+and                                                                
+                                                                         0, if 2|l;
+                                                          χ(l) =
+                                                                         1, if 2 ∤ l.
+Since δ ≤ Q0 and r∗ ≤ r, we find that (8.2) is majorized by
+                                                                        √
+                                                            ≪ (Q0 ∆−1 )ε r.
+   Now we break up the inner-most sum in (8.1) into a sum over the even l’s and a sum over the odd l’s. In the
+following, we deal only with the contribution of the even l’s. The contribution of the odd l’s can be estimated
+10                                               STEPHAN BAIER AND LIANGYI ZHAO
+
+in a similar way and satisfies the same upper bound. Using Lemma 7, the part of (8.1) with 2|l is
+                                                                                           ∗ 2
+                                                                                                     l2
+                                                                                                           
+                        δ                  X            1          X                       j bl
+(8.3)                ≪√                                                         Φ(j, 2l)e       +            ,
+                       Q0 z                          (jr )3/2
+                                                        ∗
+                                                                         √                  r∗    jz(r∗ )2
+                                      0<j<(8δz)   −1                   r ∗ Q0
+                                                                0<l<      2cδ
+
+
+where
+                                                                 −l2
+                                                                       
+                                              2clδ
+                             Φ(j, 2l) = 1 − ∗ √       l exp                 .
+                                             r Q0             Q0 (jzr∗ )2
+We now apply partial summation to the inner-most sum of (8.3). It becomes
+                                            √
+                                      Z r∗2cδQ0 
+                                                                              l2
+                                                                X  ∗ 2            
+                                                     d              j bl
+(8.4)                             −                    Φ(j, 2x)   e      +            dx.
+                                       0            dx               r∗    jz(r∗ )2
+                                                                  0<l<x
+
+Note that the boundary terms vanish in the partial summation. Now we set
+                                                                 ∗
+                                                                    √ 
+                                             p        ∗    −1 ε r    Q0
+                               D(j) = min      Q0 jzr (Q0 ∆ ) ,          .
+                                                                   2cδ
+                                                                                                 √
+Then we break up the integral in (8.4) into integrals over the intervals [0, D(j)] and [D(j), (r∗ Q0 )/(2cδ)]. The
+former of the two integrals is
+                                                                            Z D(j)
+                                                                     l2
+                                                           ∗ 2
+                                                 X         j bl                      d
+(8.5)                       ≪     max                   e     ∗
+                                                                +      ∗ 2
+                                                                                       Φ(j, 2x) dx,
+                                0<L≤D(j)                    r     jz(r )      0     dx
+                                                0<l≤L
+
+and the integral in (8.5) is
+                                                                             p
+                                      ≪      max      Φ(j, 2x) ≤ D(j) ≤       Q0 jzr∗ (Q0 ∆−1 )ε ;
+                                           0≤x≤D(j)
+
+and the latter is
+                                                                                           √
+                                                                             Z r ∗ Q0
+                                                                      l2
+                                                            ∗ 2
+                                                   X        j bl                   2cδ  d
+(8.6)                   ≪         max √                  e     ∗
+                                                                 +      ∗ 2
+                                                                                          Φ(j, 2x) dx,
+                            D(j)≤L≤
+                                       r ∗ Q0                r     jz(r )      D(j)    dx
+                                          2cδ    0<l≤L
+
+and the integral in (8.6) is, for any C > 0,
+                                                            ≪ (Q0 ∆−1 )−C .
+Therefore, (8.4) is, for any C > 0,
+                                                   ∗ 2
+                                                             l2
+                                                                   
+                                        X          j bl              p
+(8.7)               ≪       max                 e       +             Q0 jzr∗ (Q0 ∆−1 )ε + (Q0 ∆−1 )−C .
+                        0<L≤D(j)                    r∗    jz(r∗ )2
+                                      0<l≤L
+
+     Now we set
+                                                             1
+(8.8)                                                           k∗ =
+                                                                  .
+                                                            zr∗ r
+k ∗ is a positive integer by (3.10) and the fact that r∗ |r. We further assume that
+                                                b ≡ −a (mod r∗ ), with 1 ≤ a ≤ r∗ .
+We write
+                                                    j∗      r∗     1
+                                                      ∗
+                                                        ≡ −   ∗
+                                                                + ∗ ∗           (mod 1).
+                                                    r       j    j r
+Then
+                                                   l2           −al2
+                                         ∗ 2
+                                                                          ar + k ∗ 2
+                                                                       ∗         
+                                         j bl
+                                      e       +            =e           e         l ,
+                                          r∗    jz(r∗ )2        j ∗ r∗       j∗
+                          AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI                                              11
+
+where we have used the relation r∗ j = rj ∗ . We will use this relation in several places of the remainder of this
+paper. We now apply partial summation to the sum over l in (8.7) with the above inserted into the appropriate
+place. We get that the sum in question is
+                                           
+                                              L2
+                                                        X  ar∗ + k ∗ 
+                                          ≪ 1+ ∗    max   e           l2 .
+                                              j    0<x≤L        j∗
+                                                                    0<l≤x
+
+Now combining everything thus far, we have that the contribution from j’s and l’s with j/l > 0 is
+
+                            √                √                  X            1             X  ar∗ + k ∗ 
+(8.9)         ≪ (Q0 ∆      ) r + (Q0 ∆−1 )ε δ z
+                        −1 ε
+                                                                            √ ∗    max          e       l2 ,
+                                                                             r j 0<x≤D(j) 0<l≤x   j∗
+                                                             0<j<(8δz)   −1
+
+
+where we have used the estimates
+                                               L2    D(j)2   Q0 (jzr∗ )2
+                                                 ∗
+                                                   ≤    ∗
+                                                           ≤             (Q0 ∆−1 )2ε
+                                               j      j          j∗
+and
+                             Q0 (jzr∗ )2              r                       Q0 ∆
+                                         = Q0 (jz)2 r∗ ≤ Q0 jz 2 r2 ≤ Q0 j∆ ≤      ≤ 1.
+                                 j∗                   j                       8δz
+
+                                                9. Application of Weyl shift
+  Now the inner-most sum in (8.9) can be estimated again using Weyl shift, Lemma 3. We have
+                                            2
+                                                                               −1
+                                                                                  !
+                       X  ar∗ + k ∗               X             ar∗ + k ∗
+                                         2
+                           e           l      ≪x+        min x,             2l      .
+                                  j∗                                  j∗
+                          0<l≤x                                      1≤l≤x
+
+Therefore, we infer that the double sum in the last term in (8.9) is,
+                                    s
+                1 X         X         D(j ∗ t)
+            ≪√
+                 r                      j∗
+                    t|r 0<j <(8δzt)
+                          ∗      −1
+
+                          (r ∗ ,j ∗ )=1
+(9.1)                                                                                                              ! 12
+                                                                                                               −1
+                         1 X                   X            1           X                       ar∗ + k ∗
+                        +√                                 √ ∗                     min D(j ∗ t),           l          ,
+                           r                                j                                       j∗
+                                  t|r 0<j <(8δzt)
+                                           ∗            −1         1≤l≤2D(j ∗ t)
+                                        (r ∗ ,j ∗ )=1
+
+where r∗ = r/t and j ∗ = j/t. The first term in (9.1) is
+                                                                             1/4
+                                                                         Q0
+                                                            ≪ (Q0 ∆−1 )2ε √  ,
+                                                                         δ z
+where we have used the estimate
+                                                p                    p
+(9.2)                            D(j ∗ t) ≤      Q0 jzr∗ (Q0 ∆−1 )ε = Q0 j ∗ zr(Q0 ∆−1 )ε .
+Now we apply Cauchy’s inequality to the inner double sum of the second term of (9.1). We obtain that its
+square is
+                                                                                 −1
+                                                                                    !
+                          −1 ε
+                                     X          X
+                                                                ∗    ar∗ + k ∗
+(9.3)             ≪ (Q0 ∆ )                            min D(j t),             l      .
+                                                                        j∗
+                                   ∗      −1        ∗
+                                          0<j <(8δzt)        1≤l≤2D(j t)
+                                            (r ∗ ,j ∗ )=1
+
+Now to estimate (9.3), it suffices to estimate the number of solutions (j ∗ , l, h) with
+                                                                                     1/2
+(9.4)               J < j ∗ ≤ 2J, (r∗ , j ∗ ) = 1, 1 ≤ l ≤ 4(Q0 ∆−1 )ε Q0 Jzr, and H ≤ h ≤ 2H
+12                                                    STEPHAN BAIER AND LIANGYI ZHAO
+
+to the equation
+                                            (ar∗ + k ∗ )l   h
+                                                   ∗
+                                                          = ∗.
+                                                 j          j
+The number in question is majorized by the number of solutions in (j ∗ , l, h) of the congruence
+                                                             ±(k ∗ + ar∗ )l ≡ h     (mod j ∗ )
+with j ∗ , l and h satisfying (9.4). The above congruence is equivalent to
+(9.5)                                                 ± (k ∗ r∗ + a)l − hr∗ ≡ 0 (mod j ∗ ),
+since (r∗ , j ∗ ) = 1. First, if ±(k ∗ r∗ + a)l = hr∗ , then every (j ∗ , l, h) with J < j ∗ ≤ 2J is a solution to (9.5).
+Moreover the number of solutions to
+                                                   ±(k ∗ r∗ + a)l = hr∗
+is at most H/(k ∗ r∗ + a), since (k ∗ r∗ + a, r∗ ) = 1. Hence the total number of solutions in this case is
+                                                                             H
+                                                                ≪J                 ≤ JHzr
+                                                                      k ∗ r∗ + a
+since by (8.8)
+                                                                          1
+                                                                k ∗ r∗ + a > k ∗ r∗ =
+                                                                            .
+                                                                         zr
+Second if ±(k ∗ r∗ + a)l 6= hr∗ , then we fix l and h. Hence the number of j ∗ ’s such that (j ∗ , l, h) is a solution is
+at most
+                            τ (|(k ∗ r∗ + a)l − hr∗ |) + τ ((k ∗ r∗ + a)l + hr∗ ) ≪ (Q0 ∆−1 )ε .
+Therefore, the total number of solutions in this case is
+                                                                    1/2
+                                                               ≪ Q0 JzrH(Q0 ∆−1 )ε .
+Now combining the two cases, we get that the number of solutions (j ∗ , l, h) for (9.5) satisfying (9.4) is
+                                                                     1/2
+(9.6)                                                           ≪ Q0 JzrH(Q0 ∆−1 )ε .
+     We now write
+                     X               X              X               X                       X                X                   X
+                               =                                                   and                =                                      .
+                    j ∗ ,l,h       J<j ∗ ≤2J 0<l≤2D(j ∗ t) H≤h≤2H                            j ∗ ,l       J<j ∗ ≤2J 0<l≤2D(j ∗ t)
+                                          k(ar ∗ +k∗ )l/j ∗ k=h/j ∗                                       j ∗ |(ar ∗ +k∗ )l, (j ∗ ,r ∗ )=1
+                                                 (j ∗ ,r ∗ )=1
+
+To estimate (9.3), it suffices to estimate the following.
+                                                          j∗
+                 X            X         X                   
+                                                        ∗
+                                              min D(j t),
+                                                          h
+                 J<j ≤2J 0<l≤2D(j t) 0≤h≤2J
+                   ∗               ∗
+
+                     k(ar ∗ +k∗ )l/j ∗ k=h/j ∗
+                            (j ∗ ,r ∗ )=1
+
+                                                                         j∗
+                                                   X                                     X
+                                   −1 ε                             ∗
+                 ≪ (Q0 ∆             )    max                min D(j t),      + (Q0 ∆−1 )ε   D(j ∗ t)
+                                          1≤H≤J                          H
+                                                  j ∗ ,l,h                                 ∗          j ,l
+                                                                                                                                                
+                                                                   X p                                             X J
+(9.7)            ≪ (Q0 ∆−1 )2ε                   max
+                                                   √                  Q0 Jzr + √               max                               + Q0 (Jzr)2 
+                                              1≤H≤( Q0 zr)−1                             ( Q0 zr)−1 <H≤J                     H
+                                                                  j ∗ ,l,h                                        j ∗ ,l,h
+
+where we have used the estimate in (9.2). Now using (9.6), (9.7) is
+                                                p                  
+                                  ≪ (Q0 ∆−1 )ε J 2 Q0 zr + Q0 (Jzr)2 .
+Now combining everything, we get that (8.9) is
+                                                              
+                                                                1/4
+                                                                    p        √ 
+(9.8)                                             ≪ (Q0 ∆−1 )ε Q0 + Q0 ∆1/4 + r ,
+where we have used (3.4).
+                            AN IMPROVEMENT FOR THE LARGE SIEVE FOR SQUARE MODULI                            13
+
+                                      10. A second estimate for P (α)
+  We first assume that z ≥ ∆. Combining (7.3) and (9.8) and using (5.3) with
+                                                   Q0 ∆
+                                               δ=        ,
+                                                     z
+we get that                                                                      !
+                                                                             1/2
+                                  −1 ε   1/4     1/2 1/4     3/2     √     Q0 ∆
+                     P (α) ≪ (Q0 ∆ ) Q0 + Q0 ∆ + Q0 ∆ + r + 1/2                    .
+                                                                            r z
+On the other hand, by the first inequality of Lemma 6 of [3], we have
+                                                                     
+                                                                  3/2
+                                     P (α) ≪ ∆−ε 1 + Q0 rz + Q0 ∆ .
+Combining the above two inequalities, we get
+                        ε                                   √
+                                                      √
+                                                                              
+                         Q0        1/4     1/2   3/2             Q0 ∆
+               P (α) ≪           Q0 + Q0 ∆1/4 + Q0 ∆ + r + min   √    , Q0 rz    .
+                          ∆                                       rz
+Now as in Section 7 of [3], we have
+                                                             !
+                                              1/2
+                                            Q0 ∆                     3/4
+                                      min          , Q0 rz       ≤ Q0 ∆1/2 r1/4 .
+                                            r1/2 z
+Recalling that Q0 = Q2 , and using (5.1) in the case when ∆/2 ≤ z ≤ ∆, we have proved the following.
+Theorem 3. Let ε > 0 be given and α satisfy (3.9). We have
+                             ε 
+                             Q                           √                          
+(10.1)             P (α) ≪          Q1/2 + Q∆1/4 + Q3 ∆ + r + Q3/2 ∆1/2 r1/4 + Q2 ∆r ,
+                             ∆
+where the implied constant depends on ε alone.
+
+                                            11. Proof of Theorem 1
+   Finally, we are ready to prove Theorem 1. Noting r ≤ ∆−1/2 by (3.4), we use (10.1) if r ≤ Q and (4.4) if
+r > Q to get the following.
+                                      ε 
+                                      Q                                    
+                             P (α) ≪        Q3 ∆ + Q7/4 ∆1/2 + Q∆1/4 + Q1/2 .
+                                      ∆
+Choosing ∆ = N −1 and using Lemma 8 and Lemma 9 after dividing the outer-most sum in (3.1) into sums
+over dyadic intervals, we get that (3.1) is bounded by
+                                                                       
+                                        ε
+                               ≪ (QN ) Q3 + Q7/4 N 1/2 + QN 3/4 + Q1/2 N Z.
+
+If Q ≥ N 2/5 then
+                                       Q7/4 N 1/2 ≤ Q3 , and Q1/2 N ≤ Q3 .
+On the other hand, if Q < N 2/5 then
+                                               Q7/4 N 1/2 ≤ Q1/2 N.
+                     1/2
+Moreover, if Q ≤ N         , then
+                                                 QN 3/4 ≤ Q1/2 N.
+Therefore, if Q ≤ N 1/2 , we have that the left-hand side of (1.7) is
+                                                                   
+                                           ≪ (QN )ε Q3 + Q1/2 N Z.
+
+If Q > N 1/2 then the above majorizes the first quantity in (1.3). Now comparing the above with (1.5), we have
+the theorem.
+
+    Acknowledgement. This paper was written when the first and second-named authors held postdoctoral
+fellowships at the Department of Mathematics and Statistics at Queen’s University and the Department of
+14                                          STEPHAN BAIER AND LIANGYI ZHAO
+
+Mathematics at the University of Toronto, respectively. The authors wish to thank these institutions for their
+financial support.
+
+                                                         References
+[1]  S. Baier and L. Zhao, Large sieve inequalities for characters to powerful moduli, Int. J. Number Theory 1 (2005), no. 2,
+     265–279.
+[2]           , Bombieri-Vinogradov theorem for sparse sets of moduli, Acta Arith. 125 (2006), no. 2, 187–201.
+[3] S. Baier, On the large sieve with sparse sets of moduli, J. Ramanujan Math. Soc. 21 (2006), 279–295.
+[4] E. Bombieri and H. Davenport, Some inequalities involving trigonometrical polynomials, Ann. Sc. Norm. Super. Pisa 23 (1969),
+     223–241.
+[5] D. Bump, Automorphic Forms and Representations, Cambridge Studies in Advanced Mathematics, vol. 55, Cambridge Uni-
+     versity Press, Cambridge, 1997.
+[6] H. Davenport and H. Halberstam, The values of a trigonometric polynomial at well spaced points, Mathematika 13 (1966),
+     91–96. Corrigendum and Addendum, Mathematika 14 (1967), 232-299.
+[7] H. Davenport, Multiplicative Number Theory, Third Edition, Graduate Texts in Mathematics, vol. 74, Springer-Verlag,
+     Barcelona, etc., 2000.
+[8] P. D. T. A. Elliott, Primes in short arithmetic progressions with rapidly increasing differences, Trans. Amer. Math. Soc. 353
+     (2001), no. 7, 2705–2724.
+[9] P. X. Gallagher, The large sieve, Mathematika 14 (1967), 14–20.
+[10] S. W. Graham and G. Kolesnik, Van der Corput’s Method of Exponential Sums, London Mathematical Society Lecture Note
+     Series, vol. 126, Cambridge University Press, Cambridge, 1991.
+[11] A. Ivić, The Riemann Zeta-Function, Theory and Applications, Dover Publications, Inc., Mineola, New York, 2003.
+[12] J. V. Linnik, The large sieve, Doklady Akad. Nauk SSSR 36 (1941), 119–120.
+[13] H. Mikawa and T. P. Peneva, Primes in arithmetic progression to spaced moduli, Arch. Math. (Basel) 84 (2005), no. 3, 239–248.
+[14] H. L. Montgomery and R. C. Vaughan, The large sieve, Mathematika 20 (1973), 119–134.
+[15] H. L. Montgomery, Topics in Multiplicative Number Theory, Lecture Notes in Mathematics, vol. 227, Spring-Verlag, Barcelona,
+     etc., 1971.
+[16]          , The analytic priciples of large sieve, Bull. Amer. Math. Soc. 84 (1978), no. 4, 547–567.
+[17] E. C. Titchmarsh, The Theory of the Riemann Zeta-Function, Second Edition, Clarendon Press, Oxford, 1986.
+[18] L. Zhao, Large sieve inequality for characters to square moduli, Acta Arith. 112 (2004), no. 3, 297–308.
+
+
+
+Department of Mathematics and Statistics, Queen’s University
+University Ave, Kingston, ON K7L 3N6 Canada
+Email: sbaier@mast.queensu.ca
+
+Department of Mathematics, University of Toronto
+40 Saint George Street, Toronto, ON M5S 2E4 Canada
+Email: lzhao@math.toronto.edu
+

@@ -1,0 +1,76 @@
+{
+  "summary": "A six-proposition plan using uniform squarefree pair correlations, followed by averaging a positive kernel over polynomial moduli. It retains every polynomial and the original weight in problem.md. The proposed power-law asymptotic holds above f(y)=x^{max(7/9,d/(d+1))+delta}, provided f(y)/x tends to zero; an explicit ratio-dependent main term also treats f(y) comparable to x. No numerical discrepancy is detected: the candidate constants lie within all three reported extrapolation envelopes, and the ratio-dependent prediction closely matches the largest-x computations. No excluded source was consulted.",
+  "main_theorem": "Target theorem implied by P1\u2013P6. Let f satisfy problem.md, let d=deg(f), and put Y=f(y). Let Phi_f and C_f be the explicit functions and constants specified in P5 and P6. For every epsilon>0 there is A(f,epsilon)>0 such that, uniformly for real x>=2 and y>=1 with Y<=x,\n|V_f(x,y)-x^2 Phi_f(Y/x)| <= A(f,epsilon)[x^{5/3+epsilon}+x^{1+epsilon}Y^{1-1/(2d)}],\nand\n|V_f(x,y)-C_f x^{1/2}Y^{3/2}| <= A(f,epsilon)[x^{3/8}Y^{13/8}+x^{5/3+epsilon}+x^{1+epsilon}Y^{1-1/(2d)}].\nIn particular, put theta_d=max(7/9,d/(d+1)). For every 0<delta<1-theta_d there is B(f,delta)>0 such that, uniformly when x^{theta_d+delta}<=Y<=x,\n|V_f(x,y)/(C_f x^{1/2}Y^{3/2})-1| <= B(f,delta)[(Y/x)^{1/8}+x^{-delta/4}].\nThus any explicit upper bound Y<=x/(log(2x))^A, with A>0 fixed, gives a relative error bounded by B(f,delta)[(log(2x))^{-A/8}+x^{-delta/4}].",
+  "predicted_main_term": "For Y/x tending to zero, the prediction is C_f x^{1/2}Y^{3/2}, where C_f is the positive Euler product in P6. Exploratory products over primes up to 100000 give approximately C_{t^2+1}=0.13808, C_{t^3+2}=0.13561, and C_{2t+1}=0.14261. For a fixed positive ratio r=Y/x, the prediction is x^2 Phi_f(r), rather than replacing Phi_f(r) by its small-r expansion.",
+  "agrees_with_numerics": "Yes, within the limits of the available evidence. The extrapolated constants in results.json are respectively 0.13447\u00b10.00728, 0.13632\u00b10.00240, and 0.14169\u00b10.00822; all contain the predicted constants. At x=256000000 and the actual largest ratios, exploratory evaluation of Phi_f(r)/r^{3/2} predicts approximately 0.17109, 0.16627, and 0.18369, compared with recorded values 0.17110, 0.16671, and 0.18369. The remaining cubic discrepancy is about 0.26%; polynomial sampling and endpoint errors remain plausible contributors, without establishing their precise contribution. The supplied exact-arithmetic validation reveals no implementation inconsistency. Stable variation with r supports retaining Phi_f(r), and the heuristic extrapolation envelopes should not be treated as rigorous error bounds.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Explicit local densities and their second moment",
+      "statement": "Let mu be the M\u00f6bius function, alpha=6/pi^2, and v_p(q) the exponent of the prime p in the positive integer q. For every integer q>=1 and every integer l, the density g(q,l) from problem.md is\n g(q,l)=(1/q) sum_{a>=1, gcd(a^2,q)|l} mu(a)gcd(a^2,q)/a^2,\nwith absolute convergence. Equivalently, g(q,l)=0 if some prime p satisfies p^2|q and p^2|l; otherwise\n g(q,l)=(alpha/q) product_{p|q}(1-p^{-2})^{-1} product_{p|q, p^2 does not divide q, p|l}(1-p^{-1}).\nDefine D(q)=sum_{l=1}^q g(q,l)^2. Then, for every q>=1,\n D(q)=(alpha^2/q) product_{p|q}[(1-2p^{-2}+p^{min(v_p(q),2)-4})/(1-p^{-2})^2].\nAll products indexed by p are over primes; empty products equal 1. These identities are exact and impose no coprimality condition on l.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "The factors for primes dividing q exactly once differ from those for primes whose squares divide q. Confusing them changes both the centering term and the final constant."
+    },
+    {
+      "id": "P2",
+      "title": "Uniform evaluation of the mixed moment",
+      "statement": "For real x>=2 and integers 1<=q<=x, define D(q)=sum_{l=1}^q g(q,l)^2, where g and Q are defined in problem.md. There is an absolute constant A>0 such that, uniformly throughout this range,\n |sum_{l=1}^q g(q,l)Q(x;q,l)-xD(q)| <= A x^{1/2}/q.\nThe cited squarefree counting estimate is used only for divisors r of q, hence only in its permitted range r<=x.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), specialized to k=2; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "A bound lacking the factor 1/q would be inadequate after summation over polynomial moduli. The divisor expansion must retain the summable factor r^{-3/2}."
+    },
+    {
+      "id": "P3",
+      "title": "Squarefree pair correlations uniformly in the shift",
+      "statement": "Let mu be the M\u00f6bius function and define\n mathfrakC=product_p(1-2/p^2),\n mathfrakS(h)=mathfrakC product_{p^2|h}(p^2-1)/(p^2-2)\nfor positive integers h. For every epsilon>0 there is A(epsilon)>0 such that, uniformly for real x>=2 and integers 1<=h<=x,\n |sum_{1<=n<=x-h} mu(n)^2 mu(n+h)^2 -(x-h)mathfrakS(h)| <= A(epsilon)x^{2/3+epsilon}.\nThe sum is over positive integers n and equals zero when its indexing interval is empty. The constant is independent of h and x.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "Uniformity for shifts as large as x is essential. A correlation theorem stated only for a fixed shift does not satisfy this contract; an elementary two-divisor truncation must control both its counting remainder and its singular-series tail uniformly."
+    },
+    {
+      "id": "P4",
+      "title": "Reduction of the variance to a positive arithmetic kernel",
+      "statement": "Let mu be the M\u00f6bius function. Put mathfrakC=product_p(1-2/p^2), c(a)=mu(a)^2 product_{p|a}(p^2-2)^{-1} for integers a>=1, and psi(u)={u}(1-{u}), where {u}=u-floor(u). For real x>=2 and integers 1<=q<=x define\n H(x;q)=mathfrakC sum_{a>=1} c(a)[qa^2/gcd(a^2,q)] psi(x gcd(a^2,q)/(qa^2)).\nThis series converges absolutely and H(x;q)>=0. For every epsilon>0 there is A(epsilon)>0 such that H(x;q)<=A(epsilon)x^{1/2+epsilon}q^{1/2} throughout that range. For every polynomial f satisfying problem.md and every epsilon>0 there is B(f,epsilon)>0 such that, uniformly for real x>=2 and y>=1 with f(y)<=x,\n |V_f(x,y)-sum_{1<=k<=y} f'(k)H(x;f(k))| <= B(f,epsilon)x^{5/3+epsilon}.\nHere k ranges over positive integers. No lower cutoff on f(k) is imposed.",
+      "depends_on": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The diagonal, mixed moment, and quadratic density term must cancel exactly before estimates are applied. Bounding them separately loses the required scale. Summing the correlation errors requires retaining their factor x/f(k)."
+    },
+    {
+      "id": "P5",
+      "title": "Quantitative averaging of the kernel over polynomial values",
+      "statement": "Let f satisfy problem.md and d=deg(f). Define mathfrakC=product_p(1-2/p^2), c(a)=mu(a)^2 product_{p|a}(p^2-2)^{-1}, and psi(u)={u}(1-{u}); mu is the M\u00f6bius function and {u}=u-floor(u). For each integer a>=1 and integer b with 0<=b<a^2 put m_{a,b}=a^2/gcd(a^2,f(b)). Define, for 0<r<=1,\n Phi_f(r)=mathfrakC sum_{a>=1} [c(a)/a^2] sum_{b=0}^{a^2-1} integral_0^r m_{a,b}t psi(1/(m_{a,b}t)) dt.\nThe integrand is assigned value zero at t=0. The series converges absolutely and Phi_f(r)>=0. For real x>=2 and integers q>=1 define\n H(x;q)=mathfrakC sum_{a>=1} c(a)[qa^2/gcd(a^2,q)] psi(x gcd(a^2,q)/(qa^2)).\nFor every 0<epsilon<1/4 there is A(f,epsilon)>0 such that, uniformly for real x>=2, y>=1, Y=f(y)<=x, and every integer truncation parameter 1<=T<=x,\n |sum_{1<=k<=y} f'(k)H(x;f(k))-x^2 Phi_f(Y/x)|\n <= A(f,epsilon)[xY T^{-1+epsilon}+xY^{1-1/d}T^{1+epsilon}log(2x)].\nThe sum over k is over positive integers; the estimate includes nonintegral y and its endpoint error. Consequently, for every epsilon>0 there is B(f,epsilon)>0 such that the same left side is at most B(f,epsilon)x^{1+epsilon}Y^{1-1/(2d)} throughout the stated x,y range.",
+      "depends_on": [],
+      "cites": [],
+      "crux": true,
+      "risk": "The kernel oscillates rapidly when its argument is small. The weighted progression-to-integral estimate must control total variation uniformly in a and the gcd class, including the endpoint at nonintegral y. A pointwise derivative bound without integration can introduce an unacceptable power of x."
+    },
+    {
+      "id": "P6",
+      "title": "Small-ratio expansion and the explicit polynomial constant",
+      "statement": "Let f satisfy problem.md and let rho be defined in problem.md. Let mu be the M\u00f6bius function, mathfrakC=product_p(1-2/p^2), c(a)=mu(a)^2 product_{p|a}(p^2-2)^{-1}, psi(u)={u}(1-{u}), and m_{a,b}=a^2/gcd(a^2,f(b)). For 0<r<=1 define\n Phi_f(r)=mathfrakC sum_{a>=1}[c(a)/a^2]sum_{b=0}^{a^2-1}integral_0^r m_{a,b}t psi(1/(m_{a,b}t))dt,\nwith integrand zero at t=0. For every prime p put\n B_f(p)=(1-rho(p)/p)p +(rho(p)/p-rho(p^2)/p^2)p^{1/2}+rho(p^2)/p^2,\nand define\n C_f=[2 zeta(3/2)/(3 pi)] product_p (1-1/p)(1-2/p^2+B_f(p)/p^2),\nwhere zeta is the Riemann zeta function. This Euler product converges absolutely and C_f>0. There exists A(f)>0 such that, uniformly for 0<r<=1,\n |Phi_f(r)-C_f r^{3/2}| <= A(f)r^{13/8}.\nFor completeness, if C_f(P) denotes the same product restricted to primes p<=P, including the same prefactor, there exists B(f)>0 such that |C_f-C_f(P)|<=B(f)/P for every real P>=2. The statement includes polynomials with repeated factors and polynomials with fixed prime divisors.",
+      "depends_on": [
+        "P5"
+      ],
+      "cites": [
+        "H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I: Classical Theory (2007), Corollary 1.17; https://doi.org/10.1017/CBO9780511618314",
+        "H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I: Classical Theory (2007), Corollaries 10.4 and 10.5; https://doi.org/10.1017/CBO9780511618314"
+      ],
+      "crux": true,
+      "risk": "Both rho(p) and rho(p^2) enter the distribution of gcd(a^2,f(b)); replacing rho(p^2) by rho(p) fails at ramified primes and for repeated polynomial factors. The Mellin normalization must retain the factor from integrating over the modulus. A viable route is to factor the moment Euler product as zeta(2-2s) times a product absolutely convergent for Re(s)<3/4, and shift the integrated kernel to Re(s)=5/8."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

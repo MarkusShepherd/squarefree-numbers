@@ -1,0 +1,2069 @@
+                                                          1
+                                         Dirichlet series: I
+
+
+
+
+                       1.1      Generating functions and asymptotics
+         The general rationale of analytic number theory is to derive statistical informa-
+         tion about a sequence {an } from the analytic behaviour of an appropriate gen-
+                                                                                
+         erating function, such as a power series an z n or a Dirichlet series an n −s .
+         The type of generating function employed depends on the problem being in-
+         vestigated. There are no rigid rules governing the kind of generating function
+         that is appropriate – the success of a method justiﬁes its use – but we usually
+         deal with additive questions by means of power series or trigonometric sums,
+         and with multiplicative questions by Dirichlet series. For example, if
+                                                             
+                                                             ∞
+                                                                          k
+                                                   f (z) =           zn
+                                                               n=1
+
+         for |z| < 1, then the n th power series coefﬁcient of f (z)s is the number rk,s (n)
+         of representations of n as a sum of s positive k th powers,
+
+                                          n = m k1 + m k2 + · · · + m ks .
+
+         We can recover rk,s (n) from f (z)s by means of Cauchy’s coefﬁcient formula:
+                                                  
+                                               1     f (z)s
+                                   rk,s (n) =               dz.
+                                              2πi    z n+1
+         By choosing an appropriate contour, and estimating the integrand, we can de-
+         termine the asymptotic size of rk,s (n) as n → ∞, provided that s is sufﬁciently
+         large, say s > s0 (k). This is the germ of the Hardy–Littlewood circle method,
+         but considerable effort is required to construct the required estimates.
+            To appreciate why power series are useful in dealing with additive prob-
+                                                         
+         lems, note that if A(z) = ak z k and B(z) = bm z m then the power series
+
+                                                           1
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        2                                       Dirichlet series: I
+
+
+        coefﬁcients of C(z) = A(z)B(z) are given by the formula
+                                           
+                                    cn =        a k bm .                                                  (1.1)
+                                                       k+m=n
+
+        The terms are grouped according to the sum of the indices, because
+        z k z m = z k+m .
+                                                                 
+             A Dirichlet series is a series of the form α(s) = ∞     n=1 an n
+                                                                              −s
+                                                                                 where s is
+                                         ∞           −s
+        a complex variable. If β(s) = m=1 bm m is a second Dirichlet series and
+        γ (s) = α(s)β(s), then (ignoring questions relating to the rearrangement of terms
+        of inﬁnite series)
+                  ∞          
+                              ∞            ∞  ∞                   ∞              
+        γ (s) =       ak k −s   bm m −s =          ak bm (km)−s =                ak bm n −s .
+                   k=1          m=1                 k=1 m=1                       n=1    km=n
+                                                                                                          (1.2)
+                                                                                    ∞             −s
+        That is, we expect that γ (s) is a Dirichlet series, γ (s) =                    n=1 cn n        , whose
+        coefﬁcients are
+                                              
+                                        cn =       a k bm .                                               (1.3)
+                                                        km=n
+
+        This corresponds to (1.1), but the terms are now grouped according to the
+        product of the indices, since k −s m −s = (km)−s .
+           Since we shall employ the complex variable s extensively, it is useful to have
+        names for its real and complex parts. In this regard we follow the rather peculiar
+        notation that has become traditional: s = σ + it.
+           Among the Dirichlet series we shall consider is the Riemann zeta function,
+        which for σ > 1 is deﬁned by the absolutely convergent series
+                                                           
+                                                           ∞
+                                                 ζ (s) =         n −s .                                   (1.4)
+                                                           n=1
+
+        As a ﬁrst application of (1.3), we note that if α(s) = β(s) = ζ (s) then the
+        manipulations in (1.3) are justiﬁed by absolute convergence, and hence we see
+        that
+                                              
+                                              ∞
+                                                    d(n)n −s = ζ (s)2                                     (1.5)
+                                              n=1
+                                                            
+        for σ > 1. Here d(n) is the divisor function, d(n) = d|n 1.
+           From the rate of growth or analytic behaviour of generating functions we
+        glean information concerning the sequence of coefﬁcients. In expressing our
+        ﬁndings we employ a special system of notation. For example, we say, ‘f (x) is
+        asymptotic to g(x)’ as x tends to some limiting value (say x → ∞), and write
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.1 Generating functions and asymptotics                           3
+
+
+         f (x) ∼ g(x) (x → ∞), if
+                                                         f (x)
+                                                  lim            = 1.
+                                                 x→∞ g(x)
+
+        An instance of this arises in the formulation of the Prime Number Theorem
+        (PNT), which concerns the asymptotic size of the number π (x) of prime num-
+                                       
+        bers not exceeding x; π (x) = p≤x 1. Conjectured by Legendre in 1798, and
+        ﬁnally proved in 1896 independently by Hadamard and de la Vallée Poussin,
+        the Prime Number Theorem asserts that
+                                                  x
+                                        π (x) ∼       .
+                                                log x
+        Alternatively, we could say that
+                                                                     x
+                                           π (x) = (1 + o(1))            ,
+                                                                   log x
+        which is to say that π (x) is x/ log x plus an error term that is in the limit
+        negligible compared with x/ log x. More generally, we say, ‘f (x) is small oh
+        of g(x)’, and write f (x) = o(g(x)), if f (x)/g(x) → 0 as x tends to its limit.
+           The Prime Number Theorem can be put in a quantitative form,
+                                                              
+                                          x              x
+                                π(x) =         +O                .                 (1.6)
+                                        log x         (log x)2
+        Here the last term denotes an implicitly deﬁned function (the difference be-
+        tween the other members of the equation); the assertion is that this function has
+        absolute value not exceeding C x(log x)−2 . That is, the above is equivalent to
+        asserting that there is a constant C > 0 such that the inequality
+                                                        x        Cx
+                                           π (x) −          ≤
+                                                      log x   (log x)2
+        holds for all x ≥ 2. In general, we say that f (x) is ‘big oh of g(x)’, and write
+         f (x) = O(g(x)) if there is a constant C > 0 such that | f (x)| ≤ Cg(x) for all
+        x in the appropriate domain. The function f may be complex-valued, but g
+        is necessarily non-negative. The constant C is called the implicit constant;
+        it is an absolute constant unless the contrary is indicated. For example, if C
+        is liable to depend on a parameter α, we might say, ‘For any ﬁxed value of
+        α, f (x) = O(g(x))’. Alternatively, we might say, ‘ f (x) = O(g(x)) where the
+        implicit constant may depend on α’, or more brieﬂy, f (x) = Oα (g(x)).
+            When there is no main term, instead of writing f (x) = O(g(x)) we save a
+        pair of parentheses by writing instead f (x)    g(x). This is read, ‘f (x) is less-
+        than-less-than g(x)’, and we write f (x) α g(x) if the implicit constant may
+        depend on α. To provide an example of this notation, we recall that Chebyshev
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        4                                       Dirichlet series: I
+
+
+        0000
+
+
+
+
+        0000
+
+
+
+
+        0000
+
+
+
+
+        0000
+
+
+
+
+               0              00000             00000             00000             00000          1000000
+
+                   Figure 1.1 Graph of π (x) (solid) and x/ log x (dotted) for 2 ≤ x ≤ 106 .
+
+
+        proved that π(x)      x/ log x. This is of course weaker than the Prime Number
+        Theorem, but it was derived much earlier, in 1852. Chebyshev also showed
+        that π(x)     x/ log x. In general, we say that f (x)    g(x) if there is a positive
+        constant c such that f (x) ≥ cg(x) and g is non-negative. In this situation both
+         f and g take only positive values. If both f    g and f     g then we say that f
+        and g have the same order of magnitude, and write f         g. Thus Chebyshev’s
+        estimates can be expressed as a single relation,
+                                                               x
+                                                  π(x)             .
+                                                             log x
+           The estimate (1.6) is best possible to the extent that the error term is not
+        o(x(log x)−2 ). We have also a special notation to express this:
+                                                              
+                                          x              x
+                               π (x) −         =                .
+                                        log x         (log x)2
+
+        In general, if lim supx→∞ | f (x)|/g(x) > 0 then we say that f (x) is ‘Omega of
+        g(x)’, and write f (x) = (g(x)). This is precisely the negation of the statement
+        ‘ f (x) = o(g(x))’. When studying numerical values, as in Figure 1.1, we ﬁnd
+        that the ﬁt of x/ log x to π (x) is not very compelling. This is because the error
+        term in the approximation is only one logarithm smaller than the main term.
+        This error term is not oscillatory – rather there is a second main term of this
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.1 Generating functions and asymptotics                           5
+
+
+        size:
+                                                                          
+                                             x        x              x
+                                π(x) =           +          + O              .
+                                           log x   (log x)2       (log x)3
+        This is also best possible, but the main term can be made still more elaborate to
+        give a smaller error term. Gauss was the ﬁrst to propose a better approximation to
+        π(x). Numerical studies led him to observe that the density of prime numbers in
+        the neighbourhood of x is approximately 1/ log x. This suggests that the number
+        of primes not exceeding x might be approximately equal to the logarithmic
+        integral,
+                                                             x
+                                                                   1
+                                             li(x) =                   du.
+                                                         2       log u
+        (Orally, ‘li’ rhymes with ‘pi’.) By repeated integration by parts we can show
+        that
+                                      −1                          
+                                     K
+                                          (k − 1)!            x
+                           li(x) = x               + OK
+                                     k=1
+                                          (log x)k        (log x) K
+        for any positive integer K ; thus the secondary main terms of the approximation
+        to π(x) are contained in li(x).
+           In Chapter 6 we shall prove the Prime Number Theorem in the sharper
+        quantitative form
+                                                                 
+                                                          x
+                              π(x) = li(x) + O           √
+                                                    exp(c log x)
+                                                                √
+        for some suitable positive constant c. Note that exp(c log x) tends to inﬁnity
+        faster than any power of log x. The error term above seems to fall far from
+        what seems to be the truth. Numerical evidence, such as that in Table 1.1,
+                                                                                      √
+        suggests that the error term in the Prime Number Theorem is closer to x in
+        size. Gauss noted the good ﬁt, and also that π (x) < li(x) for all x in the range of
+        his extensive computations. He proposed that this might continue indeﬁnitely,
+        but the numerical evidence is misleading, for in 1914 Littlewood showed that
+                                                  1/2              
+                                                  x log log log x
+                            π(x) − li(x) = ±                         .
+                                                        log x
+        Here the subscript ± indicates that the error term achieves the stated or-
+        der of magnitude inﬁnitely often, and in both signs. In particular, the dif-
+        ference π − li has inﬁnitely many sign changes. More generally, we write
+         f (x) = + (g(x)) if lim supx→∞ f (x)/g(x) > 0, we write f (x) = − (g(x))
+        if lim infx→∞ f (x)/g(x) < 0, and we write f (x) = ± (g(x)) if both these re-
+        lations hold.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        6                                       Dirichlet series: I
+
+
+                 Table 1.1 Values of π (x), li(x), x/ log x for x = 10k , 1 ≤ k ≤ 22.
+
+    x                               π(x)                                 li(x)                     x/ log x
+    10                       4                     5.12                     4.34
+    102                     25                    29.08                    21.71
+    103                    168                   176.56                   144.76
+    104                   1229                  1245.09                  1085.74
+    105                   9592                  9628.76                  8685.89
+    106                  78498                 78626.50                 72382.41
+    107                 664579                664917.36                620420.69
+    108                5761455               5762208.33               5428681.02
+    109               50847534              50849233.90              48254942.43
+    1010             455052511             455055613.54             434294481.90
+    1011            4118054813            4118066399.58            3948131653.67
+    1012           37607912018           37607950279.76           36191206825.27
+    1013          346065536839          346065458090.05          334072678387.12
+    1014         3204941750802         3204942065690.91         3102103442166.08
+    1015        29844570422669        29844571475286.54        28952965460216.79
+    1016       279238341033925       279238344248555.75       271434051189532.39
+    1017      2623557157654233      2623557165610820.07      2554673422960304.87
+    1018     24739954287740860     24739954309690413.98     24127471216847323.76
+    1019    234057667276344607    234057667376222382.22    228576043106974646.13
+    1020   2220819602560918840   2220819602783663483.55   2171472409516259138.26
+    1021 21127269486018731928 21127269486616126182.33 20680689614440563221.48
+    1022 201467286689315906290 201467286691248261498.15 197406582683296285295.97
+
+
+
+           In the exercises below we give several examples of the use of generating
+        functions, mostly power series, to establish relations between various counting
+        functions.
+
+
+                                                1.1.1      Exercises
+
+        1. Let r (n) be the number of ways that n cents of postage can be made, using
+           only 1 cent, 2 cent, and 3 cent stamps. That is, r (n) is the number of ordered
+           triples (x1 , x2 , x3 ) of non-negative integers such that x1 + 2x2 + 3x3 = n.
+           (a) Show that
+                                       
+                                       ∞
+                                                                      1
+                                              r (n)z n =
+                                        n=0
+                                                           (1 − z)(1 − z 2 )(1 − z 3 )
+
+                for |z| < 1.
+            (b) Determine the partial fraction expansion of the rational function above.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.1 Generating functions and asymptotics                           7
+
+
+                  That is, ﬁnd constants a, b, . . . , f so that the above is
+
+                              a           b         c   d   e     f
+                                     +           +    +   +    +
+                           (z − 1) 3   (z − 1) 2   z−1 z+1 z−ω   z−ω
+
+               where ω = e2πi/3 and ω = e−2πi/3 are the primitive cube roots of unity.
+           (c) Show that r (n) is the integer nearest (n + 3)2 /12.
+           (d) Show that r (n) is the number of ways of writing n = y1 + y2 + y3 with
+               y1 ≥ y2 ≥ y3 ≥ 0.
+        2. Explain why
+                                        ∞
+                                                       k
+                                              1 + z2        = 1 + z + z2 + · · ·
+                                       k=0
+
+           for |z| < 1.
+        3. (L. Mirsky & D. J. Newman) Suppose that 0 ≤ ak < m k for 1 ≤ k ≤ K , and
+           that m 1 < m 2 < · · · < m K . This is called a family of covering congruences
+           if every integer x satisﬁes at least one of the congruences x ≡ ak (mod m k ).
+           A system of covering congruences is called exact if for every value of x
+           there is exactly one value of k such that x ≡ ak (mod m k ). Show that if the
+           system is exact then
+
+                                               
+                                               K
+                                                     z ak        1
+                                                             =
+                                               k=1
+                                                   1 −  z mk   1 − z
+
+            for |z| < 1. Show that the left-hand side above is
+
+                                                           e2πia K /m K
+                                                    ∼
+                                                           m K (1 − r )
+
+           when z = r e2πi/m K and r → 1− . On the other hand, the right-hand side is
+           bounded for z in a neighbourhood of e2πi/m K if m K > 1. Deduce that a family
+           of covering congruences is not exact if m k > 1.
+        4. Let p(n; k) denote the number of partitions of n into at most k parts, that is, the
+           number of ordered k-tuples (x1 , x2 , . . . , xk ) of non-negative integers such
+           that n = x1 + x2 + · · · + xk and x1 ≥ x2 ≥ · · · ≥ xk . Let p(n) = p(n; n) de-
+           note the total number of partitions of n. Also let po (n) be the number of
+                                                                      
+           partitions of n into an odd number of parts, po (n) = 2k p(n; k). Finally,
+           let pd (n) denote the number of partitions of n into distinct parts, so that
+           x1 > x2 > · · · > xk . By convention, put p(0) = po (0) = pd (0) = 1.
+           (a) Show that there are precisely p(n; k) partitions of n into parts not
+                exceeding k.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        8                                        Dirichlet series: I
+
+
+            (b) Show that
+                                            
+                                            ∞                         k
+                                                  p(n; k)z n =             (1 − z j )−1
+                                            n=0                      j=1
+
+                for |z| < 1.
+            (c) Show that
+                                              
+                                              ∞                  ∞
+                                                     p(n)z n =            (1 − z k )−1
+                                              n=0                k=1
+
+                for |z| < 1.
+            (d) Show that
+                                               
+                                               ∞                      ∞
+                                                     pd (n)z n =           (1 + z k )
+                                               n=0                   k=1
+
+                for |z| < 1.
+            (e) Show that
+                                           
+                                           ∞                     ∞
+                                                  po (n)z n =         (1 − z 2k−1 )−1
+                                           n=0                  k=1
+
+               for |z| < 1.
+           (f) By using the result of Exercise 2, or otherwise, show that the last two
+               generating functions above are identically equal. Deduce that po (n) =
+               pd (n) for all n.
+        5. Let A(n) denote the number of ways of associating a product of n terms;
+           thus A(1) = A(2) = 1 and A(3) = 2. By convention, A(0) = 0.
+           (a) By considering the possible positionings of the outermost parentheses,
+               show that
+                                                          
+                                                          n−1
+                                               A(n) =           A(k)A(n − k)
+                                                          k=1
+
+                for all n ≥ 2.
+                             
+            (b) Let P(z) = ∞            n
+                               n=0 A(n)z . Show that
+
+                                                     P(z)2 = P(z) − z.
+                  Deduce that
+                                    √
+                                         1−
+                                      1 − 4z   ∞
+                                                     1/2 2n−1
+                              P(z) =         =             2   (−1)n−1 z n .
+                                     2         n=1
+                                                      n
+                                     2n−2 
+            (c) Conclude that A(n) = n−1 /n for all n ≥ 1. These are called the Cata-
+                lan numbers.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.1 Generating functions and asymptotics                             9
+
+
+           (d) What needs to be said concerning the convergence of the series used
+               above?
+        6. (a) Let n k denote the total number of monic polynomials of degree k in
+               F p [x]. Show that n k = p k .
+           (b) Let P1 , P2 , . . . be the irreducible monic polynomials in F p [x], listed in
+               some (arbitrary) order. Show that
+                       ∞
+                             (1 + z deg Pr + z 2 deg Pr + z 3 deg Pr + · · · ) = 1 + pz + p 2 z 2
+                      r =1
+                                                                                   + p3 z 3 + · · ·
+
+                for |z| < 1/ p.
+            (c) Let gk denote the number of irreducible monic polynomials of degree k
+                in F p [x]. Show that
+                                    ∞
+                                         (1 − z k )−gk = (1 − pz)−1             (|z| < 1/ p).
+                                   k=1
+
+            (d) Take logarithmic derivatives to show that
+                                     
+                                     ∞
+                                                   z k−1      p
+                                            kgk          =                     (|z| < 1/ p).
+                                      k=1
+                                                  1 − zk   1 − pz
+            (e) Show that
+                                    
+                                    ∞           
+                                                ∞               
+                                                                ∞
+                                          kgk         z mk =          pn z n    (|z| < 1/ p).
+                                    k=1         m=1             n=1
+
+             (f) Deduce that
+                                                         
+                                                                kgk = p n
+                                                          k|n
+
+                for all positive integers n.
+            (g) (Gauss) Use the Möbius inversion formula to show that
+                                                1
+                                           gn =       µ(k) p n/k
+                                                n k|n
+
+                for all positive integers n.
+            (h) Use (f) (not (g)) to show that
+                                                   pn   2 p n/2        pn
+                                                      −         ≤ gn ≤    .
+                                                   n      n            n
+             (i) If a monic polynomial of degree n is chosen at random from F p [x], about
+                 how likely is it that it is irreducible? (Assume that p and/or n is large.)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        10                                      Dirichlet series: I
+
+
+           (j) Show that gn > 0 for all p and all n ≥ 1. (If P ∈ F p [x] is irreducible and
+               has degree n, then the quotient ring F p [x]/(P) is a ﬁeld of p n elements.
+               Thus we have proved that there is such a ﬁeld, for each prime p and
+               integer n ≥ 1. It may be further shown that the order of a ﬁnite ﬁeld
+               is necessarily a prime power, and that any two ﬁnite ﬁelds of the same
+               order are isomorphic. Hence the ﬁeld of order pn , whose existence we
+               have proved, is essentially unique.)
+        7. (E. Berlekamp) Let p be a prime number. We recall that polynomials in a
+           single variable (mod p) factor uniquely into irreducible polynomials. Thus
+           a monic polynomial f (x) can be expressed uniquely (mod p) in the form
+           g(x)h(x)2 where g(x) is square-free (mod p) and both g and h are monic. Let
+           sn denote the number of monic square-free polynomials (mod p) of degree
+           n. Show that
+                               ∞          
+                                              ∞             ∞
+                                    sk z k       p m z 2m =       pn z n
+                                       k=0             m=0                    n=0
+
+             for |z| < 1/ p. Deduce that
+
+                                                
+                                                ∞
+                                                                 1 − pz 2
+                                                      sk z k =            ,
+                                                k=0
+                                                                 1 − pz
+
+           and hence that s0 = 1, s1 = p, and that sk = p k (1 − 1/ p) for  all k ≥ 2.
+        8. (cf Wagon 1987) (a) Let I = [a, b] be an interval. Show that I e2πi x d x = 0
+                if and only if the length b − a of I is an integer. 
+           (b) Let R = [a, b] × [c, d] be a rectangle. Show that R e2πi(x+y) d x d y =
+                0 if and only if at least one of the edge lengths of R is an integer.
+           (c) Let R be a rectangle that is a union of ﬁnitely many rectangles Ri ; the
+                Ri are disjoint apart from their boundaries. Show that if all the Ri have
+                the property that at least one of their side lengths is an integer, then R
+                also has this property.
+        9. (L. Moser) If A is a set of non-negative integers, let rA (n) denote the number
+           of representations of n as a sum of two distinct members of A. That is, rA (n) is
+           the number of ordered pairs (a1 , a2 ) for which a1 ∈ A, a2 ∈ A, a1 + a2 = n,
+                                       
+           and a1 = a2 . Let A(z) = a∈A z a .
+                           
+           (a) Show that n rA (n)z n = A(z)2 − A(z 2 ) for |z| < 1.
+           (b) Suppose that the non-negative integers are partitioned into two sets A
+                and B in such a way that rA (n) = rB (n) for all non-negative integers n.
+                Without loss of generality, 0 ∈ A. Show that 1 ∈ B, that 2 ∈ B, and
+                that 3 ∈ A.
+           (c) With A and B as above, show that A(z)    +2B(z) = 21/(1 − z) for |z| < 1.
+           (d) Show that A(z) − B(z) = (1 − z) A(z ) − B(z ) , and hence by
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.2 Analytic properties of Dirichlet series                             11
+
+
+                  induction that
+                                                                  ∞
+                                                                                k
+                                             A(z) − B(z) =              1 − z2
+                                                                 k=0
+
+                for |z| < 1.
+            (e) Let the binary weight of n, denoted w(n), be the number of 1’s in the
+                binary expansion of n. That is, if n = 2k1 + · · · + 2kr with k1 > · · · > kr ,
+                then w(n) = r . Show that A consists of those non-negative integers n
+                for which w(n) is even, and that B is the set of those integers for which
+                w(n) is odd.
+
+
+
+
+                        1.2     Analytic properties of Dirichlet series
+        Having provided some motivation for the use of Dirichlet series, we now turn to
+        the task of establishing some of their basic analytic properties, corresponding
+        to well-known facts concerning power series.
+                                                                 
+        Theorem 1.1 Suppose that the Dirichlet series α(s) = ∞     n=1 an n
+                                                                            −s
+                                                                               converges
+        at the point s = s0 , and that H > 0 is an arbitrary constant. Then the series
+        α(s) is uniformly convergent in the sector S = {s : σ ≥ σ0 , |t − t0 | ≤ H (σ −
+        σ0 )}.
+           By taking H large, we see that the series α(s) converges for all s in the
+        half-plane σ > σ0 , and hence that the domain of convergence is a half-plane.
+        More precisely, we have
+                                                       
+        Corollary 1.2 Any Dirichlet series α(s) = ∞      n=1 an n
+                                                                  −s
+                                                                     has an abscissa of
+        convergence σc with the property that α(s) converges for all s with σ > σc , and
+        for no s with σ < σc . Moreover, if s0 is a point with σ0 > σc , then there is a
+        neighbourhood of s0 in which α(s) converges uniformly.
+           In extreme cases a Dirichlet series may converge throughout the plane (σc =
+        −∞), or nowhere (σc = +∞). When the abscissa of convergence is ﬁnite, the
+        series may converge everywhere on the line σc + it, it may converge at some
+        but not all points on this line, or nowhere on the line.
+                                               
+        Proof of Theorem 1.1 Let R(u) = n>u an n −s0 be the remainder term of the
+        series α(s0 ). First we show that for any s,
+            
+            N                                                                       N
+                   an n −s = R(M)M s0 −s − R(N )N s0 −s + (s0 − s)                      R(u)u s0 −s−1 du.
+           n=M+1                                                                    M
+                                                                                                     (1.7)
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        12                                       Dirichlet series: I
+
+
+          To see this we note that an = (R(n − 1) − R(n)) n s0 , so that by partial
+        summation
+         N            N
+             an n −s =     (R(n − 1) − R(n))n s0 −s
+        n=M+1                n=M+1
+                                                                  
+                                                                  N
+                          = R(M)M s0 −s−R(N )N s0 −s −                  R(n −1)((n −1)s0 −s − n s0 −s ).
+                                                                n=M+1
+
+        The second factor in this last sum can be expressed as an integral,
+                                                                         n
+                           (n − 1)s0 −s − n s0 −s = −(s0 − s)                 u s0 −s−1 du,
+                                                                        n−1
+
+        and hence the sum is
+                  
+                  N                         n                                 
+                                                                              N            n
+        (s − s0 )     R(n − 1)                  u s0 −s−1 du = (s − s0 )                           R(u)u s0 −s−1 du
+                   n=M+1                  n−1                                n=M+1 n−1
+
+        since R(u) is constant in the interval [n − 1, n). The integrals combine to give
+        (1.7).
+           If |R(u)| ≤ ε for all u ≥ M and if σ > σ0 , then from (1.7) we see that
+                  
+                  N                                         ∞
+                                                                                               |s − s0 |
+                         an n −s ≤ 2ε + ε|s − s0 |              u σ0 −σ −1 du ≤ 2 +                      ε.
+                n=M+1                                      M                                   σ − σ0
+        For s in the prescribed region we see that
+                       |s − s0 | ≤ σ − σ0 + |t − t0 | ≤ (H + 1)(σ − σ0 ),
+                         N
+        so that the sum M+1      an n −s is uniformly small, and the result follows by the
+        uniform version of Cauchy’s principle.                                          
+
+          In deriving (1.7) we used partial summation, although it would have been
+        more efﬁcient to use the properties of the Riemann–Stieltjes integral (see
+        Appendix A):
+              
+              N                         N                                      N               N
+                     an n −s = −            u s0 −s d R(u) = −u s0 −s R(u)         +               R(u) du s0 −s
+             n=M+1                    M                                        M           M
+
+        by Theorems A.1 and A.2. By Theorem A.3 this is
+                                                                                       N
+                              = M s0 −s R(M) − N s0 −s R(N ) + (s0 − s)                        R(u)u s0 −s−1 du.
+                                                                                       M
+
+
+
+        In more complicated situations it is an advantage to use the Riemann–Stieltjes
+        integral, and subsequently we shall do so without apology.
+                             
+           The series α(s) = an n −s is locally uniformly convergent for σ > σc , and
+        each term is an analytic function, so it follows from a general principle of
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.2 Analytic properties of Dirichlet series                                13
+
+
+        Weierstrass that α(s) is analytic for σ > σc , and that the differentiated series is
+        locally uniformly convergent to α  (s):
+                                                          
+                                                          ∞
+                                            α  (s) = −         an (log n)n −s                           (1.8)
+                                                          n=1
+
+        for s in the half-plane σ > σc .
+           Suppose that s0 is a point on the line of convergence (i.e., σ0 = σc ), and that
+        the series α(s0 ) converges. It can be shown by example that
+                                                       lim α(s)
+                                                       s→s0
+                                                       σ >σc
+
+        need not exist. However, α(s) is continuous in the sector S of Theorem 1.1, in
+        view of the uniform convergence there. That is,
+                                                 lim α(s) = α(s0 ),
+                                                s→s0
+                                                                                                         (1.9)
+                                                 s∈S
+
+        which is analogous to Abel’s theorem for power series.
+           We now express a convergent Dirichlet series as an absolutely convergent
+        integral.
+                                   
+        Theorem 1.3 Let A(x) = n≤x an . If σc < 0, then A(x) is a bounded func-
+        tion, and
+                                      
+                                      ∞                         ∞
+                                            an n −s = s             A(x)x −s−1 d x                      (1.10)
+                                      n=1                  1
+
+        for σ > 0. If σc ≥ 0, then
+                                                       log |A(x)|
+                                             lim sup              = σc ,                                (1.11)
+                                              x→∞        log x
+        and (1.10) holds for σ > σc .
+        Proof       We note that
+                    
+                    N                   N                                  N          N
+                          an n −s =          x −s d A(x) = A(x)x −s             −         A(x) d x −s
+                    n=1                1−                                  1−        1−
+                                                               N
+                                 = A(N )N −s + s                   A(x)x −s−1 d x.
+                                                           1
+
+        Let φ denote the left-hand side of (1.11). If θ > φ then A(x)        x θ where the
+        implicit constant may depend on the an and on θ . Thus if σ > θ , then the integral
+        in (1.10) is absolutely convergent. Thus we obtain (1.10) by letting N → ∞,
+        since the ﬁrst term above tends to 0 as N → ∞.
+           Suppose that σc < 0. By Corollary 1.2 we know that A(x) tends to a ﬁnite
+        limit as x → ∞, and hence φ ≤ 0, so that (1.10) holds for all σ > 0.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        14                                      Dirichlet series: I
+
+
+           Now suppose that σc ≥ 0. By Corollary 1.2 we know that the series in (1.10)
+        diverges when σ < σc . Hence φ ≥ σc . To complete the proof it sufﬁces to show
+        that φ ≤ σc . Choose σ0 > σc . By (1.7) with s = 0 and M = 0 we see that
+                                                                      N
+                               A(N ) = −R(N )N σ0 + σ0                    R(u)u σ0 −1 du.
+                                                                  0
+
+        Since R(u) is a bounded function, it follows that A(N ) N σ0 where the implicit
+        constant may depend on the an and on σ0 . Hence φ ≤ σ0 . Since this holds for
+        any σ0 > σc , we conclude that φ ≤ σc .                                      
+
+           The terms of a power series are majorized by a geometric progression at
+        points strictly inside the circle of convergence. Consequently power series con-
+        verge very rapidly. In contrast, Dirichlet series are not so well behaved. For
+        example, the series
+                                                 
+                                                 ∞
+                                                   (−1)n−1 n −s                                    (1.12)
+                                                  n=1
+
+        converges for σ > 0, but it is absolutely convergent only for σ > 1. In general
+                                                           
+        we let σa denote the inﬁmum of those σ for which ∞    n=1 |an |n
+                                                                         −σ
+                                                                            < ∞. Then σa ,
+        the abscissa of absolute convergence, is the abscissa of convergence of the series
+        ∞           −s
+                                         
+           n=1 |an |n , and we see that     an n −s is absolutely convergent if σ > σa ,
+        but not if σ < σa . We now show that the strip σc ≤ σ ≤ σa of conditional
+        convergence is never wider than in the example (1.12).
+
+        Theorem 1.4          In the above notation, σc ≤ σa ≤ σc + 1.
+
+        Proof The ﬁrst inequality is obvious. To prove the second, suppose that ε > 0.
+                          
+        Since the series an n −σc −ε is convergent, the summands tend to 0, and hence
+        an     n σc +ε where the implicit constant may depend on the an and on ε. Hence
+                    
+        the series an n −σc −1−2ε is absolutely convergent by comparison with the series
+         −1−ε
+           n       .                                                                  
+
+           Clearly a Dirichlet series α(s) is uniformly bounded in the half-plane
+        σ > σa + ε, but this is not generally the case in the strip of conditional conver-
+        gence. Nevertheless, we can limit the rate of growth of α(s) in this strip.
+           To aid in formulating our next result we introduce a notational convention
+        that arises because many estimates relating to Dirichlet series are expressed
+        in terms of the size of |t|. Our interest is in large values of this quantity, but
+        in order that the statements be valid for small |t| we sometimes write |t| + 4.
+        Since this is cumbersome in complicated expressions, we introduce a shorthand:
+        τ = |t| + 4.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.2 Analytic properties of Dirichlet series                              15
+
+                                             
+        Theorem 1.5 Suppose that α(s) = an n −s has abscissa of convergence σc .
+        If δ and ε are ﬁxed, 0 < ε < δ < 1, then
+
+                                                    α(s)      τ 1−δ+ε
+
+        uniformly for σ ≥ σc + δ. The implicit constant may depend on the coefﬁcients
+        an , on δ, and on ε.
+
+           By the example found in Exercise 8 at the end of this section, we see that
+        the bound above is reasonably sharp.
+
+        Proof Let s be a complex number with σ ≥ σc + δ. By (1.7) with s0 = σc + ε
+        and N → ∞, we see that
+                     
+                     M                                                           ∞
+           α(s) =          an n −s + R(M)M σc +ε−s + (σc + ε − s)                    R(u)u σc +ε−s−1 du.
+                     n=1                                                       M
+
+        Since the series α(σc + ε) converges, we know that an                        n σc +ε , and also that
+        R(u)    1. Thus the above is
+                                
+                                M
+                                                               |σc + ε − s| σc +ε−σ
+                                      n −δ+ε + M −δ+ε +                    M        .
+                                n=1
+                                                                σ − σc − ε
+
+        By the integral test the sum here is
+                                          M
+                                                             M 1−δ+ε
+                                <             u −δ+ε du =                   M 1−δ+ε .
+                                      0                     1−δ+ε
+        Hence on taking M = [τ ] we obtain the stated estimate.                                            
+
+            We know that the power series expansion of a function is unique; we now
+        show that the same is true for Dirichlet series expansions.
+                                      
+        Theorem 1.6 If an n −s = bn n −s for all s with σ > σ0 then an = bn for
+        all positive integers n.
+                                                       
+        Proof We put cn = an − bn , and consider cn n −s . Suppose that cn = 0 for
+                           
+        all n < N . Since cn n −σ = 0 for σ > σ0 we may write
+                                             
+                                    cN = −        cn (N /n)σ .
+                                                        n>N
+
+        By Theorem 1.4 this sum is absolutely convergent for σ > σ0 + 1. Since each
+        term tends to 0 as σ → ∞, we see that the right-hand side tends to 0, by
+        the principle of dominated convergence. Hence c N = 0, and by induction we
+        deduce that this holds for all N .                                        
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        16                                      Dirichlet series: I
+
+
+           Suppose that f is analytic in a domain D, and that 0 ∈ D. Then f can
+                                          
+        be expressed as a power series ∞      n=0 an z in the disc |z| < r where r is the
+                                                      n
+
+        distance from 0 to the boundary ∂D of D. Although Dirichlet series are analytic
+        functions, the situation regarding Dirichlet series expansions is very different:
+        The collection of functions that may be expressed as a Dirichlet series in some
+        half-plane is a very special class. Moreover, the line σc + it of convergence
+        need not contain a singular point of α(s). For example, the Dirichlet series
+        (1.12) has abscissa of convergence σc = 0, but it represents the entire function
+        (1 − 21−s )ζ (s). (The connection of (1.12) to the zeta function is easy to establish,
+        since
+                  ∞                  ∞             ∞
+                       (−1)n−1 n −s =     n −s − 2       n −s = ζ (s) − 21−s ζ (s)
+                     n=1                      n=1              n=1
+                                                              n even
+
+
+        for σ > 1. That this is an entire function follows from Theorem 10.2.) Since a
+        Dirichlet series does not in general have a singularity on its line of convergence,
+        it is noteworthy that a Dirichlet series with non-negative coefﬁcients not only
+        has a singularity on the line σc + it, but actually at the point σc .
+                                               
+        Theorem 1.7 (Landau) Let α(s) = an n −s be a Dirichlet series whose ab-
+        scissa of convergence σc is ﬁnite. If an ≥ 0 for all n then the point σc is a
+        singularity of the function α(s).
+          It is enough to assume that an ≥ 0 for all sufﬁciently large n, since any ﬁnite
+             N
+        sum n=1    an n −s is an entire function.
+        Proof By replacing an by an n −σc , we may assume that σc = 0. Suppose that
+        α(s) is analytic at s = 0, so that α(s) is analytic in the domain D = {s : σ >
+        0} ∪ {|s| < δ} if δ > 0 is sufﬁciently small. We expand α(s) as a power series
+        at s = 1:
+                                             ∞
+                                     α(s) =      ck (s − 1)k .                   (1.13)
+                                                       k=0
+
+        The coefﬁcients ck can be calculated by means of (1.8),
+                                         α (k) (1)   1  ∞
+                                 ck =              =        an (− log n)k n −1 .
+                                            k!       k! n=1
+        The radius of convergence of the power series (1.13) is the distance from 1 to
+        the nearest singularity of α(s). Since α(s) is analytic in D, and since the nearest
+        points not in D are ±iδ, we deduce that the radius of convergence is at least
+        √
+          1 + δ 2 = 1 + δ  , say. That is,
+                                            
+                                            ∞
+                                                 (1 − s)k ∞
+                                  α(s) =                      an (log n)k n −1
+                                             k=0
+                                                    k!    n=1
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                1.2 Analytic properties of Dirichlet series                              17
+
+
+        for |s − 1| < 1 + δ  . If s < 1 then all terms above are non-negative. Since
+        series of non-negative numbers may be arbitrarily rearranged, for −δ  < s < 1
+        we may interchange the summations over k and n to see that
+                                     
+                                     ∞               
+                                                     ∞
+                                                       (1 − s)k (log n)k
+                          α(s) =           an n −1
+                                     n=1             k=0
+                                                                 k!
+                                     ∞
+                                                                    ∞
+                                 =         an n −1 exp (1 − s) log n =   an n −s .
+                                     n=1                                         n=1
+                                                                
+        Hence this last series converges at s = −δ /2, contrary to the assumption that
+        σc = 0. Thus α(s) is not analytic at s = 0.                                 
+
+
+                                               1.2.1       Exercises
+        1. Suppose that α(s) is a Dirichlet series, and that the series α(s0 ) is boundedly
+           oscillating. Show that σc = σ0 .
+                                 
+        2. Suppose that α(s) = ∞   n=1 an n
+                                            −s
+                                               is a Dirichlet series with abscissa of con-
+                                                                          
+           vergence σc . Suppose that α(0) converges, and put R(x) = n>x an . Show
+           that σc is the inﬁmum of those numbers θ such that R(x)          xθ .
+                          
+        3. Let Ak (x) = n≤x an (log n) .k
+
+           (a) Show that
+                                                                          x
+                                                 A1 (x)                         A1 (u)
+                                     A0 (x) −           = a1 +                          du.
+                                                 log x                2       u(log u)2
+            (b) Suppose that A1 (x)   x θ where θ > 0 and the implicit constant may
+                depend on the sequence {an }. Show that
+                                             A1 (x)
+                                           A0 (x) =  + O(x θ (log x)−2 ).
+                                             log x
+                                                                  
+           (c) Let σc denote the abscissa of convergence of          an n −s , and σc the ab-
+                                            
+               scissa of convergence of       an (log n)n . Show that σc = σc . (The re-
+                                                           −s
+
+               marks following the proof of Theorem 1.1 imply only that σc ≤ σc .)
+                                          
+        4. (Landau 1909b) Let α(s) = an n −s be a Dirichlet series with abscissa of
+           convergence σc and abscissa of absolute convergence σa > σc . Let C(x) =
+                      −σc
+                                        
+              n≤x an n     and A(x) = n≤x |an |n −σc .
+           (a) By a suitable application of Theorem 1.3, or otherwise, show that
+               C(x)       x ε and that A(x)   x σa −σc +ε for any ε > 0, where the implicit
+               constants may depend on ε and on the sequence {an }.
+           (b) Show that if σ > σc then
+                                                                                ∞
+                               an n −s = −C(N )N σc −s + (s − σc )                   C(u)u σc −s−1 du.
+                         n>N                                                    N
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        18                                      Dirichlet series: I
+
+
+                 Deduce that the above is τ N σc −σ +ε uniformly for s in the half-plane
+                 σ ≥ σc + ε where the implicit constant may depend on ε and on the
+                 sequence {an }.
+             (c) Show that
+                       
+                       N                                                           N
+                             |an |n −σ = A(N )N −σ +σc + (σ − σc )                     A(u)u −σ +σc −1 du
+                       n=1                                                     1
+
+                 for any σ . Deduce that the above is     N σa −σ +ε uniformly for σ in the
+                 interval σc ≤ σ ≤ σa , for any given ε > 0. Here the implicit constant
+                 may depend on ε and on the sequence {an }.
+             (d) Let θ (σ ) = (σa − σ )/(σa − σc ). By making a suitable choice of N , show
+                 that
+
+                                                          α(s)    τ θ (σ )+ε
+
+               uniformly for s in the strip σc + ε ≤ σ ≤ σa .
+                                    
+        5. (a) Show that if α(s) = an n −s has abscissa of convergence σc < ∞, then
+
+                                                          lim α(σ ) = a1 .
+                                                          σ →∞
+                                     
+           (b) Show that ζ  (s) = − ∞ n=1 (log n)n
+                                                    −s
+                                                       for σ > 1.
+                                    
+           (c) Show that limσ →∞ ζ (σ ) = 0.
+           (d) Show that there is no half-plane in which 1/ζ  (s) can be written as a
+               convergent Dirichlet series.
+                       
+        6. Let α(s) = an n −s be a Dirichlet series with an ≥ 0 for all n. Show that
+           σc = σa , and that
+
+                                                  sup |α(s)| = α(σ )
+                                                      t
+
+           for any given σ > σc .
+                                                                    
+        7. (Vivanti 1893; Pringsheim 1894) Suppose that f (z) = ∞              n
+                                                                       n=0 an z has radius
+           of convergence 1 and that an ≥ 0 for all n. Show that z = 1 is a singular point
+           of f .
+                                                                                 
+        8. (Bohr 1910, p. 32) Let t1 = 4, tr +1 = 2tr for r ≥ 1. Put α(s) = an n −s
+           where an = 0 unless n ∈ [tr , 2tr ] for some r , in which case put
+                                  ⎧
+                                  ⎪
+                                  ⎪  itr
+                                                        (n = tr ),
+                                  ⎨tr
+                            an = n − (n − 1)
+                                      itr           itr
+                                                        (tr < n < 2tr ),
+                                  ⎪
+                                  ⎪
+                                  ⎩−(2t − 1)itr         (n = 2t ).
+                                                  r                            r
+
+                               2tr
+             (a) Show that         tr   an = 0.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.3 Euler products and the zeta function                                     19
+
+
+            (b) Show that if tr ≤ x < 2tr for some r , then A(x) = [x]itr where A(x) =
+                 
+                   n≤x an .
+            (c) Show that A(x)      1 uniformly for x ≥ 1.
+            (d) Deduce that α(s) converges for σ > 0.
+            (e) Show that α(it) does not converge; conclude that σc = 0.
+             (f) Show that if σ > 0, then
+                                               
+                                              R 2tr                              ∞
+                                 α(s) =                    an n −s + s                  A(x)x −s−1 d x .
+                                              r =1 n=tr                         t R+1
+
+            (g) Suppose that σ > 0. Show that the above is
+                                                                                                    
+                                       2t R
+                                                     −s
+                                                                                            |s|
+                                              an n         + O t R−1 + O                        σ         .
+                                      n=t R                                                 σ t R+1
+
+            (h) Show that if σ > 0, then
+                                         
+                                         2t R                         2t R
+                                                 an n −s = s                 [x]it R x −s−1 d x .
+                                         n=t R                       tR
+
+             (i) Show that if n ≤ x < n + 1, then (n it R x −it R ) ≥ 1/2. Deduce that
+                                                 2t R
+                                                        [x]it R x −σ −it R −1 d x             t R−σ .
+                                               tR
+
+             (j) Suppose that δ > 0 is ﬁxed. Conclude that if R ≥ R0 (δ), then |α(σ +
+                 it R )| t R1−σ uniformly for δ ≤ σ ≤ 1 − δ.
+                             
+            (k) Show that |an |n −σ < ∞ when σ > 1. Deduce that σa = 1.
+
+
+
+                        1.3      Euler products and the zeta function
+        The situation regarding products of Dirichlet series is somewhat complicated,
+        but it is useful to note that the formal calculation in (2) is justiﬁed if the series
+        are absolutely convergent.
+                                                           
+        Theorem 1.8 Let α(s) = an n −s and β(s) = bn n −s be two Dirichlet se-
+                               
+        ries, and put γ (s) = cn n −s where the cn are given by (1.3). If s is a point at
+        which the two series α(s) and β(s) are both absolutely convergent, then γ (s) is
+        absolutely convergent and γ (s) = α(s)β(s).
+
+           The mere convergence of α(s) and β(s) is not sufﬁcient to justify (1.2).
+        Indeed, the square of the series (1.12) can be shown to have abscissa of conver-
+        gence ≥ 1/4.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        20                                        Dirichlet series: I
+
+
+           A function is called an arithmetic function if its domain is the set Z of inte-
+        gers, or some subset of the integers such as the natural numbers. An arithmetic
+        function f (n) is said to be multiplicative if f (1) = 1 and if f (mn) = f (m) f (n)
+        whenever (m, n) = 1. Also, an arithmetic function f (n) is called totally multi-
+        plicative if f (1) = 1 and if f (mn) = f (m) f (n) for all m and n. If f is multi-
+                                            
+        plicative then the Dirichlet series    f (n)n −s factors into a product over primes.
+        To see why this is so, we ﬁrst argue formally (i.e., we ignore questions of con-
+        vergence). When the product
+
+                               (1 + f ( p) p −s + f ( p 2 ) p −2s + f ( p 3 ) p −3s + · · · )
+                           p
+
+        is expanded, the generic term is
+                                                        
+                                   f p1k1 f p2k2 · · · f prkr
+                                        k1 k2            s   .
+                                         p1 p2 · · · prkr
+
+        Set n = p1k1 p2k2 · · · prkr . Since f is multiplicative, the above is f (n)n −s . More-
+        over, this correspondence between products of prime powers and positive inte-
+        gers n is one-to-one, in view of the fundamental theorem of arithmetic. Hence
+                                                               
+        after rearranging the terms, we obtain the sum             f (n)n −s . That is, we expect
+        that
+                    
+                    ∞
+                          f (n)n −s =          (1 + f ( p) p −s + f ( p 2 ) p −2s + · · · ).       (1.14)
+                    n=1                    p
+
+        The product on the right-hand side is called the Euler product of the Dirichlet
+        series. The mere convergence of the series on the left does not imply that the
+        product converges; as in the case of the identity (1.2), we justify (1.14) only
+        under the stronger assumption of absolute convergence.
+                                                 
+        Theorem 1.9 If f is multiplicative and | f (n)|n −σ < ∞, then (1.14) holds.
+
+           If f is totally multiplicative, then the terms on the right-hand side in (1.14)
+        form a geometric progression, in which case the identity may be written more
+        concisely,
+                                    
+                                    ∞
+                                           f (n)n −s =         (1 − f ( p) p −s )−1 .              (1.15)
+                                    n=1                    p
+
+        Proof       For any prime p,
+                                  
+                                  ∞                            
+                                                               ∞
+                                        | f ( p k )| p −kσ ≤         | f (n)|n −σ < ∞,
+                                  k=0                          n=1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.3 Euler products and the zeta function                                   21
+
+
+        so each sum on the right-hand side of (1.14) is absolutely convergent. Let
+        y be a positive real number, and let N be the set of those positive integers
+        composed entirely of primes not exceeding y, N = {n : p|n ⇒ p ≤ y}. (Note
+        that 1 ∈ N .) Since a product of ﬁnitely many absolutely convergent series may
+        be arbitrarily rearranged, we see that
+                                                                       
+                y =          1 + f ( p) p −s + f ( p 2 ) p −2s + · · · =  f (n)n −s .
+                           p≤y                                                     n∈N
+
+        Hence
+                                           
+                                           ∞                     
+                                   y −           f (n)n −s ≤          | f (n)|n −σ .
+                                            n=1                  n/
+                                                                  ∈N
+
+        If n ≤ y then all prime factors of n are ≤ y, and hence n ∈ N . Consequently
+        the sum on the right above is
+                                         
+                                       ≤     | f (n)|n −σ ,
+                                                   n>y
+                                                                                            
+        which is small if y is large. Thus the partial products  y tend to                        f (n)n −s as
+        y → ∞.                                                                                               
+
+           Let ω(n) denote the number of distinct primes dividing n, and let (n) be
+        the number of distinct prime powers dividing n. That is,
+                                                            
+                         ω(n) =       1,    (n) =       1=      k.           (1.16)
+                                           p|n                      p k |n     p k n
+
+        It is easy to distinguish these functions, since ω(n) ≤ (n) for all n, with equal-
+        ity if and only if n is square-free. These functions are examples of additive
+        functions because they satisfy the functional relation f (mn) = f (m) + f (n)
+        whenever (m, n) = 1. Moreover, (n) is totally additive because this func-
+        tional relation holds for all pairs m, n. An exponential of an additive function is
+        a multiplicative function. In particular, the Liouville lambda function is the to-
+        tally multiplicative function λ(n) = (−1)(n) . Closely related is the Möbius mu
+        function, which is deﬁned to be µ(n) = (−1)ω(n) if n is square-free, µ(n) = 0
+        otherwise. By the fundamental theorem of arithmetic we know that a multi-
+        plicative (or additive) function is uniquely determined by its values at prime
+        powers, and similarly that a totally multiplicative (or totally additive) function
+        is uniquely determined by its values at the primes. Thus µ(n) is the unique
+        multiplicative function that takes the value −1 at every prime, and the value 0
+        at every higher power of a prime, while λ(n) is the unique totally multiplicative
+        function that takes the value −1 at every prime. By using Theorem 1.9 we can
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        22                                      Dirichlet series: I
+
+
+        determine the Dirichlet series generating functions of λ(n) and of µ(n) in terms
+        of the Riemann zeta function.
+        Corollary 1.10 For σ > 1,
+                            ∞
+                                n −s = ζ (s) =                           (1 − p −s )−1 ,           (1.17)
+                                        n=1                      p
+                                 
+                                 ∞
+                                                        1
+                                       µ(n)n −s =           =            (1 − p −s ),              (1.18)
+                                 n=1
+                                                      ζ (s)       p
+
+        and
+                                 
+                                 ∞
+                                                     ζ (2s)
+                                       λ(n)n −s =           =             (1 + p −s )−1 .          (1.19)
+                                 n=1
+                                                      ζ (s)          p
+                                                                       
+        Proof All three series are absolutely convergent, since n −σ < ∞ for σ >
+        1, by the integral test. Since the coefﬁcients are multiplicative, the Euler product
+        formulae follow by Theorem 1.9. In the ﬁrst and third cases use the variant
+        (1.15). On comparing the Euler products in (1.17) and (1.18), it is immediate
+        that the second of these Dirichlet series is 1/ζ (s). As for (1.19), from the identity
+        1 + z = (1 − z 2 )/(1 − z) we deduce that
+                                                         −2s
+                                        −s       p (1 − p     )     ζ (s)
+                                 (1 + p ) =               −s
+                                                                =         .
+                              p                   p (1 − p )       ζ (2s)
+                                                                                                       
+
+           The manipulation of Euler products, as exempliﬁed above, provides a pow-
+        erful tool for relating one Dirichlet series to another.
+           In (1.17) we have expressed ζ (s) as an absolutely convergent product; hence
+        in particular ζ (s) = 0 for σ > 1. We have not yet deﬁned the zeta function
+        outside this half-plane, but we shall do so shortly, and later we shall ﬁnd that
+        the zeta function does have zeros in the half-plane σ ≤ 1. These zeros play an
+        important role in determining the distribution of prime numbers.
+           Many important relations involving arithmetic functions can be expressed
+        succinctly in terms of Dirichlet series. For example, the fundamental elementary
+        identity
+                                                 
+                                                  1 if n = 1,
+                                        µ(d) =                                    (1.20)
+                                    d|n            0 if n > 1.
+        is equivalent to the identity
+                                                             1
+                                                 ζ (s) ·         = 1,
+                                                           ζ (s)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.3 Euler products and the zeta function                              23
+
+
+        in view of (1.3), (1.17), (1.18), and Theorem 1.6. More generally, if
+                                                
+                                         F(n) =     f (d)                                           (1.21)
+                                                             d|n
+
+        for all n, then, apart from questions of convergence,
+                                                    
+                                    F(n)n −s = ζ (s)     f (n)n −s .
+
+        By Möbius inversion, the identity (1.21) is equivalent to the relation
+                                           
+                                   f (n) =     µ(d)F(n/d),
+                                                      d|n
+
+        which is to say that
+                                                             1 
+                                           f (n)n −s =            F(n)n −s .
+                                                            ζ (s)
+        Such formal manipulations can be used to suggest (or establish) many useful
+        elementary identities.
+           For σ > 1 the product (1.17) is absolutely convergent. Since log(1 − z)−1 =
+        ∞ k
+           k=1 z /k for |z| < 1, it follows that
+
+                                                                       
+                                                                         ∞
+                          log ζ (s) =          log(1 − p −s )−1 =                    k −1 p −ks .
+                                           p                             p     k=1
+
+        On differentiating, we ﬁnd also that
+                                        ζ  (s)     ∞
+                                                     
+                                                =−       (log p) p −ks
+                                        ζ (s)      p k=1
+
+        for σ > 1. This is a Dirichlet series, whose n th coefﬁcient is the von Mangoldt
+        lambda function: (n) = log p if n is a power of p, (n) = 0 otherwise.
+
+        Corollary 1.11 For σ > 1,
+                                                            
+                                                            ∞
+                                                              (n)
+                                           log ζ (s) =                  n −s
+                                                            n=1
+                                                                log n
+
+        and
+                                               ζ  (s)  ∞
+                                           −          =     (n)n −s .
+                                               ζ (s)    n=1
+
+            The quotient f  (s)/ f (s), obtained by differentiating the logarithm of f (s),
+        is known as the logarithmic derivative of f . Subsequently we shall often write
+                                
+        it more concisely as ff (s).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        24                                          Dirichlet series: I
+
+
+             The important elementary identity
+                                       
+                                           (d) = log n                                                     (1.22)
+                                                    d|n
+
+        is reﬂected in the relation
+                                                          ζ
+                                            ζ (s) −          (s) = −ζ  (s),
+                                                          ζ
+        since
+                                                                  
+                                                                  ∞
+                                              −ζ  (s) =            (log n)n −s
+                                                                  n=1
+
+        for σ > 1.
+            We now continue the zeta function beyond the half-plane in which it was
+        initially deﬁned.
+
+        Theorem 1.12           Suppose that σ > 0, x > 0, and that s = 1. Then
+                                                   x 1−s  {x}                          ∞
+                         ζ (s) =           n −s +         + s −s                            {u}u −s−1 du.   (1.23)
+                                   n≤x              s−1     x                       x
+
+           Here {u} denotes the fractional part of u, so that {u} = u − [u] where [u]
+        denotes the integral part of u.
+
+        Proof of Theorem 1.12               For σ > 1 we have
+                                              
+                                              ∞                                    
+                                   ζ (s) =           n −s =              n −s +              n −s .
+                                               n=1                 n≤x              n>x
+
+        This second sum we write as
+                                   ∞                          ∞                        ∞
+                                       u −s d[u] =                u −s du −                 u −s d{u}.
+                               x                          x                        x
+
+        We evaluate the ﬁrst integral on the right-hand side, and integrate the second
+        one by parts. Thus the above is
+                                                                              ∞
+                                           x 1−s
+                                       =         + {x}x −s +                      {u} du −s .
+                                           s−1                            x
+
+        Since (u −s ) = −su −s−1 , the desired formula now follows by Theorem A.3.
+        The integral in (1.23) is convergent in the half-plane σ > 0, and uniformly so
+        for σ ≥ δ > 0. Since the integrand is an analytic function of s, it follows that the
+        integral is itself an analytic function for σ > 0. By the uniqueness of analytic
+        continuation the formula (1.23) holds in this larger half-plane.                  
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.3 Euler products and the zeta function                             25
+
+
+          10
+
+
+
+
+              0                 1                                                                       5
+
+          –
+
+
+          –
+
+
+          –
+
+
+          –
+
+        –10
+
+                           Figure 1.2 The Riemann zeta function ζ (s) for 0 < s ≤ 5.
+
+               By taking x = 1 in (1.23) we obtain in particular the identity
+                                                                   ∞
+                                                  s
+                                     ζ (s) =         −s                {u}u −s−1 du                (1.24)
+                                                 s−1           1
+
+        for σ > 0. Hence we have
+        Corollary 1.13 The Riemann zeta function has a simple pole at s = 1 with
+        residue 1, but is otherwise analytic in the half-plane σ > 0.
+           A graph of ζ (s) that exhibits the pole at s = 1 is provided in Figure 1.2. By
+        repeatedly integrating by parts we can continue ζ (s) into successively larger
+        half-planes; this is systematized by using the Euler–Maclaurin summation for-
+        mula (see Theorem B.5). In Chapter 10 we shall continue the zeta function by a
+        different method. For the present we note that (1.24) yields useful inequalities
+        for the zeta function on the real line.
+        Corollary 1.14 The inequalities
+                                                 1               σ
+                                                    < ζ (σ ) <
+                                               σ −1            σ −1
+        hold for all σ > 0. In particular, ζ (σ ) < 0 for 0 < σ < 1.
+        Proof       From the inequalities 0 ≤ {u} < 1 it follows that
+                                         ∞                             ∞
+                                                                                          1
+                             0≤              {u}u −σ −1 du <               u −σ −1 du =     .
+                                     1                             1                      σ
+        This sufﬁces.                                                                                  
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        26                                              Dirichlet series: I
+
+
+             We now put the parameter x in (1.23) to good use.
+        Corollary 1.15           Let δ be ﬁxed, δ > 0. Then for σ ≥ δ, s = 1,
+                                              x 1−s
+                                        n −s =       + ζ (s) + O(τ x −σ ).                                   (1.25)
+                                   n≤x         1 − s
+
+        In addition,
+                                           1
+                                                        = log x + C0 + O(1/x)                                (1.26)
+                                            n≤x n
+
+        where C0 is Euler’s constant,
+                                                    ∞
+                            C0 = 1 −                    {u}u −2 du = 0.5772156649 . . . .                    (1.27)
+                                                1
+
+        Proof       The ﬁrst estimate follows by crudely estimating the integral in (1.23):
+                                      ∞                                ∞
+                                                                                                x −σ
+                                          {u}u −s−1 du                     u −σ −1 du =              .
+                                  x                                x                             σ
+        As for the second estimate, we note that the sum is
+                             x                           x                    x
+                                 u −1 d[u] =                 u −1 du −            u −1 d{u}
+                           1−                           1−                  1−
+                                                                                           x
+                                                = log x + 1 − {x}/x −                          {u}u −2 du.
+                                                                                       1
+                                                              x       ∞         ∞
+        The result now follows by writing                      1   =   1     − x , and noting that
+                                          ∞                            ∞
+                                              {u}u −2 du                   u −2 du = 1/x.
+                                      x                            x
+                                                                                                                 
+
+          By letting s → 1 in (1.25) and comparing the result with (1.26), or by letting
+        s → 1 in (1.24) and comparing the result with (1.27), we obtain
+        Corollary 1.16 Let
+                                                           1    
+                                                                ∞
+                                           ζ (s) =            +    ak (s − 1)k                               (1.28)
+                                                         s − 1 k=0
+        be the Laurent expansion of ζ (s) at s = 1. Then a0 is Euler’s constant, a0 = C0 .
+          Euler’s constant also arises in the theory of the gamma function. (See
+        Appendix C and Chapter 10.)
+        Corollary 1.17 Let δ > 0 be ﬁxed. Then
+                                                                1
+                                                    ζ (s) =        + O(1)
+                                                               s−1
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.3 Euler products and the zeta function                             27
+
+
+        uniformly for s in the rectangle δ ≤ σ ≤ 2, |t| ≤ 1, and
+                                                                        1
+                                 ζ (s)       (1 + τ 1−σ ) min                , log τ
+                                                                     |σ − 1|
+        uniformly for δ ≤ σ ≤ 2, |t| ≥ 1.
+
+        Proof The ﬁrst assertion is clear from (1.24). When |t| is larger, we obtain
+        a bound for |ζ (s)| by estimating the sum in (1.25). Assume that x ≥ 2. We
+        observe that
+                                                       x
+                                n −s       n −σ   1+       u −σ du
+                                  n≤x               n≤x                      1
+
+        uniformly for σ ≥ 0. If 0 ≤ σ ≤ 1 − 1/ log x, then this integral is
+        (x 1−σ − 1)/(1 − σ ) < x 1−σ /(1 − σ ). If |σ − 1| ≤ 1/ log      then u −σ u −1
+                                                                   xx, −1
+        uniformly for 1 ≤ u ≤ x, and hence the     ∞integral is   1 u     du = log x. If
+        σ ≥ 1 + 1/ log x, then the integral is < 1 u −σ du = 1/(σ − 1). Thus
+                                                                        1
+                                     n −s      (1 + x 1−σ ) min               , log x              (1.29)
+                               n≤x                                    |σ − 1|
+
+        uniformly for 0 ≤ σ ≤ 2. The second assertion now follows by taking x = τ
+        in (1.25).                                                             
+
+
+
+                                                1.3.1       Exercises
+          1. Suppose that f (mn) = f (m) f (n) whenever (m, n) = 1, and that f is not
+             identically 0. Deduce that f (1) = 1, and hence that f is multiplicative.
+                                                                 
+          2. (Stieltjes 1887) Suppose that an converges, that        |b | < ∞, and that
+                                                                   n 
+             cn is given by (1.3). Show that      cn converges to ( an )( bn ). (Hint:
+                                                               
+             Write n≤x cn = n≤x bn A(x/n) where A(y) = n≤y an .)
+                                                      
+          3. Determine ϕ(n)n −s , σ (n)n −s , and |µ(n)|n −s in terms of the zeta
+             function. Here ϕ(n) is Euler’s ‘totient function’, which is the number of a,
+             1 ≤ a ≤ n, such that (a, n) = 1.
+          4. Let q be a positive integer. Show that if σ > 1, then
+                                             
+                                             ∞
+                                                      n −s = ζ (s)         (1 − p −s ).
+                                              n=1                    p|q
+                                            (n,q)=1
+
+          5. Show that if σ > 1, then
+                                             
+                                             ∞
+                                                    d(n)2 n −s = ζ (s)4/ζ (2s).
+                                              n=1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        28                                           Dirichlet series: I
+
+                               
+          6. Let σa (n) =         d|n d
+                                          a
+                                              . Show that
+               
+               ∞
+                      σa (n)σb (n)n −s = ζ (s)ζ (s − a)ζ (s − b)ζ (s − a − b)/ζ (2s − a − b)
+                n=1
+
+             when σ > max (1, 1 + a, 1 + b, 1 + (a + b)).
+                                               
+          7. Let F(s) = p (log p) p −s , G(s) = p p −s for σ > 1. Show that in this
+             half-plane,
+                                 ζ        ∞
+                              − (s) =          F(ks),
+                                 ζ         k=1
+                                                             
+                                                             ∞
+                                                                          ζ
+                                               F(s) = −            µ(d)      (ds),
+                                                             d=1
+                                                                          ζ
+                                                           
+                                                           ∞
+                                       log ζ (s) =               G(ks)/k,
+                                                           k=1
+                                                           ∞
+                                                               µ(d)
+                                               G(s) =               log ζ (ds).
+                                                           d=1
+                                                                d
+          8. Let F(s) and G(s) be deﬁned as in the preceding problem. Show that if
+             σ > 1, then
+                  ∞                                ∞
+                                                        µ(d)
+                       ω(n)n −s = ζ (s)G(s) = ζ (s)          log ζ (ds),
+                  n=1                               d=1
+                                                         d
+                      
+                      ∞                              
+                                                     ∞                      
+                                                                            ∞
+                                                                              ϕ(k)
+                             (n)n −s = ζ (s)              G(ks) = ζ (s)                 log ζ (ks).
+                       n=1                           k=1                    k=1
+                                                                                     k
+         9. Let t be a ﬁxed real number, t = 0. Describe the limit points of the sequence
+                             
+            of partial sums n≤x n −1−it .
+                        N
+        10. Show that n=1      n −1 > log N + C0 for all positive integers N , and that
+                    −1
+               n≤x n    > log x for all positive real numbers x.
+                                                                             
+        11. (a) Show that if an is totally multiplicative, and if α(s) = an n −s has
+                abscissa of convergence σc , then
+                                          
+                                          ∞
+                                            (−1)n−1 an n −s = (1 − 2a2 2−s )α(s)
+                                          n=1
+
+                  for σ > σc .
+              (b) Show that
+                                               
+                                               ∞
+                                                 (−1)n−1 n −s = (1 − 21−s )ζ (s)
+                                               n=1
+
+                   for σ > 0.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 1.3 Euler products and the zeta function                             29
+
+
+              (c) (Shafer 1984) Show that
+                                    
+                                    ∞
+                                                                      1
+                                        (−1)n (log n)n −1 = C0 log 2 − (log 2)2 .
+                                    n=1
+                                                                      2
+        12. (Stieltjes 1885) Show that if k is a positive integer, then
+                               (log n)k              (log x)k+1            (log x)k
+                                                =                + C k + Ok
+                              n≤x       n                k+1                   x
+              for x ≥ 1 where
+                                                ∞
+                                    Ck =            {u}(log u)k−1 (k − log u)u −2 du.
+                                            1
+
+            Show that the numbers ak in (1.28) are given by ak = (−1)k Ck /k!.
+        13. Let D be the disc of radius 1 and centre 2. Suppose that the numbers εk tend
+            monotonically to 0, that the numbers tk tend monotonically to 0, and that
+            the numbers Nk tend monotonically to inﬁnity. We consider the Dirichlet
+                           
+            series α(s) = n an n −s with coefﬁcients an = εk n itk for Nk−1 < n ≤ Nk .
+            For suitable choices of the εk , tk , and Nk we show that the series converges
+            at s = 1 but that it is not uniformly
+                                                   convergent in D.
+              (a) Suppose that σk = 2 −               1 − tk2 , so that sk = σk + itk ∈ D. Show that if
+                                                                t2
+                                                            Nkk        1,                          (1.30)
+                   then
+                                                                                     Nk
+                                                          an n −sk          εk log        .
+                                            Nk−1 <n≤Nk
+                                                                                     Nk−1
+
+                   Thus if
+                                                                  Nk
+                                                        εk log                1                    (1.31)
+                                                                 Nk−1
+                  then the series is not uniformly convergent in D.
+              (b) By using Corollary 1.15, or otherwise, show that if (a, b] ⊆ (Nk−1 , Nk ],
+                  then
+                                                           εk
+                                                   an n −1     .
+                                             a<n≤b
+                                                            tk
+
+                   Hence if
+                                                          
+                                                          ∞
+                                                            εk
+                                                                      < ∞,                         (1.32)
+                                                          k=1
+                                                                 tk
+                   then the series α(1) converges.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        30                                      Dirichlet series: I
+
+
+            (c) Show that the parameters can be chosen so that (1.30)–(1.32) hold, say
+                                                      1/2
+                by taking Nk = exp(1/εk ) and tk = εk with εk tending rapidly to 0.
+                                                                    
+        14. Let t(n) = (−1)(n)−ω(n) p|n ( p − 1)−1 , and put T (s) = n t(n)n −s .
+            (a) Show that for σ > 0, T (s) has the absolutely convergent Euler product
+                                                                                 1
+                                         T (s) =                 1+                         .
+                                                         p               ( p − 1)( p s + 1)
+
+            (b) Determine all zeros of the function 1 + 1/(( p − 1)( p s + 1)).
+            (c) Show that the line σ = 0 is a natural boundary of the function T (s).
+        15. Suppose throughout that 0 < α ≤ 1. For σ > 1 we deﬁne the Hurwitz zeta
+            function by the formula
+                                                                 
+                                                                 ∞
+                                              ζ (s, α) =           (n + α)−s .
+                                                                 n=0
+
+              Thus ζ (s, 1) = ζ (s).
+              (a) Show that ζ (s, 1/2) = (2s − 1)ζ (s).
+              (b) Show that if x ≥ 0 then
+                                                                         (x + α)1−s      {x}
+                           ζ (s, α) =            (n + α)−s +                         +
+                                         0≤n≤x
+                                                                             s−1       (x + α)s
+                                                    ∞
+                                         −s             {u}(u + α)−s−1 du.
+                                                x
+
+              (c) Deduce that ζ (s, α) is an analytic function of s for σ > 0 apart from a
+                  simple pole at s = 1 with residue 1.
+              (d) Show that
+                                                                                           ∞
+                                                 1                                                {u}
+                           lim ζ (s, α) −           = 1/α − log α −                                     du.
+                           s→1                  s−1                                    0       (u + α)2
+              (e) Show that
+                                           1           1                    {x}
+                     lim ζ (s, α) −           =             − log(x + α) +
+                     s→1                  s−1   0≤n≤x
+                                                      n + α                x  +α
+                                                                     ∞
+                                                                            {u}
+                                                             −                    du.
+                                                                 x       (u + α)2
+              (f) Let x → ∞ in the above, and use (C.2), (C.10) to show that
+                                                                                       
+                                                                      1
+                                          lim ζ (s, α) −                 =−                (α).
+                                          s→1                        s−1
+                   (This is consistent with Corollary 1.16, in view of (C.11).)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     1.4 Notes                                     31
+
+
+                                                  1.4      Notes
+        Section 1.1. For a brief introduction to the Hardy–Littlewood circle method,
+        including its application to Waring’s problem, see Davenport (2005). For a
+        comprehensive account of the method, see Vaughan (1997). Other examples
+        of the fruitful use of generating functions are found in many sources, such as
+        Andrews (1976) and Wilf (1994).
+            Algorithms for the efﬁcient computation of π (x) have been developed
+        by Meissel (Lehmer, 1959), Mapes (1963), Lagarias, Miller & Odlyzko
+        (1985), Deléglise & Rivat (1996), and by X. Gourdon. For discussion
+        of these methods, see Chapter 1 of Riesel (1994) and the web page of
+        Gourdon & Sebah at http://numbers.computation.free.fr/Constants/Primes/
+        countingPrimes.html.
+            The ‘big oh’ notation was introduced by Paul Bachmann (1894, p. 401). The
+        ‘little oh’ was introduced by Edmund Landau (1909a, p. 61). The notation
+        was introduced by Hardy (1910, p. 2). Our notation f ∼ g also follows Hardy
+        (1910). The Omega notation was introduced by G. H. Hardy and J. E. Littlewood
+        (1914, p. 225). Ingham (1932) replaced the  R and  L of Hardy and Littlewood
+        by + and − . The notation is due to I. M. Vinogradov.
+                                       
+            Section 1.2. The series       an n −s is called an ordinary Dirichlet series,
+        to distinguish it from a generalized Dirichlet series, which is a sum of the
+               
+        form an e−λn s where 0 < λ1 < λ2 < · · · , λn → ∞. We see that generalized
+        Dirichlet series include both ordinary Dirichlet series (λn = log n) and power
+        series (λn = n). Theorems 1.1, 1.3, 1.6, and 1.7 extend naturallyto generalized
+                                                                           ∞
+        Dirichlet series, and even to the more general class of functions 0 e−us d A(u)
+        where A(u) is assumed to have ﬁnite variation on each ﬁnite interval [0, U ].
+        The proof of the general form of Theorem 1.6 must be modiﬁed to depend on
+        uniform, rather than absolute, convergence, since a generalized Dirichlet series
+                                                                      
+        may be never more than conditionally convergent (e.g., (−1)n (log n)−s ).
+        If we put a = lim sup(log n)/λn , then the general form of Theorem 1.4
+        reads σc ≤ σa ≤ σc + a. Hardy & Riesz (1915) have given a detailed ac-
+        count of this subject, with historical attributions. See also Bohr & Cramér
+        (1923).
+            Jensen (1884) showed that the domain of convergence of a generalized
+        Dirichlet series is always a half-plane. The more precise information provided
+        by Theorem 1.1 is due to Cahen (1894) who proved it not only for ordinary
+        Dirichlet series but also for generalized Dirichlet series.
+            The construction in Exercise 1.2.8 would succeed with the simpler choice
+        an = n itr for tr ≤ n ≤ 2tr , an = 0 otherwise, but then to complete the argu-
+        ment one would need a further tool, such as the Kusmin–Landau inequality
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        32                                      Dirichlet series: I
+
+
+        (cf. Mordell 1958). The square of the Dirichlet series in Exercise 1.2.8 has ab-
+        scissa of convergence 1/2; this bears on the result of Exercise 2.1.9. Information
+        concerning the convergence of the product of two Dirichlet series is found in
+        Exercises 1.3.2, 2.1.9, 5.2.16, and in Hardy & Riesz (1915).
+            Theorem 1.7 originates in Landau (1905). The analogue for power series had
+        been proved earlier by Vivanti (1893) and Pringsheim (1894). Landau’s proof
+        extends to generalized Dirichlet series (including power series).
+                                        
+            Section 1.3. The hypothesis | f (n)|n −σ < ∞ of Theorem 1.9 is equivalent
+        to the assertion that
+
+                                 (1 + | f ( p)| p −σ + | f ( p 2 )| p −2σ + · · · ) < ∞,
+                             p
+
+        which is slightly stronger than merely asserting that the Euler product converges
+                                               
+        absolutely. We recall that a product n (1 + an ) is said to be absolutely con-
+                                                                    
+        vergent if n (1 + |an |) < ∞. To see that the hypothesis p (1 + | f ( p) p −s +
+        · · · |) < ∞ is not sufﬁcient, consider the following example due to Ingham:
+        For every prime p we take f ( p) = 1, f ( p2 ) = −1, and f ( p k ) = 0 for k > 2.
+        Then the product is absolutely convergent at s = 0, but the terms f (n) do not
+                                         
+        tend to 0, and hence the series     f (n) diverges. Indeed, it can  be shown that
+                                                              −2     −3
+             n≤x  f (n) ∼ cx as x → ∞  where  c =    p 1  − 2  p    + p      > 0.
+             Euler (1735) deﬁned the constant C0 , which he denoted C.
+        Mascheroni (1790) called the constant γ , which is in common use, but
+        we wish to reserve this symbol for the imaginary part of a zero of the
+        zeta function or an L-function. It is conjectured that Euler’s constant C0
+        is irrational. The early history of the determination of the initial digits of
+        C0 has been recounted by Nielsen (1906, pp. 8–9). More recently, Wrench
+        (1952) computed 328 digits, Knuth (1963) computed 1,271 digits, Sweeney
+        (1963) computed 3,566 digits, Beyer & Waterman (1974) computed 4,879
+        digits, Brent (1977) computed 20,700 digits, Brent & McMillan (1980)
+        computed 30,100 digits. At this time, it seems that more than 108 digits
+        have been computed – see the web page of X. Gourdon & P. Sebah at
+        http://numbers.computation.free.fr/Constants/Gamma/gamma.html. To 50
+        places, Euler’s constant is
+
+         C0 = 0.57721 56649 01532 86060 65120 90082 40243 10421 59335 93992.
+
+        Statistical analysis of the continued fraction coefﬁcients of C0 suggest that it
+        satisﬁes the Gauss–Kusmin law, which is to say that C0 seems to be a typical
+        irrational number.
+            Landau & Walﬁsz (1920) showed that the functions F(s) and G(s) of Ex-
+        ercise 1.3.7 have the imaginary axis σ = 0 as a natural boundary. For further
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 1.5 References                                    33
+
+
+        work on Dirichlet series with natural boundaries see Estermann (1928a,b) and
+        Kurokawa (1987).
+
+
+
+                                              1.5      References
+        Andrews, G. E. (1976). The Theory of Partitions, Reprint. Cambridge: Cambridge Uni-
+             versity Press (1998).
+        Bachmann, P. (1894). Zahlentheorie, II, Die analytische Zahlentheorie, Leipzig:
+             Teubner.
+        Beyer, W. A. & Waterman, M. S. (1974). Error analysis of a computation of Euler’s
+             constant and ln 2, Math. Comp. 28, 599–604.
+        Bohr, H. (1910). Bidrag til de Dirichlet’ske Rækkers theori, København: G. E. C. Gad;
+             Collected Mathematical Works, Vol. I, København: Danske Mat. Forening, 1952.
+             A3.
+        Bohr, H. & Cramér, H. (1923). Die neuere Entwicklung der analytischen Zahlentheo-
+             rie, Enzyklopädie der Mathematischen Wissenschaften, 2, C8, 722–849; H. Bohr,
+             Collected Mathematical Works, Vol. III, København: Dansk Mat. Forening, 1952,
+             H; H. Cramér, Collected Works, Vol. 1, Berlin: Springer-Verlag, 1952, pp. 289–
+             416.
+        Brent, R. P. (1977). Computation of the regular continued fraction of Euler’s constant,
+             Math. Comp. 31, 771–777.
+        Brent, R. P. & McMillan, E. M. (1980). Some new algorithms for high-speed computation
+             of Euler’s constant, Math. Comp. 34, 305–312.
+        Cahen, E. (1894). Sur la fonction ζ (s) de Riemann et sur des fonctions analogues, Ann.
+             de l’École Normale (3) 11, 75–164.
+        Davenport, H. (2005). Analytic Methods for Diophantine Equations and Diophantine
+             Inequalities. Second edition, Cambridge: Cambridge University Press.
+        Deléglise, M. & Rivat, J. (1996). Computing π(x): the Meissel, Lehmer, Lagarias, Miller,
+             Odlyzko method, Math. Comp. 65, 235–245.
+        Estermann, T. (1928a). On certain functions represented by Dirichlet series, Proc. Lon-
+             don Math. Soc. (2) 27, 435–448.
+          (1928b). On a problem of analytic continuation, Proc. London Math. Soc. (2) 27,
+             471–482.
+        Euler, L. (1735). De Progressionibus harmonicus observationes, Comm. Acad. Sci. Imper.
+             Petropol. 7, 157; Opera Omnia, ser. 1, vol. 14, Teubner, 1914, pp. 93–95.
+        Hardy, G. H. (1910). Orders of Inﬁnity. Cambridge Tract 12, Cambridge: Cambridge
+             University Press.
+        Hardy, G. H. & Littlewood, J. E. (1914). Some problems of Diophantine approximation
+             (II), Acta Math. 37, 193–238; Collected Papers, Vol I. Oxford: Oxford University
+             Press. 1966, pp. 67–112.
+        Hardy, G. H. & Riesz, M. (1915). The General Theory of Dirichlet’s Series, Cambridge
+             Tract No. 18. Cambridge: Cambridge University Press. Reprint: Stechert–Hafner
+             (1964).
+        Ingham, A. E. (1932). The Distribution of Prime Numbers, Cambridge Tract 30. Cam-
+             bridge: Cambridge University Press.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        34                                      Dirichlet series: I
+
+
+        Jensen, J. L. W. V. (1884). Om Rækkers Konvergens, Tidsskrift for Math. (5) 2, 63–72.
+           (1887). Sur la fonction ζ (s) de Riemann, Comptes Rendus Acad. Sci. Paris 104,
+              1156–1159.
+        Knuth, D. E. (1962). Euler’s constant to 1271 places, Math. Comp. 16, 275–281.
+        Kurokawa, N. (1987). On certain Euler products, Acta Arith. 48, 49–52.
+        Lagarias, J. C., Miller, V. S., & Odlyzko, A. M. (1985). Computing π(x): The Meissel–
+              Lehmer method, Math. Comp. 44, 537–560.
+        Lagarias, J. C. & Odlyzko, A. M. (1987). Computing π(x): An analytic method, J.
+              Algorithms 8, 173–191.
+        Landau, E. (1905). Über einen Satz von Tschebyschef, Math. Ann. 61, 527–550;
+              Collected Works, Vol. 2, Essen: Thales, 1986, pp. 206–229.
+           (1909a). Handbuch der Lehre von der Verteilung der Primzahlen, Leipzig: Teubner.
+              Reprint: Chelsea (1953).
+           (1909b). Über das Konvergenzproblem der Dirichlet’schen Reihen, Rend. Circ. Mat.
+              Palermo 28, 113–151; Collected Works, Vol. 4, Essen: Thales, 1986, pp. 181–220.
+        Landau, E. & Walﬁsz, A. (1920). Über die Nichtfortsetzbarkeit einiger durch Dirich-
+              letsche Reihen deﬁnierte Funktionen, Rend. Circ. Mat. Palermo 44, 82–86;
+              Collected Works, Vol. 7, Essen: Thales, 1986, pp. 252–256.
+        Lehmer, D. H. (1959). On the exact number of primes less than a given limit, Illinois J.
+              Math. 3, 381–388.
+        Mapes, D. C. (1963). Fast method for computing the number of primes less than a given
+              limit, Math. Comp. 17, 179–185.
+        Mascheroni, L. (1790). Abnotationes ad calculum integrale Euleri, Vol. 1. Ticino:
+              Galeatii. Reprinted in the Opera Omnia of L. Euler, Ser. 1, Vol 12, Teubner, 1914,
+              pp. 415–542.
+        Mordell, L. J. (1958). On the Kusmin–Landau inequality for exponential sums, Acta
+              Arith. 4, 3–9.
+        Nielsen, N. (1906). Handbuch der Theorie der Gammafunktion. Leipzig: Teubner.
+        Pringsheim, A. (1894). Über Functionen, welche in gewissen Punkten endliche Differen-
+              tialquotienten jeder endlichen Ordnung, aber kein Taylorsche Reihenentwickelung
+              besitzen, Math. Ann. 44, 41–56.
+        Riesel, H. (1994). Prime Numbers and Computer Methods for Factorization, Second
+              ed., Progress in Math. 126. Boston: Birkhäuser.
+        Shafer, R. E. (1984). Advanced problem 6456, Amer. Math. Monthly 91, 205.
+        Stieltjes, T. J. (1885). Letter 75 in Correspondance d’Hermite et de Stieltjes, B. Baillaud
+              & H. Bourget, eds., Paris: Gauthier-Villars, 1905.
+           (1887). Note sur la multiplication de deux séries, Nouvelles Annales (3) 6, 210–215.
+        Sweeney, D. W. (1963). On the computation of Euler’s constant, Math. Comp. 17, 170–
+              178.
+        Vaughan, R. C. (1997). The Hardy–Littlewood Method, Second edition, Cambridge Tract
+              125. Cambridge: Cambridge University Press.
+        Vivanti, G. (1893). Sulle serie di potenze, Rivista di Mat. 3, 111–114.
+        Wagon, S. (1987). Fourteen proofs of a result about tiling a rectangle, Amer. Math.
+              Monthly 94, 601–617.
+        Widder, D. V. (1971). An Introduction to Transform Theory. New York: Academic Press.
+        Wilf, H. (1994). Generatingfunctionology, Second edition. Boston: Academic Press.
+        Wrench, W. R. Jr (1952). A new calculation of Euler’s constant, MTAC 6, 255.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.003 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

@@ -1,0 +1,1999 @@
+                                                          5
+                                        Dirichlet series: II
+
+
+
+
+                              5.1      The inverse Mellin transform
+                                                                         
+        In Chapter 1 we saw that we can express a Dirichlet series α(s) = ∞n=1 an n
+                                                                                    −s
+                                              
+        in terms of the coefﬁcient sum A(x) = n≤x an , by means of the formula
+                                                          ∞
+                                         α(s) = s             A(x)x −s−1 d x,                      (5.1)
+                                                      1
+        which holds for σ > max(0, σc ). This is an example of a Mellin transform. In
+        the reverse direction, Perron’s formula asserts that
+                                                              σ0 +i∞
+                                                   1                          xs
+                                       A(x) =                          α(s)      ds                (5.2)
+                                                  2πi     σ0 −i∞              s
+        for σ0 > max(0, σc ). This is an example of an inverse Mellin transform.
+           To understand why we might expect that (2) should be true, note that if
+        σ0 > 0, then by the calculus of residues
+                                σ0 +i∞          
+                          1                ds     1 if y > 1,
+                                        ys    =                                  (5.3)
+                         2πi σ0 −i∞        s      0 if 0 < y < 1.
+        Thus we would expect that
+               1    σ0 +i∞
+                               xs     an                              σ0 +i∞
+                                                                                 x s ds   
+                           α(s) ds =                                                    =     an . (5.4)
+              2πi σ0 −i∞       s     n 2πi                         σ0 −i∞        n   s    n≤x
+
+        The interchange of limits here is difﬁcult to justify, since α(s) may not be
+        uniformly convergent, and because the integral in (5.3) is neither uniformly nor
+        absolutely convergent. Moreover, if x is an integer, then the term n = x in (5.4)
+        gives rise to the integral (5.3) with y = 1, and this integral does not converge,
+        although its Cauchy principal value exists:
+                                                 σ0 +i T
+                                           1             ds   1
+                                     lim                    =                       (5.5)
+                                    T →∞ 2πi σ −i T      s    2
+                                                0
+
+        for σ0 > 0. We now give a rigorous form of Perron’s formula.
+
+                                                          137
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        138                                           Dirichlet series: II
+
+
+        Theorem 5.1            (Perron’s formula) If σ0 > max(0, σc ) and x > 0, then
+                                                  1    σ0 +i T
+                                                                     xs
+                                      an = lim                   α(s) ds.
+                                            T →∞ 2πi σ −i T          s
+                                  n≤x                    0
+
+             
+        Here  indicates that if x is an integer, then the last term is to be counted with
+        weight 1/2.
+        Proof Choose N so large that N > 2x + 2, and write
+                                        
+                   α(s) =      an n −s +   an n −s = α1 (s) + α2 (s),
+                                        n≤N                    n>N
+
+        say. By (5.4), modiﬁed in recognition of (5.5), we see that
+                                          1     σ0 +i T
+                                                                xs
+                               an = lim                   α1 (s) ds;
+                                     T →∞ 2πi σ −i T            s
+                           n≤x                    0
+
+
+        here the justiﬁcation is trivial since there are only ﬁnitely many terms. As for
+        α2 (s), we observe that
+                               ∞                                              ∞
+               α2 (s) =            u −s d(A(u) − A(N )) = s                       (A(u) − A(N ))u −s−1 du.
+                             N                                               N
+
+        But A(u) − A(N )                u θ for θ > max(0, σc ), and hence
+                                                                 
+                                                            |s|
+                                           α2 (s)    1+             N θ −σ
+                                                         σ −θ
+        for σ > θ > max(0, σc ). Implicit constants here and in the rest of this proof
+        may depend on the an . Hence
+                   T ±i T                                          ∞
+                                     xs                Nθ                x σ              N θ (x/N )σ0
+                            α2 (s)      ds                                   dσ                         ,
+                 σ0 ±i T             s               σ0 − θ       σ0     N              σ0 − θ log N /x
+        and
+                                             T +i T
+                                                               xs
+                                                      α2 (s)      ds         N θ (x/N )σ0
+                                            T −i T             s
+        for large T . We take θ so that σ0 > θ > max(0, σc ). Hence by Cauchy’s theorem
+                              σ0 +i T          T −i T           T +i T        σ0 +i T
+                                        =               +                +              x σ0 N θ −σ0 .
+                             σ0 −i T          σ0 −i T          T −i T        T +i T
+
+        On combining our estimates, we see that
+                                   1     σ0 +i T
+                                                       xs
+                 lim sup      an −                 α(s) ds                                  x0σ N θ −σ0 .
+                   T →∞   n≤x       2πi σ0 −i T        s
+        Since this holds for arbitrarily large N , it follows that the lim sup is 0, and the
+        proof is complete.                                                                
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                      5.1 The inverse Mellin transform                              139
+
+
+           We have now established a precise relationship between (5.1) and (5.2), but
+        Theorem 5.1 is not sufﬁciently quantitative to be useful in practice. We express
+        the error term more explicitly in terms of the sine integral
+                                                 ∞
+                                                    sin u
+                                   si(x) = −              du.
+                                               x      u
+        By integration by parts we see that si(x)                 1/x for x ≥ 1, and hence that
+                                              si(x)      min(1, 1/x)                               (5.6)
+        for x > 0. We also note that
+                                                             +∞
+                                                                  sin u
+                                si(x) + si(−x) = −                      du = −π.                   (5.7)
+                                                            −∞      u
+        Theorem 5.2          If σ0 > max(0, σa ) and x > 0, then
+                                          1      σ0 +i T
+                                                               xs
+                                      an =                 α(s) ds + R                             (5.8)
+                                  n≤x      2πi σ0 −i T         s
+        where
+                           1                    x
+                    R=               an si T log
+                           π x/2<n<x             n
+                                                                                           
+                            1                   n                       4σ0 + x σ0  |an |
+                          −          an si T log   +O                                   σ0
+                                                                                              .
+                            π x<n<2x             x                           T      n n
+
+        Proof Since the series α(s) is absolutely convergent on the interval [σ0 −
+        i T, σ0 + i T ], we see that
+                       1     σ0 +i T
+                                         xs         1   σ0 +i T
+                                                                 x s ds
+                                     α(s) ds =   an                     .
+                     2πi σ0 −i T         s     n    2πi σ0 −i T n    s
+        Thus it sufﬁces to show that
+                                ⎧
+                                ⎪
+                                ⎪ 1 + O(y σ0 /T )                                  if y ≥ 2,
+                σ0 +i T         ⎨
+         1                 ds     1 + π1 si(T log y) + O(2σ0 /T )                  if 1 ≤ y ≤ 2,
+                        ys    =
+        2πi σ0 −i T         s   ⎪
+                                ⎪ − 1 si(T log 1/y) + O(2σ0 /T )                   if 1/2 ≤ y ≤ 1,
+                                ⎩ π σ0
+                                  O(y /T )                                         if y ≤ 1/2
+                                                                                                  (5.9)
+        for σ0 > 0.
+           To establish the ﬁrst part of this formula, suppose that y ≥ 2, and let C be
+        the piecewise linear path from −∞ − i T to σ0 − i T to σ0 + i T to −∞ + i T .
+        Then by the calculus of residues we see that
+                                        1         ds
+                                               ys    = 1,
+                                       2πi C       s
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        140                                      Dirichlet series: II
+
+
+        since the integrand has a pole with residue 1 at s = 0. In addition,
+                σ0 ±i T                    σ0                            σ0
+                               ds             y σ ±i T           1                               y σ0      y σ0
+                          ys      =                    dσ                     y σ dσ =                          ,
+              −∞±i T           s          −∞ σ ± i T             T      −∞                     T log y      T
+        so we have (5.9) in the case y ≥ 2. The case y ≤ 1/2 is treated similarly, but
+        the contour is taken to the right, and there is no residue.
+            Suppose now that 1 ≤ y ≤ 2, and take C to be the closed rectangular path
+        from σ0 − i T to σ0 + i T to i T to −i T to σ0 − i T , with a semicircular inden-
+        tation of radius ε at s = 0. Then by Cauchy’s theorem
+                                         1         ds
+                                                ys     = 0.
+                                       2πi C       s
+        We note that
+                           σ0 ±i T                      σ0                        σ0
+                                          ds    1                       1                          2σ0
+                                     ys                      y σ dσ ≤                  2σ dσ           .
+                          ±i T            s     T   0                   T     0                     T
+        The integral around the semicircle tends to 1/2 as ε → 0, and the remaining
+        integral is
+                         iT       −iε                      T 
+                  1                         ds     1                           dt
+                    lim       +          ys    =      lim        y it − y −it
+                2πi ε→0    iε     −i T       s    2πi ε→0 ε                     t
+                                                  1 T log y       dv
+                                                                =
+                                                            sin v
+                                                  π 0             v
+                                                  1    1
+                                               = + si(T log y)
+                                                  2 π
+        by (5.7). This gives (5.9) when 1 ≤ y ≤ 2 and the case 1/2 ≤ y ≤ 1 is treated
+        similarly.                                                                  
+
+           In many situations, Theorem 5.2 contains more information than is really
+        needed – it is often more convenient to appeal to the following less precise result.
+        Corollary 5.3 In the situation of Theorem 5.2,
+                                                                  |an |
+                                               x         4σ0 + x σ0 ∞
+               R              |an | min 1,             +                     .
+                     x/2<n<2x
+                                           T |x − n|         T      n=1
+                                                                        n σ0
+                                 n=x
+
+        Proof      From (5.6) we see that
+                                                                                    
+                                                                              1
+                                     si(T | log n/x|)        min 1,                    .
+                                                                        T | log n/x|
+        But n/x = 1 + (n − x)/x and | log(1 + δ)| |δ| uniformly for −1/2 ≤ δ ≤ 1,
+        so the above is
+                                                      
+                                                 x
+                                    min 1,
+                                             T |x − n|
+        if x/2 ≤ n ≤ 2x. Thus the stated bound follows from Theorem 5.2.                                            
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                      5.1 The inverse Mellin transform                               141
+
+
+           In classical
+                 1     harmonic analysis, for f ∈ L1 (T) we deﬁne Fourier coefﬁcients
+                                                                         
+        *
+        f (k) = 0 f (x)e(−kα) dα, and we expect that the Fourier series      *f (k)e(kα)
+        provides a useful formula for f (α). As it happens, the Fourier series may
+        diverge, or converge to a value other than f (α), but for most f a satisfactory
+        alternative can be found. For example, if f is of bounded variation, then
+                                  f (α − ) + f (α + )       K
+                                                      = lim    *
+                                                               f (k)e(kα).
+                                           2           K →∞
+                                                            −K
+
+        A sharp quantitative form of this is established in Appendix D.1. Analogously,
+        if f ∈ L 1 (R), then we can deﬁne the Fourier transform of f ,
+                                                     +∞
+                                        f*(t) =               f (x)e(−t x) d x,                    (5.10)
+                                                    −∞
+
+        and we expect that
+                                                       +∞
+                                          f (x) =              *
+                                                               f (t)e(t x) dt.                     (5.11)
+                                                      −∞
+
+        As in the case of Fourier series, this may fail, but it is not difﬁcult to show that
+        if f is of bounded variation on [−A, A] for every A, then
+                                 f (α − ) + f (α + )        T
+                                                     = lim    f*(t)e(t x) dt.                      (5.12)
+                                          2           T →∞ −T
+
+        The relationship between (5.1) and (5.2) is precisely the same as between
+        (5.10) and (5.11). Indeed, if we take f (x) = A(e2π x )e−2π σ x , then f ∈ L 1 (R) by
+        Theorem 1.3, and by changing variables in (5.1) we ﬁnd that
+                                                        α(σ + it)
+                                               f*(t) =             .
+                                                       2π (σ + it)
+        Thus (5.2) is equivalent to (5.11), and an appeal to (5.12) provides a second
+        (real variable) proof of Theorem 5.1.
+           In general, if
+                                                          ∞
+                                          F(s) =              f (x)x s−1 d x,                      (5.13)
+                                                      0
+
+        then we say that F(s) is the Mellin transform of f (x). By (5.10) and (5.11) we
+        expect that
+                                                           σ0 +i∞
+                                                 1
+                                      f (x) =                       F(s)x −s ds,                   (5.14)
+                                                2πi       σ0 −i∞
+
+        and when this latter formula holds we say that f is the inverse Mellin transform
+        of F. Thus if A(x) is the summatory function of a Dirichlet series α(s), then
+        α(s)/s is the Mellin transform of A(1/x) for σ > max(0, σc ), and Perron’s
+        formula (Theorem 5.1) asserts that if σ0 > max(0, σc ), then A(1/x) is the inverse
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        142                                    Dirichlet series: II
+
+
+        Mellin transform of α(s)/s. Further instances of this pairing arise if we take a
+        weight function w(x), and form a weighted summatory function
+                                            ∞
+                                   Aw (x) =      an w(n/x).
+                                                            n=1
+
+        Let K (s) denote the Mellin transform of w(x),
+                                                            ∞
+                                          K (s) =               w(x)x s−1 d x.
+                                                        0
+
+        Then we expect that
+                                                            ∞
+                                     α(s)K (s) =                 Aw (x)x −s−1 d x,                 (5.15)
+                                                        0
+
+        and that
+                                                            σ0 +i∞
+                                                1
+                                   Aw (x) =                          α(s)K (s)x s ds.              (5.16)
+                                               2πi      σ0 −i∞
+
+        Alternatively, we may start with a kernel K (s), and deﬁne the weight w(x)
+        to be its inverse Mellin transform. The precise conditions under which these
+        identities hold depends on the weight or kernel; we mention several important
+        examples.
+        1. Cesàro weights. For a positive integer k, put
+                                            1 
+                                  Ck (x) =         an (x − n)k .                 (5.17)
+                                            k! n≤x
+                          x
+        Then Ck (x) = 0 Ck−1 (u) du for k ≥ 1 where C0 (x) = A(x), and hence
+        Ck (x)     x θ for θ > k + max(0, σc ). (The implicit constant here may depend
+        on k, on θ , and on the an .) By integrating (5.1) by parts repeatedly, we see
+        that
+                                                                         ∞
+                           α(s) = s(s + 1) · · · (s + k)                     Ck (x)x −s−k−1 d x    (5.18)
+                                                                     1
+
+        for σ > max(0, σc ). By following the method used to prove Theorem 5.1, it
+        may also be shown that
+                                                 σ0 +i∞
+                                        1                                 x s+k
+                           Ck (x) =                         α(s)                          ds       (5.19)
+                                       2πi     σ0 −i∞              s(s + 1) · · · (s + k)
+        when x > 0 and σ0 > max(0, σc ). Here the critical step is to show that if y ≥ 1
+        and σ0 > 0, then
+                σ0 +i∞                           k      
+           1                  ys                                      ys
+                                            ds =     Res
+          2πi σ0 −i∞ s(s + 1) · · · (s + k)      j=0
+                                                           s(s + 1) · · · (s + k) s=− j
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                      5.1 The inverse Mellin transform                                 143
+
+
+        by the calculus of residues; this is
+                                         
+                                         k
+                                           (−1) j y − j                1
+                                     =                            =       (1 − 1/y)k
+                                         j=0
+                                                  j!(k − j)!           k!
+
+        by the binomial theorem.
+        2. Riesz typical means. For positive integers k and positive real x put
+                                             1 
+                                  Rk (x) =         an (log x/n)k .               (5.20)
+                                            k! n≤x
+                        x
+        Then Rk (x) = 0 Rk−1 (u)/u du where R0 (x) = A(x), so that Rk (x)        x θ for
+        θ > max(0, σc ). (The implicit constant here may depend on k, on θ , and on the
+        an .) By integrating (5.1) by parts repeatedly we see that
+                                                              ∞
+                                      α(s) = s k+1                Rk (x)x −s−1 d x                   (5.21)
+                                                          1
+
+        for σ > max(0, σc ). By following the method used to prove Theorem 5.1 we
+        also ﬁnd that
+                                                              σ0 +i∞
+                                                     1                  xs
+                                     Rk (x) =                     α(s) k+1 ds                        (5.22)
+                                                    2πi    σ0 −i∞     s
+        when x > 0 and σ0 > max(0, σc ). Here the critical observation is that if y ≥ 1
+        and σ0 > 0, then
+                          σ0 +i∞                s
+                      1          ys                y           1
+                                     ds = Res k+1           = (log y)k .
+                    2πi σ0 −i∞ s k+1             s      s=0   k!
+        3. Abelian weights. For σ > 0 we have
+                                             ∞                                 ∞
+                              (s) =              e−u u s−1 du = n s                e−nx x s−1 d x.
+                                         0                                 0
+
+        We multiply by an n −s and sum, to ﬁnd that
+                                                                  ∞
+                                         α(s) (s) =                   P(x)x s−1 d x                  (5.23)
+                                                              0
+
+        where
+                                                           
+                                                           ∞
+                                                  P(x) =              an e−nx .                      (5.24)
+                                                              n=1
+
+        These operations are valid for σ > max(0, σa ), but by partial summation
+        P(x)     x −θ as x → 0+ for θ > max(0, σc ), so that the integral in (5.23) is
+        absolutely convergent in the half-plane σ > max(0, σc ). Hence the integral is
+        an analytic function in this half-plane, so that by the principle of uniqueness
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        144                                      Dirichlet series: II
+
+
+        of analytic continuation it follows that (5.23) holds for σ > max(0, σc ). In the
+        opposite direction,
+                                                        σ0 +i∞
+                                                 1
+                                    P(x) =                       α(s) (s)x −s ds                   (5.25)
+                                                2πi   σ0 −i∞
+
+        for x > 0, σ > max(0, σc ). To prove this we recall from Theorem 1.5 that
+        α(s)     τ uniformly for σ ≥ ε + max(0, σc ), and from Stirling’s formula
+                                                 π
+        (Theorem C.1) we see that | (s)| e− 2 |t| |t|σ −1/2 as |t| → ∞ with σ bounded.
+        Thus the value of the integral is independent of σ0 , and in particular we may
+        assume that σ0 > max(0, σa ). Consequently the terms in α(s) can be integrated
+        individually, and it sufﬁces to appeal to Theorem C.4.
+            The formulæ (5.23) and (5.25) provide an important link between the Dirich-
+        let series α(s) and the power series generating function P(x). Indeed, these
+        formulæ hold for complex x, provided that x > 0. In particular, by taking
+        x = δ − 2πiα we ﬁnd that
+                     
+                     ∞
+                                                 1      σ0 +i∞
+                           an e(nα)e−nδ =                        α(s) (s)(δ − 2πiα)−s ds.
+                     n=1
+                                                2πi    σ0 −i∞
+
+
+            It may be noted in the above examples that smoother weights w(x) give rise
+        to kernels K (s) that tend to 0 rapidly as |t| → ∞. Further useful kernels can
+        be constructed as linear combinations of the above kernels.
+            Since the Mellin transform is a Fourier transform with altered variables, all
+        results pertaining to Fourier transforms can be reformulated in terms of Mellin
+        transforms. Particularly useful is Plancherel’s identity, which asserts that if f ∈
+        L 1 (R) ∩ L 2 (R), then  f 2 =  f*2 . This is the analogue for Fourier transforms
+                                                                         
+        of Parseval’s identity for Fourier series, which asserts that k | *   f (k)|2 =  f 22 .
+        By the changes of variables we noted before, we obtain
+                                                            ∞
+        Theorem 5.4 (Plancherel’s identity) Suppose that 0  |w(x)|x −σ −1 d x < ∞,
+                       ∞                                       ∞
+        and also that 0 |w(x)|2 x −2σ −1 d x < ∞. Put K (s) = 0 w(x)x −s−1 d x. Then
+                                    ∞                              +∞
+                           2π           |w(x)|2 x −2σ −1 d x =          |K (σ + it)|2 dt.
+                                0                                 −∞
+
+           Among the many possible applications of this theorem, we note in particular
+        that
+                                    ∞                              +∞
+                                                                          α(σ + it) 2
+                           2π           |A(x)|2 x −2σ −1 d x =                        dt           (5.26)
+                                0                                 −∞       σ + it
+
+        for σ > max(0, σc ).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       5.1 The inverse Mellin transform                                             145
+
+
+                                                  5.1.1          Exercises
+          1. Show that if σc < σ0 < 0, then
+                                      1               σ0 +i T
+                                                                        xs      
+                                 lim                            α(s)       ds =     a .
+                                                                                 n>x n
+                                T →∞ 2πi          σ0 −i T               s
+          2. (a) Show that if y ≥ 0, then
+                            π
+                         − = si(0) ≤ si(y) ≤ si(π ) = 0.28114 . . . .
+                             2
+
+              (b) Show that if y ≥ 0, then
+                                                  ∞                               y+i∞
+                                                       eiu                               ei z
+                                                          du =                              dz.
+                                              y         u                     y           z
+             (c) Deduce that if y ≥ 0, then |si(y)| < 1/y.
+          3. (a) Let β > 0 be ﬁxed. Show that if σ0 > 0, then
+                                              σ0 +i∞
+                                      1                                                       −β
+                                                                (s/β)y s ds = βe−y .
+                                     2πi     σ0 −i∞
+
+
+              (b) Let β > 0 be ﬁxed. Show that if x > 0 and σ0 > max(0, σc ), then
+                          1     σ0 +i∞                      ∞
+                                                                          β
+                                       α(s) (s/β)x s ds = β     an e−(n/x) .
+                         2πi σ0 −i∞                         n=1
+
+          4. (a) Suppose that a > 0 and that b is real. Explain why
+                            σ0 +i∞                                                  σ0 +i∞
+                                                                e−b /(2a )
+                                                                    2     2
+                    1
+                                     ea s /2+bs ds =                                          ea (s+b/a ) /2 ds .
+                                       2 2                                                         2       2 2
+
+                   2πi     σ0 −i∞                                 2πi              σ0 −i∞
+
+              (b) Explain why the values of the integrals above are independent of the
+                  value of σ0 . Hence show that if σ0 = −b/a 2 , then the above is
+                                                        +∞
+                                  e−b /(2a )
+                                        2     2
+                                                                                          1
+                                                                e−a t /2 dt = √                    e−b /a .
+                                                                   2 2                                 2   2
+                                =
+                                    2π                −∞                                 2π a
+              (c) Show that if a > 0, x > 0 and σ0 > σc , then
+                      σ0 +i∞                               ∞                     
+                  1                 a 2 s 2/2 s        1                (log x/n)2
+                              α(s)e          x ds = √          an exp −              .
+                 2πi σ0 −i∞                           2π a n=1             2a 2
+
+          5. Take k = 1 in (5.22) for several different values of x, and form a suitable
+             linear combination, to show that if x ≥ 0 and and σc < 0, then
+                                                     2
+                      2 +∞             sin 12 t log x         
+                              α(it)                      dt =     an log x/n.
+                      π −∞                    t               n≤x
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        146                                      Dirichlet series: II
+
+
+          6. Let w(x) , and suppose that w(x)     x σ as
+                                                        ∞x → ∞−σ
+                                                                for some ﬁxed σ .
+             Let σw be the inﬁmum of those σ such that 0 w(x)x −1 d x < ∞, and
+             put
+                                                           ∞
+                                            K (s) =            w(x)x −s−1 d x
+                                                       0
+
+              for σ > σw .
+                                    
+              (a) Show that Aw (x) = ∞
+                                     n=1 an w(x/n) satisﬁes Aw (x)                                  x θ for θ >
+                  max(σw , σc ).
+              (b) Show that
+                                                                   ∞
+                                           K (s)α(s) =                 Aw (x)x −s−1 d x
+                                                               0
+
+                  for σ > max(σw , σc ).
+              (c) Show that
+                                                                     σ0 +i T
+                                                            1
+                         1
+                         2
+                           (Aw (x − ) + Aw (x + )) =            lim          α(s)K (s)x s ds
+                                                           2πi T →∞ σ0 −i T
+                for σ0 > max(σw , σc ), x > 0.
+          7. Show that
+                                                                   ∞
+                                                                        {x}
+                                              ζ (s) = −s                     dx
+                                                               0       x s+1
+              for 0 < σ < 1, and that
+                                      ∞                                 +∞
+                                                                             ζ (σ + it) 2
+                            2π            {x}2 x −2σ −1 d x =                             dt
+                                  0                                    −∞      σ + it
+             for 0 < σ < 1.
+          8. (a) Show that if f ∈ L 1 (R) and f  ∈ L 1 (R), then f* (t) = 2πit f*(t).
+             (b) Suppose that f is a function such that f ∈ L 1 (R), that x f (x) ∈ L 2 (R),
+                 and that f  ∈ L 1 (R) ∩ L 2 (R). Show that
+                          +∞                               +∞                                    
+                               | f (x)|2 d x = −                   x f  (x) f (x) + f (x) f  (x) d x.
+                         −∞                            −∞
+
+              The Cauchy–Schwarz inequality asserts that
+                     +∞             2   +∞                                             +∞              
+                        a(x)b(x) d x ≤          |a(x)|2 d x                                    |b(x)|2 d x .
+                       −∞                                  −∞                         −∞
+
+              By means of this inequality, or otherwise, show that
+               +∞                   +∞                          +∞               2
+                                                               1
+                     |x f (x)|2 d x          |t f*(t)|2 dt ≥            | f (x)|2
+                                                                                  d x    .
+                 −∞                    −∞                    16π 2   −∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 5.2 Summability                                         147
+
+
+             This is a form of the Heisenberg uncertainty principle. From it we see that
+             if f tends to 0 rapidly outside [−A, A], and if *
+                                                             f tends to 0 rapidly outside
+             [−B, B], then AB        1.
+          9. (a) Note the identity
+
+                         f g = 12 | f + g|2 − 12 | f − g|2 + 2i | f + ig|2 − 2i | f − ig|2 .
+
+              (b) Show that if f ∈ L 1 (R) ∩ L 2 (R) and if g ∈ L 1 (R) ∩ L 2 (R), then
+                                       +∞                            +∞
+                                             f (x)g(x) d x =                *    g (t) dt.
+                                                                            f (t)*
+                                      −∞                            −∞
+
+        10. Suppose that F is strictly increasing, and that for i = 1, 2 the functions f i
+            are real-valued with f i ∈ L 1 (R) ∩ L 2 (R) and F( f i ) ∈ L 1 (R) ∩ L 2 (R).
+            (a) Show that
+                               +∞
+                                    ( f 1 (x) − f 2 (x))(F( f 1 (x)) − F( f 2 (x))) d x
+                             −∞
+                                         +∞                                              
+                                  =              f*1 (t) − f*2 (t) F(           
+                                                                      f 1 )(t) − F( f 2 )(t) dt.
+                                       −∞
+
+
+              (b) Suppose additionally that f*i (t) = 0 for |t| ≥ T , and that F(
+                                                                                 f 1 )(t) =
+                  
+                  F( f 2 )(t) for −T ≤ t ≤ T . Show that f 1 = f 2 a.e.
+
+
+
+
+                                            5.2         Summability
+                                                                                                  
+        We say that an inﬁnite series              an is Abel summable to a, and write                 an = a
+        (A) if
+                                                        
+                                                        ∞
+                                                 lim−         an r n = a.
+                                               r →1
+                                                        n=0
+
+        Abel proved that if a series converges, then it is A-summable to the same value.
+        Because of this historical antecedent, we call a theorem ‘Abelian’ if it states
+        that one kind of summability implies another. Perhaps the simplest Abelian
+                                
+        theorem asserts that if ∞  n=1 an converges to a, then
+
+                                                 
+                                                 N
+                                                                n
+                                           lim           1−       an = a.                              (5.27)
+                                          N →∞                  N
+                                                  n=1
+
+        This is the Cesàro method of summability of order 1, and so we abbreviate the
+                                                            N
+        relation above as an = a (C, 1). On putting s N = n=1      an , we reformulate
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        148                                    Dirichlet series: II
+
+
+        the above by saying that if lim N →∞ s N = a, then
+
+                                                   1 N
+                                                 lim     sn = a.                                   (5.28)
+                                              N →∞ N
+                                                     n=1
+
+        Here, as in Abel summability and in most other summabilities, each term in
+        the second limit is a linear function of the terms in the ﬁrst limit. Following
+        Toeplitz and Schur, we characterize those linear transformations T = [tmn ] that
+        preserves limits of sequences. We call T regular if the following three conditions
+        are satisﬁed:
+                                                    ∞
+                    There is a C = C(T ) such that       |tmn | ≤ C for all m;      (5.29)
+                                                                 n=1
+
+                                             lim tmn = 0 for all n;                                (5.30)
+                                            m→∞
+
+                                                       
+                                                       ∞
+                                                 lim         tmn = 1.                              (5.31)
+                                                 m→∞
+                                                       n=1
+
+        We now show that regular transformations preserve limits, and relegate the
+        veriﬁcation of the converse to exercises.
+
+        Theorem 5.5 Suppose that T satisﬁes (5.29) above. If {an } is a bounded
+        sequence, then the sequence
+                                                         
+                                                         ∞
+                                                  bm =         tmn an                              (5.32)
+                                                         n=1
+
+        is also bounded. If T satisﬁes (5.29) and (5.30), and if limn→∞ an = 0,
+        then limm→∞ bm = 0. Finally, if T is regular and limn→∞ an = a, then
+        limm→∞ bm = a.
+
+          The important special case (5.28) is obtained by noting that the (semi-inﬁnite)
+        matrix [tmn ] with
+                                     
+                                        1/m if 1 ≤ n ≤ m,
+                              tmn =
+                                        0       if n > m
+
+        is regular. Moreover, the proof of Theorem 5.5 requires only a straightforward
+        elaboration of the usual proof of (5.28).
+
+        Proof      If |an | ≤ A and (5.29) holds, then
+                                           
+                                           ∞                     
+                                                                 ∞
+                                 |bm | ≤         |tmn an | ≤ A          |tmn | ≤ C A.
+                                           n=1                   n=1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                5.2 Summability                                        149
+
+
+        To establish the second assertion, suppose that ε > 0 and that |an | < ε for
+        n > N = N (ε). Now
+                                
+                                N             
+                        |bm | ≤   |tmn an | +   |tmn an | = 1 + 2 ,
+                                        n=1               n>N
+
+        say. From (5.29) and the argument above with A = ε we see that 2 ≤ Cε.
+        From (5.30) we see that limm→∞ 1 = 0. Hence lim supm→∞ |bm | ≤ Cε, and
+        we have the desired conclusion since ε is arbitrary. Finally, suppose that T is
+        regular and that limn→∞ an = a. We write an = a + αn , so that
+                                       ∞         ∞
+                                bm = a     tmn +       tmn αn .
+                                                   n=1           n=1
+
+        Since limn→∞ αn = 0, we may appeal to the preceding case to see that
+        the second sum tends to 0 as m → ∞. Hence by (5.31) we conclude that
+        limm→∞ bm = a, and the proof is complete.                         
+
+           In Chapter 1 we used Theorem 1.1 to show that if S is a sector of the
+        form S = {s : σ > σ0 , |t − t0 | ≤ H (σ − σ0 )} where H is an arbitrary positive
+        constant, and if the Dirichlet series α(s) converges at the point s0 , then
+                                                lim α(s) = α(s0 ).
+                                                s→s0
+                                                 s∈S
+
+        To see how this may also be derived from Theorem 5.5, let {sm } be an arbitrary
+        sequence of points of S for which limm→∞ sm = s0 . It sufﬁces to show that
+        limm→∞ α(sm ) = α(s0 ). Take
+                                         tmn = n s0 −sm − (n + 1)s0 −sm ,
+        so that
+                                                   
+                                                   ∞            n
+                                                                                  
+                                                                             −s0
+                                       α(sm ) =          tmn          ak k             .
+                                                   n=1          k=1
+
+        In view of Theorem 5.5, it sufﬁces to show that [tmn ] is regular. The conditions
+        (5.30) and (5.31) are clearly satisﬁed, and (5.29) follows on observing that if
+        s ∈ S, then s − s0 H σ − σ0 , so that
+                                                                           n+1
+                          n s0 −s − (n + 1)s0 −s = (s − s0 )                       u s0 −s−1 du
+                                                                       n
+                                                                                 n+1
+
+                                                         H
+                                                             (σ − σ0 )                 u σ0 −σ −1 du
+                                                                             n
+                                                       = n σ0 −σ − (n + 1)σ0 −σ .
+        Thus we have the result. Abel’s analogous theorem on the convergence of power
+        series can be derived similarly from Theorem 5.5.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        150                                    Dirichlet series: II
+
+
+            The converse of Abel’s theorem on power series is false, but Tauber (1897)
+                                                                           
+        proved a partial converse: If an = o(1/n) and an = a (A), then an = a.
+        Following Hardy and Littlewood, we call a theorem ‘Tauberian’ if it provides
+        a partial converse of an Abelian theorem. The qualifying hypothesis (‘an =
+        o(1/n)’ in the above) is the ’Tauberian hypothesis’. For simplicity we begin
+        with partial converses of (5.27).
+                                                    
+        Theorem 5.6 If ∞     n=1 an = a (C, 1), then   an = a provided that one of the
+        following hypotheses holds:
+        (a) an ≥ 0 for n ≥ 1;
+        (b) an = O(1/n) for n ≥ 1;
+        (c) There is a constant A such that an ≥ −A/n for all n ≥ 1.
+        Proof Clearly (a) implies (c). If (b) holds, then both an and an satisfy (c).
+                                        
+        Thus it sufﬁces to prove that an = a when (c) holds. We observe that if H
+        is a positive integer, then
+                                                      
+                N
+                           N + H N  +H
+                                                   n         N N
+                                                                           n
+                    an =                an 1 −            −        an 1 −
+               n=1
+                             H      n=1
+                                                 N+H         H n=1         N
+                             1      
+                          −               an (N + H − n)                        (5.33)
+                             H N <n<N +H
+                          = T1 − T2 − T3 ,
+        say. Take H = [εN ] for some ε > 0. By hypothesis, lim N →∞ T1 = a(1 + ε)/ε,
+        and lim N →∞ T2 = a/ε. From (c) we see that
+                                            1       AH
+                         T3 ≥ −A                ≥−        ≥ −Aε.
+                                   N <n<N +H
+                                             n        N
+        Hence on combining these estimates in (5.33) we see that
+                                        N
+                                lim sup     an ≤ a + Aε.
+                                            N →∞ n=1
+
+        Since ε can be taken arbitrarily small, it follows that
+                                                         
+                                                         N
+                                               lim sup        an ≤ a.
+                                                N →∞ n=1
+
+        To obtain a corresponding lower bound we note that
+                                                                              
+                 N
+                          N N          n                   N − H N−H
+                                                                              n
+                     an =       an 1 −                   −            an 1 −
+                 n=1
+                          H n=1
+                                       N                     H    n=1
+                                                                             N−H
+                                                                                                   (5.34)
+                                1    
+                              +             an (n + H − N ).
+                                H N −H <n<N
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                5.2 Summability                                    151
+
+
+        Arguing as we did before, we ﬁnd that
+                                                
+                                                N
+                                      lim inf         an ≥ a − Aε/(1 − ε),
+                                       N →∞
+                                                n=1
+
+        so that
+                                                            
+                                                            N
+                                                lim inf           an ≥ a,
+                                                N →∞
+                                                            n=1
+
+        and the proof is complete.                                                                  
+
+           If we had argued from (a) or (b), then the treatment of the term T3 above
+        would have been simpler, since from (a) it follows that T3 ≥ 0, while from
+        (b) we have T3     ε.
+           Our next objective is to generalize and strengthen Theorem 5.6. The type of
+        generalization we have in mind is exhibited in the following result, which can
+        be established by adapting the above proof: Let β be ﬁxed, β ≥ 0. If
+                                     
+                                     N
+                                                       n
+                                           an 1 −               = (a + o(1))N β ,
+                                     n=1
+                                                       N
+
+        and if an ≥ −An β−1 , then
+                                       
+                                       N
+                                             an = (a(β + 1) + o(1))N β .
+                                       n=1
+
+        Concerning the possibility of strengthening Theorem 5.6, we note that by an
+        Abelian argument (or by an application of Theorem 5.5) it may be shown that
+                                      
+           an = a (C, 1) implies that    an = a (A). Thus if we replace (C, 1) by (A)
+        in Theorem 5.6, then we have weakened the hypothesis, and the result would
+        therefore be stronger. Indeed, Hardy (1910) conjectured and Littlewood (1911)
+                                                              
+        proved that if     an = a (A) and an = O(1/n), then       an = a. That is, the
+        condition ‘an = o(1/n)’ in Tauber’s theorem can be replaced by the condition
+        (b) above. In fact the still weaker condition (c) sufﬁces, as will be seen by
+        taking β = 0 in Corollary 5.9 below. We now formulate a general result for the
+        Laplace transform, from which the analogues for power series and Dirichlet
+        series follow easily.
+
+        Theorem 5.7 (Hardy–Littlewood) Suppose that a(u) is Riemann-integrable
+        over [0, U ] for every U > 0, and that the integral
+                                                            ∞
+                                             I (δ) =            a(u)e−uδ du
+                                                        0
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        152                                     Dirichlet series: II
+
+
+        converges for every δ > 0. Let β be ﬁxed, β ≥ 0, and suppose that
+
+                                               I (δ) = (α + o(1))δ −β                              (5.35)
+
+        as δ → 0+ . If, moreover, there is a constant A ≥ 0 such that
+
+                                              a(u) ≥ −A(u + 1)β−1                                  (5.36)
+
+        for all u ≥ 0, then
+                                                                            
+                                       U
+                                                                 α
+                                           a(u) du =                   + o(1) U β .                (5.37)
+                                   0                           (β + 1)
+           The basic properties of the gamma function are developed in Appendix C,
+        but for our present purposes it sufﬁces to put
+                                                               ∞
+                                               (β) =               u β−1 e−u du
+                                                           0
+
+        for β > 0. From this it follows by integration by parts that
+
+                                                β (β) = (β + 1)                                    (5.38)
+
+        when β > 0.
+           The amount of unsmoothing required in deriving (5.37) from (5.35) is now
+        much greater than it was in the proof of Theorem 5.6. Nevertheless we follow
+        the same line of attack. To obtain the proper perspective we review the preceding
+        proof. Let J = [0, 1], let χJ (u) be its characteristic function, and put K (u) =
+                                          N                                N
+        max(0, 1 − u) for u ≥ 0. Thus n=1        an = n an χJ (n/N ), and n=1         an (1 −
+                  
+        n/N ) = n an K (n/N ). Our strategy was to approximate to χJ (u) by linear
+        combinations of K (κu) for various values of κ, κ > 0. The relation underlying
+        (5.33) and (5.34) is both simple and explicit:
+         1                                             1
+            K (u) − (1− ε)K (u/(1 − ε)) ≤ χJ (u) ≤ ((1+ ε)K (u/(1+ ε)) − K (u));
+         ε                                               ε
+                                                                                       (5.39)
+        we took ε = H/N . In the present situation we wish to approximate to χJ (u) by
+        linear combinations of e−κu , κ > 0. We make the change of variable x = e−u ,
+        so that 0 ≤ x ≤ 1, and we put J = [1/e, 1]. Then we want to approximate to
+        χJ (x) by a linear combination P(x) of the functions x κ , κ > 0. In fact it sufﬁces
+        to use only integral values of κ, so that P(x) is a polynomial that vanishes at
+        the origin. In place of (5.33), (5.34) and (5.39) we shall substitute
+
+        Lemma 5.8 Let ε be given, 0 < ε < 1/4, and put J = [1/e, 1], K =
+        [e−1−ε , e−1+ε ]. There exist polynomials P± (x) such that for 0 ≤ x ≤ 1 we have
+
+                                             P− (x) ≤ χJ (x) ≤ P+ (x)                              (5.40)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                            5.2 Summability                                        153
+
+
+        and
+
+                                     |P± (x) − χJ (x)| ≤ εx(1 − x) + 5χK (x).                                  (5.41)
+
+        Proof Let g(x) = (χJ (x) − x)/(x(1 − x)). Then g is continuous in [0, 1]
+        apart from a jump discontinuity at x = 1/e of height e2 /(e − 1) < 5. Hence
+        by Weierstrass’s theorem on the uniform approximation of continuous func-
+        tions by polynomials we see that there are polynomials Q ± (x) such that
+        Q − (x) ≤ g(x) ≤ Q + (x) for 0 ≤ x ≤ 1, and for which
+
+                                                 |g(x) − Q ± (x)| ≤ ε + 5χK (x)                                (5.42)
+
+        for 0 ≤ x ≤ 1. Then the polynomials P± (x) = x + x(1 − x)Q ± (x) have the
+        desired properties.                                                    
+
+        Proof of Theorem 5.7 We suppose ﬁrst that α = 0. We note that if P(x) is a
+                                                 
+        polynomial such that P(0) = 0, say P(x) = rR=1 cr x r , then by (5.35) we see
+        that
+                                        ∞                                
+                                                                         R
+                                            a(u)P(e−uδ ) du =                   cr I (r δ) = o(δ −β )          (5.43)
+                                    0                                    r =1
+
+        as δ → 0+ . In the notation of the above lemma,
+                                            U                        ∞
+                                                 a(u) du =               a(u)χJ (e−u/U ) du.
+                                        0                        0
+
+        If (5.40) holds, then by (5.36) we see that
+                                ∞                       
+                                    a(u) P+ e−u/U − χJ e−u/U du
+                            0
+                                                 ∞                             
+                                ≥ −A                 (u + 1)β−1 P+ e−u/U − χJ e−u/U du.
+                                             0
+
+        By (5.41) this latter integral is
+                            ∞                                                            (1+ε)U
+                    ε           (u + 1)β−1 e−u/U (1 − e−u/U ) du +                                (u + 1)β−1 du.
+                        0                                                               (1−ε)U
+
+        In the ﬁrst term, the integrand is     (u + 1)β U −1 for 0 ≤ u ≤ U ; it is
+         β−1 −u/U
+        u e        for u ≥ U . Hence the ﬁrst integral is U β . The second integral is
+              β
+           εU . On taking δ = 1/U , P = P+ in (5.43) and combining our results, we
+        ﬁnd that
+                                                     U
+                                                         a(u) du ≤ A1 εU β + o(U β ).
+                                                 0
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        154                                              Dirichlet series: II
+
+
+        Since ε can be arbitrarily small, we deduce that
+                                                                            U
+                                            lim sup U −β                        a(u) du ≤ 0.
+                                                U →∞                    0
+
+        By arguing similarly with P− instead of P+ , we see that the corresponding
+        liminf is ≥ 0, and so we have (5.37) in the case α = 0.
+           Suppose now that α = 0, β > 0. We note ﬁrst that
+              ∞                                              ∞                                ∞
+              (u + 1)β−1 e−uδ du = eδ                            v β−1 e−vδ dv = eδ               v β−1 e−vδ dv + O(eδ ),
+          0                                              1                                0
+
+        and that
+                              ∞                                             ∞
+                                  v β−1 e−vδ dv = δ −β                          w β−1 e−w dw = δ −β (β).
+                          0                                             0
+
+        Hence if b(u) = a(u) − α(u + 1)β−1 / (β), then b(u) ≥ −B(u + 1)β−1 , and
+                                                     ∞
+                                                         b(u)e−uδ du = o(δ −β ).
+                                                 0
+                  U
+        Thus      0    b(u) du = o(U β ), so that
+                                            U
+                                                                         α
+                                                a(u) du =                    U β + o(U β ),
+                                        0                              β (β)
+        and we have (5.37), in view of (5.38).
+           For the remaining case, β = 0, it sufﬁces to consider b(u) = a(u) −
+        αχ[0,1] (u).                                                           
+                                               ∞
+        Corollary 5.9 Suppose that p(z) = n=0 an z n converges for |z| < 1, and
+        that β ≥ 0. If p(x) = (α + o(1))(1 − x)−β as x → 1− , and if an ≥ −An β−1
+        for n ≥ 1, then
+                                                       
+                               N
+                                             α
+                                  an =             + o(1) N β .
+                              n=0
+                                           (β + 1)
+
+        Proof Put a(u) = an for n ≤ u < n + 1. Then (5.36) holds, and
+                                         
+                                         ∞                       n+1
+                                                                                     1 − e−δ
+                              I (δ) =            an                    e−uδ du =             p(e−δ ).
+                                         n=0                 n                          δ
+
+        But 1 − e−δ ∼ δ as δ → 0+ , so that (5.35) holds. The result now follows by
+        taking U = N + 1 in (5.37).                                               
+                                                                       N
+        Corollary 5.10 If      an = α (A), and if the sequence s N = n=0 an is
+                     
+        bounded, then an = α (C, 1).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                      5.2 Summability                                155
+
+                                                          ∞
+        Proof Take β = 1, p(z) = ∞   n=0 sn z = (1 − z)
+                                             n          −1            n
+                                                              n=0 an z in Corollary
+                 N
+        5.9. Then n=0 sn = (α + o(1))N , which is the desired result.            
+
+           For Dirichlet series we have similarly
+                                                  
+        Theorem 5.11 Suppose that α(s) = ∞           n=1 an n
+                                                              −s
+                                                                  converges for σ > 1, and
+        that β ≥ 0. If α(σ ) = (α + o(1))(σ − 1) as σ → 1+ , and if an ≥ −A(1 +
+                                                    −β
+
+        log n)β−1 , then
+                              an                          
+                              N
+                                              α
+                                     =               + o(1) (log N )β .
+                             n=1
+                                  n         (β + 1)
+                                
+        Proof Take a(u) = u−1≤log n<u an /n. Then I (δ) converges for δ > 0, and
+        moreover
+                               an 1+log n
+                                ∞
+                                                            1 − e−δ
+                      I (δ) =                   e−uδ du =            α(1 + δ),
+                              n=1
+                                    n log n                     δ
+
+        so that (5.37) follows. To obtain the desired conclusion we require a further
+        appeal to our Tauberian hypothesis. We note that
+                                    log N                an                an    ne
+                                            a(u) du =           −               log .
+                                0                       n≤N
+                                                            n       N /e<n≤N
+                                                                             n     N
+
+        By our Tauberian hypothesis this is
+                                   an
+                               ≤            + A1 (log N )β−1 ,
+                                  n≤N
+                                        n
+
+        so that
+                       an                                
+                                               α
+                                    ≥                + o(1) (log N )β − A1 (log N )β−1 .
+                      n≤N
+                            n                (β + 1)
+
+        On taking U = 1 + log N in (5.37) we may derive a corresponding upper bound
+        to complete the proof.                                                    
+
+           The qualitative arguments we have given can be put in quantitative form as
+        the need arises. For example, it is easy to see that if
+                                                
+                                                N
+                                                                    √ 
+                                                      an = N + O      N ,                          (5.44)
+                                                n=1
+
+        then
+                                        
+                                        N
+                                                             1 2         
+                                              an (N − n) =     N + O N 3/2 .                       (5.45)
+                                        n=1
+                                                             2
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        156                                    Dirichlet series: II
+
+
+        This is best possible (take an = 1 + n −1/2 ), but if the error term is oscilla-
+                                                                     √
+        tory, then smoothing may reduce its size (consider an = cos n). Conversely if
+        (5.45) holds and if the sequence an is bounded, then the method used to prove
+        Theorem 5.6 can be used to show that
+                                           
+                                           N
+                                                                 
+                                                  an = N + O N 3/4 .                               (5.46)
+                                            n=1
+
+        This conclusion, though it falls short of (5.44), is best possible (take an =
+        1 + cos n 1/4 ). We can also put Theorem 5.7 in quantitative form, but here
+        the loss in precision is much greater, and in general the importance of The-
+        orem 5.7 and its corollaries lies in its versatility. For example, it can be
+                         
+        shown that if ∞    n=0 an r = (1 − r )
+                                   n           −1
+                                                  + O(1) as r → 1− , and if an = O(1),
+        then
+                                    N                     
+                                                        N
+                                        an = N + O            .
+                                    n=0
+                                                      log N
+
+        This error term, though weak, is best possible (take an = 1 + cos(log n)2 ).
+          For Dirichlet series it can be shown that if
+                                      ∞
+                                                      1
+                              α(s) =      an n −s =       + O(1)
+                                      n=1
+                                                    s−1
+
+        as s → 1+ , and if the sequence an is bounded, then
+                              N                             
+                                  an                  log N
+                                     = log N + O                .
+                              n=1
+                                  n                 log log N
+
+        This is also best possible (take an = 1 + cos(log log n)2 ), but we can obtain a
+        sharper result by strengthening our analytic hypothesis. For example, it can be
+        shown that if α(s) is analytic in a neighbourhood of 1 and if the sequence an is
+        bounded, then
+                                                  
+                                                  N
+                                                    an
+                                                            = O(1).
+                                                  n=1
+                                                        n
+
+        However, even this stronger assumption does not allow us to deduce that
+                                                  
+                                                  N
+                                                        an = o(N ),
+                                                  n=1
+
+        as we see by considering an = cos log n. In Chapter 8 we shall encounter further
+        Tauberian theorems in which the above conclusion is derived from hypotheses
+        concerning the behaviour of α(s) throughout the half-plane σ ≥ 1.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                5.2 Summability                                    157
+
+                                               5.2.1      Exercises
+          1. Let T be a regular matrix such that tmn ≥ 0 for all m, n. Show that if
+             limn→∞ an = +∞, then limm→∞ bm = +∞.
+          2. Show that if T = [tmn ] and U = [u mn ] are regular matrices, then so is
+             T U = V = [vmn ] where
+                                            
+                                            ∞
+                                      vmn =    tmk u kn .
+                                                         k=1
+          3. Show that if b = T a and limm→∞ bm = a whenever limn→∞ an = a, then
+             T is regular.
+          4. For n = 0, 1, 2, . . . let tn (x) be deﬁned on [0, 1), and suppose that the tn
+             satisfy the following conditions:
+                                                                          
+               (i) There is a constant C such that if x ∈ [0, 1), then ∞      n=0 |tn (x)| ≤ C.
+              (ii) For all n, limx→1− tn (x) = 0.
+                             
+             (iii) limx→1− ∞    n=0 tn (x) = 1.                         
+             Show that if limn→∞ an = a and if b(x) = ∞                     n=0 an tn (x), then
+             limx→1− b(x) = a.
+          5. (Kojima 1917) Suppose that the numbers tmn satisfy the following
+             conditions:
+                                                      
+               (i) There is a constant C such that ∞     n=1 |tmn | ≤ C for all m.
+              (ii) For all n, limm→∞ tmn exists.
+                             
+             (iii) limm→∞ ∞     n=1 tmn exists.               
+             Show that if limn→∞ an exists and if bm = ∞         n=1 tmn an , then limm→∞ bm
+             exists.
+          6. For positive
+                   ∞      integers n let K n (x) be a function deﬁned on [0, ∞) such that
+               (i) 0 K n (x) d x → 1 as n → ∞;
+                     ∞
+              (ii) 0 |K n (x)| d x ≤ C for all n;
+             (iii) limn→∞ K n (x) = 0 uniformly for 0 ≤ x ≤ X .            ∞
+             Suppose that a(x) is a bounded function, and that bn = 0 a(x)K n (x) d x.
+             Show that if limx→∞ a(x) = a, then limn→∞ bn = a.
+          7. Let rm be a sequence of positive real numbers with rm → 1− as m → ∞ .
+             For m ≥ 1, n ≥ 1, put tmn = nrmn−1 (1 − rm )2 .
+             (a) Show that [tmn ] is regular.
+                                        
+             (b) Show that if an = n−1    k=0 ck (1 − k/n) and bm is deﬁned by (5.32), then
+                        ∞
+                  bm = k=0 ck rm . k
+                                                        
+             (c) Show that if       cn = c (C, 1), then cn = c (A).
+          8. Suppose that T = [tmn ] is given by
+                                     ⎧
+                                     ⎪
+                                     ⎪  0                 if n = 0,
+                                     ⎨        m!n
+                             tmn =                        if m ≥ n > 0,
+                                     ⎪
+                                     ⎪   m n+1 (m − n)!
+                                     ⎩
+                                        0                 if m < n.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        158                                    Dirichlet series: II
+
+
+              (a) Show that
+                                               
+                                               m
+                                                                  m!
+                                                     tmn =
+                                               n=k
+                                                             m k (m − k)!
+
+                 for 1 ≤ k ≤ m .
+             (b) Verify that T is regular.
+                                     
+             (c) Show that if an = nk=0 x k /k! for n ≥ 0, then bm = (1 + x/m)m for
+                 m ≥ 1.
+          9. (Mercer’s theorem) Suppose that
+                                           1     1 a1 + a2 + · · · + am
+                                   bm =      am + ·
+                                           2     2         m
+              for m ≥ 1. Show that
+                                            2n         2     
+                                                             n−1
+                                    an =       bn −              mbm .
+                                           n+1      n(n + 1) m=1
+
+            Conclude that limn→∞ an = a if and only if limm→∞ bm = a.
+                                                     
+        10. For a non-negative integer k we say that an = a (C, k) if
+                                                  n k
+                                  lim      an 1 −      = a.
+                                 x→∞
+                                       n≤x         x
+
+            This is Cesàro summability of order k.
+                                                   
+            (a) Show that if an = a (C, j), then an = a (C, k) for all k ≥ j.
+                                                              
+            (b) Show that if an = a (C, k) for some k, then an = a (A).
+                                                    
+        11. Show that if an = a (A), then lims→0+ an n −s = a. (See Wintner 1943
+            for Tauberian converses.)
+                                                     
+        12. For a non-negative integer k we say that an = a (R, k) if
+                                                      
+                                                  log n k
+                                lim     an 1 −            = a.
+                               x→∞
+                                    n≤x           log x
+
+            This is Riesz summability of order k.
+                                                  
+            (a) Show that if an = a (R, j), then an = a (R, k) for all k ≥ j.
+                                                             
+            (b) Show that if an = a (R, k) for some k, then s→0+ α(s) = a.
+        13. Put tmn = 0 for n > m, set
+                                   m+1
+                           tmm =             (log(m + 1) − log m),
+                                 log(m + 1)
+            while for 1 ≤ n < m put
+                                  n+1
+                      tmn =               (− log n + 2 log(n + 1) − log(n + 2)) .
+                               log(m + 1)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                5.2 Summability                                    159
+
+
+              (a) Show that if
+                                                    
+                                                    n                            
+                                                                      k
+                                             an =          ck 1 −
+                                                     k=1
+                                                                     n+1
+                   for n ≥ 1, then the bm given in (5.32) satisﬁes
+                                          m                      
+                                                          log k
+                                    bm =      ck 1 −                 .
+                                          k=1
+                                                       log(n + 1)
+              (b) Show that tmn ≥ 0 for all m, n.
+              (c) Show that
+                                    ∞
+                                                                    log 2
+                                         tmn = 1 +                          .
+                                            n=1
+                                                                 log(m + 1)
+            (d) Show that limm→∞ tmn = 0 .
+                                                     
+            (e) Conclude that if   ck = c (C, 1), then ck = c (R, 1) .
+                       
+        14. Let A(x) = 0<n≤x an .
+            (a) Show that
+                                      
+                                      N
+                                                       n         1        N
+                                            an 1 −           =                A(x) d x .
+                                      n=1
+                                                       N         N    0
+
+              (b) Show that
+                                 
+                                 N                                              N
+                                             log n       1                            A(x)
+                                     an 1 −          =                                     dx .
+                                 n=1
+                                            log N      log N                  1        x
+              (c) Suppose that t is a ﬁxed non-zero real number. By Corollary 1.15, or
+                  otherwise, show that
+                                                                             
+                     N
+                          −1−it      n        N −it                      log N
+                        n       1−       =            + ζ (1 + it) + O           .
+                    n=1
+                                     N      (1 − it)2                      N
+            (d) Similarly, show that
+                     N                                                   
+                            −1−it          log n                         1
+                          n          1−             = ζ (1 + it) + O           .
+                     n=1
+                                          log N                        log N
+                                 ∞ −1−it
+            (e) Conclude that        n=1 n        is not summable (C, 1), but that it is
+                summable (R, 1) to ζ (1 + it) .
+                                                                     
+        15. We say that a series is Lambert summable, and write an = a (L), if
+                                                 ∞
+                                                     nan r n
+                                   lim− (1 − r )             = a.
+                                  r →1
+                                                 n=1
+                                                     1 − rn
+                                                
+            (a) Show that if an = a, then an = a (L).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        160                                     Dirichlet series: II
+
+
+            (b) Show that if an is a bounded sequence and |z| < 1, then
+                                                                       
+                                      ∞
+                                           nan z n      
+                                                        ∞
+                                                    =              dad z n .
+                                      n=1
+                                          1 − zn       n=1     d|n
+                              
+            (c) Show that ∞            µ(n)/n = 0 (L).
+                                  
+                                 n=1
+            (d) Deduce that if ∞       n=1 µ(n)/n converges, then its value is 0. (See (6.18)
+                 and (8.6).)
+                              
+            (e) Show that ∞           ((n) − 1)/n = −2C0 (L).
+                                   
+                                 n=1
+             (f) Deduce that if n≤x (n)/n = log x + c + o(1) then c = −C0 . (See
+                 Exercise 8.1.1.)
+        16. (Bohr 1909; Riesz 1909; Phragmén (cf. Landau 1909, pp. 762, 904))
+                                                                                      
+            Let α(s) = an n −s , β(s) = bn n −s , and γ (s) = α(s)β(s) = cn n −s
+                                                                         
+            where cn = d|n ad bn/d . Further, put A(x) = n≤x an and B(x) =
+            
+                n≤x bn .
+            (a) Show that
+                                     x
+                                                       dy      
+                                        A(y)B(x/y)         =        cn log x/n.
+                                   1                    y      n≤x
+                                                                                       
+            (b) Show that if            an converges and            bn converges, then     cn =
+                 α(0)β(0) (R, 1).
+            (c) (Landau 1907) By taking j = 0 in Exercise 12(a), or otherwise, show
+                                                                                      
+                 that if the three series        an ,    bn ,     cn all converge, then   cn =
+                       
+                       an       bn .
+        17. Suppose that f (n)  ∞. Construct an so that |an | ≤ f (n)/n for all n,
+                                        
+                                        N                               
+                                                                        N
+                              lim sup        an = 1,          lim inf         an = −1,
+                               N →∞ n=1                        N →∞
+                                                                        n=1
+
+              but
+                                                 
+                                                 N
+                                          lim          an (1 − n/N ) = 0.
+                                         N →∞
+                                                 n=1
+
+        18. (Landau 1908) Show that if f (x) ∼ x as x → ∞ and x f  (x) is increasing,
+            then limx→∞ f  (x) = 1.
+        19. (Landau (1913); cf. Littlewood (1986, p. 54–55); Schoenberg 1973) Show
+            that if f (x) → 0 as x → ∞, and if f  (x) = O(1), then f  (x) → 0 as
+            x → ∞.
+                                                              
+        20. (Tauber’s ‘second theorem’) Suppose that P(δ) = ∞   n=0 an e
+                                                                         −nδ
+                                                                             for δ > 0,
+                          N
+            and put s N = n=0 an .
+            (a) Show that if an = O(1/n), then s N = P(1/N ) + O(1).
+            (b) Show that if an = o(1/n), then s N = P(1/N ) + o(1).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                  5.2 Summability                                  161
+
+
+                               N                        
+              (c) Let B(N ) = n=1    nan . Show that if     an converges, then B(N ) =
+                  o(N ) as N → ∞.
+              (d) Show that if P(δ) converges for δ > 0, then
+                                                                             
+                                   B(N )        N
+                                                          1    e−u/N    e−u/N
+                  s N − P(1/N ) =         +       B(u)       −        −         du
+                                     N        1          u2     u2       uN
+                                       ∞
+                                                        u        du
+                                   +       B(u)e−u/N        −1      .
+                                      N                 N        u2
+            (e) Show that if B(N ) = o(N ), then s N − P(1/N ) = o(1).
+                                                 
+             (f) Show that if an = a (A), then an = a if and only if B(N ) = o(N ).
+                                              ∞
+        21. (a) Using Ramanujan’s identity n=1 d(n)2 n −s = ζ (s)4 /ζ (2s) and Theo-
+                                    
+                 rem 5.11, show that n≤x d(n)2 /n ∼ (4π 2 )−1 (log x)4 .
+                              
+            (b) Show that if n≤x d(n)2 ∼ cx(log x)3 as x → ∞, then c = 1/π 2 .
+                       
+        22. Show that ∞  n=1 1/(d(n)n ) ∼ c(s − 1)
+                                       s              −1/2
+                                                           as s → 1+ where
+                                                              
+                                                            p
+                             c=       ( p 2 − p)1/2 log            .
+                                  p                        p−1
+
+              Deduce that
+                                               1     2c
+                                                    ∼ √ (log x)1/2
+                                          n≤x nd(n)    π
+            as x → ∞.
+                                                     
+        23. Show that if n≤N an /n = O(1) and lims→1+ ∞  n=1 an n
+                                                                  −s
+                                                                     = a, then
+                                   an             
+                                              log n
+                             lim          1−          = a.
+                                  n≤x n       log x
+                            x→∞
+
+
+        24. Show that
+                                             ∞
+                                                 sin x −sx
+                                                      e d x = arctan 1/s
+                                         0         x
+              for s > 0. Using Theorem 5.7, deduce that
+                                                   ∞
+                                           sin x      π
+                                                 dx = .
+                                       0     x        2
+                                               ∞                          ∞
+        25. Suppose that f (u) ≥ 0, that 0 f (u)      du < ∞, and that 0 (1 −
+                                                      ∞
+            e−δu ) du ∼ δ 1/2 as δ → 0+ . Show that U f (u) du ∼ (πU )−1/2 as U →
+            ∞.
+                       
+        26. Show that ∞   n=1 an = a if and only if
+                                                         
+                                                         ∞
+                                                                   n
+                                                  lim−         an r 2 = a.
+                                                 r →1
+                                                         n=0
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        162                                    Dirichlet series: II
+
+
+        27. Suppose that for every ε > 0 there is an η > 0 such that
+                                                                     
+                           |an | < ε whenever N > 1/η. Show that if      an = a (A),
+                  
+               N <n≤(1+η)N
+            then an = a.
+                                                                         
+        28. Show that if an = a (C, 1) and if an+1 − an = O(|an |/n), then an = a.
+                                                                
+        29. (Hardy & Littlewood 1913, Theorem 27) Show that if an = a (A) and if
+                                          
+            an+1 − an = O(|an |/n), then an = a.
+        30. (Hardy 1907) Show that
+                                                        
+                                                        ∞
+                                                                          k
+                                                 lim−         (−1)k x 2
+                                                x→1
+                                                        k=0
+
+            does not exist.
+
+                                                  5.3         Notes
+        Section 5.1. Theorem 5.1 and the more general (5.22) were ﬁrst proved rig-
+        orously by Perron (1908). Although the Mellin transform had been used by
+        Riemann and Cahen, it was Mellin (1902) who ﬁrst described a general class
+        of functions for which the inversion succeeds. Hjalmar Mellin was Finnish, but
+        his family name is of Swedish origin, so it is properly pronounced mĕ · lēn .
+        However, in English-speaking countries the uncultured pronunciation mĕl · ı̆n
+        is universal.
+            In connection with Theorem 5.4, it should be noted that Plancherel’s formula
+         f 2 =  * f 2 holds not just for all f ∈ L 1 (R) ∩ L 2 (R) but actually for all
+         f ∈ L (R). However, in this wider setting one must adopt a new deﬁnition for
+                 2
+
+        f*, since the deﬁnition we have taken is valid only for f ∈ L 1 (R). See Goldberg
+        (1961, pp. 46–47) for a resolution of this issue.
+            For further material concerning properties of Dirichlet series, one should
+        consult Hardy & Riesz (1915), Titchmarsh (1939, Chapter 9), or Widder (1971,
+        Chapter 2). Beyond the theory developed in these sources, we call attention to
+        two further topics of importance in number theory. Wiener (1932, p. 91) proved
+        that if the Fourier series of f ∈ L 1 (T) is absolutely convergent and is never zero,
+        then the Fourier series of 1/ f is also absolutely convergent. Wiener’s proof was
+        rather difﬁcult, but Gel’fand (1941) devised a simpler proof depending on his
+        theory of normed rings. Lévy (1934) proved more generally that the Fourier
+        series of F( f ) is absolutely convergent provided that F is analytic at all points
+        in the range of f . Elementary proofs of these theorems have been given by
+        Zygmund (1968, pp. 245–246) and Newman (1975). These theorems were
+        generalized to absolutely convergent Dirichlet series by Hewitt & Williamson
+                                                
+        (1957), who showed that if α(s) = an n −s is absolutely convergent for σ ≥
+        σ0 , then 1/α(s) is represented by an absolutely convergent Dirichlet series
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     5.3 Notes                                     163
+
+
+        in the same half-plane, if and only if the values taken by α(s) in this half-
+        plane are bounded away from 0. Ingham (1962) noted a fallacy in Zygmund’s
+        account of Lévy’s theorem, corrected it, and gave an elementary proof of the
+        generalization to absolutely convergent Dirichlet series. See also Goodman &
+        Newman (1984). Secondly, Bohr (1919) developed a theory concerning the
+        values taken on by an absolutely convergent Dirichlet series. This is described
+        by Titchmarsh (1986, Chapter 11), and in greater detail by Apostol (1976,
+        Chapter 8). For a small footnote to this theory, see Montgomery & Schinzel
+        (1977).
+            Section 5.2. That conditions (5.29)–(5.31) are necessary and sufﬁcient for
+        the transformation T to preserve limits was proved by Toeplitz (1911) for upper
+        triangular matrices, and by Steinhaus (1911) in general. See also Kojima (1917)
+        and Schur (1921). For more on the Toeplitz matrix theorem and various aspects
+        of Tauberian theorems, see Peyerimhoff (1969).
+            Theorem 5.6 under the hypothesis (a) is trivial by dominated convergence.
+        Theorem 5.6(b) is a special case of a theorem of Hardy (1910), who considered
+        the more general (C,k) convergence, and Theorem 5.6(c) is similarly a special
+        case of a theorem of Landau (1910, pp. 103–113).
+            Tauber (1897) proved two theorems, the second of which is found in Exer-
+        cise 5.2.18. Littlewood (1911) derived his strengthening of Tauber’s ﬁrst theo-
+        rem by using high-order derivatives. Subsequently Hardy & Littlewood (1913,
+        1914a, b, 1926, 1930) used the same technique to obtain Theorem 5.8 and
+        its corollaries. Karamata (1930, 1931a, b) introduced the use of Weierstrass’s
+        approximation theorem. Karamata also considered a more general situation,
+        in which the right-hand sides of (5.35) and (5.36) are multiplied by a slowly
+        oscillating function L(1/δ), and the right-hand side of (5.37) is multiplied by
+        L(U ). Our exposition employs a further simpliﬁcation due to Wielandt (1952).
+        Other proofs of Littlewood’s theorem have been given by Delange (1952) and
+        by Eggleston (1951). Ingham (1965) observed that a peak function similar
+        to Littlewood’s can be constructed by using high-order differencing instead
+        of differentiation. Since many proofs of the Weierstrass theorem involve con-
+        structing a peak function, the two methods are not materially different. Sharp
+        quantitative Tauberian theorems have been given by Postnikov (1951), Kore-
+        vaar (1951, 1953, 1954a–d), Freud (1952, 1953, 1954), Ingham (1965), and
+        Ganelius (1971).
+            For other accounts of the Hardy–Littlewood theorem, see Hardy (1949) or
+        Widder (1946, 1971). For a brief survey of applications of summability to
+        classical analysis, see Rubel (1989).
+            Wiener (1932, 1933) invented a general Tauberian theory that contains the
+        Hardy–Littlewood theorems for power series (Theorem 5.8 and its corollaries)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        164                                    Dirichlet series: II
+
+
+        as a special case. Wiener’s theory is discussed by Hardy (1949), Pitt (1958), and
+        Widder (1946). Among the longer expositions of Tauberian theory, the recent
+        accounts of Korevaar (2002, 2004) are especially recommended.
+
+
+
+                                              5.4      References
+        Apostol, T. (1976). Modular Functions and Dirichlet Series in Number Theory, Graduate
+             Texts Math. 41. New York: Springer-Verlag.
+        Bohr, H. (1909). Über die Summabilität Dirichletscher Reihen, Nachr. König. Gesell.
+             Wiss. Göttingen Math.-Phys. Kl., 247–262; Collected Mathematical Works, Vol. I.
+             København: Dansk Mat. Forening, 1952, A2.
+          (1919). Zur Theorie algemeinen Dirichletschen Reihen, Math. Ann. 79, 136–156;
+             Collected Mathematical Works, Vol. I. København: Dansk Mat. Forening, 1952,
+             A13.
+        Delange, H. (1952). Encore une nouvelle démonstration du théorème taubérien de Lit-
+             tlewood, Bull. Sci. Math. (2) 76, 179–189.
+        Edwards, D. A. (1957). On absolutely convergent Dirichlet series, Proc. Amer. Math.
+             Soc. 8, 1067–1074.
+        Eggleston, H. G. (1951). A Tauberian lemma, Proc. London Math. Soc. (3) 1, 28–45.
+        Freud, G. (1952). Restglied eines Tauberschen Satzes, I, Acta Math. Acad. Sci. Hungar.
+             2, 299–308.
+          (1953). Restglied eines Tauberschen Satzes, II, Acta Math. Acad. Sci. Hungar. 3,
+             299–307.
+          (1954). Restglied eines Tauberschen Satzes, III, Acta Math. Acad. Sci. Hungar. 5,
+             275–289.
+        Ganelius, T. (1971). Tauberian Remainder Theorems, Lecture Notes Math. 232. Berlin:
+             Springer-Verlag.
+        Gel’fand, I. M. (1941). Über absolut konvergente trigonometrische Reihen und Integrale,
+             Mat. Sb. N. S. 9, 51–66.
+        Goldberg R. R. (1961). Fourier Transforms, Cambridge Tract 52. Cambridge: Cambridge
+             University Press.
+        Goodman, A. & Newman, D. J. (1984). A Wiener type theorem for Dirichlet series,
+             Proc. Amer. Math. Soc. 92, 521–527.
+        Hardy, G. H. (1907). On certain oscillating series, Quart. J. Math. 38, 269–288; Collected
+             Papers, Vol. 6. Oxford: Clarendon Press, 1974, pp. 146–167.
+          (1910). Theorems relating to the summability and convergence of slowly oscillating
+             series, Proc. London Math. Soc. (2) 8, 301–320; Collected Papers, Vol. 6. Oxford:
+             Clarendon Press, 1974, pp. 291–310.
+          (1949). Divergent Series, Oxford: Oxford University Press.
+        Hardy, G. H. & Littlewood, J. E. (1913). Contributions to the arithmetic theory of
+             series, Proc. London Math. Soc. (2) 11, 411–478; Collected Papers, Vol. 6. Oxford:
+             Clarendon Press, 1974, pp. 428–495.
+          (1914a). Tauberian theorems concerning power series and Dirichlet series whose co-
+             efﬁcients are positive, Proc. London Math. Soc. (2) 13, 174–191; Collected Papers,
+             Vol. 6. Oxford: Clarendon Press, 1974, pp. 510–527.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 5.4 References                                    165
+
+
+          (1914b). Some theorems concerning Dirichlet’s series, Messenger Math. 43, 134–147;
+            Collected Papers, Vol. 6. Oxford: Clarendon Press, 1974, pp. 542–555.
+          (1926). A further note on the converse of Abel’s theorem, Proc. London Math.
+            Soc. (2) 25, 219–236; Collected Papers, Vol. 6. Oxford: Clarendon Press, 1974,
+            pp. 699–716.
+          (1930). Notes on the theory of series XI: On Tauberian theorems, Proc. London
+            Math. Soc. (2) 30, 23–37; Collected Papers, Vol. 6. Oxford: Clarendon Press, 1974,
+            pp. 745–759.
+        Hardy, G. H. & Riesz, M. (1915). The General Theory of Dirichlet’s Series, Cambridge
+            Tract No. 18. Cambridge: Cambridge University Press. Reprint: Stechert–Hafner
+            (1964).
+        Hewitt, E. & Williamson, H. (1957). Note on absolutely convergent Dirichlet series,
+            Proc. Amer. Math. Soc. 8, 863–868.
+        Ingham, A. E. (1962). On absolutely convergent Dirichlet series. Studies in Mathemati-
+            cal Analysis and Related Topics. Stanford: Stanford University Press, pp. 156–164.
+          (1965). On tauberian theorems, Proc. London Math. Soc. (3) 14A, 157–173.
+        Karamata, J. (1930). Über die Hardy–Littlewoodschen Umkehrungen des Abelschen
+            Stetigkeitssatzes, Math. Z. 32, 319–320.
+          (1931a). Neuer Beweis und Verallgemeinerung einiger Tauberian-Sätze, Math. Z. 33,
+            294–300.
+          (1931b). Neuer Beweis und Verallgemeinerung der Tauberschen Sätze, welche die
+            Laplacesche und Stieltjessche Transformation betreffen, J. Reine Angew. Math.
+            164, 27–40.
+        Kojima, T. (1917). On generalized Toeplitz’s theorems on limit and their application,
+            Tôhoku Math. J. 12, 291–326.
+        Korevaar, J. (1951). An estimate of the error in Tauberian theorems for power series,
+            Duke Math. J. 18, 723–734.
+          (1953). Best L 1 approximation and the remainder in Littlewood’s theorem, Proc.
+            Nederl. Akad. Wetensch. Ser. A 56 (= Indagationes Math. 15), 281–293.
+          (1954a). A very general form of Littlewood’s theorem, Proc. Nederl. Akad. Wetensch.
+            Ser. A 57 (= Indagationes Math. 16), 36–45.
+          (1954b). Another numerical Tauberian theorem for power series, Proc. Nederl. Akad.
+            Wetensch. Ser. A 57 (= Indagationes Math. 16), 46–56.
+          (1954c). Numerical Tauberian theorems for Dirichlet and Lambert series, Proc.
+            Nederl. Akad. Wetensch. Ser. A 57 (= Indagationes Math. 16), 152–160.
+          (1954d). Numerical Tauberian theorems for power series and Dirichlet series, I, II,
+            Proc. Nederl. Akad. Wetensch. Ser. A 57 (= Indagationes Math. 16), 432–443,
+            444–455.
+          (2001). Tauberian theory, approximation, and lacunary series of powers, Trends in
+            approximation theory (Nashville, 2000), Innov. Appl. Math. Nashville: Vanderbilt
+            University Press, pp. 169–189.
+          (2002). A century of complex Tauberian theory, Bull. Amer. Math. Soc. (N.S.) 39,
+            475–531.
+          (2004). Tauberian Theory. A Century of Developments. Grundl. Math. Wiss. 329.
+            Berlin: Springer-Verlag.
+        Landau, E. (1907). Über die Multiplikation Dirichletscher Reihen, Rend. Circ. Mat.
+            Palermo 24, 81–160.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        166                                    Dirichlet series: II
+
+
+           (1908). Zwei neue Herleitungen für die asymptotische Anzahl der Primzahlen unter
+              einer gegebenen Grenze, Sitzungsberichte Akad. Wiss. Berlin 746–764; Collected
+              Works, Vol.4. Essen: Thales Verlag, 1986, pp. 21–39.
+           (1909). Handbuch der Lehre von der Verteilung der Primzahlen, Leipzig: Teubner.
+              Reprint: Chelsea (New York), 1953.
+           (1910). Über die Bedeutung einiger neuerer Grenzwertsätze der Herren Hardy und
+              Axer, Prace mat.-ﬁz. (Warsaw) 21, 97–177; Collected Works, Vol. 4. Essen: Thales
+              Verlag, 1986, pp. 267–347.
+           (1913). Einige Ungleichungen für zweimal differentiierbare Funktionen, Proc. Lon-
+              don Math. Soc. (2) 13, 43–49; Collected Works, Vol. 6. Essen: Thales Verlag, 1986,
+              pp. 49–55.
+        Lévy, P. (1934). Sur la convergence absolue des séries de Fourier, Compositio Math. 1,
+              1–14.
+        Littlewood, J. E. (1911). The converse of Abel’s theorem on power series, Proc. London
+              Math. Soc. (2) 9, 434–448; Collected Papers, Vol. 1. Oxford: Oxford University
+              Press, 1982, pp. 757–773.
+           (1986). Littlewood’s Miscellany, Bollobas, B. Ed., Cambridge: Cambridge University
+              Press.
+        van de Lune, J. (1986). An Introduction to Tauberian Theory: From Tauber to Wiener.
+              CWI Syllabus 12. Amsterdam: Mathematisch Centrum.
+        Mellin, H. (1902). Über den Zusammenhang zwischen den linearen Differential- und
+              Differenzengleichungen, Acta Math. 25, 139–164.
+        Montgomery, H. L. & Schinzel, A. (1977). Some arithmetic properties of polynomials in
+              several variables. Transcendence Theory: Advances and Applications (Cambridge,
+              1976). London: Academic Press, pp. 195–203.
+        Newman, D. J. (1975). A simple proof of Wiener’s 1/ f theorem, Proc. Amer. Math. Soc.
+              48, 264–265.
+        Perron, O. (1908). Zur Theorie der Dirichletschen Reihen, J. Reine Angew. Math. 134,
+              95–143.
+        Peyerimhoff, A. (1969). Lectures on summability, Lecture Notes Math. 107. Berlin:
+              Springer-Verlag.
+        Pitt, H. R. (1958). Tauberian Theorems. Tata Monographs. London: Oxford University
+              Press.
+        Postnikov, A. G. (1951). The remainder term in the Tauberian theorem of Hardy and
+              Littlewood, Dokl. Akad. Nauk SSSR N. S. 77, 193–196.
+        Riesz, M. (1909). Sur la sommation des séries de Dirichlet, C. R. Acad. Sci. Paris 149,
+              18–21.
+        Rubel, L. (1989). Summability theory: a neglected tool of analysis, Amer. Math. Monthly
+              96, 421–423.
+        Schoenberg, I. J. (1973). The elementary cases of Landau’s problem of inequalities
+              between derivatives, Amer. Math. Monthly 80, 121–158.
+        Schur, I. (1921). Über lineare Transformationen in der Theorie der unendlichen Reihen,
+              J. Reine Angew. Math. 151, 79–111.
+        Steinhaus, H. (1911). Kilka slów o uogólnieniu pojȩcia granicy, Warsaw: Prace mat-ﬁz
+              22, 121–134.
+        Tauber, A. (1897). Ein Satz aus der Theorie der unendlichen Reihen, Monat. Math. 8,
+              273–277.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 5.4 References                                    167
+
+
+        Titchmarsh, E. C. (1939). The Theory of Functions, Second Edition. Oxford: Oxford
+             University Press.
+           (1986). The Theory of the Riemann Zeta-function, Second Edition. Oxford: Oxford
+             University Press.
+        Toeplitz, O. (1911). Über algemeine lineare Mittelbildungen, Warsaw: Prace mat–ﬁz
+             22, 113–119.
+        Widder, D. V. (1946). The Laplace transform, Princeton: Princeton University Press.
+           (1971). An Introduction to Transform Theory. New York: Academic Press.
+        Wielandt, H. (1952). Zur Umkehrung des Abelschen Stetigkeitssatzes, Math Z. 56, 206–
+             207.
+        Wiener, N. (1932). Tauberian theorems, Ann. of Math. (2) 33, 1–100.
+           (1933). The Fourier Integral, and Certain of its Applications. Cambridge: Cambridge
+             University Press.
+        Wintner, A. (1943). Eratosthenian averages. Baltimore: Waverly Press.
+        Zygmund, A. (1968). Trigonometric series, Vol. 1, Second Edition. Cambridge: Cam-
+             bridge University Press.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.007 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

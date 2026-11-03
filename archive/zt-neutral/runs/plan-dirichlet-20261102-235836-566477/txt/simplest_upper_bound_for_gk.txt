@@ -1,0 +1,910 @@
+                     The simplest upper bound for G(k)
+
+                     2.1 The definition of major and minor arcs
+                     The introduction of various refinements over the years, most notably
+                     by Hua (19386) has led to a simple proof that G(k) ^ 2k + 1 which
+                     nevertheless illustrates many of the salient features of the Hardy-
+                     Littlewood method.
+                       There is a good deal of latitude in the definition of major and minor
+                     arcs, and the choice made here is fairly arbitrary.
+                        Let n be large, suppose that N is given by (1.7) and that
+
+                                                          v=4          P = AT,                      (2.1)
+                     and let d denote a sufficiently small positive number depending only
+                     on k. When 1 ^a ^ q ^ P and (a,q) = 1, let
+                                               m(q,a) = {a:\a-a/q\^N*-k}.                           (2.2)
+                     The yjl(q, a) are called, for the historical reasons outlined above, the
+                     major arcs, although in fact they are intervals. Let 9W denote the union
+                     of the Wl(q, a). It is convenient to work on the unit interval
+                                                     W = (Nv-\         l+AT"*]                      (2.3)
+                     rather than (0, 1]. This avoids any difficulties associated with
+                     having only 'half major arcs' at 0 and 1. Observe that yR^tf/. The set
+                     xx\ = $U \ 9Jt forms the minor arcs.
+                        When a/q ^ a'/q' and q, q' ^ AT, one has
+                                                a    a'
+                                             q              q q
+                     Thus the Wl(q, a) are pairwise disjoint.
+                       By (1.9) (for brevity the suffix 5 is dropped)
+
+                                       R(n) =       f(ocfe( - <m)d<x +            f((xfe( - an)da    (2.4)
+
+                     where /(a) is given by (1.6). Before proceeding with the estimation of
+                     these integrals it is necessary to establish some auxiliary lemmas.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     Auxiliary lemmas                                                           9
+
+                     2.2 Auxiliary lemmas
+                     The method for treating/(a) when a em can be outlined as follows.
+                     When k = 1,
+
+                                                         M=        Z e{amk)
+                                                                  m=l
+
+                     is trivial to estimate. In the general case, an argument based on the use
+                     of the forward difference operator enables/(a) to be estimated in terms
+                     of sums in which mk is replaced by a polynomial of degree k — 1. Then
+                     successive applications of this argument reduce the degree to 1.
+
+                     Lemma 2.1 (Dirichlet) Let a denote a real number. Then for each real
+                     number X ^ 1 there exists a rational number a/q with
+                     (a, q) = 1, 1 ^ q ^ X and
+                                                         \z-a/q\<l/{qX).
+
+                     Proof It suffices to prove the result without the condition
+                     (a,a)=l.
+                        Let m — [AT]. The m numbers Pq = ccq — [aaj (q = 1, 2 , . . . , m) all
+                     lie in [0, 1). Consider the m 4-1 intervals
+
+
+
+                     If there is a /^ in Bx or £ m + 15 then the proof is finished. If not, then one
+                     of the m — 1 boxes £ r with 2 ^ r ^ m contains at least two of the fiq, say
+                     jSM, j8y with u < v. Take q = v — u,a = [at;] — [aw].
+
+                     Lemma 2.2 Suppose that X, Y, a are rea/ numbers with X ^ 1, Y^ 1,
+                     and tnat |a — a/^f| ^ q~ 2 with (a, <?) = 1. Then
+
+
+
+
+                              ||j»||=min 10-34.
+
+
+                              Let
+
+                                               S= 5
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     10                                                  The simplest upper bound for G(k)
+
+                     Clearly
+                                                                             XY
+
+
+                     For each j let y^ = [a/'g2], and write 0 = g 2 a — ^a. Then
+                                                                                  2            2
+                                         a(^- + r) = (^
+                     When; = 0 and r < ^ ,
+
+
+                     Otherwise, for each 7 there are at most 0(1) values of r for which
+                     lla(tf7 + r)ll ^2ll(yj+ flr )/tfll fails to hold, and moreover qj
+                     q(jf + 1). Therefore
+
+
+
+
+                                                    (           yy
+
+                                                           q\J i- l
+
+
+
+
+                                                  0^
+                                                       I
+                                                       j ^ XJ
+                                                                7T
+                                                                 ~^~ l
+
+                     and the lemma follows easily.
+
+                       Let A; denote the jth iterate of the forward difference operator, so
+                     that for any function 0 of a real variable a
+
+
+
+                     Then it is an easy exercise to show that
+                                      AJL<*;P1,...9Pj) =                      P1...pjPj{*tfl,...9PJ)
+                     where p} is a polynomial in a of degree k—j which has leading
+                     coefficient k\/(k —j)l
+                       The following lemma is an intermediate step in the proofs of both
+                     Lemmas 2.4 and 2.5 below.
+
+                     Lemma 2.3 (Weyl) Let
+                                                                         Q
+
+                                                           T((t>)= £
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     Auxiliary lemmas                                                                             11
+
+                     where <\> is an arbitrary arithmetical function.                         Then
+
+
+
+                                                                              \h,\<Q         \hj\<Q
+                     where
+                                                 T
+                                                  J=1         eiA^xYM,...,              hj))
+                                                       xel,
+                     and the intervals Ij = Ijih^ ...,             hj) (possibly empty) satisfy
+
+
+
+                     Proof By induction on j .                         For         brevity       write   Aj(x)   for
+                     A,#(x); h,,..., fy). Obviously
+
+                                                \T\<t>)\2= £             l ' e(A,(x))
+                                                              X = 1 /li = 1    - X
+
+
+
+                                                          =       X           I «(A,(x))
+                                                              hi = I - Q x e / i
+                     where / x = [1, Q] n [1 - fcl9 Q - fcj.
+                       Now if the conclusion of the lemma is assumed for a particular
+                     value of j , then by Cauchy's inequality,
+
+
+
+                     and obviously
+
+                                            |7}| 2 =
+                                                       |/i|<Q xe/.+1
+
+                     with Ij+ l = /j-n{x :x
+
+                     Lemma 2.4 (Weyl's inequality) Suppose that (a, q) = 1,
+
+
+
+
+                     Then
+
+
+                     where        K=2k'1.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     12                                                                      The simplest upper bound for G(k)
+
+                     Proof By Lemma 2.3 with j = k — 1 (and Exercise 2.1),
+
+
+
+                                  X                                                   e h
+                                      Z        •••         Z                 Z         ( i      '-•hk-iPk-i(x',hl,...
+                                                                        Xe
+                                      ft 1       ftlr         -   1 •        ^t - I
+                                                          k
+                                             \hj\<Q               *
+
+                     with
+
+
+                     T h e t e r m s w i t h ^ ... hk _ x = 0 c o n t r i b u t e < ^ Q k l . H e n c e
+
+
+                                                                                              e£ z
+
+                     By Lemma 2.2, when q^Qk                                          this is
+
+
+
+                     The proof is completed by observing that the result is trivial when
+                     q>Q\
+
+                     Lemma 2.5 (Hua's lemma, 1938Z?) Suppose that 1 < ; < k. Then
+
+                                                                  I
+                                                                  Jo
+                                                                                       \2id0L<N2i-J + \                   (2.5)
+
+
+                     Proof By induction on j . The case; = 1 is immediate from ParsevaFs
+                     identity.
+                       Now suppose that (2.5) holds and that 1 ^ j ^ k - 1. By Lemma 2.3
+                     with 4>{x) = axk,
+
+
+
+
+                     where pJ{x',h1,..., /27) is a polynomial in x of degree k—j with integer
+                     coefficients. Hence
+
+                                                        |/(a)| 2 J < (2N)2J ~j ~ ' Z c^(a/z)                             (2.6)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                    Auxiliary lemmas                                                                          13
+
+                     where ch is the number of solutions of the equation
+                                                   h 1 . . . h j P j ( x ; h l 9 . ..,hj)       = h
+                     with \ht\ < N and xelj. Clearly
+                                                     co<£Nj,                ch<NE(h^0).
+                        By writing
+
+                     one also obtains
+
+                                                                            h
+
+                     where bh is the number of solutions of
+                                          x\+...         +             xk2J_x-y\-..
+                     with xh yt < iV. Thus
+
+
+
+                     and, on the inductive hypothesis,
+
+                                                 f1
+                                                bo
+                                                Jo
+                         By (2.6), Parseval's identity, and (2.7),
+                                                    3 identil
+
+                                           Jo
+                     Moreover,
+
+
+
+
+                     which gives the desired conclusion.
+
+                     Lemma 2.6. L^f c1? c 2 , . . . te any sequence of complex numbers and
+                     suppose that F has a continuous derivative on [0, X~\. Then
+
+                                            cmF(m) = F(X) I cm- [V(y)X cmdy
+                                                                                            o     m^y
+                                                                                                        rx
+                     Proof The lemma follows at once by writing F(m) = F(X) —                             F'(y)dy
+                                                                                                        Jm
+                     and interchanging the order of summation and integration.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     14                                             The simplest upper bound for G(k)
+
+                     2.3 The treatment of the minor arcs
+                     Theorem 2.1 Suppose that s > 2k. Then
+
+
+                                                    Jm
+                     Proof An amount n ~ 1 ~3 has to be saved on the trivial estimate nslk.
+                     Hua's lemma with j — k saves nE ~ *, and Weyl's inequality is used to
+                     save the rest.
+                       Obviously
+
+                                      f |/(a)|Ma«fsup|/(a)|Y * P |/(a)|2kda.                   (2.8)
+                                     Jm                   \<xem          /       Jo
+                     Consider an arbitrary point a of m. By Dirichlet's theorem
+                     (Lemma 2.1) there exist a, q with (a, q) = 1 and q^Nk~\ and such that
+                     \oL-a/q\^q-1Nv~k.     Since aemc:(jV v ~\ 1 - Nv~k) it follows that
+                     1 < a ^ q, whence q> Nx (for otherwise a would be in S2ft). Therefore,
+                     by Weyl's inequality,
+                                  /(a) <N1+ E(q- * + AT ' + qN~kf/K <^ Nl+e~v/K.
+                     This, with (1.7), (2.8) and Hua's lemma, gives the theorem.
+
+
+                     2.4 The major arcs
+                     The first step is to obtain a suitable approximation to the generating
+                     function / on sM(q,a) by the auxiliary functions
+
+                                                    v(P)= t ]-mllk-le(M,
+                                                                   fc
+                                                                                              (2.9)
+                                                             m-l
+
+
+                                                     S(q,a)= £ e(amk/q).                       (2.10)
+                                                                   m=l
+
+                     The function t; is that obtained from/by replacing the characteristic
+                     function of the kth powers by the probability that m is a /cth power.
+                     The sum S(q, a) is an extra factor that has to be introduced, when a is
+                     close to a/q, because the /cth powers, in general, are not uniformly
+                     distributed modulo q.
+
+                     Lemma 2.7 Suppose that Ka^q^        N\(a, q)= 1, ae9M(g, a). Then
+                                 /(a) = q- 'S(q, a)v(oi-a/q) +
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     The major arcs                                                                         15
+
+                     Proof For Y> 0,
+
+                              X e(amk/q) = £ e(ar*A?)                  £          1 = ty" 'Sfe, a) + O(q\
+                             m^Y                 r=l                 m<Y
+                                                                  m = r{mod q)
+                     and
+                                         1                 fykl
+                                    £    _mi/fc-i=            -a 1 '*" M a + 0(1) = 7 + 0(1).         (2.11)
+                                   m^Yk *                J1 K
+                     Let
+
+                                   Ce(am/q) — q~ 1S(q, a)-mi/k~             1
+                                                                                  when m is a /cth power
+                                   !
+                                     -flf 1S(q,a)-m1/k  1
+                                                                                 otherwise,
+                                                  k
+
+                     and take Y= yl/k. Then
+
+                                                   I    cm^^        (y^O).
+
+                     Hence, by Lemma 2.6 with F(y) =
+
+
+                     Taking X = n, P = oc—a/q establishes the lemma.
+
+                       The function v that occurs in Lemma 2.7 is not the only possible
+                     choice. Both
+
+
+                                                                   J
+                     and
+
+
+
+                     would serve equally well. There are arguments for and against each of
+                     v,vvv2. It is easier to investigate the analytic behaviour of vl than that
+                     of v or v2, and the use of v2 would avoid some of the technical
+                     complications in the evaluation of J(n) below. However v2 is
+                     somewhat artificial and the evaluation of J(n) when v is replaced by vx
+                     requires Fourier's inversion formula.
+                        That v and vx behave in much the same way when /? is fairly small
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     16                                                                  The simplest upper bound for G(k)
+
+                     can be inferred from (2.11) and Lemma 2.6. Thus
+
+                                   v(P) = e(Pn)nl/k - Inifi                                  e(py)y1/kdy + 0(1 + n\fi\)
+                                                                                        Jo
+                                               =
+                                                                         1
+                                                                             1//c
+                                                     Jo                             -My+ 0 ( l + ^ | )
+                                                                     0(1+n|j8|).
+                          Let
+                                                             F(a, ^, a) = q~ lS{q9 a)v(oc - a/q).                                  (2.12)
+                     Then, by L e m m a 2.7, when cce^fl(q, a\
+                                f(*Y - F(a, q, af <Nsl                                  | / ( a ) - K(a, ^, a)| <^ Ns " : + 2v.
+                     Therefore
+
+                                  I I f
+                                [ < N V ( aa, q=) =l .        Jan(g,a)
+                                                                                    :                       s k
+                                                                                        - K(a, q, af\da <$ N " ~
+                                                                                                                 1 + 5v
+
+
+                                          ()             1
+
+                     Hence there is a positive number S, depending only on /c, such that
+
+                                                         f(a)5e(         - an)d(x = R*(n) + O(ns/k            -1'3)               (2.13)
+
+                     where
+
+                                       **W= Z Z f
+                                                             q^ Nv       a= 1 j9W(<j,a)
+                                                                     (    ) 1
+                          By (2.2) and (2.12), R*(n) factorizes as
+                                                                     jR*(n)= ®(n, Nv)J*(n\                                        (2.14)
+                      where
+
+                                                 S(n,e)= Z                          Z         (q-lS(q,a)M-an/q)
+                                                                     q^Q          a-1
+                                                                              (a,q) = 1
+                      and
+
+                                                             J*(n)=\                         v(P)se(-pnW-                         (2.15)
+
+                        The series S ( n , 0 and integral J*(n) are best evaluated by first
+                     completing the series to infinity and then replacing the interval of
+                     integration by a unit interval.
+
+
+
+
+                                 Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     The major arcs                                                                      17
+
+                        Let
+
+                                             S(q)= t            (q-1S(q,a)Ye(-an/q).                 (2.16)
+                                                      (a,«)=l
+                     By WeyPs inequality, S(q,a) <ql+£~l/K                       provided that     (a,q)=l.
+                     Therefore
+                                                          tf-W       + ^q-1-2-"                       (2.17)
+
+                     when s ^ 2k + 1 and e is sufficiently small. Therefore
+
+                                                          6(n) = £ Sfa)                              (2.18)
+                     converges absolutely, and uniformly with respect to n, and
+
+                     Hence, by (2.14),
+                                       R*(n) = (S(n) 4- O(n"*))J*(n) and S(w) <^ 1.                   (2.19)
+                       In order to extend the interval of integration in J*(n\ as mentioned
+                     above, it is necessary to estimate the rate of decay of v(/5) as |]8|
+                     increases from 0 to \.
+
+                     Lemma 2.8 Suppose that |j8| < \. Then
+
+
+                       The same conclusion holds for the functions vx and v2 discussed
+                     above, the proofs being similar in each case, and the result for v1
+                     holding for all real /?.
+
+                     Proof This is by Abel summation. By (2.11),
+
+                                                   V |r1/fc-1=m1/k
+
+                     and the lemma follows at once when |j8| < l/n.
+                       Now suppose that | j81 > l/n and let M = [|/?| ~ x ] . Then the terms in
+
+
+                                                                    k
+                                                             m=l
+
+                     with m^M          contribute <^ M1/k^              |f}\ ~i/k. To estimate the remaining
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                      18                                                        The simplest upper bound for G(k)
+
+                     terms, let
+                                                                 m                            l
+                                                           ==                            ==
+                                                  S              / eipr). c                   —m
+                                                       m         ^j     \r      r>   m        K
+                                                                                              K
+                                                                r=l
+                     Then
+
+
+                       m=M+ 1*                                                                     m = M+1
+
+                      Since |S m | < 1/(21^|) and cm is a decreasing sequence one has
+                                            n      i
+
+
+                                       m = M -I- 1 ^
+
+                     as required.
+
+                           Let
+                                                                     fl/2
+                                                 J(n)=                          v(PTe(-Priflp.               (2.20)
+                                                                 J - 1/2
+                     Then, by (2.15) and Lemma 2.8,
+                                            J (n) <\             min(nsl\ p"s/k)dp < ns/k"l
+                                                           Jo
+                     and
+                                                                        /• 00
+
+                                         J *( n) - J (w) <
+
+                     provided that s > /c. Hence, by (2.17),
+                                                R*(n) = &(n)J (n) + O(ns/fc~x " 5 ).                         (2.21)
+                     This coupled with (2.4), Theorem 2.1 and (2.13) gives
+
+                     Theorem 2.2 Suppose that s > 2k. Then
+
+
+
+                     2.5 The singular integral
+                     The singular integral is estimated by induction on s. The following
+                     lemma has the dual role of sparking off the inductive process and
+                     providing the inductive step.
+
+
+
+
+                                 Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                      The singular integral                                                                19
+
+                     Lemma 2.9 Suppose that a, /? are real numbers with a ^ /? > 0,
+                     jg^l.     Then
+
+
+
+
+                     w/iere £ne implicit constant depends at most on a and ft.
+                     Proof Consider the function
+
+
+                     On (0,n), <j> has at most one stationary point. Thus (0,n) can be divided
+                     into two intervals (0,X), (X,n) (one of which may be empty) such that $
+                     is increasing on one and decreasing on the other. Therefore
+
+
+                                        m=l
+
+                                                          rw
+                                                          H/J + a ) "            • "'"        '
+
+                     Theorem 2.3 Suppose that s^-2. Then
+
+                                                                         nslk-l(l+O(n-ilk)).            (2.22)
+
+                     Proo/ By (2.9) and (2.20),
+
+                                   J(n) = Js(n)=         Z .-. Z                    fc-'K.-.m,)1'*-1.
+                                                      mi = 1         ms = 1
+                                                       mi + . . , + m s = «
+                     When s = 2, Lemma 2.9 gives the theorem at once. Suppose the
+                     theorem holds for some s ^ 2. Then
+
+                             ^.+ i(«)="Z Jm 1 '*- 1 ^-/!!)
+                                           m=   1 ^
+
+
+
+
+                                                          m 1 / k " ^w - m) ( s " 1)/fc " l
+                                                   m= 1
+
+                     Lemma 2.9 now gives the case s + 1.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     20                                                  The simplest upper bound for G(k)
+
+                     2.6 The singular series
+                     The singular series reflects the distribution of the kth power residues
+                     modulo q. Before investigating the properties of S(rc) it is necessary to
+                     examine S(q, a) and S(q).
+
+                     Lemma 2.10 Suppose that (a, q) = (b, r) = (q,r)=l.                       Then
+                                                  S(qr, ar + bq) = S(q, a)S(r, b).
+
+                     Proof By Euclid's algorithm, each residue class m modulo qr can be
+                     represented uniquely in the form tr + uq with 1 < t ^ q and 1 < u ^ r.
+                     Therefore, by (2.10),
+
+                                       S(qr9 ar + bq)=j]                   £ e(atkrk/q + bukqk/r)
+                                                                t=lu=l
+
+                     Moreover tr and uq run over complete residue classes to the moduli q
+                     and r respectively. Hence the lemma.
+
+                     Lemma 2.11 The function S(q) is multiplicative.
+
+                     Proof Suppose that (q, r) = 1. Then, by (2.16) and Lemma 2.10,
+
+                           S(qr)= t     a= 1
+                                                      t
+                                                    b= 1
+                                      (a, q) = 1 (fc, r) = 1
+
+                                   = S(q)S(r).
+
+                     For each prime p, define formally
+
+                                                               T(p)= I            S(p").             (2.23)
+                                                                         /i = 0
+
+
+
+                     Theorem 2.4 Suppose that s > 2k. Then T(p) converges absolutely, so
+                     does Y[ T(p\ and
+
+
+                                                                           'P
+
+                     Moreover there is a positive number C, depending only on /c, such that
+
+
+                                                               i< n
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                      The singular series                                                     21
+
+                     Proof This follows easily from (2.17), Lemma 2.11 and the elementary
+                     theory of series of multiplicative functions (see Theorem 286 of Hardy
+                     & Wright, 1979). Note that, by (2.16) and (2.10), replacing a by - a in
+                     the definition of S(q) gives S{q) = S(q). Thus S(q\ and so T(p\ is
+                     real.
+                       It remains to treat T(p) when p^C. There is a close connection
+                     between T and the number Mn(q) of solutions of the congruence
+                                                        m\+ .. . + mks = n (mod q)
+                     with 1 ^ m;. ^ q.
+
+                     Lemma 2.12 For each natural number q,
+
+
+                                                          d\q
+
+
+                        Observe that if q = p\ then the left-hand side is
+
+                                                                      E sip")
+                                                                     /i = 0
+                     and thus, by (2.23),
+
+                                                                  l-*oo
+
+                     whenever either this limit or the limit in (2.23) exists.
+
+                     Proof The orthogonality relation
+
+                                                        - y e(hr/q) = <
+                                                        q r^i         (P QliK
+                     implies that
+                                            I       q      q              Q
+
+
+                                           " r = 1 mi — 1               ms = 1
+
+                     Now the sum over r is rearranged into subsums according to the value
+                     of (r,q). The general term in each subsum is a periodic function of m,
+                     with period q/(r, q) = d, say. Hence
+                                                d
+                                    1                    fa\s    d               d
+
+
+                                    Q. d\q a= 1 \ " /           mx = 1           ms = 1
+                                          (a, <*) = 1
+                     and the lemma follows from (2.10) and (2.16).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     22                                            The simplest upper bound for G(k)
+
+                        Before proceeding further it is useful to summarize some con-
+                     sequences of the theory of the multiplicative structure of the reduced
+                     residue classes modulo px. For an exposition of this theory, see
+                     Chapter 6 of Vinogradov (1954), or Chapter 10 of Apostol (1976).
+                        The number of /cth power residues modulo p\ i.e. residues of the
+                     form xk with pjx, is </>(p')/(k, </>(p')) when p is odd or t = 1 or k is odd,
+                     and 2r~2/(fc>2r~2) when t>2 and p and k are both even. (Here (f>
+                     denotes Euler's function.) Thus when p divides k to a high power the
+                     /cth power residues modulo p* are comparatively scarce, and so Mn{pl)
+                     is relatively difficult to estimate. It is convenient, therefore, to define
+                     x — z(p) to be the highest power of p that divides /c,
+                                                                 Px\\k                              (2.24)
+                     and to write
+                                            f T -I-1 when p > 2 or when p = 2 and T = 0,
+                                            U
+                     Thus the number of /cth power residues modulo py is
+                     (j)(px + *)/(&, 0(pT + *)), and the number of solutions of the congruence
+                                                          xk = a (mod py)
+                     when p\a is 0 or py~~x~l{K<j)(px+ *)). Also, if a is a /cth power residue
+                     modulo py, then it is a /cth power residue modulo pl for every t.
+
+                          Let M*(q) denote the number of solutions of the congruence
+                                                   x\ + . . . + xks = n (mod q)                      (2.26)
+                     with       (xvq)=l.
+
+
+                     Lemma 2.13 Suppose that M*(py) >0and t>y. Then
+
+
+
+                     Proof Consider any solution of
+                                               x \ = n — x \ — . . . — xks ( m o d py)
+                     with p\xv Then p(t~y^s~~             x
+                                                          > solutions of
+
+
+                     can be constructed by choosing y2,...,                    ys so that yj = Xj (mod py).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                      The singular series                                                                     23
+
+                      Then n — y\— . . . — y\ is a /eth power residue modulo py, and hence
+                      also modulo p\
+
+                         The following lemma is useful in establishing the solubility of (2.26).
+
+                      Lemma 2.14 (Cauchy, 1813; Davenport, 1935; Chowla, 1935a). Let
+                      s/, & respectively denote sets of r, s residue classes modulo q. Suppose
+                     further that 0e& and that for every beM with b =£ O(modg) one has
+                      (b, q) = 1. Let stf + ffl denote the set of residue classes modulo q of the
+                      form a + b with ae<tf and be&. Then
+                                               card(ja/ + 3#) ^ min(g, r + s - 1).
+
+                      Proof It can be supposed that r + s — 1 ^ q, for otherwise one can
+                      simply remove s — (q — r + 1) elements from ^ . The case r = g is
+                      trivial so it may be assumed further that r < q. The proof now
+                      proceeds by induction on s. The case s = 1 is trivial. Suppose that
+                      s > 1 and that the conclusion holds whenever card $ < s. Now there
+                      exist cesrf, be@ such that c + b^stf, for otherwise for each be&, a f b
+                      would range over ^ a s a does, in which case
+
+                                         ]T (a +fo)= £ a (mod g),               rb = 0 (mod 4).
+
+                        Let # = {6 :be£, c + / ^ . J / } , , < = ^ u ( { c ) -h r A ^ , = 36\<6. Then
+                      1 ^ card ^?j < <?, card J^/J + card Mx=r + s, and
+
+
+
+                      Lemma 2.15 Suppose that s ^                        (/c, pT(p — 1)) vv/1^/1 y = x + 1,
+                                                       p-1
+                      s ^ 2T + 2 w/i^n 7 = T + 2 am/ k> 2, ant/ f/i«r s ^ 5 when p = k = 2. Then
+                      M*(py) > 0 /or
+
+                      Proo/ When 7 = T -h 1 the lemma follows by repeated application of
+                      Lemma 2.14. When p = 2 the result is trivial, for when k> 2 one has
+                      s ^ 2y and the congruence can be satisfied by taking the Xj to be 0 or
+                      1, and when k = 2 the congruence x* + . .. + x* = n(mod 8) is
+                      easily seen to be soluble with 2/xj.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     24                                               The simplest upper bound for G(k)
+
+                       Collecting together the conclusions of Theorem 2.4 and Lemmas
+                     2.12, 2.13 and 2.15 gives
+
+                     Theorem 2.5 Suppose that s > 2k. Then o(n) > 1.
+
+                     2.7 Summary
+                     By (2.19) and Theorems 2.2, 2.3 and 2.5 one has
+
+                     Theorem 2.6 When s > 2k the number of representations, R(n\ of n as a
+                     sum of s kth powers of natural numbers satisfies
+
+                                                                                                   (2.27)
+
+                     where 3(w) > 1.
+
+                     Corollary G(fc)<2*+1.
+                       The asymptotic formula (2.27) probably holds whenever s ^ k + 1
+                     (and k ^ 3). It has been established for s = 2k for such k by Vaughan
+                     (1986c,d,e),fors < *2* + 1 when/c ^ 6 by Heath-Brown (1988,1989)
+                     and for s = |2fc for the same range of k by Boklan (1994). There are
+                     even better bounds when k > 10. For this see Chapters 5 and 12. It
+                     would be of great interest to show that
+
+                                                                                IN1'2-3            (2.28)
+                                                    JO   x = 1
+
+                     and Theorem 2.6 with s = 8, k = 3 would then follow easily.
+                          There is a conjecture that
+                                              , i
+
+                                                    | / ( a ) | 2 s da <^ /V£max(yVs, N 2 s " *)   (2.29)
+
+                     and this would imply that (2.27) holds whenever s ^ 2k 4- 1.
+
+                        Let fc > 2. Hardy & Littlewood (1922) define T(k) to be the least s
+                     such that for every prime p there is a positive number C(p) such that
+                     T(p) > C(p) uniformly in «. In a later paper, Hardy & Littlewood
+                     (1925), they show that 3(n) > 1 whenever 5 > max (r(/c),4).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     Exercises                                                                       25
+
+                       If one defines V0(k) to be the least s such that for every q and n the
+                     congruence
+                                                    xj + . . . + xks = n (mod q)
+                     is soluble with (xl9 g) = 1, then the proof of their Theorem 1, Hardy &
+                     Littlewood (1928), shows that TQ(k)=Y(k). They conjecture that
+                     r(/c)->oo as fe~>oo, but it is still not even known whether
+
+
+
+
+                     2.8 Exercises
+                       1 Show that for 1 < j ^ k theyth iterate A, of the forward difference
+                     operator satisfies
+
+                                                                                   ^i1   • • • lr
+
+
+
+
+                     where p} is a polynomial in a of degree k—j and having leading
+                     coefficient kl/(k—j)\.
+                       2 Suppose that (a,q) = 1 and 0 < |a — a/g| ^ ^f~2. Show that
+                     there are r, b with (/?, r) = 1 such that ^ ^ r\aq — a\ ^ 2 and
+                     21 ar — b \ ^ | aq — a |. Deduce that the conclusion of Lemma 2.4 can
+                     be replaced by
+
+
+                     where / = (7 + Q^ | ocq — a .
+                       3 Show that, when fe > 2, G(k) ^ max(/c + l,r o (^))-
+                       4 Show that every large natural number is the sum of one square
+                     and seven cubes.
+                       5 Show that for s ^ 2
+
+
+                                               Jo
+                         6 Show that the number R of solutions of
+
+
+                     with X ^ H 1 / 2 , >',^w 1/4 satisfies R<^n1+E.                Obtain an asymptotic
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+                     26                                             The simplest upper bound for G(k)
+
+                     formula for the number of representations of a number as the sum of
+                     two squares, four fourth powers and a /cth power.
+                       7 Let
+                                                         ,.*,.. ..,<*           £ r(h + l/k)
+                                            =
+                                                Jo
+                     Show that
+                                   f°°
+                                            ViiPYei-Pnjdp          and      |      v2(P)se(-pn)dp
+                                   J - oc
+
+                     both equal r ( 1 -h- I r ( - I             ns/k~ x asymptotically a s n - > x .
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.005 Published online by Cambridge University Press
+

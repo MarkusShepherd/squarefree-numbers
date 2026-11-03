@@ -1,0 +1,512 @@
+                     3
+                     Goldbach's problems
+
+                     3.1 The ternary Goldbach problem
+                     Vinogradov's attack on Goldbach's ternary problem follows the
+                     pattern of the previous chapter, but this time with
+                                                     /(a) = £ (log p)e(ap).                       (3.1)
+
+                     The poor current state of knowledge concerning the distribution of
+                     primes in arithmetic progressions demands that the major arcs be
+                     rather sparse. The principal difficulty then lies on the minor arcs and
+                     the establishment of a suitable analogue of Weyl's inequality.
+                        Let B denote a positive constant, and for n sufficiently large write
+                                                             P = (\ogn)B.                         (3.2)
+                     When 1 ^a ^ q ^ P and (a, q) = 1, let
+                                                Wl(q,a) = {a:\a-a/q\^Pn-1}                         (3.3)
+                     denote a typical major arc and write $R for their union. Since n is large,
+                     the major arcs are disjoint and lie in
+
+
+                     Let m = %\m. Then, by (3.1),
+                                f
+                     R(n) =         f(a)3e{ - noc)doc
+                                J
+                            =         /(a)3e(-na)da+             /(a)3e( -                        (3.4)
+                                Jaw                       JJm
+                                                            m
+                     where
+                                        R(n)=            X               (\ogPl)(\ogp2)(\ogp3).   (3.5)
+                                                                 =
+                                                  P\ + Pi + P3       1
+                       The treatment of the minor arcs rests principally on the following
+                     theorem
+
+                     Theorem 3.1 Suppose that (a, q) = 1, q ^ « and |a - a/#| *^q~2. Then
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     28                                                                     Goldbach's problems
+
+                     Proof Let
+
+                                                                t»= Z
+
+                     where fi is Mobius's function.                           Then       taking X = n2/5 and
+                     A(X, y) = A(y)e(axy) in the identity
+
+                                            Z A(i,y)+ z                         Z
+
+                                          =1           Z                 I
+                                            d < X X < y < n / d z < n/(
+
+                     gives
+
+
+                     where
+
+                                              Si = Z I tf*)0og y)
+                                                      x^X       y*,n/x
+
+                                                       c
+                                 Si= 1            I      A«*y) withe,-
+                                              2                                               y** X
+                                                                                          dy = x
+
+
+
+
+                     Here A is von Mangoldt's function, and the identity follows by
+                     observing that 1^ = 0 ( l < x ^ X ) and inverting the order of
+                     summation.
+                       The inner sum in S1 is
+                                                           Cnlx                      jy
+                                                                         Z   e(ccxy)—,
+                                                           J1     y <y^n/x           7
+
+                     and cx < log x. Hence
+
+                                          Sl9S2<(\ogn)             Z min(n/x,
+                                                                  x^X*
+
+                     Therefore, by Lemma 2.2,
+
+
+                     Thus it remains to estimate S 3 .
+                       Let j * = {X, 2X, 4X,..., 2fcX:2kX2 <n^2k+                              l
+                                                                                                X2}.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     The ternary Goldbach problem                                             29
+
+                     Then
+                                                                = Z S(Y)
+                     where
+
+                                            S(Y)=        X
+                                                      y<x<2
+
+                     By Cauchy's inequality,
+
+                                  \s(Y)\2<(       y d(X)2
+                                                                              :<y<n/x
+
+
+
+                     It is easily shown that ]T d(x)2 <^ Z(log2Z) 3 . Hence
+
+
+                                     |S(Y)|2<^Y(logrc)5 X                 Z      min(y,
+                                                               y < n/Y z < w/y
+                     Thus, by Lemma 2.2,
+                                 |5(y)| 2 <^ «(log nfinq-1                    + 7 + n/Y+ -
+                     which gives
+
+
+
+                                   < (log «)4                 n 4/5
+                     as required.
+                        To estimate
+
+
+                                                        J.   f((x)3e( - an)da
+
+                     it is now only necessary to make two observations. First that
+                     Parseval's identity and elementary prime number theory together
+                     give
+
+                                                   (a)| 2 da= Z (logp)2 ^ n log n.
+                                           J0
+                     Second that, by Theorem 3.1 (cf. the proof of Theorem 2.1),
+
+
+
+                     Thus
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     30                                                                 Goldbach's problems
+
+                     Theorem 3.2 Suppose that A is a positive constant and B ^ 2A + 10.
+                     Then
+
+                                                  Jm
+                       The treatment of the major arcs, although straightforward, requires
+                     an appeal to the theory of the distribution of primes in arithmetic
+                     progressions.
+
+                     Lemma 3.1 Let
+
+                                                             v(P)= t e(M.                           (3.6)
+                                                                       m=l
+
+                     Then there is a positive constant C such that whenever 1 ^ a ^ q ^ P,
+                     (a, q) = 1, cceWliq, a) one has
+
+                                   /(a) = ^ U a - a/q) + O(nexp ( - C(log n)1'2)).
+
+                     Proof Let
+
+                                                    /*(<*)= Z
+                     Then
+
+
+                                              (r. q) = 1
+                     where
+
+
+                                                                          p< X
+                                                                        p = r(mod ^)
+
+                       By Theorem 53 and (40) of Estermann (1952) it follows that
+                     whenever ^Jn < X ^ n one has
+
+                                                                                                      (3.7)
+                                                     r=l
+                                                   (r,q)=l
+                     Observe that this is trivial when X ^^/n. Also, by Theorem 271 of
+                     Hardy & Wright (1979)
+
+                                                                     e(ar/q) = fi(q).
+                                                           (r,q)=l
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     The ternary Goldbach problem                                                            31
+
+                     Hence, by (3.1), (3.6), (3.7) and Lemma 2.6 with X = n. F(m) = e(f$m),
+
+                                     (e(am/q) log m — ii(q)/(f)(q)                when m is prime,
+                                cm = \
+                                      [— fi(q)/(t)(q)                             otherwise,
+                     one has
+                           fW^vioLa
+                              <Kq)
+
+                     With (3.3) and (3.2) this establishes the lemma.
+
+                         Let aeyjl(q,a). Then, by the above lemma,
+
+                                    /(a) 3 - -J^njiKa -a/q)3          < n3exp( - C(log n)1'2).
+
+                     Now integrating over 5R gives
+
+                                   Z Zf (a,q)=l
+                                  q^P     a=l     JsJn(q,a)33 22                   112
+                                                    <^P ntt exp( - C(log n)1/2 ).)
+                                                             exp(-C(logrt)
+                     Therefore, by (3.3),
+                              r                               rp/n
+                                 f(oc)3e( - arc)da = S(n, P)         v(P)3e( - j8n)djff
+                             Jan                              J-p/n
+                                                     + O ( P V e x p ( - C(log n)112))                     (3.8)
+                     where
+
+
+
+                     By (3.6), when fi is not an integer,
+                                                             viPXWPW'1.                                   (3.10)
+                     Hence the interval of integration [ — P/n, P/n] can be replaced by
+                     [ — h 2] w i t r i a t o t a l error
+
+                                                        <Z
+                                                            q^ P
+                     Therefore, by (3.2),
+                                                                                         2    2   B
+                                                                                                      )   (3.11)
+                                 Jm
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     32                                                                   Goldbach's problems
+
+                     where
+                                                            f 1/
+                                                              1/2
+                                                 J {{n)=\
+                                                      n \
+                                                    JJ - 11/2
+                          By (3.6), J(n) is the number of solutions of ml+m2 + m3 = n with
+                           m7 ^ /?. Thus
+                                                      J(n) = i ( n - l ) ( « - 2 ) .                   (3.12)
+                     Also, by (3.9),
+
+
+
+                     where
+
+                                                                         I          e[-an/q).           (3.13)
+                                                                     (a,q)=l
+                     Hence, by (3.1), (3.11) and Theorem 327 of Hardy & Wright (1979)
+
+                                      f(oc)3e( - (xn)d(x = S(n)J (n) + O(n 2 (log n)~ B/2 ).
+
+                     By Theorems 67 and 272 of Hardy & Wright (1979) Ramanujan's
+                     sum,
+
+                                                     cq(n)= X                e(-an/q)
+                                                               (a,q)=l
+                     is a multiplicative function of q and satisfies
+
+
+
+                     Hence, by (3.13),
+
+
+                                                                             'P\n
+
+                     This establishes
+
+                     Theorem 3.3 Suppose that A is a positive constant and B ^ 2A. Then
+
+
+                                    I   f(oc)3e(-(xn)d<x=±n2
+
+                     where S(«) satisfies (3.15).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     The binary Goldbach problem                                                  33
+
+                      Note that 8(n) P 1 when n is odd and S(n) = 0 when n is even.
+                     When coupled with Theorem 3.2 and (3.4), Theorem 3.3 yields
+
+                     Theorem 3.4 Suppose that A is a positive constant and R(n) satisfies
+                     (3.5). Then
+                                              R(n) = \n2<Z(n) + O(n2(log n)~ A)
+                     where S(n) satisfies (3.15).
+
+                     Corollary Every sufficiently large odd number is the sum of three
+                     primes.
+
+
+                     3.2 The binary Goldbach problem
+                     In the binary Goldbach problem it is not possible to obtain an
+                     asymptotic formula in the same manner as in §3.1. However, a non-
+                     trivial estimate can be obtained for
+
+
+
+                     where
+
+                                               R1(m)=          Z
+                                                              P1.P2
+                                                           Pi + P2 = m
+                     and S^m) is the corresponding singular series. This is because the
+                     above expression corresponds to a quaternary problem, rather than
+                     to a binary problem. It leads to the less precise conclusion that almost
+                     every even number is a sum of two primes.
+                        Let
+
+                                      Rx(m) = R1(m9n)=             X       X (\ogPl)(\ogp2).   (3.16)
+                                                                 p j < n P2 ^ n
+                                                                  P 1+ P2 = m
+
+                     Then
+                                                     Rl(m) = R2(m) + R3{m)                     (3.17)
+                     where
+
+                                                 R2{m)=            /(a)2e(-                    (3.18)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     34                                                                    Goldbach's problems
+
+                     and
+                                                                   f
+                                                  R3(m)=\               f((x)2e(-xm)doi.
+                                                                                      (3.19)
+                                                  Jm
+                     Here/, 5W, m are as in § 3.1.
+                       Now K3(m) is the Fourier coefficient of the function which is/(a) 2 on
+                     m and 0 elsewhere. Hence, by Bessel's inequality
+
+                                                   £ \R3(m)\2< f l/Ka)|4da.                                 (3.20)
+                                                  m= 1                       Jm
+
+
+                     Theorem 3.5 Suppose that A is a positive constant and B ^ A + 9.
+
+
+                                                  m=l
+
+                       This can be deduced, via (3.20), in a similar manner to Theorem 3.2.
+                     Let
+                                          Si(w,P)= Z                     £      ^^(-W*                      (3.21)
+                                                            q^P          a=\      9W
+                                                                       (a, q) = 1
+                     Then by making only trivial adjustments to the argument that gives
+                     (3.8) one obtains
+                                                                         fP/n
+                                         R2(m) = e^m, P)
+                                                              J-P/n
+                                                     + 0(P 3 nexp(-C(logn) 1/2 )).
+                     Moreover, by (3.10),
+                                                         l/2
+
+                                                     JP/n
+                     H e n c e , b y (3.21) a n d t h e e l e m e n t a r y e s t i m a t e £ 0 ( g ) ~ *
+                     one has
+                                         R2(m) = S^PM^m)
+                     where
+                                                               r 1/2
+                                               JAm) =                  v(
+                                                            J-l/2
+                     By (3.6), J^m) is the number of solutions of ml-\-m2 = m with
+                     1 ^ ntj ^ n. Hence, when m ^ «, one has Jx(m) = m — 1. Therefore, by
+                     (3.21),
+                                R2(m) = mS^m, P) + OMlogrc)1 ~B)                           (1 ^ m ^ n).     (3.22)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                      The binary Goldbach problem                                                        35
+
+                         By (3.14), one has
+
+
+                                                 (a, q) = 1                             (q, m) = 1
+
+
+
+
+                     using the elementary fact that
+
+                                                              q>Z
+                     Hence
+                                             S
+                                                 i(™)= I 5 ^              I       e(-am/^)           (3.24)
+                                                               q=l<PW      a=l
+                                                                        (a,q)=l
+                     converges,
+                                                     S^m,?) - Sx(m) <^ logm
+                     and
+
+                                ^    IS^m, P ) - S ^
+
+
+
+
+                     Hence, by (3.2) and (3.22),
+
+                                           £ |K 2 (ift)-m®,(m)| 2 «i! 3 aog»!) 2 - B .               (3.25)
+                                          m=l
+
+                         By (3.14),
+
+                                    S1(m) = (n(l-(P-D" 2 ))r[( 1 +(P- 1 )" 1 )-                      (3-26)
+                                                 Vp/m                         /p|m
+                     Now, by choosing B suitably one obtains
+
+                     Theorem 3.6 Suppose that A is a positive constant and B ^ A + 2. T/zerc
+                                             n
+                                            X |H2(m) - m®^m)! 2 <
+                                           m=l
+
+                            !(m) satisfies (3.26).
+                        Combining (3.17) and Theorems 3.5 and 3.6 establishes
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                     36                                                                  Goldbach's problems
+
+                      Theorem 3.7 Let A denote a positive constant. Then
+                                              n
+
+
+                                             X        \R1(m)-m(B1(m)\2<ni(\ogn)-A
+
+                      where Rx and S x satisfy (3.16) and (3.26) respectively.
+
+                       Note that S^m) P 1 when m is even and o^ra) = 0 when m is odd.
+                     Corollary The number E(n) of even numbers m not exceeding n for
+                     which m is not the sum of two primes satisfies
+                                              E(n)<tn(\ogn)~A.
+
+                      Proof By (3.16) and (3.26), for each m counted by E(n\
+                                           m~2\R2(m) - mS^m)! 2 = S t (m) 2 > 1.
+                      Hence
+
+
+                     The conclusion now follows from Theorem 3.7 by partial summation.
+
+
+                     3.3 Exercises
+                          1 Show that every large natural number can be written in the form
+
+                       2 Suppose that av ..., a 4 are fixed non-zero integers with au a2, a3
+                     not all of the same sign. Show that
+
+                                    R(n)=         Z     Z        Z      (log/?1)(logp2)(logp3)
+
+
+                     satisfies
+
+                     where J(n) is the number of solutions of
+                                                  a1m1 + a2m2 + a3m3 + a 4 = 0
+                     with m} ^ n and
+                                                            oo             4
+
+
+
+
+                     Show that if (al9 a2, a3)\a4, then J(n) $> n2 for large n.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+                      Exercises                                                                        37
+
+                       3 In the notation of the previous exercise show that a sufficient
+                     condition for S > 1 to hold is that
+                                   (a2, a 3 , a 4 ) = (al9 a 3 , a4) = (au a2, a 4 ) = (al9 a2, a3),
+                                       a
+                                  i + a 2 "+" a 3 + fl4 = 0(mod 2(al5 a2, a3, a4)).
+                     Show that this condition is also necessary, and that, if it fails, then
+                     S = 0.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.006 Published online by Cambridge University Press
+

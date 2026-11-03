@@ -1,0 +1,58 @@
+# Plan: vaughan@gpt-6.1-sol
+
+Model: codex:gpt-6.1-sol
+
+Plan: retain Vaughan’s variance decomposition and Bernoulli kernel, but replace the circle method by a uniform elementary squarefree-pair correlation estimate and explicit averaging over polynomial residue classes modulo squares. Five propositions give both a transition profile for f(y) comparable to x and a constant main term when f(y)/x tends to zero. No restriction on f beyond problem.md is proposed. The predicted constants agree with the numerical extrapolation uncertainties; retaining the discrete polynomial sum also explains the larger cubic finite-size discrepancy. Sources used: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), https://doi.org/10.1112/S0024611505015352; the averaging strategy is informed by J. Brüdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011, supplied exception), https://doi.org/10.1093/qmath/hap029. An incidental search result containing later publications was not opened or used. No excluded source was accessed or used.
+
+## Main theorem
+
+Proposed theorem. Let f and d satisfy problem.md, let x≥2 and y≥1 be real, and put Y=f(y)≤x. Write ζ for the Riemann zeta function, μ for the Möbius function, and let all products indexed by p run over primes. Define C=∏p(1−2/p²), b(m)=μ²(m)∏p|m(p²−2)⁻¹, B(u)={u}(1−{u}), and J(z)=∫z^∞ B(u)u⁻³ du for z>0, where {u}=u−⌊u⌋. For squarefree m and a|m² define β_f(m,a)=m⁻² #{t mod m²: m²/gcd(m²,f(t))=a}. Define Ψ_f(r)=C∑m squarefree b(m)∑a|m² β_f(m,a)a⁻¹J(1/(ar)) for 0<r≤1. These series converge absolutely. For every 0<ε<1/4 there exists A(f,ε)>0 such that, uniformly in the stated x,y range, |V_f(x,y)−x²Ψ_f(Y/x)|≤A(f,ε)[x^(5/3+ε)+xY^(1−1/(2d))log(2x)]. For j=0,1,2 put α₀(p)=1−ρ(p)/p, α₁(p)=ρ(p)/p−ρ(p²)/p², and α₂(p)=ρ(p²)/p². The positive constant c_f is −(8/3)ζ(−1/2)∏p(1−1/p)[1−2/p²+(pα₀(p)+√p α₁(p)+α₂(p))/p²]. The product converges absolutely. There exists A′(f,ε)>0 such that |V_f(x,y)−c_f x^(1/2)Y^(3/2)|≤A′(f,ε)[x^(5/3+ε)+xY^(1−1/(2d))log(2x)+x^(1/4+ε)Y^(7/4−ε)] throughout the same range. In particular, set θ_d=max(7/9,d/(d+1)). For every 0<δ<(1−θ_d)/2 there exist A″(f,δ)>0 and x₀(f,δ)≥2 such that |V_f(x,y)/(c_f x^(1/2)Y^(3/2))−1|≤A″(f,δ)x^(−δ/8) uniformly for x≥x₀(f,δ) and x^(θ_d+δ)≤Y≤x^(1−δ).
+
+## Numerics check
+
+Yes, within the reported extrapolation uncertainties. results.json gives intercepts 0.134475±0.007285, 0.136321±0.002404, and 0.141686±0.008218, respectively. The transition profile reproduces the persistent ratio dependence, including the uneven behavior for odd linear moduli. At x=256000000 and the smallest requested ratio, the quadratic profile gives approximately 0.140745 versus 0.140858 observed; the odd-linear profile gives 0.144568 versus 0.144598 observed. The cubic continuous profile gives approximately 0.138722 versus 0.139990 observed. Keeping the original discrete cubic k-sum in the Bernoulli kernel changes the prediction to approximately 0.139996. At the cubic ratios near 0.1 and 1, the discrete-kernel discrepancies are approximately 6.3×10⁻⁷ and 2.5×10⁻⁸. These calculations support polynomial sampling effects as the main cubic discrepancy and provide no indication that the numerical variance implementation is wrong. The extrapolation uncertainties remain heuristic.
+
+## P1: Exact densities and uniform control of the centering term
+
+Depends on: none  
+Cites: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), specialized to k=2; https://doi.org/10.1112/S0024611505015352, R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.3, specialized to k=2; https://doi.org/10.1112/S0024611505015352, R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.4, specialized to k=2; https://doi.org/10.1112/S0024611505015352, R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.15, specialized to k=2; https://doi.org/10.1112/S0024611505015352
+
+Let μ be the Möbius function and ζ the Riemann zeta function. For every integer q≥1 and 1≤l≤q, define a_p=min(2,v_p(q)) for p|q, where v_p(q) is the exponent of p in q. Then the density in problem.md is g(q,l)=[qζ(2)]⁻¹∏p|q [1−p^(a_p−2)1_{p^(a_p)|l}]/(1−p⁻²), where 1_A denotes the indicator of A. In particular, 0≤g(q,l)≤1/q and ∑l=1^q g(q,l)=ζ(2)⁻¹. Put C=∏p(1−2/p²), b(m)=μ²(m)∏p|m(p²−2)⁻¹, and G(q)=∑l=1^q g(q,l)². Then G(q)=(C/q)∑m≥1 b(m)gcd(m²,q)/m², with absolute convergence. For every 0<ε<1 there exists A_ε>0 such that, uniformly for real x≥2 and integers 1≤q≤x, |∑n≤x μ²(n)g(q,n)−xG(q)|≤A_ε x^(1/2)q^(−1+ε), with g(q,n) interpreted periodically modulo q. Also |∑n≤x μ²(n)−x/ζ(2)|≤3√x for every real x≥2. Empty products equal 1.
+
+*Risk:* The factor q⁻¹ in the centering error must survive the divisor decomposition. A bound uniform only for coprime residue classes is insufficient.
+
+## P2: Squarefree pair correlation uniformly in the shift
+
+Depends on: none  
+Cites: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.15, specialized to k=2, for the singular-series identity only; https://doi.org/10.1112/S0024611505015352
+
+Let C=∏p(1−2/p²), with p ranging over primes. For each integer h≥1 define S(h)=C∏p²|h (p²−1)/(p²−2). For every 0<ε<1 there exists A_ε>0 such that, uniformly for real X≥2 and integers 1≤h≤X, |∑1≤n≤X−h μ²(n)μ²(n+h)−(X−h)S(h)|≤A_ε X^(2/3+ε). A sum with no admissible positive integer n is zero. The constant is independent of h and of X−h, including when X−h is bounded.
+
+*Risk:* The correlation bound is a new elementary lemma in this plan, not a quoted consequence of Vaughan’s lemma. Its proof must keep shift dependence within X^ε and must cover shifts approaching X.
+
+## P3: Reduction of the weighted variance to a positive Bernoulli kernel
+
+Depends on: P1, P2  
+Cites: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.16; https://doi.org/10.1112/S0024611505015352
+
+Let f,d be as in problem.md. Define C=∏p(1−2/p²), b(m)=μ²(m)∏p|m(p²−2)⁻¹, B(u)={u}(1−{u}), and L(m,q)=lcm(m²,q)=m²q/gcd(m²,q). Here μ is the Möbius function and {u}=u−⌊u⌋. For real x≥2,y≥1 with Y=f(y)≤x, define K_f(x,y)=C∑m≥1 b(m)∑1≤k≤y f′(k)L(m,f(k))B(x/L(m,f(k))). This series converges absolutely and has nonnegative terms. For every 0<ε<1/4 there exists A(f,ε)>0 such that |V_f(x,y)−K_f(x,y)|≤A(f,ε)x^(5/3+ε), uniformly throughout the stated range.
+
+*Risk:* The diagonal, quadratic density term, and linear centering term must cancel before estimating the kernel. An incorrect Bernoulli sign or a missing factor of two changes the main constant.
+
+## P4: Polynomial residue averaging with an explicit square-divisor cutoff (CRUX)
+
+Depends on: none  
+Cites: none
+
+Let f,d be as in problem.md. Let C=∏p(1−2/p²), b(m)=μ²(m)∏p|m(p²−2)⁻¹, B(u)={u}(1−{u}), J(z)=∫z^∞ B(u)u⁻³ du for z>0, and L(m,q)=lcm(m²,q). For squarefree m and a|m² put β_f(m,a)=m⁻² #{t mod m²: m²/gcd(m²,f(t))=a}. Define α₀(p)=1−ρ(p)/p, α₁(p)=ρ(p)/p−ρ(p²)/p², and α₂(p)=ρ(p²)/p². Then β_f(m,a)=∏p|m α_(2−v_p(a))(p); for m=a=1 this product is 1. For every real M≥1 define K_(f,M)(x,y)=C∑1≤m≤M b(m)∑1≤k≤y f′(k)L(m,f(k))B(x/L(m,f(k))) and Ψ_(f,M)(r)=C∑m≤M, m squarefree b(m)∑a|m² β_f(m,a)a⁻¹J(1/(ar)). Write K_(f,∞) and Ψ_(f,∞) for their limits. These limits converge absolutely. There exists A_f>0 such that, uniformly for real x≥2,y≥1,Y=f(y)≤x and every real cutoff M≥1, |K_(f,M)(x,y)−x²Ψ_(f,M)(Y/x)|≤A_f xY(M/y)log(2x), 0≤K_(f,∞)(x,y)−K_(f,M)(x,y)≤A_f xY/M, and 0≤x²[Ψ_(f,∞)(Y/x)−Ψ_(f,M)(Y/x)]≤A_f xY/M. Consequently, |K_(f,∞)(x,y)−x²Ψ_(f,∞)(Y/x)|≤A′_f xY^(1−1/(2d))log(2x) for a constant A′_f depending only on f.
+
+*Risk:* The averaging must retain both ρ(p) and ρ(p²), including primes dividing the polynomial’s content or discriminant. Summing errors over m² residue classes must cost only M after weighting by b(m). The Bernoulli kernel has many oscillations, so its total variation requires a uniform logarithmic bound.
+
+## P5: Mellin evaluation of the transition profile and its leading constant (CRUX)
+
+Depends on: P4  
+Cites: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.18, with B=−2B₂* and a change of Mellin variable; https://doi.org/10.1112/S0024611505015352
+
+Let f,d be as in problem.md, ζ the Riemann zeta function, and μ the Möbius function. Define C=∏p(1−2/p²), b(m)=μ²(m)∏p|m(p²−2)⁻¹, B(u)={u}(1−{u}), J(z)=∫z^∞ B(u)u⁻³ du, and β_f(m,a)=m⁻² #{t mod m²: m²/gcd(m²,f(t))=a} for squarefree m and a|m². Put Ψ_f(r)=C∑m squarefree b(m)∑a|m² β_f(m,a)a⁻¹J(1/(ar)) for 0<r≤1. Set α₀(p)=1−ρ(p)/p, α₁(p)=ρ(p)/p−ρ(p²)/p², and α₂(p)=ρ(p²)/p². For complex s with Re(s)<−1/2 define D_f(s)=∑m squarefree b(m)∑a|m² β_f(m,a)a^(1+s). Its absolutely convergent Euler product is ∏p[1+(α₀(p)p^(2+2s)+α₁(p)p^(1+s)+α₂(p))/(p²−2)]. The product H_f(s)=∏p(1−p^(2s))[1+(α₀(p)p^(2+2s)+α₁(p)p^(1+s)+α₂(p))/(p²−2)] converges absolutely and locally uniformly for Re(s)<−1/4, and D_f(s)=ζ(−2s)H_f(s) initially for Re(s)<−1/2 and then by meromorphic continuation. For every fixed real c with −1<c<−1/2, Ψ_f(r)=C/(2πi)∫_(c−i∞)^(c+i∞) [2ζ(−s−1)D_f(s)r^(s+2)]/[s(s+1)(s+2)] ds, with absolute convergence. Define c_f=−(8/3)ζ(−1/2)C H_f(−1/2). This number is positive and equals −(8/3)ζ(−1/2)∏p(1−1/p)[1−2/p²+(pα₀(p)+√p α₁(p)+α₂(p))/p²], an absolutely convergent product. For every 0<ε<1/4 there exists A(f,ε)>0 such that |Ψ_f(r)−c_f r^(3/2)|≤A(f,ε)r^(7/4−ε) uniformly for 0<r≤1.
+
+*Risk:* The generalized Euler product and contour shift must be established for the polynomial residue probabilities, rather than assumed from the consecutive-modulus case. The residue at s=−1/2 has a negative orientation factor; mishandling it changes the sign or doubles the constant. Absolute convergence of the integrated Mellin kernel is essential.

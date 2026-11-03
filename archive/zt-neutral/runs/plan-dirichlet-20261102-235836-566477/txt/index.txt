@@ -1,0 +1,216 @@
+                       Index
+
+
+                       T(k), 24                                    Chowla, 23, 151
+                       T*(/c), 150, 151                            condition, congruence, 53, 150
+                       F0(/c), 25                                  congruence condition, 53, 150
+                                                                   congruence, polynomial, 112
+                       addition of sets of residues, 23            congruences, simultaneous, 58, 59, 76,
+                       additive homogeneous equation, 147,           113
+                          151, 167                                 congruences, system of, 76
+                       additive homogeneous equation,              conjecture, Erdos-Turan, 155, 156
+                          non-trivial solution, 148, 151, 167      conjecture, general, 127
+                       algebraic numbers, ix, 64                   cubes, 6
+                       algorithm, Euclid's, 20                     cubes, four positive, 109
+                       Apostol, 22                                 cubic form, ix, 147
+                       approximation, diophantine, 4
+                       arc, major, 5, 8, 14, 27, 30, 38, 51, 70,   Davenport, ix, 6, 23, 38, 94, 95, 97,
+                          107, 112, 116, 119, 120, 125, 128,          100, 103, 104, 105, 108, 109, 128,
+                          135, 162, 163, 164, 168, 169, 172           136, 141, 147, 150, 167, 174
+                       arc, minor, 5, 8, 14, 27, 69, 112, 118,     density, asymptotic, 155
+                          125, 127, 128, 130, 162, 163, 164,       density, lower asymptotic, 155
+                          168, 169                                 density, upper asymptotic, 155
+                       arithmetic progression, 155                 Dickson, 1
+                       asymptotic density, 155                     difference operator, central, 102
+                       asymptotic density, lower, 155              difference operator, forward, 10, 25,
+                       asymptotic density, upper, 155                 184
+                       auxiliary equation, 176                     difference operator, modified forward,
+                       auxiliary function, 14, 105, 112, 116          75
+                                                                   differences, efficient, 75, 83, 177, 186
+                       Babaev, 146                                 diophantine approximation, 3, 9
+                       Bachet, 1                                   diophantine inequality, 167
+                       Baker, 174                                  diophantine inequality, non-trivial
+                       Bertrand's postulate, 62                       solution, 167
+                       Bierstedt, 151                              Diophantus, 1
+                       binary Goldbach problem, 6, 33              Dirichet, 3, 9, 14
+                       biquadrate, 1                               distribution modulo one, uniform, 5
+                       biquadrates, Waring's problem for,          divisors, sum of, 7
+                          105                                      Dodson, 151
+                       Birch, 147, 151
+                       Boklan, 24                                  Ellison, 1
+                       Bovey, 151                                  efficient differences, 75, 83, 177, 186
+                       Brauer,147                                  equation, additive homogeneous, 147,
+                       Buchstab identity, 176                         151, 167
+                                                                   equation, additive homogeneous,
+                       Cauchy-Davenport-Chowla theorem,               non-trivial solution, 148, 150, 167
+                         23                                        equation, auxiliary, 176
+                       central difference operator, 102            equation, homogeneous, ix, 147
+                       character, 46                               equation, homogeneous, non-trivial
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+Published online by Cambridge University Press
+                      230                                                                          Index
+
+                        solution, 147, 151                       Goldbach, 6, 27
+                      equation, homogeneous, trivial             Goldbach binary problem, 33
+                        solution, 147                            Goldbach ternary problem, 27
+                      equation, transcendental, 69, 92, 192
+                      equations, simultaneous, ix, 57, 60, 61,   Hardy, ix, 1, 3, 4, 6, 21, 24, 25, 32, 70,
+                        78, 80, 151, 152, 153                      72, 94, 142, 183
+                      equations, system of, 112                  Hardy-Littlewood method, ix, 3, 6. 8,
+                      Erdos, 95, 155, 156                          112, 144, 155, 167, 168
+                      Erdos-Turan conjecture, 155, 156           Hardy & Wright, ix, 1, 21, 32, 183
+                      ergodic theory, 155, 156                   Hasse, 141
+                      Estermann, ix                              Heath-Brown, 24
+                      Euclid's algorithm, 20                     Heilbronn, 38, 128, 136, 167
+                      Euler, 1, 6, 22                            Hilbert, 1
+                      Euler-Maclaurin summation formula,         homogeneous equation, ix, 147
+                        41,44                                    homogeneous equation, additive, 147,
+                      Euler product, finite, 136                   151, 167
+                      Exodus 24:12, xi                           homogeneous equation, additive,
+                                                                   non-trivial solution, 148, 150, 167
+                      Fermat, 1                                  homogeneous equation, non-trivial
+                      finite Euler product, 136                    solution, 147, 151
+                      Ford,194                                   homogeneous equation, trivial solution,
+                      form, cubic, ix, 147                         147
+                      form, general, 7                           homogeneous form, 147, 151
+                      formula, Euler-Maclaurin summation,        homogeneous inequality, ix
+                         41,44                                   Hua, 6, 8, 38, 111, 112, 122
+                      formula, Fourier's inversion, 15           Hua's lemma, 12, 14, 72, 112, 135,
+                      formula, Poisson summation, 41               169
+                      formulae, Newton's, 59                     Huxley, 64
+                      forward difference operator, 10, 25, 184   hypothesis, Freiman's, 92
+                      forward difference operator, modified,     hypothesis, generalized Riemann, 6
+                         75
+                      four positive cubes, 109                   identity, Buchstab, 176
+                      four square theorem, 1                     identity, Vaughan's, 28
+                      Fourier's inversion formula, 15            Imperial College, ix
+                      fourth powers, 100, 105                    inequality, diophantine, 167
+                      Freiman's hypothesis, 92                   inequality, diophantine, non-trivial
+                      function, auxiliary, 14, 105, 112, 116        solution, 167
+                      function, generating, 14, 38, 105, 112     inequality, general, 7
+                      function, Mobius, 28                       inequality, homogeneous, ix
+                      function, partition, 3                     inequality, Weyl's, 5, 11, 14, 17, 27, 55,
+                      function, von Mangoldt, 28                    107, 108, 112, 131, 171
+                      fundamental lemma, 78, 177                 integral, singular, 4, 18
+                      Furstenberg, 155, 156, 161                 inversion formula, Fourier's, 15
+
+                      g(k), I                                    Jacobian, 75, 76, 77
+                      G(k), 5, 8                                 Jagy, 146
+                      G*(/c), 150
+                      Gt(/c), 126, 193                           Kaplansky, 146
+                      Gauss sum, 46, 141                         Karatsuba, 58
+                      general conjecture, 127                    kernel, squarefree, 178
+                      general form, 7                            Kubina, 2
+                      general inequality, 7
+                      generalized Riemann hypothesis, 6          Lagrange, 1
+                      generating function, 14, 38, 105, 112      Landau, ix
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+Published online by Cambridge University Press
+                      Index                                                                              231
+
+                      large sieve, 64, 73, 141                     partititon function, 3
+                      Legendre, 127                                Pillai, 1
+                      lemma, fundamental, 78, 177                  Poisson summation formula, 41
+                      lemma, Hua's, 12, 14, 72, 112, 135,          Polya, 142
+                         169                                       polynomial congruence, 112
+                      Lewis, ix, 147, 150                          postulate, Bertrand's, 62
+                      Linnik, 6, 58                                power residue, 20, 22, 46
+                      Littlewood, ix, 1, 3, 4, 6, 8, 24, 25, 70,   powers, sums of, 94, 108, 126
+                         72, 94, 142                               primitive root, 46
+                      lower asymptotic density, 155                problem, binary Goldbach, 33
+                                                                   problem, ternary Goldbach, 27
+                      Mahler, 2                                    problem, Waring's 1, 4, 38, 69, 70, 176
+                      major arc, 5, 8, 14, 27, 30, 38, 51, 70,     problem, Waring's for biquadrates, 105
+                        107, 112, 116, 119, 120, 125, 128,           product, finite Euler, 136
+                        135, 162, 163, 164, 168, 169, 172          progression, 156
+                      Mangoldt, von, function, 28                  progression, arithmetic, 155
+                      mean value theorem, 187
+                      mean value theorem, Vinogradov's, 57,        Rademacher, ix
+                        58,62,75, 111                              Ramanujan, 3
+                      mean value theorem, Vinogradov's,            Ramanujan's sum, 7, 32
+                        non-trivial solution, 111                  region, trivial, 169
+                      mean value theorem, Vinogradov's,            residue, power, 20, 22, 46
+                        trivial solution, 111                      residues, addition of sets of, 23
+                      Meditationes Algebraicae, 1                  Rieger, 1
+                      Miech, 136                                   Riemann hypothesis, generalized, 6
+                      minor arc, 5, 8, 14, 27, 69, 112, 118,       Riemann zeta function, 57
+                        125, 127, 128, 130, 162, 163, 164,         Rogovskaya, 125
+                        168, 169                                   root, primitive, 46
+                      Mobius function, 28                          Roth, 128, 155, 156, 157, 174
+                      modified forward difference operator,
+                        75                                         Sarkozy, 156, 161, 166
+                      Montgomery, 6                                Schmidt, ix, 38
+                      Mordell, 38, 113                             Scourfield, 92
+                      multiplicative number theory, 6              series, singular, 4, 20, 33, 48, 107, 128,
+                                                                      136
+                      Newton's formulae, 59                        Shimura, 151
+                      non-singular solutions, 77                   Siegel, ix
+                      non-trivial solution, additive               sieve, large, 64, 73, 141
+                        homogeneous equation, 148, 151,            simultaneous congruences, 58, 59, 76,
+                        167                                           113
+                      non-trivial solution, homogeneous            simultaneous equations, ix, 57, 60, 61,
+                        equation, 147, 151                            78, 80, 151, 152, 153
+                      non-trivial solution, Vinogradov's           singular integral, 4, 18
+                        mean value theorem, 111                    singular series, 4, 20, 33, 48, 107, 128,
+                      Norton, 151                                     136
+                      number theory, multiplicative, 6             singular solutions, 77
+                      numbers, algebraic, ix, 64                   smooth numbers, 175
+                      numbers, smooth, 175                         solutions, non-singular, 77
+                                                                   solutions, singular, 77
+                      operator, central difference, 102            space, vector, 151
+                      operator, forward difference, 10, 25,        square theorem, four, 1
+                        184                                        square theorem, three, 127
+                      operator, modified forward difference,       squarefree kernel, 178
+                        75                                         squares, 3, 4
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+Published online by Cambridge University Press
+                      232                                                                         Index
+
+                      Stemmler, 2                               Vaughan's identity, 28
+                      sum, Gauss, 46, 141                       vector space, 151
+                      sum of divisors, 7                        Vinogradov, 5, 6, 22, 27, 57, 70, 111,
+                      summation formula, Euler-Maclaurin,         122
+                        41,44                                   Vinogradov symbol, xi
+                      summation formula, Poisson, 41            Vinogradov's mean value theorem, 57,
+                      sums of powers, 94, 108, 126                58,62,75, 111
+                      sums of three squares, 127                Vinogradov's mean value theorem,
+                      symbol, Vinogradov, xi                      non-trivial solution, 111
+                      system of equations, 112                  Vinogradov's mean value theorem,
+                      Szemeredi, 155, 156                         trivial solution, 111
+                      Szemeredi's theorem, 156
+                                                                Waerden, van der, 155
+                      ternary Goldbach problem, 27
+                      three squares, 127                        Waring, 1
+                      Tietavainen, 151                          Waring's problem, 1, 4, 38, 69, 70,
+                      transcendental equation, 69, 92, 192       176
+                      trivial region, 169                       Waring's problem for biquadrates,
+                      trivial solution, homogeneous equation,    105
+                         147                                    Watson, 6
+                      trivial solution, Vinogradov's mean       Weil, 38
+                         value theorem, 111                     Weyl, 5, 10
+                      Turan, 155, 156                           Weyl's inequality, 5, 11, 14, 17, 27, 55,
+                                                                 107, 108, 112, 131, 171
+                      uniform distribution, 5                   Wilson, 64
+                      upper asymptotic density, 155             Wooley, 58, 71, 75, 93, 126, 175, 186,
+                                                                 191
+                      Vaughan, 6, 24, 55, 109, 110, 126, 128,   Wright, ix, 1, 21, 32, 183
+                        150, 174, 186, 194                      Wunderlich, 2
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+Published online by Cambridge University Press
+

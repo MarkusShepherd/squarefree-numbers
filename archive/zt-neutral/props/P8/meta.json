@@ -1,0 +1,11 @@
+{
+  "id": "P8",
+  "title": "Averages over polynomial moduli",
+  "statement": "Notation:\n- f in Z[t] has degree d >= 1, with f(t) >= 2 and f'(t) >= 1 for t >= 1.\n- rho(m) = #{a mod m : f(a) \u2261 0 mod m}.\n- F(t) = f'(t) f(t)^{1/2}.\n- h(q) = -4 zeta(-1/2) \u00b7 prod_{p\u2224q} (1 - 3/p^2 + 2/p^3) \u00b7 prod_{p||q} (p-1)(p^2 - 2 + sqrt p)/p^3 \u00b7 prod_{p^2|q} (p-1)^2 (p+1)/p^3.\n- tau_p = (1 - 3/p^2 + 2/p^3)(1 - rho(p)/p) + ((p-1)(p^2 - 2 + sqrt p)/p^3)(rho(p)/p - rho(p^2)/p^2) + ((p-1)^2 (p+1)/p^3)(rho(p^2)/p^2).\n- C_f = (2/3)(-4 zeta(-1/2)) prod_p tau_p.\n\nClaims.\n\n(0) tau_p > 0 for every p, and prod_p tau_p converges absolutely. Hence 0 < C_f < infinity.\n\nFor every eps > 0 there are constants c(f), c(f,eps), depending only on f (and eps), such that for all real y >= 1, with Y = f(y):\n\n(a) |sum_{1<=k<=y} F(k) h(f(k)) - C_f Y^{3/2}| <= c(f,eps) Y^{3/2+eps} y^{-1/2};\n\n(b) sum_{1<=k<=y} f'(k)/f(k) <= c(f)(1 + log Y);\n\n(c) sum_{1<=k<=y} f'(k) <= c(f) Y.",
+  "depends_on": [],
+  "cites": [
+    "Hooley 1964 (background on rho only; not needed for hypotheses)"
+  ],
+  "crux": false,
+  "risk": "Moderate.\n\n1. Write h(q) = h_0 sum_{m|q} etat(m), where h_0 = -4 zeta(-1/2) prod_p (1 - 3/p^2 + 2/p^3) and etat is multiplicative with:\n   - etat(p) = (sqrt p - p)/((p+2)(p-1)), lying in (-1/p, 0];\n   - etat(p^2) = (1 - sqrt p)/((p+2)(p-1)), with |etat(p^2)| <= p^{-3/2};\n   - etat(p^j) = 0 for j >= 3.\n2. Swap sums and split k into rho(m) classes mod m. F has at most 2d monotone pieces on [1, y], because F' has the sign of the polynomial 2 f'' f + f'^2. So each class sum equals (1/m) int_1^y F + O_f(max_{[1,y]} F), and max F << Y^{3/2}/y.\n3. Use int_1^y F = (2/3)(Y^{3/2} - f(1)^{3/2}).\n4. Truncate at m <= M = y^2. The tail costs tau(f(k)) M^{-1/2} << Y^eps/y, using |etat(m)| <= m^{-1/2}.\n5. Use rho(p) <= d and rho(p^2) <= d p for p not dividing the content of f (Lagrange and Hensel). Primes dividing the content are finitely many and are absorbed into the constants. Rankin's trick then gives sum_{m<=M} |etat(m)| rho(m) << M^{1/4+eps}.\n\nThe pitfall is f with repeated factors or nontrivial content (rho(p^2) as large as p, or rho(p) = p). The bounds above still cover these, but the prover must not assume rho(p^2) = rho(p)."
+}

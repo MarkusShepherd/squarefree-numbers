@@ -1,0 +1,1329 @@
+                 7. On the Montgomery-Hooley
+                    Asymptotic Formula
+                         D. A. Goldston and R. C. Vaughan
+
+            1. Introduction
+                Let A denote von Mangoldt's function. That is, when n is of the form
+            pk where p is a prime number and A; is a natural number then A(n) = logp
+            and otherwise A(n) = 0. Further let
+
+
+                                                                   n<x
+                                                                n=o(mod q)
+
+            and let V(x, Q) denote the variance
+                                                            q                             2
+                                  V(x,Q)=                                            x                (1.2)
+                                                  q<Q a=l
+                                                        (a,g)=l
+
+            Then, as a refinement of work of Barban [1], Davenport and Halberstam [3]
+            and Gallagher [5], Montgomery [13] obtained the asymptotic formula for
+
+                          V(x,Q) = QxlogQ + 0(Qx + x2/logAx)                          if Q < x.       (1.3)
+            Montgomery's method depended upon a result of Lavrik [12] in additive
+            number theory and was, therefore, dependent upon Vinogradov's theory
+            of exponential sums over primes. In [8], [9], [10] Hooley introduced and
+            developed a simpler yet more sophisticated method which led inter alia to
+            the asymptotic formula
+                 V(x,Q) = Qx\ogQ-cQx + 0(Qixi +x2/\ogAx)                                  if Q < x    (1.4)
+            and to
+                                                                ( ^ i        x%+€) if         Q<x     (1.5)
+
+            on the assumption of the generalised Riemann hypothesis. Here c is an ab-
+            solute constant. Very recently Friedlander and Goldston [4] have obtained
+            R.C. Vaughan is supported by an EPSRC Senior Fellowship.
+            Sieve Methods, Exponential Sums, and their Applications in Number Theory
+            Greaves, G.R.H., Harman, G., Huxley, M.N., Eds. ©Cambridge University Press, 1996
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            118                            D. A. Goldston and R. C. Vaughan
+
+            some very interesting results by a process at least partially based on con-
+            siderations concerning the additive theory of primes. In particular they are
+            able to improve (1.5) when Q is not close to x and obtain
+
+                        V(x,Q) = Qx log Q - cQx + 0(min(Qix* (log x)§, Qxj\
+                                         + O(zflog 6 z)             if Q<x.                           (1.6)
+
+                On receipt of their preprint it occurred to one of us (Vaughan) to check
+            the contents of a letter written to Hugh Montgomery dated 19th June 1973.
+            Consideration of the ideas in it was shelved at that time, partly because
+            other things were being pursued and partly because Professor Hooley was
+            then developing his exciting new ideas. It was thus rather amusing to see
+            that with the ideas sketched in that letter, when one assumes the gener-
+            alised Riemann hypothesis, it is possible to obtain superior results to those
+            obtained for V(x,Q) either by Hooley or Friedlander and Goldston. The
+            idea is to work via the additive theory of primes, but instead of appealing to,
+            or at least developing separately, the appropriate additive theory, to view
+            the "difficult part" of V(x,Q)\ namely S\ below, as an additive problem
+            and treat it directly. This has the advantage that there is no need for an
+            application of the theory of exponential sums over primes a la Vinogradov,
+            as there is inbuilt a "type I" sum, F(a) below, which can be estimated
+            directly and more effectively.
+            Theorem 1.1, Suppose that the generalised Riemann hypothesis holds and
+            let
+                                 U(x,Q) = V(x,Q) - QxlogQ - cxQ                       (1.7)
+            where
+
+                                                                      p
+
+            Then
+             (i) when 1 < Q < x one has
+
+                             U(x,Q) < Q2(x/Q)*+e +xf(lo g 2x)t(loglog3a ; ) 2 ,                       (1.9)
+
+             (ii) there is an absolute constant C such that when x/Q —>• oo with
+
+                                       Cz * (log 2 z ) ^ (log log 3z) 7 < Q < x
+
+            one has
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montgornery-Hooley Asymptotic Formula                         119
+
+                If one is prepared to make the further assumptions that the non-trivial
+            zeros p of the Riemann zeta function are simple and ('(p) does not get too
+            small, then the e in (1.9) can be replaced by 0. We remark further upon
+            this at the end of §8.
+                We further observe that without any unproved assumption the method
+            readily gives (1.4) with the error term z 3 / 4 £? 5 / 4 replaced by x1l2Q*l2 and
+            the argument is then as short and simple as any used hitherto. With only
+            a modest amount of extra effort it is possible to obtain
+
+                                                                       (_ ''(»Qg2x/Q)t Y
+                              * >V'         log-4!         V       F
+                                                                       VV (Ioglog3i/Q)*
+                                                                           (Ioglog3i/Q)*/
+                The following theorem gives more precise results when Q is very close
+            to x.
+            Theorem 1.2. Suppose that the generalised Riemann hypothesis holds and
+            that
+                                                           _ C(2)C(3)
+                                                      Cl                                              (L12)
+                                                           ~ "oeT
+            and
+
+
+
+            Then
+             (i) when | x < Q < \x one has
+
+            V{x, Q) = x2 (d log ^ + C2 - 2) + Qx(log x + 5) - 5Q2 + O(x§ log3 2x),
+
+            (ii) when ^x < Q < x one has
+
+             V(x, Q) = x2 (Ci log ^ + C2 - l ) + <?z(logx + 1) - Q2 + O(xt log3 2x).
+
+
+                A number of recent papers in additive prime number theory have stated
+            or claimed results on the generalised Riemann hypothesis which are based
+            on an oversight. For example, this oversight occurs in [7], where a ne-
+            glected term requires that the term log2qN in equation (2.40) be replaced
+            by log4qN. Therefore, the paper has been made as self contained as possi-
+            ble in this regard. In particular all the basic material following from that
+            hypothesis is contained in §4. None of the lemmas listed there are new,
+            although some of the proofs are.
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            120                            D. A. Goldston and R. C. Vaughan
+
+            2. Preliminaries
+               We have
+                         V(x, Q) = 2Si - S2 + 5 3 + 2JB(s, Q)-E1 + O(x log 2x)
+            where
+                                            5l
+                                                     =E      E      A(m)A(n),                           (2.1)
+                                                       <Q m<n<a:
+                                                          g|n—m
+
+                                                                                                         (2.2)
+                                            q<Q 9^q)                      m<x
+
+                             ((         E              2A(m)A(n)+
+                       q<Q
+                       q<Q ^
+                           ^          m<n<x                               n<x
+                                  q\n—
+                                  q\n—m;(mn,q)>l                           ()
+            and
+
+
+            A simple estimation gives
+
+
+                                    q<Q
+                                            E
+                                            p,s
+                                          p\q\p'<x
+
+
+
+
+            Thus
+                   F(x, Q) = 25i - 5 2 + 5 3 + 2£(x, Q) + O ((Q + x) log 3 x).  (2.4)
+            For future reference observe that it may be supposed that x is sufficiently
+            large, and that Q > yfx, for the contrary case is immediate from the case
+
+                  The bulk of this memoir is concerned with a detailed analysis of S\.
+
+            3. The Farey dissection and an exponential sum
+               Let
+                                                 f
+                                                 («) = E E e(^)'
+                                                          q<Q r<x/q
+                                                                                                      c3-1)
+                                                     G(a) = £A(n)e(<m).                                 (3.2)
+                                                           n<x
+            Then
+                                                 5 1 = I'F(a)\G(a)\2da.                                 (3.3)
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montgornery-Hooley Asymptotic Formula                                   121
+
+                 For any arbitrary function F : N —> C one has
+
+                   E E/(«»•)= E E / ( * • ) + £                                       E               /(«••)•
+                   g<Q r<x/q                <Z<\/z r < z / 0          r^-^/x •\/?<5f<min(Q, x/r)
+
+            For convenience an expression of the kind on the right is written in the form
+
+                                     E( E+                         E
+                                     /<V^     m<x/l        v/x"<m<min(Q ,x
+
+            Thus
+                                                F(a) = Fq(a) + Hq(a)                                            (3.4)
+            where
+
+                             ^v(«)= E ( E +                             E
+            and Hq(a) is the corresponding multiple sum with g j /. On performing the
+            inner summation in Hq(a) one has
+
+
+
+
+            For a given a and q with (a, q) = 1 put /? = a — a/#. Then
+                                                  ||aZ|| > ||aZ/g|| - |/?|Z
+            and so when
+                                            l<Vt,              q\l, \fi\<
+            one has
+
+
+
+
+            and so
+                                                                     when      \0\ < -—-= .                     (3.6)
+
+                 Suppose that i2 satisfies
+                                                       2x/?<i?< | «                                             (3.7)
+            and consider a typical interval 3Jt(g,a) associated with the element a/q of
+            the Farey dissection of order R, namely, when 1 < a < ^ < R and (a, g) = 1,
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            122                            D. A. Goldston and R. C. Vaughan
+
+            where q± is defined by aq± = =pl (mod q\ R~q < q± < R and a± is defined
+            by a± = (aq± ± !)/#• We observe that
+
+                                               a + a±             a        1
+                                                                               q±)
+
+            lies in [l/(2qR),l/(qR)).
+                 We have
+                                                        E         /   H<x)\G(a)\2da
+                                            q<R       a=l
+                                                    (a,g) = l
+            and
+
+                               t       /          /r?(a)|G(a
+                               a=i
+                               a      •/a«(».«)
+
+
+            We note also that Fq(a) — 0 when 9 > y/x. Hence
+
+                                                  5i =Si + O (Rx log2 x)                              (3.8)
+
+            where
+                                   5 =
+                                     4 E                E                                             (3-9)
+                                           g<v/3T     a=l
+                                                    (o,g)=l
+
+                  Let 0 = a - a/q. Then, by (3.5),
+
+
+                                                    m
+                                                        Sv z /?
+
+            Hence
+
+
+
+                  Suppose that q < y/x and define
+
+
+
+
+            Then 9fl(g, a) C 9Jt(^, a) and for a G 2Jt(g, a)\9l(«, a) one has
+                                                        Fq(a)
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montgornery-Hooley Asymptotic Formula                          123
+
+            Moreover, the same conclusion holds when a £ 9t(#, a) and q > x/R. Thus,
+            by (3.8) and (3.9),
+                                    S1 = S5 + 0(Rx\og2x)                       (3.13)
+            where
+                                                        2       f     Fq(a)\G(a)\2da.                 (3.14)
+                                                    (a,q) = l
+
+
+            4. Auxiliary lemmas in multiplicative number theory
+                The following lemmas are required in the proof of Theorem 1.1. The
+            notation ]Cx(modg) ls u s e ( * ^° denote summation over the primitive charac-
+            ters modulo g, and given any character \ the function E(x) ls taken to be 1
+            when x ls principal and to be 0 otherwise.
+            Lemma 1. Suppose that 0 < P < Q and f : [P, Q] —> R>o is such that
+            f exists and is continuous on [P, Q] and f(u)/u is decreasing. Suppose
+            further that X >1. Then
+
+
+                            P<Q<Q                        n<X
+                                                                        Q
+
+                                                                  /
+                This is a variant of a result already contained in Gallagher [5].
+            Proof. First observe that it may be supposed that P > 1, for otherwise the
+            term q = 1 is <C X2 and an appeal can be made to the case P = 1.
+                Let
+
+
+                                              q<u
+                                                                £'    n<X
+                                                                                          2
+
+
+
+            Then, by the large sieve inequality, in the form given, for example, by
+            Theorem 4 of §27 of [2],
+
+
+            Hence the sum in question is
+              f(Q)T(Q)
+
+
+
+
+            as required.
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            124                            D. A. Goldston and R. C. Vaughan
+
+                  Let
+                                       D(X,X) = £
+                                                       n<X
+            The following lemma summarises all the consequences of the generalised
+            Riemann hypothesis which are required for the proof of Theorem 1.1.
+            Lemma 2. Suppose that x is a primitive character modulo q and that the
+            generalised Riemann hypothesis holds for the Dirichlet L-function defined
+            for Re s > 1 by
+
+
+                                                                n=l
+
+            Suppose further that X > 1. Then
+
+                                               D(X,x)<X*\og22Xq                                          (4.2)
+
+            and
+                                   f \D(y,X)\2dy < X 2 log2 2q.                                          (4.3)
+                                 ./o
+            Moreover, suppose that 0 < H < X. Then
+
+
+                            \D(y + H,X)-D(y,x)\2dy2               < X(H + l)log2 J ^ - .                 (4.4)
+
+                The main idea of the proof of (4.4) is taken from the proof of Lemma 6
+            of [14].
+            Proof. The conclusion (4.2) is immediate from §§18 and 20 of [2].
+               To prove (4.3) and (4.4) it can certainly be supposed that X > 2. By (9)
+            and (10) of §17 and by (4) and (5) of §19 of [2] when 2 < z < X and
+                        2
+
+
+
+                             £ (A(n)X(n) - E(X)) = -/(*) - b(X) + O(log X),                               (4.5)
+                             n<z
+
+
+            where b(x) depends only on x and
+
+
+
+
+                                                                                       an(
+            with /? = | + iy a typical non-trivial zero of L(s,x)                            i 5^' indicating a
+            sum over all such p with I7I < T.
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montgomery-Hooley Asymptotic Formula                        125
+
+
+                 The integral on the left hand side of (4.3) is
+
+                                                                                  2
+
+
+                                     L                 (A(n) X (n)-                   dy + X2
+
+
+                                     I
+            By squaring our the integrand and integrating term by term this integral
+            becomes E o — 2ReEi + S 2 where So, Ei and £2 are sums over pi, p2 with
+            \lj\ < T and general terms
+
+
+
+                             >i + \p2 + 1)'1        PIHPI      + §P2'. + 1 ) '        Pih(pi + P2 + 1)
+
+            respectively. Thus
+
+                                           So ~ 2 R e S i + S 2 <?: s 3 + s 4
+
+            where S3 is over pu p2 as 1 before but withthe general term now
+
+                                                             x7*
+                                                                               "721
+            and S4 over likewise but with the additional constraint |7i| < I72I and with
+            general term
+
+
+
+               Clearly S4 <C S5+S6 where S5 has the additional constraint I72I >
+            and general term
+                                             X2
+
+
+            and S6 has the additional constraint I71I < I72I < 2|7i| and general term
+
+
+
+
+            By (1) and (2) of §15 and (1) of §16 of [2] the number M(n, x) oi non-trivial
+            zeros of L(s, x) w ^ h n ~ 1 < ITI < ^ + 1 satisfies
+
+                                                   M(n,x) <log2qn.                                      (4.7)
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            126                             D. A. Goldston and R. C. Vaughan
+
+            We have
+                                       y,
+
+
+            For a given n the terms in the inner sum with m < n or m > 3n contribute
+                                                             2
+                                                                     Iog2n
+
+
+            and likewise those with n < m < 3n. Thus
+
+                                                     E3
+
+            Similarly
+                                                £5                        •2q.
+
+            This completes the proof of (4.3).
+               The conclusion (4.4) is trivial when H < 2 and follows from (4.3) when
+            X < 4i?. Thus it may be supposed that H > 2 and X > AH. Moreover it
+            then suffices to show that
+
+                                                                                              ZqX
+                                              (A(n)x(n)-                          XiT log2
+                                                                                                H
+
+            and this will follow if it is shown first that for X > AH
+
+                                                                                              3qX
+                                             (Hn)x(n)-E(X))               dy<XH\og-
+                                                                                               H
+                                y<n<y+H
+
+            By (4.5) the left hand side is
+
+                                                 (y +         H)-f(y)\2dy+Xlog2X.
+
+            The second term is acceptable and it remains to deal with the first. For h
+            with 0 < h < if, by a change of variable, the first term is
+                              X-h
+
+
+
+                                          HH x h x h
+                                    = _L f dhf ' f ' | /(z + h + H).
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                      On the Montgornery-Hooley Asymptotic Formula                    127
+
+            The integrand here is
+
+
+
+            and the interval of integration in the inner integral lies in [ |X,X]. Thus
+            the above repeated integral is
+
+
+
+
+            By interchanging the order of integration and substituting h = zu the above
+            becomes
+
+                              -    dz                  \f(z + zu)-f(z)\2zdu
+                              H Jix Jo
+                                           X pX             f$H/x
+                                       <77/   dz                     \f(z + zu)-f(z)\2du.
+                                         H
+                                           Jhx Jo
+            Once more the order of integration is inverted. Observe that for z £ [\X, X]
+            one has 2X — z > X. Thus the above is
+                                  1    fsH/x         f2X
+                           < - /               du          (2X - z)\f(z + zu) - f(z)\2dz.
+                             n
+                               Jo               Jo
+            By (4.6),
+
+
+
+            Hence the inner integral is
+
+
+                              (Pi + P2 + 1)(/>1 + P2 + 2)
+                              V                / V
+                   Pi'   P2                                      '
+
+
+            Therefore
+                                           / \f(y+H)-f(y)\2dy < E7
+                                          J\x
+            where S7 is over /9i, pi with I71I < I72I and has the general term
+
+                                  X2                 . (E            1   \   . (E
+                                               •nun     — , 7—7-
+                                  I71-72IV
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            128                              D. A. Goldsion and R. C. Vaughan
+
+            By (4.7) the terms with |7i| < ^721 contribute
+
+
+                      PI       P2
+                           l72|>2|7i
+
+            Similarly the terms with |-yi | > II72I contribute
+                           V>'         v^'                X2               • fH2              1
+
+
+            By considering separately the two cases |7i| < X/H and |7i| > X/H and
+            arguing in the same vein as before one finds that this is
+
+                                                   < XH log2 —— .
+                                                                      12
+
+            This completes the proof of (4.4), whence Lemma 2.
+            Lemma 3. Suppose that the Riemann hypothesis holds. Then
+                                       -m)-z + m|2«*2,                     yXm)-m|2«*2
+            and
+                                       ^2 A2(m) ==xlogx-x + 0(x2 log3x).
+                                       m<x
+
+            Proof. The function ?/>(y) satisfies i/>(y) = ip([x — m]) = -0(# — m) when
+            [x — m] < y < [x — m] + 1. Hence
+
+                  /              | ( ) ~ y|
+                  J[x-
+                   [x-m]
+                           = \%l){x — m) — x + m\ + (2{x — m} — l) (ip(x — m) — x + m)
+
+
+            Similarly
+
+                             /         |^(y) — y| dy =              — m| —
+
+            The first two estimates now follow easily from (4.3).
+               To prove the third observe that
+
+                             V A2(m) = ^(x)logx - / * ^                     du + O(x2 logs).
+                                                               Jl      U
+                             m<x
+                             m<x
+
+            The conclusion then follows from (4.2).
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montg ornery-H oo ley Asymptotic Formula                      129
+
+            Lemma 4. Suppose that X > 1. Then
+
+
+
+
+                    = C(2)C(3)/C(6) a3 m (1.12).
+            Proof. We have
+
+
+
+            Thus
+
+
+
+
+            The lemma follows at once.
+
+            5. The exponential sum G
+                  Let
+                                                   JO?) = 5>(/?n),                                    (5.1)
+
+                                                              (          ^       )   ^                (5.2)
+
+            and
+
+
+            Then, by (3.5), (3.12) and (3.14),
+
+                                                  S5 = S6+ 2S7 + S8                                   (5.4)
+
+            where
+                                                                                                      (5.5)
+                                                      IV \ II I   I r/       \
+                                            q<x/R
+
+
+                                                                                               )      (5.6)
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            130                            D. A. Goldston and R. C. Vaughan
+
+
+
+                                Ss= £              £            /         Fg(/?)|^(/?,9,a)|2d/?.      (5.7)
+                                                                Jl
+                                        q<x/R      a=l              (ti
+                                                 (a,g)=l
+                  Let
+                                             Gq(a)= J2 A(n)c(an).
+                                                                n<x
+
+            Then, by (3.2),
+                                 G(a) - Gq(a) <                 £          logp < log 2q log x.       (5.8)
+
+
+            Moreover
+
+
+                                                                                       X(mod,)
+
+
+                                       =7^ E                    X(a)r(x)5>(n)x(n)e(/?n)               (5.9)
+                                                           g)                 n<x
+            where r denotes the Gauss sum
+
+
+
+            and satisfies T(XO) = ^(5)- Let
+                                                         (                           )tfn).           (5.11)
+
+            Then, by (5.1), (5.2), (5.8) and (5.9),
+
+
+                                          X(modg)
+            Hence, by the orthogonality of Dirichlet characters
+
+
+
+                                                        g)
+
+            Therefore, by (3.11) a n d (5.7),
+
+
+
+            where
+                                                                -\|2
+
+                                   !<./Rx(mod,)
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montg ornery-Hooley Asymptotic Formula                               131
+
+
+            Let x* denote the primitive character which induces x- Then
+
+                                       K(X,P) < \K{x*,P)\ +log2g log*.
+            Thus, by (3.11)
+                                                                  x log6x
+                                                   Ss < h + —f—
+            where
+
+
+
+
+            Write g = mr where r is the conductor of x- Then by pages 66-67 of §9
+            of [2] |r(x)| < y/r. Thus
+
+
+
+
+            Hence S8 < /3 + (x/R)log6x where
+
+
+
+
+            Let £; = 2-7/^- Then the integral above is
+
+
+
+
+            where the sum is over j > 0 with 6j < 1/rR.
+               By Lemma 1 of [6]
+
+                                              8)                                 n)x(n) - E(X)) dy.
+                                                                n<x
+
+            For brevity 6 is used to mean Sj. Then by (4.1) the right hand side here is
+                                                                                                      2
+                                                                                                          dy
+
+                               T
+                              Jx
+                                   \D(x,x)-D(y,X)\2dy.
+                                ~h
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            132                            D. A. Goldston and R. C. Vaughan
+
+            Hence, by Lemma 2 and a change of variable, it is
+
+                                                                        [\D(x          - z,X)\2dz.
+                                                                         o
+            Therefore
+
+
+
+
+            and so
+                                       S. </< +/.-Holes'* log ( £
+            where
+                            T        V^
+                                               E
+                                   r<i/R x(modr)
+
+
+                    = E E —^o y0
+               Let P = x^/(log a;) I and suppose henceforward that R < x/P. Then,
+            by Lemma 2, the terms in I4 and 1$ with r < P each contribute
+                                                2\/x         2x          3         5
+                          < Px log4z log - £ - log —- < x 2 (log x) 2 (log log x) 2 .
+            By Lemma 1 the contribution of the remaining terms to J4 is
+
+                                               < xt(logx)t(loglogx) 2 .
+
+            In I5 the remaining terms are <€. IQ + Ij + Is where
+
+
+
+
+                                         P<r<x/R ;
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                     On the Montgomery-Hooley Asymptotic Formula                        133
+
+            By Lemma 1,
+                                      ( x                                   z       2Ry/x\
+                                   (— ^ log log x + P loglog x + — log       1 x log x dz,
+                                 z \P\P                           R      z J
+                                        fxR. .l o g2Ry/x   Iog 2 (2v^/P)\ ,
+                                                    — ¥ - + 6 V ^ 7 M a log adz,
+                                        A*2
+
+
+            Thus
+                                       J6 + / 7 + h < xt(loga)f (log log x)2.
+            Therefore
+                                              5 8 < at(loga)*(loglogx) 2 .                            (5.12)
+                Now consider SV. If one thinks of writing K in terms of the Dirichlet
+            characters modulo q then one sees that the principal character is essentially
+            missing, and so one expects to get essentially a zero contribution when av-
+            eraging over a. More precisely the contribution here should only depend on
+            the primes which divide q and the error term in the prime number theorem.
+            To see this is so, observe that if (n,q) = 1 then
+
+
+                                                  E « ( f ) = «*)•
+            Thus, by (3.2) and (5.2)
+
+
+                                        a=l
+                                          )
+
+            where E <C q logq logx. Thus, by (3.11) and (5.1), the term E contributes
+            to S7 an amount
+
+
+
+
+            Therefore
+                                                    5 7 = 5 9 + O(xt)                                 (5.13)
+            where
+                            59
+                                 =
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            134                            D. A. Goldsion and R. C. Vaughan
+
+            It is convenient first to add in the terms with x/R < q < yfx. By (3.11) the
+            error introduced is
+
+
+                                       E
+            Now the interval of integration is completed to a unit interval. By (3.10)
+            the error introduced here is
+
+
+
+
+                By an inversion of the order of integration and summation and a change
+            of variable the integral here is
+
+                                                     rm,/2        /   x           l\X
+                                                 /           mm       — , Tp-rr    — try.
+                                                Jm/2R             \mq' h\J         7
+
+            In the integral the part from [m/2i?, 1/2] contributes <C xR/m and the
+            part from [n — | , n + \ ] contributes (x/n)\og(2x/mq). Hence the error is
+
+
+                                                                  + E
+                                                                      m<y/x/q
+
+
+
+
+            Therefore, by (3.7),
+                                                     5 9 = I9 + xR log2 x                             (5.14)
+            where
+
+                             '.= £
+            Let
+
+
+                                                \/                        lm=n
+
+            Then, by (3.5),
+
+                                                                          n<x
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                         On the Montgomery-Hooley Asymptotic Formula                    135
+
+            Thus, by (3.1), (5.1) and (5.2),
+
+                   2J9= I
+                                     m<x
+
+
+                                m
+                                    >n                          n<x                   m<n
+                               m+n<x
+                 The first sum here is
+                                               53 cm(ip(x -m)-[x-                 ra]),
+                                               m<x
+
+            and cm satisfies cm <C /(ra) where /(ra) = X^nlm nl<t>{n)' Moreover / sat-
+            isfies J2m<x f(m)2 ^ ^log 3 x. Hence, by Cauchy's inequality and Lemma 3
+                                         5 3 cm(ip(x - r a ) - [x - ra]) < z t log2 x.
+
+                 The second sum is
+                           /        cm(^(^r) — [^c] — "0(ra) + ra)
+
+
+                                                      m<x             m<x
+
+            and the second sum here can be treated as above. Therefore
+                                         2/ 9 = (f/>(x) ~ X) 5 3 Cm + 0(x§ log* x).
+                                                               m<x
+
+            The sum here is
+
+
+
+
+                                          7)+* E                ^
+                                                                YK
+                                                  X/Q<l<y/X~
+
+            Therefore, by Lemma 4,
+
+                                         cm = d x l o g Q + O(ar) = x
+                                                                                q<Q
+                                                                            2
+            Hence, by (2.3), 2/ 9 = - E ( i , Q ) + O(if log x). Therefore, by (3.13), (5.4),
+            (5.12), (5.13) and (5.14)
+                   Si = S6 - E(x,Q) + O(xRlog2x + z!(logz)t(loglogs) 2 ).                             (5.15)
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            136                            D. A. Goldston and R. C. Vaughan
+
+            6. The transition to the main term
+                By (3.5), (5.1) and (5.3), the interval of integration in (5.5) can be
+            extended to [ —\ \ ,\\ ] with an error
+
+                                                         /f
+                                                         l/2gR P2
+            Hence, by (5.5) and (5.15),
+                    Si = Sio - E{x,Q) + 0(xRlog2x + xf (logo;) f (log log a:)2)                        (6.1)
+            where
+                                     S
+                                       ^= E ^ r I" wpwfw-
+                                             q<x/R 9 q) J
+                                                                                                      (6-2)
+                                             q<x/R ^           ~i
+            We also have
+
+
+
+
+            Thus on taking i? = Cx* for a suitable constant C, consistent with (3.7),
+            one obtains
+                               Si = Sn - ^ ( x , Q ) + O(xf(loga ; )f(loglogx) 2 ),                    (6.3)
+            where
+
+
+
+
+            7. The main term
+            Let
+
+            Then, by (5.1),
+                                           \m\2= £(;
+                                                         \h\<x
+            Thus, by (3.5) and (6.5),
+
+                                                      (£+                   E
+                                                         rn<x/l
+
+
+                                                                    E
+                                                          y/S<m<min(Qtx/iy
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montg ornery-Hooley Asymptotic Formula                        137
+
+            We can replace N by x with a total error
+
+
+
+
+            Thus
+                                                Sn = S12 + O(x log x)                                 (7.2)
+            where
+
+                                    l<y/x~
+                                             ^(                        E
+            The first sum over m is \x2j\ + O(x) and the second is
+
+                         f xQ - xi - ±l(Q2 - x) + O(x) when                         l<x/Q
+                              2
+                        \ \x /l-xi           + \lx + O(x)               when x/Q < I < y/x.
+            Thus, by (7.2),
+
+
+
+
+                                              E _L_/i Ji _
+                                             l<x/Q
+
+            Therefore, by (6.4),
+
+                                      2                     2
+                                              ^-^ <^(/)
+
+
+
+            where
+
+
+
+                 By (2.2) and Lemma 3,
+
+                                      S3 = Qxlogx - Qx
+            Hence, by (2.4) and (2.2)
+
+
+
+
+                                       O(xf(logx)f(loglogx) 2 +Qx?(logx)3).                           (7.5)
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            138                            D. A. Goldston and R. C. Vaughan
+
+            By Lemma 4,
+
+                                                1        j^i -i      y        . r^(   —I -i
+
+
+
+
+            where
+                                                     C            s(2)C(3)                            /« ^x
+                                                         1 =
+                                                                  C(6)
+            as in (1.12). Therefore, by (7.5),
+               V(x,Q) = Qxlogx - Qx + xW(y/Z) - Q2W(x/Q) - dx2log(Q/y/x~)
+                                 + 0(x§ (log z)t(log log xf +Qx hog 3 a;).                            (7.7)
+
+
+            8. Completion of the proof of Theorem 1.1
+                In order to conclude the deliberations a good asymptotic formula for
+            the function W is required. To this end another lemma is established.
+            Lemma 5. Let
+
+
+
+
+                                                                                                      (8.2)
+
+
+            where C\ (and therefore C2) are as in (1.12), (1.13), and define
+
+                         E(X) = W(X) - CXX2 logX - C2X2 - XlogX - C3X.
+
+            Then (without any unproved hypothesis)
+
+                                                    E(X) = Sl±(xi),                                   (8.3)
+
+            and on the Riemann hypothesis
+
+                                                    E(X) = O(Xl*+€).                                  (8.4)
+
+
+            Proof. Let
+                                                    00
+
+                                        -0(5) = ^ - 7 7 - r —            if      Res>0.
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Monigornery-Hooley Asymptotic Formula                             139
+
+            Then
+
+
+
+
+                                                                                                        (8 6)
+                                                           2) n ( i + j X ' J ^ )                          -
+                                                         P^)                                          (8.7)
+            where
+                                                                                                         (8.8)
+
+                The product in (8.8) converges absolutely and locally uniformly for
+            Re s > —2 and so (8.7) affords an analytic continuation of D(s) to that
+            open half plane. We also observe that then (8.5) holds for Res > — 1 and
+            (8.6) for Re 5 > — | . Thus D(s) is meromorphic in Re s > —2 with simple
+            poles at s = 0 and s = — 1 and poles at \p — 2 where p is a typical non-trivial
+            zero of C(5)-
+                The proof of (8.3) is an easy consequence of the ideas expounded by
+            Ingham in Chapter V, §§3,4 of [11]. For completeness we give a brief outline.
+            Let
+                                        " E(X) ^       if Res>0.                   (8.9)
+            Then
+                                      2D                                      1
+                      F(5) =              ^           _9±_9l_                        _ JiL_           (8 . 10 )
+
+
+            and this affords an analytic continuation for F to the half plane Re s > — 2.
+            Moreover, by (8.5), (8.6) the principal parts of
+                                                          2D(s)
+                                                      s(s + l)(s + 2)
+            at s = 0 and s = — 1 are respectively
+
+
+
+            where
+
+                      B1 = -2C(0), B2 = -2 (C(0) + C(0) £ - ^ £ L + 7 C ( 0 )).
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            140                            D. A. Goldsion and R. C. Vaughan
+
+            As a simple deduction from formulae established in §12 of [2] one has
+
+
+
+            Therefore, by (7.6), (8.1), (8.2), (8.7) and (8.8), F(s) is analytic in that
+            region except possibly at the zeros of ("(25+4). In particular F(s) is analytic
+            at all real s with s > — j .
+                 Let p = | + i 7 denote the zero of ((s) with 7 > 0 and 7 minimal. Then
+            it is a simple zero and ((4 + \^l) 7^ 0 ( s e e §15.1 of [15]), and so D(s), and
+            therefore F(s), has a simple pole at w — — ^ + ^27. Let z denote the residue
+            of F(s) at w and let rj = \z\. Suppose that for some XQ > 1 we have
+
+                                                           rjX* (X > Xo).                             (8.11)
+            Let 9 denote the abscissa of convergence of
+
+                                                           bx\-E(X)jv
+
+            Then, by (8.10), for Res > max(-2,0) we have
+
+
+
+            and by (8.11) and Theorem H of Chapter V of [11] it follows that G has a
+            singularity at 0. Hence 0 < -\. Therefore (8.9) holds for Res > - j . Let
+            cj) = — argz. Then for a > — \ we have
+
+               F(a) + Re (e^F(a + It7)) = j                     j     ^ (l + cos(^ - \ijlogX)) dX.
+
+            The contribution to the integral from the interval [l,Xo] is a uniformly
+            bounded function of a for a > — 2 and when a > — \ the contribution from
+            [ XQ , 00 ] does not exceed
+
+
+
+
+            When a + j is positive and sufficiently small
+
+                                                            1
+                                                                » ' " ' - 4a + 7
+            Hence
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+                                   On the Montgornery-Hooley Asymptotic Formula                           141
+
+            and so F has a singularity at — \ which gives a contradiction, and so (8.11)
+            must be false. Hence for every Xo > 1 there is an X > Xo such that
+            E(X) > 77X1/4/4. Thus E(X) = JL^X 1 / 4 ). A concomitant argument
+            shows that E{X) = ^ - ( X 1 / 4 ) .
+               We can now concentrate on (8.4), and henceforward assume the Riemann
+            hypothesis. By Theorems 14.2, 14.14A of Chapter 14 of [15], the functional
+            equation, and standard estimates for the F function one has
+
+                  -r^T < r€        if   a
+                                            > ?+^          CM         — < rXM+€              if a > - 2
+                  C\s)                                               s—1
+            where
+                      r = 1 + |£|,          t = Im5,       A(cr) = max (0, | — a) ,           a
+            Thus in the region o- > e — | , |s| > ^ , |$ + 1| > ^ one has
+                                                     D(s) < re^+<
+
+            where
+
+
+                                              (-2^-2            if   e - l < a < - | .
+
+            Now
+                                                 = —        /
+                                                     l m
+                                                           J2-ioo
+            and in view of the above the line of integration may be moved to the line
+            a = e - \. Thus E{X) < X H C and the lemma follows at once.
+               By (8.4)
+
+
+
+                              = dx2 log VJ + xf log V^ + C 3 xt - dx2                      log(x/Q)
+                                    - Qxlog(x/Q) - C3Qz - Q E(x/Q) + O(xi + C ).
+                                                                           2
+
+
+            Therefore, by (7.7),
+                          V(x, Q) = Qx log Q - (1 + Cz)Qx -                    Q2E(x/Q)
+                                             + O(xf (logx)f (loglogx)2 + Qx* log3x).
+            Then the first part of our theorem follows from (8.2) and (8.4), and the
+            second part from (8.2) and (8.3).
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+            142                            D. A. Goldston and R. C. Vaughan
+
+
+                 Apropos the comment immediately after Theorem 1.1, we observe that
+            if the non-trivial zeros p of ( are simple and C(p) does not get too small,
+            then it follows readily from the above that there is a S > 0 such that
+
+
+                           - E (r-%;-wl)                        *(\> - »)*>' + 0(X>->) (8.12)
+
+            and the series converges absolutely. In particular E(x) <C X*.
+
+            9. The proof of Theorem 1.2
+                To prove Theorem 1.2 we simply observe that in (7.7), instead of ap-
+            plying Lemma 4 to approximate Q2W(x/Q) we evaluate this term exactly.
+            When \x < Q < x it is x2 - 2xQ + Q2 and when |a? < Q < \x it is
+            2x2 - 6xQ + 5Q2. The other terms are treated as in §8.
+
+                                                       References
+             1 M.B. Barban: The large sieve method and its applications in the theory of num-
+               bers. Uspehi Mat. Nauk 21 (1966), 51-102. English translation in Russian Math.
+               Surveys 22 (1966), 49-103.
+             2 H. Davenport: Multiplicative Number Theory (2nd Ed., revised by H.L. Mont-
+               gomery). Springer (1980).
+             3 H. Davenport and H. Halberstam: Primes in arithmetic progressions. Michigan
+               Math. J. 13 (1966), 485-489.
+             4 J.B. Friedlander and D.A. Goldston: Variance of distribution of primes in residue
+               classes (preprint). (1995).
+             5 P.X. Gallagher: The large sieve. Mathematika 14 (1967), 14-20 .
+             6 P.X. Gallagher: A large sieve density estimate near a = 1. Invent. Math. 11
+               (1970), 329-339.
+             7 D.A. Goldston: On Hardy and Littlewood's contribution to the Goldbach Conjec-
+               ture. In Proc. Amalfi Conf. on Analytic Number Theory, 115-155 (E. Bombieri,
+               A. Perelli, S. Salerno and U. Zannier, eds.). Univ. di Salerno (1992).
+             8 C. Hooley: On the Barban-Davenport-Halberstam theorem I. J. Reine Angew.
+               Math. 274/275 (1975), 206-223.
+             9 C. Hooley: On the Barban-Davenport-Halberstam theorem II. J. London Math.
+               Soc. (2) 9 (1975), 625-636.
+            10 C. Hooley: On the Barban-Davenport-Halberstam theorem III. J. London Math.
+               Soc. (2) 11 (1975), 399-407.
+            11 A.E. Ingham: The Distribution of Prime Numbers. Cambridge Tracts in Math.
+               30. Reissued with an introduction by R.C. Vaughan, Cambridge Univ. Press
+               (1990).
+            12 A.F. Lavrik: On the twin prime hypothesis of the theory of primes by the method
+               of I.M. Vinogradov. Soviet Math. Dokl. 1 (1960), 700-702.
+            13 H.L. Montgomery: Primes in arithmetic progressions. Michigan Math. J. 17
+               (1970), 33-39.
+            14 B. Saffari and R.C. Vaughan: On the fractional parts of x/n and related sequences
+               II. Ann. de VInst. Fourier 27 (1977), 1-30.
+            15 E.C. Titchmarsh: The Theory of the Riemann Zeta-Function (2nd Ed., revised by
+               D.R. Heath-Brown). Oxford University Press (1986).
+
+
+
+
+                                Cambridge Published
+https://doi.org/10.1017/CBO9780511526091.010 Books Online   ©Cambridge
+                                                    online by Cambridge   University
+                                                                       University Press Press, 2009
+

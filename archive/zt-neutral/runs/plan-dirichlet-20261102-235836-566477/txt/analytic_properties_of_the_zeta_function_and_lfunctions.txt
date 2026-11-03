@@ -1,0 +1,1966 @@
+                                                         10
+                  Analytic properties of the zeta function
+                             and L-functions
+
+
+
+
+               10.1      Functional equations and analytic continuation
+        In Section 1.3 we saw that the zeta function can be analytically continued to the
+        half-plane σ > 0. We now derive an important formula for the Riemann zeta
+        function, one that serves to deﬁne the zeta function throughout the complex
+        plane. From this formula we see that the zeta function is analytic at all points
+        except for s = 1, and we ﬁnd that ζ (s) is related to ζ (1 − s). In preparation for
+        this we ﬁrst use the Poisson summation formula to establish a corresponding
+        functional equation for theta functions.
+
+        Theorem 10.1 For arbitrary real α, and complex numbers z with z > 0,
+                                
+                                ∞                               
+                                                                ∞
+                                      e−π (n+α) z = z −1/2             e(kα)e−π k /z ,
+                                                 2                                  2
+                                                                                                   (10.1)
+                               n=−∞                            k=−∞
+
+        and
+                         
+                         ∞                                             
+                                                                       ∞
+                               (n + α)e−π (n+α) z = −i z −3/2                ke(kα)e−πk /z
+                                                     2                                      2
+                                                                                                   (10.2)
+                        n=−∞                                         k=−∞
+
+        where the branch of z 1/2 is determined by 11/2 = 1.
+
+        Proof We can obtain (10.2) from (10.1) by differentiating with respect
+        to α, since the differentiated series are uniformly convergent for α in a
+        compact set. As for (10.1), we note that if g(u) = f (u + α), then *   g(t) =
+         f*(t)e(tα). (Conventions governing the deﬁnition of the Fourier transform f*
+        are established in Appendix D.) We apply the Poisson summation formula
+        (Theorem D.3) to g(u), where f (u) = e−πu z , and it remains only to demon-
+                                                     2
+
+
+        strate that *
+                    f (t) = z −1/2 e−πt /z . Writing
+                                       2
+
+
+
+
+                             −π x 2 z − 2πit x = −π (x + it/z)2 z − π t 2 /z,
+
+                                                         326
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                             327
+
+
+        we see that
+                                                               +∞
+                                    *
+                                    f (t) = e−π t /z
+                                                 2
+                                                                     e−π (x+it/z) z d x.
+                                                                                 2
+
+
+                                                           −∞
+
+        We consider this integral to be a contour integral in the complex plane. We
+        note that the integrand tends to 0 very rapidly as |x| tends to inﬁnity with
+        |x| bounded. Hence by Cauchy’s theorem we may translate the path of in-
+        tegration to the line x − it/z, −∞ < x < +∞, and we ﬁnd that the above
+                      +∞
+        integral is −∞ e−π x z d x. We now turn the path of integration through an
+                               2
+
+
+        angle − 12 arg z and again apply Cauchy’s theorem. After reparametrizing,
+                                           +∞
+        we see that our integral is z −1/2 −∞ e−π x d x = z −1/2 . This completes the
+                                                    2
+
+
+        proof.                                                                     
+
+        Theorem 10.2 For any complex number s, except s = 0 and s = 1, and any
+        non-zero complex number z with z ≥ 0,
+                                                       
+                                                       ∞
+                    ζ (s) (s/2)π −s/2 = π −s/2                     n −s (s/2, π n 2 z)
+                                                       n=1
+                                                                   
+                                                                   ∞
+                                               + π (s−1)/2               n s−1 ((1 − s)/2, π n 2 /z)   (10.3)
+                                                                   n=1
+                                                   z (s−1)/2   z s/2
+                                               +             −       .
+                                                    s−1          s
+            Here (s, a) is the incomplete gamma function,
+                                                               ∞
+                                           (s, a) =                e−w ws−1 dw,                        (10.4)
+                                                           a
+
+        and we may take the path of integration to be the ray w = a + u, 0 ≤ u < ∞,
+        so that
+                                                       ∞
+                                      (s, a) =             e−u−a (u + a)s−1 du.
+                                                   0
+
+        Now (u + a)s−1         |a|σ −1 uniformly for a ≥ 0, |a| ≥ ε > 0, and |σ | ≤ C, so
+               −s
+        that n     (s/2, π n z) n −2 uniformly for z ≥ 0, |z| ≥ ε, |s| ≤ C. Thus the
+                             2
+
+        two sums on the right are uniformly convergent for s in any compact set, and
+        hence by a theorem of Weierstrass they represent entire functions. The last two
+        terms have simple poles at 1 and 0, respectively. As for the left-hand side, we
+        note that (s/2) has a pole at s = 0, and never vanishes, so it follows that ζ (s)
+        is analytic for all s = 1. If we simultaneously replace s by 1 − s and z by 1/z,
+        then the two sums on the right in (10.3) are exchanged, and the last two terms
+        are also exchanged, so that the value of the right-hand side is invariant. These
+        observations may be summarized as follows:
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        328                       Analytic properties of ζ (s) and L(s, χ )
+
+
+        Corollary 10.3      The function
+                                        1
+                                ξ (s) = s(s − 1)ζ (s) (s/2)π −s/2                                  (10.5)
+                                        2
+        is entire, and ξ (s) = ξ (1 − s) for all s.
+            This is the functional equation of the zeta function, ﬁrst proved by Riemann
+        in 1860. Since ζ (s) = 0 for σ ≥ 1, it follows that ξ (s) = 0 for σ ≥ 1, and
+        by the functional equation that ξ (s) = 0 for σ ≤ 0. The zeros of ζ (s) in the
+        critical strip 0 < σ < 1 coincide precisely with those of ξ (s). As (s/2) has
+        simple poles at s = 0, −2, −4, −6, . . . , the zeta function has simple zeros at
+        s = −2, −4, −6, . . . . These are the trivial zeros of the zeta function. The only
+        other zeros of the zeta function are the non-trivial zeros, in the critical strip.
+        The generic non-trivial zero is denoted ρ = β +         1 iγ . By theSchwarz reﬂec-
+        tion principle, ξ (s) = ξ (s); hence
+                                              in
+                                                 particular
+                                                            ξ 2   −  it  =  ξ 1
+                                                                                2
+                                                                                  + it  . But the
+        functional equation gives ξ 12 − it = ξ 12 + it , so it follows that ξ 12 + it
+        is real for all real t. Similarly, if ρ is a zero of ξ (s) then so also are ρ, 1 − ρ,
+        and 1 − ρ. The as yet unproved Riemann Hypothesis (RH) asserts that all non-
+        trivial zeros of the zeta function have real part 1/2; that is, all the zeros of ξ (s)
+        lie on the critical line σ = 1/2. We shall ﬁnd it instructive to explore a number
+        of consequences of this famous conjecture, in Chapter 13.
+        Proof of Theorem 10.2 By Euler’s integral formula (Theorem C.2) for (s/2)
+        we see that if σ > 0, then
+                                                            ∞
+                                           (s/2) =              e−x x s/2−1 d x.                   (10.6)
+                                                        0
+
+        By the linear change of variables x = π n 2 u it follows that
+                                                                    ∞
+                                 n −s (s/2)π −s/2 =                     e−πn u u s/2−1 du.
+                                                                             2
+
+
+                                                                0
+
+        We assume that σ > 1 and sum over n to ﬁnd that
+                                        
+                                        ∞     ∞
+                    ζ (s) (s/2)π −s/2 =         e−πn u u s/2−1 du
+                                                     2
+
+
+                                                      n=1 0
+                                                        ∞ ∞                   
+                                                                          e−πn u u s/2−1 du.
+                                                                              2
+                                                  =                                                (10.7)
+                                                       0            n=1
+
+        Here the exchange of integration and summation is permitted by absolute con-
+        vergence. Suppose, for the present, that z > 0. We may consider the integral
+        above to be a contour integral in the complex plane, and by Cauchy’s theorem
+        we may replace the path of integration by the ray from 0 that passes through
+        z. We now consider separately the integral from 0 to z, and the integral from
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                          10.1 Functional equations and analytic continuation                        329
+
+                                        
+        z to ∞. We call these integrals 1 , 2 , respectively. By reversing the steps we
+        made in passing from (10.6) to (10.7) we see immediately that
+                                         ∞
+                                     −s/2
+                                2 =π           n −s (s/2, π n 2 z).
+                                                     n=1
+                   
+        To treat       1 we let
+                                                           
+                                                           +∞
+                                                                e−πn u
+                                                                     2
+                                               ϑ(u) =                                              (10.8)
+                                                           −∞
+
+        for u > 0. Then the sum in the integrand in (10.7) is (ϑ(u) − 1)/2. Thus
+                            1 z                     1 z s/2−1
+                         1 =      ϑ(u)u  s/2−1
+                                               du −        u      du.
+                             2 0                     2 0
+        Here the second integral is 2s z s/2 . By Theorem 10.1 we know that ϑ(u) =
+        u −1/2 ϑ(1/u). Hence the ﬁrst term above is
+                                                      
+        1 z                            z   ∞
+                                                                       1 z s/2−3/2
+                                               e−π n /u u s/2−3/2 du +
+                                                    2
+               ϑ(1/u)u s/2−3/2 du =                                        u       du.
+        2 0                          0     n=1
+                                                                       2 0
+                                      2 (s−1)/2
+        Here the second integral is s−1  z       . By the change of variable v = 1/u we
+        see that the ﬁrst term above is
+                                                  
+                                  ∞    ∞
+                                           e−π n v v (1−s)/2−1 dv.
+                                                2
+
+
+                                        1/z    n=1
+
+        We exchange the order of summation and integration, and make the linear
+        change of variables x = π n 2 v, to see that this is
+                                      
+                                      ∞
+                            π (s−1)/2     n s−1 ((1 − s)/2, π n 2 /z).
+                                              n=1
+
+        Hence
+                            z (s−1)/2   z s/2             ∞
+
+                       1 =             −       + π (s−1)/2     n s−1 ((1 − s)/2, π n 2 /z),
+                              s−1          s               n=1
+
+        so we have the desired identity for σ > 1. But, as already noted, the two sums
+        represent entire functions, so the right-hand side of (10.3) is analytic for all s
+        except for simple poles at s = 1 and s = 0. Hence by the uniqueness of analytic
+        continuation the identity (10.3) holds for all s except at the poles.           
+
+           The functional equation of Corollary 10.3 can also be expressed asymmet-
+        rically:
+        Corollary 10.4 For all s = 1,
+                                                                                πs
+                                  ζ (s) = ζ (1 − s)2s π s−1 (1 − s) sin            .               (10.9)
+                                                                                2
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        330                       Analytic properties of ζ (s) and L(s, χ )
+
+
+        Proof By the reﬂection principle (C.6) and the duplication formula (C.9), we
+        see that
+               1−s 
+                        1 1−s             s      πs                          πs
+                2s  =              1−      sin     = π −1/2 2s (1 − s) sin    .
+                 2
+                        π    2            2       2                          2
+
+        Thus the stated identity follows from Corollary 10.3.                                           
+
+            By Stirling’s formula, we can describe |ζ (s)| in terms of |ζ (1 − s)|.
+        Corollary 10.5 Suppose that A > 0 is ﬁxed. Then
+                                           |ζ (s)|     τ 1/2−σ |ζ (1 − s)|
+        uniformly for |σ | ≤ A and |t| ≥ 1. Here τ = |t| + 4, as usual.
+        Proof Since the above is invariant when s is replaced by 1 − s, we may sup-
+        pose that −A ≤ σ ≤ 1/2. We may also suppose that t ≥ 1, since |ζ (σ − it)| =
+        |ζ (σ + it)|. We consider the factors on the right-hand side of (10.9). By Stir-
+        ling’s formula as formulated in (C.18), we see that
+                    | (1 − s)|         (1 − s)1/2−s = |1 − s|1/2−σ exp(t arg(1 − s)).
+        But arg(1 − s) = − arctan t/(1 − σ ) = −π/2 + O(1/t) and |1 − s| ∼ t, so
+        | (1 − s)| t 1/2−σ exp(−π t/2). On the other hand, sin z = (ei z − e−i z )/(2i),
+        so | sin πs/2| exp(π t/2), and we obtain the stated result.                   
+
+           Let σ be ﬁxed, and let µ(σ ) denote the inﬁmum of those exponents µ
+        such that ζ (σ + it)    τ µ . This is the Lindelöf µ-function. By Corollary 1.17
+        we know that µ(σ ) = 0 for σ ≥ 1 and that µ(σ ) ≤ 1 − σ for 0 < σ ≤ 1. By
+        Corollary 10.5 we see that µ(σ ) = µ(1 − σ ) + 1/2 − σ . Hence in particular,
+        µ(σ ) = 1/2 − σ for σ ≤ 0. For 0 < σ < 1 the value of µ(σ ) is at present
+        unknown, but the Lindelöf Hypothesis (LH) asserts that ζ (1/2 + it) ε τ ε ,
+        which is to say that µ(1/2) = 0. From this it follows that
+                                        
+                                         0           for σ ≥ 1/2,
+                              µ(σ ) =                                             (10.10)
+                                         1/2 − σ for σ ≤ 1/2.
+        Three different proofs that LH implies the above are found in Exercises 10.1.
+        18–20. Also, from Exercises 10.1.20 and 10.1.21 we see that LH is equivalent
+        to a certain assertion concerning the distribution of the zeros of ζ (s). Since
+        this assertion is visibly weaker than RH, it is evident that RH implies LH. In
+        Chapter 13 we shall show that RH implies a quantitative form of LH.
+            Concerning special values of the zeta function, we observe ﬁrst that since
+        ζ (s) ∼ 1/(s − 1) for s near 1, it follows from Corollary 10.4 that
+                                                     ζ (0) = −1/2.                                 (10.11)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                          331
+
+
+        In addition, we note that Corollary B.3 asserts that
+                                                    (−1)k−1 22k−1 B2k 2k
+                                        ζ (2k) =                     π                             (10.12)
+                                                         (2k)!
+        for each positive integer k. Hence by taking s = 1 − 2k in Corollary 10.4 we
+        deduce that
+                                                     −B2k
+                                        ζ (1 − 2k) =                             (10.13)
+                                                       2k
+        for positive integers k. An alternative proof of this is found in Appendix B.
+        We may also determine the value of ζ  (0), as follows. Let f (s) = (s − 1)ζ (s).
+        By Corollary 1.16 we know that f (s) = 1 + C0 (s − 1) + · · · for s near 1.
+        On multiplying both sides of (10.9) by s − 1 we see that f (s) = −ζ (1 −
+        s)2s π s−1 (2 − s) sin πs/2. On differentiating both sides and setting s = 1 we
+        discover that C0 = 2ζ  (0) − 2ζ (0) log 2π + 2ζ (0)  (1). But ζ (0) = −1/2 and
+          
+            (1) = −C0 , so we ﬁnd that
+                                                   1
+                                        ζ  (0) = − log 2π.                      (10.14)
+                                                   2
+             Our treatment of the zeta function extends readily to L-functions.
+        Theorem 10.6           For z with z > 0 let
+                                                  
+                                                  ∞
+                                                     χ (n)e−π n z/q ,
+                                                               2
+                                     ϑ0 (z, χ ) =
+                                                      n=−∞
+                                                       ∞
+                                                             nχ (n)e−πn z/q .
+                                                                           2
+                                      ϑ1 (z, χ ) =
+                                                      n=−∞
+
+        If χ is a primitive character modulo q, then
+                                           τ (χ )
+                               ϑ0 (z, χ ) = 1/2 z −1/2 ϑ0 (1/z, χ ),
+                                           q
+                                           τ (χ ) −3/2
+                               ϑ1 (z, χ ) = 1/2 z      ϑ1 (1/z, χ )
+                                           iq
+        where the branch of z 1/2 is determined by 11/2 = 1.
+           Though both these functions are deﬁned for all χ , we note that if χ (−1) =
+        −1, then ϑ0 (z, χ ) = 0 for all z, while if χ (−1) = 1, then ϑ1 (z, χ ) = 0 identi-
+        cally. Thus ϑ0 (z, χ ) is of interest when χ (−1) = 1, and ϑ1 (z, χ ) is useful when
+        χ (−1) = −1.
+        Proof      Since χ is periodic with period q, it follows that
+                                          
+                                          q        ∞
+                                                          e−π(mq+a) z/q .
+                                                                    2
+                              ϑ0 (z, χ) =    χ (a)
+                                                a=1         m=−∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        332                       Analytic properties of ζ (s) and L(s, χ )
+
+
+        By (10.1) with α = a/q and z replaced by qz we see that the above is
+                                    
+                                    q        ∞
+                         = (qz)−1/2               e−πk /(qz) e(ak/q)
+                                                      2
+                                       χ (a)
+                                              a=1         k=−∞
+                                               
+                                               ∞                   
+                                                                   q
+                               = (qz)−1/2             e−πk /(qz)
+                                                            2
+                                                                         χ (a)e(ak/q).
+                                              k=−∞                 a=1
+
+        Since χ is primitive, we know by Theorem 9.7 that the inner sum on the right is
+        τ (χ )χ (k) for all k. This gives the identity for ϑ0 . The identity for ϑ1 is proved
+        similarly, using (10.2).                                                            
+
+            In order to unify our formulæ we ﬁnd it convenient to put
+                                           
+                                             0 if χ (−1) = 1,
+                               κ = κ(χ ) =                                                         (10.15)
+                                             1 if χ (−1) = −1.
+        In this notation, the formulæ of Theorem 10.6 read
+                                                ε(χ )
+                                  ϑκ (z, χ) = 1/2+κ ϑκ (1/z, χ )                                   (10.16)
+                                               z
+        where
+                                                   τ (χ )
+                                          ε(χ ) = κ √ .                                            (10.17)
+                                                  i q
+        Suppose that χ is primitive. Some of our results concerning Gauss sums can be
+        reformulated in terms of ε(χ ). Firstly, from Theorem 9.7 we see that |ε(χ )| = 1.
+        Secondly, by Theorems 9.5 and 9.7 we see that ε(χ )ε(χ ) = 1. Finally, if χ is
+        not only primitive but also quadratic, then ε(χ ) = 1, by Theorem 9.17.
+            In the same way that Theorem 10.2 was derived from (10.8), the following
+        is an immediate consequence of (10.16).
+        Theorem 10.7 Let χ be a primitive character modulo q with q > 1. Then for
+        any complex numbers s and z with z ≥ 0,
+              L(s, χ ) ((s + κ)/2)(q/π )(s+κ)/2
+                                  ∞
+                   = (q/π)(s+κ)/2    χ (n)n −s ((s + κ)/2, π n 2 z/q)                              (10.18)
+                                        n=1
+                                                    
+                                                    ∞
+                        + ε(χ )(q/π )(1−s+κ)/2            χ (n)n s−1 ((1 − s + κ)/2, π n 2 /(qz)).
+                                                    n=1
+
+           As was the case with the zeta function, the above is ﬁrst proved for σ > 1.
+        Since each term of the series is entire, and since the series are locally uniformly
+        convergent, the right-hand side is an entire function of s, and this provides an
+        analytic continuation of L(s, χ ) to the entire complex plane. If in the above we
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                          333
+
+
+        replace χ by χ , s by 1 − s, and z by 1/z, and then multiply both sides by ε(χ )
+        then the right-hand side above is unchanged, and thus we obtain a functional
+        equation for L(s, χ ), as follows.
+        Corollary 10.8          Let χ be a primitive character modulo q with q > 1. The
+        function
+                               ξ (s, χ ) = L(s, χ ) ((s + κ)/2)(q/π )(s+κ)/2                       (10.19)
+        is entire, and ξ (s, χ ) = ε(χ )ξ (1 − s, χ ) for all s.
+            Let χ be a primitive character modulo q, q > 1. We already know that
+        L(s, χ ) = 0 for σ > 1. Since the gamma function has no zeros, it follows that
+        ξ (s, χ ) = 0 in this half-plane. By the functional equation, ξ (s, χ ) = 0 also
+        for σ < 0, and hence L(s, χ ) = 0 for σ < 0 except that L(s, χ ) must have
+        simple zeros where the gamma factor has simple poles, which is to say at
+        −κ, −κ − 2, −κ − 4, . . . . These are the trivial zeros of L(s, χ ). Zeros ρ =
+        β + iγ of L(s, χ ) in the critical strip 0 ≤ β ≤ 1 are called non-trivial. The
+        conjecture that these latter zeros all lie on the critical line σ = 1/2 is the
+        Generalized Riemann Hypothesis (GRH). If ρ is a non-trivial zero of L(s, χ ),
+        then by the functional equation 1 − ρ is a zero of L(s, χ ). Consequently 1 − ρ is
+        a zero of L(s, χ ), since in general L(s, χ ) = L(s, χ ). The pair of zeros ρ, 1 − ρ
+        are symmetrically placed with respect to the critical line. Of course, if β = 1/2
+        then ρ = 1 − ρ. For complex characters there is no symmetry about the real
+        axis, but if χ is quadratic then χ = χ , and so if ρ is a zero then so also are ρ,
+        1 − ρ, and 1 − ρ.
+            The functional equation of an L-function can also be expressed asymmetri-
+        cally.
+        Corollary 10.9 Suppose that χ is a primitive character (mod q) with q > 1.
+        Then for all s,
+                                                                          π
+               L(s, χ ) = ε(χ )L(1 − s, χ )2s π s−1 q 1/2−s (1 − s) sin (s + κ).
+                                                                          2
+        Proof When κ = 0 we proceed as in the proof of Corollary 10.4. When κ = 1
+        we use the reﬂection formula (C.6) and the duplication formula (C.9) to see
+        that
+                     (1 − s/2)       1
+                                 =        (1 − s/2) (1/2 − s/2) sin π (s + 1)/2
+                    ((s + 1)/2)      π
+                                                          π
+                                 = 2s π −1/2 (1 − s) sin (s + 1).
+                                                           2
+        This, with the identity ξ (s, χ ) = ε(χ)ξ (1 − s, χ ), gives the stated result. 
+
+            By the same method used to prove Corollary 10.5 we obtain
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        334                         Analytic properties of ζ (s) and L(s, χ )
+
+
+        Corollary 10.10 Let χ be a primitive character (mod q) with q > 1, and
+        suppose that A > 0 is ﬁxed. Then
+
+                                        |L(s, χ)|   (qτ )1/2−σ |L(1 − s, χ )|
+
+        uniformly for |σ | ≤ A and |t| ≥ 1. If −A ≤ σ ≤ 1/2 and |t| ≤ 1, then
+
+                                         L(s, χ)     q 1/2−σ |L(1 − s, χ )|.
+
+           Let χ be a character modulo q. If χ is imprimitive, then χ is induced by a
+        primitive character χ ! modulo d, for some d|q, and
+                                                                   
+                                                           χ ! ( p)
+                            L(s, χ ) = L(s, χ ! )       1−            .       (10.20)
+                                                  p|q
+                                                             ps
+
+        If p|d, then χ ! ( p) = 0, and thus in the above product we may conﬁne our
+        attention to those primes p|q such that p  d. For such a prime, the factor
+        1 − χ ! ( p)/ p s is an entire function whose zeros form an arithmetic progression
+        on the imaginary axis. Thus L(s, χ) has all the zeros of L(s, χ ! ), and if there are
+        primes p|q such that p  d, then L(s, χ ) has additional zeros on the imaginary
+        axis. Such zeros constitute a ﬁnite union of arithmetic progressions. In the
+        special case χ = χ0 , we have
+                                                                
+                                                               1
+                                    L(s, χ0 ) = ζ (s)       1− s .
+                                                      p|q
+                                                              p
+
+        Thus L(s, χ0 ) has a pole at s = 1 with residue ϕ(q)/q, it has all the zeros of
+        ζ (s), and it also has zeros of the form 2πik/ log p where k takes integral values
+        and p|q.
+
+
+                                               10.1.1     Exercises
+          1. Let ϑ(u) be deﬁned as in (10.8). Show that ϑ  (1) = −ϑ(1)/4.
+          2. Let f be an even function in L 1 (R), let β > 1, suppose that f (x) = O(x −β )
+             as x → ∞, and that * f (u) = O(u −β ) as u → ∞. Show that
+                                    ∞                        
+                                                             ∞              ∞
+                       2ζ (s)           f (x)x s−1 d x = 2       n −s           f (x)x s−1 d x
+                                0                            n=1        n
+                                                               ∞                   ∞
+                                                          +2         n s−1              f*(u)u −s du
+                                                               n=1              n
+
+                                                          − f (0)/s + *
+                                                                      f (0)/(s − 1)
+
+              for 1 − β < σ < β.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                          335
+
+
+          3. (Heilbronn 1938; cf. Weil 1967)
+             (a) Show that for c > 1, x > 0,
+                         1     c+i∞                             ∞
+                                    ζ (s) (s/2)(π x)−s/2 ds = 2     e−π n x .
+                                                                         2
+
+                        2πi c−i∞                                n=1
+
+             (b) With ϑ(x) deﬁned as in (10.8), use the functional equation of the zeta
+                 function to show that ϑ(x) = x −1/2 ϑ(1/x) for x > 0.
+          4. (Lavrik 1965)
+             (a) Suppose that z > 0, that σ0 > max(0, −σ ), and that s = 0, s = −1,
+                 s = −2, . . . . By pulling the contour to the left and summing the
+                 residues, show that
+                       1       σ0 +i∞
+                                                  dw            ∞
+                                                                    (−1)k z s+k
+                                      (w + s)z −w     = (s) −                   .
+                      2πi σ0 −i∞                   w            k=0
+                                                                     k!(s + k)
+              (b) Show that if σ > 0, then the right-hand side above is (s, z).
+              (c) Argue that both sides are entire functions of s, and hence that the
+                  identity
+                                                σ0 +i∞
+                                          1                         dw
+                                (s, z) =                (w + s)z −w
+                                         2πi σ0 −i∞                 w
+                  holds for all complex s.
+              (d) Show that if σ0 > max(0, (1 − σ )/2), then
+                             ∞
+                      π −s/2      n −s (s/2, π n 2 z)
+                                 n=1
+                                         σ0 +i∞
+                                 1                                                             dw
+                            =                     ζ (s + 2w) (w + s/2)π −w−s/2 z −w               .
+                                2πi     σ0 −i∞                                                 w
+             (e) Suppose now that s = 0 and s = 1. Explain why the integrand has poles
+                  at w = 0, w = (1 − s)/2, w = −s/2, and nowhere else.
+              (f) Show that when the contour is pulled to the left, the pole at w = 0
+                  contributes ζ (s) (s/2)π −s/2 , the pole at w = (1 − s)/2 contributes
+                  z (s−1)/2 /(s − 1), and the pole at −s/2 contributes −z s/2 /s.
+             (g) Suppose the contour is pulled to the left to an abscissa σ1 <
+                  min(0, −σ/2). By means of the identity ζ (s) (s/2)π −s/2 = ζ (1 − s)
+                     ((1 − s)/2)π (s−1)/2 and the change of variable w → −w, show
+                                                      
+                  that the expression is π (s−1)/2 ∞    n=1 n
+                                                              s−1
+                                                                   ((1 − s)/2, π n 2 /z). Thus
+                  demonstrate that Theorem 10.2 can be derived from Corollary 10.3.
+          5. Suppose that α is real, that z > 0 and that χ is a primitive character
+             (mod q).
+             (a) Show that
+                     ∞
+                                               τ (χ )       ∞
+                          χ (n)e−π (n+α) z/q = 1/2 z −1/2         χ (k)e(kα/q)e−π k /(qz) .
+                                        2                                            2
+
+
+                  n=−∞                          q          k=−∞
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        336                       Analytic properties of ζ (s) and L(s, χ )
+
+
+              (b) By differentiating with respect to α, or otherwise, show that
+               ∞
+                                               τ (χ )        ∞
+                   χ (n)(n + α)e−π(n+α) z/q = 1/2 z −3/2         χ (k)ke(kα/q)e−π k /(qz) .
+                                         2                                         2
+
+
+              n=−∞                             iq           k=−∞
+
+          6. Let α and β be real numbers, and suppose that z > 0, and put
+                                            
+                                            ∞
+                                                e(nβ)e−π (n+α) z .
+                                                              2
+                             ϑ0 (z; α, β) =
+                                                      n=−∞
+
+             (a) Show that if f (x) = e(βx)e−π (x+α) z , then f*(t) = e(−αβ)z −1/2 .
+                                                                 2
+
+
+             (b) Show that ϑ0 (z; α, β) = e(−αβ)z −1/2 ϑ(1/z, −β, α).
+             (c) Without using the result of (b), show that ϑ0 (z; α, β) = ϑ0 (z; −α, −β).
+          7. Show that
+               ∞                           ∞
+                  (1 − 2πn 2 x)e−π n x >         (2π (n + 1/2)2 x − 1)e−π (n+1/2) x > 0
+                                     2                                            2
+
+
+               n=−∞                                n=−∞
+
+             for all x > 0.
+          8. Use the functional equation of the zeta function in any convenient form to
+             show that
+                                                                 πs
+                              ζ (1 − s) = ζ (s)21−s π −s (s) cos    .
+                                                                 2
+          9. Show that if k is a positive integer, then
+                                         (−1)k (2k)!ζ (2k + 1)
+                                     ζ  (−2k) =               .
+                                               22k+1 π 2k
+        10. Let ϑ(x) be deﬁned as in (10.8). Show that
+                                    1       1 ∞  s/2                      dx
+            ζ (s) (s/2)π −s/2 =          +         x + x (1−s)/2 (ϑ(x) − 1)
+                                s(s − 1) 2 1                                 x
+            for all s except s = 1 or s = 0.
+        11. (Walﬁsz 1931, p. 454) Show that
+                                       ∞  ∞
+                                                 1     5
+                                                 2 b2
+                                                      = .
+                                       a=1 b=1
+                                               a       2
+                                                (a,b)=1
+
+        12. (Mallik 1977) Let χ be a primitive quadratic character.
+            (a) Show that ξ  (1/2, χ ) = 0.
+            (b) Show that if L(1/2, χ ) = 0, then sgn L  (1/2, χ ) = −sgn L(1/2, χ ).
+        13. Let χ be a primitive character modulo q, and let θ be a real number such
+            that e2iθ = ε(χ). Thus eiθ is one of the square roots of ε(χ ). Show that
+            ξ (1/2 + it, χ )e−iθ is real for all real t.
+        14. Let χ be a primitive character modulo q with q > 1, and suppose that
+            χ (−1) = 1.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                       337
+
+
+              (a) For each positive integer k, show that
+                                           (−1)k−1 22k−1 π 2k τ (χ ) 
+                                                                      q
+                           L(2k, χ) =                                    χ (a)B2k (a/q).
+                                                 (2k)! q             a=1
+
+              (b) For positive integers k, deduce that
+                                                        −q 2k−1 
+                                                                    q
+                                  L(1 − 2k, χ ) =                 χ (a)B2k (a/q).
+                                                         2k a=1
+        15. Let χ be a primitive character modulo q with q > 1, and suppose that
+            χ (−1) = −1.
+            (a) For each non-negative integer k, show that
+                                   i(−1)k 22k π 2k+1 τ (χ ) 
+                                                             q
+                   L(2k + 1, χ ) =                              χ (a)B2k+1 (a/q).
+                                        (2k + 1)! q         a=1
+
+              (b) Show that when k = 0, the above is consistent with the formula of
+                  Theorem 9.9.
+              (c) For non-negative integers k, deduce that
+                                             −q 2k 
+                                                    q
+                            L(−2k, χ ) =               χ (a)B2k+1 (a/q).
+                                            2k + 1 a=1
+        16. (a) Let p1 and p2 be distinct primes. Show that (log p1 )/(log p2 ) is irra-
+                tional.
+            (b) Let χ be a character modulo q. Show that all zeros of L(s, χ ) on the
+                imaginary axis are simple, except possibly for zeros at the point s = 0.
+            (c) Let a positive integer m and a primitive character χ ! be given. Show
+                that there is a character χ induced by χ ! such that L(s, χ ) has a zero
+                at s = 0 of exact multiplicity m.
+        17. (Landau 1907) (a) Let χ denote the character modulo 5 such that χ (2) = i.
+            Show that L(1, χ ) = (−1 − 3i)π τ (χ )/25. √
+            (b) With χ as above, show that L(2, χ 2 ) = 4 5π 2 /125.
+            (c) Let χ be as above.√By using Exercise 9.2.9, or otherwise, show that
+                τ (χ )2 = (−1 − 2i) 5.
+            (d) With χ as above, show that
+                                                 L(1, χ )2
+                                                            = 1 + i/2.
+                                                 L(2, χ 2 )
+              (e) Let χ denote a non-principal character modulo q. Show that
+                                   ∞
+                                                         L(s, χ )2
+                                       2ω(n) χ (n)n −s =
+                                   n=1
+                                                         L(2s, χ 2 )
+                   for σ > 1/2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        338                       Analytic properties of ζ (s) and L(s, χ )
+
+
+              (f) Let εn = 1 if n ≡ 1 (mod 5), εn = −1 if n ≡ −1 (mod 5), and εn = 0
+                  otherwise. Show that
+                                          εn 2ω(n)
+                                          ∞
+                                                     = 1.
+                                         n=1
+                                                 n
+                                                                    
+        18. Suppose throughout that 0 < δ ≤ 1/2. (a) Let α(s) = ∞    n=1 an n
+                                                                              −s
+                                                                                 be
+            a Dirichlet series with abscissa of convergence σc . Show that if σ0 >
+            max(δ, σc ), then
+                                                    δ       σ0 +i∞
+                                                                                      xw
+                       an ((x/n)δ − (n/x)δ ) =                           α(w)                  dw
+                 n≤x                                 πi     σ0 −i∞              (w − δ)(w + δ)
+
+              (b) By taking α(w) = ζ (1/2 + it + w), and considering the residues aris-
+                  ing from poles at w = 1/2 − it and at w = δ, show that
+                                            
+                    ζ (1/2 + δ + it) = x −δ    n −1/2−it ((x/n)δ − (n/x)δ )
+                                                     n≤x
+                                                             ∞
+                                                   δx −δ                        x iu
+                                               +            ζ (1/2 + it + iu) 2      du
+                                                    π   −∞                   u + δ2
+                                                          2δx 1/2−δ−it
+                                               −
+                                                  (1/2 − it − δ)(1/2 − it + δ)
+                                             = T1 + T2 + T3 ,
+
+                  say.
+              (c) Show that
+                                                                                     
+                                                                       1
+                                 T1        1 + x 1/2−δ min                     , log x .
+                                                                     |δ − 1/2|
+              (d) Let M(T ) = max0≤t≤T |ζ (1/2 + it)|. Show that
+
+                                                   T2      x −δ M(2τ )
+
+                  uniformly for 0 < δ ≤ 1/2.
+              (e) Show that T3    x 1/2−δ /τ 2 .
+              (f) By taking x = M(2τ )2 , show that
+                                                                                             
+                                                                            1
+                            ζ (σ + it)        M(2τ )2−2σ min                     , log M(2τ )
+                                                                         |σ − 1|
+                  uniformly for 1/2 ≤ σ ≤ 1.
+              (g) Show that if M(T ) ε T ε , then µ(σ ) = 0 for σ ≥ 1/2.
+              (h) By Corollary 10.5, deduce that if M(T ) ε T ε , then µ(σ ) = 1/2 − σ
+                  when σ ≤ 1/2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                            339
+
+
+        19. Let M(σ, T ) = max1≤t≤T |ζ (σ + it)|. Suppose that σ, σ1 , σ2 are ﬁxed, 0 ≤
+            σ1 < σ < σ2 ≤ 1. Let C denote the rectangular contour with vertices σ2 −
+            σ − iτ/2, σ2 − σ + iτ/2, σ1 − σ + iτ/2, σ1 − σ − iτ/2.
+            (a) Show that
+                                        1                  xw
+                          ζ (σ + it) =        ζ (s + w)            dw.
+                                       2πi C            w(w + 1)
+              (b) Deduce that
+                               ζ (σ + it)        M(σ1 , 2τ )x σ1 −σ + M(σ2 , 2τ )x σ2 −σ .
+              (c) By choosing x suitably, show that
+                        M(σ, T )        M(σ1 , 2T )(σ2 −σ )/(σ2 −σ1 ) M(σ2 , 2T )(σ −σ1 )/(σ2 −σ1 ) .
+              (d) Deduce that
+                                                 σ2 − σ           σ − σ1
+                                    µ(σ ) ≤              µ(σ1 ) +         µ(σ2 ).
+                                                 σ2 − σ1          σ2 − σ1
+            (e) Conclude that µ(σ ) ≤ 12 (1 − σ ) for 0 ≤ σ ≤ 1.
+            (f) Show that if µ(1/2) = 0, then (10.10) holds for all σ .
+        20. (Backlund 1918) Assume the Lindelöf Hypothesis (LH) throughout, and
+            suppose that δ is a small ﬁxed positive number and that t is not the ordinate
+            γ of a zero ρ of ζ (s).
+            (a) Show that the number of zeros ρ = β + iγ of ζ (s) in the rectangle
+                1/2 + δ ≤ β ≤ 1, T − 1 ≤ γ ≤ T + 1 is o(log T ).
+            (b) Show that
+                                    ζ        1
+                                       (s) =           + o(log τ )
+                                    ζ        ρ s −ρ
+
+                  uniformly for 1/2 + 2δ ≤ σ ≤ 2 where the sum is over those zeros ρ
+                  for which 1/2 + δ ≤ β ≤ 1, t − 1 ≤ γ ≤ t + 1.
+              (c) Show that if σ1 < σ2 and t = γ , then
+                          σ2
+                                     σ −β                1     (σ2 − β)2 + (t − γ )2
+                                                    dσ =   log                       .
+                        σ1     (σ − β)2 + (t − γ )2      2     (σ1 − β)2 + (t − γ )2
+              (d) Show that if 1/2 ≤ σ1 ≤ 1 and t = γ , then
+                                            2
+                                                   σ −β
+                                                                  dσ ≥ 0.
+                                          σ1 (σ − β) + (t − γ )
+                                                    2           2
+
+              (e) Show that if t is not the ordinate of a zero, then
+                                             2
+                                                     ζ
+                                                       (σ + it) dσ ≥ −ε log τ
+                                            σ1       ζ
+                   uniformly for 1/2 + 2δ ≤ σ ≤ 2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        340                       Analytic properties of ζ (s) and L(s, χ )
+
+
+              (f) Show that µ(σ ) = 0 for 1/2 < σ ≤ 2.
+              (g) Deduce that µ(σ ) = 1/2 − σ for −1 ≤ σ < 1/2.
+              (h) Show that
+                       σ2
+                                  t −γ                        t −γ            t −γ
+                                                 dσ = arctan        − arctan        .
+                      σ1    (σ − β)2 + (t − γ )2             σ2 − β          σ1 − β
+              (i) Deduce that
+                                           σ2
+                                                      t −γ
+                                                                     dσ ≤ π.
+                                         σ1     (σ − β)2 + (t − γ )2
+             (j) Conclude that arg ζ (1/2 + 2δ + it) = o(log τ ).
+        21. (Backlund 1918; cf. Littlewood 1924) Suppose now that the number of zeros
+            ρ of ζ (s) in a rectangle 1/2 + δ ≤ β ≤ 1, t − 1 ≤ γ ≤ t + 1 is o(log τ ) as
+            t → ∞, and put
+                                           ζ       1
+                                    f (s) = (s) −
+                                            ζ       ρ s −ρ
+
+                where the sum is over the o(log τ ) zeros in such a rectangle.
+            (a) Explain why f (s)      log τ in the disc |s − 2 − it0 | ≤ 3/2 − 2δ.
+            (b) Explain why f (s) = o(log τ ) in the disc |s − 2 − it0 | ≤ 1/2.
+            (c) Use Hadamard’s three circles theorem to show that f (s) = o(log τ ) for
+                 |s − 2 − it0 | ≤ 3/2 − 3δ.
+            (d) Deduce that ζ (1/2 + 3δ + it)       τ ε.
+            (e) Suppose that our hypothesis concerning the number of zeros in a
+                 rectangle holds for every ﬁxed positive δ. Deduce that µ(σ ) = 0 for
+                 σ > 1/2.
+             (f) By Exercise 19(d), conclude that µ(1/2) = 0, i.e., that LH follows.
+                                                     
+        22. For 0 < α ≤ 1 and σ > 1 let ζ (s, α) = ∞     n=0 (n + α)
+                                                                     −s
+                                                                        be the Hurwitz zeta
+            function.
+            (a) Show that
+                                                                  ∞
+                                                                      x s−1 e−αx
+                                         ζ (s, α) (s) =                          dx
+                                                              0        1 − e−x
+                  for σ > 1.
+              (b) Let
+                                                                 z s−1 e−αz
+                                              I (s, α) =                −z
+                                                                            dz
+                                                           C(r ) 1 − e
+
+                   where C(r ) is a contour that runs by a straight line from ir + ∞ to ir ,
+                   by a semicircle from ir through −r to −ir , and then by a straight line
+                   from −ir to −ir + ∞. Note that the value of I (s, α) is independent
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                           341
+
+
+                  of r for 0 < r < 2π. By letting r → 0 show that I (s, α) = (e2πis − 1)
+                  ζ (s, α) (s) for σ > 1.
+              (c) By means of (C.6), show that
+                                                         (1 − s)e−πis
+                                         ζ (s, α) =                   I (s, α)
+                                                            2πi
+                   for σ > 1.
+              (d) Show that I (s, α) is an entire function of s. Deduce by the above that
+                   ζ (s, α) is meromorphic.
+              (e) Show that I (k, α) = 0 for k = 2, 3, . . . .
+               (f) Show that I (1, α) = 2πi.
+              (g) Deduce that ζ (s, α) is analytic everywhere except for a simple pole at
+                   s = 1 with residue 1.
+              (h) Show that if k is an integer, then
+                                                           (1−α)z 
+                                                            ze
+                                   I (k, α) =        z k−2            dz.
+                                               |z|=1         ez − 1
+               (i) By Exercise B.3, deduce that if k is a non-negative integer, then
+
+                                     I (−k, α) = 2πi Bk+1 (1 − α)/(k + 1)!.
+
+               (j) By Theorem B.1, deduce that if k is a positive integer then
+                                                                   −Bk (α)
+                                               ζ (1 − k, α) =              .
+                                                                     k
+                In particular, ζ (0, α) = 1/2 − α.
+        23. (Lerch 1894; cf. Berndt 1985) Let α be ﬁxed, 0 < α ≤ 1. (a) Show that
+                                                             
+                                                             ∞
+                             ζ (s, α) − ζ (s) = α −s +         ((n + α)−s − n −s )
+                                                             n=1
+
+                  for σ > 0.
+              (b) Show that
+                                                                             n+α
+                  (n + α)−s − n −s + αsn −s−1 = s(s + 1)                           (n + α − u)u −s−2 du.
+                                                                         n
+
+              (c) Deduce that
+                                                                   
+                                                                   ∞
+               ζ (s, α) − ζ (s) + αsζ (s + 1) = α −s +               ((n + α)−s − n −s + αsn −s−1 )
+                                                                   n=1
+
+                   for σ > −1, and that the series is locally uniformly convergent in this
+                   half-plane.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        342                       Analytic properties of ζ (s) and L(s, χ )
+
+
+              (d) Show that
+                  ζ  (s, α) − ζ  (s) + αζ (s + 1) + αsζ  (s + 1)
+                                          ∞                                        
+                             −s                 −log (n + α) log n      α   αs log n
+                       = −α log α +                             + s + s+1 −
+                                          n=1
+                                                   (n + α)s         n n      n s+1
+
+                  for σ > −1. (Here ζ  (s, α) is meant to denote ∂s∂ ζ (s, α).)
+              (e) By Corollary 1.16, or otherwise, show that
+
+                                         lim ζ (s + 1) + sζ  (s + 1) = C0 .
+                                         s→0
+
+              (f) Deduce that
+                                                                        
+                                                                        ∞
+                ζ  (0, α) − ζ  (0) + αC0 = −log a +                         (−log (n + α) + log n + α/n).
+                                                                        n=1
+
+                   By (10.14) and the deﬁnition (C.1) of the gamma function, conclude
+                   that
+                                                          (α)
+                                        ζ  (0, α) = log √ .
+                                                          2π
+        24. (a) Let χ be a character modulo q. Show that
+                                                
+                                                q
+                                L(s, χ ) = q −s   χ (a)ζ (s, a/q).
+                                                                  a=1
+
+              (b) Show that if χ is a non-principal character modulo q, then
+                                                  −1 
+                                                       q
+                                       L(0, χ ) =        χ (a)a.
+                                                  q a=1
+              (c) Show that if χ is a non-principal character modulo q, then
+                                                         
+                                                         q
+                          L  (0, χ ) = L(0, χ ) log q +   χ (a) log (a/q).
+                                                                            a=1
+
+        25. Let Q(x, y) = ax + bx y + cy where a, b, c are real numbers, and put
+                                     2                        2
+
+            d = b2 − 4ac. Suppose that Q is positive-deﬁnite, which is to say that
+            a > 0 and d < 0. For z with z > 0, put
+                                                        √
+                              ϑ Q (z) =     e−2π Q(m,n)z/ −d .
+                                                   m,n∈Z
+
+              (a) Show that
+                                                         √                                      √
+                                             e−π zn           −d/(2a)
+                                                                              e−2πa(m+bn/(2a)) z/ −d .
+                                                      2                                       2
+                           ϑ Q (z) =
+                                         n                              m
+
+              (b) Apply Theorem 10.1 to the inner sum, take the sum over n inside, and
+                  apply Theorem 10.1 a second time to show that ϑ Q (z) = ϑ Q (1/z)/z.
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                         10.1 Functional equations and analytic continuation                       343
+
+
+              (c) For σ > 1 put
+                                                           
+                                           ζ Q (s) =                  Q(m, n)−s .
+                                                       (m,n)=(0,0)
+
+                   Show that if z ≥ 0, then
+
+                   ζ Q (s) (s)(−d)s/2 (2π)−s
+                                                                                   
+                                                                         2π Q(m, n)z
+                       = (−d)s/2 (2π)−s               Q(m, n)−s       s,    √
+                                          (m,n)=(0,0)                        −d
+                                                                                            
+                                                                                   2π Q(m, n)
+                          + (−d)(1−s)/2 (2π )s−1               Q(m, n)s−1 1 − s,       √
+                                                   (m,n)=(0,0)                      z −d
+                                z s−1    z −s
+                          +            −      .
+                              2(s − 1)   2s
+
+            (d) Deduce that ζ Q (s) is a meromorphic function whose only singularity
+                                                            √
+                 is a simple pole at s = 1 with residue π/ −d.
+            (e) Put ξ Q (s) = ζ Q (s) (s)(−d)s/2 (2π )−s . Show that ξ Q (s) = ξ Q (1 − s)
+                 for all s except s = 0, s = 1.
+             (f) Show that ζ Q (0) = −1/2.
+            (g) Show that ζ Q (−k) = 0 for all positive integers k.
+        26. Let K be an algebraic number ﬁeld. The Dedekind zeta function of K is de-
+                                  
+            ﬁned to be ζ K (s) = a N (a)−s for σ > 1, where the sum is over all integral
+            ideals in the ring O K of algebraic integers in K . This is a natural general-
+            ization of the Riemann zeta function, and indeed ζQ (s) = ζ (s). Since ideals
+            in O K factor uniquely into prime ideals, and since N (ab) = N (a)N (b) for
+            any pair a, b of ideals, it follows that
+
+                                         ζ K (s) =         (1 − N (p)−s )−1
+                                                       p
+
+              for σ > 1. Let d denote the discriminant of K . In the case that K is a
+              quadratic ﬁeld, by analysing how rational primes          split in K it emerges
+              that ζ K (s) = ζ (s)L(s, χd ) where χd (n) = dn K is the Kronecker symbol.
+              Thus the functional equations of ζ (s) and of L(s, χd ) give a functional
+              equation for ζ K (s) in this case. From now on, suppose    √ that K is a com-
+              plex quadratic ﬁeld, which is to say that K = Q( d) where d < 0 is a
+              fundamental quadratic discriminant. Let w denote the number of units in
+              O K , which is to say that w = 6 if d = −3, w = 4 if d = −4, and w = 2
+              if d < −4. Let h be the class number of K . Then there are precisely h
+              reduced positive deﬁnite binary quadratic forms of discriminant d, say
+              Q 1 , Q 2 , . . . , Q h . As m and n run over integral values, (m, n) = (0, 0), the
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        344                       Analytic properties of ζ (s) and L(s, χ )
+
+
+              values Q i (m, n) run over the the values N (a) for ideals a in the i th ideal
+              class Ci , each value being taken exactly w times. Thus
+                                                     
+                                       ζ Q i (s) = w   N (a)−s
+                                                                a∈Ci
+
+              in the notation of the preceding exercise, and
+
+                                                              1 h
+                                              ζ K (s) =            ζ Q (s).
+                                                              w i=1 i
+
+              (a) For z > 0, let
+                                          
+                                          h                              
+                                                                         ∞                 √
+                              ϑK (z) =          ϑ Q i (z) = h + w              r (n)e−2π nz/ −d
+                                          i=1                            n=1
+                                                  
+                  where r (n) = r K (n) = k|n χd (k) is the number of ideals in O K with
+                  norm n. Show that ϑK (z) = ϑK (1/z)/z.
+              (b) Show that if z ≥ 0, then
+
+                      ζ K (s) (s)(−d)s/2 (2π )−s
+                                             ∞
+                                                                   √ 
+                           = (−d)s/2 (2π )−s     r (n)n −s s, 2π nz/ −d
+                                                  n=1
+                                                               
+                                                               ∞
+                                                                                               √ 
+                              + (−d)(1−s)/2 (2π )s−1                 r (n)n s−1    1 − s, 2π n/ z −d
+                                                               n=1
+                                        s−1               s
+                                    hz       hz
+                              +            −    .
+                                  2w(s − 1) 2ws
+            (c) Deduce that ζ K (s) is a meromorphic function whose only singularity
+                                                                  √
+                 is a simple pole at s = 1 with residue hπ/(w −d).
+            (d) Put ξ K (s) = ζ K (s) (s)(−d)s/2 (2π )−s . Show that ξ K (s) = ξ K (1 − s)
+                 for all s except s = 1 and s = 0.
+            (e) Show that ζ K (0) = −h/(2w).
+             (f) Show that ζ K (−k) = 0 for all positive integers k.
+            (g) Show that r (n 2 ) ≥ 1 for all positive integers n.
+            (h) Show that if L(1/2, χd ) ≥ 0, then h        (−d)1/4 log(−d).
+        27. Let α be an arbitrary complex number and z a complex number with z > 0.
+            Let f (u) = e−π (u+α) z . Show that * f (t) = z −1/2 e2πitα e−π t /z . Deduce that
+                                   2                                         2
+
+
+            the identities of Theorem 10.1 hold for arbitrary complex α.
+                                         √
+        28. Grössencharaktere for Q( −1), continued from Exercises 4.2.7 and
+            4.3.10. (a) By two applications of the preceding exercise, show that if z
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    10.2 Products and sums over zeros                              345
+
+
+              and w are complex numbers with z > 0, then
+                                                 1  −π (c2 +d 2 )/z 2πi(c+id)w/z
+                        e−π (a +b ) e2πi(a+ib)w =
+                              2  2
+                                                          e          e             .
+                  a,b∈Z
+                                                  z c,d∈Z
+              (b) Differentiate both sides of the above m times with respect to w, and
+                  then set w = 0, to show that
+                                                   1  −π (c2 +d 2 )/z
+                          e−π (a +b )z (a + ib)m = m+1
+                                2  2
+                                                           e            (c + id)m .
+                      a,b
+                                                  z    c,d
+
+              (c) Explain why the above reduces to 0 = 0 if 4  m.
+              (d) Let χm and L(s, χm ) be deﬁned as before. Show that if m is a positive
+                  integer and z ≥ 0, then
+                  L(s, χm ) (s + 2m)π −s
+                       π −s  χm (a + ib)
+                    =                                 (s + 2m, π (a 2 + b2 )z)
+                        4 (a,b)=(0,0) (a 2 + b2 )s
+                         π s−1            χm (a + ib)
+                       +                                  (1 − s + 2m, π (a 2 + b2 )/z).
+                           4 (a,b)=(0,0) (a 2 + b2 )1−s
+
+              (e) Deduce that L(s, χm ) is an entire function when m is a non-zero integer.
+               (f) For each positive integer m, put ξ (s, χm ) = L(s, χm ) (s + 2m)π −s .
+                   Show that ξ (s, χm ) = ξ (1 − s, χm ) for all s.
+              (g) Show that if m is a positive integer, then L(s, χm ) has simple zeros
+                   at −2m, −2m − 1, −2m − 2, . . . , but no other zeros in the half-plane
+                   σ < 0.
+              (h) Show that ξ (σ, χm ) is real for all real σ , and that ξ (1/2 + it, χm ) is real
+                   for all real t.
+
+
+
+                             10.2       Products and sums over zeros
+        If P(z) is a polynomial, then we may express P(z) as a product over its zeros
+        zi ,
+                                   P(z) = c(z − z 1 )(z − z 2 ) · · · (z − z n ).
+        The question arises whether a more general entire function may be similarly
+        represented as a product over its zeros, say
+                                                        
+                                                      z
+                                   f (z) = c       1−      .                (10.21)
+                                              n       zn
+        This is an issue that was addressed by Weierstrass and Hadamard. Rather than
+        derive their extensive theory, we establish only a simple part of it that sufﬁces
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        346                       Analytic properties of ζ (s) and L(s, χ )
+
+
+        for our purposes. We do not quite achieve a formula of the type (10.21) for the
+        zeta function, but we obtain a serviceable substitute.
+
+        Lemma 10.11 Suppose that f (z) is an entire function with a zero of order K
+        at 0, and that f (z) vanishes at the non-zero numbers z 1 , z 2 , z 3 , . . . . Suppose
+        also that there is a constant θ , 1 < θ < 2, such that
+                                             max | f (z)| ≤ exp(R θ )
+                                             |z|≤R
+
+        for all sufﬁciently large R. Then there exist numbers A = A( f ) and B = B( f ),
+        such that
+                                                  ∞          
+                                                           z
+                                f (z) = z e
+                                         K A+Bz
+                                                       1−       e z/zk
+                                                 k=1
+                                                          z k
+
+        for all z. Here the product is uniformly convergent for z in compact sets.
+
+        Proof We may suppose that K = 0, since if K > 0 then the function f (z)/z K
+        does not vanish at the origin. Let N f (R) denote the number of zeros of f (z) in the
+        disc |z| ≤ R. By Jensen’s inequality (Lemma 6.1) we ﬁnd that N f (R) ≤ 8R θ for
+                                        
+        all sufﬁciently large R. Thus R<|zk |≤2R |z k |−2 ≤ 8R θ −2 , so by summing over
+                                     ∞
+        dyadic blocks we see that k=1 |z k |−2 < ∞. (Alternatively, if more precision
+                                                     ∞
+        were desired, we could write this sum as 0 r −2 d N f (r ) , and integrate by parts.)
+        But (1 − z)e = 1 + O(|z| ) uniformly for |z| ≤ 1, so the product
+                     z               2
+
+                                             ∞            
+                                                        z
+                                    g(z) =         1−        e z/zk
+                                            k=1
+                                                       z k
+
+        is uniformly convergent in compact regions, and hence represents an entire
+        function. Thus h(z) = f (z)/( f (0)g(z)) is a non-vanishing entire function with
+        h(0) = 1.
+           Next we derive an upper bound for Mh (R). To this end we write the product
+        above in three parts,
+
+                                 g(z) =                     = P1 (z)P2 (z)P3 (z),
+                                          k∈K1 k∈K2 k∈K3
+
+        where |z k | ≤ R/2 for k ∈ K1 , R/2 < |z k | ≤ 3R for k ∈ K2 , and |z k | > 3R for
+        k ∈ K3 . Suppose that R ≤ |z| ≤ 2R. If |z k | ≤ R/2, then |1 − z/z k | ≥ |z/z k | −
+        1 ≥ 1, and hence
+                                            |P1 (z)| ≥          e−2R/|zk | .
+                                                         k∈K1
+
+        Now
+                                                1
+                                                                R θ −1 .
+                                               k∈K
+                                                   |z k |
+                                                     1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    10.2 Products and sums over zeros                                 347
+
+
+        Thus
+                                                                             θ
+                                                 |P1 (z)| ≥ e−c R
+        for all large R. Since card K 2 ≤ 72R θ , it follows that there is an r , R ≤ r ≤ 2R,
+        for which |r − |z k || ≥ 1/R 2 for all k. If r is chosen in this way and |z| = r , then
+                                                 |r − |z k ||      1
+                                 |1 − z/z k | ≥               ≥
+                                                     |z k |     27R 3
+        for all k ∈ K2 . Hence
+                                                                         θ
+                                              |P2 (z)| ≥ e−c R log R
+        when |z| = r . Finally,
+                                                                                   θ
+                                                            e−c R /|zk | ≥ e−c R
+                                                                 2           2
+                                      |P3 (z)| ≥
+                                                     k∈K3
+
+        for |z| ≤ 2R. Hence we see that for each large R there is an r , R ≤ r ≤ 2R, for
+                            θ                                       θ
+        which |g(z)| ≥ e−c R log R when |z| = r . Thus |h(z)| ≤ ec R log R for such z, and
+        hence by the maximum modulus principle
+                                                                     θ
+                                               Mh (R) ≤ ec R log R .
+        Now put j(z) = log h(z) with j(0) = 0. Then  j(z) ≤ c R θ log R for all large
+        R, so that by the Borel–Carathéodory lemma (Lemma 6.2),
+                                                 j(z)         R θ log R
+        for all large R. But θ < 2, so j(z) must be a polynomial of degree at most 1,
+        say j(z) = A + Bz, and the proof is complete.                              
+
+           In order to apply our lemma to ξ (s) we need an upper bound for |ξ (s)|. From
+        Corollary 1.17 we see that ζ (s)     |s|1/2 when σ ≥ 1/2 and |s| ≥ 2. Thus by
+        Stirling’s formula (Theorem C.1) it follows that
+                                             ξ (s)      exp(|s| log |s|)                           (10.22)
+        when σ ≥ 1/2 and |s| ≥ 2. In view of the functional equation found in Corollary
+        10.3, this same upper bound therefore holds for all s with |s| ≥ 2. Since
+                                    ξ (s) = (s − 1)ζ (s) (1 + s/2)π −s/2 ,                         (10.23)
+        it follows from (10.11) that ξ (0) = 1/2. Thus by Lemma 10.11 we obtain
+        Theorem 10.12 Let ξ (s) be deﬁned as in Corollary 10.3. There is a constant
+        B such that
+                                                    
+                                    1 Bs           s
+                            ξ (s) = e          1−      es/ρ                 (10.24)
+                                    2     ρ        ρ
+
+        for all s. Here the product is extended over all zeros ρ of ξ (s).
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        348                       Analytic properties of ζ (s) and L(s, χ )
+
+
+           All known zeros of the zeta function are simple, and it is plausible to conjec-
+        ture that they all are. In the (unlikely) event that a multiple zero is encountered,
+        the associated factor in the above product is to be repeated as many times as
+        the multiplicity.
+           Thus far we have remarked upon the zeros of ξ (s) without having proved
+        that they exist. However, from (10.24) we see that if ξ (s) had at most ﬁnitely
+        many zeros then there would be a constant C > 0 such that ξ (s)            exp(C|s|)
+        for all
+               large  s. On   the contrary, by  Stirling’s formula   we  ﬁnd   that ξ (σ ) =
+        exp 12 σ log σ + O(σ ) as σ → ∞, so it is evident that ξ (s) has inﬁnitely many
+        zeros. Concerning the density of the zeros, the following estimate is useful.
+
+        Theorem 10.13 For T ≥ 0, let N (T ) denote the number of zeros ρ = β + iγ
+        of ξ (s) in the rectangle 0 < β < 1, 0 < γ ≤ T . Any zeros with γ = T should
+        be counted with weight 1/2. Then
+
+                                     N (T + 1) − N (T )           log (T + 2).
+
+        Proof We apply Jensen’s inequality (Lemma 6.1) to ξ (s), on a disc with centre
+        2 + i(T + 1/2) and radius R = 11/6. By taking r = 7/4, it follows from the
+        estimates of Corollary 1.17 that the number of zeros ρ in the rectangle 1/2 ≤
+        β ≤ 1, T ≤ γ ≤ T + 1 is       log (T + 2). (Alternatively, we could appeal to
+        Theorem 6.8.) But ρ is a zero if and only if 1 − ρ is a zero, so the rectangle
+        0 ≤ β ≤ 1/2, T ≤ γ ≤ T + 1 contains the same number of zeros as the former
+        one. Thus we have the result.                                               
+
+             By summing the above over integral values of T , we deduce that N (T )
+        T log T . Alternatively, this same upper bound follows from (10.22) by means
+                                            
+        of Jensen’s inequality. Hence ρ |ρ|−A < ∞ for all A > 1. With a little more
+                                        
+        work we could show that             1/|ρ| = ∞ (see Exercise 10.1), and indeed that
+        N (T ) T log T for all large T (see Exercise 10.4). A much more precise
+        asymptotic formula for N (T ) will be derived in Chapter 14.
+             We recall that the logarithmic derivative of a function f (z) is deﬁned to
+        be f  (z)/ f (z). Since f  (z)/ f (z) = dz
+                                                  d
+                                                     log f (z), it follows that the logarithmic
+        derivative of a product is the sum of the logarithmic derivatives of the factors.
+        Although log f (z) is multiple-valued, the ambiguity involves only an additive
+        constant, so f  (z)/f (z) is a well-deﬁned single-valued analytic function wher-
+        ever f (z) is analytic and non-zero. If f has a zero at a of multiplicity m, then
+         f /f has a simple pole at a with residue m. If f has a pole at a of multiplicity m
+        then f /f has a simple pole at a with residue −m. Hence if f is meromorphic
+        then f /f is meromorphic with only simple poles, which occur at the zeros and
+        poles of f .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    10.2 Products and sums over zeros                                      349
+
+
+            By taking logarithmic derivatives in the deﬁnition (10.5) of ξ (s) we ﬁnd that
+                      ξ      1      1       ζ       1            1
+                         (s) = +          + (s) +          (s/2) − log π.          (10.25)
+                      ξ       s    s−1       ζ        2             2
+        By taking logarithmic derivatives in the functional equation of Corollary 10.3
+        we see that
+                                    ξ          ξ
+                                       (s) = − (1 − s).                        (10.26)
+                                    ξ           ξ
+        By logarithmically differentiating the asymmetric form (10.9) of the functional
+        equation, we discover that
+                  ζ        ζ                        
+                                                                  π       πs
+                     (s) = − (1 − s) + log 2π −         (1 − s) + cot        . (10.27)
+                  ζ          ζ                                     2       2
+        By taking logarithmic derivatives of both sides of the identity (10.24) we obtain
+        Corollary 10.14          Let B be deﬁned as in Theorem 10.12. Then
+                                     ξ            1          1
+                                                                  
+                                        (s) = B +            +                                     (10.28)
+                                     ξ            ρ    s−ρ     ρ
+
+        and
+          ζ          1         1   1                                                1    1
+                                                                                                   
+             (s) = B + log π −    −                              (s/2 + 1) +               +           .
+           ζ          2        s−1 2                                            ρ      s−ρ   ρ
+                                                                                                   (10.29)
+        Moreover,
+                                     
+                          1   1    1       1   −C0      1
+                B=−               +     =−    =     − 1 + log 4π
+                          2 ρ 1−ρ   ρ      ρ  ρ   2       2
+                   = −0.0230957 . . . .                                                            (10.30)
+          In the above, it is to be understood that if ξ (s) has a multiple zero ρ, then the
+        summand arising from ρ is to be repeated as many times as the multiplicity.
+        Proof The second identity follows from the ﬁrst by means of (10.25). As for
+                                                                          
+        (10.30), we observe ﬁrst by taking s = 0 in (10.28) that B = ξξ (0). Also, by
+                                                           
+        taking s = 1 in (10.28) we ﬁnd that ξξ (1) = B + ρ (1/(1 − ρ) + 1/ρ). By
+        (10.26), this is −B, so we obtain the ﬁrst identity in (10.30). Since B is real,
+        we may write
+                                                             
+                                     1           1         1
+                               B=−                    +       .
+                                     2 ρ         1−ρ        ρ
+                                      
+        However, ρ 1/(1 − ρ) and ρ 1/ρ are absolutely convergent, so these
+        two sums may be written separately, above. Since 1 − ρ runs over zeros of
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        350                       Analytic properties of ζ (s) and L(s, χ )
+
+
+        the zeta function as ρ does, the two sums are equal, and we obtain the second
+        identity in (10.30). By logarithmically differentiating the fundamental identity
+                                                       
+        s (s) = (s + 1) we see that 1/s + (s) = (s + 1). Hence (10.25) may be
+        rewritten as
+                      ξ         1      ζ       1                 1
+                         (s) =       + (s) +          (s/2 + 1) − log π.
+                       ξ       s−1      ζ        2                  2
+        We obtain the third identity in (10.30) by taking s = 0 in the above, in view of
+        (10.11), (10.14), and (C.12).                                                 
+
+           In order to extend our theory to include L-functions, we need an upper bound
+        for |L(s, χ )| that corresponds to the bound for the zeta function provided by
+        Corollary 1.17.
+        Lemma 10.15 Let χ be a non-principal character modulo q, and suppose
+        that δ > 0 is ﬁxed. Then
+                                                                       
+                                                          1
+                       L(s, χ )  (1 + (qτ )1−σ ) min           , log qτ
+                                                       |σ − 1|
+        uniformly for δ ≤ σ ≤ 2.
+           Landau noted that an estimate relating to the zeta function often has a
+        ‘q-analogue’ in which n −it is replaced by χ (n) and τ is replaced by q. In
+        the above we have a ‘hybrid’ of the two, with χ (n)n −it and qτ throughout.
+                              
+        Proof Let S(u, χ ) = 0<n≤u χ (n). Then for σ > 0,
+                                                ∞
+                   L(s, χ ) =     χ (n)n −s +      u −s d S(u, χ )
+                                       n≤x                  x
+                                                                         ∞               ∞
+                                   =         χ (n)n −s + S(u, χ )u −s         −               S(u, χ ) du −s
+                                                                          x           x
+                                       n≤x
+                                                                                     ∞
+                                   =         χ (n)n −s − S(x, χ )x −s + s                 S(u, χ )u −s−1 du.
+                                       n≤x                                        x
+
+        This is analogous to Theorem 1.12. To estimate the sum we use (1.29). For the
+        remaining terms we use the trivial estimate S(u, χ )  q. The stated estimate
+        then follows by taking x = qτ .                                            
+
+            Now suppose that χ is a primitive character modulo q, q > 1. By Stir-
+        ling’s formula we see that ξ (s, χ ) q 1/2+σ exp(|s| log |s|) when σ ≥ 1/2 and
+        |s| ≥ 2. By the functional equation of Corollary 10.8, it follows that
+                                          ξ (s, χ )     exp(|s| log q|s|)                                (10.31)
+        for all s with |s| ≥ 2. Hence by Lemma 10.11 we obtain
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    10.2 Products and sums over zeros                                 351
+
+
+        Theorem 10.16 Let χ be a primitive character modulo q, q > 1, and let
+        ξ (s, χ ) be deﬁned as in Corollary 10.8. There is a constant B(χ ) such that
+                                                                 
+                                                                s
+                            ξ (s, χ ) = ξ (0, χ )e B(χ)s
+                                                             1−     es/ρ         (10.32)
+                                                         ρ      ρ
+
+        for all s. Here the product is extended over all zeros ρ of ξ (s, χ ).
+
+           We expect that the zeros of ξ (s, χ ) are all simple, but if a multiple zero is
+        encountered, then the factor that it contributes to the above product is to be
+        repeated as many times as its multiplicity. In analogy to Theorem 10.13, we
+        have
+
+        Theorem 10.17 Let χ be a character modulo q. The number of zeros
+        ρ = β + iγ of L(s, χ ) in the rectangle 0 ≤ β ≤ 1, T ≤ γ ≤ T + 1 is
+        log q(|T | + 2).
+
+        Proof First suppose that χ is primitive. We apply Jensen’s inequality
+        (Lemma 6.1) to L(s, χ ), on a disc with centre 2 + i(T + 1/2) and radius
+        R = 11/6. By taking r = 7/4, it follows from the estimates of Lemma 10.15
+        that the number of zeros ρ in the rectangle 1/2 ≤ β ≤ 1, T ≤ γ ≤ T + 1 is
+            log q(T + 2). But L(ρ, χ) = 0 if and only if L(1 − ρ, χ) = 0 (except pos-
+        sibly for a trivial zero at s = 0 if χ(−1) = 1), so the rectangle 0 ≤ β ≤ 1/2,
+        T ≤ γ ≤ T + 1 contains the same number of zeros as (or at most one more
+        than) the former one. Thus we have the result when χ is primitive.
+            Suppose now that χ is induced by a primitive character χ ! modulo r , with
+        r |q. Then
+                                                                   
+                                               !           χ ! ( p)
+                              L(s, χ ) = L(s, χ )       1−            .
+                                                  p|q
+                                                             ps
+                                                            pr
+
+        Here each factor in the product has zeros forming an arithmetic progression
+        on the imaginary axis with common difference 2πi/ log p. Thus L(s, χ ) has
+                                                                      
+           log r (|T | + 2) zeros of L(s, χ ! ), and additionally has   p|q log p log q
+        zeros on the imaginary axis with imaginary part between T and T + 1. This
+        completes the argument.                                                      
+
+           Suppose that χ is a primitive character modulo q. By taking logarithmic
+        derivatives in the deﬁnition (10.18) of ξ (s, χ ), we see that
+                        ξ          L         1             
+                                                                                    1    q
+                           (s, χ ) = (s, χ ) +                   ((s + κ)/2) +        log .        (10.33)
+                        ξ           L          2                                    2    π
+        By taking logarithmic derivatives in the functional equation of Corollary 10.8
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        352                       Analytic properties of ζ (s) and L(s, χ )
+
+
+        we see that
+                                          ξ            ξ
+                                             (s, χ ) = − (1 − s, χ ).                              (10.34)
+                                          ξ             ξ
+        By logarithmically differentiating the asymmetric form of the functional equa-
+        tion found in Corollary 10.9, we discover that
+             L            L                  q                   
+                                                                                    π    π
+                (s, χ ) = − (1 − s, χ ) − log    −                     (1 − s) +      cot (s + κ)
+             L             L                  2π                                    2    2
+                                                                                               (10.35)
+
+        By taking logarithmic derivatives of both sides of the identity (10.31) we
+        obtain
+
+        Corollary 10.18 Let χ be a primitive character modulo q, q > 1, and let
+        B(χ ) be deﬁned as in Theorem 10.16. Then
+                           ξ                    1     1
+                                                           
+                              (s, χ ) = B(χ ) +        +                (10.36)
+                           ξ                    ρ s−ρ    ρ
+
+        and
+            L                   1         
+                                                                1     q    1    1
+                                                                                    
+               (s, χ ) = B(χ ) −               ((s + κ)/2) −      log   +       +     .
+            L                    2                              2     π   ρ s−ρ   ρ
+                                                                                                   (10.37)
+
+        Moreover,
+                                                   
+                                        1   1    1       1
+                             B(χ ) = −         +     =−                                          (10.38)
+                                        2 ρ 1−ρ   ρ      ρ   ρ
+
+        and
+                                   −1    q L        1
+                        B(χ ) =       log − (1, χ ) + C0 + (1 − κ) log 2.                          (10.39)
+                                   2     π L         2
+            As always, multiple zeros are counted multiply.
+
+        Proof The second identity follows from the ﬁrst by means of (10.33). To
+        obtain the ﬁrst identity in (10.38), we take s = 1 in (10.36), and apply (10.34)
+        to see that
+                    1             1
+                                      
+                                          ξ            ξ
+          B(χ ) +               +       = (1, χ ) = − (0, χ ) = −B(χ ) = −B(χ ).
+                    ρ    1−ρ       ρ       ξ            ξ
+
+        From Theorem 10.17 we know that the number of zeros ρ of ξ (s, χ ) with |ρ| ≤
+                                                                          
+        R is    R log q R for R ≥ 2. Hence the sums ρ 1/(1 − ρ) and ρ 1/ρ
+        are absolutely convergent. As the map ρ → 1 − ρ merely permutes zeros of
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    10.2 Products and sums over zeros                              353
+
+
+        ξ (s, χ ), the ﬁrst of these two sums is unchanged if we replace ρ by 1 − ρ.
+        Hence the two sums are equal, and we obtain the second part of (10.38).
+                                                                                  
+            To derive (10.39) we ﬁrst take s = 0 in (10.36) to see that B(χ ) = ξξ (0, χ ).
+                                                          
+        By (10.34) it follows that B(χ ) = − ξξ (1, χ ). The stated identity now follows
+        by taking s = 1 in (10.33), in view of (C.11) and (C.14).                      
+
+
+                                              10.2.1      Exercises
+        1. Let f satisfy the hypotheses of Lemma 10.11, and suppose that
+                                                  ∞
+                                                       1
+                                                            < ∞.
+                                                  k=1
+                                                      |z k|
+
+           (a) Show that there are numbers A and B and a non-negative integer K such
+                                                          
+               that f (z) = z K e A+Bz g(z) where g(z) = ∞   k=1 (1 − z/z k ).
+           (b) Observe that for any complex number w, |1 − w| ≤ e|w| and show that
+               there is a number C such that |g(z)| ≤ eC|z| .
+                             
+           (c) Deduce that ρ 1/|ρ| = ∞ where the sum is over all non-trivial zeros
+               of the zeta function.
+        2. (a) Let B be the constant given in (10.30). Show that if ρ = 1/2 + iγ is a
+               zero of the zeta function on the critical line, then
+
+                                    |γ | ≥ (−1/B − 1/4)1/2 = 6.5611 . . . .
+
+            (b) Let γ be given, and put f (β) = β/(β 2 + γ 2 ). Show that if 0 ≤ β ≤ 1,
+                then f (β) ≥ β/(1 + γ 2 ). Deduce that if 0 ≤ β ≤ 1, then f (β) + f (1 −
+                β) ≥ f (0) + f (1).
+            (c) Show that if ρ = β + iγ is a non-trivial zero of the zeta function with
+                β = 1/2, then
+
+                                      |γ | ≥ (−2/B − 1)1/2 = 9.2518 . . . .
+
+        3. (Landau 1903) Show that
+                                                   1/m
+                                  1 ∞ µ(n)(log n)m       1
+                        lim sup                          = .
+                          m→∞     m! n=1    n             3
+
+        4. (a) Show that
+                                                   1   1
+                                                      = log σ + O(1)
+                                          ρ       σ −ρ  2
+
+                  for σ ≥ 2, where the sum is over all non-trivial zeros of the zeta
+                  function.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        354                       Analytic properties of ζ (s) and L(s, χ )
+
+
+            (b) Deduce that
+                                        1   3    1
+                                                                   
+                                                                           1
+                                            −                        =     log σ + O(1)
+                              ρ         σ −ρ  4 2σ − ρ                     8
+
+               for σ ≥ 2.
+           (c) Show that each summand above is ≤ 1/(σ − 1).
+           (d) Show that if |γ | ≥ 3σ and σ is large, then the summand arising from ρ
+               in the sum above is ≤ 0.
+           (e) Concludethat N (T )  T log T when T is large.
+        5. Put f (s) =  s+1
+                           1
+                              − s+23/4
+                                        .
+           (a) Show that if t ≥ 2, then
+                                                    1
+                                     f (1 + it − ρ) = log t + O(1)
+                                 ρ                   8
+
+                where the sum is over all non-trivial zeros ρ of ζ (s).
+            (b) Show that f (s) ≤ 1 when σ ≥ 0.
+            (c) Show that if 0 ≤ σ < 2, then f (s) ≤ 0 when
+                                        (σ + 1)(σ + 2)(σ + 5)
+                                  t2 ≥                           .
+                                                 2−σ
+           (d) Deduce that f (s) ≤ 0 if 0 < σ < 1 and |t| ≥ 6.
+           (e) Show that N (T + 6) − N (T − 6)      log T for all T > T0 .
+                                                                 
+        6. (a) Show that for s near 1 the Laurent expansion of ζζ (s) begins
+                                           ζ        −1
+                                              (s) =     + C0 + · · · .
+                                           ζ        s−1
+            (b) Deduce that
+                                          ζ          1
+                                             (1 − s) = + C0 + O(|s|)
+                                          ζ           s
+                for s near 0.
+                              
+            (c) Show that (1) = −C0 .
+            (d) Show that
+                                 π      πs  1
+                                    cot    = + O(|s|)
+                                 2      2   s
+                for s near 0.
+                                         
+           (e) Deduce by (10.27) that ζζ (0) = log 2π .
+            (f) Use this to give a second proof that ζ  (0) = − 12 log 2π .
+        7. (Taylor 1945) (a) Show that if σ > 1/2, then |ξ (s + 1/2)| > |ξ (s − 1/2)|.
+           (b) Put f (s) = ξ (s + 1/2) + ξ (s − 1/2). Show that all zeros of f (s) have
+                real part 1/2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    10.2 Products and sums over zeros                              355
+
+
+           (c) Assume RH. Show that if c is ﬁxed, c > 0, then all zeros of ξ (s + c) +
+               ξ (s − c) have real part 1/2.
+        8. (Vorhauer 2006) Let B(χ ) denote the constant in Theorem 10.16.
+           (a) Show that
+                                   1−β            β            1
+                                              + 2       ≥
+                               (1 − β)2 + γ 2  β + γ2       1 + γ2
+                uniformly for 0 ≤ β ≤ 1.
+            (b) Deduce that
+                                                            1 1
+                                            B(χ ) ≤ −                 .
+                                                            2 γ 1 + γ2
+
+            (c) Show that
+                                           ξ          1
+                                              (2, χ ) = log q + O(1).
+                                           ξ           2
+            (d) Show that
+                                                ξ               1
+                                                  (2, χ ) =        .
+                                                ξ            ρ   2−ρ
+
+            (e) Show that
+                                                               
+                                   ξ         1       1     1
+                                   (2, χ ) =            +       .
+                                   ξ          2 ρ     2−ρ   1+ρ
+
+             (f) Show that
+                                     2−β             1+β            3
+                                               +               ≤
+                                 (2 − β) + γ
+                                        2    2   (1 + β) + γ
+                                                        2    2   1 + γ2
+                uniformly for 0 ≤ β ≤ 1.
+            (g) Conclude that
+                                            −1
+                                           B(χ ) ≤
+                                                 log q + O(1).
+                                              6
+                                                             K k 
+        9. Let K > 0 be given, and put E(z) = (1 − z) exp        k=1 z /k .
+           (a) Show that
+                                                            
+                                                       zk
+                                                       K
+                                 E  (z) = −z K exp            .
+                                                      k=1
+                                                          k
+
+            (b) Deduce that the power series coefﬁcients of E  (z) are all ≤ 0.
+                               
+            (c) Write E(z) = ∞            m
+                                 m=0 Am z . Show   that A0 = 1, Am = 0 for 1 ≤ m ≤ K ,
+                                              
+                Am < 0 for m > K , and that m>K Am = −1.
+            (d) Show that if |z| ≤ r ≤ 1, then |1 − E(z)| ≤ 1 − E(r ) ≤ r K +1 .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        356                       Analytic properties of ζ (s) and L(s, χ )
+
+
+                                                10.3        Notes
+        Section 10.1. The case α = 0 of (10.1) was given by Poisson (1823). de la Vallée
+        Poussin observed that the left-hand side of (10.1) has period 1 with respect to
+        α, and then computed the Fourier coefﬁcients of this function to obtain (10.1).
+        This is rather similar to using the Poisson summation formula, as we have done.
+        Theorem 10.1 is the basis for a very large class of functional equations and was
+        ﬁrst exploited systematically by Hecke. For the most general version see Tate’s
+        thesis, reproduced in Tate (1967). Riemann gave two proofs of Corollary 10.3.
+        Riemann’s second method involved using Theorem 10.1 to establish the formula
+        of Exercise 10.1.10. This is the case z = 1 of Theorem 10.2, with the order of
+        summation and integration reversed. Theorem 10.2 is due to Lavrik (1965),
+        who derived it from Corollary 10.3 in the manner outlined in Exercise 10.1.4.
+        For further proofs of the functional equation, see Titchmarsh (1986, Chapter 2).
+           The proofof Theorem 10.1 can be arranged so that one does not depend on
+        the fact that e−π x d x = 1. To see this, let c denote the value of this integral.
+                             2
+
+
+        Then the proof given establishes (10.1) with the factor c on the right-hand side.
+        But if z = 1 and α = 0 the two sides of (10.1) are visibly equal and positive,
+        so it follows that c = 1.
+           The functional equation for ζ (s) was established by Riemann (1860), and
+        that for L(s, χ) by de la Vallée Poussin (1896) although it was known in some
+        special cases earlier. See the commentary of Landau (1909, p. 899).
+           Section 10.2 The product formula of Theorem 10.12 was established by
+        Hadamard (1893). The constant B(χ ) in Theorem 10.16 was long considered
+        to be mysterious; the simple formula (10.39) for it is due to Vorhauer (2006).
+
+
+                                             10.4       References
+        Backlund, R. J. (1918). Über die Beziehung zwischen Anwachsen und Nullstellen der
+             Zetafunktion, Öfv. af ﬁnska vet. soc. förh. 61A, Nr. 9.
+        Berndt, B. C. (1985). The gamma function and the Hurwitz zeta-function, Amer. Math.
+             Monthly 92, 126–130.
+        Hadamard, J. (1893). Étude sur les propriétés des fonctions entières et en particulier
+             d’une fonction considérée par Riemann, J. Math. Pures Appl. (4) 9, 171–215.
+        Heilbronn, H. (1938). On Dirichlet series which satisfy a certain functional equation,
+             Quart J. Math. Oxford Ser. 9, 194–195.
+        Landau, E. (1903). Über die zahlentheoretische Funktion µ(k), Sitzungsber. Kais. Akad.
+             Wiss. Wien 112, 537–570; Collected Works, Vol. 2. Essen: Thales Verlag, 1986,
+             pp. 60–93.
+          (1907). Bemerkungen zu einer Arbeit des Herrn V. Furlan, Rend. Circ. Mat. Palermo
+             23, 367–373; Collected Works, Vol. 3. Essen: Thales Verlag, 1986, pp. 316–322.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 10.4 References                                   357
+
+
+           (1909). Handbuch der Lehre von der Verteilung der Primzahlen, Third edition. New
+              York: Chelsea, 1974.
+        Lavrik, A. F. (1965). The abbreviated functional equation for the L-function of Dirichlet,
+              Izv. Akad. Nauk UzSSR Ser. Fiz.-Mat. Nauk 9, 17–22.
+        Lerch, M. (1894). Weitere Studien auf dem Gebiete der Malmstén’schen Reihen. Mit
+              einem Briefe des Herrn Hermite, Rozpravy 3, No. 28, 63 pp.
+        Littlewood, J. E. (1924). On the zeros of the Riemann Zeta-function, Cambridge Philos.
+              Soc. Proc. 22, 295–318.                        
+        Mallik, A. (1977). If L( 12 , χ) > 0, then L 12 , χ cannot be a minimum, Studia Sci.
+              Math. Hungar. 12, 445–446.
+        Poisson, S. D. (1823). Suite de mémoire sur les intégrales déﬁnies et sur la sommation
+              des séries, l’École Royale, J. Polytechnique 12, 404–509.
+        Riemann, B. (1860). Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse,
+              Monatsberichte der Königlichen Preussichen Akademie der Wissenschaften zu
+              Berlin aus dem Jahre 1859, 671–680; Werke. Leipzig: Teubner, 1876, pp. 3–47.
+              Reprint: New York: Dover, 1953.
+        Tate, J. T. (1967). Fourier analysis in number ﬁelds, and Hecke’s zeta-functions, Alge-
+              braic Number Theory (Brighton, 1965). Washington: Thompson, pp. 305–347.
+        Taylor, P. R. (1945). On the Riemann zeta function, Quart. J. Math. Oxford Ser. 16,
+              1–21.
+        Titchmarsh, E. C. (1986). The Theory of the Riemann Zeta-function, Second Edition.
+              Oxford: Oxford University Press.
+        de la Vallée Poussin, C. (1896). Recherches analytique sur la théorie des nombres pre-
+              miers. Deuxième partie: Les fonctions de Dirichlet et les nombres premiers de
+              la forme linéaire M x + N , Annales de la Société scientiﬁque de Bruxelles, 20,
+              281–342.
+        Vorhauer, U. M. A. (2006). The Hadamard product formula for Dirichlet L-functions,
+              to appear.
+        A. Walﬁsz (1931). Teilerprobleme, II, Math. Z. 34, 448–472.
+        A. Weil (1967). Über die Bestimmung Dirichletscher Reihen durch Funktionalgleichun-
+              gen, Math. Ann. 168, 149–156.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.012 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

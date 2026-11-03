@@ -1,0 +1,389 @@
+                     11
+                     Diophantine inequalities
+
+                     11.1 A theorem of Davenport and Heilbronn
+                     All of the forms of the Hardy-Littlewood method described so far
+                     have dealt with the solution of equations in integers. For instance, in
+                     Chapter 9 it was shown that if s is large enough, then given integers
+                     c 1 ? . . . , cs (or equivalently given that c 1 ? .. ., cs are all in rational
+                     ratio), not all of the same sign when k is even, the equation
+                                                      cxx\ + . . . + csxks = 0
+                     has a non-trivial solution in integers x 1 ? . . . , xs. Now one can ask
+                     what happens when the c 1 ? . . . , cs are not in rational ratio. It is no
+                     longer sensible to insist that the form represents 0, but one can ask
+                     instead that it take arbitrarily small values.
+                        In order to answer this question, Davenport & Heilbronn (1946)
+                     introduced an important variant of the Hardy-Littlewood method.
+                     This enabled them to establish the following theorem.
+
+                     Theorem 11.1 Suppose that s ^ 2k + 1 and that / 2 , . . . , Asare non-zero
+                     real numbers not all in rational ratio, and not all of the same sign when k is
+                     even. Then for every positive number n there exist integers xl9.. ., xs, not
+                     all zero, such that
+                                                     |A 1 x fc 1 +... + Asx*|<>/.             (11.1)
+                     It suffices to prove the theorem when rj = 1, for it can then be applied
+                     with Xj replaced by Aj/rj. Moreover, when k is odd, replacing, if
+                     necessary, x\ by ( — x^ enables one to assume in this case also that
+                     not all the /,- are of the same sign.
+                        By relabelling it can be supposed that kjk2 is irrational. If
+                     XJk2 > 0, then consider any) for which ll/Xj < 0. Then, when /j/Aj is
+                     rational, kjkj is irrational and negative. In any case, by further
+                     relabelling it can be supposed that
+                                              A1/A2 is irrational and negative.               (11.2)
+                         In all of the forms of the Hardy-Littlewood method considered so
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                     168                                                            Diophantine inequalities
+
+                     far, the line of attack has been via fourier transforms on the torus
+                     T = R/2. For the present problem it is more appropriate to work on
+                     IR. The obvious analogue of (1.8) is the identity.
+
+
+                                                                ™
+                     However there are difficulties associated with this transform because
+                     the integral does not converge absolutely. It is more convenient,
+                     therefore, to use instead
+
+                                                                                      y ... ,.      (H.3)
+                     A straightforward application of the Cauchy integral formula gives
+                                                     /(j8) = max(l-|jff|,0).                          (11.4)
+                        Let
+                                                           A'
+
+                                               /(«)= I              e(axk), fj(a) = f(kja).           (11.5)
+                                                         X =    1
+
+
+                     Then for the method to be successful one requires a positive lower
+                     bound for
+
+                                                                - 00 \j = 1
+
+                     for by (11.4) and (11.5) this is
+                                        N           iV
+
+                                        Z ... X max(l-|A1x*+...+Asx;|,O)
+                                      X! = 1      XS= 1
+
+                     which can only be positive if there are x l 5 . . . , x s for which (11.1) holds
+                     with rj = 1. Thus Theorem 11.1 follows from
+
+                     Theorem 11.2 Suppose that s > 2k. Then there are arbitrarily large N
+                     for which
+                                             R(N)pNs~k.
+
+                       Note that throughout this chapter implicit constants may depend
+                     on / l 5 . . . , AS.
+
+                     11.2 The definition of major and minor arcs
+                     The form of the Hardy-Littlewood method used here is somewhat
+                     simpler than that described hitherto. The most important
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                     The treatment of the minor arcs                                                        169
+
+                     simplification arises from the fact that for suitable choices of N the
+                     integrand has only one really big peak, that at the origin. This is
+                     because the irrationality of XxjX2 ensures that one of/j ,/ 2 is relatively
+                     small when a is not near the origin.
+                        Let
+                                                          P = N\                         (11.7)
+
+                     Then U is divided into three regions. These consist of the sole major
+                     arc
+                                              2W = {a:|a|^PAT*},                      (11.8)
+                     the pair of minor arcs
+                                            m = {a:PAT f c <|a|^P}.                  (11.9)
+                     and the 'trivial' region
+                                                t = {a:|a|>P}.                      (11.10)
+                       The trivial region can be dismissed quickly. By Hua's lemma
+                     (Lemma 2.5),
+                                                   rx + i                          k
+                                                            \fj(0L)\2kd<x<N 2 -k + e
+                                         Jx
+                     so that, by Holder's inequality,
+
+                                               1 fu(«)
+                                                   X+1
+                                                                             N2 *-k +                    (11.11)
+                     Thus, by (11.3),
+                                                                               s
+                                        1 1 1 J0(«)
+                                       Jt \j = i
+                                                                              n               2
+                                                                                       fj(*) a" da
+
+                                                                   <   Ns-   k+e
+                                                                                       00
+
+                                                                                       y. (
+                                                                                       h=0
+                                                                                                  \~ 2
+
+                     Therefore
+                                                                              Ns                         (11.12)
+
+                     where here, and below, d is a fixed positive number depending at most
+                     on k, s, A l 9 . . . , AS.
+                     11.3 The treatment of the minor arcs
+                     It is on m that use is made of the irrationality of A1/A2, and the
+                     argument requires a specialization of N.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                      170                                                           Diophantine inequalities
+
+                     Lemma 11.1 Let a, q be any pair with (a, q) = 1 and
+                                                           Xt       a      _2
+                                                           X2       q ^
+                     Further let N = q2. Then
+
+
+
+
+                        The existence of arbitrarily large q, and hence N, satisfying
+                     Lemma 11.1 is ensured by Lemma 2.1 and the irrationality of kjk2.
+                     Such N may occur rather infrequently, but at any rate there are
+                     infinitely many of them. The lemma fails if no specialization of this
+                     kind is made. For instance it can be shown that, for suitable kjk29
+
+                                         limsup (—sup minfl/! (a)|, |/2(a)|) ) > 0.
+
+                     Proof of Lemma 11.1 Suppose that N ^ N0(Xl9... , / s ) , let a em and
+                     Q = Nk~v/2 and choose qj9aj9 in accordance with Lemma 2.1, so
+                     that
+                                      (qpaj)=l          qj^Q,           |A/x - a
+                     The first step is to show that at least one of ql9 q2 is relatively large. If
+                     a, were to be 0, then one would have
+
+
+                     and so a would lie in 9M, not m. Thus a} ^ 0. Also one has
+
+                                                                                    with
+                                          ' = — + -7T = — 1 + - ^                             IS/l^l-
+                     Hence
+
+
+
+                     which, since N, and so Q, is large, gives
+
+
+                                                                 a2qx
+                     and therefore
+
+
+                                                             a2qx
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                     The treatment of the minor arcs                                             171
+
+                     On hypothesis,
+                                                             a
+                                                  i
+                                                I2           q
+                     Hence
+                                            a
+                                            q         a2qx
+                     so that
+                                                      \a2qxa -       q2axq\
+                     If the left-hand side is non-zero, then |a2<?il > q, and if it is zero, then
+                     a/q = (q2ai)/(a2cli)> which again implies that \a2q1\>q. Since
+                     a2 = I2<xq2 - 92Q~ * < q2P it follows that qxq2 P qP~ l. Therefore,
+                     by (11.7),
+                                                          max(^ 1 ,g 2 )>iV 1 / 5 .           (11.13)
+                     Now, by Weyl's inequality (Lemma 2.4), for j = 1, 2,
+
+
+
+
+                     Hence, by (11.13),
+
+
+                     as required
+                       For the remainder of the proof of Theorem 11.2 it will be assumed
+                     that N is chosen in accordance with the specialization given in
+                     Lemma 11.1. Let
+                                 ml = {a :aem, |/i(a)| ^ |/ 2 (a)|}, rrt2 = m \m 1 .
+                     By (11.3), X ( a ) ^ m i n ( l , a" 2 ). Also the argument that gives (11.11)
+                     can be readily adapted to show that
+
+                                                                                j 2 k - k -
+
+                                                Jx                n /i(
+                                                                 i= 1
+
+                     so that
+
+                                             Jm
+                                                      n                            k
+                                                                               JV2 -k +£
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                     172                                                            Diophantine inequalities
+
+                     Therefore, by Lemma 11.1, when; = 1 or 2,
+
+
+                                         Jrrx
+                                                 n /.(«: K(a)da <^ N            2k+l-k-3+E
+
+
+                     Thus, there is a positive number S such that
+
+
+                                                Jm
+                                                     n /»K(a)da                   js-k-d                   (11.14)
+
+
+                     11.4 The major arc
+
+                     In view of (11.12) and (11.14) it remains only to show that, for N
+                     sufficiently large,
+
+                                                               r.(a) )K{a)da>Ns-k.                         (11.15)
+                                                      j=   1
+
+                     Let ae9JJ. By (11.7), (11.8), Lemma 2.7, and the remark after the proof
+                     of that lemma, one has
+
+
+                     where
+
+                                                      Vj(0C)=          i                                   (11.16)
+                                                                  Jo
+                     Therefore
+
+
+                                                                                    i < j / \ i >      j
+
+
+
+                     Hence, by (11.8),
+                                                                                             j s - k - d
+                                                                                                           (11.17)
+                                      J9W \ j = 1              J= 1
+
+                     A change of variables in the integral in (11.16), together with the
+                     observation that
+
+                                                                -yllk~1e(y)dy
+
+                     is <^ 1 uniformly in X ^ 0, shows that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                     The major arc                                                                                     173
+
+                     Hence, by (11.7) and (11.8),
+
+                                            I        ( fl Vj(a))K{a)da < \                     a"s/*da
+                                         JR\»V/=1                   /                  jNv-k
+
+
+                     Thus
+
+                                   j (ft ^a)W)da= r f fl t>/«)W)da
+                                                                                          *"*).                    (11.18)
+                        By (11.16),
+
+
+
+
+                                            da         djS, . . .            e((Ltt    + ... +
+                                   J - oo        JO                     JO
+
+                     Since X(a) <^ min (1, a" 2) and the integrand is continuous the order of
+                     integration may be interchanged. Hence, by (11.3) and (11.4),
+
+
+
+
+                                = f d ^ . . . [Nm2ix(l-\lipkl
+                                    Jo                  Jo
+
+                                          dai...       ( « , . . . a,
+                                        o         Jo
+                                    x max(l - lA^i + . . . + Asas|, 0)das.
+                     It is now that one requires the hypothesis that XxjX2< 0. Consider the
+                     region
+                       a = {(<x2,... a s ): dNk ^ a 2 ^ 2SNk, 32Nk ^ a} ^ 2S2Nk (3 ^ ; ^ s)}.
+                     Then, for <5 sufficiently small, whenever ( a 2 , . . . , <xs)e& one has
+
+
+                     and so every OL1 with |A 1 a 1 H-... + AsaJ ^ j satisfies S2Nk <ctl<                              Nk.
+                     Therefore
+
+                           " f fl ^(a))x(a)da > (N1 ' k)s f da2 ... das f                                         dat
+                           -cx)\j=l              /                                J^               J^(a 2 ,...,a s )
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+                     174                                                           Diophantine inequalities
+
+                     where stf(ct2,..., as) denotes the interval with end points
+                     ( — U 2 a 2 + ... + Asas)±^)A1"1. Obviously the volume of ^ is
+                      MAT*)*-1. Hence
+
+                                                 - oo \ jj=i=
+                                              J;-oo                /
+
+                     This with (11.17) and (11.18) establishes (11.15), and thus completes
+                     the proof of Theorem 11.2.
+
+                     11.5 Exercises
+
+                        1 (Davenport & Roth, 1955; Vaughan, 1914b) Obtain
+                     Theorem 11.1 for any s^C/clog/c where C is a suitable constant.
+                        2 Let Al9 A2, A3, )U, rj denote real numbers with k} =/= 0, */ > 0, XxjX2
+                     irrational, and XJX2 < 0. Show that there are primes pu p2, p3 such
+                     that
+
+
+                       3 (Baker, 1967; Vaughan, 1914a) Modify the argument used to
+                     answer 2 above so as to show that there are infinitely many triples of
+                     primes pl9 p2, p3 such that
+
+                                        l^iPi + A2P2 + ^3^3 + tA < (logmaxpj)~ \
+
+                       4 (Baker).1" Let F(N)-^0 as iV->oo. Prove that the statement 'for
+                     every sufficiently large N there are primes px, p2, p3 such that ^ ^ N
+                     and I AiPi + X2p2 + 23p31 < F(N)' can be false for suitable Al9 A2, A3
+                     with A1/A2 > 0 and A1/A2 irrational.
+
+
+
+
+                     ^Communicated in conversation in June 1973.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.014 Published online by Cambridge University Press
+

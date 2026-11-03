@@ -1,0 +1,9 @@
+{
+  "verdict": "pass",
+  "severity": "cosmetic",
+  "location": "proof.md:34: “As $\\sum_p|h(p)|\\le\\sum_p p^{-2}<\\infty$”",
+  "objection": "The inequality is false: for q=n=2, the left side exceeds the right side by 1/4, since |h(2)|=1/2. However, only the finitely many primes dividing q can violate the termwise bound, so the convergence justification is trivially fillable. No nontrivial gap was found in claims (i)–(v).",
+  "other_issues": [
+    "proof.md:32 has an extraneous factor q in the asserted identity “q·μ(d)g_d/d²·1[g_d|n] = ∏_{p|d}h(p)”. For q=2 and d=1, its sides are 2 and 1. This is a local typographical error; the subsequent Euler-product formula has the correct normalization."
+  ]
+}

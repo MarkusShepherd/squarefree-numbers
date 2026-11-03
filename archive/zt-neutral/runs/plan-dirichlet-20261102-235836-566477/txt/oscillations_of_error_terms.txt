@@ -1,0 +1,1350 @@
+                                                         15
+                                Oscillations of error terms
+
+
+
+
+                          15.1          Applications of Landau’s theorem
+        In this section we make repeated use of the following simple analogue of Lan-
+        dau’s theorem (Theorem 1.7) concerning Dirichlet series with non-negative
+        coefﬁcients.
+
+        Lemma 15.1 Suppose that A(x) is a bounded Riemann-integrable function
+        in any ﬁnite interval 1 ≤ x ≤ X , and that A(x)
+                                                    ∞ ≥ 0 for all x > X 0 . Let σc
+                                                           −σ
+        denote the inﬁmum of those σ for which X 0 A(x)x d x < ∞. Then the
+        function
+                                                             ∞
+                                             F(s) =               A(x)x −s d x
+                                                         1
+
+        is analytic in the half-plane σ > σc , but not at the point s = σc .
+
+        Proof       Write
+                                   X0                         ∞
+                   F(s) =               A(x)x −s d x +             A(x)x −s d x = F1 (s) + F2 (s),
+                               1                             X0
+
+        say. Then the function F1 (s) is entire, and the proof of Theorem 1.7 can be
+        adapted to F2 (s) to give the stated result.                              
+
+           In Exercise 13.1.1 we saw that if  denotes the supremum of the real parts of
+        the zeros of the zeta function, then ψ(x) = x + O(x  (log x)2 ). Conversely, if
+                                                                         
+        ψ(x) = x + O(x α+ε ), then by Theorem 1.3 the Dirichlet series ∞   n=1 ((n) −
+        1)n −s converges for σ > α, and hence ζ (s) = 0 in this half-plane. That is,
+        ψ(x) − x = (x −ε ). We now sharpen this, by showing that ψ(x) − x must
+        be large in both signs.
+
+                                                             463
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        464                                  Oscillations of error terms
+
+
+        Theorem 15.2 Let  denote the supremum of the real parts of the zeros of
+        the zeta function. Then for every ε > 0,
+
+                                              ψ(x) − x = ± (x −ε )                                         (15.1)
+
+        and
+
+                                             π (x) − li(x) = ± (x −ε )                                     (15.2)
+
+        as x → ∞.
+
+        Proof       By Theorem 1.3 we have
+                                                              ∞
+                                             ζ
+                                         −      (s) = s           ψ(x)x −s−1 d x
+                                             ζ            1
+
+        for σ > 1. Hence
+                                                                  ∞
+                                      ζ  (s)   1
+                                  −           −    =                  (ψ(x) − x)x −s−1 d x
+                                      sζ (s) s − 1            1
+
+        for σ > 1. Suppose that
+
+                                       ψ(x) − x < x −ε for all x > X 0 (ε).                                 (15.3)
+
+        Then we apply Lemma 15.1 to the function
+                                                                      ∞
+                     1      ζ  (s)   1
+                          +         +   =                                 (x −ε − ψ(x) + x)x −s−1 d x.
+                 s −  + ε sζ (s) s − 1                           1
+
+        Here the left-hand side has a pole at  − ε, but is analytic for real s >  − ε,
+        in view of Corollary 1.14. Hence the above identity holds for σ >  − ε,
+        and both sides are analytic in this half-plane. But by the deﬁnition of ,
+        the function ζ  /ζ has poles with real part >  − ε. From this contradiction
+        we deduce that the assertion (15.3) is false. That is, ψ(x) − x = + (x −ε ).
+        To obtain the corresponding − estimate we argue similarly using the
+        identity
+                                                                      ∞
+                     1      ζ  (s)   1
+                          −         −   =                                 (x −ε + ψ(x) − x)x −s−1 d x.
+                 s −  + ε sζ (s) s − 1                           1
+
+        In contrast to the situation of Corollary 2.5 or Theorem 13.2, it does not seem
+        possible to derive (15.2) from (15.1) by integrating by parts. Instead, we pursue
+        an argument modelled on the one just given. First we examine the Mellin
+        transform of li(x). By integrating by parts we see that
+                              ∞                           ∞                        ∞
+                                                                 dx                                   du
+                      s           li(x)x −s−1 d x =            s
+                                                                      =                         e−u      .
+                          2                           2       x log x             (s−1) log 2         u
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                        15.1 Applications of Landau’s theorem                        465
+
+
+        Clearly this is
+                          ∞
+                                    du                 1
+                                                              e−u − 1
+                 =            e−u      +                              du − log(s − 1) − log log 2.
+                      1             u             (s−1) log 2    u
+        By (7.31) we see that this is
+                                   (s−1) log 2
+                                                  e−u − 1
+                     =−                                   du − C0 − log(s − 1) − log log 2.
+                               0                     u
+        Thus we ﬁnd that
+                                             ∞
+                                    s            li(x)x −s−1 d x = − log(s − 1) + r (s)
+                                         2
+
+        where r (s) is an entire function. Put
+                                                                      (n)
+                                                            (x) =               .
+                                                                     n≤x log n
+
+        By Theorem 1.3 we know that
+                                                       ∞
+                                             s              (x)x −s−1 d x = log ζ (s)
+                                                   2
+
+        for σ > 1. Hence
+                                          1    1                    r (x)
+                                              − log(ζ (s)(s − 1)) +
+                                        s−+ε  s                      s
+                                                      ∞
+                                             =             (x −ε − (x) + li(x))x −s−1 d x
+                                                  2
+
+        for σ > 1. We observe that this function is analytic on the real axis for s >  −
+        ε. Thus by Lemma 1, if (x) − li(x) < x −ε for all sufﬁciently large x, then the
+        identity above holds in the half-plane σ >  − ε. However, we are assuming
+        that the zeta function has a zero ρ = β + iγ with β >  − ε, and the left-hand
+        side above has a logarithmic singularity at s = ρ. Thus we have a contradiction,
+        and so (x) − li(x) = + (x −ε ). Since π (x) = (x) + O(x 1/2/ log x), and
+        since  ≥ 1/2, it follows that π(x) − li(x) = + (x −ε ). For the corresponding
+        − estimate, we argue similarly from the identity
+                                 1         1                     r (x)
+                                         + log(ζ (s)(s − 1)) −
+                             s−+ε          s                      s
+                                                      ∞
+                                             =             (x −ε + (x) − li(x))x −s−1 d x.
+                                                  2
+                                                                                                      
+
+           Next we show that if there is a zero of ζ (s) on the line σ = , then we may
+        draw a stronger conclusion.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        466                                 Oscillations of error terms
+
+
+        Theorem 15.3 Suppose that  is the supremum of the real parts of the zeros
+        of ζ (s), and that there is a zero ρ with ρ = , say ρ =  + iγ . Then
+                                                       ψ(x) − x    1
+                                            lim sup             ≥     ,                            (15.4)
+                                              x→∞        x       |ρ|
+        and
+                                                      ψ(x) − x     1
+                                            lim inf       
+                                                               ≤−     .                            (15.5)
+                                             x→∞        x         |ρ|
+        Proof       Suppose that ψ(x) ≤ x + cx  for all x ≥ X 0 . Then by Lemma 15.1,
+                                                            ∞
+                   c    ζ  (s)   1
+                      +         +   =                           (cx  − ψ(x) + x)x −s−1 d x        (15.6)
+                 s −  sζ (s) s − 1                     1
+
+        for σ > . Call this function F(s). Then
+                          1                 1
+                 F(s) + eiφ F(s + iγ ) + e−iφ F(s − iγ )
+                          2                 2
+                                  ∞
+                         =            (cx  − ψ(x) + x)(1 + cos(φ − γ log x))x −s−1 d x
+                              1
+
+        for σ > . We now consider the behaviour of these two expressions as s tends
+        to  from above through real values. On the right-hand side, the integral from
+        1 to X 0 is uniformly bounded, while the integral from X 0 to ∞ is non-negative.
+        Thus the lim inf of the right-hand side is > −∞ as s → + . On the other hand,
+        the left-hand side is a meromorphic function that has a pole at s =  with
+        residue
+                                                      meiφ   me−iφ
+                                               c+          +
+                                                       2ρ     2ρ
+        where m ≥ 1 denotes the multiplicity of the zero ρ. We choose φ so that eiφ /ρ =
+        −1/|ρ|. Then the above is c − m/|ρ|. This quantity must be non-negative, for if
+        it were negative, then the left-hand side would tend to −∞ as s → + . Hence
+        c ≥ 1/|ρ|, and we have (15.4). The proof of (15.5) is similar.                 
+
+        Corollary 15.4 As x tends to +∞,
+                                                               
+                                             ψ(x) − x = ± x 1/2 ,                                 (15.7)
+                                                               
+                                             ϑ(x) − x = − x 1/2 ,                                 (15.8)
+        and
+                                                                        
+                                        π(x) − li(x) = − x 1/2 (log x)−1 .                        (15.9)
+           The problem of proving + companions of (15.8) and (15.9) is more difﬁcult,
+        and is dealt with in the next section.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  15.1 Applications of Landau’s theorem                                467
+
+
+        Proof We ﬁrst prove (15.7). If RH is false, then  > 1/2, and we have a
+        stronger result by Theorem 15.2. If RH holds, then we have (15.7) by Theo-
+        rem 15.3, and the remaining assertions follow by Theorem 13.2.          
+
+           Many similar results can be proved using the above ideas. For example, for
+               
+         M(x) = n≤x µ(n) we ﬁnd, in the manner of Theorem 15.2, that
+                                               M(x) = ± (x −ε ).                                  (15.10)
+        In analogy to (15.6) we put
+                                                                    ∞
+                                    1      c
+                       G(s) =           −      =                        (M(x) − cx  )x −s−1 d x.
+                                  sζ (s) s −                   1
+
+        Then in the manner of the proof of Theorem 15.3, we ﬁnd that if  + iγ is a
+        zero of ζ (s), then
+                                                    M(x)      1
+                                          lim sup        ≥            ,                             (15.11)
+                                           x→∞       x    |ρζ  (ρ)|
+        and
+                                                   M(x)       1
+                                         lim inf      
+                                                        ≤−            .                             (15.12)
+                                           x→∞      x      |ρζ  (ρ)|
+        Here we are assuming that ζ  (ρ) = 0. In the contrary case ρ would be a multiple
+        zero of ζ (s), and our method would allow us to replace the right-hand side of
+        (15.11) by +∞ and that of (15.12) by −∞. In fact we can prove still more, by
+        considering the function
+                                                            ∞
+                           1      c(m − 1)!
+              H (s) =           −           =                   (M(x) − cx  (log x)m−1 )x −s−1 d x.
+                         sζ (s)   (s − )m              1
+
+        Then our method allows us to deduce that if  + iγ is a zero of multiplicity
+        m ≥ 1, then
+                                         M(x) = ± (x  (log x)m−1 ).
+        Then in the manner of Corollary 15.4 we ﬁnd that in any case
+                                                    
+                                    M(x) = ± x 1/2 ,                                               (15.13)
+        and that if ζ (s) has a multiple zero, then
+                                                         
+                                     M(x) = ± x 1/2 log x .                                        (15.14)
+        In the explicit formula for ψ(x) − x, or for M(x), the arguments of the terms in
+        the sum over the zeros are governed by the quantities x iγ . If the ordinates γ > 0
+        are linearly independent over Q, then these arguments will tend to be statistically
+        independent as x runs over a long range. Numerical experiments have failed
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        468                                 Oscillations of error terms
+
+
+        to disclose any linear dependences, and in the absence of any indication to the
+        contrary, we presume that the ordinates γ > 0 are linearly independent. Under
+        this assumption, we can improve on the estimate (15.13).
+        Theorem 15.5 Let 0 < γ1 < γ2 < · · · < γ K and γ be ordinates of zeros of
+        ζ (s). For 1 ≤ k ≤ K let εk take one of the values −1, 0, 1. Suppose that
+                                                      
+                                                      K
+                                                            εk γk = 0                              (15.15)
+                                                      k=1
+
+        for such εk only when εk = 0 for all k. Suppose also that the equation
+                                                      
+                                                      K
+                                                            εk γk = γ                              (15.16)
+                                                      k=1
+
+        has a solution only if γ is one of the γk , say γ = γk0 and that in this case the
+        only solution is obtained by taking εk0 = 1, εk = 0 for k = k0 . Then
+
+                                                     M(x)    K
+                                                                       1
+                                          lim sup          ≥           
+                                                                                                   (15.17)
+                                           x→∞       x 1/2   k=1
+                                                                 |ρ  ζ
+                                                                    k (ρk )|
+
+        and
+                                                   M(x)      K
+                                                                        1
+                                         lim inf         ≤ −             (ρ )|
+                                                                                .                  (15.18)
+                                          x→∞      x 1/2     k=1
+                                                                 |ρ k ζ     k
+
+        Proof In view of (15.10) and (15.14), we may assume that RH holds and that
+        all zeros of the zeta function are simple. We suppose that M(x) ≤ cx 1/2 for all
+        large x and consider the integral
+                                     ∞
+                                         M(x) − cx 1/2 K
+                     I (s) =                              (1 + cos(φk − γk log x)) d x.
+                                 1          x s+1     k=1
+
+        With G(s) deﬁned as above (with  = 1/2), we multiply out the product to
+        see that this integral is a linear combination of G at various arguments. More
+        precisely, we see that
+                                           
+                                         1 K
+                  I (s) = G(s) +               (eiφk G(s + iγk ) + e−iφk G(s − iγk )) + J (s)
+                                         2 k=1
+        where J (s) is a linear combination of G at arguments of the form
+                                                             
+                                                             K
+                                                     s +i          εk γk
+                                                             k=1
+
+        with more than one of the εk non-zero. The function G(s) is analytic in the
+        half-plane σ > 0, except for poles at s = 1/2 and at the non-trivial zeros ρ.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  15.1 Applications of Landau’s theorem                            469
+
+
+        Hence by Landau’s theorem we see that I (s) converges for σ > 1/2, and our
+        hypotheses (15.15), (15.16) imply that J (s) is analytic at the point s = 1/2.
+        Thus the integral I (s) has a pole at s = 1/2 with residue
+                                                        
+                                                        K
+                                                              eiφk
+                                             −c +                     .
+                                                           ρ ζ  (ρk )
+                                                        k=1 k
+
+        We choose the φk so that the summands here are positive real. Since I (s) is
+        bounded above uniformly for s > 1/2, by letting s tend to 1/2 from above we
+        deduce that
+                                                    
+                                                    K
+                                                              1
+                                               c≥             
+                                                                    .
+                                                     k=1
+                                                         |ρ ζ
+                                                           k (ρk )|
+
+        This gives (15.17), and the proof of (15.18) is similar.                                    
+
+            It is not known whether it is possible to choose zeros ρ in such a way that the
+        hypotheses (15.15), (15.16) hold, and for which the sum in (15.17) and (15.18)
+        is large, but at least we are able to establish
+
+        Theorem 15.6 Suppose that the Riemann Hypothesis is true and that the zeros
+        of the zeta function are simple. Then
+                                                 1
+                                                 (ρ)|
+                                                       T
+                                      0<γ ≤T
+                                             |ζ
+
+        as T → ∞.
+
+            From this it follows by partial summation that
+                                               1
+                                                 (ρ)|
+                                                       log T
+                                    0<γ ≤T
+                                            |ρζ
+
+        as T → ∞. Thus by combining Theorems 15.5 and 15.6 we have
+
+        Corollary 15.7 If the ordinates γ > 0 of the Riemann zeta function are lin-
+        early independent over Q, then
+                                                        M(x)
+                                             lim sup          = +∞
+                                               x→∞      x 1/2
+        and
+                                                       M(x)
+                                             lim inf         = −∞.
+                                               x→∞     x 1/2
+        Proof of Theorem 15.6 It is enough to prove the inequality with T restricted
+        to the special sequence of values Tν of Theorem 13.21, for which |ζ (s)| τ −ε
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        470                               Oscillations of error terms
+
+
+        uniformly for −1 ≤ σ ≤ 2. By the calculus of residues we see that
+                                                  1             1             1
+                                                            =                      ds
+                                       0<γ ≤Tν
+                                                 ζ  (ρ)        2πi        C ζ (s)
+
+        where C is the rectangular contour with vertices 2 + i, 2 + i Tν , −1 + i Tν ,
+        −1 + i. The top of this rectangle contributes an amount          Tνε . For s on the
+        left side of this contour, |ζ (s)| τ  3/2
+                                                  by Corollary 10.5, so that the integral
+        along the left-hand side is     1. The integral along the bottom of the rectangle
+        is clearly    1 as well. To estimate the integral along the right-hand side, we
+        expand 1/ζ (s) in its Dirichlet series, and integrate term by term. The integral
+        of 1 contributes Tν − 1, while for n > 1 the integral of n −2−it is n −2 / log n.
+        On summing over n we ﬁnd that the integral of 1/ζ (s) over the right-hand side
+        of the rectangle is Tν + O(1). On combining these estimates we see that the
+        sum above is Tν + O(Tνε ), and this gives the stated result.                     
+
+
+                                              15.1.1           Exercises
+          1. (a) Suppose that ε is small and positive, and let Li(x) be deﬁned as in
+                 Exercise 6.2.22. Explain why
+                        ∞                                                                   ∞
+                                                                                                  dx
+                   s         Li(x)x −s−1 d x = Li(1 + ε)(1 + ε)−s +                             s log x
+                                                                                                        = T1 + T2 .
+                       1+ε                                                                1+ε x
+              (b) Show that Li(1 − ε) = Li(1 + ε) + O(ε).
+              (c) Show that
+                                                                               ∞
+                                                                                         dv
+                                              Li(1 − ε) = −                        e−v      .
+                                                                           ε             v
+              (d) Show that Li(1 + ε)              log 1/ε.
+              (e) Deduce that
+                                                           ∞                       
+                                                                     dv           1
+                                        T1 = −                 e−v      + O ε log     .
+                                                       ε             v            ε
+              (f) Show that
+                                                               ∞
+                                                                                         dv
+                                                 T2 =                          e−v          .
+                                                            (s−1) log(1+ε)                v
+              (g) Show that
+                                                            ∞
+                                                                           dv
+                                              T2 =                   e−v      + O(ε) .
+                                                           (s−1)ε          v
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  15.1 Applications of Landau’s theorem                                471
+
+
+              (h) Show that
+                                                                 (s−1)ε
+                                                                                      dv
+                       T1 + T2 = − log(s − 1) −                           (e−v − 1)      + O(ε log 1/ε).
+                                                             ε                        v
+               (i) Conclude that
+                                                 ∞
+                                         s           Li(x)x −s−1 d x = − log(s − 1)
+                                             1
+
+                 for σ > 1.
+                         
+          2. Let ψ1 (x) = n≤x (n)(x − n). Show that ψ1 (x) − 12 x 2 = ± (x 3/2 ).
+          3. Show that ψ(2x) − 2ψ(x) = ± (x 1/2 ).
+          4. (a) Show that as x → ∞,
+                                                             
+                                     (1 − n/x)µ(n) = ± x 1/2 .
+                                             n≤x
+
+              (b) Show that as x → ∞,
+                                                                        
+                                                        µ(n)/n = ± x −1/2 .
+                                                  n≤x
+
+              (c) Show that as x → ∞,
+                                                 
+                                                 ∞
+                                                                           
+                                                        µ(n)e−n/x = ± x 1/2 .
+                                                 n=1
+
+          5. Let Q(x) denote the number of square-free numbers not exceeding x.
+             (a) Show that
+                                              6            
+                                     Q(x) − 2 x = ± x 1/4 .
+                                             π
+             (b) Show that
+                                                             
+                                    Q(2x) − 2Q(x) = ± x 1/4 .
+          6. (a) Suppose that ζ (1/2 + iγ ) = 0 and that ζ (1/2 + 2iγ ) = 0. Show that
+                                                            ψ(x) − x    4
+                                                  lim sup            ≥
+                                                     x→∞      x 1/2    3|ρ|
+                   and that
+                                                           ψ(x) − x     4
+                                                 lim inf            ≤−      .
+                                                  x→∞        x 1/2     3|ρ|
+              (b) Show that if ζ (1/2 + iγ1 ) = ζ (1/2 + iγ2 ) = 0 but ζ (1/2 + i(γ1 +
+                  γ2 )) = 0 and ζ (1/2 + i(γ1 − γ2 )) = 0, then
+                                             ψ(x) − x        1            1
+                                 lim sup              ≥             +
+                                   x→∞         x 1/2    |1/2 + iγ1 | |1/2 + iγ2 |
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        472                               Oscillations of error terms
+
+
+                   and that
+                                          ψ(x) − x         1            1
+                                lim inf            ≤−             −             .
+                                 x→∞        x 1/2     |1/2 + iγ1 | |1/2 + iγ2 |
+                        
+          7. Show that n≤x (−1)ω(n)           x 1/2+ε if and only if (3s − 2)/ζ (s) is analytic
+             for σ > 1/2.
+                                                                    
+          8. (Ingham 1942; cf. Haselgrove 1958) Let L(x) = n≤x λ(n).
+             (a) Show that if  > 1/2, then for every ε > 0, L(x) = ± (x −ε ) as
+                 x → ∞.
+             (b) Show that lim infx→∞ L(x)/x 1/2 ≤ 1/ζ (1/2) (= −0.685         . . . ). 
+             (c) Show that if ζ (s) has a multiple zero, then L(x) = ± x 1/2 log x .
+             (d) Show that if RH holds and σ is ﬁxed, 1/4 < σ < 1/2, then
+                 |ζ (2s)/ζ (s)| = τ σ −1/2+o(1) .
+             (e) Show that if RH holds, then there is a sequence of Tν → ∞ in such a
+                 way that Tν+1 ≤ Tν + 2, and
+                                        ζ (2ρ)                          
+                                                 
+                                                      = Tν + O Tν3/4+ε .
+                                      0<γ ≤Tν
+                                               ζ (ρ)
+
+              (f) Show that if RH holds and the ordinates γ > 0 of the zeros of the zeta
+                  function are linearly independent over Q, then
+                                                              L(x)
+                                                   lim sup          = +∞
+                                                      x→∞     x 1/2
+                   and
+                                                             L(x)
+                                                   lim inf         = −∞.
+                                                    x→∞      x 1/2
+          9. (Turán 1948; cf. Haselgrove 1958)
+                                
+             (a) Show that if n≤x λ(n)/n ≥ 0 for all x ≥ 1, then the Riemann Hy-
+                 pothesis is true.
+             (b) Show that
+                                                            
+                                           λ(n)/n = + x −1/2
+                                                n≤x
+
+                 as x → ∞.
+        10. Let the positive integer q be ﬁxed. Suppose that if χ is a character (mod
+            q), then L(σ, χ) = 0 for 0 < σ < 1. Suppose also that a and b are integers
+            such that (ab, q) = 1 and a ≡ b (mod q).
+            (a) Let  = (q; a, b) denote the supremum of the real parts of the poles
+                 of the function
+                                                        L
+                                          (χ (a) − χ (b)) (s, χ).
+                                        χ                L
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  15.1 Applications of Landau’s theorem                            473
+
+
+                   Show that
+                                         ψ(x; q, a) − ψ(x; q, b) = ± (x −ε )
+                  for any ε > 0.
+              (b) Let r (a) denote the number of solutions of the congruence x 2 ≡ a
+                  (mod q). Show that
+                                                                     r (a) 1/2      
+                                  ϑ(x; q, a) = ψ(x; q, a) −               x + o x 1/2 .
+                                                                     ϕ(q)
+              (c) Show that if (q; a, b) > 1/2, then
+                                      ϑ(x; q, a) − ϑ(x; q, b) = ± (x −ε ),
+                                     π(x; q, a) − π (x; q, b) = ± (x −ε )
+                  for any ε > 0.
+              (d) Show that (q; a, b) ≥ 1/2.
+              (e) Show that
+                                                                          
+                                         ψ(x; q, a) − ψ(x; q, b) = ± x 1/2 .
+              (f) Show that if r (a) ≥ r (b), then
+                                                                      
+                                  ϑ(x; q, a) − ϑ(x; q, b) = − x 1/2 ,
+                                                                             
+                                  π (x; q, a) − π (x; q, b) = − x 1/2 / log x .
+              (g) Show that if r (a) ≤ r (b), then
+                                                                      
+                                  ϑ(x; q, a) − ϑ(x; q, b) = + x 1/2 ,
+                                                                             
+                                  π (x; q, a) − π (x; q, b) = + x 1/2 / log x .
+              (h) Show that
+                                                                               
+                                     π(x; 4, 1) − π (x; 4, 3) = − x 1/2 / log x .
+        11. (Hardy & Littlewood 1918; Landau 1918a, b) Let χ−4 (n) = ( −4
+                                                                       n
+                                                                          ) denote
+            the non-principal character modulo 4, and let
+                                         
+                                T1 (x) =    (n)χ−4 (n)(x − n).
+                                                    n≤x
+
+
+              (a) Show that
+                                                                x ρ+1
+                                           T1 (x) = −                   + O(x)
+                                                           ρ   ρ(ρ + 1)
+                   where ρ runs over the non-trivial zeros of L(s, χ−4 ). In parts (b)–(l)
+                   below, assume that all these zeros lie on the line σ = 1/2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        474                                    Oscillations of error terms
+
+
+              (b) Show that
+                                     1                                 L
+                                            = 2 log 2 − log π − C 0 + 2    (1, χ−4 ).
+                                    ρ |ρ|
+                                          2                             L
+
+              (c) Show that L(1, χ−4 ) = π/4.
+              (d) Show that
+
+                                               log 3  ∞
+                                                          (−1)k log 2k − 1 log 2k + 1
+                             L  (1, χ−4 ) =        +                     −           ,
+                                                 6    k=2
+                                                            2     2k − 1     2k + 1
+
+                  and apply the alternating series test to show that 0.19 < L  (1, χ−4 ) <
+                  0.196.
+              (e) Deduce that
+                                                                 1
+                                                   0.148 <              < 0.164.
+                                                                ρ |ρ|
+                                                                      2
+
+
+               (f) Show that |T1 (x)| < (0.165)x 3/2 for all large x.
+              (g) Show that
+                                                                            2 3/2       
+                                                  (log p)(x − p 2 ) =          x + o x 3/2 .
+                                        p≤x 1/2
+                                                                             3
+                                      
+              (h) Let T2 (x) =            2< p≤x (log p)(−1)
+                                                            ( p−1)/2
+                                                                     (x − p). Show that
+
+                                                    5                  1
+                                                   − x 3/2 < T2 (x) < − x 3/2
+                                                    6                  2
+                  for all large x.
+                                
+              (i) Let T3 (x) = 2< p≤x (−1)( p−1)/2 (x − p). Show that
+                              T2 (x)      x
+                                                 T2 (u)        2(x − u)
+                                     +
+                               T3 (x) =        2        2
+                                                          x+            du
+                              log x      3 u (log u)             log u
+                              T2 (x)           x 3/2
+                            =        +O                 .
+                              log x         (log x)2
+                            
+              (j) Let P(x) = p>2 (−1)( p−1)/2 e− p/x . Show that
+                                                                      ∞
+                                                           1
+                                                  P(x) =                  T3 (u)e−u/x du.
+                                                           x2     0
+
+              (k) Show that
+                         ∞                                                                         
+                                                                3 √ 5/2
+                             u 3/2 (log u)−1 e−u/x du =            π x (log x)−1 + O x 5/2 (log x)−2 .
+                     2                                          4
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                          15.2 The error term in the Prime Number Theorem                             475
+
+
+               (l) Deduce that
+                                                                   3 x 1/2
+                                                     P(x) < −
+                                                                   5 log x
+                 for all large x.
+             (m) Chebyshev (1853) proposed that P(x) < 0 for all sufﬁciently large x.
+                 Conclude that Chebyshev’s conjecture is equivalent to the assertion
+                 that L(s, χ−4 ) = 0 for σ > 1/2.
+
+
+
+               15.2       The error term in the Prime Number Theorem
+        We have seen that ψ(x) − x changes sign inﬁnitely often. We now show that
+        these sign changes can be localized if there is a zero on the abscissa .
+
+        Theorem 15.8 Let  denote the supremum of the real parts of the zeros of
+        ζ (s). If ζ (s) has a zero with real part , then there exists a constant C > 0 such
+        that ψ(x) − x changes sign in every interval [x, C x] for which x ≥ 2.
+
+        Proof       For each integer k ≥ 0, put
+                                        1 
+                               Rk (y) =          (y − log n)k (n) − e y .
+                                        k! n≤e y
+
+        We see easily that Rk (y) is differentiable for k > 1, and that Rk (y) = Rk−1 (y).
+        By the method used to prove explicit formulæ we see also that
+                                             eρy
+                               Rk (y) = −              + O(y k+1 ).
+                                             ρ ρ
+                                                  k+1
+
+
+        Suppose that the numbers γ j are determined, 0 < γ1 < γ2 < . . . so that the
+        numbers  ± iγ j constitute all the zeros of ζ (s) on the line σ = , and let
+                                                                      
+        m j denote the multiplicity of the zero ρ j =  + iγ j . Since ρ |ρ|−α < ∞ for
+        α > 1, we see that if k ≥ 1, then
+                                                          m j eiγ j y
+                                  Rk (y) = −2ey                         + o(ey )                (15.19)
+                                                           j    ρ k+1
+                                                                  j
+
+        as y → ∞. Let K be the least number for which
+                                     m1       mj
+                                           >              .
+                                   |ρ1 | K
+                                             j>1
+                                                 |ρ j | K
+
+        Choose φ so that eiγ1 φ /ρ1K > 0. By taking k = K in (15.19) and using the above
+        inequality, we see that for all large numbers n, R K (φ + π n/γ1 ) is positive or
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        476                               Oscillations of error terms
+
+
+        negative according as n is odd or even. Take C = exp(π(K + 2)/γ1 ). Then any
+        interval [y0 , y0 + log C] contains at least K + 2 points of the form φ + πn/γ1 .
+        Thus if y0 is large, then such an interval contains K + 2 points at which R K (y)
+        alternates in sign. By the mean value theorem for derivatives we know that if f is
+        differentiable on an interval [α, β] and f (α) < 0, f (β) > 0, then there must be
+        a number ξ , α < ξ < β, such that f  (ξ ) > 0. Thus we can choose K + 1 points
+        in the interval [y0 , y0 + log C] at which R K −1 (y) alternates in sign. Continuing
+        in this manner, we conclude that we can ﬁnd three points in this interval at
+        which R1 (y) alternates in sign. Now R1 (y) is continuous, and R1 (y) = R0 (y)
+        in intervals containing no prime power, so that R1 (y) is an indeﬁnite integral of
+        R0 (y). Thus, although R0 (y) is not everywhere differentiable, it is nevertheless
+        true that R1 will be monotonic in any interval in which R0 is of constant sign.
+        Since R1 is not monotonic in the interval in question, we deduce that R0 changes
+        sign.                                                                              
+
+           The method used to prove Corollary 15.7 could be applied to ψ(x) − x,
+        but for this function we have a different approach that succeeds without any
+        unproved hypothesis. In view of Theorem 15.2 we may assume that the Riemann
+        Hypothesis is true. By substituting e y for x in the explicit formula for ψ(x), we
+        see that
+                            ψ(e y ) − e y                            
+                                          =  −     eiγ y /ρ + O e−y/2
+                               e y/2            ρ
+                                                                         
+        uniformly for y ≥ 1. Since 1/ρ = 1/(iγ ) + O(1/γ 2 ) and           1/γ 2 < ∞, the
+        above is
+                                           sin γ y
+                                     −2               + O(1).
+                                          γ >0
+                                                γ
+
+        Here each term in the sum is periodic, and if γ is large, then both the period and
+        the amplitude of the term are small. The sum is not absolutely convergent, but
+        by suitably averaging this with respect to y we may arrange that the γ beyond
+        a chosen point make a small contribution. Suppose, for simplicity, that by such
+        an averaging we could truncate the sum, which would leave us to consider the
+        partial sum
+                                             sin γ y
+                                       −2                .                         (15.20)
+                                          0<γ ≤T
+                                                    γ
+
+        Here the sum of the absolute values of the coefﬁcients is (log T )2 , and the
+        sum will be of this order of magnitude if we can ﬁnd a y for which the fractional
+        parts {γ y/(2π)} are approximately 1/4 for all the above γ . This, however, is an
+        inhomogeneous problem of Diophantine approximation, and in general such a
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                          15.2 The error term in the Prime Number Theorem                             477
+
+
+        problem has a solution only if the coefﬁcients γ are linearly independent over Q.
+        Moreover, in order to obtain a quantitative result it would be necessary to have
+        quantitative lower bounds for the absolute values of linear forms in the γ . Since
+        we have no such information, we are conﬁned to homogeneous approximation.
+        Dirichlet’s theorem assures us that there exist large y for which each of the
+        numbers γ y/(2π) is near an integer. That is, γ y/(2π ) is small for 0 < γ ≤ T ,
+        where θ  denotes the distance from θ to the nearest integer, θ  = minn∈Z |θ −
+        n|. However, the sum (15.20) vanishes when y = 0, and will therefore be small
+        when the numbers γ y/(2π ) are small. On the other hand, if we take y = π/T
+        in (15.20), then sin γ y γ /T , and the sum is N (T )/T           log T . While this
+        is smaller than the (log T )2 that we might have hoped for, it is deﬁnitely large.
+        This y is small, but by Dirichlet’s theorem there exists a large number y0 for
+        which the numbers γ y0 /(2π) are small, and then we may take y = y0 ± π/T
+        to make the sum (15.20) large in either sign.
+            The truth of the matter is that the sum (15.20) is not an average of the error
+        term in the Prime Number Theorem, but we can form a weighted sum that
+        resembles (15.20).
+
+        Lemma 15.9               If the Riemann Hypothesis is true, then
+
+              1                  eδ x                            sin γ δ          sin(γ log x)          
+                                     (ψ(u) − u) du = −2x 1/2                   ·                + O x 1/2
+         (eδ − e−δ )x        e−δ x                              γ >0
+                                                                        γδ              γ
+
+        uniformly for x ≥ 4, 1/(2x) ≤ δ ≤ 1/2.
+
+           The ﬁrst factor in the sum is near 1 if γ is small compared to 1/δ, and then
+        becomes small for larger γ . Thus, despite its more complicated appearance, the
+        above sum behaves like the partial sum (15.20) with T 1/δ.
+
+        Proof       We recall that
+                             x                               x ρ+1   ζ
+                                 (ψ(u) − u) du = −                   − (0)x + O(1)
+                         0                              ρ   ρ(ρ + 1)  ζ
+
+        for x ≥ 2. We replace x by e±δ x and difference to see that the left-hand side in
+        the lemma is
+                                          δ  (eδ(ρ+1) − e−δ(ρ+1) )x ρ
+                                   −                                   + O(1).                     (15.21)
+                                        sinh δ ρ    2δρ(ρ + 1)
+
+        We appeal to RH, and observe that e±δ(ρ+1) = e±iγ δ (1 + O(δ)) = e±iγ δ +
+                                                                    
+        O(δ). Since N (T + 1) − N (T )    log T , we see easily that γ γ −2    1. Thus
+        when we replace e±δ(ρ+1) by e±iγ δ in (15.21), we introduce an error term that
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        478                                Oscillations of error terms
+
+
+        is      x 1/2 . Hence the expression (15.21) is
+                                         δ    sin γ δ     x iγ           
+                          −i x 1/2                     ·          + O x 1/2 .
+                                      sinh δ ρ    δ      ρ(ρ + 1)
+
+        The factor in parentheses is 1 + O(δ 2 ), and the sum over ρ is
+                                1        1  1
+                                        +                  (log 1/δ)2 ,
+                             0<γ ≤1/δ
+                                      γ   δ γ >1/δ γ 2
+
+        so our expression is
+                                            sin γ δ           x iγ           
+                                −i x 1/2                 ·            + O x 1/2 .
+                                            ρ      δ         ρ(ρ + 1)
+
+        Now 1/ρ = 1/(iγ ) + O(1/γ 2 ), and the ﬁrst factor in the above sum is       |γ |,
+        so that if we replace 1/ρ by 1/(iγ ), then we introduce an error term that is
+                
+           x 1/2 γ 1/γ 2     x 1/2 . Similarly we may replace 1/(ρ + 1) by 1/(iγ ). Thus
+        we see that the above sum is
+                                        sin γ δ x iγ           
+                              −x 1/2              ·    + O x 1/2 .
+                                        ρ    γδ     iγ
+
+        We now obtain the stated result by combining the contributions of γ
+        and −γ .                                                          
+
+           We now formulate a simple form of Dirichlet’s theorem that is suitable for
+        our use.
+
+        Lemma 15.10 (Dirichlet) If θ1 , . . . , θ K are real numbers, and N is a positive
+        integer, then there is a positive integer n ≤ N K such that θk n < 1/N for
+        1 ≤ k ≤ K.
+
+        Proof The point p(n) = ({θ1 n}, . . . , {θ K n}) lies in the hypercube [0, 1) K . We
+        partition this hypercube into N K hypercubes of side length 1/N . We allow n
+        to take the values 0, 1, . . . , N K , which gives us N K + 1 points. Hence by the
+        pigeon-hole principle there are two values of n, say 0 ≤ n 1 < n 2 ≤ N K , for
+        which the points p(n 1 ), p(n 2 ) lie in the same hypercube. Thus
+
+                               θk n 1 − θk n 2  ≤ |{θk n 1 } − {θk n 2 }| < 1/N
+
+        for 1 ≤ k ≤ K . We take n = n 2 − n 1 to obtain the desired result.                             
+
+        Theorem 15.11 (Littlewood) As x → ∞,
+                                                        
+                        ψ(x) − x = ± x 1/2 log log log x ,                                        (15.22)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                          15.2 The error term in the Prime Number Theorem                                479
+
+
+        and
+                                                                           
+                            π (x) − li(x) = ± x 1/2 (log x)−1 log log log x .                       (15.23)
+        Proof We consider (15.22). If RH is false, then Theorem 15.2 is stronger.
+        Thus it remains to prove (15.22) if RH holds. Let N be a large integer. We
+        apply Lemma 15.10 to those numbers γ (log N )/(2π ) for which 0 < γ ≤ T =
+        N log N . Thus in Lemma 15.10 we have K = N (T ) T log T , and there exists
+        an integer n, 1 ≤ n ≤ N K such that
+                                     1γ n       1
+                                     1          1   1
+                                     1    log N 1 <
+                                       2π           N
+        for 0 < γ ≤ T . We take x = N n e±1/N , δ = 1/N in Lemma 15.9. From the
+        general inequality | sin 2πα − sin 2πβ| ≤ 2π α − β we see that
+                                     | sin(γ log x) ∓ sin γ /N | ≤ 2π/N .
+        Since
+                                        sin γ /N                   1
+                                                                ·           (log N )2
+                                         γ            γ /N          γ
+           
+        and γ >T 1/γ 2             T −1 log T                1/N , we deduce that the right-hand side in
+        Lemma 15.9 is
+                                                        sin γ /N 2                 
+                                                 −1
+                                 ∓2x   1/2
+                                             N                                + O x 1/2 .
+                                                      γ >0
+                                                                 γ /N
+                                                                        K
+        The sum over γ is           N log N . But x ≤ N N e1/N and K = N (T )                      T log T
+        N (log N )2 , so that
+                                             log log x              N (log N )3 ,
+        and hence log N ≥ (1 + o(1)) log log log x. The left-hand side in Lemma 15.9
+        is simply the average of ψ(u) − u over a neighbourhood of x. Since x            N
+        and N is arbitrarily large, we have (15.22).
+            As for (15.23), we note that if RH holds, then (15.22) and (15.23) are equiva-
+        lent, in view of Theorem 13.2. If RH is false, then Theorem 15.2 gives a stronger
+        result.                                                                         
+
+
+                                                 15.2.1          Exercises
+          1. Show that
+                                                                                    
+                         π (x; 4, 1) − π(x; 4, 3) = ± x 1/2 (log x)−1 log log log x
+              as x → ∞.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        480                               Oscillations of error terms
+
+
+          2. (a) Show that if f (k−1) (x) is continuous in [a, a + kh] and if f (k) (x) ex-
+                 ists throughout (a, a + kh), then there exists a ξ ∈ (a, a + kh) such
+                 that
+                                                           
+                                                           k
+                                                                         k
+                                        h k f (k) (ξ ) =         (−1)k     f (a + j h).
+                                                           j=0
+                                                                         j
+
+              (b) Show that there exist constants C > 0, c > 0 such that if RH holds,
+                  then for all x ≥ 2,
+
+                                                  sup (ψ(u) − u) ≥ cx 1/2
+                                               x≤u≤C x
+
+                   and
+
+                                                inf (ψ(u) − u) ≤ −cx 1/2 .
+                                              x≤u≤C x
+
+          3. Show that for every C > 1 there is a δ = δ(C) > 0 such that if RH holds,
+             then
+
+                                               sup |ψ(u) − u| ≥ δx 1/2
+                                             x≤u≤C x
+
+             for all x ≥ 2.
+          4. (Ingham 1936)
+             (a) Let N be a positive integer, Y a positive real number, and let θ1 , . . . , θ K
+                 be arbitrary real numbers. By using Dirichlet’s theorem, or otherwise,
+                 show that there is a real number y, Y ≤ y ≤ Y N K such that θk y <
+                 1/N for 1 ≤ k ≤ K .
+             (b) Let N be an integer > 1, Y a positive real number. Show that there
+                 exist real numbers θ1 , . . . , θ K such that maxk θk y ≥ 1/N uniformly
+                 for all real y in the interval Y ≤ y ≤ Y (N − 1) K .
+             (c) Suppose that RH holds. Show that there exists an absolute constant
+                 c > 0 such that for any real numbers X ≥ 2 and Z ≥ 16 there exists
+                 an x, X ≤ x ≤ X Z , for which
+
+                                    π (x) − li(x) > cx 1/2 (log x)−1 log log log Z ,
+
+                   and an x  in the same interval for which
+
+                                   π(x) − li(x) < −cx 1/2 (log x)−1 log log log Z .
+
+              (d) Deduce that there is an absolute constant C > 0 such that if RH holds,
+                  then π(x) − li(x) changes sign in every interval [X, C X ] for X ≥ 2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                          15.2 The error term in the Prime Number Theorem                          481
+
+
+          5. Show that the implicit constant in Littlewood’s theorem can be taken to be
+             1/2. That is,
+                                                          ψ(x) − x
+                                         lim sup                            ≥ 1/2,
+                                          x→∞      x 1/2 log log log x
+             with similar inequalities for the lim inf and for π (x) − li(x).
+                                                      
+          6. Suppose that q is an integer such that χ L(σ, χ) = 0 for σ > 1/2. Show
+             that if (b, q) = 1, b ≡ 1 (mod q), then
+                                                                                 
+                      π (x; q, 1) − π (x; q, b) = ± x 1/2 (log x)−1 log log log x .
+                                                             
+          7. Suppose that n |cn | < ∞, and put g(y) = n cn eiλn y where the λn are
+             real. Show that for any y0 and any ε > 0, there exist arbitrarily large num-
+             bers y such that |g(y) − g(y0 )| < ε.
+                                     
+          8. Suppose that g(y) = n cn eiλn y is uniformly convergent for y in a neigh-
+             bourhood of y0 , and put
+                                                        
+                                         1 δ         |y|
+                                  Mδ =            1−       g(y0 + y) dy.
+                                         δ −δ         δ
+
+              (a) Show that
+                                                                           
+                                                                   sin λn δ/2 2 iλn y0
+                                            Mδ =          cn                   e
+                                                      n              λn δ/2
+
+                 for all small positive δ.
+             (b) Show that Mδ → g(y0 ) as δ → 0+ .
+          9. (Jurkat 1973, Anderson 1991) Suppose that there is a constant K such
+             that M(x) ≤ K x 1/2 for all x ≥ 1, or that there is a constant K such that
+             −K x 1/2 ≤ M(x) for all x ≥ 1.
+             (a) Show that the Riemann Hypothesis is true, that the zeros of ζ (s) are
+                 simple, and that |ζ  (ρ)| 1/|ρ|.
+             (b) Show that there is a sequence of Tν tending to inﬁnity such that
+                                                     xρ           ∞
+                                                                       (−1)n−1 (2π/x)2n
+                            M(x) = lim                       − 2 +
+                                        ν→∞
+                                            |γ |≤Tν
+                                                    ρζ  (ρ)       n=1
+                                                                       (2n)!nζ (2n + 1)
+
+                  for x > 0, and that the convergence is uniform in intervals that do not
+                  contain a square-free number.
+              (c) Let
+                                                                       eiγ y
+                                                g(y) = lim                      .
+                                                           ν→∞
+                                                               |γ |≤Tν
+                                                                       ρζ  (ρ)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        482                               Oscillations of error terms
+
+
+                Show that if g(y) is continuous at y0 , then for any ε > 0 there exist
+                arbitrarily large y such that |g(y) − g(y0 )| < ε.
+            (d) Show that g(0+ ) − g(0− ) = 1.
+            (e) Deduce that lim supx→∞ |M(x)|/x 1/2 ≥ 1/2.
+        10. (a) Let h(x) = (M(2x) − M(x))/x 1/2 . Show that h(1+ ) = −1 and that
+                h(1− ) = 1.
+            (b) Show that
+                                               
+                                     lim sup         µ(n) x −1/2 ≥ 1.
+                                              x→∞      x<n≤2x
+
+
+
+
+                                                15.3        Notes
+        Theorems 15.2 and 15.3, and Corollary 15.4, are due in substance to E. Schmidt
+        (1903). Mertens (1897) conjectured that |M(x)| ≤ x 1/2 for all x ≥ 1. This
+        ‘Mertens Hypothesis’ was disproved by Odlyzko and te Riele (1984), who
+        showed that
+                                                        M(x)
+                                             lim sup          ≥ 1.06
+                                               x→∞      x 1/2
+        and that
+                                                     M(x)
+                                           lim inf         ≤ −1.009.
+                                            x→∞      x 1/2
+        One would expect that here the lim sup is +∞ and the lim inf is −∞, but
+        neither of these assertions has been proved. Ingham (1942) proved Theorem
+        15.5 under the stronger hypothesis that the ordinates γ > 0 are joined by at
+        most a ﬁnite number of linear relations. That one may restrict the coefﬁcients
+        of the linear relations, and thus in principle verify the hypothesis for the ﬁrst
+        several zeros, was shown by Bateman et al. (1971). The product used in the
+        proof of Theorem 15.5 is very similar to the Riesz products used in the study
+        of lacunary Fourier series (see Zygmund 1959, pp. 208–212).
+           The method used to prove Theorem 15.8 was introduced by Littlewood
+        (1927) for the purpose of providing a simple proof of Theorem 15.3.
+           Theorem 15.11 was announced by Littlewood (1914), who sketched the
+        proof. Full details were given later by Hardy and Littlewood (1918). The initial
+        proofs depended on an appeal to the Phragmén–Lindelöf principle. Ingham
+        (1936) found that this could be dispensed with. Ingham considered a more
+        complicated weighted average of ψ(u) − u which led to the simpler weighted
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     15.3 Notes                                    483
+
+
+        partial sum
+                                                                  sin γ y
+                                                     (1 − γ /T )
+                                            0<γ ≤T
+                                                                      γ
+
+        of the sum (15.20). The present exposition was inspired by Ingham’s editorial
+        remark in Hardy’s Collected Works (1967, p. 99).
+           The proof given of Theorem 15.11 is non-effective in the sense that it does
+        not permit one to determine an explicit constant c about which one can assert
+        that π(x) > li(x) for some x < c. Skewes (1933, 1955) formulated a slightly
+        different division into cases (RH ‘nearly true’ vs. RH ‘signiﬁcantly false’),
+        which permitted him to show that one can take
+
+                                       c = exp(exp(exp(exp(7.705)))).
+
+        One of the problems here is to construct a function f (x) about which one can
+        assert that in any interval [x0 , f (x0 )] there exist x for which the sum over the non-
+        trivial zeros is not highly cancelling. That is, the conclusion of Theorem 15.2
+        must be put in a more quantitative, localized form. In this connection, Littlewood
+        (1937) was led to consider a question concerning a sum of cosines. Turán
+        (1946) discovered that the theorem formulated by Littlewood is false – the
+        argument provided establishes a weaker result than claimed. Turán undertook a
+        detailed study of such power sums. His ‘power sum method’ has many important
+        applications to the oscillatory error terms that arise in analytic number theory
+        (see Turán 1984). In particular, Knapowski (1961) used Turán’s method to
+        show, without need of extensive numerical calculations, that an effective upper
+        bound for the constant c can be determined. Subsequently, Lehman (1966)
+        used extensive numerical information concerning the zeros ρ to show that one
+        can take c = 1.65 × 101165 . Using the same method te Riele (1989) shows that
+        π(x) > lix for at least 10180 consecutive integers in the interval [6.627 . . . ×
+        10370 , 6.687 . . . × 10370 ]. More recently Bays & Hudson (2000) have given
+        some new regions where π (x) > li(x), the ﬁrst of these being around 1.39 ×
+        10316 . An extension of Littlewood’s theorem to Beurling primes has been given
+        by Kahane (1999).
+            Monach & Montgomery (cf. Monach 1980) have conjectured that for every
+        ε > 0 and every K > 0 there is a T0 (ε, K ) such that
+                                        
+                                              kγ γ > exp(−T 1+ε )                        (15.24)
+                                           0<γ ≤T
+
+        whenever T ≥ T0 and the kγ are integers, not all 0, for which |kγ | ≤ K . From
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        484                               Oscillations of error terms
+
+
+        this they have shown that
+                                                      ψ(x) − x           1
+                                    lim sup                           ≥    ,                       (15.25)
+                                      x→∞      x 1/2 (log log log x)2   2π
+        and that
+                                                      ψ(x) − x          −1
+                                     lim inf                          ≤    .                       (15.26)
+                                      x→∞      x 1/2 (log log log x)2   2π
+        In view of (13.48), it is plausible that equality holds in (15.25) and (15.26).
+                         
+           Let L(x) = n≤x λ(n). It was conjectured by Pólya (1919) that L(x) ≤ 0
+        for all x ≥ 2, and it has been veriﬁed that this inequality holds for 2 ≤ x ≤
+        106 . Pólya’s conjecture was disproved by Haselgrove (1958), whose extensive
+        computer calculations led to the conclusion that
+                                                          L(x)
+                                               lim sup          > 0.
+                                                 x→∞      x 1/2
+        Subsequently Lehman (1960) found that L(906,180,359) = 1.
+
+
+
+                                             15.4       References
+        Anderson, R. J. (1991). On the Möbius sum function, Acta Arith. 59, 205–213.
+        Bateman, P. T., Brown, J. W., Hall, R. S., Kloss, K. E., Stemmler, R. M. (1971). Linear
+             relations connecting the imaginary parts of the zeros of the zeta function, Computers
+             in Number Theory. New York: Academic Press, pp. 11–19.
+        Bays, C. & Hudson, R. H. (2000). A new bound for the smallest x with π(x) > li(x),
+             Math. Comp. 69, 1285–1296.
+        Chebyshev, P. L. (1853). On a new theorem concerning prime numbers of the forms
+             4n + 1 and 4n + 3, Bull. Acad. Imp. Sci. St. Petersburg, Phys.-Mat. Kl. 11, 208;
+             Collected Works, Vol. 1. Moscow-Leningrad: Akad. Nauk SSSR.
+        Hardy, G. H. (1967). Collected Papers of G. H. Hardy, Vol. 2, Oxford: Clarendon Press.
+        Hardy, G. H. & Littlewood, J. E. (1918). Contributions to the theory of the Riemann
+             zeta-function and the theory of the distribution of primes, Acta Math. 41, 119–196;
+             Collected Papers, Vol. 2. Oxford: Clarendon Press, 1967, pp. 20–97.
+        Haselgrove, C. B. (1958). A disproof of a conjecture of Pólya, Mathematika 5, 141–145.
+        Ingham, A. E. (1936). A note on the distribution of primes, Acta Arith. 1, 201–211.
+          (1942). On two conjectures in the theory of numbers, Amer. J. Math. 64, 313–319.
+        Jurkat, W. B. (1973). On the Mertens Conjecture and Related General -theorems, An-
+             alytic Number Theory (St. Louis, 1972), Proc. Sympos. Pure Math. 24. Providence:
+             Amer. Math. Soc., pp. 147–158.
+        Kahane, J.-P. (1999). Un théorème de Littlewood pour les nombres premiers de Beurling,
+             Bull. London Math. Soc. 31, 424–430.
+        Knapowski, S. (1961). On sign-changes in the remainder-term in the prime-number
+             formula, J. London Math. Soc. 36, 451–460.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 15.4 References                                   485
+
+
+        Landau, E. (1905). Über einen Satz von Tschebyscheff, Math. Ann. 61, 527–550;
+              Collected Works, Vol. 2. Essen: Thales Verlag, 1986, pp. 206–229; Commentary,
+              Collected Works, Vol. 3. pp. 72–75.
+           (1918a). Über einige ältere Vermutungen und Behauptungen in der Primzahlentheorie,
+              Math. Z. 1, 1–24; Collected Works, Vol. 6. Essen: Thales Verlag, 1986, pp. 469–492.
+           (1918b). Über einige ältere Vermutungen und Behauptungen in der Primzahlentheorie,
+              Zweite Abhandlung, Math. Z. 1, 213–219; Collected Works, Vol. 6. Essen: Thales
+              Verlag, 1986, pp. 506–512.
+        Lehman, R. S. (1960). On Liouville’s function, Math. Comp. 14, 311–320.
+           (1966). On the difference π(x) − li(x), Acta Arith. 11, 397–410.
+        Littlewood, J. E. (1914). Sur la distribution des nombres premiers, C. R. Acad. Sci. Paris
+              158, 1869–1872; Collected Papers, Vol. 2. Oxford: Oxford University Press, 1982,
+              pp. 829–832.
+           (1927). Mathematical notes (3): On a theorem concerning the distribution of prime
+              numbers, J. London Math. Soc. 2, 41–45; Collected Papers, Vol. 2. Oxford: Oxford
+              University Press, 1982, pp. 833–837.
+           (1937). Mathematical notes. XII.: An inequality for a sum of cosines, J. London Math.
+              Soc. 12, 217–221; Collected Papers, Vol. 2. Oxford: Oxford University Press, 1982,
+              pp. 838–842.
+        Mertens, F. (1897). Über eine zahlentheoretische Funktion, Sitz. Akad. Wiss. Wien 106,
+              761–830.
+        Monach, W. R. (1980). Numerical Investigation of Several Problems in Number Theory,
+              Doctoral Thesis. Ann Arbor: University of Michigan.
+        Odlyzko, A. M. & te Riele, H. J. J. (1984). Disproof of the Mertens conjecture, J. Reine
+              Angew. Math. 357, 138–160.
+        Pólya, G. (1919). Verschiedene Bermerkungen zur Zahlentheorie, Jahresbericht
+              Deutsche Math.–Ver. 28, 31–40.
+        te Riele, H. J. J. (1989). On the sign of the difference π(x) − lix, Math. Comp. 48,
+              323–328.
+        Schmidt, E. (1903). Über die Anzahl der Primzahlen unter gegebener Grenze, Math.
+              Ann. 57, 195–204.
+        Skewes, S. (1933). On the difference π (x) − lix, J. London Math. Soc. 8, 277–283.
+           (1955). On the difference π (x) − lix, II, Proc. London Math. Soc. (3) 5, 48–69.
+        Turán, P. (1946). On a theorem of Littlewood, J. London Math. Soc. 21, 268–275;
+              Collected Papers, Vol. 1. Budapest: Akad Kiadó, 1990, pp. 284–293.
+           (1948). On some approximative Dirichlet polynomials in the theory of the zeta-
+              function of Riemann, Danske Vid. Selsk. Mat.-Fys. Medd. 24, no. 17, 36 pp.;
+              Collected Papers, Vol. 1. Budapest: Akad Kiadó, 1990, pp. 369–402.
+           (1984). On a New Method of Analysis and its Applications, New York: Wiley-
+              Interscience.
+        Zygmund, A. (1959). Trigonometric Series, Vol. 1. Cambridge: Cambridge University
+              Press.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.017 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

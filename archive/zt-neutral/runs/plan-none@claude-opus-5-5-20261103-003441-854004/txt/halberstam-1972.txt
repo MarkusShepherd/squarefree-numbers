@@ -1,0 +1,335 @@
+Séminaire Delange-Pisot-Poitou.
+Théorie des nombres
+
+
+
+
+  H EINI H ALBERSTAM
+  The distribution of sequences in arithmetic progressions
+  Séminaire Delange-Pisot-Poitou. Théorie des nombres, tome                     13, no 2 (1971-1972),
+  exp. no 25, p. 1-5
+  <http://www.numdam.org/item?id=SDPP_1971-1972__13_2_A10_0>
+
+
+
+
+       © Séminaire Delange-Pisot-Poitou. Théorie des nombres
+       (Secrétariat mathématique, Paris), 1971-1972, tous droits réservés.
+       L’accès aux archives de la collection « Séminaire Delange-Pisot-Poitou. Théo-
+       rie des nombres » implique l’accord avec les conditions générales d’utilisation
+       (http://www.numdam.org/conditions). Toute utilisation commerciale ou impression sys-
+       tématique est constitutive d’une infraction pénale. Toute copie ou impression de
+       ce fichier doit contenir la présente mention de copyright.
+
+
+
+
+                                Article numérisé dans le cadre du programme
+                              Numérisation de documents anciens mathématiques
+                                            http://www.numdam.org/
+ Séminaire                                                                                                                 25-01
+ (Theorie dos 1’ombres)
+ l3e annee,      1971/72, ij" 25, 5 p.                                                                          12   juin 1572
+
+
+                   THE DISTRIBUTION OF SEQUENCES IN ARITHMETIC PROGRESSIONS
+
+                                                  by Heini HALBERSTAM
+
+
+      In   1968, I gave a                 [3] on this            at    a            number theory meeting in               when
+I     suggested various possible lines of enquiry that seemed to me to spring                                              cer-
+
+tain results about the distribution of prices due to                                                 and to DAVENPORT arid
+
+myself. I’ly purpose to-day is to indicate the progress along these lines which has
+occurred since then.
+
+
+
+ 1. Let A(n)       be    von    Hangoldt’s function. As                                  write
+
+
+
+
+    In its latest       form, due to kr. L.                     ERY   ([4], chap.                15), the theorem of
+ri-Vinogradov on the distribution of prices in arithmetic progressions asserts (I
+do not      give the rlost general formulation) that, for any                                  A > 0 ,
+
+
+
+
+and it is easy to         see    that      a   result   only insignificantly weaker than (l) follows
+from                chap.       15)
+
+
+    (Conversely, (2) with             Q =                       x     follows easily from                (l)). The form (2),
+apart from having applications,                  is in   a   suitable forr.i for comparison with                     (~)
+
+
+
+    This result sterns froi           a    series of papers      by                       p                            and GAL-
+             and MONTGOMERY       ([4], chap.             was   the first to                  give an asymptotic formula ;
+its    present sharp form was computed by                                            a   student of mine,   following a
+suggestion of MONTGOMERY.
+    Of the relations      (2) and (3), (2) is the deeper but does not imply (3) which has
+
+( ) Assuming the grand Riemann hypothesis, the error is                                             logB x ,   for any fixed
+                                                                                                                      B">0 .
+a   longer                   of validity for             Q . Actually, using an old result of TURAN, it fol-
+                                                             .
+
+
+
+
+lows from the                                           that
+                                                                                                     .
+
+
+
+
+                            generalised
+
+
+
+which, for Q ~.               x ~
+                       is a substantially stronger result than (2) ( and therefore
+
+(l) too). Curiously enough, if we restrict q in (4) to prime values only, then
+(4) (with Q                 x1/2)
+                      is true, without use of any unproved hypothesis, even with
+                        =
+
+
+
+
+log x     place of                  log
+                         x ;9 this follows directly from the large sieve and so one
+                                                °
+
+
+
+
+is a little surprised to find (4) lying apparantly     deep. Inequality (4) would
+imply                        that       none   of   03B6(s), L( L , ~)           has    a zero           p         p >   3/4 .
+
+2. These results give rise to                       a    whole class of          tantalising speculations. First cf
+all,      since        03C8(X ; q , h)
+                                    y          counts              primes from a set of about                x/q     elements, one
+would       expect on probabilistic grounds that
+
+
+
+[&#x26;RH :=====>                       log2 x] accordingly,              o ’e   may conjecture that          (cf. (l))
+
+
+
+or, to       put it in a weaker but nore likely forrn,
+
+
+
+    The    same      probabilistic considerations support also (4).
+    Although (5),            if   true,       lies very deep                      any result inten’iediate in               quality
+between (1) and (5) would also                                   important consequences. ’Writing such a result in
+the form
+
+
+
+
+it is                         that the validity of                 (6)              =   0.54       would imply that         ()
+n =    p + P          (n > nO)           is   possible ;         and my  student , J.  PORTER [6], has proved
+                                                                                               1
+
+
+
+
+that the validity of                    (6) with    o’   =
+                                                                 1 - (1/k) would imply that
+
+
+
+
+for       k =       3,4,g ....[(7)                                  k = 2                          R. C. VAUGHAN     [6] has pro-
+vided      some      independent support                            by                 without      using any hypothesis,
+that (7) is true for almost all                           a , and that the number of possible exceptions. is
+surprisingly small.
+
+
+( ) P denotes                 a   number that is             a   pri.’e or the product of two prines.
+  3. This regularity on the average of the distribution of primes in arithmetic -pro-
+  gressions, as typified        and (3), may be a property shared by other integer
+                                                                                                                                                                                             be
+  sequences. Let us return for ~~ moment to probabilistic considerations. Let                                                                                                           Q
+
+ the space of                                     integer sequences 03C9 , and impose on                                           03A9    a   probability measure in the
+ manner   pioneered by ERDOS and                                                                 and described in detail in                                                       of
+
+  quences ",, by writing
+
+
+                                                                decreasing sequence of positive numbers                                         between           0        and 1 ten-
+ where
+                                     {03B1n} is            a
+
+
+ ding to 0                                       as        n    ~ ~ ; suppose also that                                                                           of 03B1          to       a
+                                                                                                                                                                              n
+ function
+                                         03B1x        on        ( 1 , + ~[       is continuous, This                           procedure throws in-to relief
+ integer sequences with essentially the same rate of                                                                                                 for it turns out in the
+
+ resulting probability space that,                                                        with probability                         1,
+
+
+
+ ey. ELLIO’-??:                                   [2 ] has proved that for any assigned sequence                                                     (a ) of basic probabi-
+ lities satisfying the conditions                                                       set out           above,      9      and any           A >    1,
+
+ (8) 03A3qM(x)/logAx q max(h,                                                    q)=1        {03A3nx,n~ 03C9,n~h mod q 1 -                        M(x)/q}2 ~M2(x)/logA-2                           X
+
+
+
+ with proba,bil,ity I.
+
+                     For                              with
+                                                                    an   =
+                                                                              l/log n (n           =
+                                                                                                        3 , ... ) , .ie obtain a statement about »rime-
+ like se;:aence>i,                                             and thereforê          some     support for conjecture (5)                                (in a form analogous
+ to                             ( 2 ) )j an d when
+
+
+we                              obtain                             distributed rather like the numbers that                                           are    sums      of
+
+          expect such results for specific sequences to be extremely difficult to
+                                  may
+ establish j9 but intermediate results, e. g. results analogous to (1) and (2),
+well be accessible if                                                                              I ~~’ studied such questions recently in connec-
+tion with multiplicative functions                                                                   he has Sound                    some      interesting results
+I shall                              now     describe               briefly.
+                                     set                          tne task of         deriving asymptotic formulae for sums of the
+
+
+                                                                                03A3nx d(ni f(n
+                                                                                 ,
+                                                                                                   a) ,    +                   f          multiplicative.
+                such                sums    go back ’to                                         (f(n)                     =-                    HOOLEY        (f(n) = d3(n))
+and                                          (f(n) = r(n~ ~                     k =    2 , 3 , ... ) ;                                         nethod             intricate and
+LINNIK used his                                        highly complicated dispersion nethod.                                                      has                             the
+                                                                                                                                                          shown,           on               con-
+
+trary,                              that if one                              enough
+                                                                                      about 03A3nx f(n) ,                          and if       one   has     a   Bombieri-like
+estimate of
+
+
+
+
+  (e / i                            ",   ~
+                                             nr~ ~ ~   7
+
+
+then   asymptotic formulae of the desired sort are readily attainable. To be precise,
+his Bombieri-like result is                       as        follows : if
+
+
+
+
+then there                   a    D =        D(f) > 0 and, for each E > 0                      a   number    A =   A( f , e) > 0,
+such that
+
+
+
+
+  Conditions   (i) and (it) ensure, by                               virtue of the work of         Wirsing, adequate infor-
+         about       f(n) ~
+  WOLKE’s nethc’d is based on the large sieve, but uses much else                                           besides ; it is ra-
+ther   complicated and should repay further study.
+
+4. If we take        f(n) =         2(n)               above    we    find that ’’.fOLKE’s result      (lO) is not applica-
+                                                                                                                         ..
+
+
+
+
+ble because      T   =   1       here ;                      in a,ny case, the condition            (h , q) 1 is not na-
+                                                                                                              =
+
+
+
+
+tural here a-nd      one      would          expect to go higher with                 q   than      x 1/2)-~. Indeed, ORR
+[~5] has proved that if
+
+
+
+
+then, for any A > 0 ,
+
+
+
+  Here    2/3    appears to take the                          place     1/2   in                 and   although ORR’s argument
+takes little     advantage of averaging,                          it does     seem   hard to   improve upon. It would be
+worthwhile to do                 for one could then improve the classical. result of
+CHAR on the least            squarefree nunber in an arithmetic progression.
+  Just   as   ( I i j is an analogue of ( ~~ 9 so there is a partial analogue of (3) for
+squarefree numbers. Writing
+
+
+
+
+it is curious that           one   cannot                  readily obtain,     as   in the   prime case,      an   asymptotic
+                                                                                                                    25-05
+                     1,S know is that
+
+
+
+
+The first result is due to ORR and                                         the last         to CROFT.
+
+paper gives many interesting            applications.
+  On probabilistic           grounds one would expect the difference                    Q(x ; q y h) -                    h)
+(as                   Drintcd out to ne in a letter) to be about                      (:~c~~ ,l 1/,4 l+ E for
+and    so   CROFT ’s estimate for la.rge      Q        is about       right. However, reaching an
+tic fomula still           presents sc-:e technical difficulties.
+
+                                               BIBLIOGRAPHY
+
+[1]     CROFT (M. J.), in preparation.
+[2]     ELLIOTT (P. D. T. A.). - Some applications of a theorem of Raikov to number
+            theory, J. of Number Theory,  2, 1970, p. 22-25.
+                                                  t.
+
+[3]     ELLIOTT (P. D. T. A.) and HALBERSTAM (H.). - A conjecture in prime number theo-
+                                                                Academic Press, 1970
+          ry, Symposia Mathematica, Vol. 4, p. 59-72. - London,
+      (Istituto nazionale di altaMathematica).
+[4] MONTGOMERY (M. L.). - Topics in multiplicative number theory. - Berlin Springer-
+      Verlag, 1971 (Lecture Notes in Mathematics, 227).
+[5] ORR (R. C.). - Remainder estimates for squarefree integers in arithmetic pro-
+          gression, J. of Number Theory, t. 3, 1971, p. 474-497.
+[6]     PORTER (J. W.).-The generalized Titchmarsh-Linnik divisor problem, Proc. London
+          math. Soc., 3rd Series, t. 24, 1972, p. 15-26.
+
+[7 ]    VAUGHAN (R. C.), to appear in J. London math. Soc.
+[8]     WARLIMONT (R.). - On squarefree numbers in arithmetic progressions, Monatsh.
+            Math.,   t.   73, 1969, p. 433-448.
+[9]     WOLKE (D.). - Einige Anwendungen des grossen Siebes auf zahlentheoretische Funk-
+          tionen. Habilitationsschrift. - Marburg/Lahn, Philipps-Universität Marburg/
+            Lahn, 1970.
+
+
+Heini HALBERSTAM
+                                                                                 (Texte recu le 30 juin 1972)
+Mathematical Department
+University of Nottingham
+NOTTINGHAM       (Grande-Bretagne)        _______
+
+
+
+
+(3) This                    in not available for         x1/3 Qx1/3log10/3 x;                         but WARLIMONT
+
+shows also that            S(x , Q)     x~~       always, and that              S( x ~ x ~ t~   ~   x 2 2~’i" .L ’T’ G 1f .
+1/2 $ ~x ~ 1 . Note that                      uses       ~h ~ ~~~ -_ 1 .
+

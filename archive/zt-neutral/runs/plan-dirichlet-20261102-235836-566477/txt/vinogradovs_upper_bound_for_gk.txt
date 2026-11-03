@@ -1,0 +1,739 @@
+                      Vinogradov's upper bound for G(k)
+
+                     7.1 Some remarks on Vinogradov's mean value theorem
+                     For the purposes of this chapter, the notation of Chapter 5 is
+                     assumed.
+                       By (5.3), Jf\X, 0, h) is the number of solutions of
+
+                                 t(4-yi)         = hj (Kj<fc)              with 0<xnyr<X.           (7.1)
+                               r= 1
+
+                     This system of equations is not soluble when \h}\ > sXJ for some j .
+                     Hence, by (5.4),
+                                                     /?>(*, 0, h)<X«k+l)l2Js(X).                   (7.2)
+                                                 A
+
+                     On the other hand, the left side of (7.2) counts all the solutions of
+                     (7.1) with h considered as an additional variable. Thus
+
+
+                     Recall that JS(X) is the number of solutions of
+
+                                   t (*i -yi) = 0 (Kj^k)                       with 0 < xr, yr ^ X. (7.3)
+                                  r= 1
+
+                     Obviously the number Ts(x) of'trivial' solutions obtained by taking
+                     the yr to be a permutation of the xr satisfies
+
+
+                     Thus
+                                                J S (A')> max(X 2s - fc(/c+1)/2 , Xs)              (7.4)
+                     which shows, incidentally, that (7.3) has 'non-trivial' solutions
+                     whenever s>jk(k+l)      and X is sufficiently large. For further
+                     comments see §29 of Hua (1956) and Vaughan & Wooley (1995b,
+                     1997).
+                       It can be conjectured that, when k ^ 3, as X -> oo
+                                            JS(X) - C5tk max (X2s~k{k+ 1)/2, Xs).                  (7.5)
+                     While this probability lies very deep, at any rate it is possible to
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     112                                           Vinogradov's upper bound for G(k)
+
+                     establish it when s ^ k + 1 and when s is sufficiently large. The latter
+                     is done by adapting the Hardy-Littlewood method to the k-
+                     dimensional unit hypercube °l/k. The minor arcs are dealt with by
+                     applying Theorems 5.1 and 5.3 which can be thought of as the
+                     analogues of Hua's lemma and Weyl's inequality respectively. For the
+                     major arcs it is necessary to develop an asymptotic approximation for
+                     the generating function
+
+                                                                                                     (7.6)
+
+                     and to estimate the corresponding auxiliary functions
+
+                                                                                                     (7.7)
+                                                         Jo
+
+                               S(q, a) = S(q, av ..., ak) = £ e((alX +... + akxk)/q). (7.8)
+                                                                     x=   1
+
+
+                     7.2 Preliminary estimates
+                     Much of the material in this section is due to Hua (1940a, 1952,1965).
+                      It is convenient here to recall that the polynomial congruence
+                                         4>(x) = bo + bxx + . . . + bkxk = 0 (modp)
+                     is said to have a root of multiplicity m at x 0 when </>(x) =
+                     (x — xo)m01(x)-hp(/)2(x) with (p^x) and </>2M polynomials such
+                     that
+
+                     Theorem 7.1 Suppose that (q, al9...,                     ak) = 1. Then
+
+
+
+                     Proof In a similar manner to the proof of Lemma 2.10, when
+                     (q, r) = (qr, au . . . , ak) = 1 one has
+                                       S(qr,«!,...,       ak) = S(q, al9 ra2,. . ., rk " lak)
+                                                                x S(r,al9qa2,..         .,qk~1ak).
+                     Thus it suffices to treat the case when q is a power of a prime.
+                     Suppose that p]l(aua2,..., afc) and pT is the highest power ofp dividing
+                     (al,2a2,...,kak). Let x l 5 . . . , x r denote the distinct roots of the
+                     congruence
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     Preliminary estimates                                                                   113
+
+                                       p~ x(ax + 2a2x + . . . + kakxk" *) = O(mod p)
+                     and suppose that their respective multiplicities are m x , . . . , mr. Note
+                     that r <fc— 1. Further let m = m} + . . . + mr. Then it suffices to show
+                     that for / = 1, 2 , . . .
+                                          \S(pl, al9..., flk)| < /c 2 max(l, m)p'"//fc.                     (7.9)
+                     Since m^k— 1 this easily gives the theorem.
+                       The case / = 1. The argument in this case is due to Mordell (1932)
+                     and gives more, namely that
+                                                   \Sip,a1,...,aJ\<kp1-1'k.                                (7.10)
+                     It can be assumed without loss of generality that plak and p > k.
+                     Consider
+
+                                                               t
+                                           T = t ••• t \S(p,z,,...,
+                                                   Zi = 1     2k = 1
+                                                                                        zk)\2k.            (7.11)
+                     Then, by multiplying out the summand, applying (7.8) and inverting
+                     the order of summation, one obtains
+                                                               T = pkM                                     (7.12)
+                     where M is the number of solutions of the simultaneous congruences
+                              x{ + . . . + x{ = y{ + . . . + yjmodp)                (1 ^ ; < k)      (7.13)
+                     with 1 < x^ ^ p, l^y^p.           In a similar manner to the proof of
+                     Lemma 5.1, it follows that if x l 9 . . . , xk, ^ l 5 . . . , yk satisfy (7.13), then,
+                     for each x, Y\t(x — xt) = Y[i(x ~ yi)( m o ^ P)- Thus the x t , . . . , xk are a
+                     permutation of the ^ l s . . . , yk. Therefore M ^k\pk, and so, by (7.12),
+                                                  T^k\p2k.                          (7.14)
+                        When p/w, ux + v runs through a complete set of residues modulo p
+                     as x does. Let
+
+
+
+                     Then
+                                                                               !,...,             ftk)|.   (7.15)
+                                              fc                k
+                     Moreover bfc = afcw and bk_ i=u ~ *(vkak +ak_ x). Thus, as w varies,
+                     6fc takes on (p — l)(/c, p — 1)~ x distinct values modulo p, and for a
+                     given u, as i? varies, b k _ j takes on p distinct values modulo p. Hence,
+                     by (7.15) and (7.11),
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                      114                                            Vinogradov's upper bound for G(k)
+
+
+
+
+                      Therefore, by (7.14),
+                                       \S(p, a 1 ? . . . , ak)\2k ^ k\2kp2k~ 2 < k2kp2k-         2
+                                                                                                     ,
+                      which gives (7.10) as required.
+                         The case / > 1. This is proved by induction on /. Obviously px ^ k.
+                      Thus, when 2 < / ^ 2T + 1, (7.9) is trivial. Hence it can be assumed that
+                      / > 2T + 2.
+                         For brevity write </>(x) = a^x + . . . + akxk. Recalling that xl9..., xr
+                      are the distinct solutions of p~ T 0'(x) = 0(modp) one obtains
+
+                                                 S(pl,al9...9aJ=T0            + £ Tj                           (7.16)
+                      where
+                                                     Tj=        X      e(4>(x)p~l)                              (7.17)
+
+                      and
+
+                                          7o=        Z       ^Z e W ^                + jOp-').                 (7-18)
+                                                         1   z = 1
+
+
+                      Since / ^ 2T H- 2 one has
+                                    0 ( p ' " T ' xz + y) = 4>{y) + p' ~ T " ^^'(y) (mod pl\
+                      Hence the innermost sum in (7.18) is zero. Thus it remains to estimate
+                      the contribution to (7.16) from the 7} with) ^ 0 .
+                        When r = 0, i.e. m = 0, there is nothing to prove. Suppose that
+                      m ^ 1. When / < /c, the trivial estimate |7}| ^ pl" x in (7.16) gives
+
+
+                     Thus it can be supposed that / > k.
+                       Consider the polynomial in x,
+                                           (t>{px + Xj) - <t)(xj) = b,x + . . . + bkxk
+                     where
+
+
+
+                     Let //* denote the highest power of p dividing (bl9 b2,...,                         bk). Clearly
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     Preliminary estimates                                                                    115
+
+                     p^    1. If p > /c, then
+
+
+
+                      and so p\ak, p\ak _ l 5 . . . , p\ax contradicting (p, al9...,                ak) = 1. Thus
+                                                               p<fc</.                                      (7.19)
+                                           p
+                          Let ci = bip~ and
+
+
+                      Then, by (7.17),
+                                                                   1
+                                                              M        ^   cl9        cfc)|.                (7.20)
+                       Since p~ T0'(x) = 0(mod p) has a root of multiplicity mj at x^ one can
+                     write p~x(j)'(x) in the form
+                                       p - ^ ' ( x ) = ( x - x / " ; < M * ) + /^2U)
+                     with pl<t>i(Xj) and deg 0 2 < m7. Now let p° denote the highest power of
+                     p dividing (cl, 2c2,..., /ccfc). Then
+
+
+
+
+                     The coefficients of this polynomial are all integers and at least one is
+                     coprime with p. Since deg(/>2 < m} the coefficient of xmj is
+
+
+                     so that c H- p ^ 1 + T + m,.. Hence, if d > mp then the coefficient of xd is
+                     a multiple of p. Hence
+                           p~ V ( x ) = p1 ~ * ~ p + '(pr'xr^xj)             + P02(px + x,.)) (mod p).
+                                                          a
+                     Therefore the degree of p~ \j/\x), modulo p, is at most m} and so the
+                     number of solutions of the congruence
+
+
+                     counting multiple solutions multiply, is at most my
+                        Therefore, on the inductive hypothesis, (7.9), with / replaced by
+                     / — p, aj by Cp m by m^ one obtains, via (7.19) and (7.20),
+                                        \Tj\ ^ k 2 m j P p ~ V " p)(l ~ 1/k) ^ k 2 m j P l ~ llk.
+                     The desired conclusion, (7.9), now follows from (7.16) on summing
+                     over all j ^ 1.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     116                                            Vinogradov's upper bound for G(k)
+
+                      The following theorem gives the asymptotic expansion for/on the
+                     major arcs.
+
+                     Theorem 7.2 Let ccj = aj/qj + j?,- (j = 1,. . ., k) and suppose that
+                     q = lql,..., qJ and ^ = a}qqj \ Then
+
+
+                     where
+                                         A<q(l      + \P1
+
+                      Proof By Lemma 2.6 with
+
+                      and
+
+                      and the observation
+
+                                      Z cx= Z
+                                                                                              y(modq)
+
+                                              = yq~
+                      one obtains
+                                                              f
+
+
+                     where
+                                                              V         -f   Jo
+                                                                                  F '(y)ydy
+
+
+
+
+                      Integration by parts gives the theorem at once.
+
+                      Theorem 7.3 The auxiliary function I(P) satisfies
+
+
+                      Proof It can be assumed that
+                                                                  X = l,
+                     for then the general case follows by a change of variable. It can further
+                     be supposed that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     Preliminary estimates                                                      117
+
+                     for otherwise the result is trivial. Let
+
+
+
+                     and
+
+                     Then stf can be dissected into < 1 intervals on each of which p[{cc)
+                     does not change sign. Let & be a typical interval of this kind. Then
+                     integration by parts gives
+
+
+                                               1
+                     Thus it remains to show that
+
+
+                     satisfies
+                                                                     M Y" 1 .                 (7.21)
+                       The argument now proceeds by iteratively constructing sets
+                     2X, #2> ^2> ^3> • • • as follows. If # x is empty, then there is nothing
+                     more to prove. Thus it can be supposed that there is an a l such that
+                     O ^ a ^ l and \pl(a1)\<Y1. Now Ip^aJI > \^\ - kY\ so that
+                     if I0J > 2/c7k2, then \\^\ < (\px\ + Yfc2)1/k < ((1 + l/(2/c))|jS1|)1/fc,
+                     whence
+                                                            Yk2<\pt\<L
+                     Hence in this case (7.21) is trivial. Thus it can be supposed that, for a
+                     suitable number Cl depending at most on k, one has
+
+
+                     and |p1(a)| < C1Y2 for every (Xe^v Therefore it suffices to show that
+
+                     where
+
+                        Let
+
+
+
+                     Then Q)x<^(€1 where
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     118                                              Vinogradov's upper bound for G(k)
+
+                       Proceeding in this way, at thejth step one obtains a constant C} _ l5
+                     a polynomial p,(a) of degree k — j and considers
+
+
+                     If Wj is not empty, then there is an a, such that |p/(0/)| < 2Cj _ 2 Yj.
+                     Defining at each step
+
+
+                     it follows that
+
+                                                                      h=
+                     with
+
+                                                       7h — L         ri+
+                                                               i =h
+                     and
+                                                        ^     = (11+1
+                     Thus
+
+
+                     and so it can be supposed that there is a number C} depending at most
+                     on k such that
+                                                 \Pj\^CjYkj+1                        (7.22)
+                     and |p/a)| < CjYsj+ x for every a e ^ , . Let
+                                ®j = {a : 0 ^ a ^ 1, |a - a ^ > Y ; ^ , |Pj.(a)| < CjY>+ ,}.
+                     Then, by (7.22), one desires to show that m e a s ( ^ ) <^ YJ+V
+                       The process may stop because, for some; ^ k — 2, #,- is empty or the
+                     inequality (7.22) is violated. Otherwise for j < k — 2 one has
+                     2jcz<£j+ i and the process continues until one reaches Q)k_ v Now
+
+                     Thus
+                                    ^ k - i <= (a : l/o " "k- lft ' + a| < Cfc _ J/JJ" 1/fc}
+                     so that
+
+
+                     as required.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     An asymptotic formula for J/X)                                                            119
+
+                     7.3 An asymptotic formula for JS{X)
+
+                     Theorem 7.4 There are a positive constant C x and positive numbers S (k)
+                     and C2(K s) such that whenever s > /c2(31og/c + log log k + CA) one has
+
+                                 JS(X) = C2{k, s)X2s-kik+l)l2            + O(X2s~k{k+         1)/2
+                                                                                                     "**>).
+                       Note that by using below Theorem 5.5 in place of Theorem 5.1 the
+                     lower bound for s can be replaced by
+
+                                  5/c2      29k2                    Ik2
+                                  — log/c + - ^ - l o g l o g f c + — logloglogfc + C/c2.
+
+                      Proof Let X denote a large real number, let
+
+                                       A =^ ,        Qi=*1/2,          Qj = XJ~x          (2^j<k)             (7.23)
+
+                                                                                      l
+                      and let ^jf denote the cartesian product of the intervals (QJ    ,\+Qjl\
+                      When qx ^ \X112, qj ^Xx(2^j^         k\ and 1 < aj^ q} with (qp a}) = 1,
+                      let 9W(g, a) denote the cartesian product of the intervals
+
+
+
+                        The major arcs Wl(q, a) are pairwise disjoint and contained in ^ j | \
+                      Let 9Ji denote their union. Then the minor arcs m are given by
+
+                         By Lemma 2.1, for each a e ^ f , there exist q, a such that (qp Uj) = 1,
+                      l«j ~ flj/^-l ^ <?7 lQj l a n d ^j ^ Qj- L e t n denote the set of « € # £ for
+                      which in addition ^ > XA for some j with 2^j^k.                     Then, by
+                      Theorem 5.3 with / = [4/c log /c], it follows that there is a positive
+                      constant C 3 such that
+                                    f(a)<Xl'p           (aen) with           p " ! = C 3 /c 3 log/c.          (7.24)
+                     Now let $1 denote the set of ae^jf for which there exist q, a such that
+                     (qj9 aj)= 1, | a , - V ^ | ^ qJ^Qj \q^Q^q^         X" (2 <j^/c). Thus
+                     n u 9 l = * f (although n n 9 l may not be empty) and sJTCc:W. Let
+                     pj = «_,. - aj/qp q = &!,...,   qkl A- = qajqp so that
+                                                        («Mi            >1J=1.                                (7.25)
+                      By Theorem 7.2 and (7.23),
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     120                                                 Vinogradov's upper bound for G(k)
+
+                                f(*)-q-lS(q,A)I(P)
+
+                                     <Xl\                                                                         (7.26)
+                                                                                    m
+                     If aem n, so that <z<£$R, then q ^ qx > \X .                           Hence, by Theorem 7.1
+                     and (7.7),
+                                            q~ lS(q,                              l / k l x       +
+
+
+                     Therefore (7.24) holds with n replaced by m. Let m = [C 3 ] 4- 1 and
+                     rj = ±k2(\ - l/k)1. Then, by Theorem 5.1,
+                                 r
+                                     I rt^Mltk   + 2mfc 2 ( j a ^ x2tk   + 2mk2
+                                                                                   ~ Mfc + D/2 + IJ - 2mk2p
+                                Jm
+                     Moreover, for t ^ 3/c log k + k log log k one has
+
+
+
+
+                     and so when s S= tk + mk2 there is a positive number <5 = S(k) such that
+
+
+                                                     l
+                                                  %} m
+
+                        It remains, therefore, to treat the major arcs SK. For <xe$Jl(q, a\
+                     (7.26) holds. Define F(a) = K(a, ^f, a) when aesDI (q, a), V(OL) = 0 when
+                     a em. Then
+
+                              |/(a) 2 s - K(a)2s|da <^ X 2 " A                    (|/(a)| 2 s " 2 + |F(a)| 2 s " 2)da.
+
+                                                                                                                   (7.27)
+                     By Theorem 5.1, if s — 1 ^ /c/ with / ^ 3/c log /c, then
+                                           f
+                     with ^ = |/c 2 (l — l//c)z < 1/(2A:) = A. Hence there is a positive number
+                     S = S(k) such that
+                                                 r                 2s_2                 _kk + i
+                                                         |J(QC)|       da ^ X                         .           (7.28)
+
+                        Let <x.eyjl(q,a). Then, by (7.25) and Theorems 7.1 and 7.3,
+                                      V(%) < Xq*' 1/fe(l + \PX\X + • . . + 1 ^ 1 ^ ) - 1/k.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                    An asymptotic formula for                           JS(X)                                           121
+
+                     Hence
+                                                          I        |F(a)|2'da < X2tWZ
+                     where
+                                              00                  00
+
+
+                                   W=
+                                           q\ = 1             <Zk= 1
+
+                     and
+                                                    :
+                                                        = n rd+
+                                                          j= i Jo
+                     When t > 2/c2 one has
+                                                   00                  00
+
+
+
+
+                                                                  4k = 1
+
+
+                     and
+
+
+                     Therefore, for s — 1 > 2/c2,
+
+
+
+                     This with (7.27) a n d (7.28) shows that
+
+                                        |/(a)|2sda =                        |F(a)|2sda-
+                                  Jaw                             Jm
+                     when s satisfies the hypothesis of the theorem with Cx suitably chosen.
+                       It follows in a straightforward manner from Theorems 7.1 and 7.3,
+                     that
+
+                                     I T//«.\l 2sA~           ^    j v2s      - k(k + l ) / 2 _i_ s\t v 2 s - k(k + :
+
+
+
+
+                     wjiere
+
+                                                                                        )= 1
+
+
+
+                     and                   J= f                   f ^ a + .-. + Aa^da d/?
+                                                        J^ k Jo
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                      122                                           Vinogradov's upper bound for                G(k)
+
+                     N o t e that q~1S(q,A1,...,Ak)                =                  (q1...qk)-1S(q1...qk,al9...,ak).
+                     Also S < oo, J < oo and so the theorem follows with C2(/c, s) = S J .
+                     The positivity of C2(/c, s) is a consequence of (7.4).
+                       For a more precise analysis, and several applications, of the above
+                     theorem, see Hua (1965).
+
+                      7.4 Vinogradov's upper bound for G(k)
+                     It can now be shown, as an application of Theorem 7.4, that
+                     limsup—             ^ 2 . In many respects the proof builds on the ideas
+                      fc^oo /clog/c
+                     of § 5.4.
+                         Let n denote a large natural number, and write
+
+                     Let K denote a natural number with
+                                                                2K<k
+                     and put
+
+                                             ] , V, = [I/}"], q = 2 / C f e 2 * 1 , C7,+ 1 = [l/J],
+
+
+                     Now let Q(m) denote the number of solutions of the equation
+
+
+                     with Xj < Vj, where / is a parameter to be determined suitably in terms
+                     of k at a later stage.
+                        Consider
+
+
+                     By Holder's inequality, for any natural number r,
+                                                                                                 it
+
+
+
+
+                                                             X/2<p^X      /i
+
+                     where
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     Vinogradov's upper bound for G(k)                                                  123
+
+                     and the summation is over mv . . . , m2r with
+                                          m 1 + . . . + m r - m r + 1 - . . . - m 2 r = /i.
+                     Hence, in the notation of §§ 4.4 and 5.3, and by Lemma 5.4,
+
+                                                                                     )
+                                                                                         l/2
+
+
+
+                     The sum Xf,Si(^) 2 is the number of solutions of
+                                                  /
+                                                 £ Lj(Xj) = 0                                         (7.31)
+                                                              j - i
+                     with XjE[l Vj]4r and
+                                    Lj(y) = (Uj + yxf + . . . 4- (Uj + y2r)*
+                                                        - (I/; + y 2r + / - . .. - (Uj + yjk.         (7.32)
+
+                       The estimation of Qx(h) depends on a lemma, the proof of which
+                     requires Theorem 7.4.
+
+                     Lemma 7.1 Suppose that r > CK2\ogK where C is a suitably chosen
+                     constant. Then the number Rj of different y in [1, Vj]4r for which Lj(y)
+                     lies in a given interval of length jjf-K~^2 satisfies
+
+
+                     Proof For brevity, drop the parameter j . By the binomial theorem,
+
+                                                   Uy)= Z •
+                                                                .•=   i *
+                     where
+                                       M((y)     = y\ H - . . . + y'2r - y'2r + j - . . . -    y\r.
+                                           4r                         1/2
+                     Since j e [ l , K]         and K = [C/ ] one has
+
+
+
+
+                     Hence it suffices to show that the number R* of different y in [1,
+                     for which
+                                                         2K
+
+
+                                                        i = 1
+
+                     lies in a given interval of length (/~ 2X satisfies
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                      124                                                 Vinogradov's upper bound for G(k)
+
+                                                         R*<$V*rlUl-2K.                                         (7.33)
+                        Consider the number R** of 2K-tuples of integers z x , . . . , z2X with
+                     zf <^ V{ and for which
+                                                                  2K
+
+                                                                   I uk-%
+                                                                  i = 1
+                     lies in a given interval of length t/~ 2 K . The interval can be written in
+                     the form
+                                                (iu-\)Uk-2K+v,uUk-2K+v']
+                     where u and v are integers with 0 ^ v < Uk ~ 2K. Then
+                                     z2K = u(modU),          z2K_l        = (u — z2K)U~ 2 (mod (7),
+                     and so on. Thus z2K is determined modulo (7, z2K_x is determined
+                     modulo U by z2K, and so on up to z2. Moreover zx is determined
+                     uniquely by z2K,..., z2 since 0 ^ v < l/~2K. Hence, on recalling that
+                     V2 > U, one has
+                                        R** <^ (V2KU~         l
+                                                              )(V2K~l           U'1)...        (V2U~ l)
+
+
+                        By Theorem 7.4, given z x ,. . . , z2K, the number of solutions of
+
+                                                                                   with        yell   F]4r
+
+                     is <^ v 4r - K(2X + l). This with (7.34) gives (7.33) and so the lemma.
+
+                          Suppose henceforth that the hypothesis of the lemma holds and let
+                      jCj,   ,X| be a typical solution of (7.31). By (7.32), for
+                      xj+ielU       Vj+iVr one has
+                                                  *^j+   iyxj+ i) ** u j+          iy     j+
+
+                      Hence, by (7.29), L ^ x J lies in an interval of length <^ lf\~K~xl2. Thus,
+                      by Lemma 7.1, there are <^V\rU\K choices for xv Then given
+                      x1? L 2 (x 2 ) lies in an interval of length Ui~K~m, and so on. Hence the
+                      total number of choices for x1? x 2 , . . . , xt is
+
+
+                     By (7.29), (Ul...Ul)K>U*-ll2H1-r>l).                               Hence, by (7.29) and (7.30),
+                     for a em,
+                            W(tx) < X V l . . . V l ( X ~ l U k     + £ {k
+                                                                          - -    1/2)(1
+                                                                                          " " ' V ^ ^ W(0)NE   ~p
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                      Exercises                                                                 125
+
+                     where
+
+
+                     Now take
+                                        K = Q log fc], / = 3fc, r = 1 + [CX 2 log X].         (7.35)
+                     Then, by (7.29),
+
+                                                  f ^ ^ ^ e x p ( - 3Qlog fc] ~ 3/2
+                              rjl = exp(l logfl - ^ r ^
+
+                     where the implicit constants are absolute. Thus, if k is sufficiently
+                     large,
+                                                                          p    =<7
+
+
+                     say, where C t is a suitable constant. Thus, in the notation of §5.4
+                     (but with W(<x) as above),
+
+                                                   f(a)4kH(a)2W(oL)e(-OLn)doL
+
+
+
+                     Choosing t optimally so that (1 — l//c)' < a/k gives
+                                                              t ~ /clogA:.
+                     Then the contribution from the minor arcs is
+                                                        <H(0)2W(0)n3~6
+                     where (3 = S(k) is a suitable positive number.
+                       The major arcs can be treated as in § 5.4. It follows that
+
+
+                     This with (7.35) yields
+
+                     Theorem 7.5 As k-+ oo, G(k) ^ /c(log k)(2 + o(l)).
+
+                     7.5 Exercises
+
+                        1 Show that, when s ^ k, JS(X) = s\Xs 4- O(XS ~ J).
+                      2 Show that, when k = 2, J 3 P O <^ X 3 log X, and that (7.5) is false.
+                     More precisely (Rogovskaya, 1986) show that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+                     126                                           Vinogradov's upper bound for G(k)
+
+                                                      J3(X)~         CXHogX
+                    as X -> oo.
+                       3 Let Gj(/c) denote the least 5 such that almost every natural
+                    number is the sum of s kth powers. Show that
+
+                                                        h m s u p — — - ^ 1.
+                                                          *-+ao    /clog/c
+
+                        4 (Vaughan and Wooley, 19956) Show that when k ^ 3
+
+
+                     as X -^ oo.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.010 Published online by Cambridge University Press
+

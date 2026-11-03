@@ -1,0 +1,9 @@
+{
+  "id": "P5",
+  "title": "Sawtooth sums B(Z/t^2) with multiplicative weights",
+  "statement": "Notation:\n- B(u) = {u}(1 - {u}) for real u >= 0.\n- I = int_0^infty B(u^{-2}) du.\n- kappa(t) = mu^2(t) prod_{p|t} p^2/(p^2-2).\n- For q in N, delta_q = prod_p (1 - 1/p)(1 + 1[p\u2224q] \u00b7 p/(p^2-2)). This product converges absolutely.\n\nClaims.\n\n(a) I = (1/2) int_0^infty B(v) v^{-3/2} dv = -4 zeta(-1/2) = 0.83154489990...\n\n(b) There is an absolute constant c_1 such that |sum_{s>=1} B(Z/s^2) - I sqrt(Z)| <= c_1 Z^{1/3} for every real Z > 0.\n\n(c) For every eps > 0 there is c(eps), depending only on eps, such that for all q in N and real Z > 0:\n  |sum_{t>=1, gcd(t,q)=1} kappa(t) B(Z/t^2) - delta_q I sqrt(Z)| <= c(eps) q^eps Z^{1/3}.",
+  "depends_on": [],
+  "cites": [],
+  "crux": true,
+  "risk": "(a) is a Mellin / Euler\u2013Maclaurin computation. Use the periodic Bernoulli function: 1/6 - B(v) = {v}^2 - {v} + 1/6 = Bbar_2(v), together with the continuation of zeta(s) to Re s > -1 by second-order Euler\u2013Maclaurin. Numerically I = 0.8315448999 = -4 zeta(-1/2).\n\n(b) Split at S = Z^{1/3}. For s <= S, bound the sum and the integral trivially by S/4 each. For s > S, use Euler\u2013Maclaurin with |d/ds B(Z/s^2)| <= 2Z/s^3. For Z < 1, both sides are << sqrt Z <= Z^{1/3}.\n\n(c) Write 1[gcd(t,q)=1] kappa(t) = sum_{ab=t} beta(a), with beta multiplicative and supported on cube-free a:\n- for p\u2224q: beta(p) = kappa(p) - 1 = 2/(p^2-2), beta(p^2) = -kappa(p);\n- for p|q: beta(p) = -1.\nThen apply (b) to each inner sum over b. This needs sum_a |beta(a)| a^{-2/3} << q^eps.\n\nThe risk lies in getting the q-dependence of the convolution uniform. The constant I must be exactly right, because it fixes C_f. It has been cross-checked: the resulting average over all moduli reproduces Vaughan's c_2 to 7 digits."
+}

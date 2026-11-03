@@ -1,0 +1,144 @@
+                                         Subject index
+
+
+
+
+       Abelian weights, 143                             critical line, 328
+       Abel’s theorem, 147                              critical strip, 328
+       abscissa
+          of absolute convergence, 14                   Dedekind zeta function, 194, 321, 343,
+          of convergence, 11                                     392
+       arithmetic semigroup, 278                        Dickman function, 200, 201, 210–212
+       Axer’s theorem, 247, 276                         differential–delay equation, 200, 216
+                                                        digamma function, 522ff
+       Bernoulli numbers, 495ff                         Dirichlet character: see Character, Dirichlet
+       Bernoulli polynomials, 495ff                     Dirichlet convolution, 38
+       Bertrand’s postulate, 49                         Dirichlet divisor problem, 68
+       beta function, 530                               Dirichlet–Jordan test, 542
+       Beurling primes, 266ff, 277, 278, 483            Dirichlet kernel, 535
+       Blaschke product, 192                            Dirichlet L-function, 120ff
+       Birch–Swinnerton-Dyer conjectures,                  analytic continuation, 121, 332–333
+               393                                         distribution of zeros, 351, 454–456
+       Borel–Carathéodory lemma, 169                      Euler product, 120, 121
+       Brun–Titchmarsh inequality, 90                      exceptional zero, 360, 367ff
+       Buchstab’s function, 216–220                        functional equation, 333
+                                                           non-trivial zeros, 333, 358ff
+       Catalan’s constant, 514                             special values, 337
+       Catalan numbers, 8                                  trivial zeros, 333
+       Cesàro summability, 147, 158                    Dirichlet series, 1, 11ff, 137ff
+       Cesàro weights, 142                                formal, 39
+       character                                           generalized, 31
+          additive, 108ff                                  ordinary, 31
+          Dirichlet, 115ff                              Dirichlet’s theorem
+             complex, 123                                  on Diophantine approximation, 478
+             conductor, 283                                on primes in a. p., 123
+             induced, 282                               discriminant, 343
+             primitive, 282ff                              quadratic, 296
+             quadratic, 295ff                           divisor function, 2, 38, 45–46, 55–56, 60,
+             real, 123                                           68–69
+          group, 133
+       circle problem, 45–46                            Euler numbers, 506
+       covering congruences, 7                          Euler’s constant, 26, 514
+
+
+                                                    550
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                                Subject index                                   551
+
+
+        Euler–Maclaurin summation formula, 25, 44,      Lambert summability, 159
+                500ff                                   Landau’s theorem, 16, 32, 463
+        Euler products, 19ff                            lattice, 541
+        Euler’s totient function, 27, 36, 55, 68        Lerch zeta function, 515
+        explicit fomulæ, 397ff                          Lindelöf Hypothesis, 330, 438
+                                                        Liouville lambda function, 21
+        Farey fractions, 183, 184                       logarithmic integral, 5, 180, 189ff
+        ﬁnite differences, 510
+        ﬁnite Fourier transform, 109                    von Mangoldt lambda function, 23
+        Fourier series, 535ff                           matrix,
+        fractional part, 39                               unimodular, 541
+        function,                                         unitary, 112, 119
+           additive, 21                                 Mellin transform, 137, 141
+           arithmetic, 20                                 inverse, 137, 141
+           even, 133                                    Mellin–Barnes integrals, 532
+           multiplicative, 20                           method of the hyperbola, 38
+           totally additive, 21                         Mercer’s theorem, 158
+           totally multiplicative, 20                   Minkowski’s convex body theorem, 542
+                                                        Möbius mu function, 21
+        gamma function, 520ff
+          Artin’s theorem, 520, 535                     oscillation of error terms, 463ff
+          Euler’s integral, 524, 532
+          Gauss’s formula, 520, 531                     Parseval’s identity, 110, 133
+          Gauss’s multiplication formula, 527, 532      partition, 7
+          Hankel’s integral, 525                        Pell’s equation, 134
+          incomplete, 327                               Perron’s formula, 137ff
+          Legendre’s duplication formula, 522, 532      Plancherel’s identity, 144, 162
+          Mellin’s integral, 525, 529                   Poisson summation
+          reﬂection formula, 521, 532                      formula, 538ff
+          special values of, 520ff                      Pólya–Vinogradov inequality, 307, 309, 322
+          Stirling’s formula, 523, 532                  powe series, 1
+          Weierstrass product, 520                      power-full number, 66
+        Gauss sum, 286ff                                Prime Ideal Theorem, 194, 267
+        generalized prime numbers,                      Prime k-tuple conjecture, 103, 224
+          see Beurling primes                           Prime Number Theorem, 3, 168ff, 244ff, 276,
+        Generalized Riemann Hypothesis, 333                     277
+        generating function, 1                             elementary proof, 250ff
+        Grössencharakter, 120, 132, 344, 366, 385         for arithmetic progressions, 358ff
+        group representation, 133
+                                                        Ramanujan expansion, 133
+        Hankel path, 515                                Ramanujan sum, 110ff, 133, 265, 287
+        Heisenberg uncertainty principle, 147           regular transformation, 148
+        Hurwitz zeta function, 30, 340, 513             Riemann Hypothesis, 328, 417
+                                                          consequences of, 419ff
+        inclusion–exclusion, 77                           Generalized, 333
+        inversion formula,                              Riemann–Siegel formula, 515
+           Möbius, 35                                  Riemann–Roch theorem, 322
+                                                        Riemann–Stieltjes integral, 12, 486ff
+        Jensen’s formula, 168                             ﬁrst mean value theorem for, 491
+                                                          reﬁnement, 492
+        Kronecker symbol, 296                             second mean value theorem for, 492
+        Kummer congruences, 514                           uniform, 492
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        552                                    Subject index
+
+
+        Riemann zeta function, 2                        square-free number, 36, 183, 186, 225, 446,
+          analytic continuation, 24–27, 500, 501                471
+          distribution of zeros, 175, 353–354,          von Staudt–Clausen theorem, 512, 514
+                452ff                                   Stirling’s formula, 503
+          Euler product, 22                             summability, 147–167
+          functional equation, 326ff                       Abel, 147
+          linear independence of zeros, 447ff,             Cesàro, 158
+                467ff                                      Lambert, 159
+          non-trivial zero, 328                            Riesz, 158
+          special values, 328                           sums of two squares, 45, 46, 187, 188, 227,
+          trivial zeros, 328                                    228
+          zero-free region, 168–175, 192–194            symmetric group, 184
+          zeros on the critical line, 456ff
+        Riesz product, 482                              tangent coefﬁcients, 505
+        Riesz representation theorem, 493               Tauberian theorem, 150ff
+        Riesz typical mean, 143                            Hardy–Littlewood, 151–155, 163
+                                                           Hardy’s, 150
+        saw-tooth function, 536                            Karamata’s, 163
+        secant coefﬁcients, 506                            Littlewood’s, 151, 163
+        sieve, 76ff                                        Tauber’s ﬁrst, 150
+           Brun, 78                                        Tauber’s second, 160–161
+           combinatorial, 78                               Wiener–Ikehara, 259–266, 277
+           Eratosthenes–Legendre, 76                       Wiener’s, 163–164
+           Selberg, 82ff, 102
+        sine integral, 139                              Wallis’ formula, 503, 507
+        square-free kernel, 84                          Weyl sum, 193
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+

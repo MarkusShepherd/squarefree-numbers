@@ -1,0 +1,308 @@
+                     Introduction and historical
+                     background
+
+                     1.1 Waring's problem
+                     In 1770 E. Waring asserted without proof in his Meditationes
+                     Algebraicae that every natural number is a sum of at most nine posi-
+                     tive integral cubes, also a sum of at most 19 biquadrates, and so
+                     on. By this it is usually assumed that he believed that for every natural
+                     number k ^ 2 there exists a number s such that every natural number
+                     is a sum of at most s kth powers of natural numbers, and that the least
+                     such s, say g(k), satisfies a(3) = 9, g(4) = 19.
+                        It was probably known to Diophantus, albeit in a different form,
+                     that every natural number is the sum of at most four squares. The four
+                     square theorem was first stated explicitly by Bachet in 1621, and a
+                     proof was claimed by Fermat but he died before disclosing it. It was
+                     not until 1770 that one was given, by Lagrange, who built on earlier
+                     work of Euler. For an account of this theorem see Chapter 20 of
+                     Hardy & Wright (1979).
+                        In the 19th century the existence of g(k) was established for many
+                     values of /c, but it was not until the present century that substantial
+                     progress was made. First of all Hilbert (1909a, b) demonstrated the
+                     existence of g(k) for every k by a difficult combinatorial argument
+                     based on algebraic identities (see Rieger, 1953a, b, c; Ellison, 1971).
+                     His method gives a very poor bound for g(k).
+                        In the early 1920s Hardy and Little wood introduced an analytic
+                     method which has been the basis for numerical work by Dickson,
+                     Pillai and others, and has led to an almost complete evaluation of
+                     g(k). Since the integer
+
+
+
+                     is smaller than 3k it can only be a sum of/cth powers of 1 and 2. Clearly
+                     the most economical representation is by [(f)*] — 1 kth powers of 2
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+                     2                                          Introduction and historical backround
+
+                     and 2k — 1 /cth powers of 1. Thus
+
+                                                              2*+r(|Yi - 2.
+                     It is very plausible that this always holds with equality, and the
+                     current state of knowledge is as follows.
+                        It has been shown that when
+
+                                                                                  2k           (1.2)
+                                                       IW J         LW J
+
+
+                     one has
+
+
+
+                     but when
+                     one has either
+
+
+
+                     or
+
+
+
+                     according as
+
+
+
+                     is equal to 2k or is larger than 2k. For the various contributions to the
+                     proof of this, see the Bibliography.
+                        Stemmler (1964) has verified on a computer that (1.2) (and so (1.3))
+                     holds whenever k ^ 200000, and this has been extended to
+                     471 600000 by Kubina and Wunderlich (to appear). Mahler (1957)
+                     has shown that if there are any values of k for which (1.2) is false, then
+                     there can only be a finite number of such values. No exceptions are
+                     known, and unfortunately the method will not give a bound beyond
+                     which there are no exceptions.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+                     The Hardy-Littlewood method                                              3
+
+                     1.2 The Hardy-Littlewood method
+                     Nearly all the above conclusions have been obtained in the following
+                     way. A theoretical argument based on the analytic method of Hardy
+                     and Littlewood produces a number Ck such that every natural
+                     number larger than Ck is the sum of at most sk /cth powers of natural
+                     numbers where sk does not exceed the expected value of g{k). Then a
+                     rather tedious, but often very ingenious, calculation enables a check
+                     to be made on all the natural numbers not exceeding Ck.
+                        One of the features of the Hardy-Littlewood method is that it can
+                     be adapted to attack many other problems of an additive nature. The
+                     method has its genesis in a paper of Hardy & Ramanujan (1918)
+                     concerned mainly with the partition function, but also dealing with
+                     the representation of numbers as sums of squares.
+                        Let s& = (am) denote a strictly increasing sequence of non-negative
+                     integers and consider
+
+                                                       F(z)=     £ z<"»          (|z|<l)
+                                                               m= 1
+
+                     and its sth power
+
+                                   F(z)s=       £ ... £ z"-i + - + fl~.= £ K5(n)z",
+                                              mi = 1      ms=l                        n= 0
+
+                     where Rs(n) is the number of representations of n as the sum of s
+                     members of stf. The objective is an estimate for Rs(n\ at least when n is
+                     large. By Cauchy's integral formula
+
+
+
+                     where ^ is a circle centre 0 of radius p, 0 < p < 1.
+                        Hardy and Ramanujan discovered an alternative way of evaluating
+                     the integral when am = m2. Suppose that p = 1 — £ and that n is large,
+                     and write e(oi) = elKm. Then the function F has 'peaks' when z = pe(oc)
+                     is 'close' to the point e(a/q) with q 'not too large'. In fact, F has an
+                     asymptotic expansion in the neighbourhood of such points, roughly
+                     speaking valid when \a—a/q\K \/{q^/n) and q ^yj'n. By Dirichlet's
+                     theorem on diophantine approximation every z under consideration
+                     is in some such neighbourhood.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+                                                                  Introduction and historical backround
+
+                         The asymptotic expansion takes the form
+
+                                                     + p) V-S(q,a){\ - pe(P))- 1/2               (1.4)
+                     where
+                                                   S(q,a)= t e(am2/q).
+                                                                m= 1
+
+                     This can be seen by dealing first with the case ft = 0 by partitioning the
+                     squares into residue classes modulo q and then applying partial
+                     summation. Thus, for 5 ^ 5 one can obtain
+                                                         RJLn)~<5Jln)JJLn)                       (1.5)
+                     where
+                                          ©,(")= I            t         q-sS(q,a)se(-an/q)
+                                                           (a, q) = 1
+                     and
+
+
+                                                      - 1/2
+                     The integral in Js(n) is quite easy to estimate, and the series Ss(«)
+                     reflects certain interesting number theoretic properties of the se-
+                     quence of squares.
+                        The expansion (1.4) corresponds to a singularity of the series F at
+                     e(a/q) on its circle of convergence, and in view of this Hardy and
+                     Littlewood coined the terms singular series and singular integral for
+                     Ss(rc) and Js(n) respectively.
+                        After the First World War, Hardy & Littlewood (1920, 1921)
+                     turned their attention to Waring's problem. Unfortunately, when
+                     am = mk with k > 3, they could only show that the expansion
+                     corresponding to (1.4) holds when
+                                                                          a
+                                                          and      OL —
+
+                     and this only accounts for a small proportion of the points z on c€.
+                     Since q~ lS(q, a) -• 0 as q -> oo (for (a, q) = \) one might hope that at any
+                     rate F is small compared with the trivial estimate (1 - p)~l/k = n1/k on
+                     the remaining z, a hope reinforced by the fact that (am*) is uniformly
+                     distributed modulo 1 when a is irrational. Indeed, Hardy and
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+                     The Hardy-Littlewood method                                                    5
+
+                     Little wood were able to show that F is appreciably smaller than n1/k
+                     on the remainder of # by an alternative argument having its origins in
+                     Weyl's (1916) fundamental work on the uniform distribution of
+                     sequences, the consequent statement about the size of F often being
+                     called Weyl's inequality. They further introduced the terms major arcs
+                     and minor arcs to describe the parts of ^ where they used the analogue
+                     of (1.4) and Weyl's inequality respectively.
+                        Later Vinogradov (1928a) introduced a number of notable refine-
+                     ments, one of which was to replace F(z) by the finite sum
+
+                                                         M=          I e(amk)                 (1.6)
+                                                                  m=l
+
+                     where
+                                                             N = [nllk].                      (1.7)
+                     Now
+
+                                                  /(a) s = f R8{m9n)e(<m)
+                                                             m = 1
+
+                     where Rs(m,n) is the number of representations of m as the sum of s /cth
+                     powers, none of which exceed n. Thus
+                                                   Rs(m, n) = Rs(m)         (m ^ n).
+                     Then a special case of Cauchy's integral formula, namely the trivial
+                     orthogonality relation
+                                                                     |1 when/i = 0
+                                                                                              {
+                                                                     v0 when/z^O                  ' }
+                     gives
+                                                   f1
+
+
+                                            Jo
+                                                  f                                           (1.9)
+
+                        It is clear from the discussions above that g(k) is determined by
+                     the peculiar demands of a few relatively small exceptional natural
+                     numbers. Thus the more interesting problem is that of the estimation
+                     of the number G(k\ defined for k ^ 2 to be the least s such that every
+                     sufficiently large natural number is the sum of at most 5 /cth powers of
+                     natural numbers. It transpires that G(k) is much smaller than g(k)
+                     when k is large and this naturally makes its evaluation much more
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+                     6                                          Introduction and historical backround
+
+                     difficult. In fact the value of G(k) is only known when k = 2 or 4,
+                     namely
+                                                        G(2) = 4, G(4) = 16,
+
+                     the latter result being due to Davenport (1939c). Linnik (1943a) has
+                     shown that G(3)<7 and Watson (1951) has given an extremely
+                     elegant proof of this. When k> 3 all the best estimates available at
+                     present for G(k) have been obtained via the Hardy-Littlewood
+                     method. Even when k = 3 the Hardy-Littlewood method can be
+                     adapted to give G(3) < 7 (Vaughan, 1986c). Chapters 2, 4, 5, 6, 7 and
+                     12 are devoted to the study of G(k).
+
+
+                     1.3 Goldbach's problem
+                     In two letters to Euler in 1742, Goldbach conjectured that every even
+                     number is a sum of two primes and every number greater than 2 is a
+                     sum of three primes. He included 1 as a prime number, and so in
+                     modern times Goldbach's conjectures have become the assertions
+                     that every even number greater than 2 is a sum of two primes and
+                     every odd number greater than 5 is a sum of three primes.
+                        Hardy & Littlewood (1923a,b) discovered that their method could
+                     also be applied with success to these problems, provided that they
+                     assumed the generalized Riemann hypothesis. Thus they were able to
+                     show conditionally that every large odd number is a sum of three
+                     primes and that almost every even number is a sum of two primes.
+                        In 1937, Vinogradov was able to remove the dependence on the
+                     generalized Riemann hypothesis, thereby giving unconditional
+                     proofs of the above conclusions. This line of attack on Goldbach's
+                     problems is investigated in Chapter 3. However, the nature of the
+                     primes, and in particular the problem of their distribution in
+                     arithmetic progressions, means that the further refinements of the
+                     method (see Montgomery & Vaughan, 1975) are better viewed in the
+                     context of multiplicative number theory and have therefore been
+                     omitted from this tract.
+                        For many generalizations of the methods described in Chapter 3
+                     see Hua's (1965) monograph.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+                     Exercises                                                                1
+
+                     1.4 Other problems
+                     The last thirty years have seen a large expansion and diversity of the
+                     applications of the method, and in Chapters 8, 9, 10, 11 a number of
+                     topics have been chosen to illustrate this development. The appli-
+                     cations described there, particularly in Chapters 9 and 11 to general
+                     forms and inequalities respectively, cover only a small part of the
+                     work which has been undertaken in these areas, and should be viewed
+                     as an introduction to the original papers listed in the Bibliography.
+
+
+                     1.5 Exercises
+                        1 Show that the number p(n) of solutions of the equation
+
+
+                     in non-negative integers x1? . . . , xs is (— 1 )"("*).
+                        2 Show that the sum of the divisors of n, o{n) = Xm|nm, satisfies
+
+                                                    a(n)^niq-\{n)
+                                                              0
+                                                                     q=l
+                     where cq(n) is Ramanujan's sum, i.e.
+                                                                      q
+
+                                                                    a=l
+                                                                  (a, q) = 1
+                        3 Let P,Q denote real numbers with P > 1, Q ^ IP. Show that the
+                     intervals
+                                                    {a:|a —a/q\            ^q~1Q~1}
+                     with q ^ P and (a,q) = 1 are pairwise disjoint.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.004 Published online by Cambridge University Press
+

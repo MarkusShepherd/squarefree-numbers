@@ -1,0 +1,27 @@
+                     Preface to second edition
+
+
+                     At the time that the first edition was written, there had been relatively
+                     little recent work on the central theory of the Hardy-Littlewood
+                     method, namely that surrounding Waring's problem and associated
+                     questions. Indeed, the work of Davenport and Vinogradov had taken
+                     on the aspect of being written on tablets of stone. This is in complete
+                     contrast to the current situation. In the last decade or so there has
+                     been a series of important developments in the area. The tract is,
+                     therefore, ripe for revision, and the opportunity has been taken to
+                     give an introduction to this new material, and especially to the
+                     important work of Wooley. Chapter 5 has been extensively rewritten
+                     to take account of our new understanding of Vinogradov's mean
+                     value theorem, and a completely new chapter has been added to
+                     describe the new work on Waring's problem. Fortunately the large
+                     bulk of the material has not been superseded and the underlying ideas
+                     still play an important role in many of the new developments.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.002 Published online by Cambridge University Press
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.002 Published online by Cambridge University Press
+

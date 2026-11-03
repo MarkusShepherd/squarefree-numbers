@@ -1,0 +1,1378 @@
+                                     ON A VARIANCE ASSOCIATED WITH THE DISTRIBUTION
+                                          OF PRIMES IN ARITHMETIC PROGRESSIONS
+
+                                                                                        R. C. VAUGHAN
+
+                                                                   [Received 1 September 1999; revised 2 May 2000]
+
+
+
+
+                                                                                          1. Introduction
+                                     Let L denote von Mangoldt's function. That is, when n is of the form p k where p
+                                     is a prime number and k is a natural number then L n  log p and otherwise
+                                     L n  0. Further let                    X
+                                                             w x; q; a             L n                        1:1
+                                                                                                          n<x
+                                                                                                      n  a mod q
+
+                                     and let V x; q denote the variance
+                                                                       X q
+                                                                                                                           x 2
+                                                           V x; q                                   w x; q; a ÿ                             1:2
+                                                                                           a1
+                                                                                                                          f q
+                                                                                          a; q  1
+
+                                     and write V1 x; Q for                                            X
+                                                                                   V1 x; Q                 V x; q:                          1:3
+                                                                                                      q<Q
+                                     Suppose that
+                                                                                                 Q < x:                                        1:4
+                                     Then, as a re®nement of work of Barban [1], Davenport and Halberstam
+                                     [3], Gallagher [5] and Montgomery [12], Hooley [9, 10, 11] established the
+                                     asymptotic formulae
+                                            V1 x; Q  Qx log Q ÿ cQx  O Q 5 = 4 x 3 = 4  x 2 log xÿA                           Q < x     1:5
+                                     and, on the assumption of the generalised Riemann hypothesis,
+                                               V1 x; Q  Qx log Q ÿ cQx  O Q 5 = 4 x 3 = 4  x 3 = 2  «                       Q < x:      1:6
+                                     Here
+                                                                                                             X         log p
+                                                                        c  g  log 2p  1                                  :                1:7
+                                                                                                               p
+                                                                                                                     p p ÿ 1
+                                     Friedlander and Goldston [4] have obtained an improvement over (1.6), namely
+                                     that on the generalised Riemann hypothesis
+                                         V1 x; Q  Qx log Q ÿ cQx
+                                                            O min Q 3 = 2 x 1 = 2 log x3 = 2 ; Qx  x 3 = 2 log x6              Q < x:   1:8
+
+                                       This research was supported by NSF grant DMS-9970632.
+                                     2000 Mathematics Subject Classi®cation: 11N13.
+                                     Proc. London Math. Soc. (3) 82 (2001) 533±553. q London Mathematical Society 2001.
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     534                                                 r . c. vaughan
+
+                                     Finally Goldston and Vaughan [6] have shown on the generalised Riemann
+                                     hypothesis that if
+                                                        D x; Q  V1 x; Q ÿ Qx log Q  cxQ;            1:9
+                                     then
+                                                        D x; Q p Q 2 x=Q1 = 4  «  x 3 = 2 log 2x5 = 2 log log 3x2         1:10
+                                     and that there is an absolute constant C such that when x=Q ! 1 with
+                                                                    C x 5 = 7 log 2x10 = 7 log log 3x8 = 7 < Q < x
+                                     one has
+                                                                           D x; QQ ÿ 2  Q 6 x=Q1 = 4 :                      1:11
+                                     They also indicate that without any unproved hypothesis their method will achieve
+                                          D x; Q p x 2 log xÿ A
+
+                                                           x 1 = 2 Q 3 = 2 exp ÿc 0 log 2x=Q3 = 5 log log 3x=Qÿ 1 = 5 :   1:12
+                                       In view of the above evidence, Hooley [8] has suggested that, for some
+                                     unspeci®ed range of q,
+                                                                 V x; q , x log q                       1:13
+                                     and has shown, in [11], that if
+                                                                                       x log xÿ A < Q < x                      1:14
+                                                                                                               1
+                                     then (1.13) holds for almost all q in the range                           2Q < q < Q
+                                                                                                   and that on the
+                                     generalised Riemann hypothesis the range (1.14) may be extended to
+                                                                                        x 4 = 5  « < Q < x:                    1:15
+                                     Recently, Friedlander and Goldston [4] have shown that, on the generalised
+                                     Riemann hypothesis, the range can be extended further, to
+                                                                                        x 3 = 4  « < Q < x:                    1:16
+                                     More precisely they show, on the generalised Riemann hypothesis, that, when
+                                     x 3 = 4 < Q < x,
+                                            X
+                                                   jV x; q ÿ U x; qj p x 7 = 4 log x7 = 2  minfQ 3 = 2 x 1 = 2 log x3 = 2 ; Qxg
+                                       Q=2 < q < Q
+
+                                                                                                                                1:17
+                                     where
+                                                                                                X log p 
+                                                              U x; q  x log q ÿ x g  log 2p           :                     1:18
+                                                                                                 pjq
+                                                                                                     pÿ1
+
+                                     They also indicate that, without the assumption of any unproved hypothesis, (1.17)
+                                     can be inferred with the ®rst term replaced by x 2 log xÿ A where A is an arbitrary
+                                     ®xed positive number.
+                                       In this memoir we develop the subject further by treating the general moment
+                                                                         X
+                                                         Mk x; Q             jV x; q ÿ U x; qj k :             1:19
+                                                                                       Q =2 < q < Q
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                       535
+
+                                     The ability to treat a general moment is a consequence of the observation that the
+                                     underlying additive problem is tractable by a variant of the Hardy±Littlewood
+                                     method. However, the conclusion also embraces a further re®nement in the
+                                     treatment of that part which dominates when Q is relatively close to x. This is
+                                     intimately connected with the behaviour of the `partial singular series'
+                                                                                        X                Y pÿ1
+                                                                          Sq y                y ÿ h                 :        1:20
+                                                                                        h<y              pjh
+                                                                                                                 pÿ2
+                                                                                                         p- 2q
+
+                                     There is a barrier on the line Rs  ÿ 12 to the more obvious treatments (see, for
+                                     example, the proof of Proposition 3 of Friedlander and Goldston [4]) and a
+                                     substantial portion of this memoir is taken up with demolishing this barrier.
+
+                                        Theorem 1. Suppose that A is a positive number and that k is a positive
+                                     integer. Then for every Q and x with x log xÿ A < Q < x we have
+
+                                                           Mk x; Q  Ok Qx k F x=Qk   Ok; A Qx k log xÿ A 
+
+                                     where, for y > 1,
+                                                                                                                           
+                                                                                  ÿ1=2                     log 2y3 = 5
+                                                                   F y p y               exp       ÿc
+                                                                                                         log log 3y1 = 5
+                                     with c a positive constant.
+
+                                        On the assumption of the Riemann hypothesis one can show that
+
+                                                                                       F y p y « ÿ 7 = 12 :
+                                     To make a concomitant improvement in the other term we require a more
+                                     general hypothesis.
+
+                                       Theorem 2. Suppose that « is a positive number, that k is an integer with
+                                     k > 2 and that the Generalised Riemann Hypothesis holds. Then for every Q and
+                                     x with x 3 = 4  « < Q < x we have
+
+                                                       Mk x; Q  Ok Qx k F x=Qk   Ok; « Qx k x=Qk x « ÿ 1 = 2 
+
+                                     where, for y > 1,
+                                                                                       F y p y « ÿ 7 = 12 :
+
+                                       This gives a bound of the form o Qx k  when x=Q ! 1 and Qx ÿ 1  1 = 2 k ÿ « ! 1
+                                     as x ! 1. Both the terms in Theorem 2 are likely to be susceptible to some
+                                     small improvements, although of most interest would be a bound o Qx k  valid for
+                                     values of Q in which the exponent 1 ÿ 1= 2k is replaced by something which
+                                     remains substantially below 1 as k increases.
+                                       Since the new estimate for S q y, de®ned in (1.20) above, is of some
+                                     independent signi®cance we display this as follows.
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     536                                               r . c. vaughan
+
+                                        Theorem 3.            Suppose that y > 1,
+                                                                                            Y p p ÿ 2
+                                                                                       C                      ;                           1:21
+                                                                                            p >2     p ÿ 12
+                                                                                                                   !
+                                                                                              Y p p ÿ 2               y2
+                                                                            R1  C ÿ1                                                      1:22
+                                                                                              pjq      p ÿ 12         2
+                                                                                              p>2
+
+                                     and
+                                                                       !
+                                                y                 Y pÿ2                                                    X log p 
+                                         R 0  ÿ C ÿ1                                   log y  g ÿ 1  log 2p                       :   1:23
+                                                4                 pjq
+                                                                         pÿ1                                                p j 2q
+                                                                                                                                   pÿ1
+                                                                  p>2
+
+                                     Then there is a positive constant c such that
+                                                                                                            
+                                                                1=2       ÿc log 2y3 = 5 Y          ÿ1 = 4 ÿ1
+                                       S q y  R1  R 0  O y      exp                          1ÿp            :                         1:24
+                                                                          log log 3y1 = 5 p j q
+
+                                       We suppose throughout the rest of the memoir that k > 2, for the case k  1 of
+                                     Theorem 1 will follow from any higher moment by HoÈlder's inequality. Also,
+                                     implicit constants may depend on k, c will denote a suitably small absolute
+                                     constant, not necessarily the same one on different appearances, and « will denote
+                                     any suf®ciently small positive number, not necessarily the same one on different
+                                     occasions, and implicit constants in formulae in which « appears may depend on «.
+                                       We prove Theorem 1 in §§ 2±6 and then, in §§ 7±8 indicate the modi®cations
+                                     necessary to prove Theorem 2.
+
+                                                                       2. Reduction to an additive problem
+                                        We insert the de®nition of w x; q; a in (1.2) and square out. Thus
+
+                                                                                                      x2   2x
+                                                   V x; q  W0 x; q ÿ E 1 x; q ÿ                      ÿ     E x ÿ E 2 x; q
+                                                                                                     f q f q
+                                     where
+                                                                        X              X
+                                                      W0 x; q                                L mL n;               E x  w x ÿ x
+                                                                       m< x        n< x
+                                                                               n  m mod q
+
+                                     and, for q < x ,
+                                                                            X               X
+                                                        E 1 x; q                                    L mL n p log x2 log q
+                                                                          m<x           n<x
+                                                                          m; q > 1 n  m mod q
+
+                                     and
+                                                                                        X
+                                                                    E 2 x; q                     L q p log x log q:
+                                                                                        n<x
+                                                                                       n; q > 1
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                                   537
+
+                                     The diagonal terms in the double sum W0 x; q contribute
+                                           X            X
+                                               L n2        L n log n  O x 1 = 2 log x
+                                               n<x                 n<x
+                                                                                                        Z x
+                                                                                                              E u
+                                                                x log x ÿ 1  E x log x ÿ                       du  O x 1 = 2 log x:
+                                                                                                         1     u
+                                     Hence
+                                                                                                               x2
+                                                           V x; q  2W x; q  x log x ÿ 1 ÿ                      E 3 x; q               2:1
+                                                                                                              f q
+                                     where
+                                                                                       X           X
+                                                                       W x; q                              L mL n                        2:2
+                                                                                       m<x     m<n<x
+                                                                                             m  n mod q
+
+                                     and
+                                                                                 Z x
+                                                                                       E u       2x
+                                              E 3 x; q  E x log x ÿ                      du ÿ      E x  O x 1 = 2 log x;               2:3
+                                                                                   1    u        f q
+                                     and so, by (1.19),
+                                                                               X
+                                                        Mk x; Q                        j2W x; q ÿ U  x; q  E 3 x; qj k                2:4
+                                                                          Q =2 < q < Q
+                                     where
+                                                                       x2
+                                                                              
+                                                                                  x                    X log p 
+                                                    U  x; q             ÿ x log  g ÿ 1  log 2p           :                            2:5
+                                                                      f q        q                    pjq
+                                                                                                           pÿ1
+
+                                     Moreover, by Val 0 ®sÏ [15],
+                                                                                x2
+                                                              E 3 x; q p           exp ÿc log x3 = 5 log log xÿ1 = 5                     2:6
+                                                                               f q
+                                     and, on the Riemann Hypothesis (see, for example, § 8 of Davenport [2])
+                                                                                                        x3=2
+                                                                     E 3 x; q p x 1 = 2 log x3            log x2 :                       2:7
+                                                                                                        f q
+                                        Let
+                                                                                             X
+                                                                                 f a             L ne an                                 2:8
+                                                                                             n<x
+                                     and
+                                                                                                   X
+                                                                                  H b; q             e bh:                                2:9
+                                                                                                 h<x
+                                                                                                 qjh
+                                     Then
+                                                                                       Z 1
+                                                                         W x; q             j f aj 2 H a; q da:                         2:10
+                                                                                         0
+                                     Let
+                                                                                         P  log xB                                        2:11
+                                     where B is at our disposal, but ultimately will be chosen suitably in terms of A and
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     538                                                      r . c. vaughan
+
+                                     k. We de®ne a typical major arc M r; b when 1 < b < r < P and b; r  1 by
+                                                                            M r; b  fa: jar ÿ bj < Px ÿ1 g:                                           2:12
+                                     Let M denote their union
+                                                                                                        [
+                                                                                          M                    M r; b                                 2:13
+                                                                                                1< b < r < P
+                                                                                                  b; r  1
+
+                                     and take the minor arcs m to be the complement of M with respect to
+                                                                                           U  x ÿ1 P; 1  x ÿ1 P:                                     2:14
+                                     For A  M or m, let
+                                                                                                Z
+                                                                            I A; q                    j f aj 2 H a; q da:                           2:15
+                                                                                                    A
+                                     Then
+                                                                                 W x; q  I M; q  I m; q:                                           2:16
+                                     Hence, by (2.4),
+                                                                 X
+                                                                 2                                                                                 
+                                                                                j                                                  log x3 = 5
+                                             Mk x; Q p                Mk             x; Q  x 2 k Q 1 ÿ k exp            ÿc                           2:17
+                                                                 j1                                                              log log x1 = 5
+                                     where
+                                                                      1
+                                                                                               X
+                                                                 Mk        x; Q                           j2I M; q ÿ U  x; qj k                    2:18
+                                                                                            Q=2 < q < Q
+                                     and
+                                                                                     2
+                                                                                                           X
+                                                                           Mk             x; Q                      jI m; qj k :                     2:19
+                                                                                                        Q=2 < q < Q
+
+
+
+                                                                                             3. The minor arcs
+                                        By Parseval's identity,
+                                                 Z                            Z 1
+                                                                            x
+                                                     j f aj 2 H a; q da <       j f aj 2 da p x 2 Q ÿ1 log x:                                         3:1
+                                                   m                        q 0
+                                     Hence, by (2.19), for k > 2 ,
+                                                                           2                                                2
+                                                                      Mk        x; Q p x 2 Q ÿ1 log xk ÿ 2 M 2                  x; Q                  3:2
+                                     and, by (2.9) and squaring out and interchanging the order of summation
+                                     and integration,
+                                                      Z Z
+                                          2
+                                       M 2 x; Q         j f a f bj 2
+                                                              m       m
+                                                                   X                      X                     X
+                                                             ´                                                                        e ah ÿ bjq da db:
+                                                                 h < 2 x = Q j < 2 x = Q Q = 2 < q < min Q ; x = h; x = j 
+
+                                     The innermost sum here is
+                                                                                          p min Q; kah ÿ bjkÿ1 ;
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                           distribution of primes in arithmetic progressions                                        539
+
+                                     and
+                                                                          j f a f bj 2 < j f aj 4  j f bj 4 :
+                                     Thus
+                                                                 Z         X             X                          Z
+                                                 2                                                     4
+                                            M2        x; Q p                                    j f aj da                 min Q; kah ÿ bjk db:
+                                                                     m                                                  m
+                                                                         h < 2x=Q j < 2x=Q
+
+                                     The inner integral here is at most
+                                                           Z 1
+                                                                min Q; kah ÿ bjkÿ1  db p log Q
+                                                                          0
+                                     and so
+                                                                                                            Z
+                                                                      2
+                                                                   M 2 x; Q p x 2 Q ÿ2 log x                      j f aj 4 da:                   3:3
+                                                                                                                m
+
+                                     By Theorem 3.1 of Vaughan [16] and (2.11),
+                                                           Z
+                                                               j f aj 4 da p x 3 log x9 ÿ B :
+                                                                              m
+                                     Therefore, provided that
+                                                                                   B > A k  2  k  8;                                            3:4
+                                     we have, by (3.2) and (3.3),
+                                                                                   2
+                                                                              Mk        x; Q p Qx k log xÿ A :                                    3:5
+
+
+                                                                     4. The transformation of the major arcs
+                                        Our initial intent, as is usual with the analysis of major arcs, is to replace
+                                     the generating function f a on M r; b by a suitable smooth approximation, in
+                                     this instance
+                                                                                    
+                                                                       m r       b
+                                                                            v aÿ                                  4:1
+                                                                       f r        r
+                                     where
+                                                                                                 X
+                                                                                        v b          e bn                                        4:2
+                                                                                                 n<x
+
+                                     and then to extend the interval of integration to a complete unit interval. By
+                                     Lemma 3.1 of Vaughan [16],
+                                                                        
+                                                           m r        b
+                                                    f a       v aÿ        O x exp ÿc log x1 = 2 
+                                                           f r        r
+                                     whenever 1 < b < r < P, b; r  1 and a 2 M r; b. Thus
+                                     X X    r   Z                                   
+                                                                      m r2        b 2
+                                                          j f aj 2 ÿ     2
+                                                                            v  a ÿ     da p P 2 x exp ÿc log x1 = 2 :
+                                     r<P   b1    M b; r             f r         r
+                                               b; r  1
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     540                                                     r . c. vaughan
+
+                                     Hence, by (2.15) and (2.18),
+                                                                   1
+                                                                                               X
+                                                              Mk         x; Q p                       j2J x; q ÿ U  x; qj k
+                                                                                       Q=2 < q < Q
+
+
+                                                                                        x 2 k Q 1 ÿ k P 2 k exp ÿk c log x1 = 2          4:3
+                                     where
+                                                                        X           X
+                                                                                    r                  Z                       
+                                                                                               m r2                 2      b
+                                                      J x; q                                                  jv bj H b  ; q db         4:4
+                                                                        r<P         b1        f r2       N r             r
+                                                                                   b; r  1
+                                     and
+                                                                               N r  fb: jbj < Pr ÿ1 x ÿ1 g:                               4:5
+                                     By HoÈlder's formula for Ramanujan's sum we have
+                                                              Xr              X
+                                                                      b
+                                                                  e     hq               dm r =d                                          4:6
+                                                              b1
+                                                                      r      d j r ; h q
+                                                                           b; r  1
+                                     and so, by (2.9),
+                                                                X
+                                                                r                   X          X
+                                                                              b
+                                                                          H b ;q p                       dm r =d 2 :
+                                                               b1
+                                                                              r     h < x = q d j r; h q
+                                                              b; r  1
+
+                                     Let L r  ÿ 12 ; 12  nN r. Then, by (4.5),
+                                                                    Z
+                                                                         jv bj 2 db p xr P ÿ1
+                                                                                      L r
+                                     and so
+                                                              X            X
+                                                                           r                    Z                       
+                                                                                       m r2                    2    b
+                                                                                                         jv bj H b  ; q db
+                                                              r<P          b1         f r2        L r             r
+                                                                          b; r  1
+
+                                                                                        X        m 2 m m2 2 ÿ1 ÿ1
+                                                                               <                        2
+                                                                                                          x q P log x2 :
+                                                                                    m j q; m < P
+                                                                                                  f   m
+                                     Therefore the N r in (4.4) can be replaced by ÿ 12 ; 12  with an error
+                                                                X        m 2 m m2 2 ÿ1 ÿ1
+                                                         p                      2
+                                                                                  x q P log x2 :
+                                                            m j q; m < P
+                                                                          f   m
+                                     Hence, by (4.3) and (4.4),
+                                                       1                     1
+                                                  Mk        x; Q p N k             x; Q  x 2 k Q 1 ÿ k P 2 k exp ÿkc log x1 = 2   E
+                                     where                                                     X
+                                                                    1
+                                                               Nk        x; Q                        j2 J1 x; q ÿ U  x; qj k           4:7
+                                                                                        Q=2 < q < Q
+                                     with
+                                                                   X m r2                X
+                                                                                          r          Z 1=2                       
+                                                                                                                                b
+                                                  J1 x; q                  2
+                                                                                                              jv bj 2 H     b    q db;
+                                                                   r < P f r             b1          ÿ1=2                     r
+                                                                                         b; r  1
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                                     541
+
+                                     and
+                                                                         X  X m 2 m m2 k
+                                                               E                                      2
+                                                                                                                x 2 k Q ÿ k P ÿ k log x2 k
+                                                                     q<Q           mjq
+                                                                                             f m
+                                                                                                   k
+                                                                 p x 2 k Q 1 ÿ k log x2 ÿ 1  2 k P ÿ k :
+                                     Hence if B > B 0 k; A, we have, by (2.11),
+                                                                          1                    1
+                                                                    Mk          x; Q p N k            x; Q  Qx k log xÿ A :                4:8
+                                     By (4.6),
+                                                                              X m r2          X              X
+                                                        J1 x; q                        2
+                                                                                                                       dm r =d  x ÿ hq:
+                                                                          r < P f r         h < x = q d j r ; h q
+
+                                     Here the x can be replaced by x with an error
+                                                               X m r2               X             X
+                                                           p             2
+                                                                                                             dm r =d 2 p xq ÿ1 log x:
+                                                               r < P f r h < x = q d j r ; hq
+
+                                     Therefore,
+                                                                         1                   2
+                                                                  Nk          x; Q p N k          x; Q  Qx k Q ÿ1 log xk                   4:9
+                                     where
+                                                                    2
+                                                                                             X
+                                                               Nk        x; Q                            j2J 2 x; q ÿ U  x; qj k
+                                                                                       Q=2 < q < Q
+                                     and
+                                                                              X m r2           X               X
+                                                         J 2 x; q                     2
+                                                                                                                        dm r =d  x ÿ hq:
+                                                                              r < P f r h < x = q d j r; hq
+
+                                     On interchanging the order of summation and replacing r by sd we see that
+                                                                                X                          X dm d 2          X     m s
+                                                          J 2 x; q                     x ÿ hq                        2
+                                                                                                                                          :
+                                                                               h < x=q                 d j hq
+                                                                                                                  f d      s < P=d
+                                                                                                                                    f s2
+                                                                                                       d<P                   s; d   1
+                                     Since
+                                                                                         X m s
+                                                                                                   2
+                                                                                                            p y ÿ1 ;
+                                                                                         s > y f s
+
+                                     it follows that the innermost sum can be completed to in®nity with a total error in
+                                     J 2 of
+                                                                   X m 2 m m2 2 ÿ1 ÿ1
+                                                             p                    x q P log x:
+                                                               m j q; m < P
+                                                                            f m2
+
+                                     Hence, again if B > B 0 k; A, then
+                                                                          2                    3
+                                                                    Nk          x; Q p N k            x; Q  Qx k log xÿ A                 4:10
+                                     where
+                                                                    3
+                                                                                             X
+                                                               Nk        x; Q                            j2 J3 x; q ÿ U  x; qj k
+                                                                                       Q=2 < q < Q
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     542                                                    r . c. vaughan
+
+                                     and
+                                                                                X                         X dm d 2                    X
+                                                                                                                                       1
+                                                                                                                                                m s
+                                                            J3 x; q                      x ÿ hq                             2
+                                                                                                                                                      :
+                                                                               h < x=q                    d jqh
+                                                                                                                     f d           s1         f s2
+                                                                                                          d<P                      s; d   1
+
+                                     The in®nite series in J3 satis®es
+                                                                                            8
+                                                                                            >  Y               p ÿ 12
+                                                                 X
+                                                                 1                          >
+                                                                                            <C                         for d even,
+                                                                             m s                             p p ÿ 2
+                                                                                                   pjd
+                                                                 s1         f s2 >>
+                                                                                    :
+                                                                                                    p>2
+                                                                s; d   1                      0                                  for d odd,
+                                     where C is given by (1.21). Therefore
+                                                        3
+                                                                     X
+                                                     N k x; Q            j4C J4 x; q ÿ U  x; qj k                                                    4:11
+                                                                                        Q= 2 < q < Q
+                                     where
+                                                                                    X                            X                   m d 2
+                                                             J4 x; q                         x ÿ hq                         Q                :
+                                                                                h < x=q                       d j h q; 2 - d       p j d p ÿ 2
+                                                                                  2jhq                         d > P=2
+
+                                     In J4 we may discard the condition d < 12 P with an error
+                                                                     X                  X                    m d 2 d
+                                                              p                 x                        Q
+                                                                   h < x=q          d j hq; 2 - d
+                                                                                                    P        p j d p ÿ 2
+                                                                                     d < P=2
+
+                                                                     2 ÿ1          ÿ1
+                                                                                        Y  2p ÿ 2  X                                   m n2
+                                                              px q             P                                                   Q
+                                                                                        pjq
+                                                                                                    pÿ2            n < x=q             p j n p ÿ 2
+                                                                                        p>2                          2 -n
+                                                                                                    Y 2p ÿ 2
+                                                              p x 2 log xq ÿ1 P ÿ1                                     :
+                                                                                                    pjq
+                                                                                                             pÿ2
+                                                                                                    p>2
+                                     Thus
+                                                                          3                        4
+                                                                     Nk        x; Q p N k               x; Q  Qx k log xÿ A                           4:12
+                                     where
+                                                                                                                                                      k
+                                                      4
+                                                                             X                                   Y pÿ1
+                                                 Nk        x; Q                           4C J5 x; q                             ÿ U  x; q           4:13
+                                                                      Q=2 < q < Q                                pjq
+                                                                                                                         pÿ2
+                                                                                                                 p>2
+
+                                     with
+                                                                                              X                          Y pÿ1
+                                                                       J5 x; q                         x ÿ hq                 :
+                                                                                            h < x=q                      pjh
+                                                                                                                             pÿ2
+                                                                                              2 j hq                    p - 2q
+
+                                     Hence, by (4.8), (4.9), (4.10) and (4.12),
+                                                                          1                        4
+                                                                    Mk         x; Q p N k               x; Q  Qx k log xÿ A :                         4:14
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                                543
+
+                                     By (1.20),
+                                                                                   (
+                                                                                       qS q x=q                  when 2 j q;
+                                                                   J5 x; q                                                             4:15
+                                                                                       2qS q x = 2q             when 2 - q:
+
+
+                                                                       5. Theorem 3; the analysis of S q y
+                                        Let
+                                                                                         X1
+                                                                                             1 Y pÿ1
+                                                                             Dq s                       :                               5:1
+                                                                                         h1
+                                                                                             hs pjh p ÿ 2
+                                                                                                        p - 2q
+
+                                     Then Dq s converges absolutely for Rs > 1 and satis®es
+                                                                                           X
+                                                                                           1
+                                                                                                        m d 2 Y 1
+                                                                      Dq s  z s                                                        5:2
+                                                                                            d1
+                                                                                                         ds pjd p ÿ 2
+                                                                                         d ; 2 q  1
+
+                                     in that region. Moreover (5.2) affords the analytic continuation to the region
+                                     Rs > 0 and it is evident that there Dq s is analytic at every point except s  1
+                                     where, by (1.21), it has a simple pole with residue
+                                                         Y                          Y p p ÿ 2
+                                                                      1
+                                                               1              C ÿ1               :               5:3
+                                                         p- 2q
+                                                                   p p ÿ 2           pjq
+                                                                                           p ÿ 12
+                                                                                                                 p>2
+
+                                     We further have in the latter half plane
+                                                                                          z sz s  1
+                                                                               Dq s                  F s                               5:4
+                                                                                           z 2s  2 q
+                                     where
+                                                                         Y                     Y
+                                                                                   ps1                           p s p ÿ 2  1p
+                                                            Fq s                                                                   ;    5:5
+                                                                            pj2q
+                                                                                 ps1  1          p- 2q
+                                                                                                                 p ÿ 2 p s  1  1
+
+                                     and, by §§ 3.10, 3.11 of Titchmarsh [14], this in turn gives the analytic
+                                     continuation of Dq s throughout the region Rs > ÿ1. Apart from the point s  1
+                                     already discussed, there is a simple pole at s  0 and otherwise Dq s, by Richert
+                                     [13] and Theorem 3.11 of Titchmarsh [14], is analytic in a region of the kind
+                                                                    1                c
+                                                                j> ÿ
+                                                                    2    log t2 = 3
+                                                                                     log log t1 = 3
+                                     where j  Rs, t  Is and t  3  jt j. We observe in passing that Fq s has a
+                                     simple zero at each point
+                                                                                  log p ÿ 2 ip 2k  1
+                                                                              ÿ             
+                                                                                     log p      log p
+                                     with k 2 Z, and so the line j  ÿ1 is a natural boundary of Dq .
+                                       We are particularly concerned with the behaviour of
+                                                                                                 ys1
+                                                                                       Dq s            :
+                                                                                               s s  1
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     544                                               r . c. vaughan
+
+                                     By (5.3), this function has a simple pole at s  1 with residue R1 given by (1.22)
+                                     and a double pole at s  0 with residue
+                                                                                                           
+                                                      z 0Fq 0                    z0        z0      F q0
+                                                Ry                log y  g ÿ 1     0 ÿ 2    2       0 :     5:6
+                                                         z 2                      z         z       Fq
+                                     We have
+                                                                                   Y             Y
+                                                                      Fq 0                 pÿ1          p ÿ 12
+                                                                                                                ;
+                                                                      z 2             pj2q
+                                                                                             p    p- 2q
+                                                                                                        p p ÿ 2
+
+                                                                                z0      F q0      X log p
+                                                                          ÿ2       2       0           ;
+                                                                                z       Fq        pj2q
+                                                                                                       pÿ1
+
+                                     and by § 2.4 of Titchmarsh [14],
+                                                                                  1            z 0 0
+                                                                          z 0  ÿ ;                   log 2p:
+                                                                                  2            z 0
+                                     Hence, by (1.21), (1.23) and (5.6), the residue at s  0 is R 0 .
+                                       Let g be the multiplicative function de®ned by
+                                                                     8
+                                                                     >
+                                                                     >   ÿ1k
+                                                                     >
+                                                                     < pk           when p j 2q;
+                                                           g pk                                                                5:7
+                                                                     >
+                                                                     >  2 ÿ1k ÿ 1
+                                                                     >
+                                                                     : k            when p - 2q:
+                                                                       p p ÿ 2
+                                     Then
+                                                                              X1
+                                                                                   g n
+                                                                     Fq s                                                      5:8
+                                                                              n1
+                                                                                    ns
+                                     which converges absolutely for Rs > ÿ1. Moreover,
+                                                                           X
+                                                                           1
+                                                                               jg nj Y
+                                                                                   j p     1 ÿ pÿ1 = 4 ÿ1                       5:9
+                                                                           n1
+                                                                                 n     pjq
+
+                                     uniformly for j > ÿ3=4.
+                                       By the absolute convergence of Dq s for j > 1 we see that, by (1.20),
+                                     when y > 0,
+                                                                    Z 2i1
+                                                                  1                 ys1
+                                                         Sq y             Dq s          ds:         5:10
+                                                                 2pi 2 ÿ i1       s s  1
+                                     By § 5.1 of Titchmarsh [14],
+                                                                                           1
+                                                                                 z s ÿ       p t l j  «                      5:11
+                                                                                          sÿ1
+                                     where we take
+                                                                                                   8
+                                                                                                   > 0        when j > 1;
+                                                                                                   <
+                                         j  Rs;         t  Is;        t  3  jt j;      l j  12 ÿ 12 j   when 0 < j < 1;   5:12
+                                                                                                 >
+                                                                                                 :1
+                                                                                                   2ÿj        when j < 0;
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                            545
+
+                                     and, by § 3.11 of Titchmarsh [14],
+                                                                                                              
+                                                                           1                               c
+                                                                               p log t              j>1ÿ        :
+                                                                          z s                           log t
+                                     We henceforward suppose that y > 1 and let T0  8y 3 . Then the portions of the
+                                     integral in (5.10) with jIt j > T0 contribute an amount p1. Moreover, by (5.12),
+                                     when Is  6T0 ,
+                                                                      ys1     Y
+                                                             Dq s           p      1 ÿ pÿ1 = 4 ÿ1 :
+                                                                    s s  1   pjq
+                                     Therefore, by (5.10),
+                                                                           Z ÿ1 = 2  i T 0                         Y                 
+                                                           1                                          ys1                  ÿ 1 = 4 ÿ1
+                                      Sq y  R 1  R 0                                      Dq s          ds  O      1ÿp           :
+                                                          2pi                ÿ1 = 2 ÿ i T 0         s s  1         pjq
+
+                                                                                                                                     5:13
+                                     In order to proceed further we need to replace T0 by a much smaller quantity. We
+                                     deal with the interval Is 2 T1 ; T0  by ®rst of all replacing each constituent factor
+                                     of Dq s by an approximating Dirichlet polynomial and then at the critical
+                                     moment we apply the theory of exponential integrals.
+                                        Let T1 be a parameter at our disposal, satisfying 0 < T1 < T0 . By (5.8) and
+                                     absolute convergence, we have
+                                          Z ÿ1 = 2  i T 0
+                                       1                            ys1
+                                                           Dq s           ds
+                                      2pi ÿ 1 = 2  i T 1         s s  1
+                                                             X                  Z T0
+                                                           1 1              1=2      z ÿ 12  itz 12  it y=nit
+                                                 ÿ                g n yn                                        dt: 5:14
+                                                          2p n  1               T1       z 1  2it 14  t 2 
+                                     By Richert [13] and Theorem 3.11 of Titchmarsh [14] we have
+                                                                                                             
+                                             1                                 c
+                                                p log t    j>1ÿ                                ; t  3  jt j                        5:15
+                                           z s                    log t2 = 3 log log t1 = 3
+                                     for a suitable small constant c. Thus, for a parameter X > 2 at our disposal,
+                                     we have
+                                           X m n                       Z 1 = log X  i 1
+                                                                      1                            Xw
+                                                         1 ÿ n=X                                             dw:
+                                          n<X
+                                                n 1  iv             2pi 1 = log X ÿ i 1 z 1  iv  ww w  1
+                                     Suppose that W  3  2jvj. The portions of the integral with jIwj > W contribute
+                                     pW ÿ1 log W. We move the remaining interval to the vertical line with
+                                                                                c
+                                                          Rw  ÿ           2=3
+                                                                                                :
+                                                                    log W     log log W 1 = 3
+                                     In the process we pick up the residue 1=z 1  iv of the integrand at 1 and a
+                                     further error, of amount pW ÿ 2 log W from the horizontal paths. Finally, the
+                                     integral over the new vertical path is
+                                                                                                          
+                                                                                      c log X
+                                                      p log W 2 exp ÿ                                       :
+                                                                           log 2W 2 = 3 log log 2W 1 = 3
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     546                                               r . c. vaughan
+
+                                     Now suppose that T > 3 and T < t < 2T. On choosing v  2t and
+                                                                         X  exp c 0 log T 5 = 3 log log T 1 = 3 
+                                     for a suitable constant c 0 we see that
+                                                          1         X m m
+                                                                                 1 ÿ m =X   O T ÿ 2 = 3 :                   5:16
+                                                     z 1  2it  m < X m 1  2 it
+                                        By (5.1.1) and Theorem 7.3 of Titchmarsh [14] we have, for T > 3,
+                                                         Z 2T
+                                                              jz ÿ 12  itz 12  itj dt p T 2 log T:
+                                                                     T
+
+                                     Hence, by (5.16), for 3 < T < T 0 < 2T ,
+                                     Z T0
+                                          z ÿ 12  itz 12  it y=nit
+                                                                        dt
+                                      T        z 1  2it 14  t 2 
+                                             X m m           m
+                                                                 Z T0
+                                                                        z ÿ 12  itz 12  it y=nm 2 it
+                                                          1ÿ                        1      2
+                                                                                                          dt  O T ÿ 1 = 2 :
+                                            m<X
+                                                    m          X     T               4   t
+                                                                                                                    5:17
+                                     By the functional equation for z (Titchmarsh [14, § 2.1]) we have
+                                              Z T0
+                                                    z ÿ 12  itz 12  it y=nm 2 it
+                                                                 1     2
+                                                                                      dt
+                                                T                4t
+
+                                                           X          Z T0
+                                                            1
+                                                                            x ÿ 12  itz 12  it yl=nm 2 it
+                                                               lÿ3=2                    1     2
+                                                                                                               dt               5:18
+                                                           l1           T               4t
+                                     where
+                                                                                                    G 12 ÿ 12 s
+                                                                               x s  p s ÿ 1 = 2                :
+                                                                                                     G 12 s
+                                     By Stirling's formula, for t > 2 ,
+                                                    x ÿ 12  it  i 2pÿ1 t exp ÿit log t  it log 2p  it  O 1:
+                                     Thus
+                                         Z T0
+                                                    x ÿ 12  itz 12  it yl=nm 2 it
+                                                                 1     2
+                                                                                        dt
+                                              T                  4t
+                                                               Z T0
+                                                            i         tz 12  it exp ÿit log t  it l
+                                                                                   1     2
+                                                                                                        dt  O T ÿ1 = 2 ;      5:19
+                                                           2p T                     4  t
+                                     where
+                                                                                                                     
+                                                                                                                 2pyl
+                                                                      l  l y; l; m; n  1  log                       :
+                                                                                                                 nm 2
+                                     By the approximate functional equation for z (Hardy and Littlewood [7]), when t > 2,
+                                                       X                                      X
+                                         z 12  it              j ÿ 1 = 2 ÿ it  x 12  it           j ÿ 1 = 2  it  O t ÿ 1 = 4 :
+                                                        p                             p
+                                                             j<      t=2p                               j<       t = 2p
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                           distribution of primes in arithmetic progressions                                       547
+
+                                     Therefore
+                                                     Z T0
+                                                               tz 12  it exp ÿit log t  it l
+                                                                             1   2
+                                                                                                 dt  I1  I 2  O T ÿ 1 = 4                     5:20
+                                                       T                     4t
+
+                                     where
+                                                             X                        Z T0
+                                                                               ÿ1=2                       t exp ÿit log t  it l ÿ it log j
+                                                I1                        j                                           1     2
+                                                                                                                                             dt
+                                                             p
+                                                                 0
+                                                                                       max T ; 2p j 2                 4t
+                                                       j<       T = 2p
+
+                                     and
+                                                     X                         Z T0
+                                                                                                t x 12  it exp ÿit log t  it l  it log j
+                                         I2                       jÿ1=2                                          1     2
+                                                                                                                                              dt:
+                                                     p
+                                                         0
+                                                                                max T; 2p j 2                    4t
+                                                j<      T =2p
+
+                                     Again, by Stirling's formula,
+                                                                     x 12  it  i exp ÿit log t  it  O 1=t
+                                     and so
+                                                            X
+                                              I2                          jÿ1=2 i
+                                                            p
+                                                                0
+                                                      j<       T = 2p
+                                                           Z T0
+                                                                             t exp it ÿ2 log t  l  1  log j
+                                                      ´                                    1      2
+                                                                                                                 dt  O T ÿ 3 = 4 :
+                                                            max T ; 2p j 2                4   t
+                                     By Lemma 4.5 of Titchmarsh [14], it follows that both I 1 and I 2 are bounded by
+                                                         X
+                                                                      j ÿ 1 = 2 T ÿ 1 = 2  T ÿ 3 = 4 p T ÿ 1 = 4:
+                                                         p
+                                                             0     j<          T =2p
+
+                                     Therefore, by (5.14), (5.9), (5.20), (5.19), (5.18) and (5.17),
+                                             Z ÿ 1 = 2  i T0                                                 Y
+                                         1                            ys1
+                                                              Dq s          ds p y 1 = 2 T1ÿ 1 = 4 log T1 2     1 ÿ p ÿ 1 = 4 ÿ1
+                                        2pi ÿ 1 = 2  i T 1         s s  1                                  pjq
+
+                                                                                                                                                  5:21
+                                     provided that T1 > 3 and, of course, by taking complex conjugates we obtain the
+                                     same bound for the contribution from the line segment joining ÿ 12 ÿ i T 0 to
+                                     ÿ 12 ÿ i T1 . Therefore, by (5.13) and (5.21),
+                                                                           Z ÿ1 = 2  i T 1
+                                                                        1                           ys1
+                                                   Sq y  R 1  R 0                       Dq s          ds
+                                                                       2pi ÿ 1 = 2 ÿ i T 1        s s  1
+                                                                                               Y                     
+                                                                        1=2 ÿ1=4             2             ÿ 1 = 4 ÿ1
+                                                            O 1  y T1             log T1         1ÿp              : 5:22
+                                                                                                                    pjq
+
+                                     We now move the remaining vertical path into the critical region for z 2s  2. Let
+                                                                d  c log 3  2T1 ÿ 2 = 3 log log 3  2T1 ÿ 1 = 3                             5:23
+                                     where c is a suitable (small) positive constant. Then, by (5.11) and (5.12),
+                                                                     z s p t 1  d            j > ÿ 12 ÿ d; t  3  jt j
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     548                                               r . c. vaughan
+
+                                     and
+                                                                 z s  1 p t 1 = 3        j > ÿ 12 ÿ d; t  3  jt j;
+                                     and by the functional equation for z , Stirling's formula and Theorem 7.2(A) of
+                                     Titchmarsh [14],
+                                                        Z 2T
+                                                             jz 12 ÿ d  itj dt p T 1  d log T 1 = 2 :
+                                                                     T
+
+                                     With these estimates and (5.15) it is readily seen on moving the vertical path to
+                                     the line j  ÿ 12 ÿ d that
+                                                 Z ÿ 1 = 2  i T1
+                                              1                           ys1
+                                                                  Dq s            ds
+                                             2pi ÿ 1 = 2 ÿ i T 1        s s  1
+                                                                                                           Y
+                                                       p y 1 = 2 T1ÿ 1 = 4  y 1 = 2 ÿ d T12 d log T1 3    1 ÿ pÿ 1 = 4 ÿ1 :
+                                                                                                                 pjq
+
+                                     A good choice for T1 (when y > y 0 ) is
+                                                                           00               
+                                                                             c log y3 = 5
+                                                              T1  exp
+                                                                             log log y1 = 5
+                                     and Theorem 3 follows.
+
+                                                                    6. Completion of the proof of Theorem 1
+                                        By (4.15) and Theorem 3, when q is even,
+                                                    Y pÿ1
+                                        4C J5 x; q
+                                                    pjq
+                                                        pÿ2
+                                                          p>2
+
+                                                                  x2 Y p
+                                                         4q
+                                                                 2q 2 p j q p ÿ 1
+                                                                         p>2
+                                                                 
+                                                                   x                    X log p 
+                                                            ÿ x log  g ÿ 1  log 2p             O E q x=q                        6:1
+                                                                   q                    pjq
+                                                                                            pÿ1
+                                     where
+                                                                                                Y                              
+                                                                               ÿc log y3 = 5                                 pÿ1
+                                              E q y  qy 1 = 2 exp                                    1 ÿ pÿ 1 = 4 ÿ1            :   6:2
+                                                                               log log y1 = 5   pjq
+                                                                                                                              pÿ2
+                                                                                                 p>2
+                                     Thus
+                                                      Y pÿ1
+                                     4C J5 x; q
+                                                      pjq
+                                                             pÿ2
+                                                      p>2
+
+                                                       x2
+                                                              
+                                                                  x                    X log p 
+                                                          ÿ x log  g ÿ 1  log 2p             O E q x=q:
+                                                      f q        q                    pjq
+                                                                                           pÿ1
+                                                                                                                                       6:3
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                                          549
+
+                                     Likewise, when q is odd,
+                                                  Y pÿ1
+                                      4C J5 x; q
+                                                  pjq
+                                                      pÿ2
+                                                        p>2
+
+                                                          x2
+                                                                 
+                                                                      x                   X log p 
+                                                             ÿ x log  g ÿ 1  log 2p             O E q x=q
+                                                         f q        2q                   pj2q
+                                                                                               pÿ1
+
+                                     where E q x =q again satis®es (6.2). Moreover the log 2 arising from the term
+                                     log x=2q  log x=q ÿ log 2 cancels with the term arising from the prime 2 in
+                                     the sum. Thus (6.3) also holds when q is odd. Hence, by (4.13), (4.14), (2.5)
+                                     and (1.18),
+                                            1
+                                                         X
+                                         M k x; Q p            E q x=qk  Qx k log xÿ A
+                                                                Q =2 < q < Q
+                                                                                                                          
+                                                                   k1            k=2              ÿk c log 2x =Q3 = 5
+                                                           pQ            x=Q            exp                                    Qx k log xÿ A :
+                                                                                                    log log 3x=Q1 = 5
+                                     Hence, by (2.17) and (3.5), the theorem follows.
+
+                                                      7. The assumption of the Generalised Riemann Hypothesis
+                                       Henceforward we assume the Generalised RiemannPHypothesis (GRH), that is,
+                                     the hypothesis that no Dirichlet L-function L s; x  1n  1 x nn
+                                                                                                       ÿs
+                                                                                                          formed from
+                                                                                           1
+                                     a Dirichlet character modulo q has a zero r with Rr > 2 .
+                                       The following lemma is routine, via the explicit formula for w x; x, partial
+                                     summation and an application of standard exponential integral estimates.
+
+                                        Lemma. Suppose that q; a  1, x > 1, jbj p log 2xqÿ2 and a  aqÿ1  b. Then
+                                                             
+                                                 m q       a
+                                          f a ÿ      v aÿ      p q 1 = 2 x 1 = 2 log 2qx2  q 1 = 2 xjbj 1 = 2 log 2qx:
+                                                 f q       q
+
+                                       Since GRH will be our main tool regardless of the nature of the rational
+                                     approximations to a given real number a , it is natural to not distinguish between
+                                     major and minor arcs. We de®ne a typical arc M r; b as follows. Let
+                                                                                       P  x 1 = 2 log xÿ1 = 2                                 7:1
+                                     and consider the Farey fractions b=r of order P. Let b 6 =r 6 denote the
+                                     neighbouring fraction to the right and left respectively and put
+                                                                                            
+                                                                            b  b b  b
+                                                                M r; b  ÿ         ;          :         7:2
+                                                                            rÿ  r r  r
+                                     Given b; r and P the values of b 6 , r 6 are readily deduced from the observations
+                                     b 6 r ÿ r 6 b  61 and P ÿ r < r 6 < P. Thus
+                                                                                        
+                                                                                 cÿ c
+                                                                   M r; b         ;                              7:3
+                                                                                 sÿ s
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     550                                                   r . c. vaughan
+
+                                     where ÿs 6 b  61 (mod r), P < s 6 < P  r and c 6  61  s 6 b=r, and so
+                                                                                       P r; b Ì M r; b                                     7:4
+                                     where
+                                                                                                 
+                                                                                   b    1   b  1
+                                                                         P r; b    ÿ     ;       :                                        7:5
+                                                                                   r   2rP r 2rP
+                                     Also
+                                                                                                 
+                                                                                     b    1  b 1
+                                                                           M r; b Ì   ÿ    ;      :                                        7:6
+                                                                                     r   rP r rP
+                                     Let
+                                                                                                                       
+                                                                                   1            1
+                                                                             U         ; 1
+                                                                                1  P      1  P
+                                     and P be the union of the P r; b with 1 < b < r < P and r; b  1. Then we
+                                     de®ne V  a on U by taking
+                                                                              m r
+                                                               V  a             v a ÿ b=r when a 2 M r; b;                              7:7
+                                                                              f r
+                                     and de®ne V   a by taking
+                                                                                            
+                                                                                                V  a         when a 2 P;
+                                                                         V   a                                                           7:8
+                                                                                                0              otherwise.
+                                     Let
+                                                                       F1 a  j f a ÿ V  aj 2 ;
+                                                                                                           
+                                                                       F2 a  2R f aV a ÿ jV  aj 2 
+                                     and
+                                                                      F3 a  jV  aj 2 ÿ jV  aj2 :
+                                     Then
+                                                               j f aj 2  F1 a  F2 a  F3 a  jV   aj 2 :
+                                     By (2.4), (2.7) and the condition x 3 = 4  « < Q, for k > 2 ,
+                                                              X
+                                              M k x; Q p            j2W x; q ÿ U  x; qj k  O Qx k ÿ 1 = 2  « :
+                                                                     Q =2 < q < Q
+
+                                     Therefore, by (2.10),
+                                                                                   X
+                                                                                   4
+                                                                                                    j
+                                                                M k x; Q p                 Mk           x; Q  O Qx k ÿ 1 = 2  «         7:9
+                                                                                   j1
+                                     where
+                                                                         X              Z                               k
+                                                     j
+                                               Mk         x; Q                                Fj aH a; q da               1 < j < 3;
+                                                                                            U
+                                                                     Q =2 < q < Q
+                                                                         X                                                                  7:10
+                                                     4                                                                 k
+                                                Mk        x; Q                       j2W1 x; q ÿ U x; qj ;
+                                                                     Q =2 < q < Q
+                                     and
+                                                                                            Z
+                                                                       W1 x; q                    jV   aj 2 H a; q da:                7:11
+                                                                                                U
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                         distribution of primes in arithmetic progressions                                 551
+
+                                     It is a routine calculation to show that
+                                                                    Z
+                                                                       jFj aj da p x log x:
+                                                                                       U
+                                     Thus for j  1; 2; 3;
+                                                                         j                                             2
+                                                                   Mk            x; Q p x 2 Q ÿ1 log x k ÿ 2 M k           x; Q:
+                                     Moreover, by the Lemma, for j  1; 2 ,
+                                                           Z
+                                                              jFj aj 2 da p x 5 = 2 log 2x4
+                                                                                  U
+
+                                     and by a direct calculation an even stronger bound holds when j  3. Clearly
+
+                                                        j
+                                                                      X       X Z                   2
+
+                                                    M 2 x; Q                       Fj ae ha da :
+                                                                                                               U
+                                                                                      Q =2 < q < Q h < x
+                                                                                                    qjh
+
+                                     By Cauchy's inequality this does not exceed
+                                        X        ÿ1
+                                                    X Z                      2
+                                                                                 1  « ÿ1
+                                                                                          X Z               2
+                                              xq              Fj ae ha da p x       Q       Fj ae ha da
+                                                              h<x            U                                           h<x          U
+                                      Q =2 < q < Q
+                                                              qjh
+
+                                     and by Bessel's inequality this does not exceed
+                                                                             Z
+                                                                    1  « ÿ1
+                                                                  x      Q     jFj aj 2 da:
+                                                                                                      U
+                                     Thus, for j  1; 2; 3,
+                                                             j
+                                                        Mk        x; Q p x 2 Q ÿ1 log x k ÿ 2 x 1  « = 2 Q ÿ1 x 5 = 2 log 2x4
+                                                                             p Qx k x=Qk x « ÿ 1 = 2 :                                   7:12
+                                                                             4
+                                       We now turn to M k x; Q. The arguments of §§ 4, 5, with only modest
+                                     adjustments, can be applied, starting from that which gives (4.8). Now we take
+                                     N r  fb: jbj < r ÿ1 P ÿ1 g and L r  ÿ 12 ; 12 nN r and obtain, in place of (4.8),
+                                                                                 4        1
+                                                                        Mk p Nk                 x; Q  Q Q ÿ1 x 3 = 2  « k             7:13
+                                                   1
+                                     where N k          x; Q satis®es (4.7). Then the argument that leads to (4.12) gives
+                                                                        1                      4
+                                                                   Nk         x; Q p Nk             x; Q  Q Q ÿ1 x 3 = 2  « k        7:14
+                                                   4
+                                     where Nk x; Q satis®es (4.13).
+                                       In order to deal with J5 x; Q we follow § 5 as far as (5.22). The proof of
+                                     (5.16) could be simpli®ed by an appeal to RH and a smaller value for X could be
+                                     taken, but there seems to be no signi®cant way to take advantage of RH until one
+                                     reaches (5.22).
+                                       As usual we put t  3  jt j. Suppose that ÿ 34  « < j < ÿ 12 . Then by § 5.1 of
+                                     Titchmarsh [14] we have z s p t 1 = 2 ÿ j  « , and by § 14.2 of Titchmarsh [14]
+                                     we have
+                                                                                            1
+                                                       z s  1 p t ÿ 1 = 2 ÿ j  « and           p t «:
+                                                                                        z 2s  2
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                     552                                               r . c. vaughan
+
+                                     Now in the integral in (5.22) we replace the line segment ÿ 12 ÿ T1 ; ÿ 12  T1  by
+                                     the line segments joining ÿ 12 ÿ iT1 , ÿ 34  « ÿ i T1 , ÿ 34  «  i T1 , ÿ 12  i T1 and
+                                     apply the above estimates. Thus, by (5.4), (5.8) and (5.9),
+                                                 Z ÿ 1 = 2  i T1
+                                               1                          ys1
+                                                                  Dq s             ds
+                                              2pi ÿ 1 = 2 ÿ i T1        s s  1
+                                                                                                              Y
+                                                        p y 1 = 2 T13 « ÿ 1 = 2  y 1 = 4  « T11 = 2  3 «    1 ÿ pÿ 1 = 4 ÿ1 :
+                                                                                                                         pjq
+
+                                     Hence, by (5.22),
+                                                                                                                                  Y                        
+                                                                                   1=2
+                                      Sq y  R 1  R 0  O                1y           T1« ÿ 1 = 4  y 1 = 4  « T11 = 2  «          1ÿp   ÿ 1 = 4 ÿ1
+                                                                                                                                                               :
+                                                                                                                                   pjq
+
+                                     A good choice for T1 is T1  3y 1 = 3 and this leads to
+                                                                                       Y               
+                                                                             5 = 12  «       ÿ1 = 4 ÿ1
+                                                   Sq y  R 1  R 0  O y                1ÿp           :
+                                                                                                            pjq
+
+                                     It is readily seen that now we may follow § 6 but with
+                                                                               Y                         
+                                                                                                      pÿ1
+                                                        E q y  qy 5 = 12  «     1 ÿ p ÿ1 = 4 ÿ1        :
+                                                                               pjq
+                                                                                                      pÿ2
+
+                                     Thus, by (7.9), (7.12), (7.13), (7.14) and (4.13),
+
+                                         M k x; Q p Qx k x=Q k x « ÿ 1 = 2  Qx k x 1 = 2  « Q ÿ1  k  Qx k x=Q« ÿ 7 = 12  k
+                                     and Theorem 2 follows.
+
+                                                                                           References
+                                      1. M. B. Barban, `The large sieve method and its applications in the theory of numbers', Uspekhi
+                                            Mat. Nauk 21 (1966) 51±102 (Russian), Russian Math. Surveys 22 (1966) 49±103 (English).
+                                      2. H. Davenport, Multiplicative number theory, 2nd edn, Graduate Texts in Mathematics 74
+                                            (Springer, Berlin, 1980).
+                                      3. H. Davenport and H. Halberstam, `Primes in arithmetic progressions', Michigan Math. J. 13
+                                            (1966) 485±489.
+                                      4. J. B. Friedlander and D. A. Goldston, `Variance of distribution of primes in residue classes',
+                                            Quart. J. Math. Oxford (2) 47 (1996) 313±336.
+                                      5. P. X. Gallagher, `The large sieve', Mathematika 14 (1967) 14±20.
+                                      6. D. A. Goldston and R. C. Vaughan, `On the Montgomery±Hooley asymptotic formula', Sieve
+                                            methods, exponential sums and their applications in number theory (ed. G. R. H. Greaves,
+                                            G. Harman and M. N. Huxley, Cambridge University Press, 1996) 117±142.
+                                      7. G. H. Hardy and J. E. Littlewood, `The approximate functional equation for z s and z s2 ',
+                                            Proc. London Math. Soc. (2) 29 (1929) 81±97.
+                                      8. C. Hooley, `The distribution of sequences in arithmetic progression', Proceedings of the
+                                            International Congress of Mathematicians, Vancouver, 1974, Vol. 1 (Canadian Mathematics
+                                            Congress, Montreal, 1975) 357±364.
+                                      9. C. Hooley, `On the Barban±Davenport±Halberstam theorem I', J. Reine Angew. Math. 274/275
+                                            (1975) 206±223.
+                                     10. C. Hooley, `On the Barban±Davenport±Halberstam theorem II', J. London Math. Soc. (2) 9
+                                            (1975) 625±636.
+                                     11. C. Hooley, `On the Barban±Davenport±Halberstam theorem III', J. London Math. Soc. (2) 11
+                                            (1975) 399±407.
+                                     12. H. L. Montgomery, `Primes in arithmetic progressions', Michigan Math. J. 17 (1970) 33±39.
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+                                                          distribution of primes in arithmetic progressions                     553
+
+                                     13. H.-E. Richert, `Zur AbschaÈtzung der Riemannschen Zetafunktionen in der NaÈhe der Vertikalen
+                                            j  1', Math. Ann. 169 (1967) 97±101.
+                                     14. E. C. Titchmarsh, The theory of the Riemann zeta-function, 2nd edn revised by D. R.
+                                            Heath-Brown (Clarendon Press, Oxford, 1986).
+                                     15. A. Z. Val 0 ®sÏ, Weylsche Exponentialsummen in der neuren Zahlentheorie, Mathematische
+                                            Forschungsberichte XV (VEB Deutscher Verlag der Wissenschaften, Berlin, 1963).
+                                     16. R. C. Vaughan, The Hardy±Littlewood method, Cambridge Tracts in Mathematics 125
+                                            (Cambridge University Press, London, 1996 ).
+
+                                        R. C. Vaughan
+                                        Department of Mathematics
+                                        McAllister Building
+                                        Pennsylvania State University
+                                        University Park
+                                        PA 16802
+                                        USA
+                                        rvaughan@math.psu.edu
+
+
+
+
+https://doi.org/10.1112/plms/82.3.533 Published online by Cambridge University Press
+

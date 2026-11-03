@@ -1,0 +1,27 @@
+                     Notation
+
+
+                      The letter k denotes a natural number, usually with k ^ 2, and the
+                      statements in which e appear are true for every positive real number £.
+                      The letter p is reserved for prime numbers.
+                          The Vinogradov symbols <^ , ^> have their usual meaning, namely
+                      that for functions/and g with g taking non-negative real values / <^ g
+                      means | / | ^ Cg where C is a constant, and if moreover / is also non-
+                      negative, then f P g means g <^ f.
+                          Implicit constants in the O, <^ and > notations usually depend on
+                      /c, s and s. Additional dependence will be mentioned explicitly.
+                          As usual in number theory, the functions e{%) and || a || denote e2m*
+                      and      min |a - h\ respectively. Occasionally the expression
+                                he!
+                      min(Ar, 1/0) occurs, and is taken to be X.
+                        The notation pr \\ n is used to mean that pr is the highest power of p
+                      dividing n.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.003 Published online by Cambridge University Press
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.003 Published online by Cambridge University Press
+

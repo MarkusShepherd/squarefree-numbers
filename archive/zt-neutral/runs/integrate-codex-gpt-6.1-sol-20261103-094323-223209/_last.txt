@@ -1,0 +1,7 @@
+{
+  "composes": true,
+  "final_theorem": "For the stated polynomial class and weight, uniformly for x>=2, y>=1 and Y=f(y)<=x, V_f=C_f x^(1/2)Y^(3/2)+O_{f,eps}(x^(1/3+eps)Y^(5/3)+x^(5/3+eps)+x^(1/2+eps)Y^(3/2-1/(2d))), with the positive Euler-product constant C_f stated in P8. Also V_f=sum_{k<=y}f'(k)MT(x;f(k))+O_{f,eps}(x^(5/3+eps)+x^(1/2)Y). For 0<delta<1/9 and x^(7/9+delta)<=Y<=x^(1-delta), the relative error is O_{f,delta}(x^(-eta)), eta=min(delta/12,1/(6d)). Full composition, including every error term, is written to assembly.md.",
+  "interface_mismatches": [],
+  "numerics_comparison": "C_{k^2+1}≈0.1380826 versus constant_extrapolated=0.1344747055±0.0072849586: relative discrepancy +2.683%. C_{k^3+2}≈0.1356075 versus 0.1363212568±0.0024036061: relative discrepancy -0.524%. Discrepancies use the extrapolated constant as denominator; both lie within the reported heuristic uncertainties. No clean-factor discrepancy occurs. Independently checked Euler products through 10^7 with tail bounds, reproduced both extrapolation fits, and verified all 16 production rows at x=250000 by direct counting. Calculations are saved in audit_numerics.py and numerics_audit.json.",
+  "loss_vs_plan": "None: every part of the plan's main theorem follows with exactly its stated errors and range. P3 supplies the lower-range bottleneck and P6 the upper-range bottleneck. An unused numerical note in P8 confuses root counts with densities; this typo does not affect its proof or the composition and is documented in assembly.md. No external or excluded sources were used."
+}

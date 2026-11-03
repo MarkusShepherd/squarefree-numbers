@@ -1,0 +1,12 @@
+{
+  "id": "P9",
+  "title": "Assembly: main theorem",
+  "statement": "Notation: f, d, rho, C_f and Y = f(y) as in the main theorem. V_f(x,y) = sum_{k<=y} f'(k) sum_{l=1}^{f(k)} E(x;f(k),l)^2 (problem.md). MT(x;q) = A_0 q sum_{t>=1} eta(t) m_t(q) B(x/(q m_t(q))), with B(u) = {u}(1 - {u}), A_0 = prod_p (1 - 2/p^2), eta(t) = mu^2(t) prod_{p|t} (p^2-2)^{-1} and m_t(q) = t^2/gcd(t^2,q).\n\nClaims. For every eps > 0 there is c(f,eps) such that for all real x >= 2 and y >= 1 with Y = f(y) <= x:\n\n(i) |V_f(x,y) - C_f x^{1/2} Y^{3/2}| <= c(f,eps) (x^{1/3+eps} Y^{5/3} + x^{5/3+eps} + x^{1/2+eps} Y^{3/2 - 1/(2d)});\n\n(ii) |V_f(x,y) - sum_{1<=k<=y} f'(k) MT(x;f(k))| <= c(f,eps) (x^{5/3+eps} + x^{1/2} Y).\n\nConsequently, for fixed delta in (0, 1/9) and x^{7/9+delta} <= Y <= x^{1-delta}:\n  V_f(x,y) = C_f x^{1/2} Y^{3/2} (1 + O_{f,delta}(x^{-eta})),   with eta = min(delta/12, 1/(6d)).",
+  "depends_on": [
+    "P7",
+    "P8"
+  ],
+  "cites": [],
+  "crux": false,
+  "risk": "Low.\n\n1. V_f(x,y) = sum_{k<=y} f'(k) V(x;f(k)), and f(k) <= Y <= x for k <= y because f is increasing on [1, infinity).\n2. Apply P7(ii) with q = f(k). The main term is sqrt(x) sum_k F(k) h(f(k)); P8(a) evaluates it.\n3. Errors:\n   - x^{1/3} sum_k f'(k) f(k)^{2/3+eps} <= x^{1/3} Y^{2/3+eps} \u00b7 P8(c);\n   - x^{5/3+eps} \u00b7 P8(b);\n   - sqrt(x) \u00b7 P8(c);\n   - y^{-1/2} << Y^{-1/(2d)}.\n4. (ii) follows the same way from P7(i).\n5. For the corollary, take eps = delta/12 and compare each error with x^{1/2} Y^{3/2}."
+}

@@ -1,0 +1,2723 @@
+                                                          7
+             Applications of the Prime Number Theorem
+
+
+
+
+        We now use the Prime Number Theorem, and other estimates obtained by similar
+        methods, to estimate the number of integers whose multiplicative structure is
+        of a speciﬁed type.
+
+
+                         7.1      Numbers composed of small primes
+        Let ψ(x, y) denote the number of integers n, 1 ≤ n ≤ x, all of whose prime
+        factors are ≤ y. Obviously, if y ≥ x, then
+                                         ψ(x, y) = [x] = x + O(1).                                    (7.1)
+                                                                                        √
+        Also, if n ≤ x, then n can have at most one prime factor p >                        x, and hence if
+        x 1/2 ≤ y ≤ x, then
+                                                
+                             ψ(x, y) = [x] −            1
+                                                         y< p≤x n≤x
+                                                                 p|n
+                                                          
+                                             = [x] −              [x/ p]
+                                                         y< p≤x
+                                                           1
+                                             = x−x                + O(π (x)).
+                                                         y< p≤x p
+
+        By the estimates of Chebyshev and Mertens (Corollary 2.6 and Theorem 2.7(d)),
+        this is
+                                                           
+                                          log x           x
+                             = x 1 − log          +O            .
+                                          log y         log x
+        Thus if we take u = (log x)/(log y), so that y = x 1/u , then we see that
+                                                                    
+                                                                x
+                          ψ x, x 1/u = (1 − log u)x + O                                               (7.2)
+                                                               log x
+
+                                                         199
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        200                    Applications of the Prime Number Theorem
+
+
+         1
+
+
+
+
+        0                          1
+
+                             Figure 7.1 The Dickman function ρ(u) for 0 ≤ u ≤ 4.
+
+        uniformly for 1 ≤ u ≤ 2. We shall show more generally that there is a function
+        ρ(u) > 0 such that
+                                            
+                                   ψ x, x 1/u ∼ ρ(u)x                            (7.3)
+        as x → ∞ with u bounded. The function ρ(u) that arises here is known as the
+        Dickman function; it may be deﬁned to be the unique continuous function on
+        [0, ∞) satisfying the differential–delay equation
+                                              uρ  (u) = −ρ(u − 1)                                 (7.4)
+        for u > 1 together with the initial condition that
+                                                     ρ(u) = 1                                      (7.5)
+        for 0 ≤ u ≤ 1. Before proceeding further we note some simple properties of
+        this function. By dividing both sides of (7.4) by u and then integrating, we ﬁnd
+        that
+                                                    v
+                                                               dt
+                                ρ(v) = ρ(u) −         ρ(t − 1)                      (7.6)
+                                                  u             t
+        for 1 ≤ u ≤ v. Also, from (7.4) we see that (uρ(u)) = ρ(u) − ρ(u − 1), so that
+        by integrating it follows that
+                                                         u
+                                          uρ(u) =             ρ(v) dv + C
+                                                       u−1
+
+        for u ≥ 1, where C is a constant of integration. On taking u = 1 we deduce that
+        C = 0, and hence that
+                                                              u
+                                             uρ(u) =               ρ(v) dv                         (7.7)
+                                                             u−1
+
+        for u ≥ 1.
+           As might be surmised from Figure 7.1, ρ(u) is positive and decreasing. To
+        prove this, let u 0 be the inﬁmum of the set of all solutions of the equation
+        ρ(u) = 0. By the continuity of ρ it follows that ρ(u 0 ) = 0. But ρ(u) > 0 for
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    7.1 Numbers composed of small primes                                    201
+
+
+        0 ≤ u < u 0 , and hence if we take u = u 0 in (7.7), then the left-hand side is
+        0 while the right-hand side is positive, a contradiction. Thus ρ(u) > 0 for all
+        u ≥ 0, and by (7.4) it follows that ρ  (u) < 0 for all u > 1. Figure 7.1 also
+        suggests that ρ(u) tends to 0 rapidly as u → ∞. We now establish a crude
+        estimate in this direction.
+        Lemma 7.1 The function ρ(u) is positive and decreasing for u ≥ 0, and
+        satisﬁes the inequalities
+                                    1                 1
+                                           ≤ ρ(u) ≤         .
+                                2 (2u + 1)          (u + 1)
+        Proof For positive integers U we prove by induction that the upper bound
+        holds for 0 ≤ u ≤ U . To provide the basis of the induction we need to show
+        that (s) ≤ 1 for 1 ≤ s ≤ 2. This is immediate from the relations
+                                                          ∞
+                                         
+            (1) = (2) = 1,                    (s) =           e−x x s−1 (log x)2 d x > 0     (0 < s < ∞).
+                                                      0
+                                                                                                        (7.8)
+        Since ρ(u) is decreasing, we see by (7.7) that uρ(u) ≤ ρ(u − 1). Thus if the
+        desired upper bound holds for u ≤ U and if U ≤ u ≤ U + 1, then
+                                  ρ(u − 1)       1           1
+                          ρ(u) ≤           ≤          =
+                                      u        u (u)      (u + 1)
+        by (C.4).
+            After making the change of variables u = v/2, the desired lower bound
+        asserts that ρ(v/2) ≥ 1/(2 (v + 1)). We let V run through positive integral
+        values, and prove by induction on V that the lower bound holds for 0 ≤ v ≤ V .
+        To establish the lower bound for 0 ≤ v ≤ 2 it sufﬁces to show that (s) ≥ 1/2
+        for all s > 0. From (7.8) we see that (s) ≥ 1 for 0 < s ≤ 1 and for s ≥ 2; thus
+        it remains to note that if 1 ≤ s ≤ 2, then
+                              ∞                           1                     ∞
+                                                                                                    1  1
+                (s) =             e−x x s−1 d x ≥             e−x x d x +           e−x d x = 1 −     > .
+                          0                           0                     1                       e  2
+        (The actual fact of the matter is that mins>0 (s) = (1.4616 . . .) =
+        0.8856 . . . .) Since ρ(u) is decreasing, we see by (7.7) that uρ(u) ≥ ρ(u −
+        1/2)/2. Thus if the lower bound holds for 0 ≤ v ≤ V and if V ≤ v ≤ V + 1,
+        then
+                                   ρ((v − 1)/2)      1            1
+                         ρ(v/2) ≥               ≥         =
+                                        v          2v (v)    2 (v + 1)
+        by (C.4). This completes the inductive step, so the proof is complete.                               
+
+           We now use elementary reasoning to show that (7.3) holds uniformly for u
+        in bounded intervals.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        202                    Applications of the Prime Number Theorem
+
+
+        Theorem 7.2 (Dickman) Let ψ(x, y) be the number of positive integers not
+        exceeding x composed entirely of prime numbers not exceeding y, and let ρ(u)
+        be deﬁned as above. Then for any U ≥ 0 we have
+                                                             
+                                                        x
+                             ψ x, x 1/u
+                                          = ρ(u)x + O                           (7.9)
+                                                        log x
+        uniformly for 0 ≤ u ≤ U and all x ≥ 2.
+
+        Proof We restrict U to integral values, and induct on U . The basis of the
+        induction is provided by (7.1) and (7.5). Also, (7.2) gives (7.9) for 1 ≤ u ≤ 2
+        since from (7.6) we see that
+
+                                                ρ(u) = 1 − log u                                   (7.10)
+
+        for 1 ≤ u ≤ 2. Suppose now that U is an integer, U ≥ 2, and that (7.9) holds
+        uniformly for 0 ≤ u ≤ U . We show that (7.9) holds uniformly for U ≤ u ≤
+        U + 1. To this end we classify n according to the size of the largest prime
+        factor P(n) of n. Thus we see that
+                                        
+                         ψ(x, y) = 1 +     card{n ≤ x : P(n) = p}.
+                                                  p≤y
+
+        Here the ﬁrst term on the right reﬂects the fact that if x ≥ 1, then ψ(x, y)
+        counts the number n = 1 for which P(1) is undeﬁned. In the sum on the right,
+        the summand is ψ(x/ p, p), and hence we see that
+                                             
+                              ψ(x, y) = 1 +       ψ(x/ p, p).                 (7.11)
+                                                            p≤y
+
+        On differencing, it follows that if y ≤ z, then
+                                                     
+                             ψ(x, y) = ψ(x, z) −        ψ(x/ p, p).                                (7.12)
+                                                              y< p≤z
+
+        Suppose that z = x 1/U and that y = x 1/u with U ≤ u ≤ U + 1. Deﬁne u p by
+        the relation p = (x/ p)1/u p . That is,
+                                                log x
+                                         up =         − 1,
+                                                log p
+        which is ≤ u − 1 ≤ U if p ≥ y. Hence by the inductive hypothesis the right-
+        hand side of (7.12) is
+                                            ρ((log x)/(log p) − 1)
+                                   x
+                   ρ(U )x + O            −x
+                                 log x      y< p≤z            p
+                                                                  
+                                                           1
+                                         +O x                        .      (7.13)
+                                                 y< p≤z p log x/ p
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 7.1 Numbers composed of small primes                                         203
+
+                   
+        Let s(w) = p≤w 1/ p, and write Mertens’ estimate (Theorem 2.7(d)) in the
+        form s(w) = log log w + c + r (w). Then the sum in the main term above is
+                 z                                                 z
+                     ρ((log x)/(log w) − 1) ds(w) =                     ρ((log x)/(log w) − 1) d log log w
+             y                                                 y
+                                                                            z
+                                                              +                 ρ((log x)/(log w) − 1) dr (w).
+                                                                        y
+                                                                                                           (7.14)
+        We put t = (log x)/(log w). Since
+                                                  dw          dt
+                                      d log log w =      =− ,
+                                                w log w       t
+        the ﬁrst integral on the right-hand side of (7.14) is
+                                           u
+                                                      dt
+                                             ρ(t − 1) .                                                    (7.15)
+                                          U            t
+        By integrating by parts and the estimate r (w)                             1/ log w we see that the second
+        integral on the right-hand side of (7.14) is
+                                                          z         z
+                     ρ((log x)/(log w) − 1)r (w) −                      r (w) dρ((log x)/(log w) − 1)
+                                                          y     y
+                                                     z                                         
+                                   1
+                                         1+               1 |dρ((log x)/(log w) − 1)|
+                                 log x            y
+                                   1
+                                 log x
+        since ρ is monotonic and bounded. By Mertens’ estimate (Theorem 2.7(d)) we
+        also see that the error term in (7.13) is
+                                         x     1       x
+                                       log x y< p≤z p log x
+        since log log z = log log y + O(1). On combining our estimates in (7.12) we
+        ﬁnd that
+                                            u                        
+                                                        dt          x
+                  ψ(x, x 1/u ) = x ρ(U ) −     ρ(t − 1)      +O           .
+                                            U            t        log x
+        Thus by (7.6) we have the desired estimate for U ≤ u ≤ U + 1, and the proof
+        is complete.                                                             
+
+            As for ψ(x, y) when y < x ε , we show next that
+                                         ψ(x, (log x)a ) = x 1−1/a+o(1)                                    (7.16)
+        for any ﬁxed a ≥ 1. The upper bound portion of this is obtained by means of
+        bounds for an associated Dirichlet series, while the lower bound is derived by
+        combinatorial reasoning.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        204                    Applications of the Prime Number Theorem
+
+
+           An upper bound for ψ(x, y) can be constructed by observing that if σ > 0,
+        then
+                                             1                       
+                               x σ      σ                σ           1 −1
+           ψ(x, y) ≤               ≤x                 =x         1− σ        . (7.17)
+                       n≤x     n          p|n⇒ p≤y
+                                                   nσ      p≤y       p
+                            p|n⇒ p≤y
+
+        Rankin used this chain of inequalities to derive an upper bound for ψ(x, y).
+        This approach is fruitful in a variety of settings, and has become known as
+        ‘Rankin’s method’.
+           To use the above, we must establish an upper bound for the product on the
+        right-hand side. The size of this product is a little difﬁcult to describe, because its
+        behaviour depends on the size of σ . If σ is near 0, then most of the factors are ap-
+        proximately (1 − y −σ )−1 , and hence we expect the product to be approximately
+        (1 − y −σ )−y/ log y . If σ is larger (but still < 1), then the general factor is approx-
+        imately exp( p −σ ), and hence the product is approximately the exponential of
+                                               y
+                                                     dt            y 1−σ
+                                    p −σ ∼         σ
+                                                           ∼                  .
+                                p≤y           2 t log t        (1 − σ ) log y
+        We begin by making these relations precise.
+        Lemma 7.3 If 0 ≤ σ ≤ 1, then
+                        y
+                             du                        
+                 p −σ =    σ
+                                   + O y 1−σ exp − c log y + O(1). (7.18)
+             p≤y        2 u log u
+
+        Proof      We write the left-hand side as
+                              y                       y                         y
+                                  u −σ dπ (u) =           u −σ d li(u) +            u −σ dr (u)
+                             2−                     2−                        2−
+                                                                     y
+        where r (u) = π(u) − li(u). The ﬁrst integral on the right is 2 u −σ (log u)−1 du.
+        By integrating by parts we ﬁnd that the second integral is
+                                                                      y
+                               y −σ r (y) − 2−σ r (2− ) + σ               r (u)u −σ −1 du.
+                                                                  2
+                                                                             √
+        Suppose that b is a positive constant chosen so that r (u) u exp(−b log u).
+        Then the ﬁrst two terms above can be absorbed into the error terms in (7.18) if
+        c < b. To complete the proof it sufﬁces to show that
+                   y                                                    
+                     u −σ exp(−b log u) du       1 + y 1−σ exp − b3 log y , (7.19)
+                      2
+        for then we have (7.18) with c = b/3.
+                                                         √
+           To prove (7.19) we note that if σ ≥ 1 − b/(2 log y), then
+                                                                  
+                u 1−σ exp − b2 log u = exp (1 − σ ) log u − b2 log u
+                                                                         
+                                         ≤ exp b2 (log u)/ log y − b2 log u
+                                                   ≤1
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                     7.1 Numbers composed of small primes                                        205
+
+
+        for 2 ≤ u ≤ y. Hence for σ in this range the integral in (7.19) is
+                                 y                                        ∞
+                                               du                                    du
+                         ≤                    b√             <                    b√                  1.
+                             2       u exp 2         log u            2       u exp 2         log u
+        Now suppose that
+                                                    b
+                                      σ ≤1− √            .                                                     (7.20)
+                                                 2 log y
+                                           y 1/4  y
+        We write the integral in (7.19) as 2 + y 1/4 = I1 + I2 , say. Then
+                                                          y 1/4
+                                                                               y (1−σ )/4
+                                              I1 ≤                u −σ du <               ,
+                                                      2                         1−σ
+        which by (7.20) is
+                                                                                                  
+                y 1−σ log y exp − 34 (1 − σ ) log y                                y 1−σ exp − b3 log y .
+
+        As for I2 , we note that if u ≥ y 1/4 , then log u ≥ 14 log y. Hence
+                                       y −σ                             y 1−σ
+               I2 ≤ exp − b2 log y              u du ≤ exp − b2 log y
+                                            2                                1−σ
+                           b           1−σ                          b         
+                      exp − 2 log y y              log y    y 1−σ
+                                                                  exp − 3 log y .
+        These estimates combine to give (7.19), so the proof is complete.                                          
+
+        Lemma 7.4            If y ≥ 2 and 1 − 4/ log y ≤ σ ≤ 1, then
+                                       
+                                           p −σ = log log y + O(1).                                            (7.21)
+                                               p≤y
+
+        If y ≥ 2 and 0 ≤ σ ≤ 1 − 4/ log y, then
+                                                                      
+                  −σ       y 1−σ             1             y 1−σ
+                 p =                  + log     +O                        .                                    (7.22)
+             p≤y       (1 − σ ) log y       1−σ      (1 − σ )2 (log y)2
+
+        Proof Suppose that 1 − 4/ log y ≤ σ ≤ 1. If u ≤ y, then
+                                                                                
+          u −σ = u −1 u 1−σ = u −1 exp (1 − σ ) log u = u −1 1 + O((1 − σ ) log u)
+                                            
+               = u −1 + O u −1 (1 − σ ) log u .
+        Hence
+                  y                       y                         y    
+                         du                     du                     du
+                       σ
+                              =                       + O (1 − σ )          = log log y + O(1).
+              2       u log u         2       u log u              2    u
+        Thus (7.21) follows from Lemma 7.3.
+           To prove (7.22) we let v = exp(4/(1
+                                             y − σ )), and observe that v ≤ y. We write
+                                        v
+        the integral in Lemma 7.3 as 2 + v = I1 + I2 , say. By the above we see that
+        I1 = log log v + O(1) = log 1/(1 − σ ) + O(1). By integration by parts we see
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        206                    Applications of the Prime Number Theorem
+
+
+        that
+                                y 1−σ            v 1−σ         1                     y
+                                                                                               du
+                    I2 =                   −                +                                            .
+                            (1 − σ ) log y   (1 − σ ) log v   1−σ                v       u σ (log u)2
+        Here the ﬁrst term on the right is one of the main terms in (7.22), and the second
+        term is O(1). Let J denote the integral on the right. To complete the proof it
+        sufﬁces to show that
+                                                         y 1−σ
+                                             J                       .                                       (7.23)
+                                                    (1 − σ )(log y)2
+        To this end we integrate by parts again:
+                            y 1−σ              v 1−σ          2                          y
+                                                                                                  dw
+                 J=                     −                  +                                              .
+                       (1 − σ )(log y)2   (1 − σ )(log v)2   1−σ                     v       w σ (log w)3
+                                                                        4 −4
+        Here the second term on the right-hand side is e 2 (1 − σ )           1 − σ , while
+        the ﬁrst term on the right-hand side is larger. As for the integral on the right, we
+        observe that if w ≥ v, then (log w)3 ≥ 4(log w)2 /(1 − σ ). Hence the last term
+        on the right above has absolute value not exceeding J/2. Thus we have (7.23),
+        and the proof is complete.                                                         
+                                                                               
+        Lemma 7.5 Suppose that y ≥ 2. If max 2/ log y, 1 − 4/ log y ≤ σ ≤ 1,
+        then
+                                                 −1
+                                         1 − p −σ         log y.                      (7.24)
+                                            p≤y
+
+        If 2/ log y ≤ σ ≤ 1 − 4/ log y, then
+                                     1
+                 (1 − p −σ )−1 =
+           p≤y                      1−σ
+                               1−σ                                                          
+                               y                                1
+               × exp                         1+O                               + O(y −σ )            .       (7.25)
+                           (1 − σ ) log y                 (1 − σ ) log y
+
+                                              when σ ≤ 2/3 since then y ≤ e . The
+                                                                              12
+        Proof The bound (7.24)    is trivial
+                        −1
+        estimate (1 − δ) = exp δ + O(δ ) holds uniformly for |δ| ≤ 1/2. We take
+                                           2
+
+        δ = p −σ for p > v = e1/σ to deduce that
+                                                                       
+                                                           
+                             −σ −1                  −σ               −2σ
+                        1− p       = exp           p +O            p        .
+                   v< p≤y                               v< p≤y                  v< p≤y
+
+        Now (7.24) follows at once from Lemma 7.4 when σ ≥ 2/3. Thus it remains
+        to establish (7.25). The sum in the error term above is       1 for σ > 5/8. If
+        3/8 ≤ σ ≤ 5/8, then by Lemma 7.4 it is       y / log y. If 2/ log y ≤ σ ≤ 3/8,
+                                                      1/4
+
+        then by Lemma 7.4 the sum is     y 1−2σ / log y. Thus in any case this error term
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 7.1 Numbers composed of small primes                              207
+
+
+        is majorized by the error terms on the right-hand side of (7.25). By Lemma 7.4,
+        the main term is
+                                      y 1−σ                1
+                           p −σ =                  + log
+                    v< p≤y         (1 − σ ) log y        1 −  σ
+                                                                        
+                                                 y 1−σ                 v
+                                   +O                          + O           .
+                                          (1 − σ )2 (log y)2         log v
+        Since 2/ log y ≤ σ ≤ 1 − 4/ log y, y satisﬁes y ≥ e6 , and σ (1 − σ ) log y ≥
+        2(1 − 2/ log y) ≥ 4/3. Hence (y 1−σ )3/4 ≥ v and the second error term above
+        is dominated by the ﬁrst.
+            It remains to consider the contribution of the primes p ≤ v. If σ > 1/3, then
+        the contribution of these primes is       1, so we may suppose that 2/ log y ≤
+        σ ≤ 1/3. In this range
+                                                           log p
+                                  1 − p−σ σ log p =              .
+                                                           log v
+        Since
+                                                          
+                                                      log v
+                                                log C                    v,
+                                            p≤v       log p
+
+        it follows that
+                                                                         
+                           (1 − p −σ )−1 < exp(Cv) = exp Ce1/σ ≤ exp C y 1/2 ,
+                     p≤v
+
+        which sufﬁces. Thus the proof is complete.                                                  
+
+            We now bound ψ(x, y) by combining Lemma 7.5 with the inequalities (7.17).
+        Theorem 7.6          If y = x 1/u and log x ≤ y ≤ x 1/9 , then
+                                           
+                                                                           u log log u
+               ψ(x, y) < x(log y) exp            − u log u − u log log u + u −
+                                                                              log u
+                                                                 2      
+                                                         u         u log u
+                                                  +O           +O             .
+                                                       log u          y
+          Here the ﬁrst error term is larger than the second if y ≥ (log x) log log x,
+        while if y is smaller, then the second error term dominates.
+        Proof We ﬁrst note that we may suppose that y ≥ 9 log x, since the bound for
+        smaller y follows by taking y = 9 log x. To motivate the choice of σ in (7.17)
+        we note that the expression to be minimized is approximately
+                                            y −σ       
+                                                u
+                                   x σ exp           du .
+                                             2 log u
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        208                    Applications of the Prime Number Theorem
+
+
+        On taking logarithmic derivatives, this suggests that we should take σ to be the
+        root of the equation
+                                                            y 1−σ
+                                                 log x =          .                                (7.26)
+                                                            1−σ
+        In actual fact we take
+                                                      log u + log log u
+                                          σ =1−                         .                          (7.27)
+                                                            log y
+        It is easy to see that for this σ the right-hand side of (7.26) is
+                                                          log u
+                                            log x                     ,
+                                                    log u + log log u
+        so it is reasonable to expect that the simple choice (7.27) is close enough to the
+        root of (7.26) for our present purposes.
+           From the inequalities 9 log x ≤ y ≤ x 1/9 it follows that the σ given by (7.27)
+        satisﬁes 2/ log y ≤ σ ≤ 1 − 1/ log y. Hence the stated upper bound follows by
+        combining (7.17) with the estimates of Lemma 7.5.                               
+
+            To obtain companion lower bounds we observe that if k is chosen so that y k ≤
+        x, then ψ(x, y) certainly counts all integers n composed of primes p ≤ y such
+        that (n) ≤ k. Put r = π (y), and suppose that p1 , p2 , . . . , pr are the primes
+        not exceeding y. Then n is of the form n = p1a1 p2a2 · · · prar , and ψ(x, y) is at least
+        as large as the number of solutions of the inequality a1 + a2 + · · · + ar ≤ k in
+        non-negative integers ai . For this quantity we have an exact formula, as follows.
+
+        Lemma 7.7 Let A(r, k) denote the number of solutions of the inequality        a1 +
+        a2 + · · · + ar ≤ k in non-negative integers ai . Then A(r, k) = r +k  k
+                                                                                   .
+                                             r
+        Analytic Proof Let ar +1 = k − i=1 ai . Then A(r, k) is the number of ways
+        of writing k = a1 + a2 + · · · + ar +1 , which is the coefﬁcient of x k in the power
+        series
+                                  r +1
+                           ∞                              ∞        
+                                                   −r −1         r +k
+                               x a
+                                         = (1 − x)       =               xk
+                           a=0                             k=0
+                                                                   k
+
+        by the ‘negative’ binomial theorem.                                                            
+
+        Combinatorial Proof Suppose that we have k circles ◦ and r bars | arranged
+        in a line. Let a1 be the number of circles to the left of the ﬁrst bar, let a2 be the
+        number of circles between the ﬁrst and second bar, and so on, so that ar is the
+        number of circles between the last two bars. (The number of circles to the right
+                               
+        of the last bar is k − ai .) Thus a conﬁguration of circles and bars determines
+        a choice of non-negative ai with a1 + a2 + · · · + ar ≤ k. But conversely, a
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 7.1 Numbers composed of small primes                              209
+
+
+        choice of such ai determines a conﬁguration of circles and bars. The number
+        of ways of choosing the positions of the k circles in the r + k available places
+        is r +k
+             k
+                 .                                                                      
+
+        Theorem 7.8          If log x ≤ y ≤ x, then
+                                            x
+                                 ψ(x, y)      exp(−u log log x + u/2).
+                                            y
+        Proof Let r = π(y) and let k be the largest integer such that y k ≤ x. That is,
+        k = [u]. Then by Lemma 7.7 and Stirling’s formula we see that
+                                                          
+                                 r +k         r +k k r +k r 1
+                     ψ(x, y) ≥                                     √ .          (7.28)
+                                   k            k           r        k
+        The identity
+                                                                            r
+                        k log(1 + r/k) + r log(1 + k/r ) =                      log(1 + k/t) dt
+                                                                        0
+
+        shows that the left-hand side is an increasing function of r . It can be supposed
+        that x is sufﬁciently large. Let z = y/(k log y). Then the expression (7.28) is
+                                 k             
+                             y             k log y y/ log y 1
+                      1+               1+                  √ ≥ (z(1 + 1/z)z )k ,
+                          k log y             y              k
+        Moreover u − 1 < k ≤ u ≤ y/ log y and z(1 + 1/z)z is increasing for z ≥
+                                                                         
+        1. Thus the above is √≥ (z  (1 + 1/z  )z )k ≥ (z  (1 + 1/z  )z )u−1 where z  =
+        y/(u log y). As z  ≤ y/ k this is
+                                 u                 
+                        1       y          u log y y/ log y
+                     ≥                  1+
+                        y u log y              y
+                                                                             
+                        x                           y
+                     = exp −u log log x +               log(1 + (log x)/y) .
+                        y                       log y
+        The stated inequality now follows on noting that log(1 + δ) ≥ δ/2 for 0 ≤
+        δ ≤ 1.                                                                  
+
+          When y is of the form y = (log x)a with a not too large, the upper bound of
+        Theorem 7.6 and the lower bound of Theorem 7.8 are quite close, and we have
+
+        Corollary 7.9 If y = (log x)a and 1 ≤ a ≤ (log x)1/2 /(2 log log x), then
+                                                                                 
+                         log x                                 (log a + O(1)) log x
+        x 1−1/a exp                  < ψ(x, y) < x 1−1/a exp                          .
+                      5a log log x                                  a log log x
+        Proof The lower bound follows from Theorem 7.8 since log y ≤ (log x)/
+        (4a log log x) in the range under consideration. As for the upper bound, we
+        note that log u log log x, so that log log u = log log log x + O(1). Hence
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        210                    Applications of the Prime Number Theorem
+
+
+        log u + log log u = log log x − log a + O(1), and the result follows from
+        Theorem 7.6.                                                            
+
+           For 1 ≤ u ≤ 4 we may use the differential equation (7.4) and the initial
+        condition (7.5) to derive formulæ for ρ(u) (see Exercise 7.1.6 below), but for
+        larger u we take a different approach.
+
+        Theorem 7.10            For any real or complex number s we have
+                               ∞                             s −z        
+                                                               e −1
+                                  ρ(u)e−us du = exp C0 +               dz                                     (7.29)
+                              0                             0      z
+        where C0 is Euler’s constant. Conversely, for any u > 0 and any real σ0 we
+        have
+                                   σ0 +i∞      s −z         
+                             eC0                   e −1
+                    ρ(u) =                exp              dz eus ds.        (7.30)
+                             2πi σ0 −i∞         0      z
+        Proof Let F(s) denote the integral on the left-hand side of (7.29); this is the
+        Laplace transform of ρ(u). In view of the rapid decay of ρ(u) established in
+        Lemma 7.1, we see that the integral converges for all s, and hence that F(s) is
+        an entire function. On integrating by parts we see that
+                                                                 ∞
+                                                1 1
+                                      F(s) =      +                  ρ  (u)e−us du,
+                                                s   s        1
+
+        and hence that
+                                                             ∞
+                                      (s F(s)) = −              uρ  (u)e−us du.
+                                                         1
+
+        The differential–delay identity (7.4) for ρ(u) thus yields a differential equation
+        for F(s),
+
+                                              (s F(s)) = e−s F(s).
+
+        By separation of variables it follows that
+                                                s −z       
+                                                     e −1
+                             F(s) = F(0) exp              dz .
+                                                   0   z
+        To determine the value of F(0) we note that
+                                            1 −z                                              ∞         
+                                                 e −1                                              e−z
+               1 = lim s F(s) = F(0) exp              dz +                                             dz .
+                   s→+∞                       0     z                                      1        z
+        By integration by parts we see that
+                                      ∞ −z        ∞
+                   1
+                       e−z − 1         e
+                               dz +        dz =     e−z log z dz =                     
+                                                                                           (1) = −C0          (7.31)
+               0          z         1    z      0
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 7.1 Numbers composed of small primes                              211
+
+
+        by (C.12) and Theorem C.2. Hence F(0) = eC0 . An arithmetic proof of this
+        is found in Exercise 7.1.7 below. Thus we have the identity (7.29), and (7.30)
+        follows by applying the inverse Laplace transform to both sides.            
+
+
+                                               7.1.1      Exercises
+          1. (Chowla & Vijayaraghavan 1947) Show that if f (x) is a function that tends
+             to inﬁnity in such a way that log f (x) = o(log x) then almost all integers n
+             have a prime factor larger than f (n). That is
+                                  1
+                              lim card{n ≤ x : P(n) > f (n)} = 1
+                             x→∞ x
+
+             where P(n) denotes the largest prime factor of n.
+          2. (de Bruijn 1951b) Let P(n) denote the largest prime factor of n. Show that
+                                    
+                                        log P(n) ∼ Dx log x
+                                           n≤x
+                              ∞
+             where D = 0 ρ(u)(u + 1)−2 du is called Dickman’s constant.
+          3. (cf. Alladi & Erdős 1977) Let P(n) denote the largest prime factor of n.
+             (a) Show that
+                                                    x          
+                                    P(n) =          p      + O x 3/2 .
+                               n≤x
+                                           √
+                                             x< p≤x
+                                                       p
+
+              (b) Show that the sum on the right above is
+                                                                
+                               =         k              p + O x 3/2 .
+                                              √
+                                          1≤k≤ x    x/(k+1)< p≤x/k
+
+              (c) Show that
+                                                                                 
+                                                       y2                  y2
+                                              p=            +O                         .
+                                        p≤y         2 log y             (log y)2
+              (d) Show that
+                                          ∞                   
+                                                  1       1         π2
+                                              k      −            =    .
+                                          k=1
+                                                  k2   (k + 1)2     6
+              (e) Conclude that
+                                                                                     
+                                                    π2 x2                      x2
+                                          P(n) =             +O                            .
+                                    n≤x             12 log x                (log x)2
+
+          4. Show that ρ (k) (u) has a jump discontinuity at u = k, and is continuous for
+             u > k.
+          5. (a) Show that ρ(u) is convex upwards for all u ≥ 1.
+             (b) Show that if u ≥ 2, then uρ(u) ≥ ρ(u − 1/2).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        212                    Applications of the Prime Number Theorem
+
+
+             (c) Show that if u ≥ 2, then (2u − 1)ρ(u) ≤ ρ(u − 1).
+          6. (a) Show that if 1 ≤ u ≤ 2, then ρ(u) = 1 − log u.
+             (b) Show that if 2 ≤ u ≤ 3, then
+                                                                          u
+                                                                              log(t − 1)
+                                     ρ(u) = 1 − log u +                                  dt.
+                                                                      2            t
+              (c) Show that if 3 ≤ u ≤ 4, then
+                                                  u
+                                                      log(t − 1)                    u
+                                                                                        (log u/t) log(t − 2)
+                  ρ(u) = 1 − log u +                             dt −                                        dt.
+                                              2            t                    3              t −1
+                              
+          7. Let P(σ ) = p≤y (1 − p −σ )−1 .
+             (a) Explain why
+                                        1
+                             P(1) =            = eC0 log y + O(1).
+                                    p|n⇒ p≤y
+                                             n
+                                                           
+              (b) Show that if σ ≥ 1, then PP (σ )                    log y.
+              (c) Deduce that
+                                                                    log n
+                                −P  (1) =                                              (log y)2 .
+                                                             n         n
+                                                          p|n⇒ p≤y
+
+              (d) Conclude that
+                                                                1     (log y)2
+                                                                                .
+                                                     n>x         n       log x
+                                                  p|n⇒ p≤y
+
+              (e) Show that
+                                           1             u
+                                                            ψ(y v , y)
+                                              = (log y)                dv + O(1)
+                                    n≤x     n           0     yv
+                                 p|n⇒ p≤y
+
+                  where u = (log x)/ log y.
+              (f) Deduce that
+                                                          ∞
+                                                               ρ(u) du = eC0 .
+                                                      0
+                            
+             (g) Show that ∞   n=1 nρ(n) = e .
+                                               C0
+
+          8. (Erdős & Nicolas 1981) Let α be ﬁxed, 0 < α < 1.
+             (a) Let k be the least integer > α(log x)/ log        x, put y = x , and set
+                                                               rlog
+                                                                                1/k
+
+                 r = π(y). Show that there are at least k integers n ≤ x such that
+                 ω(n) > α(log x)/ log log x.
+             (b) Show that the number of integers n ≤ x such that ω(n) >
+                 α(log x)/ log log x is at least x 1−α+o(1) .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  7.1 Numbers composed of small primes                                  213
+
+
+              (c) Show that if σ > 1 and A ≥ 1, then the number of integers n ≤ x such
+                  that ω(n) > α(log x)/ log log x is at most
+                                                  ∞
+                                                       Aω(n)
+                                          x σ A−k            .
+                                                  n=1
+                                                        nσ
+             (d) Show that if A = log x and σ = 1 + (log log log x)/ log log x, then the
+                 above is x 1−α+o(1) .
+          9. (de Bruijn 1966) Assume that 0 < σ ≤ 3/ log y, and note that this interval
+             covers a range that is not treated in Lemma 7.5.
+             (a) Show that 1 − p −σ σ log p, and hence deduce that
+                                                                      
+                                                                 C
+                                 (1 − p −σ )−1 ≤ exp       log
+                             p≤y                       p≤y     σ log p
+                                                                        
+                                                        Cy          4
+                                               ≤ exp         log                  (7.32)
+                                                       log y     σ log y
+                  for a suitable constant C.
+              (b) Write
+                                                                          1 − y −σ
+                              (1 − p −σ )−1 = (1 − y −σ )−π(y)                  −σ
+                                                                                   = F1 · F2 ,
+                        p≤y                                           p≤y 1 − p
+
+                   say. Show that
+                                                                                           
+                                                                       Cy           4
+                              F1 ≤ (1 − y −σ )−y/ log y exp                  log                .
+                                                                    (log y)2     σ log y
+              (c) Note that
+                                           1 − p −σ       (y/ p)σ − 1
+                                                    = 1 −             ,                             (7.33)
+                                           1 − y −σ         yσ − 1
+                   and hence deduce that the above is ≥ 1 − c log y/ p
+                                                                log y
+                                                                       , so that
+                                                     
+                                      C                                        
+                         F2 ≤ exp             log y/ p ≤ exp C y/(log y)2 .
+                                    log y p≤y
+              (d) Conclude that
+                                                                                                   
+                                   −σ −1               −σ −y/ log y          Cy           4
+                          (1 − p     )     ≤ (1 − y       )           exp          log
+                    p≤y                                                   (log y)2     σ log y
+                for 0 < σ ≤ 3/ log y.
+        10. (de Bruijn 1966) Lemma 7.5 suffers from a loss of precision when
+            3/ log y ≤ σ ≤ (log log y)/ log y. To obtain a reﬁned estimate in this range,
+            write
+                                               (1 − p −σ )−1 = F1 · F2 · F3
+                                         p≤y
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        214                    Applications of the Prime Number Theorem
+
+
+              where the Fi are products over the intervals p ≤ exp(1/σ ), exp(1/σ ) <
+               p ≤ y/ exp(1/σ ), and y/ exp(1/σ ) < p ≤ y, respectively.
+                                                             
+              (a) Use (7.32) to show that F1 ≤ exp Cσ e1/σ .
+              (b) Use Lemma 7.5 to show that
+                                                            
+                                                    C y 1−σ
+                                       F2 ≤ exp 1/σ            .
+                                                  e log y
+              (c) Use the identity (7.33) to show that
+                                     1 − p −σ           cσ log y/ p
+                                                ≥1−                 ,
+                                     1 − y −σ                yσ
+                  and hence deduce that
+                                                                       
+                                                            log y/ p
+                        F3 ≤ (1 − y −σ )−π(y) exp Cσ
+                                                           p≤y    yσ
+                                                        1−σ                   
+                                      −σ −y/ log y         y          Cσ y 1−σ
+                            ≤ (1 − y )             exp            +              .
+                                                         (log y)2      log y
+              (d) Conclude that
+                                                                                              
+                                           −σ −1              −σ −y/ log y       Cσ y 1−σ
+                                  (1 − p     )     ≤ (1 − y      )           exp
+                            p≤y                                                   log y
+                when 3/ log y ≤ σ ≤ (log log y)/ log y.
+        11. (de Bruijn 1966)
+            (a) For σ > 0 let f (σ ) = x σ (1 − y −σ )−y/ log y . Show that f (σ ) is mini-
+                mized precisely when
+                                            log(1 + y/ log x)
+                                     σ =                         .
+                                                  log y
+              (b) Show that for the above σ ,
+                                                                             
+                                 log x       y + log x       y         y + log x
+                  f (σ ) = exp         log               +       log                .
+                                 log y         log x       log y           y
+              (c) Show that if y ≤ log x, then
+                                                           
+                                       log x       y + log x
+                     ψ(x, y) ≤ exp           log
+                                       log y          log x
+                                                                         
+                                     y                 1            y + log x
+                                +          1+O                log                .
+                                  log y              log y              y
+              (d) Show that if log x ≤ y ≤ (log x)2 , then
+                                                                           
+                                       log x              1            y + log x
+                    ψ(x, y) ≤ exp             1+O                log
+                                       log y            log y            log x
+                                                         
+                                     y         y + log x
+                                +        log                  .
+                                   log y           y
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 7.2 Numbers composed of large primes                                    215
+
+
+        12. (Erdős 1963) Show that
+                                                                                       
+                                                                 log x
+                            ψ(x, log x) = exp (2 log 2 + o(1))                              .
+                                                               log log x
+        13. (de Bruijn 1966) Show that if a is ﬁxed, 0 < a < 1, then
+                            ψ(x, (log x)a ) = exp((1/a − 1 + o(1))(log x)a ).
+        14. Let ψ2 (x, y) denote the number of square-free integers n ≤ x composed
+            entirely of primes p ≤ y.
+            (a) Show that
+                                           
+                              ψ2 (x, y) =        µ(d)ψ(x/d 2 , y).
+                                                         d≤x
+                                                      p|d⇒ p≤y
+
+              (b) (Ivić) Let δ > 0 be ﬁxed. Then
+                                                               6
+                                               ψ2 (x, y) ∼        ψ(x, y)
+                                                               π2
+                   uniformly for x δ ≤ y ≤ x.
+              (c) Show that ψ2 (x, log x) = ψ(x, log x)1/2+o(1) .
+              (d) Show that if a > 1 and y ≥ (log x)a , then ψ2 (x, y) = ψ(x, y)1+o(1) .
+              (e) Show that if 0 < a < 1 and y ≤ (log x)a , then ψ2 (x, y) = ψ(x, y)o(1) .
+               (f) Show that ψ2 (x, c log x) = ψ(x, c log x)φ(c)+o(1) for any ﬁxed c > 0,
+                   where
+                                 ⎧
+                                 ⎪             c log 2
+                                 ⎪
+                                 ⎨ (c + 1) log(c + 1) − c log c (0 < c ≤ 2),
+                         φ(c) =
+                                 ⎪
+                                 ⎪  c log c − (c − 1) log(c − 1)
+                                 ⎩                                (c ≥ 2).
+                                    (c + 1) log(c + 1) − c log c
+
+
+                         7.2      Numbers composed of large primes
+        Let (x, y) denote the number of integers n ≤ x composed entirely of primes
+        p ≥ y. The number 1 is such a number as it is an empty product. Thus it is clear
+        that if y > x, then
+                                                   (x, y) = 1                                         (7.34)
+        Also, if x 1/2 ≤ y ≤ x, then
+                                                                                                  
+                                                            x       y                      x
+          (x, y) = π(x) − π(y − ) + O(1) =                     −       +O                             (7.35)
+                                                          log x   log y                 (log x)2
+        For smaller values of y we show that
+                                                              w(u)x
+                                                (x, y) ∼                                              (7.36)
+                                                              log y
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        216                    Applications of the Prime Number Theorem
+
+
+         1
+
+
+
+
+        0 1
+
+             Figure 7.2 Buchstab’s function w(u) and its horizontal asymptote e−C0 for 1 ≤ u ≤ 4.
+
+        where u = (log x)/ log y and w(u) is a function determined by the initial con-
+        dition
+                                                   w(u) = 1/u                                      (7.37)
+        for 1 < u ≤ 2 and for u > 2 by the differential–delay equation
+                                             (uw(u)) = w(u − 1).                                  (7.38)
+           Before proceeding further we ﬁrst derive some of the simplest properties of
+        the function w(u) depicted in Figure 7.2. By integrating (7.38) we deduce that
+                   u−1
+        uw(u) = 1 w(v) dv + C for u > 2, and by letting u tend to 2 we ﬁnd that
+        C = 1 so that
+                                                             u−1
+                                         uw(u) =                   w(v) dv + 1                     (7.39)
+                                                         1
+
+        for u ≥ 2. From this it is evident that if w(v) ≤ 1 for v ≤ u − 1, then w(v) ≤ 1
+        for v ≤ u, and that if w(v) ≥ 1/2 for v ≤ u − 1, then w(v) ≥ 1/2 for v ≤
+        u. Thus we conclude that 1/2 ≤ w(u) ≤ 1 for all u > 1. From the identity
+        uw (u) = w(u − 1) − w(u) we deduce that |w  (u)| ≤ 1/(2u) for all u > 2. Let
+        M(u) = maxv≥u |w  (v)|. Since w(u − 1) − w(u) = −w  (ξ ) for some ξ , u −
+        1 < ξ < u, we know that
+                                             M(u) ≤ M(u − 1)/u.
+        Let k be chosen so that 1 < u − k ≤ 2. By using the above inequality k times
+        we ﬁnd that
+                                       M(u − k)                1
+                       M(u) ≤                                        .
+                                u(u − 1) · · · (u − k + 1)   (u + 1)
+        That is,
+                                                                     1
+                                               w  (u)                                             (7.40)
+                                                                   (u + 1)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 7.2 Numbers composed of large primes                                217
+
+                                                                                ∞
+        for u > 2. Since w (u) tends to 0 rapidly, it follows that the integral 2 w  (v) dv
+        converges absolutely, and hence we see that limu→∞ w(u) exists. Since it is to
+                                                          
+        be expected that (x, y) is approximately x p<y (1 − 1/ p) when y is small,
+        it is not surprising that
+
+                                                lim w(u) = e−C0 .                                  (7.41)
+                                               u→∞
+
+        We shall prove this later, as a consequence of Theorem 7.12. First we establish
+        the basic asymptotic estimate (7.36).
+
+        Theorem 7.11 (Buchstab) Let (x, y) denote the number of positive integers
+        n ≤ x composed entirely of prime numbers p ≥ y, and let w(u) be deﬁned as
+        above. Then
+                                                                
+                                   w(u)x      y            x
+                      (x, y) =           −       +O                        (7.42)
+                                    log y   log y       (log x)2
+        uniformly for 1 ≤ u ≤ U and all y ≥ 2. Here u = (log x)/ log y, which is to
+        say that y = x 1/u .
+
+           The term −y/ log y can be included in the error term when y     x/ log x but,
+        in view of (7.35), has to be present when y is close to x. It might be difﬁcult
+        to prove that the above holds uniformly for all u ≥ 1 because of the precise
+        form of the error term, but the weaker assertion (7.36) can be shown to hold for
+        u ≥ 1 + ε, since sieve methods can be used when u is large.
+
+        Proof The number of positive integers n ≤ x whose least prime factor is p is
+        exactly (x/ p, p). Hence by classifying integers according to their least prime
+        factor we see that
+                                               
+                              (x, y) = 1 +          (x/ p, p).                   (7.43)
+                                                          y≤ p≤x
+
+        This is an identity of Buchstab; similar ‘Buchstab identities’ are important in
+        sieve theory. We show by induction on U that
+                                                                   
+                                    w(u)x        y            x
+                          (x, y) =         −        +O                          (7.44)
+                                     log y     log y       (log x)2
+        for U ≤ u ≤ U + 1. When U = 1 this is (7.35), and it is only in this ﬁrst range
+        that the second main term is signiﬁcant. For the inductive step we apply (7.43)
+        with y = x 1/u and with y = x 1/U and subtract to see that
+                                                   
+                       x, x 1/u =  x, x 1/U +               (x/ p, p).
+                                                                x 1/u ≤ p<x 1/U
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        218                    Applications of the Prime Number Theorem
+
+
+        Choose u p so that p = (x/ p)1/u p . Then the above is
+                                                                   
+                         x, x 1/U +                 x/ p, (x/ p)1/u p .
+                                                  x 1/u ≤ p<x 1/U
+
+        But u p = (log x)/ log p − 1 ∈ [U − 1, U ], so by the inductive hypothesis,
+        when U ≥ 2, the above is
+                                               
+                U w(U )x                 x
+                              +O              2
+                  log x            (log x)                                
+                                  u p w(u p )x           x               p
+                +                                +O               + O            .
+                  x 1/u ≤ p<x 1/U
+                                   p log x/ p         p(log x)2         log p
+
+        The sum over p of the ﬁrst error term is x/(log x)2 , and the sum over p of the
+        second is       x 2/U /(log x)2 , which is acceptable since U ≥ 2. To estimate the
+        contribution of the main term in the sum we write the Prime Number Theorem in
+        the form π(t) = li(t) + R(t), apply Riemann–Stieltjes integration, and integrate
+        the term involving R(t) by parts, to see that the sum of the main term is
+                                     
+                  x 1/U xw log x − 1                      x 1/U −     x 1/U
+                               log t
+                                          dt +   f (t)R(t)         −         R(t) d f (t) (7.45)
+                x 1/u       t(log t)2                      x 1/u −   x 1/u
+        where
+                                                            x       
+                                                         xw log
+                                                            log t
+                                                                  −1
+                                               f (t) =                      .
+                                                                t log t
+        Since f  (t)   x/(t 2 log t) and R(t)     t/(log t) A , the terms involving R(t)
+                                     U x/(log x) . By the change of variables v =
+                                                 A
+        contribute an amount
+        (log x)/ log t − 1 we see that the ﬁrst integral in (7.45) is
+                                                          u−1
+                                                 x
+                                                                 w(v) dv,
+                                               log x     U −1
+
+        which by (7.39) is
+                                                 x
+                                           =         (uw(u) − U w(U )).
+                                               log x
+        On combining our estimates we obtain (7.44), so the inductive step is
+        complete.                                                          
+
+          We now derive formulæ for w(u) similar to those in Theorem 7.10 involving
+        ρ(u).
+
+        Theorem 7.12           If s > 0, then
+                                    ∞                                                               
+                                                                                    s
+                                                                                        1 − e−z
+                      s+s               w(u)e−us du = exp −C0 +                                 dz       (7.46)
+                                1                                               0          z
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    7.2 Numbers composed of large primes                             219
+
+
+        where C0 is Euler’s constant. If u > 1 and σ0 > 0, then
+                                  σ0 +i∞       ∞ −z          
+                             1                       e
+                  w(u) =                   exp           dz − 1 eus ds.                            (7.47)
+                           2πi σ0 −i∞            s     z
+           Since the right-hand side of (7.46) is an entire function, we see that the
+        Laplace transform of w(u) is entire apart from a simple pole at s = 0 with
+        residue e−C0 .
+        Proof Let G(s) denote the left-hand side of (7.46). Then
+                                  
+                             G(s)            ∞
+                                      =−        w(u)ue−us du.
+                               s            1
+        By integrating by parts we see that this is
+                    w(u)ue−us ∞ 1 ∞                           −e−s G(s)
+                                  −          w(u − 1)e−us du =
+                         s      1    s 2                          s2
+        by (7.37) and (7.38). That is,
+                                                 1 − e−s
+                                              G  (s) = G(s)
+                                                         ,
+                                                    s
+        which by the method of separation of variables implies that
+                                            s                
+                                                  1 − e−z
+                             G(s) = A exp                  dz
+                                               0      z
+        where A is a positive constant. To determine the value of A we note that
+                                           1                    ∞ −z    
+                           G(s)                 1 − e−z            e
+                1 = lim          = A exp                dz −           dz .
+                      s→∞ s                  0     z           1     z
+        From (7.31) we deduce that A = e−C0 , and hence we have (7.46). To obtain
+        (7.47) it sufﬁces to take the inverse Laplace transform, since
+                                                            ∞
+                                    s
+                                        1 − e−z                 e−z
+                                                dz =                dz + log s + C0 .
+                                0          z            s        z
+                                                                                                       
+
+                                               7.2.1        Exercises
+        1. By using (7.31), or otherwise, show that
+                                                                              ∞
+                                    s
+                                        1 − e−z                                   e−z
+                                                dz = C0 + log s +                     dz
+                                0          z                              s        z
+           when s > 0.
+        2. (a) Show that
+                                                       1 + log(u − 1)
+                                             w(u) =
+                                                             u
+            for 2 ≤ u ≤ 3.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        220                    Applications of the Prime Number Theorem
+
+
+            (b) Show that
+                                                                                               
+                                        1                                 u
+                                                                              log(v − 2)
+                            w(u) =          1 + log(u − 1) +                             dv
+                                        u                             3         v−1
+                for 3 ≤ u ≤ 4.
+            (c) Show that
+                                          
+                                        1                          log(v − 2)
+                                                                          u
+                             w(u) =         1 + log(u − 1) +                  dv
+                                        u                       3    v−1
+                                                                            
+                                                    u log u−1 log(v − 3)
+                                                          v−1
+                                                +                        dv
+                                                  4         v−2
+
+               for 4 ≤ u ≤ 5.
+        3. (Friedlander 1972) Let S be a set of positive integers not exceeding X , and
+           suppose that (a, b) ≤ Y whenever a ∈ S, b ∈ S, a = b. Let M(X, Y ) denote
+           the maximum cardinality of all such sets S.
+           (a) Let S0 be the set of those positive integers n ≤ X such that if d|n, d < n,
+               then d ≤ Y . Show that card S0 = M(X, Y ).
+           (b) Show that if Y ≤ X 1/2 , then
+                                                              
+                          M(X, Y ) = 1 + π (X ) − π (Y ) +       (Y, p).
+                                                                              p≤Y
+
+            (c) Show that if X 1/2 < Y ≤ X , then
+                                                                                     
+              M(X, Y ) = 1 + π (X ) − π (Y ) +    (Y, p) +                                     (X/ p, p).
+                                                          p<X/Y                     X/Y ≤ p≤Y
+
+
+
+
+                                  7.3      Primes in short intervals
+        Let Jacobsthal’s function g(q) be the length of the longest gap between con-
+        secutive reduced residues modulo q. We show that there are long gaps between
+        primes by showing that there exist integers q for which g(q) is large. Since the
+        average gap between consecutive reduced residues (mod q) is q/ϕ(q), it is
+        obvious that
+                                                  q
+                                        g(q) ≥        .
+                                                 ϕ(q)
+        If p1 < p2 < · · · < pk are the distinct primes dividing q, then by the Chinese
+        Remainder Theorem there is an x such that x ≡ −i (mod pi ) for 1 ≤ i ≤ k.
+        Then (x + i, q) > 1 for 1 ≤ i ≤ k, and hence
+
+                                                g(q) ≥ ω(q) + 1.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                         7.3 Primes in short intervals                                      221
+
+
+        These observations can be combined: It can be shown that
+                                                            qω(q)
+                                                 g(q)             .                                    (7.48)
+                                                             ϕ(q)
+        This is not quite enough to produce long gaps between primes, but for certain
+        q we improve on the above to establish
+                                          
+        Lemma 7.13 Let P = P(z) = p≤z p. Then
+                                                 
+                                           g P(z)
+                                      lim           = ∞.
+                                     z→∞      z
+            This immediately yields
+
+        Theorem 7.14 (Westzynthius) Let pn denote the n th prime number. Then
+                                     pn+1 − pn
+                             lim sup            = ∞.
+                               n→∞     log pn
+        Proof of Theorem 7.14 Suppose that N = g(P) − 1 and that M is chosen,
+        P ≤ M < 2P, so that (M + m, P) > 1 for 1 ≤ m ≤ N . But M + m > P ≥
+        (M + m, P), and hence M + m is composite because it has the proper divisor
+        (M + m, P). If n is chosen so that pn is the largest prime not exceeding M,
+        then pn+1 − pn ≥ g(P) and pn < 2P, which is < e2z when z is large. Hence
+                                               pn+1 − pn   g(P)
+                                                         ≥
+                                                 log pn     2z
+        which tends to inﬁnity as z → ∞.                                                                     
+
+        Proof of Lemma 7.13 Let L be large and ﬁxed, and put N = [z L/3]. We show
+        that if z > z 0 (L), then there exists an integer M such that (M + n, P(z)) > 1
+        for 1 ≤ n ≤ N . Put
+
+              P1 =         p,     P2 =              p,    P3 =                  p,   P4 =              p,
+                     p≤L                 L< p≤L L                 L L < p≤z/3               z/3< p≤z
+
+        and let N be the set of those integers n, 1 ≤ n ≤ N , such that (n, P1 P3 ) = 1.
+        The members of N are (i) 1; (ii) integers n composed entirely of prime factors
+        of P2 ; (iii) primes p, z/3 < p ≤ N . Thus
+
+                                card N ≤ 1 + ψ(N , L L ) + π (N ) − π (z/3).
+
+        If z is sufﬁciently large, then L L < log N , so that ψ(N , L L ) < N ε by Corol-
+        lary 7.9. Hence
+
+                                                card N < π (N ).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        222                    Applications of the Prime Number Theorem
+
+
+        We choose M ≡ 0 (mod P1 P3 ), so that (M + n, P1 P3 ) > 1 if 1 ≤ n ≤ N , n ∈
+                                                                                   /
+        N . To bound the number of n ∈ N such that (M + n, P2 ) = 1 we average as
+        in the proof of Lemma 3.5. Clearly
+                 q                    q       
+                             1=                1=     ϕ(q) = ϕ(q) card N
+                   m=1     n∈N             n∈N      m=1            n∈N
+                         (m+n,q)=1                (m+n,q)=1
+
+        for any integer q. Hence
+                                                                                 
+                                                                                 1
+                                min               1 ≤ (card N )             1−       .
+                                 m
+                                        n∈N                          p|q
+                                                                                 p
+                                      (m+n,q)=1
+
+        By taking q = P2 we see that there is an M (mod P2 ) such that
+                                                                        
+                                                                       1
+                 card{n ∈ N : (M + n, P2 ) = 1} ≤ (card N )         1−     .
+                                                             p|P2
+                                                                       p
+
+        For such an M,
+                                                                                               
+                                                                                              1
+                card{1 ≤ n ≤ N : (M + n, P1 P2 P3 ) = 1} ≤ π (N )                          1−     .
+                                                                                   p|P2
+                                                                                              p
+
+        By Mertens’ theorem (Theorem 2.7(e)), the product on the right is ∼ 1/L as
+        L → ∞. Suppose that L is chosen sufﬁciently large to ensure that this product
+        is ≤ 3/(2L). Then the right-hand side above is
+                                        3N           z
+                                               ∼         .
+                                      2L log N    2 log z
+        The number of primes dividing P4 is π (z) − π (z/3) ∼ 2z/(3 log z) as z → ∞.
+        Thus if z is large, then there are more such primes than there are integers n,
+        1 ≤ n ≤ N , for which (M + n, P1 P2 P3 ) = 1. Hence for each such n we may as-
+        sociate a prime pn , pn |P4 , in a one-to-one manner, and take M ≡ −n (mod pn ).
+        Then (M + n, P4 ) > 1 and we are done.                                       
+
+           The success of the argument just completed can be attributed to the fact that
+        the number of n, 1 ≤ n ≤ N , for which (n, P1 P3 ) = 1 is considerably smaller
+               
+        than N p|P1 P3 (1 − 1/ p). By considering how L may be chosen as a function
+        of z we obtain a quantitative improvement of Lemma 7.13 and hence also of
+        Theorem 7.14.
+        Theorem 7.15 (Rankin) Let pn denote the n th prime number in increasing
+        order. There is a constant c > 0 such that
+                                              pn+1 − pn
+                   lim sup                                                ≥ c.
+                     n→∞      (log pn )(log log pn )(log log log log pn )
+                                          (log log log pn )2
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                        7.3 Primes in short intervals                                223
+
+
+        Proof We repeat the argument in the proof of Lemma 7.13, with the sole
+        change that L is allowed to depend on z. If L is chosen so that
+                                                     N
+                                   ψ(N , L L ) <           ,            (7.49)
+                                                 (log N )2
+        then L = o(log N ), and hence
+                                                                         
+                                                                    z
+                                          ψ(N , L L ) = o                     .
+                                                                  log N
+        Since z/ log N ≤ z/ log z              π (z/3), it follows that
+                                            ψ(N , L L ) = o(π (z/3)),
+        and the proof proceeds as before.
+           By Theorem 7.6 we see that
+                                                                 N
+                                  ψ N , N 1/u <
+                                                                (log N )2
+        if u log u ≥ 3 log log N , which is the case if u ≥ 4(log log N )/ log log log N .
+        Taking u = (log N )/ log L L , we deduce that (7.49) holds if
+                                          (log N )(log log log N )
+                               L log L <                           .
+                                                4 log log N
+        This is satisﬁed if
+                                                (log N )(log log log N )
+                                         L<                              ,
+                                                     4(log log N )2
+        since then log L < log log N . Since N > z when L ≥ 3, we conclude that we
+        may take
+                                        (log z)(log log log z)
+                                  L=                           .
+                                            4(log log z)2
+        Hence
+                                            z(log z)(log log log z)
+                                      g P(z) >
+                                                  13(log log z)2
+        for all z > z 0 , and this gives the stated result.                                            
+
+           Concerning the maximum number of primes in a short interval, by the Brun–
+        Titchmarsh inequality (Theorem 3.9) and the Prime Number Theorem we see
+        that
+                                      π(x + y) − π (x) < (2 + ε)π (y)
+        for y > y0 (ε). Let
+                                     ρ(y) = lim sup(π (x + y) − π (x)).                            (7.50)
+                                                 x→∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        224                    Applications of the Prime Number Theorem
+
+
+        Thus ρ(y) < (2 + ε)π(y). Very little is known about ρ(y). It was once conjec-
+        tured that
+
+                                         π(M + N ) ≤ π (M) + π (N )                                (7.51)
+
+        for M > 1, N > 1, but there is now serious doubt as to the validity of this
+        inequality. Indeed, it seems likely that ρ(y) > π (y) for all large y. To see why,
+        let
+                                                                
+                                                                M+N
+                                           ρ(N ) = max                   1.                        (7.52)
+                                                        M
+                                                              n=M+1
+                                                             p|n⇒ p>N
+
+        Clearly ρ(N ) ≤ ρ(N ). We expect that
+
+                                                  ρ(N ) = ρ(N )                                    (7.53)
+
+        for all N , since this would follow from the
+        Prime k-tuple conjecture. Let a1 , a2 , . . . , ak , be given integers. Then there
+        exist inﬁnitely many positive integers n such that n + a1 , n + a2 , . . . , n + ak
+        are all prime, provided that for every prime number p there is an integer n such
+        that (n + ai , p) = 1 for i = 1, 2, . . . , k.
+           We now show that ρ(N ) > π (N ) for all large N , so that (7.51) and (7.53)
+        are inconsistent.
+
+        Theorem 7.16           There is an absolute constant N0 such that if N > N0 then
+        ρ(N ) − π(N )          N (log N )−2 .
+
+        Proof Suppose that N is even and that N > 2. Then for every M,
+                                  
+                                  M+N                 
+                                                      M+N                −1
+                                                                        M+N
+                                            1 =                1 ≥                   1.
+                                 n=M+1              n=M+1                n=M+1
+                                p|n⇒ p>N           p|n⇒ p≥N           p|n⇒ p>N −1
+
+        Hence ρ(N ) ≥ ρ(N − 1) when N is even, N > 2, so it sufﬁces to treat the case
+        when N is odd, say N = 2K + 1. Let P(K ) denote the set of integers n with
+        K /(2 log K ) < |n| ≤ K and |n| prime. Then
+
+                                card P(K ) = 2(π (K ) − π (K /(2 log K ))),
+
+        so by Theorem 6.9,
+                                                                                  K
+                             card P(K ) = π (2K + 1) + (c + o(1))
+                                                                               (log K )2
+        where c = 2 log 2 − 1 > 0. We now show that P(K ) can be translated to form
+                                                                          
+        a set of integers {M + n : n ∈ P(K )} with each member coprime to p≤N p.
+        By the Chinese Remainder Theorem it sufﬁces to show that for every prime
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                        7.3 Primes in short intervals                              225
+
+
+        number p ≤ N there is a residue class r p (mod p) that contains no element of
+        P(K ).
+            Obviously each element of P(K ) is coprime to each prime p ≤ K /(2 log K ),
+        so we may take r p = 0 for such primes. It remains to treat the primes p for
+        which K /(2 log K ) < p ≤ 2K + 1. This is accomplished by means of a clever
+        application of Lemma 7.13. Suppose that K /(2 log K ) < p ≤ 2K + 1. We
+        show that there is an r p such that if |hp + r p | ≤ K , then hp + r p ∈
+                                                                               / P(K ). By
+        Lemma 7.13 there is an interval J = [M1 − 3 log K , M1 + 3 log K ] in which
+        every integer j is divisible by a prime p j with p j ≤ 13 log K . By the Chinese
+        Remainder Theorem, we can choose r p so that r p ≡ M1 p (mod p j ) for each
+         j ∈ J . This can be done with 0 < r p ≤ exp ϑ( 13 log K ) < K 1/2 . If |h| ≤
+        3 log K then h = j − M1 for some j ∈ J and so h ≡ −M1 (mod p j ). Hence
+        hp + r p ≡ −M1 p + r p ≡ 0 (mod p j ), which implies that hp +   rp ∈/ P(K ). On
+        the other hand, if |h| > 3 log K , then |hp + r p | ≥ 2 − o(1) K > K , so that
+                                                                  3
+
+        hp + r p ∈/ P(K ) in this case also. Since the arithmetic progression hp + r p has
+        no element in common with P(K ) the proof is complete.                           
+
+
+                                               7.3.1      Exercises
+          1. Show that the function ρ(N ) is weakly increasing.
+          2. (a) Show that in the prime k-tuple conjecture, the hypothesis that for every
+                  prime p the numbers a j do not cover all residue classes (mod p) is
+                  satisﬁed for all p > k, so that it is enough to verify the hypothesis for
+                  p ≤ k (a ﬁnite calculation for any given set of a j ).
+             (b) Prove the converse of the prime k-tuple conjecture: If there exist in-
+                  ﬁnitely many integers n for which n + a j is prime for all j, 1 ≤ j ≤ k,
+                  then for every prime p there is a residue class x (mod p) such that
+                  x + a j ≡ 0 (mod p)(1 ≤ j ≤ k).
+          3. Show that g(q)       qω(q)/ϕ(q).
+          4. (cf. Erdős 1951) Show that if 0 < c < 1/2 then there exist arbitrarily large
+             numbers x such that the interval (x, x + c(log x)/ log log x) contains no
+             square-free number.
+          5. (cf. Erdős 1946, Montgomery 1987) Suppose that 2 ≤ h ≤ x. Let P de-
+             note the set of all primes p ≤ h, let D denote the set of positive integers
+                                                                   
+             composed entirely of primes in P, and let f (n) = p|n, p∈P (1 − 1/ p).
+                                     
+             (a) Show that f (n) = d|n,d∈D µ(d)/d.
+             (b) Show that
+                                                      6
+                                            f (n) = 2 h + O(log h)
+                                   x<n≤x+h
+                                                      π
+                   uniformly in x.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        226                    Applications of the Prime Number Theorem
+
+
+              (c) Show that
+                                               ϕ(n)            1
+                                                    ≥ f (n) −       .
+                                                n             p|n
+                                                                  p
+                                                                     p>h
+
+              (d) Among those primes p > h that divide an integer in the interval (x, x +
+                  h], let Q be those for which p ≤ h log x, and R those for which p >
+                  h log x. Show that
+                                        1
+                                                 log log log x.
+                                        p∈Q
+                                            p
+
+              (e) Explain why
+
+                                                           p               n,
+                                                   p∈R         x<n≤x+h
+                                                U < p≤2U
+
+                   and deduce that
+                                                                                h log x
+                                    card{ p ∈ R : U < p ≤ 2U }                          .
+                                                                                log U
+              (f) By summing over U = 2k h log x, show that
+                                    1              1
+                                                            .
+                                    p∈R
+                                        p      log(h log x)
+
+              (g) Show that
+                6                                       ϕ(n)    6
+                   h + O(log h) + O(log log log x) ≤           ≤ 2 h + O(log h).
+               π 2
+                                                     x<n≤x+h
+                                                             n  π
+          6. (cf. Pillai & Chowla 1930) Show that there is an absolute constant c > 0
+             such that there exist arbitrarily large x for which ϕ(n)/n < 1/4 when x <
+             n ≤ x + c log log log x. Deduce that
+                               ϕ(n)         6
+                                         − 2 x = (log log log x).
+                              n≤x    n       π
+          7. (Hausman & Shapiro 1973; cf. Montgomery & Vaughan 1986)
+              (a) Show that
+                ⎛                    ⎞2
+            q
+                ⎜    h
+                               ϕ(q)  ⎟
+                ⎝           1−      h⎠
+           n=1       m=1
+                                q
+                    (m+n,q)=1
+
+                                       ϕ(q)2           r2                           p( p − 2)
+                                   =            µ(r )2        {h/r }(1 − {h/r })               .
+                                         q r |q        ϕ(r )2                    p|q
+                                                                                     ( p − 1)2
+                                               r >1                                         pr
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                        7.3 Primes in short intervals                              227
+
+
+              (b) Use the inequality {α}(1 − {α}) ≤ α to show that
+
+                                      ⎛                                ⎞2
+                                    
+                                    q
+                                      ⎜         
+                                                h
+                                                                  ϕ(q) ⎟
+                                      ⎝                      1−       h ⎠ ≤ hϕ(q).
+                                     n=1       m=1
+                                                                   q
+                                             (m+n,q)=1
+
+
+          8. (Erdős 1951) (a) For a positive integer q, let S(q) denote the set of those
+             residue classes s modulo q 2 such that (s, q) is a perfect square. Show
+                                                                      
+             that if q is square-free, then S(q) contains exactly p|q ( p 2 − p + 1)
+             elements.
+             (b) Show that if q is square-free and 1 ≤ h ≤ q 2 , then there is an integer
+                 a such that the number of members of S(q) in the interval (a, a + h]
+                 is at most
+                                                                         
+                                                                  1   1
+                                               h          1−        + 2       .
+                                                   p|q
+                                                                  p  p
+
+
+              (c) From now on, suppose that q is the product of those primes p ≤ y such
+                   that p ≡ 3 (mod 4). By recalling Corollary 4.12, or otherwise, show
+                                                      √
+                   that the expression above is h/ log y.
+              (d) Show that if an integer n can be expressed as a sum of two squares,
+                   then n ∈ S(q).
+              (e) Let R be the set of those primes p, y < p ≤ C y, such that p ≡
+                   3 (mod 4). Here C is an absolute constant, taken to be sufﬁciently
+                   large to ensure that R has at least y/ log y elements. Note that such a
+                   constant exists, in view of Exercise 4.3.5(e). Let r denote the product of
+                   all members of R. Suppose that the number of members of S(q) lying
+                   in the interval (a, a + h] is < y/ log y. For each s ∈ S(q) satisfying
+                   a < s ≤ a + h, associate a prime p ∈ R. Suppose that the integer b is
+                   chosen modulo p2 so that s + bq 2 ≡ p (mod p 2 ). Show that the interval
+                   (a + bq 2 , a + bq 2 + h] does not contain a sum of two squares.
+              (f) Show that a and b can be chosen so that 0 < a + bq 2 < (qr )2 .
+              (g) Show that log qr        y.
+                                                                                   √
+              (h) Show that this construction succeeds with h y/ log y
+                   (log qr )/(log log qr )1/2 .
+               (i) Conclude that there exist arbitrarily large x such that there is no sum of
+                   two squares between x and x + c(log x)/(log log x)1/2 . Here c is a suit-
+                   ably small positive constant. (Note that a stronger result is established
+                   in the next exercise.)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        228                    Applications of the Prime Number Theorem
+
+
+          9. (Richards 1982) For every prime p ≤ y, let β( p) denote the greatest positive
+             integer such that pβ ≤ y, and put
+
+                                                  q=             p 2β( p) .
+                                                        p≤y
+                                                       p≡3 (4)
+
+
+              (a) Show that q = exp(2ψ(y; 4, 3)).
+              (b) Show that log q       y.
+              (c) Suppose that 1 ≤ n ≤ y. Show that if n ≡ 3 (mod 4), then there is a
+                   prime p|q such that p divides n to an odd power.
+              (d) Let x = (q − 1)/4. Show that x is an integer, and that 4x ≡ −1
+                   (mod q).
+              (e) Show that if 1 ≤ i ≤ y/4 and p|q, then the power of p that exactly
+                   divides x + i is the same as the power of p that exactly divides 4i − 1.
+               (f) Deduce that no integer in the interval (x, x + y/4] can be expressed as
+                   a sum of two squares.
+              (g) Conclude that there exist arbitrarily large numbers x such that no num-
+                   ber between x and x + c log x is a sum of two squares. Here c is a
+                   suitably small positive constant.
+
+
+
+          7.4      Numbers composed of a prescribed number of primes
+        Let σk (x) denote the number of integers n with 1 ≤ n ≤ x and (n) = k. Then
+        σ1 (x) = π(x) ∼ x/ log x. Consider σ2 (x). Clearly
+                                          
+                      σ2 (x) =       1=        (π (x/ p) − π ( p) + O(1)) .
+                                       p1 , p2         √
+                                       p1 ≤ p2       p≤ x
+                                      p1 p2 ≤x
+
+        By the Prime Number Theorem this is
+                                                              
+                                             x              x
+                       =      (1 + o(1))             +O           .
+                           √
+                         p≤ x
+                                         p(log x/ p)      log x
+
+        Thus, by partial summation and a further application of the Prime Number
+        Theorem we ﬁnd that
+                                                            x log log x
+                                                 σ2 (x) ∼               .                          (7.54)
+                                                               log x
+        By inducting on k in this manner it can be shown that
+                                                        x(log log x)k−1
+                                            σk (x) ∼                                               (7.55)
+                                                        (k − 1)! log x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                      7.4 Numbers composed of a prescribed number of primes                        229
+
+
+        for any ﬁxed k. Since the sum over all k ≥ 1 of the right-hand side is exactly x,
+        it is tempting to think that the above holds quite uniformly in k. However this
+        is not the case, as we shall presently discover. To obtain precise estimates that
+        are uniform in k we apply analytic methods. In Section 2.4 we determined the
+        asymptotic distribution of the additive function (n) − ω(n) by establishing
+        the mean value of the multiplicative function z (n)−ω(n) . In the same spirit
+        we shall derive information concerning the distribution of (n) from mean
+        value estimates of z (n) . Since the Euler product of this latter function behaves
+        badly when |z| is large, we start not with z (n) but with dz (n) deﬁned by the
+        identities
+                                             −z  ∞
+                     ζ (s)z =        1 − p −s    =     dz (n)n −s     (σ > 1).        (7.56)
+                                     p                       n=1
+
+        Since dz ( p) = z = z ( p) , the functions dz (n) and z (n) are ‘nearby’, and hence
+        the mean value of z (n) can be derived from that for dz (n) by elementary
+        reasoning.
+                                           
+        Theorem 7.17 Let Dz (x) = n≤x dz (n), and let R be any positive real num-
+        ber. If x ≥ 2, then
+                                              x(log x)z−1
+                                 Dz (x) =                 + O(x(log x)z−2 )
+                                                   (z)
+        uniformly for |z| ≤ R.
+        Proof Let a = 1 + 1/ log x. Then by Corollary 5.3,
+                         a+i T                                               
+                     1               xs                                  x
+           Dz (x) −            ζ (s)z ds             |dz (n)| min 1,
+                    2πi a−i T        s      1
+                                                                     T |x − n|
+                                            2 x<n<2x
+                                                                             (7.57)
+                                               xa              −a
+                                            +          |dz (n)|n .
+                                                T n
+        Since |dz (n)| is erratic, we must exercise some care in estimating the error terms
+        above. Let A = {n : |n − x| ≤ x/(log x)2R+1 }. Without loss of generality we
+        may suppose that R is an integer. We note that |dz (n)| ≤ d|z| (n) ≤ d R (n). By
+        the method of the hyperbola we see by induction on R that
+                                                                     
+                                 D R (x) = x PR (log x) + O R x 1−1/R
+        where PR is a polynomial of degree R − 1. Hence the contribution to the ﬁrst
+        sum in the error term in (7.57) of the n ∈ A is
+                                    
+                                        |dz (n)|  x(log x)−R−2
+                                            n∈A
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        230                    Applications of the Prime Number Theorem
+
+
+        The contribution of the n ∈
+                                  / A is
+                                       T −1 (log x)2R+1 x(log x) R−1 .
+                             √       
+        We take T = exp         log x to see that this is also      x(log x)−R−2 . The second
+        sum in the error term in (7.57) is ζ (a)     R             R
+                                                            (log x) . Thus the total error term
+                         −R−2
+        is     x(log x)       .
+            If z is a positive integer, then ζ (s)z has a pole at s = 1, and we can extract
+        a main term by the calculus of residues, as in our proof of the Prime Number
+        Theorem (Theorem 6.9). On the other hand, if z is not an integer, then ζ (s)z
+        has a branch point at s = 1, so greater care must be exercised in moving the
+        path of integration. Put b = 1 − c/ log T where c is a small positive constant,
+        and replace the contour from a − i T to a + i T by a path consisting of C1 ,
+        C2 , C3 where C1 is a polygonal with vertices a − i T , b − i T , b − i/ log x, C2
+        begins with a line segment from b − i/ log x to 1 − i/ log x, continues with
+        the semicircle {1 + eiθ / log x : −π/2 ≤ θ ≤ π/2}, and concludes with the line
+        segment from 1 + i/ log x to b + i/ log x, and ﬁnally C3 is polygonal with
+        vertices b + i/ log x, b + i T , a + i T . By Theorem 6.7, ζ (s)z       (log x) R on the
+        new path, so the integrals over C1 and C3 contribute an amount x(log x)−R−2 .
+        On C2 we have ζ (s)z /s = (s − 1)−z (1 + O(|s − 1|)). Hence
+                                                                                            
+          1              xs         1
+                   ζ (s)z ds =              (s − 1)−z x s ds + O         |s − 1|1−z x σ |ds| .
+        2πi C2            s        2πi C2                             C2
+                                                                                          (7.58)
+        By the change of variables s = 1 + w/ log x we see that the main term above is
+                                                         1
+                                       x(log x)z−1                 w−z ew dw
+                                                        2πi   H2
+
+        where H2 starts at −β − i, loops around 0, and ends at −β + i where β =
+        c(log x)/ log T . Let H1 be the contour H1 = {w = u − i : −∞ < u ≤ −β},
+        and similarly let H3 = {w = u + i : −∞ < u ≤ −β}. If we integrate over
+        the union of the Hi , then we obtain Hankel’s         formula (see Theorem C.3)
+                                                          ∞ −u/2
+        for 1/ (z). The integral over H1 is           R β   e      du R e−β/2 , which is
+                                 √
+        small since T = exp( log x). Thus we see that the main term in (7.58) is
+                                             √
+        x(log x)z−1 / (z) + O R (x exp(−c log x)) for some constant c. On the semi-
+        circular part of C2 the integrand in the error term in (7.58) is x(log x)z−1 , so
+        the contribution is x(log x)z−2 . By the change of variables s = 1 + w/ log x
+        we see that the linear portions of C2 contribute an amount
+                                              ∞
+                        x(log x)z−2              (u 2 + 1)(R−1)/2 e−u du      R x(log x)
+                                                                                         z−2
+                                                                                              .
+                                          0
+
+        Thus we have the stated estimate, and the proof is complete.                               
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                      7.4 Numbers composed of a prescribed number of primes                         231
+
+
+           We now establish a procedure by which we can pass from dz (n) to other
+        nearby functions.
+                                          ∞
+                                            m=1 |bz (m)|(log m)     /m is uniformly
+                                                               2R+1
+        Theorem 7.18 Suppose that
+        bounded for |z| ≤ R, and for σ ≥ 1 let
+                                            ∞
+                                  F(s, z) =     bz (m)m −s .
+                                                         m=1
+
+        Let az (n) be deﬁned by the relation
+                                            
+                                            ∞
+                           ζ (s)z F(s, z) =   az (n)n −s                    (σ > 1)
+                                                     n=1
+                              
+        and let A z (x) =         n≤x az (n). Then for x ≥ 2,
+                               F(1, z)                            
+                             A z (x) = x(log x)z−1 + O x(log x)z−2 .
+                                 (z)
+                            
+        Proof Since az (n) = m|n bz (m)dz (n/m), we see by Theorem 7.17 that
+                                          
+        A z (x) =    bz (m)Dz (x/m) +            bz (m)
+                     m≤x/2                          x/2<m≤x
+                                                                            
+                       x  bz (m)                   |bz (m)|
+                                                                        z−2
+                 =                 (log x/m) + O x
+                                            z−1
+                                                              (log 2x/m)       .
+                       (z) m≤x/2 m                 m≤x  m
+                                                                                                   (7.59)
+        The error term here is
+                               |bz (m)|                  |bz (m)|
+                x(log x)z−2             + x(log x)−R−2             (log m)2R
+                               √
+                             m≤ x
+                                   m                      √
+                                                        m> x
+                                                              m
+
+                   x(log x)z−2 .
+        In the main term, when m ≤ x 1/2 we write
+                                                                        
+                         (log x/m)z−1 = (log x)z−1 + O (log m)(log x)z−2 .
+        Thus the ﬁrst sum on the right-hand side of (7.59) is
+                            bz (m)
+            = (log x)z−1
+                          m≤x/2
+                                 m
+                    ⎛                                                           ⎞
+                                   |bz (m)|                         |bz (m)|
+               + O ⎝(log x)z−2                log m + (log x) R−1              ⎠
+                                    √
+                                 m≤ x
+                                         m                           √
+                                                                   m> x
+                                                                          m
+                                                                           
+                                                     |bz (m)|
+                                               z−2
+            = (log x) F(1, z) + O (log x)
+                       z−1
+                                                                (log m)2R+1
+                                                                              ,
+                                                     m     m
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        232                    Applications of the Prime Number Theorem
+
+
+        which gives the result.                                                                        
+
+            Suppose that R < 2, and let
+                                                                −1                    z
+                                                           z                   1
+                                  F(s, z) =             1− s                1− s                   (7.60)
+                                                  p       p                   p
+
+        for σ > 1, |z| ≤ R. Then az (n) = z (n) in the notation of Theorem 7.18. Hence,
+        with σk (x) deﬁned as at the beginning of this section we ﬁnd that
+                                                                    
+                                                                     ∞
+                                      A z (x) =           z (n) =         σk (x)z k .
+                                                  n≤x                k=0
+
+        Here the power series on the right is actually a polynomial, since σk (x) = 0 for
+        sufﬁciently large k, when x is ﬁxed. Our asymptotic estimate for A z (x) enables
+        us to recover an estimate for the power series coefﬁcients σk (x), since Cauchy’s
+        formula asserts that
+                                                       1            A z (x)
+                                        σk (x) =                      k+1
+                                                                            dz                     (7.61)
+                                                      2πi     |z|=r z
+
+        for r < 2.
+
+        Theorem 7.19 Suppose that R < 2, that F(s, z) is given by (7.60), and that
+        G(z) = F(1, z)/ (z + 1). Then
+                                                                       
+                          k−1      x(log log x)k−1                  k
+           σk (x) = G                                1 + OR                   (7.62)
+                        log log x (k − 1)! log x              (log log x)2
+        uniformly for 1 ≤ k ≤ R log log x.
+
+            Since G(0) = G(1) = 1, we see that (7.55) holds when k = o(log log x), and
+        also when k = (1 + o(1)) log log x, but that (7.55) does not hold in general. The
+        restriction to R < 2 is necessary because of the contribution of the prime p = 2
+        in the Euler product (7.60) for F(s, z). If z ≥ 2, then the behaviour is different;
+        see Exercises 7.4.5 and 7.4.6, below.
+
+        Proof Our quantitative form of the Prime Number Theorem (Theorem 6.9)
+        gives the case k = 1, so we may assume that k > 1. We substitute the estimate of
+        Theorem 7.18 in (7.61) with r = (k − 1)/ log log x. The error term contributes
+        an amount
+                                                                             k
+                                                     x       k−1 (log log x)
+                         x(log x)r −2r −k =                e
+                                                  (log x)2          (k − 1)k
+                                                                  k
+                                                    x(log log x)          x(log log x)k−3
+                                                                                          .
+                                                  (k − 1)!(log x)2        (k − 1)! log x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                      7.4 Numbers composed of a prescribed number of primes                                          233
+
+
+        This is majorized by the error term in (7.62) since G((k − 1)/ log log x)      1.
+        The main term we obtain from (7.61) is x I / log x where
+                 1
+          I =             G(z)(log x)z z −k dz
+                2πi |z|=r
+                G(r )                          1
+            =             (log x)z z −k dz +           (G(z) − G(r ))(log x)z z −k dz.
+                2πi |z|=r                    2πi |z|=r
+        By integration by parts we ﬁnd that
+                     r                            1
+                              (log x)z z −k dz =                                         (log x)z z 1−k dz.
+                    2πi |z|=r                    2πi                             |z|=r
+                                                    
+        We multiply both sides by G (r ) and combine with the former identity to see
+        that
+                   G(r )
+             I =              (log x)z z −k d x
+                   2πi |z|=r
+                      1
+                   +            (G(z) − G(r ) − G  (r )(z − r ))(log x)z z −k dz. (7.63)
+                     2πi |z|=r
+        Here the ﬁrst integral is (log log x)k−1 /(k − 1)! by Cauchy’s theorem, which
+        gives the desired main term. On the other hand,
+                                                                        z
+                 G(z) − G(r ) − G  (r )(z − r ) =                          (z − w)G  (w) dw         |z − r |2 ,
+                                                                    r
+
+        so that if we write z = r e2πiθ , then the second integral in (7.63) is
+                                                        1/2
+                                        r 3−k                 (sin π θ)2 e(k−1) cos 2π θ dθ.
+                                                    −1/2
+
+        But | sin x| ≤ |x| and cos 2πθ ≤ 1 − 8θ 2 for −1/2 ≤ θ ≤ 1/2, so the above is
+                              ∞
+                                                                                          (log log x)k−3 ek−1
+                                  θ 2 e−8(k−1)θ dθ               r 3−k ek−1 (k − 1)−3/2 =
+                                                2
+             r 3−k ek−1
+                          0                                                                  (k − 1)k−3/2
+                                                                 k(log log x)k−3 /(k − 1)!.
+        This completes the proof of the theorem.                                                                      
+
+            The decomposition in (7.63) is motivated by the observation that |(log x)z |
+        is largest, for |z| = r , when z = r . We take the Taylor expansion to the second
+        term because
+                          (z − r )2 (log x)z z −k dz                         |z − r |2 |(log x)z z −k | |dz|,
+
+        whereas
+                                                                                                          
+                        (z − r )(log x)z z −k dz = o                          |z − r ||(log x)z z −k | |dz| .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        234                    Applications of the Prime Number Theorem
+
+
+        By the calculus of residues we may write
+                                           1     d k−1               
+                                  I =                    G(z)(log x)z
+                                       (k − 1)! dz k−1                  z=0
+                                        G (0) (log log x)
+                                       k−1   (ν)               k−1−ν
+                                     =                               .
+                                       ν=0
+                                              ν!      (k − 1 − ν)!
+
+        This gives a more accurate, but more complicated, main term.
+           In Section 2.3 we saw that (n) rarely differs very much from log log n.
+        In particular, from Theorem 2.12 we see that if r < 1, then the number
+        of n ≤ x for which (n) < r log log n is r x/ log log x. We now give a
+        much sharper upper bound for the number of occurrences of such large
+        deviations.
+
+        Theorem 7.20 Let A(x, r ) denote the number of n ≤ x such that (n) ≤
+        r log log x, and let B(x, r ) denote the number of n ≤ x for which (n) ≥
+        r log log x. If 0 < r ≤ 1 and x ≥ 2, then
+
+                                         A(x, r )      x(log x)r −1−r log r .
+
+        If 1 ≤ r ≤ R < 2 and x ≥ 2, then
+                                                               r −1−r log r
+                                        B(x, r )     R x(log x)             .
+
+        Proof We argue directly from Theorem 7.18, using a modiﬁed form of
+        Rankin’s method. If 0 ≤ r ≤ 1 and (n) ≤ r log log x, then r r log log x ≤ r (n) .
+        Hence
+                                                         
+                              A(x, r ) ≤ (log x)−r log r   r (n) .
+                                                                     n≤x
+
+        By Theorem 7.18 this is
+                                             F(1, r )
+                                         ∼            x(log x)r −1−r log r
+                                               (r )
+        where F(s, z) is taken as in (7.60). This gives the result since F(1, r ) 1 and
+           (r )       1 uniformly for 0 < r ≤ 1.
+             Now suppose that 1 ≤ r ≤ R < 2 and that (n) ≥ r log log x. Then r (n) ≥
+          r log log x
+        r             , and hence
+                                                               
+                                    B(x, r ) ≤ (log x)−r log r   r (n) .
+                                                                     n≤x
+
+        Thus we have only to proceed as before to obtain the result.                               
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                      7.4 Numbers composed of a prescribed number of primes                               235
+
+
+           In discussing Theorem 2.12 we proposed a probabilistic model, which in
+        conjunction with the Central Limit Theorem would predict that the quantity
+                                                     (n) − log log n
+                                              αn =     √                                             (7.64)
+                                                          log log n
+
+        is asymptotically normally distributed. We now conﬁrm this.
+
+        Theorem 7.21 Let αn be given by (7.64) and suppose that Y > 0. Then the
+        number of n, 3 ≤ n ≤ x, such that αn ≤ y is
+                                                          
+                                                    x
+                               (y)x + OY √
+                                                 log log x
+
+        uniformly for −Y ≤ y ≤ Y where
+                                                               y
+                                                 1
+                                                                   e−t /2 dt.
+                                                                      2
+                                         (y) = √
+                                                  2π         −∞
+
+        Proof      Let
+                                             (n) − log log x
+                                            βn =
+                                               √              .
+                                                   log log x
+                                               √
+        Since  (y)      1 and αn − βn      1/ log log x when x 1/2 ≤ n ≤ x and (n) ≤
+        2 log log x, it sufﬁces to consider βn in place of αn . We may of course also
+        suppose that x is large.
+            Let k be a natural number and let u be deﬁned by writing k = u + log log x.
+        If |u| ≤ 12 log log x, then by Stirling’s formula (see (B.26) or the more general
+        Theorem C.1) we see that
+           (log log x)k−1
+              (k − 1)!
+                                                              12 −log log x−u                         
+                      eu log x                     u                                              1
+                   =√                       1+                                   1+O                           .
+                     2π log log x              log log x                                      log log x
+
+        The estimate log(1 + δ) = δ − δ 2/2 + O(|δ|3 ) holds uniformly for |δ| ≤ 1/2.
+        By taking δ = u/ log log x we ﬁnd that
+                               12 −log log x−u
+                         u
+                 1+
+                     log log x
+                                                                                
+                                 u − u2               u2                 |u|3
+               = exp −u +                     −                + O                   .
+                               2 log log x       4(log log x)2       (log log x)2
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        236                    Applications of the Prime Number Theorem
+
+
+        Suppose now that |u| ≤ (log log x)2/3 . By considering separately |u| ≤
+        (log log x)1/2 and (log log x)1/2 < |u| ≤ (log log x)2/3 we see that
+                                     u                  1             |u|3
+                                                  √             +              .
+                                 log log x            log log x   (log log x)2
+        Similarly, by considering |u| ≤ 1 and |u| > 1 we see that
+                                     u2                      1             |u|3
+                                                    √                +              .
+                                (log log x)2               log log x   (log log x)2
+        On combining these estimates we deduce that
+                                                              
+             (log log x)k−1       log x                −u 2
+                            = √              exp
+                (k − 1)!        2π log log x       2 log log x
+                                                                          
+                                               1                     |u|3
+                              × 1+O √                    +O
+                                             log log x           (log log x)2
+        uniformly for |u| ≤ (log log x)2/3 . In Theorem 7.19 we have G(1) = 1 and
+                                                                 
+                                k−1                        1 + |u|
+                          G                = G(1) + O                 .
+                              log log x                   log log x
+        Hence by Theorem 7.19,
+
+                           x exp −(k−log
+                                                       2
+                                           log x)
+                                    2 log log x
+                  σk (x) =    √
+                                2π log log x
+                                                                           
+                                                1             |k − log log x|3
+                           × 1+O √                       +O                       .
+                                             log log x          (log log x)2
+        By Theorem 7.20 we know that the contribution of k ≤ log log x −
+        (log log x)2/3 is negligible. We sum over the range
+
+                     log log x − (log log x)2/3 ≤ k ≤ log log x + y(log log x)1/2 .
+
+        This gives rise to three sums, one for the main term and two for error terms.
+        Each of these sums can be considered to be a Riemann sum for an associated
+        integral, and the stated result follows.                                   
+
+
+                                               7.4.1        Exercises
+          1. Let p1 , p2 , . . . , p K be distinct primes. Show that the number of n ≤ x
+             composed entirely of the pk is
+                                        (log x) K                  
+                                        K          + O (log x) K −1 .
+                                     K ! k=1 log pk
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                      7.4 Numbers composed of a prescribed number of primes                        237
+
+
+          2. (a) Let dz (n) be deﬁned as in (7.56), and suppose that |z| ≤ R. Show that
+                 |dz (n)| ≤ d|z| (n) ≤ d R (n).
+             (b) Let F(s, z) be deﬁned as in (7.60). Show that if 0 < r < 1 and σ > 1/2,
+                 then 0 < F(σ, r ) < 1.
+             (c) Let F(s, z) be deﬁned as in (7.60). Show that if 1 < r < 2, then the
+                 Dirichlet series coefﬁcients of F(s, r ) are all non-negative.
+          3. (a) Show that if
+                                                                    
+                                                       z            1 z
+                              F(s, z) =           1+ s         1− s ,
+                                            p       p −1            p
+                  then F(s, z) converges for σ > 1/2, uniformly for |z| ≤ R.
+              (b) Show that if F(s, z) is taken as above, and if az (n) is deﬁned as in
+                  Theorem 7.18, then az (n) = z ω(n) .
+              (c) Let ρk (x) denote the number of n ≤ x for which ω(n) = k. Show that
+                  if x ≥ 2, then
+                                                                              
+                                 k−1      x(log log x)k−1                  k
+                  ρk (x) = G                                1 + OR
+                               log log x (k − 1)! log x              (log log x)2
+                  uniformly for 1 ≤ k ≤ R log log x where G(z) = F(1, z)/ (z + 1).
+              (d) Show that G(0) = G(1) = 1.
+              (e) Let A(x, r ) denote the number of n ≤ x for which ω(n) ≤ r log log x.
+                  Show that
+                                            A(x, r )         x(log x)r −1−r log r
+                  uniformly for 0 < r ≤ 1.
+              (f) Let B(x, r ) denote the number of n ≤ x for which ω(n) ≥ r log log x.
+                  Show that
+                                            B(x, r )         x(log x)r −1−r log r
+                 uniformly for 1 ≤ r ≤ R.
+          4. (a) Show that if
+                                                                                   z
+                                                                  z              1
+                                      F(s, z) =           1+                1−             ,
+                                                     p            ps             ps
+                  then F(s, z) converges for σ > 1/2, uniformly for |z| ≤ R.
+              (b) Show that if F(s, z) is taken as above, and if az (n) is deﬁned as in
+                  Theorem 7.18, then az (n) = µ(n)2 z ω(n) .
+              (c) Let πk (x) denote the number of square-free n ≤ x for which ω(n) = k.
+                  Show that if x ≥ 2, then
+                                                                               
+                                  k−1      x(log log x)k−1                  k
+                 πk (x) = G                                  1 + OR
+                                log log x (k − 1)! log x              (log log x)2
+                   uniformly for 1 ≤ k ≤ R log log x where G(z) = F(1, z)/ (z + 1).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        238                    Applications of the Prime Number Theorem
+
+
+             (d) Show that G(0) = G(1) = 1.
+          5. (a) Show that if x ≥ 2, then
+                                
+                                   2(n) = cx(log x)2 + O(x log x)
+                                       n≤x
+
+                  where c is a positive constant.
+              (b) Show that if x ≥ 2, then
+                                      
+                                         2ω(n) = cx log x + O(x)
+                                             n≤x
+
+               where c is a positive constant.
+          6. Show that if (2 + ε) log log x ≤ k ≤ R log log x, then σk (x) ∼ c2−k x log x.
+          7. Show that if δ ≤ r ≤ 1 − δ (or 1 + δ ≤ r ≤ 2 − δ), then A(x, r ) (or
+                                                              √
+             B(x, r ), respectively) is x(log x)r −1−r log r / log log r .
+          8. Show that if x is large, then there is a k such that
+                                                       x
+                                         σk (x) ≥ √             .
+                                                 3 log log x
+                                          
+         9. Show that the mean value n≤x d(n) ∼ x log x is due to the numbers n ≤ x
+                                                   √
+            for which |ω(n) − 2 log log x|           log log x.
+        10. Suppose that 1/2 ≤ r ≤ R. Show that the number of square-free n ≤ x that
+            can be written as a sum of two squares and for which ω(n) ≥ r log log x is
+                         r −1−r log 2r
+               R x(log x)              .
+        11. (Addison 1957) Let Mq,k (x) denote the number of n ≤ x such that (n) ≡
+            k (mod q).
+            (a) Show that if q is ﬁxed, then Mq,k (x) ∼ x/q as x → ∞.
+            (b) Show that if q is ﬁxed, q > 2, then
+                                                                     
+                                                 x                x
+                                    Mq,k (x) − = ±
+                                                 q           (log x)κ
+
+               where κ = 1 − cos 2π/q.
+        12. Show that
+                                  1                                x
+                                                            ∼
+                                             1<n≤x
+                                                     ω(n)       log log x
+
+            as x → ∞.
+        13. Show that if x ≥ 2, then
+                                      (n)                                     
+                                                                         x
+                                                     =x+O                            .
+                                    1<n≤x
+                                             ω(n)                    log log x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     7.5 Notes                                     239
+
+
+        14. Suppose that 0 ≤ α ≤ 1. Show that
+               card{m : m|n, m ≤ n α }                          
+                                            2      √         x
+                                         = x arcsin α + O √         .
+              n≤x           d(n)            π               log x
+
+        15. Show that if x ≥ 16, then
+                                                            
+                                       6              x
+                                   1 = 2x + O                   .
+                            n≤x       π         log log log x
+                                 (n,(n))=1
+
+
+
+
+                                                  7.5       Notes
+        Section 7.1. Theorem 7.2 was ﬁrst proved by Dickman (1930), and was redis-
+        covered by Chowla & Vijayaraghavan (1947), Ramaswami (1949), and Buch-
+        stab (1949). de Bruijn (1951a) gave a more precise estimate for ψ(x, y), over
+        a longer range of y. There is a considerable range of applications of ψ(x, y),
+        such as those to the distribution of k th power residues, Waring’s problem, and
+        the complexity of arithmetical algorithms in computer science. As a reﬂection
+        of this there have been two signiﬁcant survey articles, by Norton (1971) and by
+        Hildebrand & Tenenbaum (1993).
+            Our treatment of ψ(x, y) is fairly elementary, but it would be natural to take
+        a more analytic approach, and use Perron’s formula to write
+                                                    c+i∞
+                                            1                                     xs
+                            ψ(x, y) =                             (1 − p −s )−1      ds
+                                           2πi     c−i∞     p≤y                   s
+                                                    c+i∞
+                                            1                                          xs
+                                       =                   ζ (s)         (1 − p −s )      ds.
+                                           2πi     c−i∞            p>y                 s
+
+        For s not too large, an approximation to the product over p > y is provided by
+        the Prime Number Theorem, and this suggests the main term
+                                  c+i∞                ∞                s
+                            1                             −s      −1      x
+               (x, y) =               ζ (s) exp −       v (log v) dv        ds.
+                          2πi c−i∞                   y                     s
+        It can be shown that this is indeed a good approximation to ψ(x, y) over a very
+        long range, but the technical details are rather heavy. By Theorem 7.10 it is not
+        hard to show that
+                                                       ∞
+                                   (x, y) = x             ρ(u − v)d([y v ]y −v )
+                                                     0−
+
+        where we use (7.30) to extend the deﬁnition of ρ(u) to u ≤ 0. It follows that
+
+                                                 (x, y) ∼ ρ(u)x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        240                    Applications of the Prime Number Theorem
+
+
+        for a large range of u. For the further development of the theory, especially on
+        the analytic side, see Hildebrand & Tenenbaum (1993).
+           Section 7.2. Theorem 7.11 is due to Buchstab (1937). The ﬁner details of
+        the behaviour of (x, y) when u is large are intimately connected with sieve
+        theory, especially that of the linear sieve, i.e., the sieve in which on average one
+        residue class (mod p) is removed. The standard references are Greaves (2001),
+        Halberstam & Richert (1974), Selberg (1991).
+           Section 7.3. Theorem 7.14 was ﬁrst proved by Westzynthius (1931). Erdős
+        (1935a) showed that
+                                               pn+1 − pn
+                       lim sup                                           2
+                                                                           > 0,
+                         n→∞ (log pn )(log log pn )/(log log log pn )
+
+        and then Rankin (1938) obtained Theorem 7.15 with c = 1/3. The value of c
+        has been successively improved by Schönhage (1963), Rankin (1963), Maier
+        & Pomerance (1990), culminating in the value c = 2eC0 of Pintz (1997). Erdős
+        offered a $10,000 prize for the ﬁrst proof that the limsup in Theorem 7.15 is
+        +∞.
+            Early studies of g(P(z)) were conducted by Backlund (1929), Brauer &
+        Zeitz (1930), Ricci (1934), and Chang (1938). The size of g(P(z)) is not known;
+        possibly it is z log z. However, it is conceivable that inﬁnitely often pn+1 − pn
+        is as large as (log pn )θ where θ > 1. In particular, Cramér (1936) conjectured
+        that
+                                             pn+1 − pn
+                                     lim sup             = 1.
+                                       n→∞    (log pn )2
+           Theorem 7.16 is due to Hensley & Richards (1973).
+           Section 7.4. The analysis of σk (x) is based on Selberg’s exposition (1954) of
+        Sathe (1953a,b, 1954a,b). Sathe (1954b) also shows that the bound R log log x
+        cannot be replaced by 2 log log x + 1. Arguments giving rise to versions of
+        Theorem 7.20 occur in Erdős (1935b). A qualitative version of Theorem 7.21
+        is a special case of Erdős & Kac (1940). Quantitative versions with various
+        weaker error terms were obtained by LeVeque (1949) and Kubilius (1956).
+        Theorem 7.21 had been conjectured by LeVeque and was established by Rényi
+        & Turán (1958). They also showed that the error term is both uniform in x and
+        best-possible.
+
+
+
+                                              7.6      References
+        Addison, A. W. (1957). A note on the compositeness of numbers, Proc. Amer. Math.
+            Soc. 8, 151–154.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 7.6 References                                    241
+
+
+        Alladi, K. & Erdős, P. (1977). On an additive arithmetic function, Paciﬁc J. Math. 71,
+             275–294.
+        Backlund, R. J. (1929). Über die Differenzen zwischen den Zahlen, die zu den n ersten
+             Primzahlen teilerfremd sind, Annales Acad. sci. Fennicae 32 (Lindelöf-Festschrift),
+             Nr. 2, 9 pp.
+        Brauer, A. & Zeitz, H. (1930). Über eine zahlentheoretische Behauptung von Legendre,
+             Sitzungsb. Math. Ges. Berlin 29, 116–125.
+        de Bruijn, N. G. (1949). The asymptotically periodic behavior of the solutions of some
+             linear functional equations, Amer. J. Math. 71, 313–330.
+          (1950a). On the number of uncancelled elements in the sieve of Eratosthenes, Nederl.
+             Akad. Wetensch. Proc. 52, 803–812. (= Indag. Math. 12, 247–256)
+          (1950b). On some linear functional equations, Publ. Math. 1, 129–134.
+          (1951a). The asymptotic behaviour of a function occurring in the theory of primes,
+             J. Indian Math. Soc. 15 (A), 25–32.
+          (1951b). On the number of positive integers ≤ x and free of prime factors > y, Proc.
+             Nederl. Akad. Wetensch. 54, 50–60.
+          (1966). On the number of positive integers ≤ x and free of prime factors > y, II,
+             Proc. Koninkl. Nederl. Akad. Wetensch. A 69, 239–247. (= Indag. Math. 28)
+        Buchstab, A. A. (1937). Asymptotic estimates of a general number-theoretic function,
+             Mat. Sb. (2) 44, 1239–1246.
+          (1949). On those numbers in an arithmetic progression all prime factors of which are
+             small in magnitude, Dokl. Akad. Nauk SSSR (N. S.) 67, 5–8.
+        Chang, T.-H. (1938). Über aufeinanderfolgende Zahlen, von denen jede mindestens
+             einer von n linearen Kongruenzen genügt, deren Moduln die ersten n Primzahlen
+             sind, Schr. Math. Sem. Inst. Angew. Math. Univ. Berlin 4, 35–55.
+        Chowla, S. D. & Vijayaraghavan, T. (1947). On the largest prime divisors of numbers,
+             J. Indian Math. Soc. (2) 12, 31–37.
+        Cramér, H. (1936). On the order of magnitude of the difference between consecutive
+             prime numbers, Acta Arith. 2, 23–46.
+        DeKoninck, J.-M. (1972). On a class of arithmetical functions, Duke Math. J. 39, 807–
+             818.
+        Dickman, K. (1930). On the frequency of numbers containing prime factors of a certain
+             relative magnitude, Ark. Mat. Astr. fys. 22, 1–14.
+        Duncan, R. L. (1970). On the factorization of integers, Proc. Amer. Math. Soc. 25,
+             191–192.
+        Erdős, P. (1935a). On the difference of consecutive primes, Quart. J. Math., Oxford ser.
+             6, 124–128.
+          (1935b). On the normal number of prime factors of p − 1 and some related problems
+             concerning Euler’s φ- function. Quart. J. Math., Oxford ser. 6, 205–213.
+          (1946). Some remarks about additive and multiplicative functions, Bull. Amer. Math.
+             Soc. 52, 527–537.
+          (1951). Some problems and results in elementary number theory, Publ. Math. Debre-
+             cen 2, 103–109.
+          (1962). On the integers relatively prime to n and on a number-theoretic function
+             considered by Jacobsthal, Math. Scand. 10, 163–170.
+          (1963). Problem and Solution Nr. 136, Wiskundige opgaven met de Oplossingen 21.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        242                    Applications of the Prime Number Theorem
+
+
+        Erdős, P. & Kac, M. (1940). The Gaussian law of errors in the theory of additive number
+              theoretic functions, Amer. J. Math. 62, 738–742.
+        Erdős, P. & Nicolas, J.-L. (1981). Sur la fonction: nombre de facteurs premiers de n,
+              Enseignoment Math. (2) 27, 3–27.
+        Friedlander, J. B. (1972). Maximal sets of integers with small common divisors, Math.
+              Ann. 195, 107–113.
+        Greaves, G. (2001). Sieves in Number Theory, Ergeb. Math. (3) 43. Berlin: Springer-
+              Verlag.
+        Halberstam, H. (1970). On integers all of whose prime factors are small, Proc. London
+              Math. Soc. (3) 21, 102–107.
+        Halberstam, H. & Richert, H.-E. (1974). Sieve Methods, London Mathematical Society
+              Monographs No. 4. London: Academic Press, 1974.
+        Hardy, G. H. & Littlewood, J. E. (1923). Some problems of “Partitio Numerorum”: III
+              On the expression of a number as a sum of primes, Acta Math. 44, 1–70.
+        Hausman, M. & Shapiro, H. N. (1973). On the mean square distribution of primitive
+              roots of unity, Comm. Pure Appl. Math. 26, 539–547.
+        Hensley, D. & Richards, I. (1973). Two conjectures concerning primes, Analytic Number
+              Theory, Proc. Sympos. Pure Math. 24. Providence: Amer. Math. Soc., 123–128.
+           (1973/4). Primes in intervals, Acta Arith. 25, 375–391.
+        Hildebrand, A. (1984). Integers free of large prime factors and the Riemann Hypothesis,
+              Mathematika 31, 258–271.
+           (1985). Integers free of large prime divisors in short intervals, Oxford Quart. J. 36,
+              57–69.
+           (1986a). On the number of positive integers ≤ x and free of prime factors > y,
+              J. Number Theory 22, 289–307.
+           (1986b). On the local behavior of ψ(x, y), Trans. Amer. Math. Soc. 297, 729–751.
+           (1987). On the number of prime factors of integers without large prime divisors,
+              J. Number Theory 25, 81–106.
+        Hildebrand, A. & Tenenbaum, G. (1986). On integers free of large prime factors, Trans.
+              Amer. Math. Soc. 296, 265–290.
+           (1993). Integers without large prime factors, J. Théor. Nombres Bordeaux. 5, 411–484.
+        Kubilius, I. P. (1956). Probabilistic methods in the theory of numbers, Uspehi Mat. Nauk
+              (N.S.) 11 68, 31–66.
+        Legendre, A. M. (1798). Théorie des Nombres, First edition, Vol. 2, pp. 71–79.
+        LeVeque, W. J. (1949). On the size of certain number-theoretic functions, Trans. Amer.
+              Math. Soc. 66, 440–463.
+        Maier, H. & Pomerance, C. (1990). Unusually large gaps between consecutive primes,
+              Trans. Amer. Math. Soc. 322, 201–237.
+        Montgomery, H. L. (1987). Fluctuations in the mean of Euler’s phi function, Proc. Indian
+              Acad. Sci. (Math. Sci.) 97, 239–245.
+        Montgomery, H. L. & Vaughan, R. C. (1986). On the distribution of reduced residues,
+              Ann. of Math. (2) 123 (1986), 311–333.
+        Norton, K. K. (1971). Numbers with Small Factors and the Least k’th Power Non-
+              Residues, Memoir 106, Providence: Amer. Math. Soc.
+        Pillai, S. S. & Chowla, S. D. (1930). On the error terms in some asymptotic formulæ in
+              the theory of numbers, I, J. London Math Soc. 5, 95–101.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 7.6 References                                    243
+
+
+        Pintz, J. (1997). Very large gaps between consecutive primes, J. Number Theory 63,
+             286–301.
+        Ramaswami, V. (1949). The number of positive integers ≤ x and free of prime divisors
+             > y, and a problem of S. S. Pillai, Duke Math. J. 16, 99–109.
+        Rankin, R. A. (1938). The difference between consecutive primes, J. London Math. Soc.
+             13, 242–247.
+           (1963). The difference between consecutive primes, V, Proc. Edinburgh Math. Soc.
+             (2)13, 331–332.
+        Rényi, A. & Turán, P. (1958), On a theorem of Erdős–Kac, Acta Arith. 4, 71–84.
+        Ricci, G. (1934). Ricerche aritmetiche sui polinomi, II, Rend. Palermo 58, 190–208.
+        Richards, I. (1982). On the gaps between numbers which are sums of two squares, Adv.
+             in Math. 46, 1–2.
+        Sathe, L. G. (1953a,b,1954a,b). On a problem of Hardy on the distribution of integers
+             with a given number of prime factors I, II, III, IV, J. Indian Math. Soc. (N.S.) 17,
+             63–82 & 83–141, 18, 27–42 & 43–81.
+        Schinzel, A. (1961). Remarks on the paper “Sur certaines hypothèses concernant les
+             nombres premiers”, Acta Arith. 7, 1–8.
+        Schönhage, A. (1963). Eine Bemerkung zur Konstruktion grosser Primzahllücken, Arch.
+             Math. 14, 29–30.
+        Selberg, A. (1954). Note on a paper of L. G. Sathe, J. Indian Math. Soc. 18, 83–87.
+           (1991). Collected papers, Vol. II. Berlin: Springer-Verlag.
+        Westzynthius, E. (1931). Über die Verteilung der Zahlen, die zu den n ersten Primzahlen
+             teilerfremd sind, Comment. Phys.–Math. Soc. Sci. Fennica 5, Nr. 25, 37 pp.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.009 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

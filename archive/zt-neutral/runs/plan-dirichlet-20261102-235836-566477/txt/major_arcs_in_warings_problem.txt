@@ -1,0 +1,906 @@
+                     4
+                     The major arcs in Waring's problem
+
+                     4.1 The generating function
+                     The theory of the major arcs in Waring's problem can be refined
+                     considerably over that contained in Chapter 2. The intention here is
+                     to obtain a relatively good error term for the approximation F(a, q, a)
+                     to the generating function/(a) on each major arc whilst making the
+                     major arcs as wide and numerous as possible.
+                        Let
+
+                                                                                        ).    (4.1)
+                                                             JC=1
+
+
+
+                     Lemma 4.1 (Hua, 1957a) Suppose that (q,a)- 1. Then
+                                                    S(q,a,b)<q^2^(q,by
+                       The proof uses a deep theorem of Weil (see the reference to Schmidt
+                     below). There is a more elementary theorem of Davenport &
+                     Heilbronn (19365, 1937a) in which the exponent \ is replaced by
+                     f when k = 3 and f when k ^ 4. Also Theorem 7.1 below gives 1 — l//c
+                     in place of \. Indeed the argument of Mordell used to prove
+                     Theorem 7.1 in the case when q is prime can be adapted so that when
+                     combined with the argument below it gives the Davenport-
+                     Heilbronn theorem.
+
+                     Proof When (q1, q2) = 1 one has, cf. the proof of Lemma 2.10,
+                                      S(qiq2, a, b) = S(ql9 aqk2~ \ b)S(q2, aq\ ' \ b).
+                     Thus it suffices to show that for each prime power pl with p\a
+                                                     S{p\a,b)<pll2(p\b\                       (4.2)
+                       When / = 1, (4.2) follows at once from Corollary 2F of Chapter II of
+                     Schmidt (1976). Thus it can be supposed that
+                                                      />1.
+                     If b = 0, or b ^ 0 and the highest power of p, pe, dividing b satisfies
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     The generating function                                                           39
+
+                     6 ^ 1/2, then (4.2) is trivial. Similarly if the highest power of p, p\
+                     which divides k satisfies T ^ //2, then (4.2) is trivial. Thus it can be
+                     further assumed that
+
+
+                        Let
+
+
+                     Then 3/ - 3v > I In the definition of S(pl, a, b), (4.1), each x, modulo
+                     pl, can be written uniquely in the form zp1 ~v -h y with 1 < >» < pl ~v,
+                     1 ^ z ^ pv. Hence, by the binomial theorem,
+
+                              Stp1, a, 6) = "X I e ((a/ + M P "' + [kaf ~ ' + b)zp ""
+                                                   p l z = l   \
+
+
+                                                                         ^                           (4.3)
+
+                       Suppose first that / is even or p|(£). Then (*)p'" 2v is an integer, and
+                     hence, by (4.3),
+
+
+                     where N is the number of solutions of the congruence
+                                                        kay*-1 +b = 0(modpv)                         (4.4)
+                                          l    v
+                     with 1 ^ y ^ p ~ . Recall that max(^, T) < 1/2 < v. Thus the congru-
+                     ence is insoluble unless O^z and 0 - T is a multiple of k — 1. If
+                     (4.4) is insoluble, then (4.2) is immediate. In the contrary case
+                     let X = (6 — T)/(/C — 1). Then N is the number of solutions of
+                                              (kp~ z)awk ~ l + (bp~e) = 0(mod pv ~e)
+                     with 1 < w ^ pl ~v ~ \ Note that A < 0 < / - v. When / - v - A ^ v - 0,
+                     one has iV <^ 1, so that
+
+
+                     When / - v - / l > v - 0 , then N <^ pl + d' 2v ~ \ so that
+                                                           \S(p\a,b)\<pl-*pd.
+                     In either case
+                                                          \S(pl,a,b)\<pv(p\b).                       (4.5)
+                     When / is even, v = [(/ +1)/2] = 1/2, and                                when   p\{\\
+                     pv ^ p1+l/2 ^ pl/2. Hence (4.2) follows from (4.5).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     40                                           The major arcs in Waring's problem
+
+                          It remains to consider the case when / is odd and pl(k2). Then
+                                                       v = |(/+l),          v>2.
+                     Each z in (4.3) can be written uniquely, modulo pv, in the form rp + w
+                     with 1 ^ r ^ p v " * and 1 ^ w ^ p. Moreover
+
+
+
+                     Thus the sum over r is zero unless /cay*" 1 + b = 0(mod p v " *). Hence
+
+
+
+
+                     with y and v satisfying
+                             kayk ~ * 4- b = 0(mod pv ~ *) and                 1? = (A^y* ~ * + b)px ~v. (4.7)
+                       First consider the contribution Sx from those terms with p\yk~ 2.
+                     Then k> 2 and the innermost sum is zero unless p\v. Thus, by (4.7),
+                                                               S1 ^ px'N
+                     where N is the number of solutions of the congruence
+
+
+                     with 1 ^ u < p z " v " l. In a similar manner to the treatment of the
+                     previous case one obtains JV = 0 unless 0 = k-1 +r+ (k-l)A with
+                     / ^ 0, in which case N is the number of solutions of the congruence
+                                           (kp- x)a/ ~ 1 + (bp~ °) = 0(mod p v " e )
+                     with       l^y^pl~v-1-\      Note that 0>k-l>0.              When
+                                                                         v   v 1+tf
+                     / - v - l - A ^ v - 0 one has N<1, and so S t « p < p ~            <
+                     pll2(pl9b). When / - v - 1 - A> v - 0 , then N <pl~v~ i - ^ - ( v - ^
+                     so that
+
+
+                     once more.
+                         It now remains to estimate the contribution S2 from those terms in
+                     (4.6) with p\yk ~ 2. Then the innermost sum is easily seen to be <^ p 1 / 2
+                     (cf. the case k — 2 of Theorem 4.2 below). Thus
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                      The generating function                                                                41
+
+                     where N is the number of solutions of the congruence
+
+
+                     with \^y^pl-\        Note that v-± = \l, I - v = v - 1 = j ( / - 1) > 6
+                     and / ^ 3. If 0 = ±(l - 1), then at once
+                                                 S2«pI/V,&).
+                     If d < %l - 1), then as before either AT = 0, or 0 - T = A(fc - 1) with
+                     A ^ 0, and so N < pil' 1)/2 " x ~ ({/ " 1)/2 " 0) ^ pe. Thus in this case also,
+                                                              S2<pl/2(pl,b).
+
+                       The next lemma is often the igniting spark for the estimation of
+                     exponential sums. It is a truncated form of the Poisson summation
+                     formula.
+
+                     Lemma 4.2 Suppose that X < Y, F" exists and is continuous on
+                     [X, 7 ] and F' is monotonic on [X, Y~\. Let Hl9 H2 denote integers such
+                     that Hx ^ F'(a) < H2 for every a in IX, 7 ] . Then
+
+                                X      e(F(x))=        X             e(F(a) - afe)da + O(log(2 + / / ) )
+                             X <x^Y                  h = Ht     JX
+
+                     where H = max(IHiUHJ).
+
+                     Proof For a differentiate function ij/(cc) with \j/' continuous, the
+                     Euler-Maclaurin summation formula gives
+
+
+
+
+                                                                               • [a] - £)da.               (4.8)
+                                                               Jx
+                     Therefore
+                                Y      e(F(x)) = [Y e(F(ot))doi
+
+
+
+
+                     Now recall the Fourier expansion
+                                                        I"
+                                                                 x_      "      e(-a.h)
+                                                 «     L«J       2 - ^ 1 ^       2nih   •
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     42                                                 The major arcs in Waring's problem
+
+                     This is boundedly convergent for all real a. Hence the second integral
+                     above becomes
+
+                                                  £         \ I Ff(a)e(F(oc)-och)doi.
+                                               / . = - oo " JX
+                                                   h+0
+
+                     When h > / / 2 or h< Hl9 F'(cc) — h is monotonic and non-zero on
+                     [X, 7 ] . Hence F'(a)/(F'(a) - /z) is also monotonic on [X, 7 ] . Thus
+                     integration by parts gives
+
+
+
+                     Therefore
+                                  f                                        F'(Y)
+                                                                          F'(Y)-h
+                                                                                  +
+                                                                                     F'(X)
+                                                                                    F'(X)-h
+
+
+                                                                    F'{<x)e{F(ai)-ha)doi
+
+
+
+
+                                                             H +1
+
+
+
+
+                     and similarly for the sum over h < H x — 1. Integrating the remaining
+                     terms by parts gives
+
+                                       e(F(x)) =             e(F(a))da+ £                e(F(a) - a/z)da
+                                                      JX                     h = Hi JX
+                                                                              h+ 0
+                                                            O(log (2+ //)).
+                     If Hl < 0 < H2, then the proof is complete. If 0 < Ht or H2 < 0, then
+                     |F'(a)| ^ 1, and so
+
+
+                                  ['              /y ^_ I           '
+
+                                                                 '(«)
+                                                                            +                    r^da
+                                                                                              2TT1
+
+
+                     which can be absorbed in the error term.
+                       Let
+
+                                                       /(«)= Z                                              (4.9)
+
+                                                                          e(amk/q),                        (4.10)
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                      The generating function                                                                 43
+
+
+                                    »(/*)= Z \xllk-leifix\                    vim=\"          e(Pyk)dy,   (4.11)
+                                             JC^/I*                                    Jo
+
+                                               F(a, g, a) = q~ lS(q, a)v(« - a/q).                        (4.12)
+
+                     Theorem 4.1 Suppose that (a,q) = 1 am/ a = a/q + /?. 77ze/t
+                                           /(a)-        K(a,4,aM<7 i + £O -K w|jS|)*.                     (4.13)
+                     If further 101 < (2fc<?)" 1 n 1/k " *, f/zerz
+                                                   /(a)-        K(a,^,a)<^r+£.                            (4.14)
+                     Also the same conclusions hold when v(fi) is replaced by vx(P).
+
+                        The proof uses Lemma 4.1. If any of the weaker results mentioned
+                     in the remark after that lemma are used instead, then Theorem 4.1 is
+                     obtained with the exponent \ of q replaced by the corresponding
+                     larger exponent.
+                        It would be very interesting to decide whether (4.13) holds with the
+                     right hand side replaced by (q + qn \ft\)d with the exponent 9 smaller
+                     than \, perhaps as small as \.
+
+                     Proof For brevity, put X = n\ By (4.1) and (4.9),
+
+                                            /(a) = X e(Pxk) J                        e(anfi/q)
+                                                        x^X                    m=1
+                                                                        rn = x(modq)
+
+
+                                               = 1''                Z         S(q,a,b)F(b)                (4.15)
+                                                            - q/2 < b < q/2
+
+                     where
+
+                                                   F(b) = X e(Pxk ~ bx/q).
+                                                               x^   X
+
+                         When — q/2 < b ^ q/2 the expression (}kyk ~ l — b/q is a montonic
+                     function of y on [0, A"] and lies between — | j81 kXk ~ 1 — \ and
+                     | fi | kXk ~ x + j . Thus Lemma 4.2 can be applied with Hl = — H2 =
+                      - H where H = [ | fi \ kXk~ 1 + f ] , whence
+                                                        H
+                                        F(b)=           X     I(b + hq)
+                                                   h=   - H
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                      44                                             The major arcs in Waring's problem
+
+                      where
+
+                                                   I(c) = I e(fif - cy/q)dy.
+                                                                Jo
+                                           l
+                      Moreover, q~ 2g = J^fc) < d(q). Therefore, by (4.15) and Lemma
+                      4.1,
+
+
+
+                                                                                                    (4.16)
+                                               B b ^ B
+                                                b±0
+
+                      where B = (H + i)g.
+                        First of all, (4.14) is dealt with. Thus | p \ ^ (2/c^)" xn1/fc" \ Hence,
+                      when M 0 and 0 ^ y ^ X one has | fikyk ~l -b!,q\^\\               b/q |, and
+                      H = 1 or 2. Therefore, by integration by parts, /(b) « | b/q \" l. Thus,
+                      by Lemma 4.1, the right hand side of (4.16) is
+
+                                               <q~'      I qi + *(q,b)qb-1<<t* + u,
+                                                         b= 1
+
+                      and so gives (4.14) with v(f$) replaced by i\{p).
+                        Let
+
+                                                         G(Y)= X V*- 1 .
+                      The Euler-Maclaurin summation formula, (4.8), gives
+                                                G(Y)= y1/fc + cfc + o(r 1/k " 1 ).
+                      Hence, by Lemma 2.6 and (4.11),
+
+                                       v(p) = G(Xk)e(pXk) - 2nip                     G(y)e(py)dy
+
+                                               = (X + Ck)e(pXk)             '
+                                                            xk
+                                               - 2nip\           y1"* + Ck)e{fiy}dy
+
+                     Thus, by integration by parts and a change of variables,
+                                                  (P)                                              (4.17)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     The exponential sum S(q,a)                                                               45
+
+                     Hence (4.14) follows from the corresponding result with v(p) replaced
+                     by Vl(P).
+                       To treat (4.13), one follows the above model as far as possible.
+                     Begin by observing that the error term in (4.16) is acceptable.
+                       By integration by parts the contribution to I(b) from those y for
+                     which
+
+
+
+                      is <q/\b\             and this contribution to the total in (4.16) is
+                       <^ q* + £ l o g ( 2 # ) <£ qi + 2e(l + n|/J|)*. F o r the remaining y one has
+                      Ik/3y k " * - b/q| ^ \\b\ jq. Such y can only arise when                     \\b\jq
+                       ^k\P\yk~l            ^ f l f o l / ^ a n d s o \b\ ^2kq\p\Xk~\ F o r such a b let
+                                                                                            2
+                                                                                                \          (4.18)
+
+                     By integration by parts the contribution from the y with | k/5yk ~ x
+                                 is ^S'1.       Moreover the remaining y with l / c / ? / " 1
+                                     lie in      an        interval    [7i,y2]       which satisfies
+                                         k 2         3                     2
+                                 1 | ( y  r  + 7 i "   7 2  +  --- + y 2 "   ) ^ 2 ^  Thus    \y2-yx\
+                     \ P \ { \ b \ l { q \ P \ ) t ~ 2 ) l ( k - l ) < ^ w h e n c e b y (4.18) \y2 - yx \< S~ K
+                     Therefore the total contribution from the remaining y to (4.16) is
+
+                      <^           X      k   l
+                                                  <f " H Q , b ) \ P \ ~ 1/{2k ~ 2)(q/bf   ~ 2)/(2k - 2)
+                           0 <b^ 2kq\(i\X -
+
+
+
+
+                     Thus (4.13) holds with v replaced by vl.
+                        To complete the proof of (4.13) one adverts to (4.17). Note that
+                     (4.13) is trivial unless |/J| ^ 1, in which case the additional error is
+                     <\ +\P\X <$(\ + \P\nf. This completes the proof of Theorem
+                     4.1.
+
+
+
+
+                     4.2 The exponential sum S(q,a)
+                     Lemma 4.3 Suppose that p\a. Then
+
+                                                         S{p,a)= I xtocix)                                 (4.19)
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     46                                                The major arcs in Waring's problem
+
+                     where si denotes the set of non-principal characters x modulo p for
+                     which xk is principal, and x(y) denotes the Gauss sum
+
+                                                                  £ X(x)e(x/p).
+                                                              x=   1
+
+                     Also \T(X)\ = pm and card si = (fc, p - 1) - 1.
+
+                     Proof Let g denote a primitive root modulo p. Then si is the set of
+                     characters Xh °f the form
+
+
+
+                     with 1 ^ h< (fc, p - 1). Thus
+
+                                                                  1 + Z Zto
+                     is the number of solutions in y of the congruence yk = x(modp).
+                     Hence
+                                                              p            (
+                                            S(p,a) = Z e(flx/jP)( 1 + Z X(
+
+                     which gives (4.19). The remaining assertions are trivial.
+                       Let T and y be as in (2.24) and (2.25). Note that
+                                       y ^ k unless k = p — 2 in which case y = 3.                 (4.20)
+
+                     Lemma 4.4 Suppose that p\a and I > y. Then
+                                                         \pl ~ l                  when I ^ /c,
+                                                                          k
+                                                                           , a)   when I > k.
+
+                     Proof Recall that a reduced residue modulo pl is a /cth power residue
+                     if and only if it is a /cth power residue modulo py. Thus
+                                               pv    pl - y                          pl ~ l
+
+
+                                              y=    1 z= 1                           y= 1
+
+
+                     The innermost sum in the double sum is 0, and the sum on the far right
+                     is pl ~ 1 when / ^ k and
+
+                     when / > k.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     The exponential sum S(q,a)                                                  47
+
+                     Lemma 4.5 Suppose that (g, r) = (qr, a) = 1. Then
+
+
+
+                     Proof See Lemma 2.10.
+
+                     Theorem 4.2 Suppose that (q, a) = 1.
+
+
+
+                     Proo/ When fc = 2,
+
+                                                  ,a)| 2 = £         £       e(a(y2-x2)/q)
+
+                                                                             e
+                                                         = z z
+                                                            X=   1   2 = 1
+                                                                              (^z+2*)zii)
+                                                                 q
+                                                         = qY e(az2/q)
+
+
+
+                     Hence it can be supposed that k > 2. Write l = uk + v with 1 < v < k,
+                     u ^ 0 and suppose that pja. By Lemma 4.4 and (4.20),
+                                                    S(p\a) = p{k~l)uS(pv,a).                  (4.21)
+                     Consider first the case v > 1. If p > /c, then y = 1, so that, by
+                     Lemma 4.4,
+
+
+                     If p ^ /c, then trivially
+
+
+                     Hence, by (4.21),
+
+
+
+                        Now consider the case v = 1. By Lemma 4.3,
+
+
+                     Thus, by (4.21),
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     48                                               The major arcs in Waring's problem
+
+                          By (4.22), (4.23) and Lemma 4.5,
+
+                                                      \S(q9a)\<ql-lfk               I! *.
+                     which gives the theorem.
+
+                     Lemma 4.6 Suppose that (q, a) = 1. Then
+                                         V(a/q + ft q, a) < (q~ 1 min(n, ||j8||" 1))1/k.
+
+                     Proof At once by (4.12), Theorem 4.2 and Lemma 2.8.
+
+
+                     4.3 The singular series
+                     For each integer h, let
+                                                                                    l
+                                            Sh(q) =         I      (S(q, a)q' l)se( - ah/q).                   (4.24)
+                                                           a= 1
+
+                     Thus, in the notation of (2.16) and (2.18),
+
+                                                       = Sn(q\          ©(*)= I S.te).                         (4.25)
+                                                                                    q= 1
+
+
+
+                     Lemma 4.7 Suppose that s^ 1 and l = uk + v with l^v^k.                                    Then
+
+                                          fp" s/2 (p 1/2 (^ " Sfc)+ (p1, fc)) wten / s 1 (modfc),
+                                   P    <| p    s{pi^ h)                                    when     {
+
+
+
+                     Moreover, when k = I — max (/c, y) satisfies X > 0 and pA/fl,
+
+
+
+                               Suppose first that p > /c, so that y = 1. Write l = uk + v with
+                           i; ^ /c. Then, by Lemma 4.4,
+                                                                         P1
+                                       PlsSh(pl) = (p u ( f c " X) ) s X 5(p y , a ) s ^ ( - a / z p " ' ) .   (4.26)
+
+
+                     Each a can be written uniquely in the form a = xpv + j; with
+                     0 ^ x < p ' " v , 1 < >- ^ pv, p\y. The sum over x is 0 unless pl" y|/z, in
+                     which case it is p*"". In the latter case, the sum over y, when
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     The singular series                                                               49
+
+                     v > 1, by Lemma 4.4, is
+                                                                                 1
+                                                       ps(v-i) £          e(-yhp- )
+                                                               y= i
+                                                                ply
+                     and in modulus this does not exceed ps(v~ 1]{pv, hpv~l). Thus
+
+
+                     On the other hand, when v = 1, the sum over y, by Lemma 4.3, is
+
+                                  I ... Z *(xi)-.-Axs)t                              h-Uy)e(-yhp~1)-
+                     When Xi • • • & is non-principal, the sum over y here is
+
+                                                  Xi    - Xsihp1 ~ 1)T:(XI             -Xsl
+                     and when X\ • • • Xs is principal, it is — 1 when pl\h and p — 1 when pl\h.
+                     Hence, by Lemma 4.3,
+                                          Sh(pl) < p-us-sl2(pll2(pl-                \h) + (p\h))
+                     as required.
+                        Suppose now that p<:k. When /^max(y, k) the conclusion is
+                     trivial. Hence it can be assumed that / > max(y, k). Write / = uk + v
+                     with max(y, k) - k < v < max(y, k). Then, by Lemma 4.4, (4.26) holds.
+                     Moreover, as above, Sh(pl) = 0 unless pl" v\h, in which case
+
+
+                                                                      y         l
+                                                                          Ply
+
+
+
+                     since p ^ k. Thus
+
+                     which is more than is required.
+
+
+                     Theorem 4.3 Suppose that s > 4. Tten
+
+
+
+                     converges absolutely and S(n) ^ 0. A/so, when s ^ max (5, k + 2) on^ /ws
+                                         max(4, /c) ^ s < max(5, /c + 2), one na
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     50                                             The major arcs in Waring's problem
+
+                     Proof By Lemma 2.11 and (4.25), Sn(q) is a multiplicative function of
+                     q. By Lemma 4.7,
+
+
+                                             1= 1
+
+                     Hence
+                                            I \SM\< n
+                     where Cx and C 2 depend only on k and s. This gives the absolute
+                     convergence of ®(«). That &(ri) is non-negative follows from
+                     Lemma 2.12.
+                       Let p6 denote the highest power of p dividing n and let / = uk + v
+                     with 1 ^ v < k. Then, by Lemma 4.7,
+                                          S*(PZ) < P"        when / ^ 0 + max(/c, 7),]
+                                                z
+                                          Sn(p ) = 0        when / > 6 + max (fc, y)J
+                     where
+                                                           J— | s            when / ^ 0 and v = 1,
+                          a; + M5 - min(/, 0) =< - |(s - 1) when / > 0 and 1; = 1, (4.28)
+                                               l—s          when 1;^ 1.
+                     Hence
+
+                                                              t
+                                                             /= 1
+
+                     is O(p~ 3/2 ) when 6 = 0, or 0 ^ 1 and s ^ max(5,fc+ 2), and is 0(0)
+                     when 0 ^ 1 and s ^ max (4, k). Therefore in the former case ®(n) <^ 1
+                     and in the latter S(w) <^ d{nf where C depends only on s and k. Hence
+                     result.
+
+
+                     Lemma 4.8 Suppose that s > max (4, k + 1). Then
+
+                                                       I    q1/k \Sn(q)\ <(nQY.
+
+                     Proof By (4.27) and (4.28),
+                                                             (pl)1/ksn(Pl)
+                     is 0(0), Oip-1) or 0 according as / ^ 0 , 0 < / ^ 0 + max(/c, 7) or
+                     / > 0 + max(/c, 7). Hence
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                      The contribution from the major arcs                                          51
+
+
+                                        I qllk\SM<              I ! ( l + t (p')llk\Sn(p'M
+                                                                            / = 1
+
+
+
+                                                                         n (i+c/p)
+                     where C depends only on s and k.
+
+                     4.4 The contribution from the major arcs
+                     Let n denote a large natural number
+                                                         N = [n 1/k ],                          (4.29)
+                                                         P = N/(2k\                             (4.30)
+                                  SRfa, a) = {a : |a - a/<?| ^ Pq~ ln~ x}                        (4.31)
+                     and write $K for the union of the Wl(q, a) with \ ^a ^ q ^ P and
+                     (a,g) = 1. Then the Wl(q,a) are disjoint and contained in
+                                                     qt = (Pn-\       1+Pn"1].                  (4.32)
+                         Let
+
+
+                                                         -L                                     (4.33)
+
+
+                     Lemma 4.9 Suppose that t ^ max (4, /c) and that X = 0 w/ien t ^ /c + 1
+                         = l//c wfen t = fc. Let
+
+                                                  Sfte)=        £        ISfoflte"1!1           (4.34)
+                                                               a= 1
+                                                             (a,«) = 1
+
+
+
+
+                     P r o o / In the same manner as for Sn(q) and with the same notation as
+                     in Lemma 4.7 it can be shown that S*(q) is multiplicative and
+
+
+                     is O(p~'12)     when / = 1 (modit) and is 0 ( p ~ ' ) when / ^ l         (modfc).
+                     Thus
+
+
+                                                              p<Q\           1=1
+
+                     and
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                      52                                               The major arcs in Waring's problem
+
+
+
+                        1=1                         u=0                    \                v=2
+
+
+
+                      provided that X ^ max((l + k - t)/k, 2 - \t).
+
+                     Theorem 4.4 Suppose that s ^ max (5, k + 1). Then there is a positive
+                     number d such that whenever 1 ^ m ^ n, one has
+
+                              Rm(m) = r j l + 1 j r ^ J                   ms/k~ l<5(m)+ O(ns/k~ l "
+
+                     Proo/ Let ae9R(g, a). Then, by Theorem 4.1, (4.29), (4.30) and (4.31),
+
+
+                     Therefore
+
+                                f(a)s    - K(a, q9 af < (q112 + J + qm             +£
+                                                                                        |K(a, g, a)|s ~ x.
+
+                     Hence, by (4.12), (4.31) and (4.34),
+
+                                           £         f
+                                           2,                   (/( a ) s ~ ^(a> ^» flf)^("" am)da
+                                         a=l        JaR(4,a)
+                                        (a,«) = 1
+                                                                                          cm
+                                                                                          J - 1/2
+
+                     Therefore, by (4.33) and Lemma 2.8,
+
+                                                                                                         E   (4.35)
+                                                           a=l        q
+                                                         (fl,4)= 1
+                     where, taking into account the possibility s = k + 1,
+
+
+
+
+                         By Lemma 4.9, (4.29) and (4.30),
+                                                                B^w^*"1-*,                                   (4.36)
+                     for a suitable positive number 5.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                      The congruence condition                                                                    53
+
+                       Let 9i(g, a) = {a : P/(qn) < |a - a/q\ ^ \}. Then, by (4.12), (4.24) and
+                     Lemma 2.8,
+
+                                         f            V(«,q,aYe(-xm)doL<$\Sm(q)\ P                    /T«*d/J
+                                    1   J91(<r,a)                                           JP/(n«)
+                             (a, q) = 1
+
+
+
+                     Hence, by Lemma 4.8,
+
+                                                       f           Vteq^Yei-
+                                              l        J9l(q,a)
+                                                  1
+                     Therefore, by (4.35), (4.36) and (4.24),
+                                     Rn(rn) = S(m, P)I(m) + 0(n s/fc " x " *)                                 (4.37)
+                     where
+                                                                               fl/2
+                                                                                            s
+                                S(m,P)= X Sm(^), /(m)=
+                                                    =                                 v(v(p) e(-
+                                                                              J-l/2
+                        By Lemma 4.8,
+                                                           Z IS
+                     Hence, by (4.29) and (4.30),
+
+
+
+                     so that, by (4.25),
+                                                                  P) = <5(m) + O(n" d ).                      (4.38)
+                        Finally, by (4.11), (2.20) and Theorem 2.3, when                              Km^n,
+                                      I(m) = J(m)
+
+
+
+                     The theorem now follows from Theorem 4.3, (4.37) and (4.38).
+
+                     4.5 The congruence condition
+                     Let Mn(q) and M*(q) be as in § 2.6.
+
+                     Theorem 4.5 Suppose that s ^ max (4, k + I) and M*(py) > 0 for every
+                     prime p. Then ®(n)> 1.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     54                                             The major arcs in Waring's problem
+
+                     Proof By Lemmas 2.12 and 2.13,
+
+                                                        Z
+                     the absolute convergence of the infinite series being ensured by that of
+                     S ( H ) , cf. Theorem 4.3.
+                         It now suffices to show that when p > k one has
+
+                                                       £ Sn(pl)>-Cp-*2                                  (4.39)
+                                                      /= i
+
+                     Note that y = 1. The argument of Lemma 4.7 shows that if / = uk + v
+                     with 2 ^ v ^ /c, then
+
+                                                piu+i)s-iS{i)            =   1   _ \ A 9 o
+                                                                                  p    p
+                                             according as pl\n, pl~1\\             n, pl~l\n            (4.40)
+                                                                         l                     l   1
+                     and that if / = 1 (mod/c), then Sn(p ) — 0 unless p ~ \n in which case
+
+
+
+                                   X           X                             V ) .                     (
+                                                                                                       44
+                                                                                                        .1)
+                     Choose 0 so that pe\\n. Then, by (4.40),
+
+
+
+
+                     where X = [0/fc](/c - 5 ) + 1 - s . It is readily seen that   X^-2.
+                       By Lemma 4.3, the terms in (4.41) with Xi • Xs^Xo contribute
+                     <^p ( s + 1 ) / 2 and if pfnp1'1, then those with Xi---Zs = Xo contribute
+                     <|p s / 2 . Hence
+
+                                            Z sn(P<)= Z
+                                                                /=l(modk)
+                                                                    'l
+                     If s ^ 5, then, by Lemma 4.3 and (4.41),
+
+                                                      sn(Pl)<p[l/k]ik-s)-312
+                     so that
+
+
+                                                     / = l(modfc)
+                                                           1
+                                                            !
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     Exercises                                                                55
+
+                     Hence it remains to consider Sn(pl) when pl\n and s = 4.
+                       By (4.41),
+
+
+                     It therefore suffices to show that Sp(p) ^ 0.
+                        By (4.24),
+
+
+
+                     The proof is completed by showing that when k = 2 or 3 and p > /c,
+                     S(p, a) is real or purely imaginary. Observe that when s = 4, one has
+                     fc = 2 or 3.
+                        When k = 2, Lemma 4.3 gives
+
+
+                     where x is the Legendre symbol. Thus
+                                 S(p, a) = S(p, - a) = *( - *Mz) = X( - l)S(p, a),
+                     so that S(p, a) is real or purely imaginary according as /( — 1) = 1 or
+                     Z( - 1) = - I-
+                        When k = 3, one has (— x)k = — x \ Thus
+                                                  5(p,a) = S(p, -fl) = S(p,a),
+                     so that 5(p, a) is real.
+
+                     Theorem 4.6 Suppose that s ^ 5 w/ien /c = 2, s > 4/c w/i^n /c is a pow^r o/
+                     2 wir/i k> 2, an^ s ^ |/c otherwise. Then 6(n) > 1.
+                     Proof At once from Lemma 2.15 and Theorem 4.5.
+
+                     4.6 Exercises
+
+                        1 (Vaughan, 1983) Use Theorem 4.1 to deduce the special case
+                     4>(x) = (xx3 of Lemma 2.4 (Weyl's inequality).
+                       2 Consider the statements
+                            (i) s ^ M a n d S ( n ) > l ,
+                           (ii) Mn(q) > 0 for every n and for every large q,
+                          (iii) M*(q) > 0 for every n and for every large q.
+                     Show that if (i) holds for every n, then (ii) holds, and that if k =£ 2 or 4,
+                     then (ii) implies (iii).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+                     56                                            The major arcs in Waring's problem
+
+                       3 Suppose that so(k) is given by the following table.
+                        k     3 4 5 6 7 8 9 10 11 12 13 14 15 16
+                        so(k) 4 16 5 9 4 32 13 12 11 16 6 14 15 64
+                     Show that when s ^ so(k) one has <5(n) > 1 for every n.
+                       4 Show that Theorem 4.4 holds when 5 ^ 2/c, 6 is any number less
+                     than ^ 2 anc * 9W is replaced by the union of the intervals
+                     {a:\aq-       a\^     n6'1}   with 1 ^ a ^ q ^ n0 and (a,q) = 1.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.007 Published online by Cambridge University Press
+

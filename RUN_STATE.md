@@ -24,3 +24,21 @@ Update this file after each step. `config.json`, `git log`, `logs/` and
 - **Next:** merge MR !16, then from the main checkout (the first real command
   ties `runs_dir` to that checkout) start a new `logs/interventions.md` and run
   step 1 of the procedure: `probe`, `numerics`, `literature`.
+
+## Current checkout audit (3 Nov 2026)
+
+The preceding 2 Nov notes are historical and superseded by the current files.
+`status` on 3 Nov reports P1–P9 passed in round 1; both integration reports
+compose the selected plan without loss. Accepted numerics are in
+`numerics/accepted/snapshot-nu6pbkr4/`. Usage: 42 agent invocations,
+Claude $23.04; 16 Codex invocations with 160,543 output tokens.
+
+At Markus's request the operator read the reports, all proposition statements,
+proofs and reviews, and their relevant supporting material. Assessment: no
+substantive mathematical gap found in the stated weaker-range theorem; local
+corrections are needed in P1(iii), the P8 endpoint explanation, and unused
+numerical notes in P6/P8. This is an operator assessment, not Markus's final
+acceptance. No agent-visible mathematical files were changed and no new agent
+stage was invoked. The leak scan remains at 21 hits with the previously logged
+tool-path/compliance-note contexts. Await Markus's judgment; do not archive or
+change mathematical statements on the basis of this audit alone.

@@ -1,0 +1,2846 @@
+                                                          9
+                     Primitive characters and Gauss sums
+
+
+
+
+                                      9.1      Primitive characters
+        Suppose that d | q and that χ ! is a character (mod d), and set
+                                          !
+                                            χ (n) (n, q) = 1;
+                                χ (n) =                                                            (9.1)
+                                              0     otherwise.
+        Then χ (n) is multiplicative and has period q, so by Theorem 4.7 we deduce that
+        χ (n) is a Dirichlet character (mod q). In this situation we say that χ ! induces
+        χ . If q is composed entirely of primes dividing d, then χ (n) = χ ! (n) for all n,
+        but if there is a prime factor of q not found in d, then χ (n) does not have period
+        d. Nevertheless, χ and χ ! are nearly the same in the sense that χ ( p) = χ ! ( p)
+        for all but at most ﬁnitely many primes, and hence
+                                                                      
+                                                 !            χ ! ( p)
+                              L(s, χ ) = L(s, χ )        1−              .            (9.2)
+                                                   p|q
+                                                                ps
+
+        Our immediate task is to determine when one character induces another.
+
+        Lemma 9.1 Let χ be a character (mod q). We say that d is a quasiperiod
+        of χ if χ (m) = χ (n) whenever m ≡ n (mod d) and (mn, q) = 1. The least
+        quasiperiod of χ is a divisor of q.
+
+        Proof Let d be a quasiperiod of χ , and put g = (d, q). We show that g is
+        also a quasiperiod of χ . Suppose that m ≡ n (mod g) and that (mn, q) = 1.
+        Since g is a linear combination of d and q, and m − n is a multiple of g,
+        it follows that there are integers x and y such that m − n = d x + qy. Then
+        χ (m) = χ (m − qy) = χ (n + d x) = χ (n). Thus g is a quasiperiod of χ .  
+
+           With more effort (see Exercise 9.1.1) it can be shown that if d1 and d2
+        are quasiperiods of χ , then (d1 , d2 ) is also a quasiperiod, and hence the least
+
+                                                         282
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.1 Primitive characters                                283
+
+
+        quasiperiod divides all other quasiperiods, and in particular it divides q (since
+        q is a quasiperiod of χ ).
+            The least quasiperiod d of χ is called the conductor of χ . Suppose that d
+        is the conductor of χ . If (n, d) = 1, then (n + kd, d) = 1. Also, if (r, d) = 1
+        then there exist values of k (mod r ) for which (n + kd, r ) = 1. Hence there
+        exist integers k for which (n + kd, q) = 1. For such a k put χ ! (n) = χ (n + kd).
+        Although there are many such k, there is only one value of χ (n + kd) when
+        (n + kd, q) = 1. We extend the deﬁnition of χ ! by setting χ ! (n) = 0 when
+        (n, d) > 1. It is readily seen that χ ! is multiplicative and that χ ! has period
+        d. Thus by Theorem 4.7, χ ! is a character modulo d. Moreover, if χ0 is the
+        principal character modulo q, then χ (n) = χ ! (n)χ0 (n). Thus χ ! induces χ .
+        Clearly χ ! has no quasiperiod smaller than d, for otherwise χ would have a
+        smaller quasiperiod, contradicting the minimality of d. In addition, χ ! is the
+        only character (mod d) that induces χ , for if there were another, say χ1 , then
+        for any n with (n, d) = 1 we would have χ ! (n) = χ ! (n + kd) = χ (n + kd) =
+        χ1 (n + kd) = χ1 (n), on choosing k as above.
+            A character χ modulo q is said to be primitive when q is the least quasiperiod
+        of χ . Such χ are not induced by any character having a smaller conductor. We
+        summarize our discussion as follows.
+        Theorem 9.2 Let χ denote a Dirichlet character modulo q and let d be the
+        conductor of χ . Then d | q, and there is a unique primitive character χ ! modulo
+        d that induces χ.
+           We now identify the primitive characters in such a way that we can describe
+        them in terms of the explicit construction of Section 5.2.
+        Lemma 9.3 Suppose that (q1 , q2 ) = 1 and that χ1 and χ2 are characters
+        modulo q1 and q2 , respectively. Put χ (n) = χ1 (n)χ2 (n). Then the character χ
+        is primitive modulo q1 q2 if and only if both χ1 and χ2 are primitive.
+        Proof For convenience write q = q1 q2 . Suppose that χ is primitive modulo
+        q, and for i = 1, 2 let di be the conductor of χi . If (mn, q) = 1 and m ≡ n
+        (mod d1 d2 ) then χi (m) = χi (n) for i = 1, 2, and hence d1 d2 is a quasiperiod of
+        χ . Since χ is primitive, this means that d1 d2 = q. But di | qi , so this implies
+        that di = qi , which is to say that the characters χi are primitive.
+            Now suppose that χi is primitive modulo qi for i = 1, 2, and let d be the
+        conductor of χ . Put di = (d, qi ). We show that d1 is a quasiperiod of χ1 . Sup-
+        pose that m ≡ n (mod d1 ) and that (mn, q1 ) = 1. Choose m  so that m  ≡ m
+        (mod q1 ), m  ≡ 1 (mod q2 ). Similarly, choose n  so that n  ≡ n (mod q1 )
+        and n  ≡ 1 (mod q2 ). Thus m  ≡ n  (mod d) and (m  n  , q) = 1, and hence
+        χ (m  ) = χ (n  ). But χ (m  ) = χ1 (m) and χ (n  ) = χ1 (n), so χ1 (m) = χ1 (n). Thus
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        284                        Primitive characters and Gauss sums
+
+
+        d1 is a quasiperiod of χ1 . Since χ1 is primitive, it follows that d1 = q1 . Similarly
+        d2 = q2 . Thus d = q, which is to say that χ is primitive.                          
+
+           By Lemma 9.3 we see that in order to exhibit the primitive characters ex-
+        plicitly it sufﬁces to determine the primitive characters (mod p α ). Suppose ﬁrst
+        that p is odd, and let g be a primitive root of p α . Then by (4.16) we know that
+        any character χ (mod p α ) is given by
+                                                            
+                                                  k indg n
+                                      χ (n) = e
+                                                    ϕ( p α )
+
+        for some integer k. If α = 1, then χ is primitive if and only if it is non-principal,
+        which is to say that ( p − 1)  k. If α > 1, then χ is primitive if and only if p  k.
+        Now consider primitive characters (mod 2α ). When α = 1 we have only the
+        principal character, which is imprimitive. When α = 2 we have two characters,
+        namely the principal character, which is imprimitive, and the primitive character
+        χ given by χ (4k + 1) = 1, χ (4k − 1) = −1. When α ≥ 3, we write an odd
+        integer n in the form n ≡ (−1)µ 5ν (mod 2α ), and then characters (mod 2α ) are
+        of the form
+                                                              
+                                                  jµ      kν
+                                     χ (n) = e         + α−2
+                                                   2     2
+
+        where j is determined (mod 2) and k is determined (mod 2α−2 ). Here χ is
+        primitive if and only if k is odd.
+           We now give two useful criteria for primitivity.
+
+        Theorem 9.4 Let χ be a character modulo q. Then the following are equiv-
+        alent:
+        (1) χ is primitive.
+        (2) If d | q and d < q, then there is a c such that c ≡ 1 (mod d), (c, q) = 1,
+            χ(c) = 1.
+        (3) If d | q and d < q, then for every integer a,
+                                                     
+                                                     q
+                                                               χ (n) = 0.
+                                                    n=1
+                                                 n≡a (mod d)
+
+        Proof (1) ⇒ (2). Suppose that d | q, d < q. Since χ is primitive, there exist
+        integers m and n such that m ≡ n (mod d), χ (m) = χ (n), χ (mn) = 0. Choose
+        c so that (c, q) = 1, cm ≡ n (mod q). Thus we have (2).
+           (2) ⇒ (3). Let c be as in (2). As k runs through a complete residue system
+        (mod q/d), the numbers n = ac + kcd run through all residues (mod q) for
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.1 Primitive characters                                285
+
+
+        which n ≡ a (mod d). Thus the sum S in question is
+
+                                             
+                                             q/d
+                                       S=          χ (ac + kcd) = χ (c)S.
+                                             k=1
+
+        Since χ (c) = 1, it follows that S = 0.
+           (3) ⇒ (1). Suppose that d | q, d < q. Take a = 1 in (3). Then χ (1) = 1
+        is one term in the sum, but the sum is 0, so there must be another term χ (n)
+        in the sum such that χ (n) = 1, χ (n) = 0. But n ≡ 1 (mod d), so d is not a
+        quasiperiod of χ , and hence χ is primitive.                               
+
+
+
+                                               9.1.1      Exercises
+        1. Let f (n) be an arithmetic function with period q such that f (n) = 0 when-
+           ever (n, q) > 1. Call d a quasiperiod of f if f (m) = f (n) whenever m ≡ n
+           (mod d) and (mn, q) = 1.
+           (a) Suppose that d1 and d2 are quasiperiods, put g = (d1 , d2 ), and suppose
+               that m ≡ n (mod g) and (mn, q) = 1. Show that there exist integers a
+               and b such that m = n + ad1 + bd2 and (n + ad1 , q) = 1.
+           (b) Show that if d1 and d2 are quasiperiods of f then so also is (d1 , d2 ).
+           (c) Show that the least quasiperiod of f divides all quasiperiods.
+        2. Let S(q) denote the set of all Dirichlet characters χ (mod q), and put T (q) =
+           )
+             d|q S(d). Show that the members of T (q) form a basis of the vector space
+           of all arithmetic functions with period q if and only if q is square-free.
+        3. For d|q let U(d, q) denote the set of ϕ(q/d) functions
+                                         
+                                           χ (a/d) (a, q) = d,
+                                f (a) =
+                                              0      otherwise
+
+           where χ runs over all Dirichlet characters (mod q/d). Set V(q) =
+           )
+             d|q U(d, q). Show that the members of V(q) form a basis for the vector
+           space of arithmetic functions with period q.
+        4. For i = 1, 2 let χi be a character (mod qi ) where (q1 , q2 ) = 1, and suppose
+           that di is the conductor of χi . Show that d1 d2 is the conductor of χ1 χ2 .
+        5. For i = 1, 2 suppose that χi is a character (mod qi ). Show that the following
+           two assertions are equivalent:
+           (a) The characters χ1 and χ2 are induced by the same primitive character.
+           (b) χ1 ( p) = χ2 ( p) for all but at most ﬁnitely many primes p.
+        6. Let ϕ2 (q) denote the number of primitive characters (mod q).
+           (a) Show that ϕ2 (q) is a multiplicative function.
+                           
+           (b) Show that d|q ϕ2 (d) = ϕ(q).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        286                        Primitive characters and Gauss sums
+
+
+            (c) Show that
+                                                                                            2
+                                                                  2                        1
+                                      ϕ2 (q) = q            1−                        1−            .
+                                                    pq
+                                                                  p       p 2 |q
+                                                                                           p
+
+           (d) Show that ϕ2 (q) > 0 if and only if q ≡ 2 (mod 4).
+        7. Suppose that χ is a character (mod q), and that d is the conductor of χ . Show
+           that if (a, q) = 1, then
+
+                                                  
+                                                  q
+                                                                          ϕ(q)
+                                                            χ (n) =            .
+                                                n=1
+                                                                          ϕ(d)
+                                              n≡a(mod d)
+
+        8. (Martin 2006; Vorhauer 2006) Let d(χ) denote the conductor of χ .
+                                        
+           (a) Use the identity log d = r |d (r ) to show that
+                                                                 
+                              log d(χ ) = ϕ(q) log q −       (r )    1.
+                                  χ                                            r |q               χ
+                                                                                               r d(χ )
+
+            (b) Show that if pa q and 1 ≤ b ≤ a, then the number of χ modulo q such
+                that p b  d(χ ) is exactly ϕ(q)ϕ( p b−1 )/ϕ( pa ).
+            (c) Conclude that
+                                                                          
+                                                                  log p
+                                     log d(χ ) = ϕ(q) log q −                .
+                                 χ                                 p|q
+                                                                       p−1
+
+
+
+                                             9.2      Gauss sums
+        Given a character χ modulo q, we deﬁne the Gauss sum τ (χ) of χ to be
+                                                      
+                                                      q
+                                           τ (χ ) =           χ (a)e(a/q).                                (9.3)
+                                                      a=1
+
+        This may be regarded as the inner product of the multiplicative character χ (a)
+        with the additive character e(a/q). As such, it is analogous to the gamma
+                            ∞
+        function (s) = 0 x s−1 e−x d x, which is the inner product of the multiplicative
+        character x s with the additive character e−x with respect to the invariant measure
+        d x/x. Gauss sums are invaluable in transferring questions concerning Dirichlet
+        characters to questions concerning additive characters, and vice versa.
+           The Gauss sum is a special case of the more general sum
+                                                      
+                                                      q
+                                          cχ (n) =            χ (a)e(an/q).                               (9.4)
+                                                      a=1
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 9.2 Gauss sums                                     287
+
+
+        When χ is the principal character, this is Ramanujan’s sum
+                                                         
+                                                         q
+                                           cq (n) =              e(an/q),                          (9.5)
+                                                         a=1
+                                                       (a,q)=1
+
+        whose properties were discussed in Section 4.1. We now show that the sum
+        cχ (n) is closely related to τ (χ ).
+        Theorem 9.5          Suppose that χ is a character modulo q. If (n, q) = 1, then
+                                                         
+                                                         q
+                                       χ (n)τ (χ ) =           χ (a)e(an/q),                       (9.6)
+                                                         a=1
+
+        and in particular
+                                              τ (χ ) = χ (−1)τ (χ ).                               (9.7)
+        Proof If (n, q) = 1, then the map a → an permutes the residues modulo q,
+        and hence
+                                       q
+                         χ (n)cχ (n) =    χ (an)e(an/q) = τ (χ ).
+                                                   a=1
+
+        On replacing χ by χ , this gives (9.6), and (9.7) follows by taking n = −1. 
+        Theorem 9.6 Suppose that (q1 , q2 ) = 1, that χi is a character modulo qi for
+        i = 1, 2, and that χ = χ1 χ2 . Then
+                                      τ (χ ) = τ (χ1 )τ (χ2 )χ1 (q2 )χ2 (q1 ).
+        Proof By the Chinese Remainder Theorem, each a (mod q1 q2 ) can be written
+        uniquely as a1 q2 + a2 q1 with 1 ≤ ai ≤ qi . Thus the general term in (9.3) is
+        χ1 (a1 q2 )χ2 (a2 q1 )e(a1 /q1 ) e(a2 /q2 ), so the result follows.         
+
+           For primitive characters the hypothesis that (n, q) = 1 in Theorem 9.5 can
+        be removed.
+        Theorem 9.7 Suppose that χ is a primitive character modulo q. Then (9.6)
+                                       √
+        holds for all n, and |τ (χ )| = q.
+        Proof It sufﬁces to prove (9.6) when (n, q) > 1. Choose m and d so that
+        (m, d) = 1 and m/d = n/q. Then
+                           
+                           q                          
+                                                      d                    
+                                                                           q
+                                 χ (a)e(an/q) =             e(hm/d)                  χ (a).
+                           a=1                        h=1                 a=1
+                                                                       a≡h (mod d)
+
+        Since d | q and d < q, the inner sum vanishes by Theorem 9.4. Thus (9.6) holds
+        also in this case.
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        288                        Primitive characters and Gauss sums
+
+
+           We replace χ in (9.6) by χ , take the square of the absolute value of both
+        sides, and sum over n to see that
+                             
+                             q 
+                               q                         2    
+                                                              q 
+                                                                q                    
+                                                                                     q
+         ϕ(q)|τ (χ )|2 =                χ (a)e(an/q) =                  χ (a)χ (b)         e((a − b)n/q).
+                             n=1 a=1                          a=1 b=1                n=1
+
+        The innermost sum on the right is 0 unless a ≡ b (mod q), in which case it is
+                                                                    √
+        equal to q. Thus ϕ(q)|τ (χ )|2 = ϕ(q)q, and hence |τ (χ )| = q.            
+
+            If χ is primitive modulo q, then not only does (9.6) hold for all n but also
+        τ (χ ) = 0, and hence we have
+
+        Corollary 9.8 Suppose that χ is a primitive character modulo q. Then for
+        any integer n,
+
+                                                    1 
+                                                          q
+                                       χ (n) =               χ (a)e(an/q).
+                                                  τ (χ ) a=1
+
+           This is very useful, since it allows us to express the multiplicative character
+        χ as a linear combination of additive characters e(an/q). As a ﬁrst application,
+        we use this formula to express L(1, χ ) in closed form.
+
+        Theorem 9.9 Suppose that χ is a primitive character modulo q with q > 1.
+        If χ (−1) = 1, then
+
+                                               −τ (χ ) 
+                                                       q−1
+                               L(1, χ ) =                  χ (a) log(sin πa/q),                     (9.8)
+                                                 q a=1
+
+        while if χ (−1) = −1, then
+
+                                                      iπ τ (χ) 
+                                                                 q−1
+                                        L(1, χ ) =               aχ (a).                            (9.9)
+                                                        q 2 a=1
+                                         ∞
+        Proof      Since L(1, χ ) =          n=1 χ (n)/n, by Corollary 9.8,
+
+                        1     ∞
+                                   1                       1             ∞
+                                     q−1                         q−1
+                                                                               e(an/q)
+             L(1, χ ) =                  χ (a)e(an/q) =              χ (a)             .
+                      τ (χ ) n=1 n a=1                    τ (χ ) a=1       n=1
+                                                                                  n
+                               
+        But log(1 − z)−1 = ∞      n=1 z /n for |z| ≤ 1, z = 1, where the logarithm is
+                                       n
+
+        the principal branch. We take z = e(θ ) where 0 < θ < 1. Since 1 − e(θ ) =
+        −2ie(θ/2) sin πθ , it follows that log(1 − e(θ )) = log(2 sin π θ) + iπ(θ − 1/2).
+        Thus
+                                   −1 
+                                         q−1
+                   L(1, χ ) =                χ (a)(log(2 sin πa/q) + iπ (a/q − 1/2)).
+                                  τ (χ ) a=1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 9.2 Gauss sums                                    289
+
+
+                 q−1
+        Since       a=1 χ (a) = 0, this is
+
+                                                       −1
+                                                             (S + i T )
+                                                      τ (χ )
+                   q−1                                q−1
+        where S = a=1 χ (a) log(sin πa/q) and T = π/q a=1 χ (a)a. On replacing
+        a by q − a we see that S = χ (−1)S and T = −χ (−1)T . Thus if χ (−1) = 1,
+        then T = 0 and so
+                                                 −1 
+                                                          q−1
+                                 L(1, χ ) =                χ (a) log(sin πa/q).
+                                                τ (χ ) a=1
+        Then by (9.7) we obtain (9.8). If χ (−1) = −1 then S = 0 and so
+
+                                                           −iπ 
+                                                                   q−1
+                                         L(1, χ ) =                   χ (a)a.
+                                                          τ (χ )q a=1
+        Then by (9.7) we obtain (9.9).                                                              
+
+           We next show that τ (χ) can be expressed in terms of τ (χ ! ) where χ ! is the
+        primitive character that induces χ .
+        Theorem 9.10 Let χ be a character modulo q that is induced by the primitive
+        character χ ! modulo d. Then τ (χ ) = µ(q/d)χ ! (q/d)τ (χ ! ).
+        Proof If (d, q/d) > 1, then χ ! (q/d) = 0, so we begin by showing that τ (χ ) =
+        0 in this case. Let p be a prime such that p | d, p | q/d, and write a = jq/ p + k
+        with 0 ≤ j < p, 0 ≤ k < q/ p. Then
+                              
+                              q−1                        p 
+                                                         q/ p
+                   τ (χ ) =         χ (a)e(a/q) =                  χ ( jq/ p + k)e( j/ p + k/q).
+                              a=0                        k=1 j=1
+
+        But p | (q/ p), so ( jq/ p + k, q) = 1 if and only if ( jq/ p + k, q/ p) = 1, which
+        in turn is equivalent to (k, q/ p) = 1. Also, d | q/ p, so the above is
+                                           p
+                                           q/                         
+                                                                      p
+                                     =                χ ! (k)e(k/q)         e( j/ p).
+                                            k=1                       j=1
+                                         (k,q/ p)=1
+
+        Here the inner sum vanishes, so τ (χ ) = 0 when (d, q/d) > 1.
+          Now suppose that (d, q/d) = 1, and let χ0 denote the principal character
+        modulo q/d. Then by Theorem 9.6,
+                              τ (χ ) = τ (χ0 χ ! ) = τ (χ0 )τ (χ ! )χ0 (d)χ ! (q/d).
+        By taking n = 1 in Theorem 4.1 we ﬁnd that τ (χ0 ) = µ(q/d). Thus we have
+        the stated result.                                                     
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        290                        Primitive characters and Gauss sums
+
+
+           We now turn our attention to the more general cχ (n). To this end we begin
+        with an auxiliary result.
+
+        Lemma 9.11 Let χ be a character modulo q induced by the primitive char-
+        acter χ ! modulo d. Suppose that r | q. Then
+                   q             !
+                                   χ (b)ϕ(q)/ϕ(r ) if (b, r ) = 1 and d | r,
+                         χ (n) =
+                   n=1
+                                   0                 otherwise.
+                   n≡b (mod r )
+
+        Proof Let S(b, r ) denote the sum in question. If p | (b, r ) and n ≡ b (mod r ),
+        then p | n, and so (n, q) > 1. Thus each term in S(b, r ) is 0. Thus we are
+        done when (b, r ) > 1, so we suppose that (b, r ) = 1. Consider next the case
+        when d  r . Then r is not a quasiperiod of χ . Hence there exist m and n such
+        that (mn, q) = 1, m ≡ n (mod r ), and χ (m) = χ (n). Choose c so that cn ≡
+        m (mod q). Then c ≡ 1 (mod r ) and χ (c) = 1. Hence χ (c)S(b, r ) = S(b, r ),
+        as in the proof of Theorem 9.4, so S(b, r ) = 0 in this case. Finally suppose
+        that d | r . Let χ0 be the principal character modulo q. If n ≡ b (mod r ), then
+        χ ! (n) = χ ! (b). Thus
+                                                               
+                                                               q
+                                     S(b, r ) = χ ! (b)                   χ0 (n).
+                                                              n=1
+                                                           n≡b (mod r )
+
+        Write q/r = q1 q2 where q1 is the largest divisor of q/r that is relatively prime
+        to r . Then the sum on the right above is
+                                       
+                                       q1 q2
+                                                   1 = q2 ϕ(q1 ) = ϕ(q)/ϕ(r ),
+                                        k=1
+                                   (kr +b,q1 )=1
+
+        as required.                                                                               
+
+            We are now in a position to deal with cχ (n).
+
+        Theorem 9.12 Let χ be a character modulo q induced by the primitive char-
+        acter χ ! modulo d. Put r = q/(q, n). Then cχ (n) = 0 if d  r , while if d | r ,
+        then
+                                                             ϕ(q)
+                      cχ (n) = χ ! (n/(q, n))χ ! (r/d)µ(r/d)       τ (χ ! ).
+                                                             ϕ(r )
+        Proof      If (n, q) = 1, then by Theorem 9.5 and Theorem 9.10 we see that
+
+                           cχ (n) = χ (n)τ (χ ) = χ ! (n)µ(q/d)χ ! (q/d)τ (χ ! ).
+
+        Since r = q, we have d | r , so we have the correct result. Now suppose that
+        (n, q) > 1. In the deﬁnition (9.4) of cχ (n), let a = br + k with 0 ≤ b < q/r ,
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 9.2 Gauss sums                                    291
+
+
+        1 ≤ k ≤ r . Then
+                                               
+                                               r                 
+                                                                 q/r
+                                    cχ (n) =           e(kn/q)         χ (br + k).
+                                                k=1              b=1
+
+        By Lemma 9.11 this is 0 when d  r . Thus we may suppose that d | r . Then, by
+        Lemma 9.11,
+                                               
+                                               r
+                                 cχ (n) =               e(kn/q)χ ! (k)ϕ(q)/ϕ(r ).
+                                               k=1
+                                             (k,r )=1
+
+        Put m = n/(q, n), and let χ1 denote the character modulo r induced by χ ! .
+        Then the above is
+                                   ϕ(q) r
+                                =            e(km/r )χ1 (k).
+                                   ϕ(r ) k=1
+        Since (m, r ) = 1, we see by the ﬁrst case treated that the above is
+                                      ϕ(q) !
+                                            χ (m)µ(r/d)χ ! (r/d)τ (χ ! ),
+                                      ϕ(r )
+        which sufﬁces.                                                                              
+
+
+                                               9.2.1       Exercises
+          1. (a) Show that
+                                                                 
+                                    1                               e(a/q)    (a, q) = 1,
+                                          χ (a)τ (χ ) =
+                                   ϕ(q) χ                            0         otherwise.
+
+              (b) Show that for all integers a,
+                                          1            
+                              e(a/q) =                           χ (a/d)τ (χ ).
+                                          d|q
+                                              ϕ(q/d) χ (mod q/d)
+                                                 d|a
+
+          2. Let
+                                                         p     k
+                                                                an
+                                               G k (a) =     e      .
+                                                         n=1
+                                                                 p
+
+              (a) Let Nk (h) denote the number of solutions of the congruence x k ≡ h
+                  (mod p). Explain why
+                                                p           
+                                                             ah
+                                      G k (a) =     Nk (h)e      .
+                                                h=1
+                                                              p
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        292                        Primitive characters and Gauss sums
+
+
+              (b) Let l = (k, p − 1). Show that if k is a positive integer, then Nk (h) =
+                  Nl (h) for all h, and hence that G k (a) = G l (a).
+              (c) Suppose that k | ( p − 1). Explain why
+                                              
+                                              p                       
+                                                                      p
+                                                    |G k (a)|2 = p          Nk (h)2 .
+                                              a=1                     h=1
+
+             (d) Suppose that k | ( p − 1). Show that there are ( p − 1)/k residues h
+                  (mod p) for which Nk (h) = k, that Nk (0) = 1, and that Nk (h) = 0 for
+                  all other residue classes (mod p). Hence show that the right-hand side
+                  above is p(1 + ( p − 1)k).
+             (e) Let k be a divisor of p − 1. Suppose that p  a, p  c, and that b ≡ ack
+                  (mod p). Show that G k (a) = G k (b).
+                                                                                  √
+              (f) Suppose that k | ( p − 1). Show that if p  a then |G k (a)| < k p.
+          3. Suppose that k | ϕ(q) and that (h, q) = 1.
+             (a) Explain why
+                                                     
+                             1                        1 if x k ≡ h (mod q),
+                                     χ (x k )χ (h) =
+                           ϕ(q) χ                      0 otherwise.
+
+              (b) Let Nk (h) be as in Exercise 2(a). Show that
+                                                      
+                                           Nk (h) =       χ (h).
+                                                                    χ
+                                                                χ k =χ0
+
+          4. Suppose that k | ( p − 1), that Nk (h) is as in Exercise 2(a), and let χ be a
+             character of order k, say χ (n) = e((ind n)/k).
+             (a) Show that for all h,
+                                                                    
+                                                                    k−1
+                                                 Nk (h) = 1 +             χ j (h).
+                                                                    j=1
+
+              (b) Show that if p  a, then
+                                                            
+                                                            k−1
+                                                G k (a) =          χ j (a)τ (χ j ).
+                                                             j=1
+                                                              √
+             (c) Show that if p  a, then |G k (a)| ≤ (k − 1) p.
+          5. Suppose that χi is a character (mod qi ) for i = 1, 2, with (q1 , q2 ) = 1. Show
+             that
+                                      cχ1 χ2 (n) = χ1 (q2 )χ2 (q1 )cχ1 (n)cχ2 (n) .
+          6. (Apostol 1970) Let χ be a character modulo q such that the identity (9.6)
+             holds for all integers n. Show that χ is primitive (mod q).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 9.2 Gauss sums                                    293
+
+
+          7. Let N (q) denote the number of pairs x, y of residue classes (mod q) such
+             that y 2 ≡ x 3 + 7 (mod q).
+             (a) Show that N (q) is a multiplicative function of q, that N (2) = 2, N (3) =
+                 3, N (7) = 7, and that N ( p) = p when p ≡ 2 (mod 3).
+             (b) Suppose that p ≡    n1 (mod 3). Let χ1 (n) be a cubic character modulo p,
+                 and let χ2 (n) = p be the quadratic character modulo p. Show that
+                                                 p                                 
+                              1                                         
+                                  p
+                     N ( p) =         e(7a/ p)         1 + χ1 (h) + χ1 (h) e(ah/ p)
+                                                                       2
+                              p a=1               h=1
+                                 p                            
+                                  
+                              ×         (1 + χ2 (k))e(−ak/ p)
+                                        k=1
+                                      2                                  
+                              = p+        τ (χ1 )τ (χ2 )τ χ12 χ2 χ1 χ2 (−7) ,
+                                       p
+                                                         √
+                   and deduce that |N ( p) − p| ≤ 2 p.
+             (c) Deduce that N ( p) > 0 for all p.
+             (d) Show that N (2k ) = 2k−1 for k ≥ 2, that N (3k ) = 2 · 3k−1 for k ≥ 2,
+                   that N (7k ) = 6 · 7k−1 for k ≥ 2, and that N ( p k ) = N ( p) p k−1 for all
+                   other primes.
+             (e) Conclude that the congruence y 2 ≡ x 3 + 7 (mod q) has solutions for
+                   every positive integer q.
+              (f) Suppose that x and y are integers such that y 2 = x 3 + 7. Show that
+                   2 | y, x ≡ 1 (mod 4), and that x > 0. Note that y 2 + 1 = (x + 2)(x 2 −
+                   2x + 4), so that y 2 + 1 is composed of primes ≡ 1 (mod 4), and yet x +
+                   2 ≡ 3 (mod 4). Deduce that this equation has no solution in integers.
+          8. (Mordell 1933) Explain why the number N of solutions of the congruence
+             c1 x1k1 + · · · + cm xmkm ≡ c (mod p) is
+                                               1
+                                                    p           m
+                                       N=            e(−ac/ p)     G k j (ac j )
+                                               p a=1           j=1
+
+             where G k is deﬁned as in Exercise 2.
+             (b) Suppose that c = 0 but that p does not divide any of the numbers c j .
+                                                               
+                 Show that |N − p m−1 | ≤ C p m/2 where C = mj=1 ((k j , p − 1) − 1).
+             (c) Suppose that c ≡ 0 (mod p) and that for all j, c j ≡ 0 (mod p). Show
+                 that |N − p m−1 | ≤ C p (m−1)/2 where C is deﬁned as above.
+          9. (Mattics 1984) Suppose that h has order ( p − 1)/k modulo p. Show that
+                                   p−1  m 
+                                          h                   √
+                                       e         ≤ 1 + (k − 1) p.
+                                   m=1
+                                            p
+        10. Let χ1 and χ2 be primitive characters (mod q).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        294                        Primitive characters and Gauss sums
+
+
+              (a) Show that if (a, q) = 1, then
+                                   
+                                   q
+                                                                                 τ (χ 1 χ 2 )
+                                          χ1 (n)χ2 (a − n) = χ1 χ2 (a)q                         .
+                                    n=1
+                                                                               τ (χ 1 )τ (χ 2 )
+              (b) Show that if χ1 χ2 is primitive, then
+                                     
+                                     q
+                                                                               τ (χ1 )τ (χ2 )
+                                           χ1 (n)χ2 (a − n) = χ1 χ2 (a)                             (9.10)
+                                     n=1
+                                                                                 τ (χ1 χ2 )
+                   for all a.
+
+          When a = 1, the sum (9.10) is known as the Jacobi sum J (χ1 , χ2 ). In the
+        same way that the Gauss sum is analogous to the gamma function, the Jacobi
+        sum (and its evaluation in terms of Gauss sums) is analogous to the beta function
+                                                 1
+                                                                                (α) (β)
+                            B(α, β) =                x α−1 (1 − x)β−1 d x =             .
+                                             0                                  (α + β)
+        11. Let C be the smallest ﬁeld that contains the ﬁeld Q of rational numbers and
+            is closed under square roots. Thus C is the set of complex numbers that
+            are constructible by ruler-and-compass. We show that if p is of the form
+            p = 2k + 1, then ζ = e(1/ p) ∈ C, which is to say that a regular p-gon can
+            be constructed.
+            (a) Let p be any prime, and χ any non-principal character modulo p.
+                 Explain why
+                                                      
+                                                      p
+                                           τ (χ )2           χ (n)χ (1 − n) = pτ (χ 2 ).
+                                                      n=1
+
+              (b) From now on assume that p is of the form p = 2k + 1. Explain why
+                     k
+                  χ 2 = χ0 for any character modulo p, and deduce that χ (n) ∈ C for
+                  all χ and all integers n.
+              (c) Deduce that if τ (χ 2 ) ∈ C, then τ (χ ) ∈ C.
+              (d) Suppose that χ has order 2r . Show successively that the numbers
+                                                         r          r −1
+                                      −1 = τ (χ 2 ), τ (χ 2 ), . . . , τ (χ 2 ), τ (χ )
+
+                 lie in C.
+                              
+            (e) Explain why χ τ (χ ) = ( p − 1)ζ .
+             (f) (Gauss) If p = 2k + 1, then ζ ∈ C.
+                                                            p
+        12. Let χ be a character modulo p and put J (χ ) = n=1 χ (n)χ (1 − n).
+                                                        √
+            (a) Show that if χ 2 = χ0 , then |J (χ )| = p.
+            (b) Suppose that p ≡ 1 (mod 4). Show that there is a quartic character χ
+                 modulo p.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.3 Quadratic characters                                  295
+
+
+            (c) Show that if χ is a quartic character, then J (χ ) is a Gaussian integer.
+                That is, J (χ ) = a + ib where a and b are rational integers.
+            (d) Deduce that a 2 + b2 = p.
+        13. (a) Write
+                                             
+                                             q                      
+                                                                    q
+                               |τ (χ )|2 =         χ (m)e(m/q)            χ (n)e(−n/q),
+                                             m=1                    n=1
+
+                   and in the second sum replace n by mn where (m, q) = 1, to see that
+                   the above is
+                                                        
+                                                        q
+                                                   =          χ (n)cq (n − 1).
+                                                        n=1
+
+              (b) Use Theorem 4.1 to show that the above is
+                                                                    
+                                                                     q
+                                             =         dµ(q/d)                  χ (n).
+                                                 d|q                 n=1
+                                                                  n≡1 (mod d)
+                                                                                                   √
+              (c) Use Theorem 9.4 to show that if χ is primitive, then |τ (χ )| =                   q.
+
+
+
+                                     9.3      Quadratic characters
+        A character is quadratic if it has order 2 in the group of characters modulo
+        q. That is, the character takes on only the values −1, 0, and 1, with at least
+        one −1. Similarly, a character is real if all its values are real. Hence a real
+        character iseither the principal character or a quadratic character. The Legendre
+        symbol np L is a primitive quadratic character modulo p, and further quadratic
+        characters arise from the Jacobi and Kronecker symbols. We now determine
+        all quadratic characters modulo q. If χ is a character modulo q induced by the
+        primitive character χ ! modulo d, d | q, then χ is quadratic if and only if χ ! is
+        quadratic. Hence it sufﬁces to determine the primitive quadratic characters.
+            Suppose that χ is a character modulo q, that q = q1 q2 , (q1 , q2 ) = 1,
+        χ = χ1 χ2 as in Lemma 9.3. By the Chinese Remainder Theorem we see that
+        χ is a real character if and only if both χ1 and χ2 are real characters. Hence by
+        Lemma 9.3, χ is a primitive quadratic character if and only if χ1 and χ2 are. Thus
+        it sufﬁces to determine the primitive quadratic characters modulo a prime power.
+            In Section 5.2 we saw that a character χ modulo p may be written in the
+        form χ (n) = e(k ind n/( p − 1)). Such a character is primitive provided that
+        it is non-principal, which is to say that k ≡ 0 (mod p − 1). Similarly, χ is
+        quadratic if and only if the least denominator of the fraction k/( p − 1) is 2. If
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        296                        Primitive characters and Gauss sums
+
+
+        p = 2 then this is impossible, but for p > 2 this is equivalent to the condition
+        k ≡ ( p − 1)/2 (mod p − 1). Thus there is no quadratic character modulo 2,
+        but for each odd prime p there is a unique quadratic character, given by the
+        Legendre symbol.
+            Now suppose that p is an odd prime and that q = p m with m > 1. We have
+        seen that a character χ modulo such a q is of the form χ (n) = e(k ind n/ϕ(q)),
+        and that χ is primitive if and only if p  k. This character is quadratic only when
+        k ≡ ϕ(q)/2 (mod ϕ(q)), so there is a unique quadratic character modulo q, but
+        it is not primitive because p | k for this k. That is, the only quadratic character
+        modulo pm is induced by the primitive quadratic character modulo p.
+            Finally, suppose that q = 2m . For the modulus 2 there is only the principal
+        character, but for q = 4 we have a primitive quadratic character
+                                        
+                                          (−1)(n−1)/2 (n odd),
+                               χ1 (n) =
+                                          0               (n even).
+
+        For m > 2 we write χ ((−1)µ 5ν ) = e( jµ/2 + kν/2m−2 ), and we see that this
+        character is real if and only if 2m−3 | k. However, the character is primitive if and
+        only if k is odd, so primitive quadratic characters arise only when m = 3, and for
+        this modulus we have two different characters (corresponding to j = 0, j = 1).
+        Let χ2 ((−1)µ 5ν ) = e(ν/2). That is, χ2 (n) = (−1)(n −1)/8 . Then the characters
+                                                                 2
+
+
+        modulo 8 are χ0 , χ1 , χ2 , and χ1 χ2 , of which the latter two are primitive.
+           We next show that the primitive quadratic characters arise precisely from
+        the Kronecker symbol dn K . We say that d is a quadratic discriminant if either
+        (a) d ≡ 1 (mod 4) and d is square-free
+         or
+        (b) 4 | d, d/4 ≡ 2 or 3 (mod 4), and d/4 is square-free.
+                                                                                               d 
+        For each quadratic discriminant d we deﬁne the Kronecker symbol                            n K
+                                                                                                         by the
+        following relations:
+               
+          (i) dp K = 0 when p | d;
+                     
+                d         1 when d ≡ 1 (mod 8),
+         (ii)        =
+                2 K      −1 when d ≡ 5 (mod 8);
+                     
+        (iii) dp K = dp L , the Legendre symbol, when p > 2;
+                       
+                 d          1 when d > 0,
+        (iv)           =
+                −1         −1 when d < 0;
+              d  K
+         (v) n K is a totally multiplicative function of n.
+        It is not immediately apparent that this deﬁnition of the Kronecker symbol gives
+        rise to a character, but we now show that this is the case.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.3 Quadratic characters                                       297
+
+                                                                                                      
+        Theorem 9.13 Let d be a quadratic discriminant. Then χd (n) = dn K is a
+        primitive quadratic character modulo |d|, and every primitive quadratic char-
+        acter is given uniquely in this way.
+                                              −4 
+        Proof It is easy 8  to see that     n K
+                                                      is the primitive quadratic character modulo
+        4. Similarly, n K and −8        n K
+                                               are  the primitive quadratic characters  p        modulo
+                                                                                                           8.
+            Suppose that p is a prime, p ≡ 1 (mod 4). We show that n K = p L for all                 n
+
+        n.
+         p  seethis,
+            To           note that  if q is anodd   prime, then by (iii) and   2 quadratic   preciprocity,
+                     p        q                p             ( p 2 −1)/8
+                                                                                                     
+               =         =         .  Also,            =  (−1)               =         , and     −1
+                                                                                                         =1=
+         −1 
+          q  K      q  L       p L               2  K                              p L                 K
+               . Since these two functions agree on all primes, and also on −1, and
+           p L                                                                  
+        both are totally multiplicative, it follows that np K = np L for all integers n.
+                                                                                                         
+            Suppose that p is a prime, p ≡ 3 (mod 4). We show that −np K = np L
+        for all n. To see this,       note that   if q is an   odd prime,    then by (iii)2 and
+        quadratic reciprocity, −qp K = −qp L = qp L . Also, −2p K = (−1)((− p) −1)/8
+                                                                 
+        = (−1)( p −1)/8 = 2p L , and −−1p K = −1 = −1
+                   2
+                                                                       p L
+                                                                             . Since these two functions
+                            and also on −1, and both are totally multiplicative, it follows
+        agree on all primes,
+        that −np K = np L for all integers n.
+            Suppose next that d1 and      d2 are quadratic discriminants with (d1 , d2 ) = 1. Put
+        d = d1 d2 . Supposing that dni K is a primitive quadratic character modulo |di | for
+        i = 1, 2, we shall show that dn K is a primitive  d  quadratic
+                                                                        d1   d2 character
+                                                                                                 d2  |d|. If
+                                                                                           d1 modulo
+        q is an odd prime, then by (iii), q K = q L = q L q L = q K q K . Also,
+                                                  d
+                                                                              d          d1   d2 
+        by (ii) we see that d2 K = d21 K d22 K , and by (iv) that −1                         = −1              .
+                d        d1   d2                                                   K             K −1 K
+        Since n K = n K n K when n is a prime or n = −1, and since both sides
+        are totally multiplicative functions,         it follows that this identity holds for all
+        integers n. Hence by Lemma 9.3, dn K is a primitive character modulo |d|.
+            This allows us to account for all primitive quadratic characters, so the proof
+        is complete.                                                                                          
+
+           Since the Kronecker symbol and Legendre symbol agree whenever both are
+        deﬁned, we may omit the subscripts. The same remark applies to theJacobi     
+        symbol qn J , which for odd positive q = p1 p2 · · · pr is deﬁned to be qn J =
+        r  n                                                        d 
+          i=1 pi L . Sometimes we let χd (n) denote the character n .
+           A character χ modulo q is an even function, χ (−n) = χ (n), if χ (−1) = 1;
+        for the primitive quadratic character χd this n occurs if d > 0. In the case of the
+        Legendre symbol, if p ≡ 1 (mod 4), then p L = χ p (n) is even. Similarly, χ is
+        odd, χ (−n) = −χ (n), if χ (−1) = −1. For χd this occurs when d < 0. For the
+        Legendre symbol, if p ≡ 3 (mod 4), then np L = χ− p (n) is odd.
+           We have taken the quadratic reciprocity law for the Legendre symbol for
+        granted, since it is treated in a variety of ways in elementary texts. In Exercise
+        9.3.6 below we outline a proof of quadratic reciprocity that is unusual that
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        298                        Primitive characters and Gauss sums
+
+
+        it applies directly to the Jacobi symbol, without ﬁrst being restricted to the
+        Legendre symbol. For future purposes it is convenient to formulate quadratic
+        reciprocity also for the Kronecker symbol.
+
+        Theorem 9.14 Suppose that d1 and d2 are relatively prime quadratic discrim-
+        inants. Then
+                                
+                                d1     d2
+                                            = ε(d1 , d2 )                    (9.11)
+                                d2     d1
+        where ε(d1 , d2 ) = 1 if d1 > 0 or d2 > 0, and ε(d1 , d2 ) = −1 if d1 < 0 and
+        d2 < 0.
+
+            For odd n let m 2 be the largest square dividing n. Then there is a unique
+                                                                     d1 that n = ±m dd2 2 ,
+                                                                                       2
+        choice of sign and a unique quadratic discriminant d2 such
+        and then if (n, d1 ) = 1 the above can be applied to express n in terms of d1 .
+        If n is even, then 4n = m 2 d2 for unique
+                                             d1  m and quadratic
+                                                              d2  discriminant d2 , so if
+        (n, d1 ) = 1 we can again express n in terms of d1 .
+
+        Proof Suppose that d1 = p ≡ 1 (mod 4). Then
+                                             
+                               p        d2        d2
+                                    =         =        ,
+                               d2 K     p L        p K
+        so (9.11) holds in this case. Next suppose that d1 = − p where p ≡ 3 (mod 4).
+        Then
+                                                          
+                             −p           d2         d2      d2
+                                      =        =                   ,
+                              d2 K        p L       −1 K − p K
+        so (9.11) holds in this case also. Next consider
+                                                          the case d1 = −4.
+                                                          −4                  dThen
+                                                                                     d2 isdodd,
+                                                                                              
+        and hence d2 ≡ 1 (mod 4), so that −4           =          = 1,  while     2
+                                                                               −4 K
+                                                                                       = −12 K ,
+                                                 d2 K       1 K
+                                                                        
+        and (9.11) again holds. If d1 = 8 then d2 is odd and d82 K = (−1)(d2 −1)/8 =
+                                                                                        2
+
+         d2                                                          −8       −4   8 
+               , so (9.11) holds. Similarly, if d2 is odd, then d2 K = d2 K d2 K =
+         88 K  d2         d2   d2 
+          d2 K
+                = 8 K = −1         K −8 K
+                                           , so again (9.11) holds.
+             Now let d1 , d2 and d be pairwise coprime quadratic discriminants. Then
+                                                    
+                                      d1 d2          d1       d2
+                                                =                   .
+                                         d K         d K d K
+        Suppose that (9.11) holds for the pair d1 , d, and also for the pair d2 , d. Then
+        the above is
+                                                           
+                                           d                  d
+                             = ε(d1 , d)          ε(d2 , d)
+                                          d1 K               d2 K
+                                                         
+                                                     d
+                             = ε(d1 , d)ε(d2 , d)            .
+                                                    d1 d2 K
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.3 Quadratic characters                                299
+
+
+        But ε(d1 , d)ε(d2 , d) = ε(d1 d2 , d), so it follows that (9.11) holds also for the
+        pair d1 d2 , d. Since all quadratic discriminants can be constructed as the product
+        of smaller quadratic discriminants, or by appealing to the special cases already
+        considered, it follows now that (9.11) holds for all quadratic discriminants. 
+
+           Let χ be a character modulo q. By means of Theorems 9.7 and 9.10 we can
+        describe |τ (χ )|. By Theorem 9.5 we may also relate the argument of τ (χ ) to
+        that of τ (χ ), but otherwise there is little in general that we can say about the
+        argument of τ (χ ). However, in the special case of quadratic characters, a striking
+        phenomenon arises, which was ﬁrst noted and established by Gauss. Suppose
+        that χd is a primitive quadratic character. Then χ d = χd , so by multiplying
+        both sides of (9.7) by τ (χd ), and√using Theorem 9.7, we see that τ (χd )2 =
+                                                                           √
+        χd (−1)|d| = d. Thus τ (χd ) = ± d if d > 0 and τ (χd ) = ±i −d if d < 0.
+        We show below that in both cases it is always the positive sign that occurs. We
+        begin with the following fundamental result.
+
+        Theorem 9.15 Let                                    2
+                                                     q
+                                                            an
+                                           S(a, q) =     e      .
+                                                     n=1
+                                                            2q
+
+        If a and q are positive integers and at least one of them is even, then
+                                                          
+                                 S(a, q) = S(q, a)e(1/8) q/a.
+
+        Proof We apply the Poisson summation formula, in the form of Theorem D.3,
+        to the function f (x) = e(ax 2 /(2q)) for 1/2 < x < q + 1/2, with f (x) = 0
+        otherwise. Thus
+                                                                       
+                                                                        K
+                                  S(a, q) =           f (n) = lim              *
+                                                                               f (k)
+                                                                K →∞
+                                                  n                    k=−K
+
+        where
+                                                q+1/2
+                                   f*(k) =              e(ax 2 /(2q) − kx) d x.
+                                               1/2
+
+        We complete the square by writing
+
+                                   ax 2         a               k 2q
+                                        − kx =    (x − kq/a)2 −      ,
+                                   2q          2q               2a
+        and make the change of variable u = (x − kq/a)/q, to see that
+                                                            1/(2q)+1−k/a
+                          f*(k) = qe(−k 2 q/(2a))                          e(aqu 2 /2) du.
+                                                          1/(2q)−k/a
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        300                        Primitive characters and Gauss sums
+
+
+        By integrating by parts we see that
+                                            *
+                                            f (k)     a,q 1/(|k| + 1) .
+
+        Since at least one of a and q is even, if k ≡ r (mod a) then qk 2 ≡ qr 2 (mod 2a).
+        Thus if we write k = am + r , then
+                                             K /a                                   
+          K                  −qr 2 
+                              a                          1/(2q)+1−m−r/a
+               *
+               f (k) = q         e                                        e(aqu /2) du
+                                                                                2
+
+         k=−K               r =1
+                                     2a          m=−K /a 1/(2q)−m−r/a
+                           +Oq,a (1/K ).
+
+        Here the integrals may be combined to form
+                                                  ∞ one integral, which, as K tends to
+        inﬁnity tends to I (aq/2) where I (c) = −∞ e(cu 2 ) du. This is a conditionally
+        convergent improper Riemann U integral,
+                                               ∞but it is not necessary to evaluate this
+                                                        2
+        symmetrically as limU →∞ −U , since U e(cu ) du          1/U , by integration by
+        parts. Thus we have shown that
+
+                                         S(a, q) = q S(q, a)I (aq/2).
+
+        We take a = 2 and q = 1, and √note that S(2, 1) = 1 and S(1, 2) = 1 + i. Hence
+        I (1) = 1/(1 − i) = e(1/8)/ 2. By a linear change of variables it is clear that
+                                    √
+        if c > 0 then I (c) = I (1)/ c. On combining this information in the above, we
+        obtain the stated identity.                                                  
+
+            By taking a = 2 we immediately obtain
+
+        Corollary 9.16       (Gauss) For any positive integer q,
+                                                 ⎧ 1/2
+                                                 ⎪
+                                                 ⎪ q            if q ≡ 1 (mod 4),
+                q
+                                        +   −q   ⎨
+                                      1   i        0            if q ≡ 2 (mod 4),
+                    e(n 2 /q) = q 1/2          =
+                                      1 + i −1   ⎪
+                                                 ⎪ iq 1/2
+                                                                if q ≡ 3 (mod 4),
+                n=1                              ⎩
+                                                   (1 + i)q 1/2 if q ≡ 0 (mod 4).
+
+           This in turn enables us to reach our goal.
+                                        
+        Theorem 9.17√ Let χd (n) = dn be a primitive quadratic character. If d > 0,
+                                                   √
+        then τ (χd ) = d. If d < 0 then τ (χd ) = i −d.
+
+            In the special case of the Legendre symbol, if we write τ p =
+        p  n                                         √
+            n=1 p e(n/ p), then this asserts that τ p =   p for p ≡ 1 (mod 4), while
+               √
+        τ p = i p for p ≡ 3 (mod 4).
+
+        Proof As in some of the preceding proofs, we establish the identities when
+        the modulus is an odd prime or power of 2, and then write d = d1 d2 to extend
+        to the general primitive quadratic character.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.3 Quadratic characters                                  301
+
+
+            Let
+                                                         q     2
+                                                                ax
+                                           G(a, q) =         e      .                              (9.12)
+                                                         x=1
+                                                                 q
+
+                                                          n of the congruence x ≡
+                                                                                   2
+        If p is an odd prime,
+                          n  then the number of solutions
+                                             p 
+        n (mod p) is 1 + p L , so G(a, p) = n=1 1 + p e(an/ p). Thus if p  a,
+        then
+                                          p  
+                                               n
+                                G(a, p) =          e(an/ p).                    (9.13)
+                                          n=1
+                                                p
+        Suppose that p ≡ 1 (mod 4). Then from the above we see that τ (χ p ) = G(1, p),
+                                                                                         √
+        and then by taking q = p in Corollary 9.16 it follows that G(1, p) = p in
+        this case.
+           Now suppose that p ≡ 3 (mod 4). Then from the above we see that τ (χ− p ) =
+        G(1, p), and then by taking q = p in Corollary 9.16 it follows that G(1, p) =
+         √
+        i p in this case.
+           Clearly τ (χ√−4 ) = e(1/4) − e(3/4) = 2i, τ (χ8 ) = e(1/8) − e(3/8) − e(5/8)     √
+        + e(7/8) = 8, and τ (χ−8 ) = e(1/8) + e(3/8) − e(5/8) − e(7/8) = i 8.
+        Thus we have the stated result when d is a power of 2.
+           Next suppose that d = d1 d2 where d1 and d2 are quadratic discriminants and
+        (d1 , d2 ) = 1. Then by Theorem 9.6, τ (χd ) = τ (χd1 )τ (χd2 )χd1(|d2 |)χd2(|d1 |). By
+        considering the possible combinations of signs of d1 and of d2 we ﬁnd that
+        χd1(|d2 |)χd2(|d1 |) = χd1(d2 )χd2(d1 ) in all cases. This product is ε(d1 , d2 ) in the
+        notation of Theorem 9.14. That is,
+                                        τ (χd ) = ε(d1 , d2 )τ (χd1)τ (χd2).
+        Thus if τ (χd1) and τ (χd2) have the asserted values, then so also does τ (χd ).
+        Since every primitive quadratic character can be constructed this way, the proof
+        is complete.                                                                  
+
+
+                                               9.3.1      Exercises
+        1. (a) Show that if p > 2 and p  b, then
+                                    p            
+                                          n      n+b
+                                                       = −1.
+                                    n=1
+                                           p      p
+
+            (b) Suppose that p > 2 and that p  d. Explain why
+                            p  2           p              
+                                x −d                     n     n−d
+                                          =        1+                ,
+                           x=1
+                                    p        n=1
+                                                          p     p
+                  and deduce that this sum is −1.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        302                        Primitive characters and Gauss sums
+
+
+            (c) Put d = b2 − 4ac, and suppose that p > 2, p  d. Show that
+                                   p                  
+                                        ax 2 + bx + c        a
+                                                        =        .
+                                   x=1
+                                              p              p
+        2. Let p be a prime, p ≡ 1 (mod 4), and let N be a set of Z residue classes
+           modulo p.
+           (a) Explain why
+                            m − n                    1  a
+                                                                 p                     2
+                                                      =√                          e(an/ p) .
+                          m∈N n∈N
+                                            p               p a=1 p n∈N
+                                        
+           (b) Suppose that m−n            = 1 whenever m ∈ N , n ∈ N , and m = n. Show
+                           √         p
+                that Z ≤ p.
+        3. Put f a (r ) = r 2 + a1r + a0 where a = (a0 , a1 ). Show that if r1 , r2 , r3 are
+           distinct modulo p, then
+                               p    p                                    
+                                            f a (r1 )    f a (r2 )    f a (r3 )
+                                                                                  = p.
+                             a0 =1 a1 =1
+                                                p            p            p
+
+        4. We used Corollary 9.16 to determine the sign of τ (χ± p ), and then used
+           quadratic reciprocity to determine the sign of τ (χd ) for the general quadratic
+           discriminant d. We now show that quadratic reciprocity for the Legendre
+           symbol can be derived from Theorem 9.15 (mainly Corollary 9.16). Let
+                      q
+           G(a, q) = n=1 e(an 2 /q).
+           (a) Suppose that p is an odd prime. Explain why
+                                                   p  
+                                               a            n
+                                  G(a, p) =                      e(n/ p)
+                                                p L n=1 p
+                when (a, p) = 1.
+            (b) Suppose that (q1 , q2 ) = 1. By writing n modulo q1 q2 in the form n =
+                n 1 q2 + n 2 q1 , show that G(a, q1 q2 ) = G(aq2 , q1 )G(aq1 , q2 ).
+            (c) Let p and q denote odd primes. Show that
+                                                 
+                                                p        q
+                                   G(1, pq) =                G(1, p)G(1, q),
+                                                q L p L
+                  and use Corollary 9.16 to show that
+                                          
+                                         p     q           p−1 q−1
+                                                     = (−1) 2 · 2 .
+                                        q L p L
+                                                                              
+            (d) By taking a = −1 in (a), and using Corollary 9.16, show that −1  p
+                                                                                   =
+                (−1)( p−1)/2 .                              
+            (e) By taking a = 4 in Theorem 9.15, show that 2p L = (−1)( p −1)/8 .
+                                                                         2
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.3 Quadratic characters                                  303
+
+
+            (f) Suppose that p is an odd prime, and k is an integer, k ≥ 2. Show that
+                G(a, p k ) = pG(a, p k−2 ).
+        5. Let L1 denote the contour z = u, −∞ < u < ∞ in the complex plane,
+            ∞ L2 denote
+           let
+                      2
+                              the contour z = (1 + i)u, −∞ < u < ∞, and let I (c) =
+             −∞  e(cu   ) du, as in the proof of Theorem 9.15.
+                                             2
+           (a) Note that I (c) = L1 e2πicz dz.
+                                         2             2
+           (b) Explain why L1 e2πicz dz = L2 e2πicz dz.
+           (c) Show that
+                                                    ∞                                 ∞
+                                                                    1+i                              1+i
+                                                       e−4π cu du = √                     e−v dv =
+                              2                               2                               2
+                        e2πicz dz = (1 + i)                                                           √ .
+                   L2                               −∞             2 πc              −∞              2 c
+            (d) Thus give a proof, independent of that found in the proof of Theorem
+                9.15, that
+                                                ∞
+                                                                         1
+                                                    e(cu 2 ) du =           √ .
+                                              −∞                     (1 − i) c
+        6. Quadratic reciprocity à la Conway (1997, pp. 127–133). If (a, n) = 1 and n
+           is an odd
+                    positive integer, then we deﬁne the Zolotarev symbol (not a standard
+           term) an Z to be 1 if the map x→ ax is an even permutation of a complete
+           residue system modulo n, and an Z = −1 if it is odd.
+           (a) Compute the decomposition of thepermutation
+                                                                     x → 7x (mod 15) into
+                disjoint cycles, and thus show that 15  7
+                                                           Z
+                                                              =  −1.
+           (b) Suppose that p is an odd prime and that a has order h modulo p. Show
+                that the map x → ax (mod   p) consists of one 1-cycle (0) and ( p − 1)/ h
+                h-cycles. Deduce that ap Z = (−1)( p−1)/ h .
+           (c) Continue in the same notation, and show that      ( p − 1)/
+                                                                            h is even if and
+                only if a ( p−1)/2 ≡ 1 (mod p). Deduce that ap Z = ap L .
+           (d) If n is odd and positive, then the permutation x → −x (mod n) consists
+                of one   1-cycle
+                       −1       and (n − 1)/2 2-cycles of the form (x − x). Hence deduce
+                that n Z = (−1)(n−1)/2 .
+           (e) If (ab, n) = 1, then the map x → abx (mod n) is the composition of
+                 ab map x a→
+                the             ax  (mod n) and the map x → bx (mod n). Deduce that
+                  n Z
+                        =          b
+                             n Z n Z
+                                       .
+            (f) Let p be a prime, p > 2,and    let g be a primitive root of p. By (b)k with
+                h = p − 1, deduce that gp Z = −1. Then by (e) deduce that gp Z =
+                (−1)k , and hence give a second proof of (c).
+           (g) Suppose that n is odd and positive, and that (a, n) = 1. Let
+
+                     P = {1, 2, . . . , (n − 1)/2},            N = {−1, −2, . . . , −(n − 1)/2}.
+
+                  Let K be the number of k ∈ P such that ak ∈ N (mod n). Put εk = 1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        304                        Primitive characters and Gauss sums
+
+
+                 if k and ak lie in the same subset, otherwise put εk = −1. Note that
+                 εk = ε−k . Let π + be the permutation that leaves N ﬁxed and maps P to
+                 itself by the formula k → εk ak (mod n). Let π − be the map that leaves
+                 P ﬁxed and maps N to itself by the formula k → εk ak (mod n). Finally
+                 let π ∗ be the product of those transpositions (ak − ak) for which k ∈ P
+                 and ak ∈ N . Show that the map x → ax (mod n) is the permutation
+                 π ∗ π + π − . Let σ be the ‘sign change permutation’ x → −x (mod n).
+                 Show that π − = σ π + σ . That is, π + and π − are conjugate permutations.
+                 They are the same apart from the fact that they operate on different sets.
+                 Thus they have    the same cycle structure, and hence the same parity.
+                 Deduce that an Z = (−1) K .
+            (h) Suppose that     n is odd and positive, that (a, n) = 1, and that a > 0.
+                 Show that an Z = (−1) K where K is the number of integers lying in the
+                 intervals ((r − 12 ) an , ran ) for r = 1, 2, . . . [a/2].        
+             (i) Show that if a > 0, (2a, n) = 1, m ≡ n (mod 4a), then ma Z = an Z .
+                                                                    2
+             (j) Show that if n is odd and positive, then n Z = (−1)( p −1)/8 .
+                                                                            2
+
+
+            (k) Suppose that m and n are odd and positive, and that m ≡ −n (mod 4),
+                 say m + n = 4a. Justify the following manipulations:
+                                                                                    
+                            m              4a           a     a                   4a           n
+                                =                   =       =     =                        =       .
+                            n Z             n   Z       n Z   m Z                 m    Z       m Z
+
+             (l) Suppose that m and n are odd and positive, and that m ≡ n (mod 4), say
+                 m > n and m − n = 4a. Justify the following manipulations:
+                                                                
+                         m         4a         a         a         4a
+                               =          =        =          =
+                          n Z       n Z       n Z       m Z        m Z
+                                                 
+                                               −n          n
+                                          =          =          (−1)(m−1)/2 .
+                                               m Z        m Z
+
+           (m) Suppose that a is odd and positive and that (2a, mn) = 1. Show that
+                       a          mn         a−1 mn−1        m        n          a−1 mn−1
+                             =          (−1) 2 2 =                         (−1) 2 2
+                      mn Z          a Z                       a Z a Z
+                                   a     a                   + a−1  2 + 2
+                                                   a−1 mn−1        m−1  a−1 n−1
+                             =               (−1)   2    2      2            2 .
+                                  m Z n Z
+                                                                   a            
+                Show that this last exponent is even, so that mn         Z
+                                                                           = ma Z an Z in this
+                case.
+            (n) Suppose that a is oddand negative
+                                                   a  and  that (a, mn) = 1. Use (m) to
+                show that the identity mn Z = m Z n Z holds in this case also. Thus
+                                           a               a
+
+                this holds for all odd a.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.3 Quadratic characters                                305
+
+
+            (o) Suppose that a is even and that (a, mn) = 1. Justify the following ma-
+                nipulations:
+                                                     
+                a          −a         mn−1     mn − a           mn−1
+                     =           (−1) 2 =                   (−1) 2
+               mn Z        mn Z                   mn
+                                                      Z
+                           mn − a      mn − a           mn−1
+                     =                              (−1) 2
+                             m             n
+                                 Z
+                                                Z
+                           −a      −a                    a     a
+                                                                     (−1) 2 + 1 2+ 2 .
+                                               mn−1                      mn−1 m−  n−1
+                     =                     (−1) 2 =
+                           m Z n Z                      m Z n Z
+                  Show that this last exponent is even, and thus deduce that
+                                                   a      a   a
+                                                        =
+                                                   mn Z   m Z n Z
+               holds in all cases.
+           (p) Suppose that (a, m) = 1 and that m is odd, composite, and square-free.
+               Show that the permutation x → ax (mod m) of reduced residues modulo
+               m is always even. (Hence it is essential that we used complete residue
+               systems in the above.)
+        7. Let p be a prime number, p > 2. (a) Show that
+                                 p−1
+                                                        k
+                                       (1 − e(k/ p))( p ) = exp(−τ (χ p )L(1, χ p ))
+                                 k=1
+                            
+            where χ p (n) = kp .
+                                                               
+            Let R = r : 0 < r < p, rp = 1 , N = n : 0 < n < p, np = −1 , and
+            set
+                                       
+                                              sin π n/ p
+                                   Q = n∈N              .
+                                         r ∈R sin πr/ p
+
+
+           (b) Show that if p ≡ 3 (mod 4), then Q = 1.
+                                                         √
+           (c) Show that if p ≡ 1 (mod 4), then Q = exp( p L(1, χ p )).
+        8. (Chowla & Mordell 1961) Continue withthe notation of the preceding prob-
+           lem, let c be chosen, 0 < c < p, so that cp = −1, and put
+
+                                                             1 − z cr
+                                              f (z) =                 − 1.
+                                                        r ∈R
+                                                             1 − zr
+
+            (a) Show that if L(1, χ p ) = 0, then f (e(1/ p)) = 0.
+            (b) Explain why f is a polynomial with integral coefﬁcients.
+            (c) Show that if L(1, χ p ) = 0, then there exists a polynomial g ∈ Z[z] such
+                that f (z) = g(z)(1 + z + · · · + z p−1 ).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        306                        Primitive characters and Gauss sums
+
+
+            (d) By taking z = 1 in the above, show that it would follow that c( p−1)/2 ≡
+                1 (mod p).
+            (e) Explain why c( p−1)/2 ≡ −1 (mod p); deduce that L(1, χ p ) = 0.
+
+
+
+                                9.4      Incomplete character sums
+                                                          M+N
+        Let χ be a character modulo q. We call the sum n=M+1      χ (n) incomplete if
+        N < q. Such a sum trivially has absolute value at most N . We now use our
+        knowledge of Gauss sums to show that if χ is non-principal, then this sum is
+        o(N ) provided that N is not too small compared with q. Suppose ﬁrst that χ is
+        a primitive character modulo q with q > 1. Then by Corollary 9.8,
+
+                               
+                               M+N
+                                                    1 
+                                                          q         
+                                                                    M+N
+                                       χ (n) =               χ (a)       e(an/q).
+                              n=M+1
+                                                  τ (χ ) a=1       n=M+1
+
+        Here the inner sum is a geometric series. We note that
+                            
+                            M+N
+                                                e((M + N + 1)α) − e((M + 1)α)
+                                   e(nα) =
+                           n=M+1
+                                                          e(α) − 1
+                                                                            sin π N α
+                                            = e((2M + N + 1)α/2)                                   (9.14)
+                                                                             sin π α
+        if α is not an integer. (If α ∈ Z, then the sum is N .) On combining this with the
+        above, we see that
+
+                                                           
+                              1 
+                                    q
+               M+N
+                                                a(2M + N + 1) sin πa N /q
+                    χ (n) =            χ (a)e                             .                        (9.15)
+              n=M+1
+                            τ (χ ) a=1               2q        sin πa/q
+
+        By Theorem 9.7 and the triangle inequality the right-hand side has absolute
+        value
+
+                                             1 
+                                                q−1
+                                                        1
+                                           <√                .
+                                              q a=1 sin πa/q
+                                                     (a,q)=1
+
+        Here the second half of the range of summation contributes the same amount as
+        the ﬁrst. Hence it sufﬁces to multiply by 2 and sum over 1 ≤ a ≤ q/2. However,
+        if q is odd, then q/2 is not an integer and hence the sum is actually over the
+        range 1 ≤ a ≤ (q − 1)/2, while if q is even, then 4 | q (since if q ≡ 2 (mod 4),
+        then there is no primitive character modulo q), and hence (q/2, q) > 1, and so
+        it sufﬁces to sum over 1 ≤ a ≤ q/2 − 1 in this case. Hence in either case the
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       9.4 Incomplete character sums                                 307
+
+
+        expression above is
+
+                                              2 
+                                                (q−1)/2
+                                                         1
+                                            ≤√                .
+                                               q a=1 sin πa/q
+        The function f (α) = sin πα is concave downward in the interval [0, 1/2], and
+        hence it lies above the chord through the points (0, 0), (1/2, 1). That is, sin π α ≥
+        2α for 0 ≤ α ≤ 1/2. Thus the above is
+
+             √  1 √                     1 + 2a   √ 
+                (q−1)/2       (q−1)/2          1      (q−1)/2
+                                                                  2a + 1 √
+         ≤    q           < q         log        =  q         log       = q log q.
+                  a=1
+                        a       a=1       1 −  1
+                                              2a        a=1
+                                                                  2a −1
+        That is,
+                                             
+                                             M+N
+                                                                     √
+                                                      χ (n) <         q log q                      (9.16)
+                                             n=M+1
+
+        when χ is primitive. We now extend this to imprimitive non-principal characters.
+        Suppose that χ is induced by χ ! modulo d. Let r be the product of those primes
+        that divide q but not d. Then
+                           
+                           M+N                
+                                              M+N
+                                  χ (n) =               χ ! (n)
+                         n=M+1               n=M+1
+                                             (n,r )=1
+
+                                              
+                                              M+N                  
+                                         =              χ ! (n)              µ(k)
+                                             n=M+1                k|(n,r )
+                                                                 
+                                         =          µ(k)                      χ ! (n)
+                                              k|r          M<n≤M+N
+                                                              k|n
+                                                                             
+                                         =          µ(k)χ ! (k)                         χ ! (m).
+                                              k|r                    M/k<m≤(M+N )/k
+
+        By the case already treated, we know that the inner sum above has absolute
+        value not exceeding d 1/2 log d, and hence the given sum has absolute value
+        not more than 2ω(r ) d 1/2 log d. But 2ω(r ) ≤ d(r ) r 1/2 ≤ (q/d)1/2 , so we have
+        proved
+        Theorem 9.18 (The Pólya–Vinogradov inequality) Let χ be a non-principal
+        character modulo q. Then for any integers M and N with N > 0,
+                                             
+                                             M+N
+                                                                   √
+                                                     χ (n)          q log q.
+                                           n=M+1
+
+           In (9.16) we saw that the implicit constant can be taken to be 1 when χ
+        is primitive. With a little more care it can be seen that the implicit constant
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        308                        Primitive characters and Gauss sums
+
+
+        can be taken to be 1 for all non-principal characters. The above estimate is
+        important in many contexts, but we conﬁne ourselves to two applications at this
+        point.
+
+        Corollary 9.19 Let χ be a non-principal character modulo p, and let n χ be
+                                                                                            1
+                                                                                            √  +ε
+        the least positive integer n such that χ (n) = 1. Then n χ                  ε p
+                                                                                           2 e      .
+
+        Proof Suppose that χ (n) = 1 for all n ≤ y. Then χ (n) = 1 whenever n is
+        composed entirely of primes q ≤ y. Hence, in the notation of Section 7.1, if
+        y ≤ x < y 2 , then
+                                               
+                              χ (n) = ψ(x, y) +      χ (q)[x/q]
+                                  n≤x                            y<q≤x
+
+        where q denotes a prime. Thus
+                                                                       
+                  χ (n) ≥ ψ(x, y) −                  [x/q] = [x] − 2             [x/q]
+            n≤x                              y<q≤x                       y<q≤x
+                                                                                        
+                                                                        log x          x
+                                                          = x 1 − 2 log         +O           .
+                                                                        log y        log x
+                                                                                                        √
+        If x = p1/2 (log p)2 , then the sum on the left is o(x), while
+                                                                   √
+                                                                       if y > x 1/ e+ε , then
+        the lower bound on the right is      εx. Thus n χ ε x 1/ e+ε .                      
+
+        Corollary 9.20 The number of primitive roots modulo p in the interval [M +
+        1, M + N ] is
+                                             ϕ( p − 1)             
+                                                       N + O p 1/2+ε .
+                                                 p
+           Since the number of primitive roots in an interval of length p is exactly ϕ( p −
+        1), the above asserts that primitive roots are roughly uniformly distributed into
+        subintervals of length N provided that N > p 1/2+ε .
+
+        Proof Let q1 , q2 , . . . , qr be the distinct prime factors of p − 1, and put q =
+        r
+          i=1 qi . Then n is a primitive root modulo p if and only if (ind n, q) = 1. For
+        1 ≤ i ≤ r put
+                                                           
+                                                      ind n
+                                         χi (n) = e           .
+                                                        qi
+        Then
+                                                          
+                                    1 
+                                         q
+                                         i
+                                                              1 if qi | ind n,
+                                           χi (n)a =
+                                    qi a=1                    0 otherwise.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.4 Incomplete character sums                                  309
+
+
+        Thus
+                                                       
+                            1 
+              r                   i   q
+                                                             1     if n is a primitive root (mod p),
+                   χ0 (n) −          χi (n)ai        =
+            i=1
+                            qi ai =1                         0     otherwise.
+
+        The left-hand side above is
+                                                 
+                                    1 i ai            ϕ(q/d) µ(d) 
+                                       q −1
+            r
+                         
+                  1 − 1/qi χ0 (n) −          χi (n) =                 χ (n).
+           i=1
+                                    qi ai =1          d|q
+                                                          q/d   d   χ
+                                                                                              ordχ =d
+
+        Thus the number of primitive roots in the interval [M + 1, M + N ] is
+                                   1                                     
+                                                                           M+N
+                                         ϕ(q/d)µ(d)                                χ (n).               (9.17)
+                                   q d|q            χ                      n=M+1
+                                                                 ordχ =d
+
+        The only character of order d = 1 is the principal character χ0 , which gives us
+        the main term
+                     ϕ(q)                            ϕ( p − 1)
+                          ((1 − 1/ p)N + O(1)) =               N + O(1).
+                      q                                  p
+        A character of order d > 1 is non-principal, and for such characters the inner-
+        most sum in (9.17) is      p 1/2 log p. Since there are ϕ(d) such characters, the
+        contribution in (9.17) of d > 1 is
+                   ϕ(q) 1/2          
+                         p log p            |µ(d)|   2ω( p−1) p 1/2 log p p 1/2+ε .
+                    q              d|( p−1)
+
+        This gives the stated result.                                                                       
+
+             Suppose that χ is a non-principal character modulo q. Further insights
+        into the Pólya–Vinogradov inequality may be gained by considering the sum
+                  
+         f χ (α) = 0<n≤qα χ (n) as a function of the real variable α, for 0 ≤ α ≤ 1. We
+        extend the domain of f χ (α) by periodicity, and compute its Fourier coefﬁcients:
+                                       1                             
+                                                                     q               1
+                      f*χ (k) =            f χ (α)e(−kα) dα =              χ (n)          e(−kα) dα.
+                                   0                                 n=1            n/q
+
+        The nature of this integral depends on whether k = 0 or not. In the former case
+        we ﬁnd that
+                                                 
+                                                        −1 
+                                    q                       q
+                        *                        n
+                         f χ (0) =     χ (n) 1 −     =         nχ (n),
+                                   n=1
+                                                 q       q n=1
+        while for k = 0 we have
+                        
+                        q
+                                      1 − e(−kn/q)    1 
+                                                           q
+                                                                              cχ (−k)
+            *
+            f χ (k) =         χ (n)                =          χ (n)e(−kn/q) =         .
+                        n=1
+                                         −2πik       2πik n=1                  2πik
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        310                        Primitive characters and Gauss sums
+
+
+        It is convenient to restrict to primitive characters, since then cχ (−k) =
+        χ (−k)τ (χ ) by Theorem 9.5. Since f χ (α) is a function of bounded variation
+        it follows that
+                                  −1            τ (χ )  χ (−k)
+                                     q
+                        f χ (α) =       nχ (n) +                  e(kα)        (9.18)
+                                  q n=1          2πi k=0 k
+
+        at points of continuity of f χ , with the understanding that the sum is calculated
+                                                       K
+        as the limit of the symmetric partial sums −K        . If χ (−1) = 1, then f χ (α) is
+        an odd function and the contributions of k and of −k can be combined to form
+        a sine series. If χ (−1) = −1, then f χ (α) is an even function, and the two terms
+        merge to form a cosine series. In this case it is interesting to note that if we take
+        α = 0 then we obtain another proof of (9.9). Among other possible values of
+        α that might be considered, the possibility α = 1/2 is particularly striking. If
+        χ (−1) = 1 then f χ (1/2) = 0 by symmetry, so in continuing we suppose that
+        χ (−1) = −1. Note that if q is odd then 1/2 is not of the form n/q, and hence
+         f χ (α) is continuous at 1/2. On the other hand, there is no primitive character
+        modulo 2 and hence if q is even then 4 | q. In this case we can solve the equation
+        n/q = 1/2 by taking n = q/2, but then q/2 is even, so that (q/2, q) > 1, and
+        hence χ (q/2) = 0. Hence f χ (α) is continuous at 1/2 in all cases, and we deduce
+        that
+                                     −1                τ (χ ) ∞
+                                            q
+                                                                     χ (k)
+                              χ (n) =          nχ (n) −                    (−1)k .
+                      0<n≤q/2
+                                        q  n=1
+                                                           πi   k=1
+                                                                       k
+
+        As we already discovered by taking α = 0, the ﬁrst term on the right is
+        τ (χ )L(1, χ )/(πi). But
+                                 
+                                 ∞
+                                   χ (k)(−1)k
+                                                     = (21−s χ (2) − 1)L(s, χ )
+                                 k=1
+                                            ks
+        for any character χ and any s with positive real part, so we have proved
+        Theorem 9.21 Let χ be a primitive character modulo q such that χ (−1)
+        = −1. Then
+                                                 τ (χ )
+                              χ (n) = (2 − χ (2))        L(1, χ ).
+                      1≤n≤q/2
+                                                   πi
+
+           In the special case that χ is a quadratic character we know the exact value
+        of the Gauss sum, and hence we can say more.
+        Corollary 9.22 If d is a quadratic discriminant with d < 0, then
+                                      d 
+                                                  > 0.
+                                   1≤n≤|d|/2
+                                              n
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       9.4 Incomplete character sums                                         311
+
+
+           On taking α = (M + N )/q and then α = M/q, and differencing, we see
+        that
+                   
+                   M+N
+                                     τ (χ )  χ (−k)
+                          χ (n) =                    e(k M/q)(e(k N /q) − 1) + O(1).
+                 n=M+1
+                                     2πi k=0 k
+
+        Since e(k N /q) − 1 ∼ 2πik N /q when |k| is small compared with N /q, for
+        rough heuristics we think of the above as being approximately
+                                      τ (χ )N 
+                                                      χ (−k)e(k M/q).
+                                         q 0<|k|≤N /q
+
+        Here a sum over an interval of length N reﬂects – approximately – to form a sum
+        over an interval of length N /q. Further examples of this sort of phenomenon
+        will emerge when we consider approximate functional equations of ζ (s) and of
+        L(s, χ ).
+           The Fourier expansion (9.18) is also useful in deriving quantitative estimates.
+        We know not only that Var[0,1] f χ = ϕ(q), but (by Theorems 2.10 and 3.1) also
+        that this variation is reasonably well distributed in subintervals, in the sense
+        that Var[α,β] f χ   ϕ(q)(β − α) when β − α > q −1+ε . We apply Theorem D.2
+        to f χ (α), and divide the range of integration (0, 1) into K intervals of length
+        1/K , throughout each of which the integrand has a constant order of magnitude.
+        Thus we see that
+                                                                                      
+                      −1              τ (χ )  χ (−k)
+                           q
+                                                                          ϕ(q)
+            f χ (α) =         nχ (n) +                       e(kα) + O          log 2K
+                        q n=1           2πi 0<|k|≤K k                       K
+                                                                                                       (9.19)
+
+        for K ≤ q 1−ε . This can be used to obtain sharper constants in the Pólya–
+        Vinogradov inequality; see Exercise 9.4.9.
+           We can also show that the estimate provided by the Pólya–Vinogradov in-
+        equality is in general not far from the truth.
+
+        Theorem 9.23           Suppose that χ is a non-principal character modulo q. Then
+
+                                                 
+                                                 M+N
+                                                                     |τ (χ)|
+                                         max             χ (n) ≥             .
+                                         M,N
+                                                n=M+1
+                                                                        π
+
+        Proof Clearly
+
+               
+               q                
+                                M+N                
+                                                   q       
+                                                           M+N                           
+                                                                                         M+N
+                     e(M/q)             χ (n) ≤                    χ (n) ≤ q max                   χ (n) .
+                                                                                  M
+               M=1             n=M+1               M=1 n=M+1                            n=M+1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        312                        Primitive characters and Gauss sums
+
+
+        Here the sum on the left is
+                    q
+                   N                                     
+                                                          N                
+                                                                           q
+                              e(M/q)χ (M + n) =                 e(−n/q)           χ (M)e(M/q).
+                   n=1 M=1                                n=1              M=1
+
+        By (9.14) this is
+                                                         
+                                         −(N + 1)             sin π N /q
+                                       e                                 τ (χ).
+                                           2q                  sin π/q
+
+        If q is even, then we may take N = q/2, and then the quotient of sines is
+        = 1/(sin π/q) ≥ q/π , while if q is odd, then we may take N = (q − 1)/2, in
+        which case the quotient of sines is
+                                                 π
+                                             cos 2q           1     q
+                                                      =         π ≥   .
+                                             sin πq       2 sin 2q  π
+
+        The stated lower bound now follows by combining these estimates.                           
+                                                                                    √
+           If χ is primitive modulo q, then the lower bound of Theorem 9.23 is q/π .
+        Further lower bounds of this nature can be derived by using Parseval’s identity
+        (4.4) for the ﬁnite Fourier transform; see Exercise 9.4.8. In addition to the lower
+        bound above, which applies to all characters, for a sparse subset of characters
+        we can obtain a better lower bound.
+
+        Theorem 9.24 (Paley) There is a positive constant c such that
+
+                                                
+                                             M+N
+                                                 d     √
+                                     max            > c d log log d
+                                      M,N
+                                          n=M+1
+                                                 n
+
+        for inﬁnitely many positive quadratic discriminants d.
+
+        Proof Let χ be a primitive character modulo q such that χ (−1) = 1. By taking
+        M = k − h − 1 and N = 2h + 1 in (9.15) we see that
+
+                        
+                        k+h
+                                            1 
+                                                  q
+                                                                  sin πa(2h + 1)/q
+                               χ (n) =               χ (a)e(ak/q)                  .
+                       n=k−h
+                                          τ (χ ) a=1                   sin πa/q
+
+        Let h be the integer closest to q/3. Then the sine in the numerator is
+                                                                              approxi-
+                                                                                
+        mately sin 2πa/3 when a is small. We shall choose χ so that χ (a) = a3 L when
+        a is small. Thus these two factors are strongly correlated. We would take k = 0
+        except for the need to dampen the effects of the larger values of a. To this end
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       9.4 Incomplete character sums                                 313
+
+
+        we sum over k, for −K ≤ k ≤ K and divide by 2K + 1. Thus by (9.14),
+                         1      k+h
+                                K   
+                                         χ (n)
+                       2K + 1 k=−K n=k−h
+                                1 
+                                      q
+                                               sin πa(2h + 1)/q sin π (2K + 1)a/q
+                          =              χ (a)                                    .                (9.20)
+                              τ (χ ) a=1            sin πa/q    (2K + 1) sin πa/q
+        Here the last factor is approximately 1 if a/q ≤ 1/K , and decreases as a/q
+        becomes larger. Thus, despite its complicated appearance, the expression above
+        is effectively
+
+                                           2q     A
+                                                      χ (a) sin 2πa/3
+                                          πτ (χ ) a=1         a
+        where A = q/K . To make this precise we observe that
+
+                              sin π(2h + 1)a/q = sin 2πa/3 + O(a/q)
+
+        and that
+                                                
+                  sin π(2K + 1)a/q                  1+      2
+                                                              a/q2 ) (a/q ≤ 1/K ),
+                                    =                 O(K
+                  (2K + 1) sin πa/q                 O K −1 a/q−1      (a/q > 1/K ).
+        Thus the right-hand side of (9.20) is
+                                                                   
+                     2 
+                          q/K
+                                       1        a                       a
+               =              χ (a)        +O           sin 2πa/3 + O
+                   τ (χ ) a=1         πa/q      q                       q
+                               2 2                              
+                                  K a           1              q2
+                  × 1+O                    +O √
+                                   q2             q q/K <a≤q/2 K a 2
+
+                       2q  χ (a) sin 2πa/3
+                              q/K
+                                                √
+                  =                         + O( q).                                               (9.21)
+                      πτ (χ ) a=1   a
+        Now let y be a large parameter, and suppose that
+
+                                        q ≡ 5 (mod 8),
+                                      
+                                      q       p
+                                          =            (3 < p ≤ y).                                (9.22)
+                                      p L     3 L
+        Thus by the Chinese Remainder Theorem, q is restricted to certain residue
+                               
+        classes modulo Q = 8 3< p≤y p. Now let q be the least positive number that
+        satisﬁes these constraints. Then q issquare-free, and hence q is a quadratic
+                                              q
+        discriminant, so we may take χ (n) = n K . Also, q < Q. By the Prime Number
+        Theorem in the form of (6.13) we see that log Q = (1 + o(1))y. Let K be the
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        314                        Primitive characters and Gauss sums
+
+                                                                  
+        least integer such that K > q/y. Then by (9.22), χ (a) = a3 L for 1 ≤ a ≤ q/K ,
+                                                       √
+        (a, 3) = 1. Thus 1≤a≤u χ (a) sin 2πa/3 = u/ 3 + O(1), so the main term in
+        (9.21) is
+                       √                                    
+                      2 q                       2              √
+                        √ (log y + O(1)) ≥      √ + o(1)        q log log q.
+                      π 3                     π 3
+        This completes the proof.                                                                      
+
+           In the two preceding theorems we have seen that the character sum can be
+        large when N is comparable to q. For shorter sums we would expect the sum
+        to be smaller, and indeed one would conjecture that if χ is a non-principal
+        character modulo q, then
+
+                                             
+                                             M+N
+                                                                     1/2 ε
+                                                     χ (n)     ε N     q                           (9.23)
+                                            n=M+1
+
+        for any ε > 0. Although our present knowledge falls far short of this, we now
+        show that some improvement of the Pólya–Vinogradov inequality is possible, at
+        least in some situations. Our approach depends on the Riemann hypothesis for
+        curves over a ﬁnite ﬁeld, in the form of the following character sum estimate,
+        which we derive from the exposition of Schmidt (1976).
+
+        Lemma 9.25 (Weil) Suppose that d|( p − 1) with d > 1 and that χ is a char-
+        acter modulo p of order d. Suppose further that e j ≥ 1 (1 ≤ j ≤ k), that d  e j
+        for some j with 1 ≤ j ≤ k and that the c1 , c2 , . . . , ck are distinct modulo p.
+        Then
+                      
+                      p
+                                                                  
+                        χ (n + c1 )e1 (n + c2 )e2 · · · (n + ck )ek ≤ (k − 1) p 1/2 .
+                       n=1
+
+        Proof Let f (x) = (x + c1 )e1 (x + c2 )e2 · · · (x + ck )ek . Then, by Lemma 4B of
+        Schmidt (1976), f (x) cannot satisfy f (x) ≡ g(x)d (mod p) identically where g
+        is a polynomial with integer coefﬁcients. The lemma then follows from Theorem
+        2C  ibidem.                                                                    
+
+        Lemma 9.26 Suppose that χ is a non-principal character modulo p and let
+                                                                             2r
+                                                  
+                                                  p 
+                                                    h
+                                        Sh,r =               χ (m + n)            .
+                                                  n=1 m=1
+                                                
+        Then Sh,r         r 2r h r p + h 2r p 1/2 for positive integers r .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           9.4 Incomplete character sums                                 315
+
+
+        Proof Clearly we may suppose that h ≤ p. Let d denote the order of χ . Then
+        d > 1 and
+                      
+                       p
+          Sh,r =                       χ ((n + m 1 ) · · · (n + m r )(n + m r +1 )d−1 · · · (n + m 2r )d−1 ).
+                   m 1 ,...,m 2r n=1
+
+        For a given 2r –tuple m 1 , . . . , m 2r let c1 < c2 < · · · < ck be the distinct val-
+        ues of the m j , and let al and bl denote the number of occurrences of
+        cl amongst the m 1 , . . . , m r and m r +1 , . . . , m 2r respectively. Let el = al +
+        (d − 1)bl . Then (n + m 1 ) · · · (n + m r )(n + m r +1 )d−1 · · · (n + m 2r )d−1 = (n +
+        c1 )e1 · · · (n + ck )ek . Note that e1 + · · · + ek = r + r (d − 1) = r d. If there is an
+                                                                                                 1
+        l such that d  el , then by Lemma 9.25 the sum over n is bounded by (k − 1) p 2 ,
+        and so the total contribution to Sh,r from such 2r –tuples is
+                                                                        1
+                                                         ≤ 2r h 2r p 2 .
+
+        On the other hand, if d|el for every l, then kd ≤ e1 + · · · ek = r d and so k ≤ r .
+        The number of choices of m 1 , . . . , m 2r with m  l ∈ {c1 , . . . , ck } is at most k
+                                                                                                  2r
+
+        and the number of choices for c1 , . . . , ck is k . Thus the total contribution to
+                                                          h
+
+        Sh,r from these terms is bounded by
+                                     h 
+                                        k 2r      p     r 2r h r p.
+                                    k≤r
+                                              k
+
+                                                                                                           
+
+            Our main result takes the following form.
+
+        Theorem 9.27 (Burgess) For any odd prime p and any positive integer r we
+        have
+                                          
+                                          M+N
+                                                                            r +1
+                                                             r N 1− r p 4r 2 (log p)αr
+                                                                    1
+                                                 χ (n)
+                                        n=M+1
+
+        where αr = 1 when r = 1 or 2 and αr = 2r1 otherwise.
+
+           Suppose that δ > 1/4. If N > p δ , then the bound above is o(N ) if r is
+        chosen suitably large in terms of δ. Thus any interval of length N contains both
+        quadratic residues and quadratic non-residues. In addition the reasoning used
+        to derive Corollary 9.19 applies here, so we see that the least positive quadratic
+                                         1
+                                         √ +ε
+        non-residue modulo p is ε p 4 e .
+
+        Proof When r = 1 or N > p 5/8 the bound is weaker than the Pólya–
+        Vinogradov Inequality (Theorem 9.18), and when r > 2 and N > p1/2 the
+                                                                    r +1
+        stated bound is weaker than the case r = 2. Also, when N ≤ p 4r the bound is
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        316                               Primitive characters and Gauss sums
+
+
+        worse than trivial. Hence we may suppose that
+                                                    5/8
+                                        r +1          p                                            when r = 2,
+            p > p0 , r ≥ 2, and p 4r < N ≤                                                                           (9.24)
+                                                      p 1/2                                        when r > 2.
+            Let S(M, N ) denote the sum in question. Then
+                                           
+                                           M+N
+                      S(M, N ) =                     χ (n + ab) + S(M, ab) − S(M + N , ab).
+                                          n=M+1
+
+        Let
+
+                                                  M(y) = max |S(M, N )|.
+                                                                       M,N
+                                                                       N ≤y
+
+
+        Then
+                                                             
+                                                             M+N
+                                    S(M, N ) =                         χ (n + ab) + 2θ M(ab)
+                                                          n=M+1
+
+        where |θ | ≤ 1. We sum this over a ∈ [1, A] and b ∈ [1, B]. Thus
+                                      
+                      AB S(M, N ) =       χ (n + ab) + 2ABθ1 M(AB).
+                                                          n,a,b
+
+        We suppose that
+
+                                                                   A< p                                              (9.25)
+
+        and then deﬁne ν() to be the number of pairs a, n with a ∈ [1, A], n ∈ [M +
+        1, M + N ] and n ≡ a (mod p). Thus
+
+                                                            
+                                                             p                                    
+                                χ (n + ab) =                                               χ (a)         χ ( + b)
+                        n,a,b                                =1        n,a                        b
+                                                                    n≡a (mod p)
+
+                                                             
+                                                             p                 
+                                                         ≤         ν()              χ ( + b) .
+                                                             =1                b
+
+        By Hölder’s inequality,
+            p                      2r  p            2r −1 p            2r
+                                               2r
+                                                              
+                 ν()     χ ( + b)    ≤    ν() 2r −1           χ ( + b)
+                =1             b                                      =1                          =1      b
+
+        and
+                             p                          2r −1         p              2r −2
+                                                 2r
+                                                                                                  
+                                                                                                   p
+                                          ν()   2r −1             ≤                ν()                 ν()2 .
+                                    =1                                       =1                  =1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                         9.4 Incomplete character sums                               317
+
+
+        Clearly
+                                                    
+                                                    p
+                                                          ν() = AN .
+                                                    =1
+
+        We show below that if
+                                                      1
+                                           AN <         p,            1 ≤ A ≤ N,                   (9.26)
+                                                      2
+        then
+                                              
+                                              p
+                                                    ν()2                AN log p.                 (9.27)
+                                              =1
+                                      -1             .         -        .
+        Assuming this, we take A = 10    N p −1/(2r ) , B = p 1/(2r ) . Then (9.24) gives
+        (9.25) and (9.26). Thus from Lemma 9.26 with h = B we see that
+                                                      1 r +1         1
+                                χ (n + ab)    r N 2− r p 4r 2 (log p) 2r .
+                                 n,a,b
+
+        Hence there is an absolute constant C such that
+                                                          1       r +1                1
+                          |S(M, N )| ≤ Cr N 1− r p 4r 2 (log p) 2r + 2M(N /10).                    (9.28)
+        Choose M1 , N1 with N1 ≤ N so that |S(M1 , N1 )| = M(N ). If (9.24) fails
+                       r +1
+        because N1 ≤ p 4r , then (9.28) with M = M1 , N = N1 is trivial. Thus we
+        have
+                                                                  1
+                                       M(N ) ≤ N 1− r λ + 2M(N /10)                                (9.29)
+        where
+                                                                  r +1                1
+                                              λ = Cr p 4r 2 (log p) 2r .
+                                                                           r +1
+        Moreover (9.29) is also trivial      . ≤ p . We apply (9.29) repeatedly with
+                                        when N    4r
+                                 -
+        N replaced by [N /10], [N /10]/10 , and so on. Thus
+                                              
+                                              K
+                                                    2k 10−k(1− r ) + 2 K +1 M(10−K −1 N ).
+                                          1                               1
+                      M(N ) ≤ N 1− r λ
+                                              k=0
+                                         −K −1
+        The trivial bound M(10                   N)           10−K N with a judicious choice of K suf-
+        ﬁces to give
+                                                                                  1
+                                                 M(N )                   N 1− r λ
+        which completes the proof, apart from the need to establish (9.27) with (9.26).
+        Clearly
+                                          
+                                             ν()2
+                                                              
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        318                        Primitive characters and Gauss sums
+
+
+        is the number of choices of a, n, a  , n  ,  with a, a  ∈ [1, A], n, n  ∈ [1, N ],
+        M + n ≡ a (mod p), M + n  ≡ a   (mod p). Since 1 ≤ a, a  ≤ A < p, by
+        elimination of l we see that this is the number of solutions of (a − a  )M ≡
+        a  n − an  (mod p) with a, n, a  , n  as before. Given any such pair a, a  , choose
+        k so that k ≡ (a − a  )M (mod p) and |k| < p/2. We have 1 ≤ a  n, an  ≤ AN ≤
+            N 2 p − 2r < p/2 in all cases. Thus a  n − an  = k. Given any one pair n = n 0 ,
+         1          1
+
+        10
+        n  = n 0 satisfying this equation we have, in general, n = n 0 + (a,a    a         
+                                                                                      ) h, n =
+                                                       
+        n 0 + (a,a
+                 a
+                     ) h. Moreover |h| ≤ max{a,a  } . Therefore the total number of possible
+                                           N (a,a )
+                                                
+        pairs n,n  is at most 1 + max{a,a
+                                    2N (a,a )
+                                             } . Hence
+
+                                                                      N (a, a  )
+                                   ν()2          A2 +
+                                                            1≤a≤a  ≤A
+                                                                           a
+                                                                            N
+                                                      A2 +
+                                                             d≤A 1≤b≤b ≤A/d
+                                                                                    b
+                                                      A2 + AN log 2A.
+
+
+        and so we have (9.27).                                                                     
+
+
+
+                                               9.4.1        Exercises
+          1. Let χ be a non-principal character modulo q, and suppose that (a, q) = 1.
+             Choose a so that aa ≡ 1 (mod q).
+             (a) Explain why
+
+                                              
+                                              M+N                           
+                                                                           M+ab+N
+                                      χ (a)            χ (an + b) =                      χ (n).
+                                              n=M+1                       n=M+ab+1
+
+              (b) Show that
+                                              
+                                              M+N
+                                                                           √
+                                                       χ (an + b)           q log q.
+                                              n=M+1
+                                                                                √
+          2. With reference to the proof of Theorem
+                                                 √    9.21, show that 2ω(r ) ≤ c r for
+             all positive integers r where c = 4/ 6, and that equality holds only when
+             r = 6.
+          3. Show that if χ is a character modulo q with χ (−1) = −1, then
+                                              
+                                              q                     
+                                                                    q
+                                                    n 2 χ (n) = q         nχ (n).
+                                              n=1                   n=1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       9.4 Incomplete character sums                               319
+
+
+          4. (a) Let cn and f (n) have period q. Show that
+                         
+                         q                   
+                                             q
+                                                        1*
+                                                           q
+                                                                             1*
+                                                                                q
+                               cn f (n) =          cn         f (k)e(kn/q) =       f (k)*
+                                                                                        c(−k).
+                         n=1                 n=1
+                                                        q k=1                q k=1
+
+              (b) Suppose that 1 ≤ N ≤ q and set f (n) = 1 for M + 1 ≤ n ≤ M + N ,
+                  and f (n) = 0 for other residues (mod q). Show that *
+                                                                      f (0) = N and by
+                  (9.14) or otherwise that
+
+                                     *                           sin π k N /q
+                                     f (k) = e(−(2M + N + 1)k/q)
+                                                                  sin π k/q
+                  for k ≡ 0 (mod q).
+              (c) By subtracting *c(0)N /q from both sides and applying the triangle in-
+                  equality, show that
+                                        
+                                        M+N
+                                                         N 
+                                                            q
+                                                                    1 c
+                                                                      q−1
+                                                                            |*(k)|
+                                               cn −            cn ≤
+                                      n=M+1
+                                                         q n=1      q k=1 sin π k/q
+
+          5. (a) Suppose that a function f is concave upwards. Explain why
+                                                                   x+δ
+                                                             1
+                                                   f (x) ≤                 f (u) du
+                                                             2δ   x−δ
+
+                  for δ > 0.
+              (b) Take f (u) = csc πu, x = k/q, and δ = 1/(2q), and sum over k to see
+                  that
+                                       
+                                       q−1
+                                               1                   1−1/(2q)
+                                                                                  1
+                                                     <q                                du.
+                                       k=1
+                                           sin π k/q              1/(2q)       sin π u
+
+              (c) Note that csc v has the antiderivative log(csc v − cot v), and hence de-
+                  duce that the integral above is
+                                                                  π
+                                                     q    1 + cos 2q
+                                                    = log         π .
+                                                     π    1 − cos 2q
+
+              (d) By means of the inequalities 1 − θ 2 /2 ≤ cos θ ≤ 1 deduce that the
+                  above is
+                                                   q    16q 2 2q    4q
+                                              <      log 2 =     log .
+                                                   π     π    π     π
+             (e) Note that this is < q log q if q > exp((log 4/π )/(1 − 2/π )) =
+                 1.944 . . . .
+          6. Let cn be a sequence with period q and ﬁnite Fourier transform c*(k).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        320                        Primitive characters and Gauss sums
+
+
+              (a) Show that
+                                                                   2
+                            
+                            q      
+                                   M+N
+                                           N 
+                                                            q
+                                                                            1
+                                                                              q−1
+                                                                                          sin2 π N k/q
+                                      cn −       cn                    =          |*(k)|2
+                                                                                   c
+                            M=1 n=M+1
+                                           q n=1                            q k=1          sin2 π k/q
+
+                  for 1 ≤ N ≤ q.
+              (b) Suppose that cn = 1 for 0 < n < q and that c0 = 0. Show that c*(0) =
+                  q − 1 and that c*(k) = −1 for 0 < k < q. Deduce that
+
+                                             
+                                             q−1
+                                                 sin2 π N k/q
+                                                                            = (q − N )N
+                                             k=1       sin2 π k/q
+
+                  for 0 ≤ N ≤ q.
+              (c) Take q = 2N and write k = 2n − 1 to deduce that
+                                                
+                                                N
+                                                                   1
+                                                           2 = 1.
+                                              N sin π 2n−1
+                                                 n=1   2N
+                                                    
+                 Let N tend to inﬁnity to show that ∞  n=1 (2n − 1)
+                                                                    −2
+                                                                       = π 2 /8, and hence
+                 that ζ (2) = π /6.
+                               2
+
+          7. (a) Show that if χ is a primitive character modulo q, q > 1, then
+                                                                              2
+                                                
+                                                q           
+                                                            M+N
+                                                                   χ (n)          ≤ Nq
+                                                M=1 n=M+1
+
+                  for 1 ≤ N ≤ q.
+              (b) Show that if χ = χ0 (mod p), then
+                                                                        2
+                                            
+                                            p          
+                                                       M+N
+                                                                χ (n)       = N(p − N)
+                                            M=1 n=M+1
+
+                  for 1 ≤ N ≤ p.
+                          
+          8. Let f χ (α) = 0<n≤qα χ (n). Show that if χ is a primitive character modulo
+             q, then
+                               1                                      
+                                                        q           1
+                                 | f χ (α) − aχ |2 dα =          1− 2
+                             0                          12 p|q      p
+
+              where aχ = 0 if χ (−1) = 1, and
+
+                                           −1 
+                                                   q
+                                   aχ =          nχ (n) = −i L(1, χ )τ (χ )/π
+                                           q n=1
+
+              if χ(−1) = −1.
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                       9.5 Notes                                   321
+
+
+          9. (a) Show that
+                                                 log p
+                                                                   log log 3q.
+                                                 d|q
+                                                        p−1
+
+              (b) Recall Exercise 2.1.16, and show that
+                        1                                             ω(q) 
+                                  ϕ(q)               ϕ(q)                2
+                               =        log K + O         log log q + O
+                       k≤K
+                             k      q                 q                    K
+                         (k,q)=1
+
+                  for 1 ≤ K ≤ q.
+              (c) Suppose that χ is a primitive character modulo q, q > 1. Use Theo-
+                  rem D.2 to show that
+                         
+                         M+N
+                                           τ (χ )  χ (−k)
+                                χ (n) =                        e(k M/q)(e(k N /q) − 1)
+                        n=M+1
+                                           2πi 0<|k|≤K k
+                                                             
+                                                  ϕ(q)
+                                           +O          log 2K
+                                                   K
+                  when K < q 1−ε .
+              (d) By taking K = q 1/2 log q show that if χ is a primitive character modulo
+                  q, q > 1, then
+                                
+                                M+N
+                                                    ϕ(q) 1/2                       
+                                        χ (n) ≤         q log q + O q 1/2 log log 3q .
+                               n=M+1
+                                                    πq
+
+        10. (Bernstein 1914a,b) Let χ be a primitive character (mod q), with q > 1.
+            Show that
+                                                            √
+                                   (1 − |n|/q)χ (n)e(nα)       q
+                                        |n|≤q
+
+              uniformly in α.
+
+
+                                                  9.5      Notes
+        Section 9.2. That the sum in (9.6) vanishes when (n, q) > 1 was proved by de la
+        Vallée Poussin (1896), in a complicated way. We follow the simpler argument
+        that Schur showed Landau (1908, pp. 430–431).
+           The evaluation of the sum cχ is found in Hasse (1964, pp. 449–450). Our
+        derivation follows that of Montgomery & Vaughan (1975). A different proof
+        has been given by Joris (1977).
+                                      
+           Section 9.3. Let ζ K (s) = a N (a)−s be the Dedekind zeta function of the
+        algebraic number ﬁeld K . Here the sum is over all ideals a in the ring O K of
+        integers in K . In case K is a quadratic extension of Q, then the discriminant
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        322                        Primitive characters and Gauss sums
+
+                                                   √
+        d of K is a quadratic discriminant, K = Q( d), and ζ K (s) = ζ (s)L(s, χd ). In
+                                                       
+        other words, the number of ideals of norm n is k|n χd (k).
+            Section 9.4. Concerning the constant that can be taken in Theorem 9.18,
+        see Landau (1918), Cochrane (1987), Hildebrand (1988a,b), and Granville &
+        Soundararajan (2005). Granville & Soundararajan (2005) also show that in the
+                                                                 √
+        case of a cubic character, the sum in Theorem 9.18 is      q(log q)θ where θ
+        is an absolute constant, θ < 1.
+            On the assumption of the Generalized Riemann Hypothesis for all Dirichlet
+        characters, Montgomery & Vaughan (1977) have shown that
+                                          
+                                          M+N
+                                                 χ (n)      q 1/2 log log q.
+                                        n=M+1
+
+        See Granville & Soundararajan (2005) for a much simpler proof. Paley’s lower
+        bound, Theorem 9.24 above, shows that the above is essentially best-possible.
+        Nevertheless, it is known that one can do better a good deal of the time. In fact
+        in Montgomery & Vaughan (1979) it is shown that for each θ ∈ (0, 1) there is a
+        c(θ ) > 0 such that if P > P0 (θ), then for at least θπ (P) primes p ≤ P we have
+                                        n
+                                         N
+                                  max                ≤ c(θ) p 1/2 ,
+                                   N
+                                        n=1
+                                               p
+        and if q > P0 (θ ), then for at least θϕ(q) of the non-principal characters modulo
+        q we have
+                                                 
+                                                 N
+                                          max          χ (n) ≤ c(θ )q 1/2 .
+                                            N
+                                                 n=1
+
+           Walﬁsz (1942) and Chowla (1947) showed that there exist inﬁnitely many
+        primitive quadratic characters χ for which L(1, χ )  eC0 log log q. In view
+        of Theorem 9.21, this provides an alternative approach for proving estimates
+        similar to Paley’s Theorem 9.24. For recent developments concerning large
+        L(1, χ ), see Vaughan (1996), Montgomery & Vaughan (1999), and Granville
+        & Soundararajan (2003).
+           Lemma 9.25 is a consequence of Weil’s proof of the Riemann Hypothesis
+        for curves over ﬁnite ﬁelds, and originally depended on considerable machinery
+        from algebraic geometry. Later Stepanov used constructs from transcendence
+        theory to estimate complete character sums, and subsequently Bombieri used
+        Stepanov’s ideas to give a proof of Weil’s theorem that depends only on the
+        Riemann–Roch theorem. Schmidt (1976) gives an exposition of this more
+        elementary approach that even avoids the Riemann–Roch theorem. Friedlander
+        & Iwaniec (1992) showed that the Pólya–Vinogradov inequality can be sharp-
+        ened, in the direction of Burgess’ estimates, without using Weil’s estimates. The
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 9.6 References                                    323
+
+
+        proof of Theorem 9.27 above is developed from one of Iwaniec appearing in
+        Friedlander (1987), with a further wrinkle from Friedlander & Iwaniec (1993).
+           Burgess ﬁrst (1957) treated the Legendre symbol and then (1962a, b) gener-
+        alized his method to deal with arbitrary Dirichlet characters having cube-free
+        conductor. Burgess’ extension to composite moduli involves an extra new idea
+        that does not extend well when the conductor is divisible by higher powers of
+        primes. For some progress in this direction see Burgess (1986).
+
+
+
+                                              9.6      References
+        Apostol, T. M. (1970). Euler’s ϕ-function and separable Gauss sums, Proc. Amer. Math.
+             Soc. 24, 482–485.
+        Baker, R. C. & Montgomery, H. L. (1990). Oscillations of quadratic L-functions,
+             Analytic Number Theory (Urbana, 1989), Prog. Math. 85. Boston: Birkhäuser,
+             pp. 23–40.
+        Bernstein, S. N. (1914a). Sur la convergence absolue des séries trigonométriques, C. R.
+             Acad, Sci. Paris 158, 1661–1663.
+          (1914b). Ob absoliutnoi skhodimosti trigonometricheskikh riadov, Soobsch. Khar’k.
+             matem. ob-va (2) 14, 145–152; 200–201.
+        Burgess, D. A. (1957). The distribution of quadratic residues and non-residues, Mathe-
+             matika 4, 106–112.
+          (1962a). On character sums and primitive roots, Proc. London Math. Soc. (3) 12,
+             179–192.
+          (1962b). On character sums and L-series, Proc. London Math. Soc. (3) 12, 193–
+             206.
+          (1986). The character sum estimate with r = 3, J. London Math. Soc. (2) 33, 219–
+             226.                                                   √
+        Chowla, S. (1947). On the class-number of the corpus P( −k), Proc. Nat. Inst. Sci.
+             India 13, 197–200.
+        Chowla, S. & Mordell, L. J. (1961). Note on the nonvanishing of L(1), Proc. Amer.
+             Math. Soc. 12, 283–284.
+        Cochrane, T. (1987). On a trigonometric inequality of Vinogradov, J. Number Theory
+             27, 9–16.
+        Conway, J. H. (1997). The Sensuous Quadratic Form, Carus monograph 26. Washington:
+             Math. Assoc. Amer.
+        Friedlander, J. B. (1987). Primes in arithmetic progressions and related topics, Analytic
+             Number Theory and Diophantine Problems (Stillwater, 1984), Prog. Math. 70,
+             Boston: Birkhäuser, pp. 125–134.
+        Friedlander, J. B. & Iwaniec, H. (1992). A mean-value theorem for character sums,
+             Michigan Math. J. 39, 153–159.
+          (1993). Estimates for character sums, Proc. Amer. Math. Soc. 119, 365–372.
+          (1994). A note on character sums, The Rademacher legacy to mathematics (University
+             Park, 1992), Contemp. Math. 166, Providence: Amer. Math. Soc., pp. 295–299.
+        Fujii, A., Gallagher, P. X., & Montgomery, H. L. (1976). Some hybrid bounds for
+             character sums and Dirichlet L-series, Topics in Number Theory (Proc. Colloq.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        324                        Primitive characters and Gauss sums
+
+
+             Debrecen, 1974), Colloq. Math. Soc. Janos Bolyai 13. Amsterdam: North-Holland,
+             pp. 41–57.
+        Granville, A. & Soundararajan, K. (2003). The distribution of values of L(1, χd ), Geom.
+             Funct. Anal. 13, 992–1028; Errata 14 (2004), 245–246.
+           (2006). Large character sums: pretentious characters and the Pólya-Vinogradov in-
+             equality, to appear, 24 pp.
+        Hasse, H. (1964). Vorlesungen über Zahlentheorie, Second Edition, Grundl. Math. Wiss.
+             59. Berlin: Springer-Verlag.
+        Hildebrand, A. (1988a). On the constant in the Pólya–Vinogradov inequality, Canad.
+             Math. Bull. 31, 347–352.
+           (1988b). Large values of character sums, J. Number Theory 29, 271–296.
+        Joris, H. (1977). On the evaluation of Gaussian sums for non-primitive characters,
+             Enseignement Math. (2) 23, 13–18.
+        Landau, E. (1908). Nouvelle démonstration pour la formule de Riemann sur le nom-
+             bre des nombres premiers inférieurs à une limite donnée, et démonstration d’une
+             formule plus générale pour le cas des nombres premiers d’une progression
+             arithmétique, Ann. École Norm. Sup. (3) 25 399–448; Collected Works, Vol. 4.
+             Essen: Thales Verlag, 1986, pp. 87–130.
+           (1918). Abschätzungen von Charaktersummen, Einheiten und Klassenzahlen, Nachr.
+             Akad. Wiss. Göttingen, 79–97; Collected Works, Vol. 7. Essen: Thales Verlag, 1986,
+             pp. 114–132.
+        Martin, G. (2006). Inequities in the Shanks–Rényi prime number race, 32 pp., to appear.
+        Mattics, L. E. (1984). Advanced problem 6461, Amer. Math. Monthly 91, 371.
+        Montgomery, H. L. (1976). Distribution questions concerning a character sum, Topics in
+             Number Theory (Proc. Colloq. Debrecen, 1974), Colloq. Math. Soc. Janos Bolyai
+             13. Amsterdam: North-Holland, pp. 195–203.
+           (1980). An exponential polynomial formed with the Legendre symbol, Acta Arith.
+             37, 375–380.
+        Montgomery, H. L. & Vaughan, R. C. (1975). The exceptional set in Goldbach’s problem,
+             Acta Arith. 27, 353–370.
+           (1977). Exponential sums with multiplicative coefﬁcients, Invent. Math. 43, 69–82.
+           (1979). Mean values of character sums, Canad. J. Math. 31, 476–487.
+           (1999). Extreme values of Dirichlet L-functions at 1, Number Theory in Progress,
+             Vol. 2 (Zakopane–Kościelisko, 1997). Berlin: de Gruyter, pp. 1039–1052.
+        Mordell, L. J. (1933). The number of solutions of some congruences in two variables,
+             Math. Z. 37, 193–209.
+        Paley, R. E. A. C. (1932). A theorem of characters, J. London Math. Soc. 7, 28–32.
+        Pólya, G. (1918). Über die Verteilung der quadratischen Reste und Nichtreste, Nachr.
+             Akad. Wiss. Göttingen, 21–29.
+        Schmidt, W. M. (1976). Equations over ﬁnite ﬁelds. An elementary approach, Lecture
+             Notes Math. 536, Berlin: Springer-Verlag.
+        Schur, I. (1918). Einige Bemerkungen zu der vorstehenden Arbeit des Herrn G. Pólya:
+             Über die Verteilung der quadratischen Reste und Nichtreste, Nachr. Akad. Wiss.
+             Göttingen, 30–36.
+        de la Vallée Poussin, C. J. (1896). Recherches analytiques sur la théorie des nombres
+             premiers, I–III, Ann. Soc. Sci. Bruxelles 20, 183–256, 281–362, 363–397.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 9.6 References                                    325
+
+
+        Vaughan, R. C. (1996). Small values of Dirichlet L-functions at 1, Analytic Number
+            Theory. (Allerton Park, 1995), Vol. 2, Prog. Math. 139, Boston: Birkhäuser, pp.
+            755–766.
+        Vinogradov, I. M. (1918). Sur la distribution des résidus et des nonrésidus des puissances,
+            J. Soc. Phys. Math. Univ. Permi, 18–28.
+          (1919). Über die Verteilung der quadratischen Reste und Nichtreste, J. Soc. Phys.
+            Math. Univ. Permi, 1–14.
+        Vorhauer, U. M. A. (2006). A note on comparative prime number theory, to appear.
+        Walﬁsz, A. (1942). On the class-number of binary quadratic forms, Trudy Tbliss. Mat.
+            Inst. 11, 57–71.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.011 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

@@ -1,0 +1,2005 @@
+                                                          3
+           Principles and ﬁrst examples of sieve methods
+
+
+
+
+                                               3.1      Initiation
+        The aim of sieve theory is to construct estimates for the number of integers
+        remaining in a set after members of certain arithmetic progressions have been
+        discarded. If P is given, then the asymptotic density of the set of integers
+        relatively prime to P is ϕ(P)/P; with the aid of sieves we can estimate how
+        quickly this asymptotic behaviour is approached. Throughout this chapter we
+        let S(x, y; P) denote the numbers of integers n in the interval x < n ≤ x + y
+        for which (n, P) = 1. A ﬁrst (weak) result is provided by
+
+        Theorem 3.1          (Eratosthenes–Legendre) For any real x, and any y ≥ 0,
+                                                       ϕ(P)           
+                                     S(x, y; P) =           y + O 2ω(P) .
+                                                        P
+           Of course if y is an integral multiple of P then the above holds with no error
+        term. Since 2ω(P) ≤ d(P)        P ε , the main term above is larger than the error
+                       ε
+        term if y ≥ P ; thus the reduced residues are roughly uniformly distributed in
+        the interval (0, P].
+
+        Proof From the characteristic property (1.20) of the Möbius µ-function, and
+        the fact that d|(n, P) if and only if d|n and d|P, we see that
+                                            
+                           S(x, y; P) =               µ(d)
+                                                 x<n≤x+y d|n
+                                                         d|P
+                                                               
+                                             =         µ(d)              1
+                                                 d|P           x<n≤x+y
+                                                                 d|n
+                                                                             
+                                                                  x + y x 
+                                             =         µ(d)              −       .                 (3.1)
+                                                 d|P
+                                                                     d     d
+
+                                                          76
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                  3.1 Initiation                                     77
+
+
+        Removing the square brackets, we see that this is
+                                                           
+                                 µ(d)           
+                            =y            +O          |µ(d)| ,
+                                d|P
+                                      d           d|P
+
+        which is the desired result.                                                                  
+
+            The identity (3.1) can be considered to be an instance of Sylvester’s principle
+        of inclusion–exclusion, which in general asserts that if S is a ﬁnite set and
+        S1 , . . . , S R are subsets of S, then
+                                    
+                            &' R
+                  card S          Sr = card(S) − 1 + 2 − · · · + (−1) R  R         (3.2)
+                               r =1
+
+        where
+                                                                                      
+                                                                         (
+                                                                          s
+                                      s =                     card             Sr j       .
+                                             1≤r1 <···<rs ≤R              j=1
+
+        To obtain (3.1) we take S = {n ∈ Z : x < n ≤ x + y}, R = ω(P), we let
+        p1 , . . . , p R be the distinct primes dividing P, and we put Sr = {n : x < n ≤
+        x + y, pr |n}. Here we see that the Möbius µ-function has an important com-
+        binatorial signiﬁcance, namely that it enables us to present the inclusion–
+        exclusion identity in a compact manner, in arithmetic situations such as (3.1)
+        above.
+            To prove (3.2) it sufﬁces to note that if an element of S is not in any of the Sr ,
+        then it is counted once on the right-hand
+                                                     side, while if it is in precisely t > 0 of
+        the sets Sr then it is counted st times in s , and hence it contributes altogether
+                           P               t         
+                                       t                  t
+                               (−1)s        =     (−1)s      = (1 − 1)t = 0.
+                           s=0
+                                       s      s=0
+                                                          s
+            If p is a prime, then either p|P or ( p, P) = 1. Hence
+                                 π(x + y) − π (x) ≤ ω(P) + S(x, y; P),                             (3.3)
+        so that a bound for S(x, y; P) can be used to bound the number of prime numbers
+        in an interval. In view of the main term in Theorem 3.1, it is reasonable to expect
+        that it will be best to take P of the form
+                                                    P=           p.                                (3.4)
+                                                           p≤z
+
+        On taking z = log y, we see immediately that
+                                                                                    y
+                        π(x + y) − π (x) ≤ e−C0 + ε(y)
+                                                                                  log log y
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        78                   Principles and ﬁrst examples of sieve methods
+
+
+        where ε(y) → 0 as y → ∞. This bound is very weak, but has the interesting
+        property of being uniform in x. Since the bound for the error term in Theorem 3.1
+        is very crude, we might expect that more is true, so that perhaps
+                                                      ϕ(P)
+                                               S(x, y; P) ∼ y
+                                                        P
+        even when z is fairly large. However, as we have already noted in our remarks
+        following Theorem 2.11, this asymptotic formula fails when z = y 1/2 .
+           In order to derive a sharper estimate for S(x, y; P), we replace µ(d) by a more
+        general arithmetic function λd that in some sense is a truncated approximation
+        to µ(d). This is reminiscent of our derivation of the Chebyshev bounds, but in
+        fact the speciﬁc properties required of the λd are now rather different. Suppose
+        that we seek an upper bound for S(x, y; P). Let λ+    n be a function such that
+                                             
+                                                1 if n = 1,
+                                        λ+
+                                         d ≥                                          (3.5)
+                                    d|n
+                                                0 otherwise.
+
+        Such a λ+d we call an ‘upper bound sifting function’, and by arguing as in the
+        proof of Theorem 3.1 we see that
+                                                                       
+                                                              
+              S(x, y; P) ≤             λ+
+                                        d = y      λ+d /d + O       |λ+
+                                                                      d| .       (3.6)
+                                  x<n≤x+y d|n                d|P                         d|P
+                                          d|P
+                               
+        This will be useful if d|P λ+  d /d is not much larger than ϕ(P)/P, and if
+                +
+          d|P |λ d | is much smaller than 2ω(P) . Brun (1915) was the ﬁrst to succeed
+        with an argument of this kind. He took his λ+n to be of the form
+                                        
+                                          µ(n) if n ∈ D+ ,
+                                  λ+
+                                   n =
+                                          0       otherwise,
+        where D+ is a judiciously chosen set of integers. A sieve of this kind is called
+        ‘combinatorial’. With Brun’s choice of D+ it is easy to verify (3.5), and it
+                              
+        is not hard to bound d|P |λ+    d |, but the determination of the asymptotic size
+                           
+        of the main term d|P λ+    d /d  presents some technical difﬁculties. We do not
+        develop a detailed account of Brun’s method, but the spirit of the approach can
+        be appreciated by considering the following simple choice of D+ : Let r be an
+        integer at our disposal, and put
+                                            D+ = {n : ω(n) ≤ 2r }.
+        We observe that
+                                                                                        
+                                         2r                        2r
+                                                                                        ω(P)
+                                  λ+
+                                   d =                   µ(d) =          (−1)   j
+                                                                                               .
+                            d|P          j=0    d|P                j=0
+                                                                                          j
+                                               ω(d)= j
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                  3.1 Initiation                                     79
+
+
+        Then (3.5) follows on taking J = 2r , h = ω(P) in the binomial coefﬁcient
+        identity
+                                                       
+                             J
+                                        h             h−1
+                                (−1) j     = (−1) J          .
+                            j=0
+                                        j              J
+
+        This identity can in turn be proved by induction, or by equating coefﬁcients in
+        the power series identity
+                                                                        
+             ∞         h
+                                    h                        
+                                                             h−1
+                                                                           h−1
+                 x i
+                            (−1) j
+                                       x = (1 − x)
+                                         j            h−1
+                                                          =       (−1) J
+                                                                                 xJ.
+             i=0        j=0
+                                    j                        J =0
+                                                                            J
+
+           Lower bounds for S(x, y; P) can be derived in a parallel manner, by intro-
+        ducing a lower bound sifting function λ−             −
+                                               n . That is, λn is an arithmetic function
+        such that
+                                          
+                                       −     1 if n = 1,
+                                      λd ≤                                         (3.7)
+                                  d|n
+                                             0 otherwise.
+
+        Corresponding to the upper bound (3.6) we have
+                                                            
+                                                      
+                        S(x, y; P) ≥ y     λ−
+                                            d /d − O     |λ−
+                                                           d| .                                    (3.8)
+                                                    d|P                   d|P
+
+        Unfortunately, this lower bound may be negative, in which case it is useless,
+        since trivially S(x, y; P) ≥ 0. Brun determined λ−  d combinatorially by con-
+        structing a set D− similar to his D+ . Indeed, an admissible set can be obtained
+        by taking
+                                         D− = {n : ω(n) ≤ 2r − 1}.
+            By Brun’s method it can be shown that
+                                                                       y
+                                          π (x + y) − π (x)                .                       (3.9)
+                                                                     log y
+        When x = 0 this is merely a weak form of the Chebyshev upper bound. The
+        main utility of the above is that it holds uniformly in x. We shall establish a
+        reﬁned form of (3.9) in the next section (cf. Corollary 3.4).
+
+
+                                               3.1.1      Exercises
+
+        1. (Charles Dodgson) In a very hotly fought battle, at least 70% of the combat-
+           ants lost an eye, at least 75% an ear, at least 80% an arm, and at least 85% a
+           leg. What can you say about the percentage that lost all four members?
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        80                   Principles and ﬁrst examples of sieve methods
+
+
+        2. (P. T. Bateman) Would you believe a market investigator who reports that of
+           1000 people, 816 like candy, 723 like ice cream, 645 like cake, while 562
+           like both candy and ice cream, 463 like both candy and cake, 470 like both
+           ice cream and cake, while 310 like all three?
+        3. (Erdős 1946) For x > 0 write
+                                             ϕ(k)
+                                         1=         x + E k (x).
+                                   1≤n≤x
+                                                k
+                                                (n,k)=1
+
+
+             (a) Show that if k > 1, then
+                                                                          
+                                                E k (x) = −                      µ(d)B1 ({x/d})
+                                                                           d|k
+
+                 where B1 (z) = z − 1/2 is the ﬁrst Bernoulli polynomial. Let E k (x) be
+                 deﬁned by this formula when x < 0.
+             (b) Show that if k > 1, then E k (x) is periodic with period k, that E k (x) is
+                 an odd function (apart from values at discontinuities), and that
+                                                                     k
+                                                                         E k (x) d x = 0.
+                                                                 0
+
+             (c) By using the result of Exercise B.10, or otherwise, show that if d|k and
+                 e|k, then
+                                            k
+                                                                                                 (d, e)2
+                                                B1 ({x/d})B1 ({x/e}) d x =                               k.
+                                        0                                                         12de
+             (d) Show that if k > 1, then
+                                                        k
+                                                                                     1 ω(k)
+                                                            E k (x)2 d x =             2 ϕ(k).
+                                                    0                               12
+             (e) Deduce that if k > 1, then
+                                                                                                 
+                                                                                 ω(k)/2       ϕ(k) 1/2
+                                            max |E k (x)|                    2                         .
+                                                x                                              k
+        4. (Lehmer 1955; cf. Vijayaraghavan 1951) Let E k (x) be deﬁned as above.
+           (a) Show that |E k (x)| ≤ 2ω(k)−1 for all k > 1.
+           (b) Suppose that k is composed of distinct primes p ≡ 3 (mod 4), and that
+               ω(k) is even. Show that if d|k, then µ(d)B1 ({k/(4d)}) = −1/4.
+           (c) Show that there exist inﬁnitely many numbers k for which
+
+                                                            max |E k (x)| ≥ 2ω(k)−2 .
+                                                             x
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                       3.1 Initiation                                                    81
+
+
+        5. (Behrend 1948; cf. Heilbronn 1937, Rohrbach 1937, Chung 1941, van der
+           Corput 1958) Let a1 , . . . , a J be positive integers, and let T (a1 , . . . , a J ) de-
+           note the asymptotic density of the set of those positive integers that are not
+           divisible by any of the ai .
+                                                
+           (a) Show that T (a1 , . . . , a J ) = Jj=0 (−1) j  j where
+                                                                                  1
+                                              j =                                           .
+                                                        1≤i 1 <···<i j ≤J
+                                                                          [ai 1 . . , ai j ]
+                                                                               , .
+
+            (b) Show that if a1 , . . . , a J are pairwise relatively prime, then
+                                                                J        
+                                                                       1
+                                       T (a1 , . . . , a J ) =      1−      .
+                                                               j=1
+                                                                       aj
+
+            (c) Show if (d, vs ) = 1 for 1 ≤ s ≤ S, then
+                                                               1
+                  T (du 1 , . . . , du R , v1 , . . . , v S ) = T (u 1 , . . . , u R , v1 , . . . , v S )
+                                                               d            
+                                                                          1
+                                                               + 1−             T (v1 , . . . , v S ).
+                                                                         d
+            (d) Suppose that d|a j for 1 ≤ j ≤ j0 , that (d, a j ) = 1 for j > j0 , that d|bk
+                for 1 ≤ k ≤ k0 , and that (d, bk ) = 1 for k0 < k ≤ K . Put a j = a j /d for
+                1 ≤ j ≤ j0 , and bk = bk /d for 1 ≤ k ≤ k0 . Explain why
+                T (a1 , . . . , a J )T (b1 , . . . , b K )
+                       1
+                   = T (a1 , . . . , a j0 , a j0 +1 , . . . , a J )T (b1 , . . . , bk 0 , bk0 +1 , . . . , b K )
+                       d              
+                                     1
+                      + 1−               T (a j0 +1 , . . . , a J )T (bk0 +1 , . . . , b K )
+                                    d
+                                        
+                           1           1
+                      −          1−         (T (a j0 +1 , . . . , a J ) − T (a1 , . . . , a j0 , a j0 +1 , . . . , a J ))
+                           d           d
+                                                                                                          
+                          · T (bk0 +1 , . . . , b K ) − T (b1 , . . . , bk 0 , bk0 +1 , . . . , b K ) .
+            (e) Explain why the factors that constitute the last term above are all non-
+                negative.
+            (f) Show that
+                           T (a1 , . . . , a J , b1 , . . . , b K ) ≥ T (a1 , . . . , a J )T (b1 , . . . , b K ).
+            (g) Show that
+                                                                          J                
+                                                                                       1
+                                              T (a1 , . . . , a J ) ≥           1−              .
+                                                                         j=1
+                                                                                       aj
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        82                    Principles and ﬁrst examples of sieve methods
+
+
+                        3.2      The Selberg lambda-squared method
+        Let n be a real-valued arithmetic function such that 1 = 1. Then
+                                        2 
+                                                1 if n = 1,
+                                      d ≥
+                                  d|n
+                                                 0 if n > 1.
+
+        This simple observation can be used to obtain an upper bound for S(x, y; P);
+        namely
+                                           ⎛        ⎞2
+                                      ⎜ ⎟
+                     S(x, y; P) ≤          ⎝     d ⎠
+                                             x<n≤x+y       d|n
+                                                           d|P
+                                                              
+                                         =         d e                  1
+                                             d|P           x<n≤x+y
+                                             e|P            d|n,e|n
+                                                                              
+                                                                 x+y          x
+                                         =         d e                 −
+                                             d|P
+                                                                 [d, e]     [d, e]
+                                             e|P
+                                                                      ⎛                  2 ⎞
+                                                d e                         
+                                         =y                    +O⎝                   |d |   ⎠.    (3.10)
+                                                d|P
+                                                      [d, e]                   d|P
+                                                e|P
+
+        In the general framework of the preceding section this amounts to taking
+                                            
+                                     λ+
+                                      n =        d e ,
+                                                         d,e
+                                                       [d,e]=n
+
+        since it then follows that
+                                                                         2
+                                                           
+                                                   λ+
+                                                    d =              d        .
+                                             d|n               d|n
+
+        We now suppose that n = 0 for n > z where z is a parameter at our disposal, in
+        the hope that this will restrict the size of the error term. As for the main term, we
+        see that we wish to minimize a quadratic form subject to the constraint 1 = 1.
+        In fact we can diagonalize this quadratic form and determine the optimal n
+        exactly; this permits us to prove
+
+        Theorem 3.2 Let x, y, and z be real numbers such that y > 0 and z ≥ 1. For
+        any positive integer P we have
+                                                         y
+                                   S(x, y; P) ≤               + O(z 2 L P (z)−2 )
+                                                      L P (z)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  3.2 The Selberg lambda-squared method                               83
+
+
+        where
+                                                                   µ(n)2
+                                                 L P (z) =                         .
+                                                                  n≤z     ϕ(n)
+                                                                  n|P
+
+        Proof Clearly we may assume that P is square-free. Since [d, e](d, e) = de
+           
+        and d|n ϕ(d) = n, we see that
+                                           1      (d, e)   1 
+                                                =        =               ϕ( f ).
+                                         [d, e]    de      de f |d, f |e
+
+        Hence
+                                  d e                     d  e
+                                               =      ϕ( f )
+                                d|P,e|P
+                                        [d, e]   f |P        d
+                                                               d  e e
+                                                                          f |d|P       f |e|P
+                                                      
+                                                  =              ϕ( f )yf2
+                                                          f |P
+
+        where
+                                                                  d
+                                                   yf =                       .                    (3.11)
+                                                                    d
+                                                                          d
+                                                                 f |d|P
+
+        This linear change of variables, from d to yf , is non-singular. That is, if the yf
+        are given then there exist unique d such that the above holds. Indeed, by a form
+        of the Möbius inversion formula (cf. Exercise 2.1.6) the above is equivalent to
+        the relation
+                                             
+                                     d = d        yf µ( f /d).                       (3.12)
+                                                               f
+                                                            d| f |P
+
+        Moreover, from these formulæ we see that d = 0 for all d > z if and only if
+        yf = 0 for all f > z. Thus we have diagonalized the quadratic form in (3.10),
+        and by (3.12) we see that the constraint 1 = 1 is equivalent to the linear
+        condition
+                                     
+                                         yf µ( f ) = 1.                        (3.13)
+                                                   f |P
+
+        We determine the value of the constrained minimum by completing squares. If
+        the yf satisfy (3.13), then
+                                                                      2
+                                                              µ( f )            1
+                           ϕ( f )yf2 =         ϕ( f ) yf −                  +         .            (3.14)
+                    f |P                  f |P
+                                                           ϕ( f )L P (z)      L P (z)
+                                          f ≤z
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        84                   Principles and ﬁrst examples of sieve methods
+
+
+        Here the right-hand side is minimized by taking
+                                                           µ( f )
+                                                yf =                                               (3.15)
+                                                        ϕ( f )L P (z)
+        for f ≤ z, and we note that these yf satisfy (3.13). Hence the minimum of the
+        quadratic form in (3.10), subject to 1 = 1, is precisely 1/L P (z); this gives the
+        main term.
+           We now treat the error term. Since P is square-free, from (3.12) and (3.15)
+        we see that
+                     d      µ( f )µ( f /d)         dµ(d)        µ(m)2
+            d =                               =                               ;     (3.16)
+                   L P (z) f         ϕ( f )      L P (z)ϕ(d) m|P ϕ(m)
+                                d| f |P                                      (m,d)=1
+                                 f ≤z                                         m≤z/d
+
+        here we have put m = f /d. Thus
+                        1  d  1                     1  1  d
+               |d | ≤                             =                             .
+           d≤z
+                       L P (z) d≤z ϕ(d) m≤z/d ϕ(m)   L P (z) m≤z ϕ(m) d≤z/m ϕ(d)
+                              
+        Since d/ϕ(d) =            r |d µ (r )/ϕ(r ), it follows by the method of Section 2.1 that
+                                        2
+
+
+                            d         µ2 (r )              µ2 (r )
+                                    =            [y/r ] ≤ y                              y.
+                           d≤y
+                               ϕ(d)   r ≤y ϕ(r )            r r ϕ(r )
+
+        On inserting this in our former estimate, we ﬁnd that
+                                         z  1                  z
+                               |d |                                  .                            (3.17)
+                           d≤z
+                                       L P (z) m≤z mϕ(m)      L P (z)
+
+        This gives the stated error term, so the proof is complete.                                    
+
+           In order to apply Theorem 3.2, we require a lower bound for the sum L P (z).
+        To this end we show that
+                                      µ(n)2
+                                                > log z                        (3.18)
+                                     n≤z ϕ(n)
+
+        for all z ≥ 1. Let s(n) denote the largest square-free number dividing n (some-
+        times called the ‘square-free kernel of n’). Then for square-free n,
+                                                                 1
+                         1      1            1     1
+                             =          1 + + 2 + ··· =                  ,
+                       ϕ(n)     n p|n        p     p              m    m
+                                                                               s(m)=n
+
+        so that the sum in (3.18) is
+                                                        1
+                                                           .
+                                                       m m
+                                                     s(m)≤z
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                3.2 The Selberg lambda-squared method                                 85
+
+
+        Since s(m) ≤ m, this latter sum is
+                                          1
+                                      ≥        > log z.
+                                         m≤z m
+
+        Here the last inequality is obtained by the integral test. With more work one can
+        derive an asymptotic formula for the the sum in (3.18) (recall Exercise 2.1.17).
+           By taking z = y 1/2 in Theorem 3.2, and appealing to (3.18), we obtain
+                                   
+        Theorem 3.3 Let P = p≤√ y p. Then for any x and any y ≥ 2,
+                                                                 
+                                            2y                 1
+                            S(x, y; P) ≤           1+O                 .
+                                           log y             log y
+           By combining the above with (3.3) we obtain an immediate application to
+        the distribution of prime numbers.
+        Corollary 3.4 For any x ≥ 0 and any y ≥ 2,
+                                                         
+                                         2y            1
+                      π(x + y) − π(x) ≤        1+O            .
+                                        log y        log y
+           In Theorem 3.3 we consider only a very special sort of P, but the following
+        lemma enables us to obtain corresponding results for more general P.
+        Lemma 3.5 Put M(y; P) = maxx S(x, y; P). If (P, q) = 1, then
+                                       q
+                           M(y; P) ≤       M(y; q P).
+                                      ϕ(q)
+        Proof       It sufﬁces to show that
+                                                        
+                                                        q
+                                ϕ(q)S(x, y; P) =              S(x + Pm, y; q P),                   (3.19)
+                                                        m=1
+
+        since the right-hand side is bounded above by q M(y; q P). Suppose that x +
+        Pm < n ≤ x + Pm + y and that (n, q P) = 1. Put r = n − Pm. Then x <
+        r ≤ x + y, (r, P) = 1, and (r + Pm, q) = 1. Thus the right-hand side above is
+                                                   
+                                      1 =                    1.
+                                      m    r           x<r ≤x+y    1≤m≤q
+                                                        (r,P)=1 (r +Pm,q)=1
+
+        Since (P, q) = 1, the map m → r + Pm permutes the residue classes (mod q).
+        Hence the inner sum above is ϕ(q), and we have (3.19).                   
+
+        Theorem 3.6        For any real x and any y ≥ 2,
+                                       ⎛                ⎞
+                                                                  
+                                   C0 ⎜
+                                       ⎜            1 ⎟           1
+                     S(x, y; P) ≤ e y ⎝          1−     ⎟ 1+O            .
+                                          p|P
+                                                     p ⎠        log y
+                                                  √
+                                                p≤ y
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        86                   Principles and ﬁrst examples of sieve methods
+
+
+        Proof       Let
+                                       P1 =            p,       q1 =          p.
+                                                p|P
+                                                  √                     pP
+                                               p≤ y                       √
+                                                                       p≤ y
+
+        Theorem 3.3 provides an upper bound for M(y; q1 P1 ), and hence by Lemma
+        3.5 we have an upper bound for M(y; P1 ). To complete the argument it sufﬁces
+        to note that S(x, y; P) ≤ S(x, y; P1 ) ≤ M(y; P1 ), and to appeal to Mertens’
+        formula (Theorem 2.7(e)).                                                  
+
+           We note that Theorem 3.3 is a special case of Theorem 3.6. Although we have
+        taken great care to derive uniform estimates, for many purposes it is enough to
+        know that
+                                                             
+                                                            1
+                                 S(x, y; P)    y       1−       .                (3.20)
+                                                 p|P
+                                                            p
+                                                            p≤y
+                                                            
+        This follows from Theorem 3.6 since √ y< p≤y (1 − 1/ p)−1         1 by Mertens’
+        formula. To obtain an estimate in the opposite direction, write P = P1 q1 where
+        P1 is composed entirely of primes > y, and q1 is composed entirely of primes
+        ≤ y. Since the integers in the interval (0, y] have no prime factor > y, we see
+        that M(y; P1 ) ≥ [y] . Hence by Lemma 3.5,
+                                                             
+                                                            1
+                                M(y; P) ≥ [y]          1−       .                 (3.21)
+                                                 p|P
+                                                            p
+                                                            p≤y
+
+        Thus the bound (3.20) is of the correct order of magnitude.
+           The advantage of Theorem 3.6 lies in its uniformity. On the other hand, the
+        use of Lemma 3.5 is wasteful if the P in Theorem 3.6 is much smaller than in
+                                           
+        Theorem 3.3. For example, if P = p≤y 1/4 p, then by Theorem 3.6 we ﬁnd that
+                                                               
+                                           cy                1
+                           S(x, y; P) ≤           1+O
+                                          log y            log y
+        with c = 4, whereas by Theorem 3.2 with z = y 1/2 we obtain the above with
+        the better constant
+                                     4
+                            c=               = 2.4787668 . . . .
+                                 3 − 2 log 2
+        To see this, we note that
+                                 µ(n)2                 1     µ(n)2
+                      L P (z) =          −                               .                         (3.22)
+                                n≤z ϕ(n)   z 1/2 < p≤z
+                                                       p − 1 n≤z/ p ϕ(n)
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                3.2 The Selberg lambda-squared method                              87
+
+
+        Then by Exercise 2.1.17 and Mertens’ estimates (Theorem 2.7) it follows that
+        this is 14 (3 − 2 log 2) log y + O(1).
+
+
+                                                3.2.1         Exercises
+          1. Let d be deﬁned as in the proof of Theorem 3.2.
+             (a) Show that
+                                                                   d          2z
+                                                    d                    log
+                                                              L P (z)ϕ(d)     d
+                 for d ≤ z.
+             (b) Use the above to give a second proof of (3.17).
+          2. Show that for y ≥ 2 the number of prime powers pk in the interval
+             (x, x + y] is
+                                                          
+                                       2y               1
+                                   ≤          1+O               .
+                                      log y           log y
+          3. (Chowla 1932) Let f (n) be an arithmetic function, put
+                                              
+                                     g(n) =        f (d) f (e),
+                                                            [d,e]=n
+
+              and let σc denote the abscissa of convergence of the Dirichlet series
+              
+                 g(n)n −s .
+              (a) Show that if σ > max(1, σc ), then
+                                              f (d) f (e)            
+                                                                      ∞               2
+                                     ζ (s)                       =                f (d) n −s .
+                                             d, e
+                                                     [d, e]s          n=1   d|n
+
+              (b) Show that
+                                                      µ(d)µ(e)             6
+                                                                        =      .
+                                                     d, e
+                                                              [d, e]2       π2
+
+              (c) Show that
+                                                     
+                                                              µ(d)µ(e) = µ(n)
+                                                      d, e
+                                                    [d,e]=n
+
+                 for all positive integers n.
+          4. Let f (n) be an arithmetic function such that f (1) = 1. Show that f is
+             multiplicative if and only if f (m) f (n) = f ((m, n)) f ([m, n]) for all pairs
+             of positive integers m, n.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        88                   Principles and ﬁrst examples of sieve methods
+
+
+          5. (Hensley 1978)
+                          
+             (a) Let P = p≤√ y p. Show that the number of n, x < n ≤ x + y, such
+                 that (n) = 2, is
+                                             x + y          
+                                                                x
+                           ≤ S(x, y; P) +      π          −π         .
+                                            √
+                                          p≤ y
+                                                    p            p
+
+              (b) By using Theorem 3.3 and Corollary 3.4, show that for y ≥ 2,
+                                                                     
+                                        2y log log y              1
+                                   1≤                 1+O                  .
+                           x<n≤x+y         log y              log log y
+                                  (n)=2
+
+          6. (H.-E. Richert, unpublished)
+             (a) Show that
+                                      2                  ⎛        2 ⎞
+                                           d e          
+                                     d = y            2
+                                                         +O⎝    |d | ⎠ .
+                      x<n≤x+y d 2 |n        d, e
+                                                 [d, e]       d
+                                                             
+              (b) Let f (n) = n 2 p|n (1 − p −2 ). Show that d|n f (d) = n 2 .
+              (c) For 1 ≤ d ≤ z let d be real numbers such that 1 = 1. Show that the
+                                                                     
+                  minimum of d, e d e /[d, e]2 is 1/L where L = n≤z µ(n)2 / f (n).
+                  Show also that d     1 for the extremal d .
+              (d) Show that ζ (2) − 1/z ≤ L ≤ ζ (2).
+              (e) Let Q(x) denote the number of square-free numbers not exceeding x.
+                  Show that for x ≥ 0, y ≥ 1,
+                                                          y           
+                                  Q(x + y) − Q(x) ≤           + O y 2/3 .
+                                                        ζ (2)
+          7. Let m(y; P) = minx S(x, y; P). Show that if (q, P) = 1, then
+                                               q
+                                  m(y; P) ≥        m(y; q P).
+                                              ϕ(q)
+          8. (N. G. de Bruijn, unpublished; cf. van Lint & Richert 1964) Let M be an
+             arbitrary set of natural numbers, and let s(n) denote the largest square-free
+             divisor of n. Show that
+                             µ(n)2         1  µ(n)2  1
+                      0≤                −           ≤             −             1.
+                            n≤x ϕ(n)       n≤x n       n≤x ϕ(n)      n≤x n
+                               n∈M                 s(n)∈M
+
+          9. (van Lint & Richert 1965)
+              (a) Show that
+                                                                         ⎛           ⎞
+                                                                    
+                                   µ(n)2              µ(d)2            ⎜    µ(m) ⎟
+                                                                                   2
+                                                ≤                        ⎝           ⎠.
+                                  n≤z   ϕ(n)            d|q
+                                                              ϕ(d)         m≤z ϕ(m)
+                                                                             (m,q)=1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                   3.3 Sifting an arithmetic progression                           89
+
+
+              (b) Deduce that
+                                              µ(n)2    ϕ(q)  µ(n)2
+                                                      ≥              .
+                                             n≤z ϕ(n)    q n≤z ϕ(n)
+                                           (n,q)=1
+
+        10. (Hooley 1972; Montgomery & Vaughan 1979)
+            (a) Let λ+                                               +
+                     d be an upper bound sifting function such that λd = 0 for all
+                d > z. Show that for any q,
+                                                  ϕ(q)  λ+     λ+
+                                            0≤             d
+                                                             ≤     d
+                                                                     .
+                                                   q   d
+                                                          d    d
+                                                                  d
+                                                          (d,q)=1
+                                                            
+                  (Hint: Multiply both sides by P/ϕ(P) = 1/m where m runs over
+                                                                           
+                  all integers composed of the primes dividing P, and P = p≤z p.)
+              (b) Let d be real with d = 0 for d > z. Show that for any q,
+                                      ϕ(q)  d e  d e
+                                  0≤                      ≤              .
+                                       q      d, e
+                                                   [d, e]    d, e
+                                                                  [d, e]
+                                                     (de,q)=1
+
+              (c)   Let λ−                                              −
+                         d be a lower bound sifting function such that λd = 0 for d > z.
+                    Show that for any q,
+                                               ϕ(q)  λ−     λ−
+                                                        d
+                                                          ≥     d
+                                                                  .
+                                                q   d
+                                                       d    d
+                                                               d
+                                                       (d,q)=1
+
+
+
+
+                           3.3      Sifting an arithmetic progression
+        Thus far we have sifted only the zero residue class from a set of consecutive
+        integers. We now widen the situation slightly.
+        Lemma 3.7 Let P be a positive integer, and for each prime p dividing P
+        suppose that one particular residue class a p has been chosen. Let S  (x, y; P)
+        denote the number of integers m, x < m ≤ x + y, such that for each p|P,
+        m ≡ a p (mod p). Then
+                                     max S  (x, y; P) = max S(x, y; P).
+                                       x                         x
+                       
+           Since S (x, y; P) reduces to S(x, y; P) when we take a p = 0 for all p|P,
+        we see that there is no loss of generality in sifting only the zero residue class,
+        when the initial set of numbers consists of consecutive integers. Also, we note
+        that the value of the maximum taken above is independent of the choice of the
+        ap.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        90                   Principles and ﬁrst examples of sieve methods
+
+
+        Proof By the Chinese remainder theorem there is a number c such that c ≡ a p
+        (mod p) for every p|P. Put n = m − c. Thus the inequality x < m ≤ x + y is
+        equivalent to x − c < n ≤ x − c + y, and the condition that p|P implies m ≡
+        a p (mod p) is equivalent to (n, P) = 1. Hence S  (x, y; P) = S(x − c, y; P),
+        so that
+                      max S  (x, y; P) = max S(x − c, y; P) = max S(x, y; P),
+                        x                           x                             x
+
+        and the proof is complete.                                                                       
+
+        Theorem 3.8 Suppose that (a, q) = 1, that (P, q) = 1, and that x and y are
+        real numbers with y ≥ 2q. The number of n, x < n ≤ x + y, such that n ≡ a
+        (mod q) and (n, P) = 1 is
+                            ⎛                ⎞
+                                                              
+                            ⎜
+                       C0 y ⎜            1 ⎟                 1
+                   ≤e                 1−     ⎟   1+O                 .
+                          q ⎝ p|P         p ⎠             log y/q
+                                         √
+                                       p≤ y/q
+
+        Proof Write n = mq + a, so that x  < m ≤ x  + y  where x  = (x − a)/q
+        and y  = y/q. For each p|P let a p be the unique residue class (mod p) such
+        that a p q + a ≡ 0 (mod p). Thus p|n if and only if m ≡ a p (mod p). Hence
+        the number of n in question is S  (x  , y  ; P), in the language of Lemma 3.7. The
+        stated bound now follows from this lemma and Theorem 3.6.                          
+
+           Using the estimate above, we generalize Corollary 3.4 to arithmetic progres-
+        sions. We let π (x; q, a) denote the number of prime numbers p ≤ x such that
+        p ≡ a(mod q).
+        Theorem 3.9 (Brun–Titchmarsh) Let a and q be integers with (a, q) = 1, and
+        let x and y be real numbers with x ≥ 0 and y ≥ 2q. Then
+                                                                          
+                                                 2y                    1
+           π(x + y; q, a) − π (x; q, a) ≤                 1+O                  . (3.23)
+                                            ϕ(q) log y/q            log y/q
+                                                                   √
+        Proof Take P to be the product of those primes p ≤ y/q such that pq.
+        Then
+                                                                      
+                              1                      1 −1                1
+                          1−      =             1−                  1−
+                    p|P
+                              p         p|q
+                                                     p       √
+                                                           p≤ y/q
+                                                                         p
+                                                √
+                                              p≤ y/q
+                                                              −1                 
+                                                           1                      1
+                                          ≤             1−                     1−     .
+                                              p|q
+                                                           p           √
+                                                                     p≤ y/q
+                                                                                  p
+         By Mertens’ estimate this is
+                                                                                              
+                                             q    2e−C0                                  1
+                                          =     ·                     1+O                            .
+                                            ϕ(q) log y/q                              log y/q
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 3.4 Twin primes                                   91
+
+
+        Thus by Theorem 3.8, the number of primes p, x < p ≤ x + y, such that p ≡ a
+        (mod q) and ( p, P) = 1 satisﬁes the bound (3.23). To complete the proof it
+        remains to note that the number of primes p, x < p ≤ x + y, such that p ≡ a
+                                            √
+        (mod q) and p|P is at most ω(P) ≤ y/q, which can be absorbed in the error
+        term in (3.23).                                                          
+
+
+
+                                            3.4      Twin primes
+        Thus far we have removed at most one residue class per prime. More generally,
+        we might wish to delete from an interval (x, x + y] those numbers n that lie
+        in a certain set B( p) of ‘bad’ residue classes modulo p. Let b( p) = card B( p)
+        denote the number of residue classes to be removed, for p|P where P is a given
+        square-free number, and set
+                                            a(n) =                       p.
+                                                            p|P
+                                                       n∈B( p) (mod p)
+
+        Thus the n that remain after sifting are precisely the n for which (a(n), P) = 1.
+        By the sieve we obtain upper and lower bounds for the number of remaining n
+        of the form
+                                                            
+                                             λm =       λm            1.           (3.24)
+                               x<n≤x+y m|(a(n),P)             m|P            x<n≤x+y
+                                                                              m|a(n)
+
+        Now p|a(n) if and only if n ∈ B( p) (mod p). By the Chinese remainder theo-
+                                                                              
+        rem, this will be the case for all p|m when n lies in one of precisely p|m b( p)
+        residue classes modulo m. The b( p) are deﬁned only for primes, but it is con-
+        venient now to extend the deﬁnition to all positive integers by putting
+
+                                              b(m) =              b( p)α .
+                                                         p α m
+
+        Thus b(m) is the totally multiplicative function generated by the b( p). For
+        square-free m, b(m) represents the number of deleted residue classes modulo
+        m. We are now in a position to estimate the inner sum above. We partition the
+        interval (x, x + y] into [y/m] intervals of length m, and one interval of length
+        {y/m}m. In each interval of length m there are precisely b(m) values of n for
+        which m|a(n). In the ﬁnal shorter interval, the number of such n lies between
+        0 and b(m). Thus the inner sum on the right above is = yb(m)/m + O(b(m)),
+        and hence the expression (3.24) is
+                                                                  
+                                 b(m)λm              
+                           =y                + O          b(m)|λm | .             (3.25)
+                                m|P
+                                      m               m|P
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        92                       Principles and ﬁrst examples of sieve methods
+
+
+        To continue from this point, one should specify the choice of λm , and then
+        estimate the main term and error term. In the context of Selberg’s 2 method,
+        we have real d with 1 and d = 0 for d > z. The number of n ∈ (x, x + y]
+        that survive sifting is
+                                  2
+                                                       
+             ≤                  d =              d e           1
+                   x<n≤x+y       d|(a(n),P)            d|P e|P            x<n≤x+y
+                                                                          [d,e]|a(n)
+                                                                                              
+                      b([d, e])                            
+              =y                              d e + O                   g([d, e])|d e | .            (3.26)
+                    d|P e|P
+                                   [d, e]                       d|P e|P
+                                 
+        This is (3.25) with λm = [d,e]=m d e .
+           We consider ﬁrst the main term above. Clearly [d, e] = de/(d, e) and
+        b([d, e]) = b(d)b(e)/b((d, e)). For square-free m put
+                                                               b( p)
+                                               g(m) =                   .                                (3.27)
+                                                         p|m
+                                                             p −  b( p)
+
+        Here we have 0 in the denominator if there is a prime p for which b( p) = p.
+        However, in that case all residues modulo p are removed, and no integer survives
+        sifting. Thus we may conﬁne our attention to b( p) such that b( p) < p for all
+        p. If m is square-free, then
+                           1                             
+                                                 p − b( p)       m
+                                     =        1+             =       .
+                          d|m
+                              g(d)      p|m
+                                                   b( p)       b(m)
+
+        By applying this with m = (d, e) we see that the ﬁrst sum in (3.26) is
+              b(d)d            b(e)e    (d, e)      b(d)d b(e)e  1
+                             ·          ·           =         ·
+             d|P
+                     d              e     b((d, e))   d|P
+                                                           d      e   f |d
+                                                                           g( f )
+             e|P                                            e|P                         f |e
+                                                                 1        b(d)             b(e)
+                                                        =                              d                e
+                                                            f |P
+                                                                 g( f)       d
+                                                                                   d           e     e
+                                                                          f |d|P            f |e|P
+
+                                                                 1 2
+                                                        =             y                                  (3.28)
+                                                            f |P
+                                                                 g( f) f
+
+        where
+                                                         b(d)
+                                                yf =                  d .                               (3.29)
+                                                          d
+                                                                  d
+                                                       f |d|P
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 3.4 Twin primes                                      93
+
+
+        The linear change of variables from d to yf is invertible:
+                                                   d 
+                                         d =            yf µ( f /d) .                             (3.30)
+                                                  b(d) f
+                                                               d| f |P
+
+        By the above formulæ we see that the condition that d = 0 for d > z is
+        equivalent to the condition that yf = 0 for f > z. Also, the condition that
+        1 = 1 is equivalent to
+                                      
+                                          yf µ( f ) = 1.                     (3.31)
+                                                 f |P
+
+        For such yf we see that
+                               1 2  1                                  2 1
+                                      yf =             yf − µ( f )g( f )/L +                       (3.32)
+                          f |P
+                               g( f )      f |P
+                                                g( f )                       L
+                                              f ≤z
+
+        where
+                                                     
+                                              L=                µ( f )2 g( f ) .                   (3.33)
+                                                        f ≤z
+                                                        f |P
+
+        Thus our main term is minimized by taking
+                                  
+                                    µ( f )g( f )/L ( f ≤ z),
+                            yf =                                                                   (3.34)
+                                    0              (otherwise),
+        and we note that these yf satisfy (3.31). The size of L depends on P, z, and the
+        b( p). In the case of twin primes we obtain the following estimate.
+                                    
+        Theorem 3.10 Let P = p≤√ y p where y ≥ 4. The number of integers n ∈
+        (x, x + y], such that (n, P) = (n + 2, P) = 1 does not exceed
+                                                            
+                                   8cy              log log y
+                                            1 + O
+                                 (log y)2             log y
+        where
+                                                                                  
+                                                                  1
+                                         c=2               1−                          .
+                                                 p>2
+                                                              ( p − 1)2
+                                                                      √
+            The number of primes p ∈ (x, x + y] for which p|P is ≤ π ( y). Likewise,
+        the number of primes p ∈ (x, x + y] for which p + 2 is prime and ( p + 2)|P
+                √
+        is ≤ π( y). Otherwise, if p ∈ (x, x + y] and p + 2 is prime, then ( p, P) =
+                                                                               √
+        ( p + 2, P) = 1; the number of such p is bounded by the above. Since π( y)
+        is negligible by comparison, the above bound applies also to the number of
+        primes p ∈ (x, x + y] for which p + 2 is prime.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        94                   Principles and ﬁrst examples of sieve methods
+
+
+        Proof We ﬁrst estimate L as given in (3.33). We have b(2) = 1 and b( p) = 2
+        for p > 2. Since µ(m)2 g(m) is a multiplicative function that takes the value
+        2/( p − 2) when m = p > 2, and since d(n)/n is a multiplicative function that
+        takes the value 2/ p when n = p, we expect that d(n)/n and µ(m)2 g(m) are
+        ‘close’ in the sense that we can obtain the latter function by convolving d(n)/n
+        with a fairly tame function c(k). On comparing the Euler products of the re-
+        spective Dirichlet series generating functions, we see that if the c(k) are deﬁned
+        so that
+          ∞                                                                       
+                    −s          −s        −s−1 2                  2                1 2
+              c(k)k = (1 + 2 )(1 − 2          )        1+                    1 − s+1 ,
+          k=1                                    p>2
+                                                             ( p − 2) p s        p
+                                                                                                   (3.35)
+        then
+                                                           
+                                      µ(m)2 g(m) =                c(k)d(n)/n.
+                                                            k,n
+                                                           kn=m
+
+        Hence
+                                                                        
+                              L=              µ(m)2 g(m) =         c(k)           d(n)/n.
+                                    m≤z                      k≤z          n≤z/k
+
+        By Theorem 2.3 and (Riemann–Stieltjes) integration by parts we see that
+                                    
+                                    N
+                                      d(n)             1
+                                                   =     (log N )2 + O(log N ).
+                                    n=1
+                                               n       2
+        Hence
+                              
+                       L=      c(k)((log z/k)2 /2 + O(log z))
+                              k≤z
+                                                                           
+                            1                             
+                           = (log z)2    c(k) + O (log z)     |c(k)| log 2k
+                            2
+                                 k≤z                      k
+                                  
+                            +O        |c(k)|(log k)2 .
+                                          k
+
+        The Euler product in (3.35) is absolutely convergent for σ > −1/2. Hence
+        
+           |c(k)|k −σ < ∞ for σ > −1/2. Thus the two sums in the error terms above
+        are convergent. Also,
+                                       1   ∞
+                                                               1
+                             |c(k)| ≤           |c(k)| log k       .
+                         k>z
+                                      log z k=1
+                                                             log z
+        Thus by taking s = 0 in (3.35) we ﬁnd that
+                                       1
+                                 L = (log z)2 + O(log z).                                          (3.36)
+                                      2c
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 3.4 Twin primes                                   95
+
+
+           It remains to bound the error term in (3.26). Since 0 ≤ b([d, e]) ≤ b(d)b(e),
+        the error term is
+                                                       2
+                                           
+                                              b(d)|d | .
+                                                    d≤z
+
+        From (3.30) and (3.34) we see that
+                    d                              µ(d)dg(d) 
+           d =              µ( f )g( f )µ( f /d) =                 µ(m)2 g(m) .
+                 b(d)L f ≤z                           b(d)L   m≤z/d
+                                d| f                                            (m,d)=1
+
+        Hence
+                                           1                 
+                              b(d)|d |           µ(d)2 dg(d)       µ(m)2 g(m)
+                        d≤z
+                                            L d≤z             m≤z/d
+                                            1                 
+                                          =       µ(m)2 g(m)        µ(d)2 dg(d) .
+                                            L m≤z             d≤z/m
+
+        By Corollary 2.15 we see that
+                                                  D
+                       µ(d)2 dg(d)                         (1 + g( p))
+                       d≤D
+                                                 log D p≤D
+                                                                   
+                                                   D             1 −2
+                                                              1−                    D log D .
+                                                 log D p≤D        p
+
+        Since L        (log z)2 , it follows that
+                                               z                                     z
+                              b(d)|d |                 µ(m)2 g(m)/m                       .
+                          d≤z
+                                              log z m≤z                              log z
+
+        On combining our estimates, we see that the number of n, x < n ≤ x + y, such
+        that (a(n), P) = 1 is
+                                                                 
+                              2cy            y                z2
+                        ≤           + O              + O              .
+                           (log z)2       (log z)3         (log z)2
+        In order that the last error term is majorized by the one before it, we take
+        z = (y/ log y)1/2 . Then
+                                                  1
+                                       log z =      log y + O(log log y),
+                                                  2
+        so we obtain the stated result.                                       
+                                      
+        Corollary 3.11 (Brun) Let ∗p denote a sum over those primes p for which
+                              ∗
+        p + 2 is prime. Then p 1/ p converges.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        96                   Principles and ﬁrst examples of sieve methods
+
+
+        Proof The number of twin primes for which 2k−1 < p ≤ 2k is         2k /k 2 .
+        Hence the contribution of such primes to the sum in question is 1/k 2 . But
+        
+           1/k < ∞, so we obtain the stated result.
+              2
+                                                                                 
+
+           Let r be an even non-zero integer. To bound the number of primes p for
+        which p + r is also prime, it sufﬁces to establish the following monotonicity
+        principle, which is a natural generalization of Lemma 3.5.
+
+        Lemma 3.12 For each prime p let B( p) be the union of b( p) arithmetic
+                                                      )
+        progressions with common difference p. Put B = p|P B( p), and set
+                                                    
+                              M(x, y; b) = max         1
+                                                                B
+                                                                      x<n≤x+y
+                                                                        n/
+                                                                         ∈B
+
+        where the maximum is over all choices of the B( p) with b( p) ﬁxed. If 0 ≤
+        b1 ( p) ≤ b2 ( p) < p for all p, then
+                                                                               
+                                      b1 ( p) −1                           b2 ( p) −1
+               M(x, y; b1 )       1−             ≤ M(x, y; b2 )         1−            .
+                            p|P
+                                         p                        p|P
+                                                                              p
+                                 
+        Proof We induct on p|P (b2 ( p) − b1 ( p)). If b1 ( p) = b2 ( p) for all p|P, then
+        we have equality in the above. Let p  |P be a prime for which b1 ( p  ) < b2 ( p  ).
+        Suppose that the B1 ( p) are chosen so that card B1 ( p) = b1 ( p) and
+                                       
+                                               1 = M(x, y; b1 ) .
+                                               x<n≤x+y
+                                                 n/
+                                                  ∈B1
+
+        We note that
+                                                                                 
+                                  
+                                  p                                           
+                                                                                p
+                                                             1 =                          1.       (3.37)
+                                  b=1        x<n≤x+y               x<n≤x+y   b=1
+                                 ∈B1 ( p  )
+                                b/              n/
+                                                 ∈B1                 n/
+                                                                      ∈B1   ∈B1 ( p  )
+                                                                           b/
+                                              n≡b ( p  )                 b≡n ( p  )
+
+        Consider the inner sum on the right. Since n ∈     / B1 ( p  ), the variable b is restricted
+        to lie in one of p  − b1 ( p  ) − 1 residue classes. Hence the right-hand side above
+        is
+
+                                        = ( p  − b1 ( p  ) − 1)M(x, y; b1 ).
+
+        Since there are p  − b1 ( p  ) values of b in the outer sum on the left-hand side of
+        (3.37), it follows that there is a choice of b such that b ∈  / B1 ( p  ) and
+                                                      p  − b1 ( p  ) − 1
+                                               1 ≥                          M(x, y; b1 ) .
+                               x<n≤x+y                     p  − b1 ( p  )
+                                  n/
+                                   ∈B1
+                                n≡b ( p  )
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                    3.4 Twin primes                                               97
+
+
+        Let b1 ( p) = b1 ( p) for p = p  , b1 ( p  ) = b1 ( p  ) + 1. The left-hand side above
+        is ≤ M(x, y; b1 ), which by the inductive hypothesis is
+                                                                                     
+                                        p − b1 ( p  ) − 1                p − b1 ( p)
+                        ≤ M(x, y; b2 )                                                  .
+                                             p − b2 ( p  )       p|P
+                                                                          p − b2 ( p)
+                                                                          p= p 
+
+        Thus
+                                                                                               
+                                                                                    p − b1 ( p)
+                                 M(x, y; b1 ) ≤ M(x, y; b2 )                                      ,
+                                                                         p|P
+                                                                                    p − b2 ( p)
+
+        and the induction is complete.                                                                               
+
+            By combining Theorem 3.10 and Lemma 3.12, we obtain
+        Theorem 3.13 Suppose that y ≥ 4. Let B( p) be the union of b( p) arithmetic
+                                                              )
+        progressions with common difference p, and put B = p|P B( p). If b(2) ≤ 1
+        and b( p) ≤ 2 for p > 2, then the number of n ∈ (x, x + y] such that n ∈
+                                                                               / B is
+                                               −2                    
+                   y                b( p)        1                 log log y
+            ≤8                 1−            1−            1+O                  .
+                (log y)2 p|P          p          p                   log y
+
+        Corollary 3.14 Let r be an even non-zero integer, and suppose that y ≥ 4.
+        The number of primes p ∈ (x, x + y] such that p + r is also prime is
+                                                          
+                                8c(r )y           log log y
+                            ≤             1+O
+                               (log y)2             log y
+        uniformly in r where
+                                                ⎛                                              ⎞   ⎛             ⎞
+                                      −1                                          −2
+                                    1           ⎝                 2                  1         ⎠=⎜           p − 1⎟
+         c(r ) =              1−                           1−              1−                    ⎝                ⎠c
+                       p|r
+                                    p               pr
+                                                                  p                  p                 p|r
+                                                                                                             p−2
+                                                                                                       p>2
+
+        and c is the constant in Theorem 3.10.
+          Suppose that r is a ﬁxed even non-zero integer. It is conjectured that the
+        number of primes p ≤ y such that p + r is also prime is asymptotic to
+                                                               c(r )y
+                                                              (log y)2
+        as y tends to inﬁnity. Thus the bound we have derived is larger than this by a
+        factor of 8. We conclude with an application of the above.
+        Theorem 3.15 (Romanoff) Let N (x) denote the number of integers n ≤ x
+        that can be expressed as a sum of a prime and a power of 2. Then N (x) x
+        for x ≥ 4.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        98                   Principles and ﬁrst examples of sieve methods
+
+
+        Proof Let r (n) denote the number of solutions of n = p + 2k . By Cauchy’s
+        inequality,
+                                       2
+                                                  
+                                  r (n)    ≤ N (x)    r (n)2 .
+                                        n≤x                             n≤x
+
+        Thus to complete the proof it sufﬁces to show that
+                                       
+                                           r (n)    x                                (x ≥ 4),      (3.38)
+                                                 n≤x
+
+        and that
+                                                
+                                                       r (n)2           x.                         (3.39)
+                                                 n≤x
+
+        The ﬁrst of these estimates is easy: Put y = [(log x)/ log 2]. If 0 ≤ k ≤ y − 1,
+        then 2k ≤ x/2, and if also p ≤ x/2, then p + 2k ≤ x. Thus the sum in (3.38)
+        is
+                                                  x
+                               ≥ π (x/2)y             log x    x
+                                                log x
+        for x ≥ 4.
+           To prove (3.39), we ﬁrst observe that the sum on the left-hand side is
+                                             
+                                      =               1.
+                                                        p1 , p2 , j,k
+                                                        p1 +2 j ≤x
+                                                        p2 +2k ≤x
+                                                     p1 +2 j = p2 +2k
+
+        This sum includes ‘diagonal’ terms, in which p1 = p2 and j = k; there are
+           x/ log x choices for p1 and   log x choices for j, so there are x such
+        terms. The remaining terms above contribute an amount that is
+                                       
+                                           π2 (x, 2k − 2 j )                (3.40)
+                                               0≤ j<k≤y
+
+        where π2 (x, r ) denotes the number of primes p ≤ x for which p + r is also
+        prime. From Corollary 3.14 we know that if r = 0, then
+                                                                  1
+                                    x              1         x
+                   π2 (x, r )           2
+                                               1 +               2
+                                                                        ,
+                                 (log x) p|r       p      (log x) m|r m
+                                                   p>2                                  2m
+
+        uniformly in r . Thus the expression (3.40) is
+                                      x                                      1
+                                                                                 .
+                                          (log x)2     0≤ j<k≤y m|(2k −2 j )
+                                                                               m
+                                                                   2m
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                   3.4 Twin primes                                     99
+
+
+        Put n = k − j. Thus 0 < n ≤ y. Let h 2 (m) denote the order of 2 modulo m,
+        which is to say that h 2 (m) is the least positive integer h such that 2h ≡ 1
+        (mod m). We note that m|(2n − 1) if and only if h 2 (m)|n. The number of such
+        n, 0 < n ≤ y, is ≤ y/ h 2 (m). There are also ≤ y choices of j. Thus to complete
+        the proof of (3.39) it sufﬁces to show that
+                                              1
+                                                     < ∞.                         (3.41)
+                                        m mh 2 (m)
+                                                  2m
+
+        To this end, let
+                                                                     1
+                                                   an =                 ,
+                                                               m      m
+                                                              2m
+                                                          h 2 (m)=n
+                             
+        and set A(x) =           n≤x an . We shall show that
+
+                                                    A(x)
+                                                 log x.                         (3.42)
+                                                
+        By summation by parts it follows that      an /n converges. (Alternatively, we
+                                                               
+        could appeal to Theorem 1.3, from which we see that an /n s converges for
+                                                        
+        σ > 0.) This sufﬁces, since the sum in (3.41) is an /n.
+           It remains to establish (3.42). Set
+                                          P = P(x) =               (2n − 1) .
+                                                             n≤x
+
+        If h 2 (m) = n ≤ x, then m|P. Hence
+                        1                         
+                                          1  1          P
+                A(x) ≤        ≤        1 + + 2 + ··· =                                     log log P
+                       m|P
+                           m     p|P
+                                          p p          ϕ(P)
+                                              2
+        by Theorem 2.9. But P ≤ 2x , so we have (3.42), and the proof is complete. 
+
+
+                                                  3.4.1    Exercises
+          1. For each prime p let B( p) be the union of b( p) ‘bad’ arithmetic progressions
+                                                    )
+             with common difference p. Put B = p|P B( p), and let
+                                                            
+                                     m(x, y; b) = min             1
+                                                                 B
+                                                                      x<n≤x+y
+                                                                        n/
+                                                                         ∈B
+
+              where the minimum is over all choices of the B( p) with b( p) ﬁxed. Show
+              that if b1 ( p) ≤ b2 ( p) for all p, then
+                                                                                 
+                                            b1 ( p) −1                       b2 ( p) −1
+                  m(x, y; b1 )         1−              ≥ m(x, y; b2 )     1−            .
+                                 p             p                      p         p
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        100                  Principles and ﬁrst examples of sieve methods
+
+
+          2. Show that the number of primes p ≤ 2n such that 2n − p is prime is
+                            ⎛           ⎞
+                                                                      
+                            ⎜     p − 1⎟     2n              log log 4n
+                     ≤ 8c ⎝             ⎠           1+O
+                              p|n
+                                  p − 2 (log 2n)2              log 2n
+                                     p>2
+
+             where c is the constant in Theorem 3.10.
+          3. (Erdős 1940, Ricci 1954)
+             (a) Show that
+                                        
+                                           c(r ) = x + O(log x)
+                                                 r ≤x
+
+                  where c(r ) is deﬁned as in Corollary 3.14.
+              (b) Let p  denote the least prime > p, and put d( p) = p  − p. Show that
+                  if a and b are ﬁxed real numbers with a < b, then
+                                          
+                                                   log p  8(b − a)x .
+                                                 p≤x
+                                         a log p≤d( p)≤b log p
+
+              (c) Suppose that f is a non-negative, properly Riemann-integrable function
+                  on a ﬁnite interval [a, b]. Show that
+                              d( p)                              b
+                                 f            log p ≤ (8 + o(1))x     f (u) du .
+                            p≤x      log p                        a
+
+              (d) Show that if a and b are ﬁxed real numbers with a < b, then
+                                   
+                                            (b log p − d( p))  4(b − a)2 x .
+                                         p≤x
+                                 a log p≤d( p)≤b log p
+
+              (e) Explain why
+                                                
+                                                            (d( p) − b log p) ≥ 0 .
+                                                 p≤x
+                                            d( p)>b log p
+
+              (f) Deduce that
+                                         
+                                                     (b log p − d( p))  4(b − a)2 x .
+                                          p≤x
+                                     d( p)≥a log p
+
+              (g) Show that
+                                                         
+                                                               d( p) ∼ x .
+                                                         p≤x
+
+              (h) Show that
+                                      
+                                       (b log p − d( p)) = (b − 1 + o(1))x .
+                                      p≤x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     3.5 Notes                                     101
+
+
+               (i) Take b = a + 1/8, and suppose that d( p) ≥ a log p for all p > p0 .
+                   Show that the estimates of (f) and (h) are inconsistent if a > 15/16.
+                   Thus conclude that
+                                                             d( p)   15
+                                                   lim inf         ≤    .
+                                                    p→∞      log p   16
+          4. Let r (n) be deﬁned as in the proof of Theorem 3.15. Show that
+                                                       x
+                                              r (n) ∼       .
+                                          n≤x         log 2
+          5. Let r (n) be deﬁned as in the proof of Theorem 3.15. Show that
+                                                       x
+                                              r (n)         .
+                                          n≤x         log x
+                                                   2|n
+
+          6. (Erdős 1950)
+             (a) Show that if n ≡ 1 (mod 3) and k ≡ 0 (mod 2), then 3|(n − 2k ).
+             (b) Show that if n ≡ 1 (mod 7) and k ≡ 0 (mod 3), then 7|(n − 2k ).
+             (c) Show that if n ≡ 2 (mod 5) and k ≡ 1 (mod 4), then 5|(n − 2k ).
+             (d) Show that if n ≡ 8 (mod 17) and k ≡ 3 (mod 8), then 17|(n − 2k ).
+             (e) Show that if n ≡ 11 (mod 13) and k ≡ 7 (mod 12), then 13|(n − 2k ).
+              (f) Show that if n ≡ 121 (mod 241) and k ≡ 23 (mod 24), then 241|
+                  (n − 2k ).
+             (g) Show that every integer k satisﬁes at least one of the congruences
+                  k ≡ 0 (mod 2), k ≡ 0 (mod 3), k ≡ 1 (mod 4), k ≡ 3 (mod 8), k ≡
+                  7 (mod 12), k ≡ 23 (mod 24).
+             (h) Show that if n satisﬁes all the congruences n ≡ 1 (mod 3), n ≡ 1
+                  (mod 7), n ≡ 2 (mod 5), n ≡ 8 (mod 17), n ≡ 11 (mod 13), n ≡
+                  121 (mod 241), then n − 2k is divisible by at least one of the primes
+                  3, 7, 5, 17, 13, 241.
+              (i) Show that these congruential conditions are equivalent to the single
+                  condition n ≡ 172677 (mod 3728270).
+              (j) An integer n satisfying the above might still be representable in the
+                  form p + 2k , but if it is, then the prime in question must be one of the
+                  six primes listed. Show that if in addition, n ≡ 9 or 11 or 15 (mod 16),
+                  then n cannot be expressed as a sum of a prime and a power of 2.
+
+
+                                                  3.5      Notes
+        Sections 3.1, 3.2. The modern era of sieve methods began with the work
+        of Brun (1915, 1919). Hardy & Littlewood (1922) used Brun’s method to
+        establish the estimate (3.9). The sharp form of this in Corollary 3.4 is due
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        102                  Principles and ﬁrst examples of sieve methods
+
+
+        to Selberg (1952a,b). The 2 method of Selberg (1947) provides only upper
+        bounds, but lower bounds can also be derived from it by using ideas of Buchstab
+        (1938).
+           In contrast to the elegance of the Selberg 2 method, the further study of
+        sieves leads us to construct asymptotic estimates for complicated sums over
+        integers whose prime factors are distributed in certain ways. In this connection,
+        the argument (3.22) is a simple foretaste of more complicated things to come.
+        Hence further discussion of sieves is possible only after the appropriate technical
+        tools are in place.
+           In this chapter we have applied the sieve only to arithmetic progressions,
+        but it can be shown that the sieve is applicable to much more general sets. This
+        makes sieves very versatile, but it also means that they are subject to certain
+        unfortunate limitations. In order to estimate the number of elements of a set S
+        that remain after sifting, it sufﬁces to have a reasonably precise estimate of the
+        number X d of multiples of d in the set, say of the form X d = f (d)X/d + O(Rd )
+        where X is an estimate for the cardinality of S, and f is a multiplicative function.
+        Thus Theorem 3.3 can be generalized to much more general sets, and in that
+        more general setting it is known that the constant 2 is best-possible. It may be
+        true that the constant 2 can be improved in the special case that one is sifting
+        an interval, but this has not been achieved thus far.
+           When sifting an interval, the error terms can be avoided by using Fourier
+        analysis as in Selberg (1991, Sections 19–22), or by using the large sieve as
+        in Montgomery & Vaughan (1973). In particular, the number of integers in
+        [M + 1, M + N ] remaining after sifting is at most N /L where
+
+                                               µ(q)2          b( p)
+                                   L=                                  .                           (3.43)
+                                         q≤Q 1 + 2 q Q/N p|q
+                                                 3           p − b( p)
+
+        Here b( p) is the number of residue classes modulo p that are deleted. This is
+        both a generalization and a sharpening of Theorem 3.2.
+           Section 3.3. Titchmarsh (1930) used Brun’s method to obtain Theorem 3.9,
+        but with a larger constant instead of 2. Montgomery & Vaughan (1973) have
+        shown that Corollary 3.4 and Theorem 3.9 are still valid when the error terms are
+        omitted. See also Selberg (1991, Section 22). The ﬁrst signiﬁcant improvement
+        of Theorem 3.9 was obtained by Motohashi (1973). Other improvements of
+        various kinds have been derived by Motohashi (1974), Hooley (1972, 1975),
+        Goldfeld (1975), Iwaniec (1982), and Friedlander & Iwaniec (1997).
+           In Lemmas 3.5 and 3.12, and in Exercises 3.2.7, 3.2.9, 3.2.10, 3.4.1 we see
+        evidence of a monotonicity principle that permeates sieve theory; cf. Selberg
+        (1991, pp. 72–73).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                       3.5 Notes                                     103
+
+
+           Hooley (1994) has shown that quite sharp sieve bounds can be derived using
+        the interrupted inclusion–exclusion idea that Brun started with. This approach
+        has been developed further by Ford & Halberstam (2000). An exposition of
+        sieves based on these ideas is given by Bateman & Diamond (2004, Chapters 12,
+        13). Still more extensive accounts of sieve methods have been given by Greaves
+        (2001), Halberstam & Richert (1974), Iwaniec & Kowalski (2004, Chapter
+        6), Motohashi (1983), and Selberg (1971, 1991). In addition, a collection of
+        applications of sieves to arithmetic problems has been given by Hooley (1976),
+        and additional sieve ideas are found in Bombieri (1977), Bombieri, Friedlander
+        & Iwaniec (1986, 1987, 1989), Fouvry & Iwaniec (1997), Friedlander & Iwaniec
+        (1998a, b), and Iwaniec (1978, 1980a, b, 1981).
+           Section 3.4. The twin prime conjecture is a special case of the prime k-tuple
+        conjecture. Suppose that d1 , . . . , dk are distinct integers, and let b( p) denote
+        the number of distinct residue classes modulo p found among the di . The prime
+        k-tuple conjecture asserts that if b( p) < p for every prime number p, then there
+        exist inﬁnitely many positive integers n such that the k numbers n + di are all
+        prime. Hardy & Littlewood (1922) put this in a quantitative form: If b( p) < p
+        for all p, then the number of n ≤ N for which the k numbers n + di are all
+        prime is conjectured to be
+                                                               N
+                                                   ∼ S(d)                                          (3.44)
+                                                            (log N )k
+        as N → ∞ where
+                                                                             −k
+                                                          b( p)             1
+                                  S(d) =             1−                1−             .            (3.45)
+                                               p            p               p
+        This product is absolutely convergent, since b( p) = k for all sufﬁciently large
+        primes p. Although this remains unproved, by sifting we can obtain an upper
+        bound of the expected order of magnitude. In particular, from (3.43) it can be
+        shown that the number of n, M + 1 ≤ n ≤ M + N , for which the numbers
+        n + di are all prime is
+                                                                N
+                                              2k k!S(d)               .                           (3.46)
+                                                             (log N )k
+        Corollarys 3.4 and 3.14 are special cases of this.
+           Theorem 3.15 is due to Romanoff (1934). Once the bound for the number
+        of twin primes is in place, the hardest part of the proof is to establish the
+        estimate (3.41). Romanoff’s original proof of this was rather difﬁcult. Erdős
+        & Turán (1935) gave a simpler proof, but the clever proof we have given is
+        due to Erdős (1951). Let r (n) be deﬁned as in the proof of Theorem 3.15.
+                                                                
+        Erdős (1950) showed that r (n) = (log log n), and that n≤x r (n)k k x for
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        104                  Principles and ﬁrst examples of sieve methods
+
+
+        any positive k. Presumably r (n) = o(log n), but for all we know there could be,
+        although it seems unlikely, inﬁnitely many n such that n − 2k is prime whenever
+        0 < 2k < n. The number n = 105 has this property, and is probably the largest
+        such number. The best upper bound we have for the number of such n not
+        exceeding X is (Vaughan 1973),
+                                                                             
+                                              c log X log log log X
+                                      X exp −                                     .
+                                                    log log X
+
+        For generalizations of Romanoff’s theorem, see Erdős (1950, 1951).
+
+
+
+                                              3.6      References
+        Ankeny, N. C. & Onishi, H. (1964/1965). The general sieve, Acta Arith. 10, 31–62.
+        Bateman, P. T. & Diamond, H. (2004). Analytic Number Theory, Hackensack: World
+             Scientiﬁc.
+        Behrend, F. A. (1948). Generalization of an inequality of Heilbronn and Rohrbach, Bull.
+             Amer. Math. Soc. 54, 681–684.
+        Bombieri, E. (1977). The asymptotic sieve, Rend. Accad. Naz. XL (5) 1/2 (1975/76),
+             243–269.
+        Bombieri, E., Friedlander, J. B., & Iwaniec, H. (1986). Primes in arithmetic progressions
+             to large moduli, Acta Math. 156, 203–251.
+          (1987). Primes in arithmetic progressions to large moduli, II, Math. Ann. 277, 361–
+             393.
+          (1989). Primes in arithmetic progressions to large moduli, III, J. Amer. Math. Soc. 2,
+             215–224.
+        Brun, V. (1915). Über das Goldbachsche Gesetz und die Anzahl der Primzahlpaare,
+             Archiv for Math. og Naturvid. B 34, no. 8, 19 pp.
+          (1919). La série 1/5 + 1/7 + 1/11 + 1/13 + 1/17 + 1/19 + 1/29 + 1/31 +
+             1/41 + 1/43 + 1/59 + 1/61 + · · · où les dénominateurs sont “nombres premiers
+             jumeaus” est convergente ou ﬁnie, Bull. Sci. Math. (2) 43, 100–104; 124–128.
+          (1967). Reﬂections on the sieve of Eratosthenes, Norske Vid. Selsk. Skr. Trondheim,
+             no. 1, 9 pp.
+        Buchstab, A. A. (1938). New improvements in the method of the sieve of Eratosthenes,
+             Mat. Sb. (N. S.) 4 (46), 375–387.
+        Chowla, S. (1932). Contributions to the analytic theory of numbers, Math. Z. 35, 279–
+             299.
+        Chung, K.-L. (1941). A generalization of an inequality in the elementary theory of
+             numbers, J. Reine Angew. Math. 183, 193–196.
+        van der Corput, J. G. (1958). Inequalities involving least common multiple and other
+             arithmetical functions, Nederl. Akad. Wetensch. Proc. Ser. A 61 (= Indag. Math.
+             20), 5–15.
+        Erdős, P. (1940). The difference of consecutive primes, Duke Math. J. 6, 438–441.
+          (1946). On the coefﬁcients of the cyclotomic polynomial, Bull. Amer. Math. Soc. 52,
+             179–184.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 3.6 References                                    105
+
+
+          (1950). On integers of the form 2k + p and some related problems, Summa Brasil.
+             Math. 2, 113–123.
+          (1951). On some problems of Bellman and a theorem of Romanoff, J. Chinese Math.
+             Soc. (N. S.) 1, 409–421.
+        Erdős, P. & Turán, P. (1935). Ein zahlentheoretischer Satz, Mitt. Forsch. Inst. Math.
+             Mech. Univ. Tomsk 1, 101–103.
+        Ford, K. & Halberstam, H. (2000). The Brun–Hooley sieve, J. Number Theory 81,
+             335–350.
+        Fouvry, E. & Iwaniec, H. (1997). Gaussian primes, Acta Arith. 79 (1997), 249–287.
+        Friedlander, J. B. & Iwaniec, H. (1997). The Brun–Titchmarsh theorem, Analytic Number
+             Theory (Kyoto, 1996). London Math. Soc. Lecture Note Ser. 247, Cambridge:
+             Cambridge University Press, pp. 85–93.
+          (1998a). The polynomial X 2 + Y 4 captures its primes, Ann. of Math. (2) 148, 945–
+             1040.
+          (1998b). Asymptotic sieve for primes, Ann. of Math. (2) 148, 1041–1065.
+        Goldfeld, D. M. (1975). A further improvement of the Brun–Titchmarsh theorem, J.
+             London Math. Soc. (2) 11, 434–444.
+        Greaves, G. (2001). Sieves in Number Theory. Berlin: Springer.
+        Halberstam, H. (1985). Lectures on the linear sieve, Topics in Analytic Number Theory
+             (Austin, 1982). Austin: University of Texas Press, pp. 165–220.
+        Halberstam, H. & Richert, H.-E. (1973). Brun’s method and the fundamental lemma,
+             Acta Arith. 24, 113–133.
+          (1974). Sieve Methods. London: Academic Press.
+          (1975). Brun’s method and the fundamental lemma. II, Acta Arith. 27, 51–59.
+        Hardy, G. H. & Littlewood, J. E. (1922). Some problems of ‘Partitio Numerorum’: III.
+             On the expression of a number as a sum of primes, Acta Math. 44, 1–70; Collected
+             Papers, Vol. I, London: Oxford University Press, 1966, pp. 561–630.
+        Heilbronn, H. (1937). On an inequality in the elementary theory of numbers, Proc.
+             Cambridge Philos. Soc. 33, 207–209.
+        Hensley, D. (1978). An almost-prime sieve, J. Number Theory 10, 250–262; Corrigen-
+             dum, 12, (1980), 437.
+        Hooley, C. (1972). On the Brun–Titchmarsh theorem, J. Reine Angew. Math. 255,
+             60–79.
+          (1975). On the Brun–Titchmarsh theorem, II, Proc. London Math. Soc. (3) 30, 114–
+             128.
+          (1976). Applications of Sieve Methods to the Theory of Prime Numbers, Cambridge
+             Tract 70. Cambridge: Cambridge University Press.
+          (1994). An almost pure sieve, Acta Arith. 66, 359–368.
+        Iwaniec, H. (1978). Almost-primes represented by quadratic polynomials, Invent. Math.
+             47, 171–188.
+          (1980a). Rosser’s sieve, Acta Arith. 36, 171–202.
+          (1980b). A new form of the error term in the linear sieve, Acta Arith. 37, 307–320.
+          (1981). Rosser’s sieve – bilinear forms of the remainder terms – some applications.
+             Recent Progress in Analytic Number Theory, Vol. 1. New York: Academic Press,
+             pp. 203–230.
+          (1982). On the Brun–Titchmarsh theorem, J. Math. Soc. Japan 34, 95–123.
+        Iwaniec, H. & Kowalski, E. (2004). Analytic Number Theory, Colloquium Publications
+             53. Providence: Amer. Math. Soc.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        106                  Principles and ﬁrst examples of sieve methods
+
+
+        Jurkat, W. B. & Richert, H.-E. (1965). An improvement in Selberg’s sieve method, I,
+             Acta Arith. 11, 217–240.
+        Lehmer, D. H. (1955). The distribution of totatives, Canad. J. Math. 7, 347–357.
+                                                                           µ2 (n)
+        van Lint, J. H. & Richert, H.-E. (1964). Über die Summe       nx  ϕ(n)
+                                                                                   Nederl. Akad.
+                                                                                 p(n)<y
+             Wetensch. Proc. Ser. A 67 (= Indag. Math. 26), 582–587.
+          (1965). On primes in artihmetic progressions, Acta Arith. 11, 209–216.
+        Montgomery, H. L. (1968). A note on the large sieve, J. London Math. Soc. 43,
+             93–98.
+        Montgomery, H. L. & Vaughan, R. C. (1973). The large sieve, Mathematika 20, 119–134.
+          (1979). Mean values of character sums, Canad. J. Math. 31, 476–487.
+        Motohashi, Y. (1973). On some improvements of the Brun–Titchmarsh theorem, II,
+             Research of analytic number theory (Proc. Sympos., Res. Inst. Math. Sci., Kyoto,
+             1973), Søurikaisekikenkyøusho Kókyøuroku, No. 193, 97–109.
+          (1974). On some improvements of the Brun–Titchmarsh theorem, J. Math. Soc. Japan
+             26, 306–323.
+          (1975). On some improvements of the Brun–Titchmarsh theorem, III, J. Math. Soc.
+             Japan 27, 444–453.
+          (1983). Lectures on Sieve Methods and Prime Number theory. Tata Institute of Fun-
+             damental Research (Bombay). Berlin: Springer-Verlag.
+        Ricci, G. (1954). Sull’andamento della differenza di numeri primi consecutivi, Riv. Mat.
+             Univ. Parma 5, 3–54.
+        Riesel, H. & Vaughan, R. C. (1983). On sums of primes, Ark. Mat. 21, 46–74.
+        Rohrbach, H. (1937). Beweis einer zahlentheoretischen Ungleichung, J. Reine Angew.
+             Math. 177, 193–196.
+        Romanoff, N. P. (1934). Über einige Sätze der additiven Zahlentheorie, Math. Ann. 109,
+             668–678.
+        Selberg, A. (1947). On an elementary method in the theory of primes, Norske Vid. Selsk.
+             Forh., Trondhjem 19, no. 18, 64–67; Collected Papers, Vol. 1. Berlin: Springer-
+             Verlag, 1989, pp. 363–366.
+          (1952a). On elementary methods in primenumber-theory and their limitations, Den
+             11te Skandinaviske Matematikerkongress (Trondheim, 1949), Oslo: Johan Grundt
+             Tanums Forlag, pp. 13–22; Collected Papers, Vol. 1. Berlin: Springer-Verlag, 1989,
+             pp. 388–397.
+          (1952b). The general sieve-method and its place in prime-number theory. Proceedings
+             of the International Congress of Mathematicians (Cambridge MA, 1950), Vol. 1,
+             Providence: Amer. Math. Soc., pp. 286–292; Collected Papers, Vol. 1. Berlin:
+             Springer-Verlag, 1989, pp. 411–417.
+          (1971). Sieve methods, Proceedings of Symposium on Pure Mathematics (SUNY
+             Stony Brook, 1969), Vol. XX. Providence: Amer. Math. Soc., 311–351; Collected
+             Papers, Vol. 1. Berlin: Springer-Verlag, 1989, pp. 568–608.
+          (1972). Remarks on sieves, Proceedings of the Number Theory Conference (Boulder
+             CO Aug. 14–18), pp. 205–216; Collected Papers, Vol. 1. Berlin: Springer-Verlag,
+             1989, pp. 609–615.
+          (1989). Sifting problems, sifting density and sieves, Number Theory, Trace Formulas,
+             and Discrete Groups (Oslo, 1987), K. E. Aubert, E. Bombieri, D. Goldfeld, eds.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 3.6 References                                    107
+
+
+             Boston: Academic Press, pp. 467–484; Collected Papers, Vol. 1. Berlin: Springer-
+             Verlag, 1989, pp. 675–69.
+           (1991). Lectures on Sieves, Collected Papers, Vol. 2. Berlin: Springer-Verlag,
+             pp. 65–247.
+        Titchmarsh, E. C. (1930). A divisor problem, Rend. Circ. Math. Palermo 54, 414–429.
+        Tsang, K. M. (1989). Remarks on the sieving limit of the Buchstab–Rosser sieve, Number
+             Theory, Trace Formulas and Discrete Groups (Oslo, 1987). Boston: Academic
+             Press, pp. 485–502.
+        Vaughan, R. C. (1973). Some applications of Montgomery’s sieve, J. Number Theory 5,
+             64–79.
+        Vijayaraghavan, T. (1951). On a problem in elementary number theory, J. Indian Math.
+             Soc. (N.S.) 15, 51–56.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.005 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

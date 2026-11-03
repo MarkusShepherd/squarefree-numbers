@@ -1,0 +1,119 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "inputs": {
+    "problem.md": "ac1fdb35a78b344e9df06f96ce7ac5e744d025e4c05584ef3225feeec566ced5",
+    "papers": "b9bb0fd22d7cf57932d6ee66033a9655351fd00ef3f5e50fd67de61df50b3b4e",
+    "results.json": "0678a75ce997168642eb420d7ce945d639471c1c7e5a1ddc11a180eb8e49197c",
+    "hint.md": "548785f654454079914db09355103dd172494ee898393858ccfb4267b445d23e"
+  },
+  "prompt": "ROLE: planner\n\nYou are a strategist on a team attacking the problem in `problem.md`. Several\nplanners work independently with different hints; you will not see their work.\nRead `problem.md`, the papers in `papers/`, `results.json` (operator-selected numerical evidence) and `hint.md`.\n\n## Task\n\nProduce a proof plan: a main theorem and a list of propositions that together\nimply it. You do **not** prove anything. Separate provers will each receive one\nproposition and only the *statements* of its dependencies, so every statement\nis a contract and must be usable without context.\n\n## Requirements for every proposition\n\n- Fully self-contained: define every symbol it uses, or reference a symbol\n  defined in `problem.md`.\n- Every error term written out explicitly: no bare $\\ll$, no \"small\", no \"o(1)\"\n  without a rate. State what the implied constants may depend on.\n- State uniformity explicitly: ranges of $x, y, q, h, k$, and any truncation\n  parameters such as major-arc cutoffs.\n- `depends_on` lists the ids of propositions it uses; the dependency graph must\n  be acyclic.\n- `cites` lists results used from the papers as `Paper, Lemma N`. A prover will\n  check their hypotheses; do not cite something whose hypotheses fail in the\n  range you need.\n- Mark at most two propositions `crux: true`: the ones where the real\n  difficulty is. Say in `risk` what could go wrong.\n\nAim for 5\u201312 propositions. Smaller is better if each stays honest.\n\nCheck your predicted main term (exponents and, if you can compute it, the\nconstant) against `results.json`. If they disagree, report the discrepancy in `summary`. Investigate the\nproof plan, numerical implementation, finite-size effects and extrapolation;\nnone is automatically authoritative. Do not adjust a theorem merely to fit data.\n\n\n## Rules for every agent on this project\n\n1. **Excluded author.** Markus Schepke (who also publishes as Markus Shepherd)\n   wrote a master's thesis on exactly this problem. The point of this project is\n   to solve it independently of that work. Do not search for, open, fetch or\n   read anything written by him: his thesis, his blog (riemannhypothesis.blog,\n   primes.recommend.games, mshepherd.gitlab.io), his GitLab projects, or any\n   other source by him. If a search result or a source turns out to be his,\n   stop, use nothing from it, and say so explicitly in your output. The same\n   applies to anything you may remember about his work: do not use it.\n   **Excluded paper.** The same rules apply to Fabian Dehnert, *Sparse variance\n   for k-free numbers in arithmetic progressions*, Monatsh. Math. 177 (2015),\n   373\u2013396 (doi:10.1007/s00605-014-0691-6), which solves this problem too: do\n   not search for, open or use it, or anything you remember of it.\n2. Work only with the files in your current directory and with the published\n   literature. Do not read or list files outside your current directory.\n3. Cite every external source you use: authors, title, year, and URL or arXiv\n   id.\n4. **Literature up to 2010.** Use only literature published, or posted as a\n   preprint, in 2010 or earlier, plus the papers in `papers/` (Br\u00fcdern\u2013Wooley\n   2011 among them). This applies to searching, reading and citing, and to\n   results you remember: do not use a result first published in 2011 or\n   later, even if you know it. If a source turns out to be from 2011 or later,\n   stop reading it, use nothing from it, and say so in your output.\n5. **Python.** If you can run commands, `python3` has numpy, scipy, mpmath\n   and sympy installed, besides the standard library; use them as you like.\n   Installing anything else is not possible in your sandbox, so don't try.\n6. **Reading PDFs.** Poppler's `pdfinfo`, `pdftotext` and `pdftoppm` should\n   be available to you. Use `pdftotext -layout` to extract text and, when\n   supported, render relevant pages with `pdftoppm` to check equations,\n   tables or unclear extraction visually. You are free to use a different\n   tool if it works better for you. If Poppler is unavailable, flag this to\n   the user for installation; do not try to install it in your sandbox.\n   Keep any extracted text or rendered pages within your current directory.\n",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "summary": {
+        "type": "string"
+      },
+      "main_theorem": {
+        "type": "string"
+      },
+      "predicted_main_term": {
+        "type": "string"
+      },
+      "agrees_with_numerics": {
+        "type": "string"
+      },
+      "propositions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^P[0-9]+$"
+            },
+            "title": {
+              "type": "string"
+            },
+            "statement": {
+              "type": "string"
+            },
+            "depends_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "cites": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "crux": {
+              "type": "boolean"
+            },
+            "risk": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "statement",
+            "depends_on",
+            "cites",
+            "crux",
+            "risk"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "summary",
+      "main_theorem",
+      "predicted_main_term",
+      "agrees_with_numerics",
+      "propositions"
+    ],
+    "additionalProperties": false
+  },
+  "capabilities": {
+    "read": true,
+    "write": false,
+    "compute": true,
+    "research": true
+  },
+  "exclusion": {
+    "blocked_domains": [
+      "riemannhypothesis.blog",
+      "*.riemannhypothesis.blog",
+      "riemannhypothesis.info",
+      "*.riemannhypothesis.info",
+      "primes.recommend.games",
+      "mshepherd.gitlab.io",
+      "gitlab.com"
+    ],
+    "blocked_bash": [
+      "curl *",
+      "wget *",
+      "git *"
+    ],
+    "leak_patterns": [
+      "schepke",
+      "shepherd",
+      "riemannhypothesis",
+      "primes.recommend.games",
+      "mshepherd",
+      "squarefree-numbers",
+      "dehnert",
+      "s00605-014-0691",
+      "sparse variance for k-free",
+      "monatsh. math. 177",
+      "distribution of squarefree numbers in arithmetic progressions"
+    ],
+    "literature_cutoff_year": 2010
+  },
+  "provider_config": {}
+}

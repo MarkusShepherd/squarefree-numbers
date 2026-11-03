@@ -1,0 +1,11 @@
+{
+  "id": "P6",
+  "title": "Asymptotic for MT(x;q)",
+  "statement": "Notation:\n- B(u) = {u}(1 - {u}).\n- A_0 = prod_p (1 - 2/p^2); eta(t) = mu^2(t) prod_{p|t} (p^2-2)^{-1}.\n- m_t(q) = t^2 / gcd(t^2, q).\n- MT(x;q) = A_0 q sum_{t>=1} eta(t) m_t(q) B(x/(q m_t(q))).\n- h(q) = -4 zeta(-1/2) \u00b7 prod_{p\u2224q} (1 - 3/p^2 + 2/p^3) \u00b7 prod_{p||q} (p-1)(p^2 - 2 + sqrt p)/p^3 \u00b7 prod_{p^2|q} (p-1)^2 (p+1)/p^3.\n\nClaim. For every eps > 0 there is c(eps), depending only on eps, such that for all real x >= 1 and integers 1 <= q <= x:\n\n  |MT(x;q) - h(q) sqrt(xq)| <= c(eps) x^{1/3} q^{2/3+eps}.",
+  "depends_on": [
+    "P5"
+  ],
+  "cites": [],
+  "crux": false,
+  "risk": "Moderate bookkeeping.\n\n1. Factor squarefree t = t_1 t_2 with t_1 | rad(q) and gcd(t_2, q) = 1. Then eta(t) m_t(q) = eta(t_1) m_{t_1}(q) kappa(t_2), where m_{t_1}(q) = prod_{p|t_1, p||q} p.\n2. Apply P5(c) with Z = x/(q m_{t_1}(q)).\n3. Main term: A_0 delta_q I sqrt(xq) prod_{p|q} (1 + sqrt(m_p)/(p^2-2)), with m_p = p if p||q and m_p = 1 if p^2|q. Multiplying out the Euler factors gives h(q):\n   - p\u2224q: (1-1/p)(p+2)(p-1)/p^2 = 1 - 3/p^2 + 2/p^3;\n   - p||q: (1-1/p)(p^2 - 2 + sqrt p)/p^2;\n   - p^2|q: (1-1/p)(p^2-1)/p^2.\n4. Error: q^{1+eps} (x/q)^{1/3} sum_{t_1 | rad q} eta(t_1) m_{t_1}^{2/3}, and that last sum is O(1).\n\nAs a check, (2/3) times the mean of h equals Vaughan's constant 0.1284787."
+}

@@ -1,0 +1,5 @@
+Completed through \(x=256{,}000{,}000\) in about 20 minutes: 264 requested rows plus six diagnostics. Counts are exact; density evaluation uses 70 digits. All validation checks passed.
+
+All requested ratios pass the 1% stability test, while normalized values vary 19–27% across ratios.
+
+Outputs: [results.json](results.json), [report.md](report.md), [README.md](README.md), [compute.py](compute.py), and [counts.cpp](counts.cpp).

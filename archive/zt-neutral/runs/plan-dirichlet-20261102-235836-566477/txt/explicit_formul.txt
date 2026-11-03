@@ -1,0 +1,1380 @@
+                                                          12
+                                          Explicit formulæ
+
+
+
+
+                                       12.1       Classical formulæ
+        When we proved the Prime Number Theorem, we conﬁned the contour of
+        integration to the zero-free region. If we pull the contour further to the left, then
+        we encounter a number of poles that leave residues, and thus we can express the
+        error term in the Prime Number Theorem as a sum over the zeros of ζ (s). Let
+        ψ0 (x) = (ψ(x + ) + ψ(x − ))/2. By applying Perron’s formula (Theorem 5.1) to
+                                       
+        the Dirichlet series − ζζ (s) = n (n)n −s , we see that
+                                                                σ0 +i T
+                                                  −1                      ζ    xs
+                                 ψ0 (x) = lim                                (s) ds.
+                                             T →∞ 2πi         σ0 −i T     ζ     s
+        Here the integrand has a pole at s = 1, at zeros ρ, at s = 0, and at the trivial
+        zeros −2k. Since x s decays very rapidly as σ → −∞, it is reasonable to expect
+        that we can pull the contour to the left, and thus show that the above is
+                                         xρ         ζ      ∞
+                                                                 x −2k
+                          = x − lim               − (0) +              .          (12.1)
+                                 T →∞ ρ       ρ      ζ       k=1
+                                                                  2k
+                                                |γ |≤T
+                 
+        Here ζζ (0) = log 2π by (10.11) and (10.14), and the sum over the trivial zeros is
+                                         1
+                                      − log(1 − 1/x 2 ) ,
+                                         2
+        which is continuous and tends to 0 as x → ∞. In order to give a rigorous proof
+                                                        
+        of the above, we ﬁrst establish estimates for ζζ (s).
+        Lemma 12.1           We have
+                              ζ        −1      1
+                                 (s) =     +         + O(log τ )                                   (12.2)
+                              ζ        s−1   ρ s − ρ
+                                                         |γ −t|≤1
+
+        uniformly for −1 ≤ σ ≤ 2.
+                                                          397
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        398                                     Explicit formulæ
+
+
+           Here the ﬁrst term on the right is signiﬁcant only for |t| ≤ 1. We could prove
+        the above by the same method that we used to prove Lemma 6.4, but we ﬁnd it
+        instructive to argue instead from Corollary 10.14.
+        Proof       By combining (10.29) and Theorem C.1, it is immediate that
+                      ζ        −1     1          1
+                                                      
+                                                           1
+                         (s) =      +             +     − log τ + O(1).
+                      ζ        s−1     ρ    s−ρ     ρ      2
+        On applying this at σ + it and at 2 + it, and differencing, it follows that
+                   ζ         −1      1                  1
+                                                                 
+                      (s) =        +               −               + O(1).
+                   ζ         s−1      ρ     s−ρ      2 + it − ρ
+        By Theorem 10.13 it is clear that
+                                      1                         
+                                                                          1    log τ.
+                                     ρ    2 + it − ρ               ρ
+                                 |γ −t|≤1                      |γ −t|≤1
+
+        Now suppose that n is a positive integer, and consider those zeros ρ for which
+        n ≤ |γ − t| ≤ n + 1. Since
+                           1        1              2−σ                                   1
+                              −            =                                                ,
+                          s−ρ   2 + it − ρ   (s − ρ)(2 + it − ρ)                         n2
+        it follows that such zeros contribute an amount
+             N (t + n + 1) − N (t + n) + N (t − n) − N (t − n − 1)                          log(τ + n)
+                                                                                                       .
+                                       n2                                                       n2
+        On summing over n we obtain the stated estimate.                                                   
+
+        Lemma 12.2 For each real number T ≥ 2 there is a T1 , T ≤ T1 ≤ T + 1,
+        such that
+                             ζ
+                                (σ + i T1 ) (log T )2
+                              ζ
+        uniformly for −1 ≤ σ ≤ 2.
+        Proof By Theorem 10.13, there is a T1 ∈ [T, T + 1] such that |T1 − γ |
+        1/ log T for all zeros ρ. Since each summand in (12.2) is log T , and there
+        are    log T summands, the estimate is immediate.                        
+
+           The next lemma is useful in Chapter 14, but we establish it here since it is a
+        also an immediate corollary of Lemma 12.1.
+        Lemma 12.3 For any real number t,
+                                             arg ζ (σ + it)        log τ
+        uniformly for −1 ≤ σ ≤ 2.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            12.1 Classical formulæ                                        399
+
+
+            The function log ζ (s) has a branch point at s = 1, and also at zeros ρ of
+        the zeta function. To obtain a single branch of the logarithm, we remove from
+        the complex plane the interval (−∞, 1], and also intervals of the form (−∞ +
+        iγ , β + iγ ]. What remains is simply connected, and in this region we take
+        that branch of log ζ (s) for which log ζ (s) → 0 as σ → ∞. This is the branch
+        of the logarithm that we have expanded as a Dirichlet series, for σ > 1 (cf.
+        Corollary 1.11). Thus, if t is not the ordinate of a zero, we deﬁne arg ζ (s) =
+         log ζ (s) by continuous variation from ∞ + it to σ + it, which is to say
+        that
+                                                                ∞
+                                                                        ζ
+                                     arg ζ (s) = −                        (α + it) dα.
+                                                            σ           ζ
+        If t is the ordinate of a zero then we set arg ζ (s) = (arg ζ (σ + it + ) + arg ζ (σ +
+        it − ))/2.
+
+        Proof       Suppose that −1 ≤ σ ≤ 2, and that t is not the ordinate of a zero.
+        Then
+                                                                                2
+                                                                                        ζ
+                         arg ζ (σ + it) = arg ζ (2 + it) −                                (α + it) dα.
+                                                                            σ           ζ
+        Here arg ζ (2 + it)   1 uniformly in t, by Corollary 1.11. Thus by Lemma 12.1,
+        the right-hand side above is
+                                                2
+                                                             1
+                                −                                  dα + O(log τ ).
+                                    |γ −t|≤1 σ
+                                                         α + it − ρ
+
+        Here the summand is
+                                                     σ −β          2−β
+                                        arctan            − arctan      .
+                                                     t −γ          t −γ
+        If t > γ , then this lies between −π and 0, while if t < γ , then the above lies
+        between 0 and π. Thus in any case the quantity is bounded, and by Theo-
+        rem 10.13 the number of summands is            log τ , so we have the result when t
+        is not the ordinate of a zero. Since the ordinates of zeros have no ﬁnite limit
+        point, we obtain the same bound when t is the ordinate of a zero, since in that
+        case arg ζ (s) = (arg ζ (σ + it + ) + arg ζ (σ − it − ))/2.                      
+
+        Lemma 12.4 Let A denote the set of those points s ∈ C such that σ ≤ −1
+        and |s + 2k| ≥ 1/4 for every positive integer k. Then
+                                              ζ
+                                                 (s)            log(|s| + 1)
+                                              ζ
+        uniformly for s ∈ A.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        400                                         Explicit formulæ
+
+
+        Proof       We recall (10.27), in which the ﬁrst two terms are bounded for s ∈ A.
+        Also,
+                                               
+                                                   (1 − s)         log(|s| + 1)
+
+        by Theorem C.1. Finally
+                                   πs            2i
+                                       = i + iπs
+                                         cot               1
+                                    2         e −1
+        since s is bounded away from even integers, so we have the result.                                 
+
+           We are now in a position to prove the explicit formula (12.1) in a quantitative
+        form.
+        Theorem 12.5 Let c be a constant, c > 1, suppose that x ≥ c, that T ≥ 2,
+        and let x denote the distance from x to the nearest prime power, other than x
+        itself. Then
+                             xρ                  1
+            ψ0 (x) = x −             − log 2π − log(1 − 1/x 2 ) + R(x, T ) (12.3)
+                             ρ    ρ               2
+                                |γ |≤T
+
+        where
+                                                                           
+                                                                      x             x
+                           R(x, T )      (log x) min 1,                         +     (log x T )2 .    (12.4)
+                                                                    T x           T
+            Since x > 0 for all x, we obtain (12.1) by letting T → ∞ in the above.
+        Moreover, if n 1 < n 2 are two consecutive prime powers, then from the above
+                      
+        we see that |γ |≤T x ρ/ρ converges uniformly for x in an interval of the form
+        [n 1 + δ, n 2 − δ]. This sum, of course, cannot be uniformly convergent for x
+        in a neighbourhood of a prime power, since ψ0 (x) has jump discontinuities
+        at such points, but we see from the above that it is boundedly convergent in
+        the neighbourhood of a prime power. The sum over ρ is also convergent when
+        x = 1, but it is not boundedly convergent near 1, since log(1 − 1/x 2 ) → −∞
+        as x → 1+ .
+        Proof Let T1 be the number supplied by Lemma 12.2. Then by Theorem 5.2
+        and its Corollary 5.3, with σ0 = 1 + 1/ log x, we see that
+                                                         σ0 +i T1
+                                               −1                   ζ    xs
+                                 ψ0 (x) =                              (s) ds + R1
+                                               2πi      σ0 −i T1    ζ     s
+        where
+                                                                                        (n)
+                                                         x                              x ∞
+                      R1                (n) min 1,                                 +              .
+                               x/2<n<2x
+                                                    T |x  − n|                          T n=1 n σ0
+                                  n=x
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            12.1 Classical formulæ                                             401
+
+
+                                                 
+        Here the second sum is − ζζ (σ0 ) 1/(σ0 − 1) = log x. In the ﬁrst sum, the
+        terms for which x + 1 ≤ n < 2x contribute an amount
+                                         x log x    x
+                                                       (log x)2 .
+                              x+1≤n<2x
+                                         T (n − x)   T
+
+        The terms for which x/2 < n ≤ x − 1 are handled similarly. Finally, any terms
+        for which x − 1 < n < x + 1 contribute an amount
+                                                       
+                                                    x
+                                   (log x) min 1,         ,
+                                                  T x
+        so
+                                                                          
+                                                                     x               x
+                                  R1    (log x) min 1,                         +       (log x)2 .
+                                                                   T x             T
+        Let K denote an odd positive integer, and let C denote the contour consisting
+        of line segments connecting σ0 − i T1 , −K − i T1 , −K + i T1 , σ0 + i T1 . Then
+        by Cauchy’s residue theorem,
+                                         xρ      x −2k    ζ
+                     ψ0 (x) = x −            +             − (0) + R1 + R2
+                                        ρ ρ    1≤k<K /2
+                                                        2k  ζ
+                                       |γ |<T1
+
+        where
+                                                      −1        ζ    xs
+                                           R2 =                    (s) ds.
+                                                      2πi     C ζ     s
+        Since |σ ± i T1 | ≥ T , we see by Lemma 12.2 that
+                σ0 ±i T1                                      σ0
+                      ζ  xs               (log T )2                                 x(log T )2     x(log T )2
+                         (s) ds                                    x σ dσ                                      .
+              −1±i T1 ζ     s                 T              −1                       T log x           T
+        Similarly, since (log |σ ± i T1 |)/|σ ± i T1 |                      (log T )/T , we see by Lemma
+        12.4 that
+                     −1±i T1                                   −1
+                            ζ                       log T                               log T      log T
+                               (s)x s ds                            x σ dσ                                .
+                   −K ±i T1 ζ                          T     −∞                        x T log x      T
+        As | − K + it| ≥ K , by Lemma 12.4 we also see that
+                       −K +i T1
+                                  ζ    xs              log K T −K              T1
+                                                                                               T log K T
+                                     (s) ds                    x                     1 dt                .
+                     −K −i T1     ζ     s                  K                   −T1               KxK
+        This tends to 0 as K → ∞, so we obtain the stated result.                                                  
+
+           Let ψ0 (x, χ ) = (ψ(x + , χ ) + ψ(x − , χ ))/2. Not surprisingly, our treatment
+        of ψ0 (x) extends readily to provide explicit formulæ for ψ0 (x, χ ).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        402                                     Explicit formulæ
+
+
+        Lemma 12.6 Let χ be a primitive character modulo q with q > 1. Then
+                       L                  1
+                          (s, χ ) =              + O(log qτ )            (12.5)
+                        L             ρ   s−ρ
+                                                  |γ −t|≤1
+
+        uniformly for −1 ≤ σ ≤ 2.
+        Proof       By combining (10.37) and Theorem C.1, it is immediate that
+                        L                   1       1
+                                                          
+                           (s, χ) = B(χ ) +          +       + O(log qτ ).
+                        L                   ρ  s−ρ     ρ
+        On applying this at σ + it and 2 + it, and differencing, it follows that
+                   L            1                1
+                                                           
+                      (s, χ ) =             −                + O(log qτ ).
+                    L            ρ    s−ρ       2 + it − ρ
+        By Theorem 10.17 it is clear that
+                                     1                         
+                                                                         1    log qτ.
+                                    ρ    2 + it − ρ               ρ
+                                |γ −t|≤1                      |γ −t|≤1
+
+        Now suppose that n is a positive integer, and consider those zeros ρ for which
+        n ≤ |γ − t| ≤ n + 1. Since
+                           1        1              2−σ                                   1
+                              −            =                                                ,
+                          s−ρ   2 + it − ρ   (s − ρ)(2 + it − ρ)                         n2
+        it follows that such zeros contribute an amount
+                   log q + log(|t + n| + 2) + log(|t − n| + 2)                      log q(τ + n)
+                                                                                                 .
+                                        n2                                               n2
+        On summing over n we obtain the stated estimate.                                             
+
+        Lemma 12.7 Let χ be a primitive character modulo q, and suppose that
+        T ≥ 2. Then there is a T1 , T ≤ T1 ≤ T + 1, such that
+                              L
+                                  (σ ± i T1 , χ)                  (log qT )2
+                               L
+        uniformly for −1 ≤ σ ≤ 2.
+        Proof By Theorem 10.17, there is a T1 ∈ [T, T + 1] such that both |T1 −
+        γ|    1/ log qT and |T1 + γ |    1/ log qT for all zeros ρ of L(s, χ ). Since
+        each summand in (12.5) is     log qT , and there are   log qT summands, the
+        estimate is immediate.                                                     
+        Lemma 12.8 Let χ be a primitive character modulo q, q > 1. Then
+                                             arg L(s, χ )        log qτ
+        uniformly for −1 ≤ σ ≤ 2.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                              12.1 Classical formulæ                                       403
+
+
+        Proof       Suppose that −1 ≤ σ ≤ 2, and that t is not the ordinate of a zero. Then
+                                                                           2
+                                                                                   L
+                   arg L(σ + it, χ ) = arg L(2 + it, χ ) −                           (α + it, χ ) dα.
+                                                                       σ           L
+        Here arg L(2 + it, χ )   1 uniformly in t, by Theorem 4.8. Thus by
+        Lemma 12.6, the right-hand side above is
+                                               2
+                                                            1
+                               −                                  dα + O(log qτ ).
+                                   |γ −t|≤1 σ
+                                                        α + it − ρ
+
+        Here the summand is
+                                                      σ −β          2−β
+                                         arctan            − arctan      .
+                                                      t −γ          t −γ
+        If t > γ , then this lies between −π and 0, while if t < γ , then the above lies
+        between 0 and π. Thus in any case the quantity is bounded, and by Theo-
+        rem 10.17 the number of summands is           log τ , so we have the result when t
+        is not the ordinate of a zero. Since the ordinates of zeros have no ﬁnite limit
+        point, we obtain the same bound when t is the ordinate of a zero, since in that
+        case arg L(s, χ ) = (arg L(σ + it + , χ ) + arg L(σ − it − , χ ))/2.            
+
+        Lemma 12.9 Let χ be a primitive character modulo q with q > 1, put κ = 0
+        or 1 according as χ (−1) = 1 or −1, and let A(κ) denote the set of points s ∈ C
+        such that σ ≤ −1 and |s + 2n − κ| ≥ 1/4 for each positive integer n. Then
+                                               L
+                                                  (s, χ )      log(2q|s|)
+                                               L
+        uniformly for s ∈ A(κ).
+        Proof       By (10.35) and Theorem C.1 we see that
+                     L         π   π
+                        (s, χ) = cot (s + κ) + O(log q) + O(log(|s| + 2)).
+                     L          2   2
+        Here
+                                         π                   2i
+                                   cot     (s + κ) = i + iπ(s+κ)                       1
+                                         2              e        −1
+        since s is bounded away from integers with the parity of κ.                                          
+
+        Theorem 12.10 Let c be a constant, c > 1. Suppose that x ≥ c, that T ≥ 2,
+        and that χ is a primitive character modulo q with q > 1. Then
+                                     xρ      1
+                   ψ0 (x, χ ) = −           − log(x − 1)
+                                     ρ   ρ    2
+                                             |γ |≤T
+                                             χ (−1)
+                                         −          log(x + 1) + C(χ ) + R(x, T ; χ )                    (12.6)
+                                                2
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        404                                     Explicit formulæ
+
+
+        where
+                                                 L                q
+                                     C(χ ) =        (1, χ ) + log    − C0                           (12.7)
+                                                 L                2π
+        and
+                                                                       
+                                                                  x             x
+                    R(x, T ; χ)        (log x) min 1,                       +     (log q x T )2 .   (12.8)
+                                                                T x           T
+        Here x denotes the distance from x to the nearest prime power, other than x
+        itself.
+
+        Proof Put σ0 = 1 + 1/ log x. By arguing as in the proof of Theorem 12.5, we
+        see that
+                                                          σ0 +i T1
+                                               −1                    L        xs
+                             ψ0 (x, χ) =                                (s, χ ) ds + R1
+                                               2πi       σ0 −i T1    L         s
+        where
+                                                                       
+                                                         x                      x
+                               R1       (log x) min 1,                      +     (log x)2 .
+                                                       T x                    T
+        Let K be chosen so that K − κ is an odd positive integer, and let C denote
+        the contour consisting of the line segments connecting σ0 − i T1 , −K − i T1 ,
+        −K + i T1 , σ0 + i T1 where T1 is chosen as in Lemma 12.7. Since K and κ have
+        opposite parity, the line segment from −K − i T1 to −K + i T1 lies in the region
+        A(κ) of Lemma 12.9. Thus by Cauchy’s residue theorem,
+                                       xρ                x κ−2k
+                  ψ0 (x, χ ) = −           +                      + E + R1 + R2
+                                      ρ ρ    1≤k<(K +κ)/2
+                                                          2k − κ
+                                     |γ |<T1
+
+        where κ = 0 if χ (−1) = 1 and κ = 1 if χ (−1) = −1, E is the residue of
+                                                         L         xs
+                                                     −      (s, χ )
+                                                         L          s
+        at s = 0, and
+                                                 −1           L        xs
+                                         R2 =                    (s, χ ) ds.
+                                                 2πi        C L         s
+        By proceeding as in the latter part of the proof of Theorem 12.5, but using now
+        Lemma 12.7 and Lemma 12.9 in place of Lemma 12.2 and Lemma 12.4, we
+        see that
+                                                x              T log q K
+                                      R2          (log qT )2 +           .
+                                                T                KxK
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            12.1 Classical formulæ                                   405
+
+
+        This last term tends to 0 as K → ∞. Put
+                                                                     xρ
+                                      R3 = −                             .
+                                                             ρ        ρ
+                                                         T <|γ |<T1
+
+        Then R(x, T ) = R1 + R2 + R3 , and R3     x T −1 log qT by Theorem 10.17.
+           It remains to compute the residue E. By logarithmic differentiation of the
+        functional equation in the asymmetric form of Corollary 10.9, we ﬁnd that
+               L            L                  q                    
+                                                                                      π    π
+                  (s, χ ) = − (1 − s, χ ) − log    −                      (1 − s) +     cot (s + κ)
+               L             L                  2π                                    2    2
+                                                                                                 (12.9)
+                                       
+        If χ (−1) = −1, then LL (s, χ ) is analytic at s = 0, so
+                                 L           L                 q
+                              E =−  (0, χ ) = (1, χ ) + log         − C0 ,
+                                  L           L                 2π
+        in view of (C.11). Since cot z is an odd function, its Laurent expansion about
+                                             
+        z = 0 is of the form cot z = 1/z + ∞   k=1 ck z
+                                                        2k−1
+                                                             . Hence if χ (−1) = 1, we see
+                                                 L
+        by (12.8) that the Laurent expansion of L (s, χ ) begins
+                             L          1 L              q
+                                (s, χ ) = − (1, χ ) − log    + C0 + · · ·
+                             L           s L              2π
+        Hence
+                                                      L                q
+                                 E = − log x +           (1, χ ) + log    − C0
+                                                      L                2π
+        in this case.
+            Finally, we note that
+               ∞
+                    x −2k      1                                
+                                                                ∞
+                                                                  x 1−2k              1     x +1
+                          = − log(1 − x −2 ),                                   =       log      .
+               k=1
+                     2k        2                                k=1
+                                                                    2k − 1            2     x −1
+        This completes the proof.                                                                     
+
+            By letting T → ∞ we immediately obtain
+        Corollary 12.11 Suppose that χ is a primitive character modulo q, q > 1,
+        and that x > 1. Then
+                         xρ  1              χ (−1)
+         ψ0 (x, χ ) = −      − log(x − 1) −          log(x + 1) + C(χ). (12.10)
+                        ρ ρ   2                 2
+           By Theorem 11.4 we see that C(χ )                    log q if L(s, χ ) has no exceptional
+        zero, and that
+                                                       1
+                                           C(χ ) =          + O(log q)
+                                                     1 − β1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        406                                      Explicit formulæ
+
+
+        if L(s, χ ) has the exceptional zero β1 . In this latter case, the sum over ρ includes
+        a large term due to ρ = 1 − β1 . This, however, is largely cancelled by C(χ ),
+        since
+                       x 1−β1 − 1     log x                 1−β1
+                   −              =−                               x σ dσ          x 1−β1 log x.   (12.11)
+                         1 − β1      1 − β1             0
+
+        This is quite small compared with the contribution −x β1 /β1 made by ρ = β1 ,
+        not to mention the contributions of other zeros with β ≥ 1/2.
+           In principle, we could derive an explicit formula for ψ0 (x, χ ) when χ is
+        imprimitive, by taking into account the contributions made by zeros on the
+        imaginary axis. However, we ﬁnd it simpler to pass from ψ0 (x, χ ! ) to ψ0 (x, χ )
+        by elementary reasoning. Suppose that χ is a character modulo q induced by
+        the primitive character χ ! modulo d, where d|q. (The possibility that d = 1 is
+        not excluded here.) Then
+                                                             
+                       ψ0 (x, χ ! ) − ψ0 (x, χ ) =         χ ! p k log p
+                                                                 p|q    k
+                                                                 pd 1< p k ≤x
+                                                                log x 
+                                                                                   log p           (12.12)
+                                                                 p|q
+                                                                           log p
+                                                                 pd
+                                                            ≤ ω(q/d) log x
+                                                              (log q/d)(log x).
+        Note that the distinction between ψ0 (x, χ ) and ψ(x, χ ) can be dropped at this
+        point:
+                               ψ(x, χ ) = ψ0 (x, χ ! ) + O((log 2q)(log x)).                       (12.13)
+        This estimate, though somewhat crude, sufﬁces for most purposes.
+           The explicit formulæ that we have established thus far arise from Perron’s
+        formula. We may similarly derive other explicit formulæ using other kernels in
+        the inverse Mellin transform. Examples of such formulæ are found in Exercises
+        12.1.5–10. In some cases it may not be so easy to apply complex variable
+        techniques, but for such weighted sums over primes we may use the formulæ
+        above, with integration by parts. For example, from Theorem 12.5 we see that
+                              x
+               w(n)(n) =        w(u)dψ(u)
+            n≤x                     2−
+                                        x                             x
+                               =            w(u) du −                      w(u)u ρ−1 du + smaller terms.
+                                    2                      ρ       2
+                                                        |γ |≤T
+
+        To facilitate the estimation of these ‘smaller terms’ it is useful to record a little
+        more information concerning the error terms in the truncated explicit formula.
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     12.1 Classical formulæ                           407
+
+
+        Theorem 12.12 Suppose that c is a constant, c > 1, and let χ be a character
+        modulo q. For x ≥ c and T ≥ 2 there exist functions E 1 (x, χ) and E 2 (x, T, χ )
+        with the following properties:
+                                         xρ
+                  ψ(x, χ) = E 0 (χ )x −        + E 1 (x, χ ) + E 2 (x, T, χ ); (12.14)
+                                        ρ   ρ
+                                                          |γ |≤T
+                                                 x
+                                                     1 |d E 1 (u, χ )|    (log xq)2 ;              (12.15)
+                                             c
+                                                                          x
+                                  E 2 (x, T, χ )               log x +      (log x T q)2 ;         (12.16)
+                                                                          T
+                                        x
+                                                                          x2
+                                            |E 2 (u, T, χ )| du              (log x T q)2 .        (12.17)
+                                    c                                      T
+        Proof Suppose ﬁrst that χ is non-principal. Thus χ is induced by a primitive
+        character χ ! (mod d) where 1 < d ≤ q. Put
+                                                                   1
+                          E 1 (x, χ ) = ψ0 (x, χ ) − ψ0 (x, χ ! ) − log(x − 1)
+                                                                   2
+                                          χ (−1)
+                                        −          log(x + 1) + C(χ ! ),       (12.18)
+                                             2
+                                                                          !
+                      E 2 (x, T, χ ) = ψ(x, χ ) − ψ0 (x, χ ) + R(x, T ; χ )    (12.19)
+        where R(x, T ; χ ! ) is deﬁned by taking χ = χ ! in (12.6). Thus (12.6) gives
+        (12.14). By (12.12) we see that
+               x                                   log x 
+                 1 |d(ψ0 (u, χ) − ψ0 (u, χ ! ))|             log p  (log x)(log q).
+             c                                   p|q
+                                                     log p
+                                                                    pd
+
+        Thus we have (12.15). It is also clear that (12.8) gives (12.16). To obtain (12.17),
+        we note that
+                                                                   
+                x
+                            u               x                x
+                                                                 1          x 2 log T
+                  min 1,            du ≤               1+          du                 .
+              c           T u            T pk ≤2x          x/T u           T log x
+
+        Since ψ(x, χ ) − ψ0 (x, χ ) = 0 except for jump discontinuities at the prime
+        powers, this term makes no contribution to the integral (12.17). Thus we have
+        (12.17).
+           Now suppose that χ is principal. Put
+                                                                 1
+                   E 1 (x, χ0 ) = ψ(x, χ0 ) − ψ0 (x) − log 2π − log(1 − 1/x 2 ),
+                                                                 2
+               E 2 (x, T, χ0 ) = ψ(x, χ0 ) − ψ0 (x, χ0 ) + R(x, T )
+        where R(x, T ) is deﬁned by (12.3). Then the desired assertions follow from
+        (12.3) and (12.4) in the same way as in the former case, so the proof is
+        complete.                                                                 
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        408                                      Explicit formulæ
+
+
+                                              12.1.1         Exercises
+        1. Suppose that |s − 1| ≥ 1. Show that
+                                        
+                            log ζ (s) =      log(s − ρ) + O(log τ )
+                                                      ρ
+                                                  |γ −t|≤1
+
+           uniformly for −1 ≤ σ ≤ 2, where log ζ (s) is deﬁned by continuous variation
+           along the ray from σ + it to ∞ + it, with log ζ (∞ + it) = 0, and | log(s −
+           ρ)| < π .
+        2. (a) By using the Brun–Titchmarsh inequality, show that
+                                                (n)
+                                                                 (log x)(log log x).
+                                        x+1≤n≤2x
+                                                 n −x
+
+            (b) Let R1 be deﬁned as in the proof of Theorem 12.5. Show that
+                                                    
+                                                 x       x
+                         R1   (log x) min 1,           + (log x)(log log x).
+                                               T x     T
+        3. Let δ be a small positive number. For a given T ≥ 4, let S = {t ∈ [T,
+           T + 1] : minγ |t − γ | ≥ δ/ log T }, and for T ≤ t ≤ T + 1 deﬁne
+                                                                            1
+                                        f (t) = log T +
+                                                             T −1≤γ ≤T +2
+                                                                          |t − γ |
+
+            where the sum is over ordinates γ of zeros of the zeta function.
+            (a) Show that if T ≤ t ≤ T + 1, then
+                                                         ζ
+                                                   max      (s)          f (t).
+                                                 −1≤σ ≤2 ζ
+
+            (b) Show that meas S              1 whenever δ is a sufﬁciently small positive con-
+                stant.
+            (c) Show that
+
+                                                 f (t) dt      (log T ) log log T.
+                                             S
+
+            (d) Deduce that for every T ≥ 4 there is a T1 ∈ [T, T + 1] such that
+                                              ζ
+                                       max       (σ + i T1 )         (log T ) log log T.
+                                      −1≤σ ≤2 ζ
+
+        4. Show that if s = 1, and ζ (s) = 0, then
+                          (n)            x 1−s  ζ      x ρ−s   ∞
+                                                                       x −2k−s
+                                       =         − (s) −         +
+                         n≤x     ns        1−s    ζ      ρ ρ −s    k=1
+                                                                       2k + s
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            12.1 Classical formulæ                                          409
+
+
+           where it is understood that the term n = x is counted with weight 1/2 if x
+                                                                        
+           is a prime power, and the sum over ρ is calculated as limT →∞ |γ |≤T .
+        5. (cf. Ingham 1932, p. 81) By (12.1) we know that
+                                xρ                                        1
+                                        = x − ψ0 (x) − log 2π −              log(1 − 1/x 2 )
+                               ρ    ρ                                      2
+
+            for x > 1. Show that if 0 < x < 1, then
+                          xρ             (n)                                   1     1−x
+                                    =                 + log x + C0 + x +            log     .
+                           ρ    ρ       n≤1/x
+                                                 n                                2     1+x
+
+        6. (de la Vallée Poussin 1896) Show that if x > 1, then
+                                            1 2  x ρ+1                    ζ
+                        (n)(x − n) =          x −            − (log 2π )x + (−1)
+                  n≤x                        2     ρ ρ(ρ + 1)               ζ
+                                                
+                                                ∞
+                                                      x −2k+1
+                                            −                  .
+                                                k=1
+                                                    2k(2k − 1)
+
+        7. Show that if x > 1, then
+                                                            
+                                xρ                       ζ           1 ∞ −2k
+                                                                            x
+             (n) log x/n = x −       − (log 2π ) log x −        (0) −           .
+                                ρ ρ                        ζ
+                                    2                                  4 k=1 k 2
+         n≤x
+
+        8. (Hardy & Littlewood 1918; Wigert 1920) (a) Let k be a non-negative integer.
+           Show that for s near −k, the Laurent expansion of (s) begins
+                                                                      
+                                             (−1)k      (−1)k
+                                    (s) =             +                   (k + 1) + · · · .
+                                            k!(s + k)     k!
+
+            (b) Let k be a positive integer. Show that for s near −2k, the Laurent expan-
+                          
+                sion of ζζ (s) begins
+
+                        ζ          1    ζ                                        
+                           (s) =        − (2k + 1) + log 2π −                          (2k + 1) + · · · .
+                        ζ        s + 2k  ζ
+
+            (c) Show that if z > 0, then
+              
+              ∞                             
+                    (n)e−n/z = z −               (ρ)z ρ − e−1/z log 2π + (−1 + cosh 1/z) log z
+              n=1                           ρ
+                                         ∞
+                                                  ζ       z −k  ∞                
+                                                                                                   z −2k−1
+                                     +       (−1)k (k + 1)     −                       (2k + 2)             .
+                                         k=1
+                                                  ζ         k!   k=0
+                                                                                                  (2k + 1)!
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        410                                            Explicit formulæ
+
+
+                                                                                                   2
+        9. Suppose that a > 0, that x ≥ 1, and that x is not of the form e2a k where k
+           is a positive integer. Show that
+                                                    
+                   1     ∞
+                                        −(log x/n)2
+                √            (n) exp
+                  2π a n=1                     2a 2
+                                                   
+                  = ea /2 x −       ea ρ /2 x ρ +      e2a k x −2k
+                        2             2 2                 2 2
+
+
+                                       ρ                          0<k< log2x
+                                                                        2a
+                                           ∞ 
+                           1     −(log x)2      ζ
+                                                  (−(log x)/a 2 + it)e−a t /2 dt.
+                                                                        2 2
+                        −    exp
+                                             −∞ ζ
+                          2π       2a 2
+
+
+
+
+                                    12.2           Weil’s explicit formula
+        In order to see better the relationship between a sum over zeros and a corre-
+        sponding sum over primes, we now derive an explicit formula that applies to a
+        general class of kernels. (The next theorem is not used later, and can be omitted
+        on a ﬁrst reading.)
+        Theorem 12.13 (Weil) Let F(x) be a measurable function such that
+                                           ∞
+                                               e( 2 +δ0 )2π |x| |F(x)| d x < ∞,
+                                                   1
+                                                                                                       (12.20)
+                                          −∞
+
+        and
+                                              ∞
+                                                   e( 2 +δ0 )2π |x| |d F(x)| < ∞
+                                                       1
+                                                                                                       (12.21)
+                                              −∞
+
+        where δ0 > 0 is ﬁxed. Suppose that F(x) = 12 (F(x − ) + F(x + )) for all x, and
+        that F(x) + F(−x) = 2F(0) + O(|x|). Put
+                                                           ∞
+                                      (s) =                    F(x)e−(s−1/2)2π x d x
+                                                           −∞
+
+        for −δ0 < σ < 1 + δ0 . Let χ be a primitive character modulo q. Then
+                                                                             
+                                                    1
+         lim        (ρ) = E 0 (χ) ((0) + (1)) +      log q/π + (1/4 + κ/2) F(0)
+        T →∞                                       2π
+             |γ |≤T
+                                                                              
+                                1  ∞
+                                      (n)            −1                   1
+                           −                 χ (n)F       log n + χ (n)F     log n
+                              2π n=1 n 1/2            2π                  2π
+                                          ∞
+                                              e−(1+2κ)π x
+                                +                         (2F(0) − F(x) − F(−x)) d x.                   (12.22)
+                                      0       1 − e−4π x
+        Here E 0 (χ ) = 1 if χ = χ0 , E 0 (χ ) = 0 otherwise, and κ = 0 if χ (−1) = 1,
+        κ = 1 if χ (−1) = −1.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                               12.2 Weil’s explicit formula                        411
+
+
+            We note that if ρ = 1/2 + iγ , then
+                                                        ∞
+                                  (ρ) =                                      * ).
+                                                            F(x)e(−γ x) d x = F(γ
+                                                     −∞
+                                  
+           The values of              /    can be evaluated explicitly; from Appendix C we see
+        that
+                                            
+                                                (1/4) = −C0 − 3 log 2 − π/2
+
+        and
+                                           
+                                                (3/4) = −C0 − 3 log 2 + π/2.
+                                                                      
+        Here C0 is Euler’s constant. Since |d f g| ≤ | f | |dg| + |g| |d f |, from
+        (12.20) and (12.21) we see that ea|x| F(x) is of bounded variation for any a,
+        0 ≤ a ≤ (1/2 + δ0 )2π. Hence F(x)         exp(−(1/2 + δ0 )2π |x|), and (s) is an-
+        alytic in the strip −δ0 < σ < 1 + δ0 . For |t| ≤ 1 we note that φ(s)      1. For
+        |t| ≥ 1 we integrate by parts to see that
+                                                    ∞
+                                       1
+                        (s) =                          e(−t x) d (F(x) exp((1 − 2σ )π x)) ;
+                                      2πit        −∞
+
+        hence (s)     1/(|t| + 1) uniformly for −δ0 ≤ σ ≤ 1 + δ0 . In these estimates,
+        and in the proof below, implicit constants may depend on F and on δ0 .
+        Proof We note that
+                                                             1                 ξ
+                                                (ρ) =                   (s)      (s, χ ) ds
+                                      |γ |≤T1
+                                                             2πi     C          ξ
+
+        where C is the closed polygonal contour with vertices −δ1 + i T1 , −δ1 − i T1 ,
+        1 + δ1 − i T1 , 1 + δ1 + i T1 . Here 0 < δ1 < δ0 , and T1 is chosen so that |T −
+        T1 | ≤ 1, and so that
+                                                ξ
+                                                   (σ ± i T1 , χ )        (log qT )2
+                                                ξ
+        uniformly for −1 ≤ σ ≤ 2. Thus
+                          1+δ1 +i T    −δ1 −i T                                 
+                       1                                ξ                (log T )2
+               (ρ) =                 +             (s) (s, χ ) ds + O               .
+        |γ |≤T
+                      2πi   1+δ1 −i T   −δ1 +i T        ξ                    T
+
+        By the functional equation for ξ (s, χ ), we see that
+                                                ξ            ξ
+                                                   (s, χ ) = − (1 − s, χ ).
+                                                ξ             ξ
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        412                                        Explicit formulæ
+
+
+        Hence the integral above is
+                              1+δ1 +i T
+                      1                           ξ                   ξ
+                                           (s)      (s, χ ) + (1 − s) (s, χ ) ds.                     (12.23)
+                     2πi     1+δ1 −i T            ξ                    ξ
+        From (10.25) and (10.33) we see that
+                                        
+         ξ                      1    1     1   q  1                            
+                                                                                                      L
+            (s, χ ) = E 0 (χ )     +       + log +                                  ((s + κ)/2) +        (s, χ ).
+         ξ                       s   s−1    2   π  2                                                  L
+                                                                                                         (12.24)
+        For 1 < σ < 1 + δ0 ,
+                L                  ∞
+         (s)      (s, χ ) = − (s)     (n)χ (n)n −s
+                L                   n=1
+                                                                                          (12.25)
+                                    
+                                    ∞                            ∞             
+                                                                         1
+                             =−           (n)χ (n)n −1/2          F x−    log n e−(s−1/2)2π x d x,
+                                    n=1                         −∞      2π
+
+        and similarly
+                        L             ∞
+            (1 − s)       (s, χ ) = −     (n)χ (n)n −1/2
+                        L              n=1
+                                          ∞                    
+                                                       1
+                                     ×      F −x +         log n e−(s−1/2)2π x d x.                     (12.26)
+                                        −∞            2π
+        From the estimate F(x)   e−(1/2+δ0 )2π |x| we see that
+                                 ∞                     
+                      (n)n −1/2      F x − 2π    1
+                                                    log n e−(1/2+δ1 )2π x d x
+                         n                    −∞
+                                                    ⎛
+                                                            ∞
+                               
+                               ∞
+                                              −1/2 ⎜
+                                     (n)n          ⎝           e−(1+δ0 +δ1 )2π x n 1/2+δ0 d x
+                               n=1
+                                                      (log n)/(2π)
+                                                          (log n)/(2π)
+                                                                                                 ⎞
+
+                                                      +              e(δ0 −δ1 )2π x n −1/2−δ0 d x ⎠
+                                                               −∞
+                               
+                                     (n)n −1−δ1          1.
+                                n
+
+        A similar calculation relates to the second term (12.26), and hence for
+        s = 1 + δ1 + it,
+                                                                         ∞
+                       L                  L                                                   * (t)
+                (s)      (s, χ) + (1 − s) (s, χ ) =                        H (x)e(−t x) d x = H
+                       L                   L                         −∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            12.2 Weil’s explicit formula                                     413
+
+
+        where
+                                         ∞                          
+                                              (n)               log n
+                             H (x) = −               χ (n)F  x −
+                                         n=1
+                                              n 1/2               2π
+                                                               
+                                                          log n
+                                        + χ (n)F −x +             e−(1/2+δ1 )2π x .
+                                                            2π
+        Now H (x) is of bounded variation, since
+                           (n)                                   
+                                                 log n −(1/2+δ1 )2π x
+               VarH ≤          1/2
+                                    Var F x −            e
+                           n n                    2π
+                             (n)                                      
+                                                      log n −(1/2+δ1 )2π x
+                          +        1/2
+                                       Var  F   −x +         e
+                             n n                       2π
+                                            
+                                                                   
+                       =2       (n)n −1−δ1 Var F(x)e−(1/2+δ1 )2π x        1.
+                                        n
+
+        Moreover, H (x) = (H (x + ) + H (x − ))/2, and thus by the Fourier integral
+        theorem,
+                                                    T
+                                             lim        * (t) dt = H (0).
+                                                        H
+                                            T →∞ −T
+
+        That is,
+                               1+δ1 +i T
+                           1                   L                   L
+                      lim                (s) (s, χ ) + (1 − s) (s, χ ) ds
+                     T →∞ 2πi 1+δ −i T         L                    L
+                             
+                                 1
+                                                                           
+                          −1    (n)                − log n              log n
+                        =                 χ (n)F              + χ (n)F            .
+                          2π n n 1/2                  2π                  2π
+
+        The remaining terms from (12.24) contribute to the integral (12.23) an amount
+                                                     1+δ1 +i T
+                                              1
+                                                                 G(s) ds.
+                                             2πi   1+δ1 −i T
+
+        where
+                                                                             
+                           1    1    1   q  1                               s+κ
+         G(s) = E 0 (χ )     +      + log +                                            ((s) + (1 − s))
+                           s   s−1   2   π  2                                2
+        By Cauchy’s theorem this is
+                                                                                                    
+                    1        1/2+i T
+                                                                                           log2 qT
+                                       G(s) ds + E 0 (χ )((0) + (1)) + O                               .
+                   2πi      1/2−i T                                                           T
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        414                                             Explicit formulæ
+
+
+            To treat this latter integral we note that
+                        1/2+i T            
+                 1                1      1
+                                    +          ((s) + (1 − s)) ds
+                2πi 1/2−i T       s    s−1
+                                                                    
+                         −4i T         t          1              1
+                     =                             + it +        − it    dt = 0.
+                          π −T 1 + 4t 2           2              2
+
+        Now (1/2 + it) = *
+                          F(t), and hence
+                                   1/2+i T
+                        1                     1
+                                                (log q/π )((s) + (1 − s)) ds
+                       2πi     1/2−i T        2
+                                                    T
+                                   log q/π            *                  F(0)
+                             =                        F(t) + *
+                                                             F(−t) dt −→      log q/π
+                                     4π            −T                    2π
+        as T tends to inﬁnity. Thus to complete the proof of the theorem it sufﬁces to
+        establish
+
+        Lemma 12.14 Let a > 0 and b > 0 be ﬁxed. If J ∈ L 1 (R), J is of bounded
+        variation on R, and if J (x) = J (0) + O(|x|), then
+                               T      
+                     lim                           *(t) dt
+                                          (a ± ibt) J
+                    T →∞ −T
+                                                             ∞
+                                                   2π               e−2πax/b
+                        =      (a)J (0) +                                      (J (0) − J (∓x)) d x. (12.27)
+                                                    b     0       1 − e−2π x/b
+                                          1
+            If G and J are in L (R), then
+                                          ∞                            ∞
+                                                  *(t) dt =
+                                              G(t) J                       *
+                                                                           G(x)J (x) d x,
+                                      −∞                              −∞
+
+        since both sides are
+                                              ∞     ∞
+                                                         G(t)J (x)e(−t x) d x dt.
+                                              −∞   −∞
+                                                                  
+        We cannot apply this with G(t) = (a ± ibt), since this function is not in
+        L 1 (R). Nevertheless, the right-hand side of (12.27) is a linear functional of J ,
+                                                                            
+        which thus serves as a surrogate for the Fourier transform of (a ± ibt), at
+        least when the test function J is sufﬁciently well-behaved.
+
+        Proof It sufﬁces to consider the + sign on the left-hand side of (12.27),
+        for if K (x) = J (−x) then K * (t) = J
+                                             *(−t). We suppose ﬁrst that J (0) = 0. The
+        integral with respect to t on the left-hand side of (12.27) is
+                            ∞         T                         
+                               J (x)           (a + ibt)e(−xt) dt d x.
+                                   −∞               −T
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                               12.2 Weil’s explicit formula                                    415
+
+
+                        
+        Since (a + ibt)       log(|t| + 2), the inner integral above is    T log T , uni-
+        formly in x. Put δ = T −2/3 . The contribution to the above by those x for which
+        |x| ≤ δ is
+                                                   δ
+                                                       |x|T log T d x         δ 2 T log T = T −1/3 log T.
+                                               −δ
+
+        For |x| ≥ δ we appeal to Theorem C.5 to estimate the inner integral. The error
+        term in Theorem C.5 contributes an amount
+                                                           ∞
+                                                               min(x, 1)T −1 x −2 d x               T −1 log T.
+                                                       δ
+
+        By integrating by parts we see that
+                    ∞                                                      ∞
+                                    e(−x T )      J (δ)e(−δT )      1               e(−x T )
+                            J (x)            dx =              −              J (x)          dx
+                δ                      x             2πiδT       2πi T δ               x2
+                                                             ∞
+                                                       1       e(−x T )
+                                                  +                     d J (x)
+                                                    2πi T δ       x
+                                                  1      1 ∞                         1    ∞
+                                                     +         min(x, 1)x −2 d x +           |d J |
+                                                  T      T δ                        δT δ
+                                                  T −1/3 ,
+
+        and similarly for the three related terms. Hence
+                                                                        −δ
+                                                                                     
+            T
+                                             −2π e2πax/b
+                        (a + ibt) J*(t) dt =                J (x) d x + O T −1/3 log T .
+                                          −∞ 1 − e
+                                              b      2π x/b
+         −T
+                                          0
+        On the right-hand side we see that −δ · · ·   δ, so that
+                                                                                           ∞
+                                     T
+                                                            *(t) dt =         −2π                     e−2πax/b
+                    lim                            (a + ibt) J                                                   J (−x) d x
+                    T →∞ −T                                                    b        0           1 − e−2π x/b
+        provided that J (0) = 0. To obtain the general case we apply the above to
+                                                                              * (t) =
+        the function√K (x) = J (x) − J (0)e−π x /A where A > 0 is large. Then K
+                                               2
+
+
+        *
+        J (t) − J (0) Ae −π At 2
+                                 , and hence
+                               T                                                   T           
+                lim                                    * (t) dt = lim
+                                             (a + ibt) K                                            (a + ibt)*
+                                                                                                             J (t) dt
+             T →∞ −T                                                      T →∞ −T
+                                                                                 √                  ∞    
+                                                                                                             (a + ibt)e−π At dt.
+                                                                                                                           2
+                                                                          − J (0) A
+                                                                                                    −∞
+
+        This last integral is
+                    ∞                                                                    
+                            (a) + O(|t|) e−π At dt =                                            (a)A−1/2 + O(A−1 ).
+                                               2
+
+
+                              −∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        416                                       Explicit formulæ
+
+
+        On the other hand,
+                                        ∞
+                                      e−2πax/b
+                          −2π             −2π x/b
+                                                  K (−x) d x
+                                  0 1−e
+                                         ∞
+                                              e−2πax/b
+                                 = 2π                    (J (0) − J (−x)) d x
+                                       0    1 − e−2π x/b
+                                              ∞
+                                                  e−2πax/b  −π x 2 /A     
+                                 + 2π J (0)           −2π
+                                                               e       − 1 d x.
+                                             0 1−e
+                                                          x/b
+
+
+        Now e−α = 1 + O(α) for α ≥ 0, and hence this last integral is
+                                    1                     ∞
+                                        x A−1 d x +           e−2πax/b x 2 A−1 d x        A−1 .
+                                0                     1
+
+        On combining these estimates, we see that (12.29) holds apart from an error
+        term O(A−1/2 ), and we obtain the result since A can be arbitrarily large. 
+
+
+
+
+                                                  12.3          Notes
+                                             
+        Section 12.1. Let (x) = n≤x (n)/ log n. Riemann (1859) gave a heuristic
+        proof that if x > 1, and x is not a prime power, then
+                                                                              ∞
+                                                                                         du
+                    (x) = Li(x) −               Li (x ρ ) − log 2 +                                  .
+                                             ρ                             x       (u 2 − 1)u log u
+
+        Here the sum over the zeros is conditionally convergent, and it is to be un-
+        derstood that it is computed as the limit, as T → ∞, of the sum over those
+        zeros for which |γ | ≤ T . The above formula was ﬁrst proved rigorously by von
+        Mangoldt (1895), and additional proofs were subsequently given by Landau
+        (1908a, b). For further discussion of the explicit formula in the form given by
+        Riemann, see Edwards (1974, Chapter 1). von Mangoldt (1895) also proved the
+        explicit formula (12.1). Landau (1909, Section 89) was the ﬁrst to show that
+        the limit in (12.1) is attained uniformly for x in a compact interval not con-
+        taining a prime power. Cramér (1918) showed that (12.1) can be derived from
+        the above. von Koch (1910) and Landau (1912) estimated the error term that
+        arises when the explicit formula is truncated, as in Theorem 12.5. The explicit
+        formula for ψ0 (x, χ ) was ﬁrst established by Landau (1908b), but with not
+        so much attention to the constant term. In the customary form of this explicit
+        formula (cf. Davenport (2000, p. 117)), the constant term is expressed in terms
+        of the constant B(χ ) that arises in the Hadamard product formula for ξ (s, χ ).
+        Our presentation, which avoids this, is that of Vorhauer (2006).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 12.4 References                                   417
+
+
+           Section 12.2. Although many speciﬁc explicit formulæ were derived by vari-
+        ous authors for a variety of purposes, it was Guinand (1942) who ﬁrst suggested
+        that it would be possible to specify a general class of such formulæ. Guinand
+        (1948) did this assuming the Riemann Hypothesis, but it seems that he im-
+        posed RH only in order to obtain a wider class of test functions. Theorem
+        12.13 is a special case of the main result of Weil (1952), who treats general
+        L-functions associated with Grössencharaktere χ , which are representations
+        of the group of idèle-classes of an algebraic number ﬁeld k into the multiplica-
+        tive group of non-zero complex numbers. Weil also showed that a necessary
+        and sufﬁcient condition for the Riemann hypothesis to hold for L is that the
+        right-hand side corresponding to (12.22) is non-negative for all functions F of a
+        certain class. Gallagher (1987) widened the class of test functions in Guinand’s
+        formula and gave several applications. See also Besenfelder (1977a, b),
+        Yoshida (1982), Jorgenson, Lang & Goldfeld (1994), and Bombieri & Lagarias
+        (1999).
+
+
+
+                                             12.4       References
+        Barner, K. (1981). On A. Weil’s explicit formula, J. Reine Angew. Math. 323, 139–152.
+        Besenfelder, H.-J. (1977a). Die Weilsche “Explizite Formel” und temperierte Distribu-
+             tionen, J. Reine Angew. Math. 293–294, 228–257.
+          (1977b). Zur Nullstellenfreiheit der Riemannschen Zeta-funktion auf der Geraden
+             σ = 1, J. Reine Angew. Math. 295, 116–119.
+        Besenfelder, H.-J. & Palm, G. (1997). Einige Äquivalenzen zur Riemannschen Vermu-
+             tung, J. Reine Angew. Math. 293–294, 109–115.
+        Bombieri, E. & Lagarias, J. C. (1999). Complements to Li’s criterion for the Riemann
+             hypothesis, J. Number Theory 77, 274–287.
+        Cramér, H. (1918). Über die Herleitung der Riemannschen Primzahlformel, Arkiv för
+             Mat. Astr. Fys. 13, no. 24, 7 pp.
+        Davenport, H. (2000). Multiplicative Number Theory, Third Edition, Graduate Texts
+             Math. 74. New York: Springer-Verlag.
+        Edwards, H. M. (1974). Riemann’s Zeta Function, Pure and Applied Math. 58. New
+             York: Academic Press.
+        Gallagher, P. X. (1987). Applications of Guinand’s formula, Analytic number the-
+             ory and Diophantine problems (Stillwater, 1984), Progress in Math. 70. Boston:
+             Birkhäusen, pp. 135–157.
+        Guinand, A. P. (1937). A class of self-reciprocal functions connected with summation
+             formulæ, Proc. London Math. Soc. (2) 43, 439–448.
+          (1938). Summation formulæ and self-reciprocal functions, Quart. J. Math. Oxford
+             Ser. 9, 53–67.
+          (1939a). Finite summation formulæ, Quart. J. Math. 10, 38–44.
+          (1939b). Summation formulæ and self-reciprocal functions (II), Quart. J. Math. 10,
+             104–118.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        418                                     Explicit formulæ
+
+
+          (1939c). A formula for ζ (s) in the critical strip, J. London Math. Soc. 14, 97–100.
+          (1941). On Poisson’s summation formula, Ann. of Math. (2) 42, 591–603.
+          (1942). Summation formulæ and self-reciprocal functions (III), Quart. J. Math. 13,
+             30–39.
+          (1948). A summation formula in the theory of prime numbers, Proc. London Math.
+             Soc. 50, 107–119.
+        Hardy, G. H. & Littlewood, J. E. (1918). Contributions to the theory of the Riemann
+             zeta-function and the theory of the distribution of primes, Acta Math. 41, 119–196;
+             Collected Papers, Vol. 2. Oxford: Clarendon Press, 1967, pp. 20–97.
+        Ingham, A. E. (1932). The Distribution of Prime Numbers, Cambridge Tract No. 30.
+             Cambridge: Cambridge University Press.
+        Jorgenson, J., Lang, S., & Goldfeld, D. (1994). Explicit Formulas. Lecture Notes in
+             Math. 1593. Berlin: Springer-Verlag.
+        von Koch, H. (1910). Contributions à la théorie des nombres premiers, Acta Math. 33,
+             293–320.
+        Landau, E. (1908a). Neuer Beweis der Riemannschen Primzahlformel, Sitzungsber.
+             Königl. Preuß. Akad. Wiss. Berlin, 737–745; Collected Works, Vol. 4, Essen: Thales
+             Verlag, 1986, pp. 11–19.
+          (1908b). Nouvelle démonstration pour la formule de Riemann sur le nombre des
+             nombres premiers inférieurs à une limite donnée, et démonstration d’une formule
+             plus générale pour le cas des nombres premiers d’une progression arithmétique,
+             Ann. l’École Norm. Sup. (3) 25, 399–442; Collected Works, Vol. 4, Essen: Thales
+             Verlag, 1986, pp. 87–130.
+          (1909). Handbuch der Lehre von der Verleilung der Primzahlen. Leipzig: Teubner.
+             Reprint: New York: Chelsea, 1953.
+          (1912). Über einige Summen, die von den Nullstellen der Riemannschen Zetafunktion
+             abhängen, Acta Math. 35, 271–294; Collected Works, Vol. 5. Essen: Thales Verlag,
+             1986, pp. 62–85.
+        von Mangoldt, H. (1895). Zu Riemann’s Abhandlung “Ueber die Anzahl der Primzahlen
+             unter einer gegebenen Grösse”, J. Reine Angew. Math. 114, 255–305.
+        Riemann, B. (1859). Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse,
+             Monatsber. Kgl. Preuss. Akad. Wiss. Berlin, 671–680; Werke, Leipzig: Teubner,
+             1876, pp. 3–47. Reprint: New York: Dover, 1953.
+        de la Vallée Poussin, C. J. (1896). Recherches analytiques sur la théorie des nombres
+             premiers, I–III, Ann. Soc. Sci. Bruxelles 20, 183–256, 281–362, 363–397.
+        Vorhauer, U. M. A. (2006). The Hadamard product formula for Dirichlet L-functions,
+             to appear.
+        Weil, A. (1952). Sur les “formules explicites” de la théorie des nombres premiers, Comm.
+             Sém. Math. Univ. Lund [Medd. Lunds Univ. Mat. Sem.], Tome Supplementaire,
+             252–265.
+        Wigert, S. (1920). Sur la théorie de la fonction ζ (s) de Riemann, Ark. Mat. 14, 1–17.
+        Yoshida H. (1992). On Hermitian forms attached to zeta functions, Zeta functions in
+             geometry (Tokyo, 1990), Adv. Stud. Pure Math. 21. Tokyo: Kinokuniya , 281–325.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.014 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

@@ -1,0 +1,11 @@
+[
+ "g(q,l) matches Moebius-series density sum_d mu(d)[gcd(d^2,q)|l]/lcm(d^2,q) (d<=4000) for all q<=50, all l: max rel dev 3.45e-05 (tail-truncation limited); matches brute-force densities (squarefree n<=2e6) with max |dens-g|*q = 7.55e-04 [PASS]",
+ "sum_{l=1}^q g(q,l) = 6/pi^2 exactly (rational check) for all q<400 and q in {1001,2310,4096,11025} [PASS]",
+ "closed form sum_l g(q,l)^2 = (c/q)^2 prod T_p equals direct rational sum for q<300 and q in {2310,4096,11025} [PASS]",
+ "sum_l Q(x;q,l) = Q(x;1,1) for x=3000, 2<=q<600 (bincount) [PASS]",
+ "fast sum_l E(x;q,l)^2 (FFT autocorrelation + closed forms) equals brute-force bincount/g sum for x=3000, 2<=q<600: max rel dev 2.2e-44 [PASS]",
+ "FFT autocorrelation C(h) equals exact integer dot product at 49 spot values of h, x=2e6; max |fft - round| = 5.24e-10 [PASS]",
+ "V_f(x,y) for f=k^2+1, x=5000, y=70: fast = brute force to rel 2.2e-48; V=4.257821e+06 [PASS]",
+ "V_f(x,y) for f=k^3+2, x=5000, y=17: fast = brute force to rel 2.2e-49; V=4.566544e+06 [PASS]",
+ "V_f(x,y) for f=2k+1, x=5000, y=2499: fast = brute force to rel 1.3e-48; V=4.593190e+06 [PASS]"
+]

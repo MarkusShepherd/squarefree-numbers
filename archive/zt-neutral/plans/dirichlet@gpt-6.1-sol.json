@@ -1,0 +1,76 @@
+{
+  "summary": "A six-proposition plan retaining every polynomial and the original weight. Uniform squarefree-pair estimates reduce the problem to an explicit singular-series sum over h. A fractional-part kernel evaluates that sum without a difficult contour shift. The resulting asymptotic range is x^{7/9+\u03b4} \u2264 f(y) \u2264 x^{1\u2212\u03b4}. Numerical constants agree with the reported extrapolation bands. Persistent fixed-ratio corrections explain why joint numerical fits give exponents different from 1/2 and 3/2. No excluded source was consulted. The published input used is R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), https://doi.org/10.1112/S0024611505015352.",
+  "main_theorem": "Proposed theorem. Let f satisfy all hypotheses in problem.md, let d be its degree, and put Y=f(y). Define \u03b6(s)=\u2211_{n\u22651}n^{\u2212s} for real s>1 and M_f=\u220f_p[1+((\u221ap\u2212p)\u03c1(p))/(p(p\u00b2+p\u22122))+((1\u2212\u221ap)\u03c1(p\u00b2))/(p\u00b2(p\u00b2+p\u22122))], where every product indexed by p runs over primes. These products converge absolutely, M_f>0, and C_f=(2\u03b6(3/2)/(3\u03c0))\u220f_p(1\u22123/p\u00b2+2/p\u00b3) M_f. For every 0<\u03b5<1/20 there is a constant C(f,\u03b5)>0 such that, uniformly for real x\u22652 and y\u22652 with Y\u2264x, |V_f(x,y)\u2212C_f x^{1/2}Y^{3/2}| \u2264 C(f,\u03b5)[x^{5/3+\u03b5}log(2x)+x^{2/5+\u03b5}Y^{8/5}+x^{1/2}Y^{3/2+\u03b5}y^{\u22123/4+\u03b5}]. Consequently, for every 0<\u03b4<1/9, putting \u03b7=min{\u03b4/20,1/(20d)}, there are constants C(f,\u03b4)>0 and x\u2080(f,\u03b4)\u22652 such that |V_f(x,y)\u2212C_f x^{1/2}Y^{3/2}| \u2264 C(f,\u03b4)x^{1/2}Y^{3/2}x^{\u2212\u03b7} uniformly when x\u2265x\u2080(f,\u03b4) and x^{7/9+\u03b4}\u2264Y\u2264x^{1\u2212\u03b4}.",
+  "predicted_main_term": "C_f x^{1/2}f(y)^{3/2}. Products truncated at primes p\u22642,000,000 give C_{t\u00b2+1}\u22480.13808, C_{t\u00b3+2}\u22480.13561, and C_{2t+1}\u22480.14261.",
+  "agrees_with_numerics": "Compatible with the evidence, although the data do not establish the shrinking-ratio limit. The reported extrapolations are respectively 0.13447\u00b10.00728, 0.13632\u00b10.00240, and 0.14169\u00b10.00822; all contain the predicted constants. Fixed-ratio slopes are near 2, agreeing with 1/2+3/2. Joint fits around \u03b1=0.45 and \u03b2=1.53\u20131.55 differ from the limiting prediction, but the normalized data retain substantial ratio dependence. An independent evaluation of the singular-series pair model at x=1,000,000 and f(t)=2t+1 gives normalized variance 0.18369168 at Y/x\u22481, against the recorded 0.18368977, whereas the limiting constant is 0.14261. Thus the finite-ratio effect already occurs in the arithmetic model. Cubic discretization also remains visible. The recorded implementation validations and this comparison give no indication of a counting error; extrapolation uncertainty remains heuristic.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Local densities and the linear centering term",
+      "statement": "Let c=1/\u03b6(2)=6/\u03c0\u00b2, where \u03b6(s)=\u2211_{n\u22651}n^{\u2212s} for real s>1. For integers q\u22651 and l, write p\u2225q when p divides q and p\u00b2 does not divide q. Then g(q,l)=(c/q)\u220f_{p|q}(1\u2212p^{\u22122})^{\u22121} \u220f_{p\u2225q, p|l}(1\u2212p^{\u22121}) \u220f_{p\u00b2|q}1_{p\u00b2\u2224l}, where 1_A denotes the indicator of A. Define D(q)=\u2211_{l=1}^q g(q,l)\u00b2 and C=\u220f_p(1\u22122/p\u00b2). Then D(q)=(C/q)\u2211_{r\u22651} \u03bc\u00b2(r)gcd(r\u00b2,q)/(r\u00b2\u220f_{p|r}(p\u00b2\u22122)); the series converges absolutely. Extend g(q,l) periodically to every integer l. There is an absolute constant C\u2080>0 such that, uniformly for real x\u22652 and integers 1\u2264q\u2264x, |Q(x;1,1)\u2212cx|\u2264C\u2080\u221ax and |\u2211_{1\u2264n\u2264x}\u03bc\u00b2(n)g(q,n)\u2212xD(q)|\u2264C\u2080\u221ax/q. Empty products equal 1, and all products over p are over primes.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The local formula must include non-coprime residue classes. The linear-moment bound needs the factor 1/q; losing it would substantially weaken the final range."
+    },
+    {
+      "id": "P2",
+      "title": "Uniform squarefree-pair correlation",
+      "statement": "Define C=\u220f_p(1\u22122/p\u00b2) and, for integers r\u22651, S(r)=C\u220f_{p\u00b2|r}(p\u00b2\u22121)/(p\u00b2\u22122), with products over primes. For every 0<\u03b5<1/20 there is C\u2082(\u03b5)>0 such that, uniformly for real x\u22652 and integers 1\u2264r\u2264x, |\u2211_{1\u2264n\u2264x\u2212r} \u03bc\u00b2(n)\u03bc\u00b2(n+r)\u2212(x\u2212r)S(r)|\u2264C\u2082(\u03b5)x^{2/3+\u03b5}. A sum over an empty interval equals zero. No dependence on r is permitted in C\u2082(\u03b5).",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "This is an elementary truncated M\u00f6bius-expansion contract. The truncation and singular-series tail must remain uniform when r is near x or has many square divisors."
+    },
+    {
+      "id": "P3",
+      "title": "A uniform fractional-part kernel estimate",
+      "statement": "For positive integers n define b(n)=\u03bc\u00b2(n)\u220f_{p|n}p\u00b2/(p\u00b2\u22122). For positive integers q define \u03b2(q)=\u220f_{p|q}(1\u22121/p) \u220f_{p\u2224q}(1\u22121/p)(1+p/(p\u00b2\u22122)); the infinite product converges absolutely. For real u let {u}=u\u2212floor(u) and \u03c8(u)={u}(1\u2212{u}). Define I=\u222b\u2080^\u221e\u03c8(t^{\u22122})dt. This integral converges and I=\u03b6(3/2)/\u03c0, where \u03b6(3/2)=\u2211_{n\u22651}n^{\u22123/2}. For every 0<\u03b5<1/20 there is C\u2083(\u03b5)>0 such that, uniformly for all integers q\u22651 and real R\u22651, |\u2211_{n\u2264R, gcd(n,q)=1}b(n)\u2212\u03b2(q)R|\u2264C\u2083(\u03b5)q^\u03b5R^{1/2+\u03b5}. Moreover, uniformly for all integers q\u22651 and all real T>0, |\u2211_{n\u22651, gcd(n,q)=1}b(n)\u03c8(T/n\u00b2)\u2212\u03b2(q)I\u221aT|\u2264C\u2083(\u03b5)q^\u03b5T^{2/5+\u03b5}. The last series converges absolutely. All products indexed by p are over primes.",
+      "depends_on": [],
+      "cites": [],
+      "crux": true,
+      "risk": "The kernel oscillates increasingly rapidly near zero. A direct global variation estimate fails; the estimate must split off the short initial segment. Uniformity for T<1 and unrestricted q is essential when squareful divisors are separated later."
+    },
+    {
+      "id": "P4",
+      "title": "Generating series and evaluation of the h-sum",
+      "statement": "Let c=1/\u03b6(2), C=\u220f_p(1\u22122/p\u00b2), S(r)=C\u220f_{p\u00b2|r}(p\u00b2\u22121)/(p\u00b2\u22122) for integers r\u22651, and D(q)=\u2211_{l=1}^q g(q,l)\u00b2. Here \u03b6(s)=\u2211_{n\u22651}n^{\u2212s} for complex s with Re(s)>1. For each integer q\u22651, let v_p(q) be the exponent of p in q. The absolutely convergent generating series satisfies \u2211_{h\u22651}S(qh)h^{\u2212s}=C\u03b6(s)\u220f_p[1+p^{\u2212max(2\u2212v_p(q),0)s}/(p\u00b2\u22122)] for Re(s)>1. Define A(q)=\u220f_{p\u2225q}(p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122) \u220f_{p\u00b2|q}(p\u00b2\u22121)/(p\u00b2+p\u22122), where p\u2225q means v_p(q)=1, and define K=(\u03b6(3/2)/\u03c0)\u220f_p(1\u22123/p\u00b2+2/p\u00b3). For every 0<\u03b5<1/20 there is C\u2084(\u03b5)>0 such that, uniformly for real x\u22652 and integers 1\u2264q\u2264x, |2\u2211_{h\u22651, qh\u2264x}(x\u2212qh)S(qh)\u2212x\u00b2D(q)+cx\u2212KA(q)\u221a(xq)|\u2264C\u2084(\u03b5)x^{2/5+\u03b5}q^{3/5}. A usable exact identity is 2\u2211_{h\u22651, qh\u2264x}(x\u2212qh)S(qh)\u2212x\u00b2D(q)+cx=Cq\u2211_{r\u22651}a(r)m_q(r)\u03c8(x/(qm_q(r))), where a(r)=\u03bc\u00b2(r)/\u220f_{p|r}(p\u00b2\u22122), m_q(r)=r\u00b2/gcd(r\u00b2,q), and \u03c8(u)={u}(1\u2212{u}) with {u}=u\u2212floor(u). The last series converges absolutely. Products indexed by p are over primes.",
+      "depends_on": [
+        "P1",
+        "P3"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.15, https://doi.org/10.1112/S0024611505015352",
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.16, https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The cancellation of x\u00b2D(q) and cx must be exact. Distinguishing v_p(q)=1 from v_p(q)\u22652 is necessary for the local factor A(q). A contour shift of the displayed series alone would require additional convergence arguments; the kernel identity avoids that issue."
+    },
+    {
+      "id": "P5",
+      "title": "Polynomial average of the local factor",
+      "statement": "Let f, d and \u03c1 be as in problem.md, without a separability assumption on f. For positive integers q define A(q)=\u220f_{p\u2225q}(p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122) \u220f_{p\u00b2|q}(p\u00b2\u22121)/(p\u00b2+p\u22122), where p\u2225q means p|q and p\u00b2\u2224q. Define M_f=\u220f_p[1+((\u221ap\u2212p)\u03c1(p))/(p(p\u00b2+p\u22122))+((1\u2212\u221ap)\u03c1(p\u00b2))/(p\u00b2(p\u00b2+p\u22122))]. This product converges absolutely and M_f>0. For every 0<\u03b5<1/20 there is C\u2085(f,\u03b5)>0 such that, uniformly for real y\u22652 and Y=f(y), |\u2211_{1\u2264k\u2264y}A(f(k))\u2212M_f y|\u2264C\u2085(f,\u03b5)Y^\u03b5y^{1/4+\u03b5} and |\u2211_{1\u2264k\u2264y}f\u2032(k)\u221af(k)A(f(k))\u2212(2/3)M_fY^{3/2}|\u2264C\u2085(f,\u03b5)Y^{3/2+\u03b5}y^{\u22123/4+\u03b5}. All products indexed by p are over primes; constants may depend only on f and \u03b5.",
+      "depends_on": [],
+      "cites": [],
+      "crux": true,
+      "risk": "Repeated polynomial factors can make \u03c1(p\u00b2) grow with p, so a bounded-root hypothesis cannot be assumed. The divisor expansion must exploit the stronger decay of A(p\u00b2)\u2212A(p). Primes dividing every coefficient of f require separate finite local treatment."
+    },
+    {
+      "id": "P6",
+      "title": "Reconstruction of the weighted variance",
+      "statement": "Let f and V_f be as in problem.md and put Y=f(y). For positive integers q define A(q)=\u220f_{p\u2225q}(p\u00b2\u22122+\u221ap)/(p\u00b2+p\u22122) \u220f_{p\u00b2|q}(p\u00b2\u22121)/(p\u00b2+p\u22122), where p\u2225q means p|q and p\u00b2\u2224q. Define K=(\u03b6(3/2)/\u03c0)\u220f_p(1\u22123/p\u00b2+2/p\u00b3), with \u03b6(3/2)=\u2211_{n\u22651}n^{\u22123/2} and products over primes. For every 0<\u03b5<1/20 there is C\u2086(f,\u03b5)>0 such that, uniformly for real x\u22652 and y\u22652 with Y\u2264x, |V_f(x,y)\u2212K\u221ax\u2211_{1\u2264k\u2264y}f\u2032(k)\u221af(k)A(f(k))|\u2264C\u2086(f,\u03b5)[x^{5/3+\u03b5}log(2x)+x^{2/5+\u03b5}Y^{8/5}]. Constants may depend only on f and \u03b5. Together with P5 this yields the stated main theorem.",
+      "depends_on": [
+        "P1",
+        "P2",
+        "P4",
+        "P5"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "Summing the individual pair-correlation errors produces the x^{5/3+\u03b5} term and the lower threshold 7/9. The arithmetic-kernel error requires Y/x to tend to zero for an asymptotic. These bounds do not establish a constant main term at fixed positive Y/x."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

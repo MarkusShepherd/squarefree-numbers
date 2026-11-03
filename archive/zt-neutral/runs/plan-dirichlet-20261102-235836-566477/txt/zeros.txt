@@ -1,0 +1,643 @@
+                                                        14
+                                                      Zeros
+
+
+
+
+                          14.1        General distribution of the zeros
+        If T > 0 is not the ordinate of a zero of the zeta function, then we let N (T ) denote
+        the number of zeros ρ = β + iγ of ζ (s) in the rectangle 0 < β < 1, 0 < γ < T .
+        If T is the ordinate of a zero, then we set N (T ) = (N (T + ) + N (T − ))/2. By
+        the argument principle we obtain
+        Theorem 14.1           For any real t, put
+                                                1
+                                        S(t) = arg ζ (1/2 + it).                                   (14.1)
+                                                π
+        If T > 0, then
+                                   1                       T
+                       N (T ) =      arg (1/4 + i T /2) −    log π + S(T ) + 1.                    (14.2)
+                                   π                      2π
+        Proof Since
+                         1                                   1
+                 N (T ) =  (N (T + ) + N (T − )),   S(T ) = (S(T + ) + S(T − )),
+                         2                                   2
+        it sufﬁces to prove (14.2) when T is not the ordinate of a zero. Let C denote the
+        contour that proceeds by straight lines from 2 to 2 + i T to −1 + i T to −1 to
+        2. Then by the argument principle,
+                                                        1        ξ
+                                           N (T ) =                 (s) ds.
+                                                       2πi     C ξ
+
+        Now let C1 denote the contour that proceeds by line segments from 1/2
+        to 2 to 2 + i T to 1/2 + i T , and let C2 be the
+                                                        contour
+                                                                that proceeds from
+        1/2 + i T to −1 + i T to −1 to 1/2. Thus C = C1 + C2 . For s ∈ C2 we use the
+        identity
+                                              ξ        ξ
+                                                 (s) = − (1 − s),
+                                              ξ         ξ
+
+                                                         452
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  14.1 General distribution of the zeros                             453
+
+
+        and thus we see that
+                          ξ               ξ                                   ξ
+                             (s) ds = −       (1 − s) ds =                         (s) ds
+                       C2 ξ             C2 ξ                                 C3 ξ
+
+        where C3 proceeds from 1/2 − i T to 2 − i T to 2 to 1/2. On adding this to the
+        integral over C1 , we see that the contribution of the interval [1/2, 2] cancels,
+        and hence
+                                              1       ξ
+                                    N (T ) =             (s) ds
+                                             2πi C4 ξ
+        where C4 runs from 1/2 − i T to 2 − i T to 2 + i T to 1/2 + i T . By (10.25) we
+        see that the above is
+                  1                                               s         1/2+i T
+             =        log s + log(s − 1) + log ζ (s) + log (s/2) − log π             .
+               2πi                                                 2         1/2−i T
+
+        By the Schwarz reﬂection principle, the real parts cancel and the imaginary
+        parts reinforce. Thus the above is
+              
+            1
+        =       arg(1/2 + i T ) + arg(−1/2 + i T ) + arg ζ (1/2 + i T )
+           π
+                                                                                
+                                                                         T
+                                                   + arg (1/4 + i T /2) − log π .
+                                                                          2
+
+        Here arg(1/2 + i T ) + arg(−1/2 + i T ) = π , so we have the stated result.                    
+
+            By Stirling’s formula (Theorem C.1) we know that
+                                                                    1
+                        log (s) = (s − 1/2) log s − s +               log 2π + O(1/|s|).           (14.3)
+                                                                    2
+        By using this, we obtain
+
+        Corollary 14.2 For T ≥ 2,
+                                       T      T    T  7
+                          N (T ) =       log    −    + + S(T ) + O(1/T ).
+                                      2π     2π   2π  8
+        Proof      Clearly
+                                                                            
+                         (−1/4 + i T /2) log(1/4 + i T /2) − (1/4 + i T /2)
+                              1              T        1      2   T
+                           = − arg 14 + i T2 + log 16       + T4 − .
+                              4                  4                   2
+        But arg(1/4 + i T /2) = π/2 + O(1/T ), and log(1/16 + T 2 /4) = 2 log T /2 +
+        O(1/T 2 ), so we obtain the stated result.                                 
+
+            By combining the above with Lemma 12.3 or Theorem 13.20, we obtain
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        454                                             Zeros
+
+
+        Corollary 14.3 For T ≥ 4,
+                                   T       T     T
+                                  N (T ) =
+                                      log    −     + O(log T ).
+                                  2π      2π    2π
+        Corollary 14.4 If the Riemann Hypothesis is true, then
+                                                                
+                                T       T     T          log T
+                      N (T ) =    log     −     +O                 .
+                               2π      2π    2π        log log T
+           Note that these estimates imply the estimates of Theorem 10.13 and
+        Lemma 13.18, respectively. In addition, from the ﬁrst estimate above we see
+        that there is an absolute constant C > 0 such that
+                                        N (T + h) − N (T )           h log T                         (14.4)
+        uniformly for C ≤ h ≤ T . Similarly, there is an absolute constant C > 0 such
+        that if RH is true, then (14.4) holds for C/ log log T ≤ h ≤ T , T ≥ 4. By mod-
+        ifying our method we obtain corresponding estimates for the number of zeros
+        of a Dirichlet L-function.
+        Theorem 14.5 Let χ be a primitive character modulo q, with q > 1. For
+        T > 0, let N (T, χ ) denote the number of zeros ρ = β + iγ of L(s, χ ) with
+        0 < β < 1 and 0 ≤ γ ≤ T . Any zeros with γ = 0 or γ = T should be counted
+        with weight 1/2. Also, for any real number T , put
+                                          1
+                              S(T, χ ) = arg L(1/2 + i T, χ ).               (14.5)
+                                          π
+        Then
+                      1                               T     q
+          N (T, χ ) = arg (1/4 + κ/2 + i T /2) +         log + S(T, χ ) − S(0, χ )
+                     π                               2π     π
+        where κ = 0 or 1 according as χ (−1) = 1 or −1.
+           There is no need to establish a separate result pertaining to zeros with γ < 0,
+        since the number of zeros of L(s, χ ) with −T ≤ γ ≤ 0 is N (T, χ ).
+        Proof We may assume that T is not the ordinate of a zero, for if it were, then
+        we have only to replace T by T ± , and average. However, we must take some
+        precautions against the possibility that L(s, χ) has a zero on the real axis in
+        the interval (0, 1). Let C ± be the contour from 2 ± iε to 2 + i T to −1 + i T to
+        −1 ± iε to 2 ± iε, let C1± be the contour from 1/2 ± iε to 2 ± iε to 2 + i T to
+        1/2 + i T , let C2± be the path from 1/2 + i T to −1 + i T to −1 ± iε to 1/2 ± iε,
+        and let C3± be the path from 1/2 − i T to 2 − i T to 2 ∓ iε to 1/2 ∓ iε. By the
+        argument principle, the number of zeros with 0 < γ ≤ T is
+                 1        ξ               1             ξ              1              ξ
+                             (s, χ ) ds =                   (s, χ) ds +                    (s, χ ) ds.
+                2πi    C+ ξ               2πi          + ξ
+                                                      C1                2πi         C2+ ξ
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  14.1 General distribution of the zeros                            455
+
+
+        For s ∈ C2+ we write
+                                          ξ            ξ
+                                             (s, χ ) = − (1 − s, χ ),
+                                          ξ             ξ
+        and thus we ﬁnd that
+                      ξ                    ξ                                     ξ
+                         (s, χ ) ds = −        (1 − s, χ ) ds =                       (s, χ ) ds.
+                  C2+ ξ                 C2+ ξ                                  C3+ ξ
+
+        By (10.33), it follows that
+             ξ                                                 s      1/2+i T
+                (s, χ ) ds = log L(s, χ ) + log ((s + κ)/2) + log q/π
+           + ξ                                                   2      1/2+iε
+          C1
+                           = log L(1/2 + i T, χ ) − log L(1/2 + iε, χ )
+                                   + log (1/4 + κ/2 + i T /2) − log (1/4 + κ/2 + iε/2)
+                                      T −ε     q
+                                   +i      log ,
+                                        2      π
+        and that
+              ξ                                                 s      1/2−iε
+                 (s, χ ) ds = log L(s, χ ) + log ((s + κ)/2) + log q/π
+           + ξ                                                    2      1/2−i T
+          C3
+                            = log L(1/2 − iε, χ ) − log L(1/2 − i T, χ )
+                            + log (1/4 + κ/2 − iε/2) − log (1/4 + κ/2 − i T /2)
+                                T −ε      q
+                            +i        log .
+                                  2       π
+        When these quantities are added, the real parts cancel and the imaginary parts
+        are doubled, so after dividing by 2πi we ﬁnd that the number of zeros with
+        0 < γ ≤ T is
+               1                                                       T       q
+                 arg (1/4 + κ/2 + i T /2) + S(T, χ ) − S(0+ , χ) +        log .
+               π                                                      2π      π
+        By proceeding similarly with the opposite sign, we ﬁnd that the number of zeros
+        with 0 ≤ γ ≤ T is
+               1                                                       T       q
+                 arg (1/4 + κ/2 + i T /2) + S(T, χ ) − S(0− , χ) +        log .
+               π                                                      2π      π
+        We form the average of these two identities to obtain the stated result.     
+
+        Corollary 14.6 Let χ be a primitive character modulo q, with q > 1. Then
+        for T > 0,
+                     T     qT     T
+        N (T, χ ) =    log    −      + S(T, χ) − S(0, χ)− χ (−1)/8 + O(1/(T + 1)).
+                    2π     2π    2π
+        Proof If 0 < T ≤ 2, then arg (1/4 + κ/2 + i T /2)      1 and T log T /2 −
+        T     1, so the estimate is immediate in this case. Suppose that T ≥ 2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        456                                             Zeros
+
+
+        Clearly
+
+          ((−1/4 + κ/2 + i T /2) log(1/4 + κ/2 + i T /2) − (1/4 + κ/2 + i T /2))
+                                                 T                              T
+         = (−1/4 + κ/2) arg(1/4 + κ/2 + i T /2) + log((1/4 + κ/2)2 +T 2 /4)− .
+                                                 4                               2
+        Here arg(1/4 + κ/2 + i T /2) = π/2 + O(1/T ), log((1/4 + κ/2)2 + T 2 /4) =
+        2 log T /2 + O(1/T 2 ), and 2κ − 1 = −χ (−1), so the result follows by Stir-
+        ling’s formula in the form (14.3).                                        
+
+            By combining the above with Lemma 12.8 we obtain
+
+        Corollary 14.7 Let χ be a primitive character modulo q, q > 1. Then for
+        T ≥ 4,
+                                               T     qT    T
+                               N (T, χ) =        log    −    + O(log qT ).
+                                              2π     2π   2π
+
+
+                                               14.1.1      Exercise
+        1. Let χ be a primitive character modulo q with q > 1. Show that if L(s, χ ) = 0
+           for σ > 1/2, then
+                                                                      
+                                    T      qT     T           log qT
+                       N (T, χ ) =     log    −      +O
+                                   2π      2π    2π         log log qT
+            for T ≥ 2.
+
+
+
+                                  14.2      Zeros on the critical line
+        At present we are unable to prove the Riemann Hypothesis, which asserts that all
+        non-trivial zeros of the zeta function lie on the critical line σ = 1/2. However,
+        we are able to show that inﬁnitely many zeros lie on this line.
+
+        Theorem 14.8 (Hardy) There exist inﬁnitely many real numbers γ such that
+        ζ (1/2 + iγ ) = 0.
+
+            For real t, let
+                                                         (1/4 + it/2)π −1/4−it/2
+                             Z (t) = ζ (1/2 + it)                                  .               (14.6)
+                                                       | (1/4 + it/2)π −1/4−it/2 |
+        Thus, as depicted in Figure 14.1, Z (t) is real-valued, |Z (t)| = |ζ (1/2 + it)|,
+        and Z (t) changes sign at γ if and only if ζ (s) has a zero at 1/2 + iγ of odd
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                          14.2 Zeros on the critical line                                457
+
+
+
+
+            0
+                              0                        0                    0                 0          100
+
+        –
+
+
+        –
+
+                                    Figure 14.1 Graph of Z (t) for 0 ≤ t ≤ 100.
+
+
+        multiplicity. If T > 0 is a real number such that
+                                                 2T                    2T
+                                                      Z (t) dt <            |Z (t)| dt,                (14.7)
+                                             T                     T
+
+        then Z (t) is not of constant sign in the interval (T, 2T ), which is to say that ζ (s)
+        has at least one zero 1/2 + iγ of odd multiplicity, with T < γ < 2T . Although
+        it is possible to show that (14.7) holds for all large T , the requisite arguments
+        involve technical tools that we have not yet developed.
+                                                                     Fortunately, there is a
+        family of weights W (t) such that the integral W (t)Z (t) dt can be evaluated
+        by interpreting it as an inverse Mellin transform with a familiar kernel. Thus we
+        are able to establish a weighted variant of (14.7), which sufﬁces for our purpose.
+        In preparation for the main argument, we establish two preliminary results.
+        Lemma 14.9           If z > 0 and σ0 > 1, then
+                           1         σ0 +i∞                                          
+                                                                                     ∞
+                                              ζ (s) (s/2)(π z)−s/2 ds = 2                  e−π n z .
+                                                                                                  2
+
+                          2πi       σ0 −i∞                                           n=1
+
+           This is the inverse of the Mellin transform relationship (10.7) that Riemann
+        used to establish the functional equation.
+        Proof      By Theorem C.4 we see that if w > 0 and σ0 > 0, then
+                                                 σ0 +i∞
+                                     1
+                                                           (s/2)w −s/2 ds = 2e−w .
+                                    2πi       σ0 −i∞
+
+        We take w = πn z, and sum over n, to obtain the desired identity. Here the
+                                2
+
+        exchange of summation and integration is permissible since the Dirichlet series
+        for ζ (s) is uniformly convergent on the abscissa σ0 , and since
+                                      ∞
+                                                 ((σ0 + it)/2)(π z)−s/2 dt < ∞.
+                                     −∞
+
+                                                                                                           
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        458                                                  Zeros
+
+
+        Lemma 14.10 We have
+                                             T                                
+                                                 ζ (1/2 + it) dt = T + O T 1/2
+                                         1
+
+        uniformly for T ≥ 2.
+        Proof Let C denote the rectangular contour with vertices 1/2 + i, 2 + i,
+        2 + i T , 1/2 + i T . Since ζ (s) is analytic in this rectangle, we have
+
+                                                            ζ (s) ds = 0
+                                                        C
+
+        by Cauchy’s theorem. The integral from 1/2 + i to 2 + i is an absolute constant,
+        and by Corollary 1.17 the integral from 1/2 + i T to 2 + i T is
+                                                 2          
+                                                    1 + T 1−σ (log T ) dσ            T 1/2 .
+                                             1/2
+
+        Thus
+                                T                                 T                         
+                                    ζ (1/2 + it) dt =                 ζ (2 + it) dt + O T 1/2 .
+                            1                                 1
+
+        This latter integral is
+                  ∞           T                     n −i − n −i T
+                                                     ∞
+               =       n −2      n −it dt = T − 1 +                 = T + O(1),
+                  n=1        1                      n=2
+                                                        in 2 log n
+        so we have the stated result.                                                                  
+
+        Proof of Theorem 14.8 The integrand in Lemma 14.9 has a pole at s = 1
+        with residue z −1/2 , but is otherwise analytic for σ > 0. We move the path of
+        integration to the line σ = 1/2, and multiply both sides by z 1/4 to see that
+                                     ∞
+                           1
+                                         ζ (1/2 + it) (1/4 + it/2)π −1/4−it/2 z −it/2 dt
+                          2π        −∞
+                                                                                                   (14.8)
+                                                            
+                                                            ∞
+                             = −z −1/4 + 2z 1/4                   e−π n z .
+                                                                         2
+
+
+                                                            n=1
+                                                                  ∞
+        Here the left-hand side is of the form                    −∞ W (t)Z (t) dt with
+                                                            | (1/4 + it/2)|
+                                                  W (t) =                    .
+                                                               2π 5/4 z it/2
+        Write z in polar coordinates, z = r eiθ . Then z −it/2 = r −it/2 eθ t/2 . For our app-
+        roach to work, W (t) must have constant argument. Accordingly, we take r = 1,
+        and set θ = π/2 − δ where δ is small and positive. By (C.19) we see that
+
+                                                 | (s/2)|     τ (σ −1)/2 e−π τ/4 .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             14.2 Zeros on the critical line                                           459
+
+
+        Hence
+                                                                     
+                                    −1/4 π (t−τ )/4 −δt/2                τ −1/4 e−(π−δ)τ/2              if t ≥ 0,
+                    W (t)       τ        e             e
+                                                                         τ −1/4 e−(1−δ)π τ/2            if t ≤ 0.
+        Thus W (t) tends to 0 very rapidly as t → −∞, but relatively slowly as t →
+        +∞. In particular,
+
+                                                           W (t)     τ −1/4
+
+        uniformly for 0 ≤ t ≤ 1/δ.
+           By the above and Lemma 14.10 we see that
+               ∞                                           1/δ                                   1/δ
+                   W (t)|Z (t)| dt            δ 1/4              |Z (t)| dt = δ 1/4                    |ζ (1/2 + it)| dt
+              −∞                                       1/(2δ)                                1/(2δ)
+
+                                                                                      δ −3/4 .
+
+           In order to exhibit
+                              a disparity, we must show that the right-hand side
+        of (14.8) is o δ −3/4 . To this end it sufﬁces to argue fairly crudely. Since
+        z = ie−iδ = sin δ + i cos δ, by the triangle inequality the right-hand side of
+        (14.8) is
+                                          ∞
+                                              e−π n sin δ .
+                                                   2
+
+
+                                                             n=1
+
+        By the integral test this is
+                                ∞                                                 ∞
+                                    e−π u sin δ du = (sin δ)−1/2                      e−π v dv           δ −1/2 .
+                                         2                                                  2
+                      ≤
+                            0                                                 0
+
+        If ζ (s) had only ﬁnitely many zeros on the critical line, then we would have
+                                    ∞                               ∞
+                                        W (t)Z (t) dt =                  W (t)|Z (t)| dt + O(1)
+                                −∞                                 −∞
+
+        uniformly as δ → 0+ . On the contrary, we have shown that
+                       ∞                                                  ∞
+                           W (t)Z (t) dt              δ −1/2 ,                W (t)|Z (t)| dt              δ −3/4 ,
+                     −∞                                                  −∞
+
+        so the theorem is proved.                                                                                          
+
+
+                                                      14.2.1        Exercise
+        1. (a) Show that the right-hand side of (14.8) is
+
+                                               = −z −1/4 − z 1/4 + z 1/4 ϑ(z),
+
+                  in the notation of (10.8).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        460                                                 Zeros
+
+
+            (b) Show that if z = ie−iδ = sin δ + i cos δ, then
+                                                  
+                                                  ∞
+                                                       (−1)n (1 + O(n 2 δ 2 ))e−πn sin δ .
+                                                                                         2
+                                  ϑ(z) =
+                                                 n=−∞
+
+            (c) Show that
+                                                   
+                                                   ∞
+                                                         n 2 e−π n sin δ       δ −3/2
+                                                                    2
+
+
+                                                  n=−∞
+
+                for 0 < δ ≤ 1.
+            (d) By taking α = 1/2 in Theorem 10.1, or otherwise, show that
+                                         
+                                         ∞
+                                                   (−1)n e−πn x            x −1/2 e−π/(4x)
+                                                                2
+
+
+                                        n=−∞
+
+                uniformly for 0 < x ≤ 1.
+            (e) Show that if z is taken as in (b), then ϑ(z)   δ 1/2 .
+            (f) Conclude that the right-hand side of (14.8) is = −2 cos π/8 + O(δ 1/2 ).
+
+
+
+                                                     14.3        Notes
+        Section 14.1. Theorem 14.1 and Corollary 14.2 are due to Backlund (1914,
+        1918), and this gave a shorter proof of Corollary 14.3 which had been ob-
+        tained by von Mangoldt (1905). Earlier von Mangoldt (1895) had the error
+        term O((log T )2 ). Riemann (1859) proposed Corollary 14.3 but with no indica-
+        tion of a proof. It is remarkable that Corollary 14.3 is perhaps the only theorem
+        on the Riemann zeta function that has not seen some signiﬁcant improvement
+        in the last 100 years.
+            Although the maximum order of S(t) is unclear, even assuming the Riemann
+        Hypothesis, we have considerable (unconditional) knowledge of its moments
+        and distribution. Selberg (1944) showed that if k is a ﬁxed non-negative even
+        integer, then
+                     T
+                                          k!
+                         S(t)k dt =                T (log log T )k/2 + O(T (log log T )k/2−1 ).
+                 0                    (k/2)!(2π )k
+        Although Selberg did not mention it, his techniques can also be used to show
+        that
+                                             T
+                                                 S(t)k dt = o(T (log log T )k/2 )
+                                         0
+
+        when k is odd. From these estimates it follows that the distribution of S(t) is
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 14.4 References                                             461
+
+
+        asymptotically normal, in the sense that
+                                                                                             c
+                     1                                               1
+                                                                                                 e−t /2 dt
+                                                                                                    2
+                    limmeas{t ∈ [0, T ] : 2π S(t) ≤ c log log T } = √
+                T →∞ T                                               2π                    ∞
+
+        for any given real number c. Similar results apply to the distribution of the real
+        part of log ζ (1/2 + it), and indeed Selberg (unpublished) showed that the real
+        and imaginary parts can be treated simultaneously. Speciﬁcally,
+                T
+                    (log ζ (1/2 + it))h (log ζ (1/2 − it))k dt = δh,k k!T (log log T )k
+            0
+                                                                                               
+                                                                 + Oh,k T (log log T )(h+k−1)/2
+
+        where
+                                                     
+                                                         1   if h = k,
+                                            δh,k =
+                                                         0   otherwise.
+        From this it follows that log ζ (1/2 + it) is asymptotically normally distributed
+        in the complex plane, in the sense that if  is a set in the complex plane with
+        Jordan content, then
+                1       /               log ζ (1/2 + it)    0      1
+                                                                          e−|z| d x d y.
+                                                                               2
+           lim meas t ∈ [4, T ] :         √              ∈ =
+          T →∞ T                             log log t             π    
+
+           Section 14.2. Theorem 14.8 was announced and a proof sketched in Hardy
+        (1914). Further details are given in Hardy & Littlewood (1917). Let N0 (T )
+        denote the number of zeros of the form 1/2 + iγ with 0 < γ ≤ T . Hardy
+        & Littlewood (1921) showed that N0 (T )          T . Later Selberg improved this,
+        ﬁrst (1942a) to N0 (T )     T log log T and then (1942b) to N0 (T )      T log T ,
+        so that a positive proportion of the zeros are on the 12 -line. Levinson (1974)
+        introduced an alternative method that enabled him to show that at least one-
+        third of the non-trivial zeros are on the 12 -line. Selberg’s method detects only
+        zeros of odd multiplicity. This should not be a handicap, since presumably all
+        zeros are simple. Heath-Brown (1979) has observed that Levinson’s method
+        detects only simple zeros. Conrey (1989) used Levinson’s method to show that
+        N0 (T )  25 N (T ).
+           The proof we have given of Hardy’s Theorem 14.8 is but one of several
+        described by Titchmarsh (1986, Chapter 10).
+
+
+
+                                             14.4        References
+        Backlund, R. J. (1914). Sur les zéros de la fonction ζ (s) de Riemann, C. R. Acad. Sci.
+            Paris 158, 1979–1981.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        462                                             Zeros
+
+
+           (1918). Über die Nullstellen der Riemannschen Zetafunktion, Acta Math. 41, 345–
+             375.
+        Conrey, J. B. (1989). More than two ﬁfths of the zeros of the Riemann zeta function are
+             on the critical line, J. Reine Angew. Math. 399, 1–26.
+        Hardy, G. H. (1914). Sur les zéros de la fonction ζ (s) de Riemann, C. R. Acad. Sci. Paris
+             158, 1012–1014; Collected Papers, Vol. 2, Oxford: Oxford University Press, 1967,
+             pp. 6–8.
+        Hardy, G. H. & Littlewood, J. E. (1917). Contributions to the theory of the Riemann
+             Zeta-function and the theory of the distribution of primes, Acta Math. 41, 119–196;
+             Collected Papers, Vol. 2, Oxford: Oxford University Press, 1967, pp. 20–97.
+           (1921). The zeros of Riemann’s zeta-function on the critical line, Math. Z. 10, 283–
+             317; Collected Papers, Vol. 2, Oxford: Oxford University Press, 1967, pp. 115–149.
+        Heath–Brown, D. R. (1979). Simple zeros of the Zeta-function on the critical line, Bull.
+             London Math. Soc. 11, 17–18.
+        Levinson, N. (1974). More than one third of zeros of Riemann’s zeta-function are on
+             σ = 1/2, Adv. Math. 13, 383–436.
+        von Mangoldt, H. (1895). Zu Riemann’s Abhandlung “Ueber die Anzahl der Primzahlen
+             unter einer gegebenen Grösse”, J. Reine Angew. Math. 114, 255–305.
+           (1905). Zur Verteilung der Nullstellen der Riemannschen Funktion ξ (t), Math. Ann.
+             60, 1–19.
+        Riemann, B. (1859). Ueber die Anzahl der Primzahlen unter eine gegebenen Grösse,
+             Monatsber. Kgl. Preuss. Akad. Wiss. Berlin, 671–680; Werke, Leipzig: Teubner,
+             1876, pp. 3–47. Reprint: New York: Dover, 1953.
+        Selberg, A. (1942a). On the zeros of Riemann’s zeta-function on the critical line, Arch.
+             Math. Naturvid. 45, 101–114; Collected Papers, Vol. 1, New York: Springer Verlag,
+             1989, pp. 142–155.
+           (1942b). On the Zeros of Riemann’s Zeta-function, Skr. Norske Vid. Akad. Oslo I.,
+             no. 10; Collected Papers, Vol. 1, New York: Springer Verlag, 1989, pp. 156–159.
+           (1944). On the Remainder in the Formula for N (T ), the Number of Zeros of ζ (s) in
+             the Strip 0 < t < T , Avh. Norske Vid. Akad. Oslo. I, no. 1; Collected Papers, Vol.
+             1, New York: Springer Verlag, 1989, pp. 179–203.
+        Titchmarsh, E. C. (1986). The Theory of the Riemann Zeta-function, Second edition.
+             New York: Oxford University Press.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.016 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

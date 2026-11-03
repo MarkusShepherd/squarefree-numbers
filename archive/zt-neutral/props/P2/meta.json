@@ -1,0 +1,11 @@
+{
+  "id": "P2",
+  "title": "Exact decomposition of the single-modulus variance",
+  "statement": "Notation:\n- B(u) = {u}(1 - {u}) for real u >= 0.\n- A_0 = prod_p (1 - 2/p^2); eta(t) = mu^2(t) prod_{p|t} (p^2-2)^{-1}.\n- For q in N and squarefree t, m_t(q) = t^2 / gcd(t^2, q).\n- Q(x) = #{n <= x : n squarefree}.\n- For real x >= 1 and integer m >= 1: C_x(m) = #{n in N : n + m <= x, mu^2(n) = mu^2(n+m) = 1}.\n- A(m) = A_0 sum_{t>=1, t^2 | m} eta(t).\n- D_x(m) = C_x(m) - A(m)(x - m).\n- MT(x;q) = A_0 q sum_{t>=1} eta(t) m_t(q) B(x/(q m_t(q))). This converges absolutely, since B(u) <= u.\n- V(x;q) = sum_{l=1}^q E(x;q,l)^2, with E and g as in problem.md.\n\nClaim. For every real x >= 1 and every q in N,\n\n  V(x;q) = MT(x;q) + 2 sum_{1 <= h <= x/q} D_x(hq) + (Q(x) - 6x/pi^2) - 2x sum_{l=1}^q g(q,l) E(x;q,l)\n\nholds exactly. The sum over h is empty if q > x.",
+  "depends_on": [
+    "P1"
+  ],
+  "cites": [],
+  "crux": true,
+  "risk": "Bookkeeping identity. Every term must cancel exactly; any slip leaves an O(x) or O(x^2/q) term, which would dominate.\n\nRoute:\n1. sum_l Q(x;q,l)^2 = Q(x) + 2 sum_{h>=1} C_x(hq).\n2. 2 sum_{1<=h<=x/q} A(hq)(x - hq) = 2 A_0 sum_t eta(t) sum_{1<=j<=H/m_t} q(H - j m_t), with H = x/q and m_t = m_t(q). Then use sum_{1<=j<=T}(T - j) = (T^2 - T + B(T))/2. This gives x^2/q \u00b7 A_0 sum_t eta(t)/m_t - x A_0 sum_t eta(t) + MT(x;q).\n3. By P1(iv) the first term equals x^2 sum_l g^2. By P1(v) the second equals -6x/pi^2.\n4. Write sum_l g Q = sum_l g E + x sum_l g^2.\n\nNumerically, sum_k f'(k) MT(x;f(k)) matches V_f to 0.1%, which supports the identity."
+}

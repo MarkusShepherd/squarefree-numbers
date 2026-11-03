@@ -1,0 +1,597 @@
+                      10
+                     A theorem of Roth
+
+                      10.1 Introduction
+                     van der Waerden (1927) proved that given natural numbers /, r there
+                     exists an/i o (/, r) such that if n ^no(l, r)and{l, 2 , . . . , « } is partitioned
+                     into r sets, then at least one set contains / terms in arithmetic
+                     progression.
+                        For an arbitrary set s& of natural numbers, let
+
+                                   A(n) = A(n, si) = Y 1, D(n) = D(n, <<rf) = -A(n)                   (10.1)
+
+                     and write d and d for the lower and upper asymptotic densities of $4,
+
+                              d = d(s/) = liminf D(n) and                 d = d(sf) = lim sup D(w) (10.2)
+
+                     respectively. When d = 5 let J = d(<s/) denote their common value, the
+                     asymptotic density of stf. Erdos & Turan (1936), in discussing the
+                     nature of the known proofs of van der Waerden's theorem, con-
+                     jectured that every set stf with d{s/) > 0 contains arbitrarily long
+                     arithmetic progressions. An equivalent assertion is that if there is an
+                     / such that stf contains no arithmetic progression of / terms, then
+                     d(s/) = 0.
+                         The first non-trivial case is / = 3. The initial breakthrough was
+                     made by Roth (1952, 1953, 1954) in establishing this case by an
+                     ingenious adaptation of the Hardy-Littlewood method.
+                         By a different method, Szemeredi (1969) proved the conjecture for
+                     / = 4, and Roth (1972) has given an alternative proof by an approach
+                     related to that of his earlier method.
+                        In 1975, Szemeredi established the general case. Unfortunately
+                     Szemeredi's proof uses van der Waerden's theorem. More
+                     recently Furstenberg (1977) has given a proof of Szemeredi's theorem
+                     based on ideas from ergodic theory. Although this does not use van
+                     der Waerden's theorem it apparently has a similar structure and so
+                     still does not yield the sought after insight.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     156                                                                 A Theorem of Roth
+
+                       Ideas stemming from the attacks on this problem have enabled
+                     Furstenberg (1977) and Sarkozy (1978a, b) to establish that if
+                     d(stf) > 0, then the set of numbers of the forma —a' W\\\iaesrf,a'esrf
+                     contains infinitely many perfect squares.
+                        In this chapter, Roth's theorem is established using his version of
+                     the Hardy-Littlewood method, and a proof of the Sarkozy-
+                     Furstenberg theorem is developed along the lines of Furstenberg but
+                     avoiding the ergodic theory.
+                       Throughout this chapter implicit constants are absolute.
+
+                     10.2 Roth's theorem
+                     Let M(l)(n) denote the largest number of elements which can be taken
+                     from {1, 2 , . . . , « } with no / of them in progression. Let
+
+
+                     Then Szemeredi's theorem is the assertion limn _ ^ fi{l)(n) = 0, and this
+                     obviously implies the Erdos-Turan conjecture. As the following
+                     lemma shows, it is quite easy to prove that the limit exists. Its value is
+                     another matter.
+
+                     Lemma 10.1 For each integer /, lim n ^ ^ fi{l)(n) exists. Also, for              m^n
+                     one has fi{l)(m) ^ 2/i(0(n).
+
+                     Proof It is a trivial consequence of the definition of M{1) that
+                                               Mil)(m + n)^ M{l)(m) 4-
+                     Hence
+
+
+
+
+                                                        n
+                                     (l)          (l)
+                     Therefore n (m) < n (n) + n/m, so that
+
+
+                     whence
+                                                lim sup fx(l)(m) ^ lim inf ju(0(n).
+                                                  m -* OG               n -*• oo
+
+                     Also, when m ^ n, M (m) ^ {m/n + l)M{l)(n) ^ 2M(l)(n)m/n.
+                                                  {l)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     Roth's theorem                                                                          157
+
+                       The following theorem not only shows that when / = 3 the limit is 0,
+                     but gives a bound for the size of Mi3)(n).
+
+                     Theorem 10.1 (Roth) Let n ^ 3. Then                              ^3)(n)<(\og\ogn)'K
+
+                        It is henceforward supposed that / = 3, and for convenience the
+                     superscript (/) is dropped.
+                        Choose Jt c {1, 2 , . . . , n] so that card^# = M(n) and no three
+                     elements of Jt are in progression. Let
+                                                        f(oc)= £ e(<xm).
+                                                                     me,Ji
+
+                     Then
+
+                                                  M(n)=              /(a) 2 /(-2a)da                       (10.3)
+
+                     since the right-hand side is the number of solutions of ml +m2 = 2m3
+                     with m^eJi and, by the construction of Ji, such solutions can only
+                     occur when mi=m2=: m3.
+                        Let K denote the characteristic function of M, so that
+                                                                                    c).                    (10.4)
+                                                                     X
+
+                     Suppose that
+                                                                 m<n,                                      (10.5)
+                     and consider
+                                                                              n
+
+                                                       v{oL) = n(m) Y, e(oix)                               (10.6)
+                                                                             x =1
+                     and
+
+                     Then
+                                                                         n
+                                                       E(a)= X c(x)e((xx)                                  (10.7)
+
+                     with
+                                                        c(x) = fi(m) - K(X).                               (10.8)
+                        The idea of the proof is that, if M(n) is close to n, then
+                                                          1      2
+                                                        | 1 / () a ) 2 / ( - 2 a ) d a
+                                                       Jo
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     158                                                                         A Theorem of Roth
+
+                     ought to be closer to M(n)2 than to M(n)(cf. (10.3)). To show this, one
+                     first of all uses the disorderly arithmetical structure of Ji to replace /
+                     by v with a relatively small error. It is a fairly general principle,
+                     observable from the applications of the method in previous chapters,
+                     that sums of the form
+
+                                                                   Z e(<xx)
+                                                                  x<n
+                                                                  xejrf
+                     tend to have large peaks at a/q when the elements of s0 are regularly
+                     distributed in residue classes modulo q. Note that v(a) has its peaks at
+                     the integers.
+                       Let
+
+                                                         F(a)=           X e(az).                            (10.9)
+                                                                         ==o
+                     Lemma 10.2 Let q be a natural number with q < n/m, and for
+                     y = 1, 2,. . ., n - mq let
+                                                                            m- 1
+                                              o{y) = o{y; m, q) = 2. c (y + *<i)-                           (10.10)
+                                                                             X   =   0
+
+                     Then
+                                               o{y) > 0 (y = 1, 2,.                      n — mq)            (10.11)
+                     and
+                                                       n — mq
+                                     F(<xq)E(a) =         }              M*(y ••f niq — q)) + R(OL)         (10.12)
+                                                       y- z 1
+
+                     where R(OL) satisfies
+                                                                                 2
+                                                              |K(«)I <2m q-                                 (10.13)
+
+                     Proof By collecting together the terms in the product FE for which
+                     x + zq = h + mq — q one obtains
+                                                                     n
+
+                                         F(aq)E(a)=                 X            e(a(h + mq - q))
+                                                           h = 1 + q — mq
+                                                                            m - 1
+                                                              x                  Z               c(h + q(m-l-z)).
+                                                                           z= 0
+                                                                  1 < h + q(m- 1 -        z)^n
+
+                     The innermost sum is at most m in absolute value, and so the total
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     Roth's theorem                                                           159
+
+                     contribution from the terms with h ^ 0 and h> n — mq does not
+                     exceed, in modulus, m(mq + (m— l)q)< 2m2q. For the remaining
+                     values of h one has 1 < h + q(m — 1 — z) ^ n for all z in the interval
+                     [0, m - 1]. This gives (10.12) and (10.13).
+                        By (10.8) and (10.10),
+
+
+                                                                     x= 0
+                     Let
+                                                             m- 1
+
+                                                             x= 0
+
+                     Then r is the number of elements of M among y, y + q,... 9
+                     y + (m — i)q. Let these elements be y + xlq,...,y        + xrq. Then no
+                     three are in progression. Hence no three of x 1 ? . . . , xr are in
+                     progression. Likewise for l + x ^ - . ^ l + x , . . Moreover l + x 7 ^ m .
+                     Hence r ^ M{m), which gives (10.11).
+
+                     Lemma 10.3 Suppose that 2m2 < n. Then, for every real number a,
+                                               |£(a)| < 2n(|i(m) - n(n)) + 16m2.
+
+                     Proof By Lemma 2.1, there exist a, q such that (a, q) = 1, 1 ^ q ^ 2m
+                     and |a —a/q\ ^ l/(2qm). Then
+
+
+                     where    w < l/(2m). Hence, by (10.9),
+                                                                 sin nmp > 2 m
+                                                   \F(otq)\ =
+                                                                  sinnB      n
+                     Thus, by Lemma 10.2,
+                                                                    < 2
+
+                                                       2m\             7T
+
+                                                                    ^ \F(aq)E(a)\
+                                                                       n — mq
+
+
+                                                                       y=   i
+
+                                                                    < niE(0) + 8m3.
+                     Moreover, by (10.7) and (10.8),
+
+                                        £(0)= Y
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     160                                                                 A Theorem of Roth
+
+                     The lemma follows at once.
+                       Proof of Theorem 10.1. Let
+
+                                                    / = I /(oe) 2 t'(-2a)da.                        (10.14)
+                                                        Jo
+                     Then, by (10.4) and (10.6),
+
+                                                        / = I X Him).
+                                                              aeM be.Ai
+                                                                2\a + b
+
+                     Thus, if Ml is the number of odd elements of M and M2 the number of
+                     even elements, so that M1 + M 2 = M(n), then
+
+                                             / = iJim)(M\ + Ml) > i|i(wt)M(ii)2.                    (10.15)
+
+                         By (10.3) and (10.14),
+
+                                                                                   |/(a)| 2 da.
+
+                     Therefore, by Lemma 10.3 and Parseval's identity, when 2m2 < n one
+                     has
+                                        \M(n) - I\ ^ (2n(fi(m) - fi(n)) + 16m2)M(n).
+                     Hence, by (10.15),
+                              H(m)n(n) ^ 4{fi(m) - ii(n)) + 34m2n~ i (2m2 < n).  (10.16)
+                     Letting n-> oc and then m-^co shows that x = Mmn^ ^ ft(n) satisfies
+                     T2 ^ 0. To establish the quantitative version of this, let
+
+
+                     By Lemma 10.1, it suffices to show that A(2x) <^x~l.
+                       By (10.16),
+                                k{y)k{y + 1) < 4(k{y) - k(y + 1)) + 34 x 2" 3 '.
+                     Dividing by k(y)k(y +1), summing over y = x, x + l , . . . , 2 x — 1 and
+                     appealing to Lemma 10.1 gives one
+                                             x ^ 4A(2x)" J + 200xA(2x)" 2 2 " 3X.
+                     When k(2x) > 1/x the second term on the right is < \x for x
+                     sufficiently large, so that k(2x) < 8/x, which gives the desired
+                     conclusion.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     A theorem of Furstenberg and Sarkozy                                                 161
+
+                     10.3 A theorem of Furstenberg and Sarkozy
+                     Theorem 10.2 Let $4 be a set of natural numbers with d(srf) > 0, and let
+                     R(n) denote the number of solutions of
+                                                                   a—af = x2
+                     in a, a\ x with aesrf, a'estf, a^n. Then
+
+                                                     \imsupR(n)n~3/2>0.
+                                                         n -* oo
+
+
+
+                       This theorem is somewhat stronger than Theorem 1.2 of
+                     Furstenberg (1977). The approach of Sarkozy (1978) is different. He
+                     adapts the methods of § 10.2 to show that if a —a' = x2 has only trivial
+                     solutions, then
+                                               A{n)<n{\og\ogn)2l\\o%ny m.
+                           Let Jf Q denote an infinite set of natural numbers such that
+
+                                                        lim n
+                                                        n -* oo
+                                                        neJo
+
+                     let
+                                           <mn(q,a)={«:\x-a/q\<q-ln-112},                             (10.17)
+                     and let
+
+                                                              /(a)=
+                                                                      a <n
+                                                                      aes/
+                     It is necessary to show that / has fairly orderly behaviour on Wln(q, a).
+                     For n ^ 4,
+
+                                             f |/(«)
+                                            JSRn(«,a)
+                     Hence
+
+                                                          [           \f(oi)\2n-ldoc
+                                                         jWln(q,a)
+
+                     is bounded uniformly in q, a, n. Therefore one may choose infinite sets
+                         q, a) of natural numbers such that
+                                        I) = -4^(1, 0) c Jf ^           ^V(q -f- 1, 1) c= ,V(q, q — 1),
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     162                                                                          A Theorem of Roth
+
+                     ^{q, a') a ,¥{q, a) when l^cKa'^q                                — 1 and (a\ q) = (a, q) = 1 and
+
+                                           p(0,a)= lim
+
+                     exists. Thus, given Q, for all sufficiently large n with nejV(Q,Q —
+                     one has
+
+                               I       I P(q,a)<\+ I                                  t     f       |/(a)| 2 n-'da
+                             q^Q     o = l                           4<Q -a=l  JsR n (4,a)
+                                   (a«)    1                            ()   1
+
+
+                     and the Wln(q, a) with 1 < a < ^f < g and («, ^f) = 1 pairwise disjoint.
+                     Hence
+                                                                                              2
+                                                        p(q,a)< 1 + f ' l/(oc)| «-» doc ^ 2 .
+                                            (a,q) = 1
+                                                                                 Jo
+                     Therefore
+                                                            00
+
+
+
+                                                          q=
+                                                            I I  1     a! = 1
+                                                                     (a, q)= 1
+                     converges.
+
+
+
+                     10.4 The definition of major and minor arcs
+
+                     Suppose that 0 < rj < 1 and choose Q = Q0(rj) so that
+
+                                               Z        £        p(<Z,tf)<>7              and S > - .         (10.18)
+
+                     Now define
+                                                        k = (Q\)\                P = k100                     (10.19)
+                     and henceforth suppose that
+                                                            neJT(PyP-\).
+                     Then, given
+                                                                       X>\
+                     choose
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                      The definition of major and minor arcs                                              163
+
+                      so that when
+                                                                     n>n0
+                      and 1 ^ a ^ q < P with (a, q) = 1 the major arcs
+
+
+                     are pair wise disjoint,
+
+                                                       \f{oi)\2n~ldoL < p(q, a) + rjP~2                (10.20)
+
+                     and
+                                                             A(n)>\dn.                                (10.21)
+                         By (10.17), WlntX(q, a) c Wln(q, a) for n ^ n0. Hence, by (10.20),
+
+                                                       l/(a)| 2 "~ xda < p(q, a) -h ^P" 2.            (10.22)
+
+
+                       Let 9W denote the union of the major arcs WlntX(<I*a) w ^h
+                     1 ^ a ^ ^ < P and (a, ^f) = 1, and define the minor arcs m by
+                                                   m = (Xn~\l           +Xn-1]\2R.
+                     Further define
+
+                                                                      Z e(Px2)                        (10.23)
+                                                                     JC= 1
+
+
+                     where
+                                                            N^(n/k)l/2.                               (10.24)
+                     Then, by (10.19),
+
+                                       K(n)^           where         <#=          gf(/ca)|/(a)|2da.   (10.25)
+                                                                             Jo
+                        By Theorem 4.1, when (a, q)=l,
+                                                                                                  a
+                            a(y)       -1              (     a
+                                                                 \      (                             (10.26)
+                                                                                   V              q
+                     where
+
+                                 S(q,a)= £ e(ax2/q\ h(P                                               (10.27)
+                                              x=   1                              Jo
+                     Also, by Theorem 4.2, S(q, a) <£ q1/2.
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     164                                                                                   A Theorem of Roth
+
+                     10.5 The contribution from the minor arcs
+                     Suppose aem. Choose a, q so that (a,q)=l,                                             g ^ iV 4/3 , \k<x—a/q\
+                                           Let      ai=a/^9a)9                        q1=qk/(k9a).            Then       \a-ajqj
+                                          and       (a1,q1)=l.                    Since            aem,     either   qx> P    or
+                                          n   l(     l       In tne               case
+                                           ~ l\          -                fas*                 > by (10.26),
+                                                              l/2              9ll6
+                                                   <^ q~        N + q                 ll         + N   ka--
+                                                                                           \
+                                                                                       N 3/4 ,
+                     and in the second |fax - a/^| > Xn~ lq~ \ so that, by (10.26), (10.27)
+                     and Lemma 2.8,
+                                                                    ,-   1/2
+                                                                               fcx--
+
+
+                     Hence, by (10.19), in either case
+                                              g(ka) < Nk~*° 4- n1/2X
+                     Therefore, by Parseval's identity,
+
+                                       g(k<x)\f((x)\2da < (Nk~ 4 0 4- n1/2X                                    N3/4)n.    (10.28)
+                                  Jm
+
+                     10.6 The contribution from the major arcs
+                     Now suppose that aeWl,, x(q, a) where 1 < a ^ q ^ P and (a, q)=l.
+                     Let qx = q/(q, k\ a1 =ak/(q, k). Then, by (10.26),
+
+
+
+
+                     The error term here is majorized by P + N2kXn~ 1. Hence
+
+                                              0(fca)|/(a)|2da = « X 4- O(Pn + AT2/cX)                                     (10.29)
+                                        Jan
+                     where
+                                                                                                          a --))|/(a)|2da.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     Completion of the proof of Theorem 10.2                                               165
+
+                     By (10.22) and (10.18) the terms here with q^Q + 1 contribute an
+                     amount which in absolute value does not exceed
+
+                                           £         t        Nn(p(<Z,a) + >/P-2)<2>/Nn.
+                                       q=Q+1         fl=l
+                                                  («,«)= 1
+                     Also, when q < Q, by (10.19) one has q\k, so that ql = 1. Hence
+                                                            * ! = # 2 + OfaNn)                          (10.30)
+                     where
+                                  ^2= I            Z f                           />(//«--)W)| 2 da.
+                                                (a, q) •-
+                     It is easily shown that for every positive number Y
+
+
+
+                     Hence, by (10.27),
+                                                       f
+                                                       Jo
+                                                       Jo
+                                                              a~ 1 / 2 cosada > 0.
+
+
+                                                                            ioT 1/2 cos 27ra da > 0 .
+                                                                                      (10.31)
+                                                                JJ
+                                                    o
+                                                    0
+                     Therefore, on discarding all the terms in 0t2 with the exception of that
+                     with a = q — 1, one obtains
+                                                              *l/4nn
+                                                                           Re/i(fax)|/(a)|2da.
+                                                             J; -- 1/4nn
+                     Also, when |a| ^ l/(4nn\ one has
+
+                                                                =      X
+                                                                     x= 1
+                                                                        1
+                                                                                 27T1X
+                                                                                         JO
+                                                                                              etfxW
+                                                                                              i
+                                                                     x=                  Jo
+
+
+                     so that                                    -27r|a|n)^i/(0) = -|i4(w).
+
+                     Therefore                                             /•l
+                                                                           \         Re/i(/ca)da.       (10.32)
+                                                                       Jo
+
+                     10.7 Completion of the proof of Theorem 10.2
+                     By (10.24) and (10.31), Re h(ka) > ±N whenever 4nn\oc\ ^ 1. Hence, by
+                     (10.32) and (10.21),
+
+                                                                                         250
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+                     166                                                                  A Theorem of Roth
+
+                     Thus, by (10.25), (10.28) and (10.30),
+
+                                                               40
+                                               + O((Nk~             + n1/2X-       1/2
+                                                                                         + N 3 / 4 )n +r/Nn)
+
+                                   >—nN           - C ( ( N / c " 4 0 + n1/2X~           1/2
+                                                                                               + N3/
+                                    250
+                                                                                                        (10.33)
+                     for a suitable constant O 1.
+                        The proof is completed by making suitable choices of the para-
+                     meters. Let
+                                                         rj= 10
+                     This fixes Q = Q0{r\) and so k and P. Note that, by (10.18) and (10.19),
+
+                        Let
+
+
+                     and suppose that n ^ no(rj, X) with neJf(P, P — 1). Finally, let
+                     N = [(rc//c)1/2]> so that (10.24) holds. Now for n ^ n^rj),
+                                      C((Nk~*0 + nmX~ 1/2 + Nm)n -h rjNn)
+
+                                             < 5CrjNn
+                                                1 -..
+
+                     Hence, by (10.33),
+
+                                            lira sup K(«)n~ 3/2 ^ ^ - 3 2 f c - m > 0
+                                              n -*• oo                   JUU
+
+
+                     as required.
+
+                     10.8 Exercises
+
+                         1 Prove the theorem of Sarkozy stated in § 10.3.
+                        2 Show that if d(<srf) > 0 and R(n) denotes the number of solutions
+                     of a — a! = p — 1 with ae <*/, a'e^.a^n,    p prime, then
+                                          lim sup R(n)(\ogn)n~2 > 0.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.013 Published online by Cambridge University Press
+

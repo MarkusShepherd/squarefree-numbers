@@ -1,0 +1,440 @@
+                         Goldbach Numbers and Uniform Distribution mod 1
+
+                                        JORG BRUDERN and ALBERTO PERELLI
+
+
+            1. Introduction As an illustrative example of their celebrated circle method,
+            Hardy and Littlewood were able to show that subject to the truth of the Gen-
+            eralized Riemann Hypothesis, almost all even natural numbers are the sum of
+            two primes, the yet unproven hypothesis being removed later as a consequence
+            of Vinogradov's work. Natural numbers which are representable as the sum of
+            two primes are called Goldbach numbers, and it is still not known whether all,
+            or at least all but finitely many, even positive integers > 4 are of this form.
+            The best estimate for the number of possible exceptions is due to Montgomery
+            and Vaughan [4]. They showed that all but O(X1~S) even natural numbers
+            not exceeding X are Goldbach numbers, for some small 6 > 0.
+                  More information about possible exceptions can be obtained by considering
+            thin subsequences of the even numbers, with the aim of showing that almost
+            all numbers in the subsequence are Goldbach numbers. In this direction, short
+            intervals have been treated by various authors. It is now known that almost
+            all even numbers in the interval [X, X + X u / 1 6 0 + e ] are Goldbach numbers
+            (see Baker, Harman and Pintz [1]). Perelli [5] has shown that almost all even
+            positive values of an integer polynomial satisfying some natural arithmetical
+            conditions are Goldbach numbers.
+                  In this paper we give further examples of sequences with this property.
+            They arise, roughly speaking, as integer approximations to values of real-valued
+            functions at integers points whose fractional parts are uniformly distributed
+            modulo one. We need some notation to make this precise.
+                  Let V C R be a set with \v± — V2\ > 2 for any distinct values t>i,t>2 G V.
+            We write V(X) for the number of v G V with v < X, and associate with V the
+            exponential sum
+                                                     T(a)= Yl <av)'                           W
+                                                vev,v<x
+             The set V is called admissible sequence if for any A > 0 there is a B = B(A) > 0
+             with B —> oo as A —> oo, and such that uniformly for X~l{[ogX)A < \a\ <
+             (logX)A one has
+                                                               B
+                                                                 .                       (2)
+             We remark that integer sequences are not admissible since (2) clearly fails for
+             a = 1. For an admissible sequence V, let E(V,X) denote the number of all
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+             44                                       J. Briidern and A. Perelli
+
+            v G V with v < X for which the inequality \v — p\ — P2I < 1 h&s no solution in
+            odd primes pi,P2-
+            Theorem Let V be an admissible sequence. Then we have, for any C > 0,
+
+
+            For any v G V the interval [v — l,v + l) contains exactly one even integer, which
+            we denote by v. Since V is admissible, the v are all distinct. Our Theorem
+            implies, in particular, that almost all v are Goldbach numbers, since V is not
+            an integer sequence.
+                 Among the numerous examples of admissible sequences, the simplest is
+            {nc : n G N} where c > 1 is a fixed non-integral real number. In this case
+            the exponential sum estimate (2) is a simple consequence of van der Corput's
+            method (see Graham and Kolesnik [3], Theorem 2.8, for example). A more
+            interesting feature of our result is that it opens a road to test Goldbach's
+            conjecture on average over sequences which increase more rapidly than any
+            polynomial. In fact, Vinogradov's method can be used to show that n log l o g n
+            is admissible, and an even thinner admissible sequence is exp((logn)7), where
+            1 < 7 < I is fixed. This also follows from Vinogradov's method, but lack of
+            space does not permit to discuss the details here. In this particular example,
+            the exponential sum estimate (2) can be considerably improved, and a variant
+            of the argument below yields a better bound for the exceptional set. We refer
+            to our forthcoming paper [2].
+                 We have already remarked that integer sequences are never admissible.
+            However, as will be clear from the argument below, it is easy to write down an
+            analogue of our Theorem for integer sequences. But, as we shall see in §4, the
+            numbers v are uniformly distributed in residue classes, and this is in marked
+            contrast with many interesting integer sequences which usually obey a more
+            complicated distribution law. In such a case, the exponential sum T(a) will
+            have more than one peak in [0,1]. It appears difficult to imagine a variant
+            of our Theorem for integer sequences which covers all situations to which the
+            underlying principle might be applied. Perelli [5] can serve as a model of what
+            is possible in this direction.
+            2. A simple lemma We require an easy auxiliary formula. For a real
+            number v we write v = [v] 4- {v} with [v] G Z and {v} G [0,1), as usual.
+            Lemma 1 Let f : K —> C be a function of period 1 which is integrable over
+            [0,1], and let
+                                                  f(n)=
+                                                f f((3)e(-(3n)d(3
+                                               Jo
+             denote its n-th Fourier coefficient Then we have, for any v G R,
+                                                                                              ) + {v}f([v] + 1).
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+                                        Goldbach Numbers and Uniform Distribution                   45
+
+
+
+            Proof      For a function g G L1(IR) we write
+
+
+                                                 g(a)= f" g(f3)e(-ap)d/3
+                                                            J — OO
+
+
+
+            for its Fourier transform. Now let
+
+                                                       K{a)=(sj^\\
+
+
+            Then
+                                                    K(a) = max(l-|a|,0).                           (3)
+            We now observe that the left hand side of the proposed formula equals
+
+                                                        f(a)e(-av)K(a)da
+
+
+                                                        E                                          (4)
+
+            Since the Fourier transform of G(t) = e(-v(/3 + t))K(0 + t) is G(s) = e(/3s)K(v
+            + «), from the Poisson summation formula and (3) we get
+                                  00
+
+
+                                 E p(-i,(ft-U>n\\K(ft±>n\ = \ " ^(^n)K(v + Tl)
+                                 \^
+                               n=—00
+
+                                                                       e(-(3[v] - j3)K{{v} - 1).
+
+            Inserting this into (4), the lemma follows.
+            3. The Fourier transform method We now embark on the main argu-
+            ment. The letter p, with or without subscripts, always denotes an odd prime.
+            With this convention understood, we then consider the sum
+
+
+
+
+            where v > 1 is real. Then, on writing
+
+
+                                                               p<X
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+              46                                       J. Briidern and A. Perelli
+
+             we note that for 1 < v < X one has
+                                                           •>oo
+
+                                             r(v)= /              S(a)2e(-av)K{a)da.                (5)
+                                                       J — oo
+
+
+                  Now let A > 100 and put P = (\ogX)6A. Let 9JI denote the the union
+             of all intervals \a - a/q\ < P/X with (a,q) = 1 and 1 < q < P. Write
+             Otti = »l H [0,1]. By Lemma 1 with /(a) = 5(a) 2 for a e 3rt and / ( a ) = 0
+             otherwise, we deduce that
+
+                               S(aye(-av)K(a)               da = (1 - {v})R([v]) + {v}R([v} + 1),   (6)
+                          Jon
+             where
+                                                 R(m) =
+
+             The integral R(m) is the familiar major arc contribution in the classical treat-
+             ment of the binary Goldbach problem. For integers m with 1 < m < X + 1
+             one has
+
+                                                       {
+                                                    q<p
+
+             where
+                                                      v—\          / 0,771 \
+                                       cq(m)= a=l
+                                              J2 e{—) =
+                                                    (a,g)=l
+             is Ramanujan's sum. For a proof of (7) see Vaughan [6, (3.22)], for example.
+                  The natural next step would be to complete the sum in (7) to the singular
+             series. Unfortunately this does not work in our case for individual m. A
+             standard argument based on the bound
+
+                                                            \cq(m)\ < (q,m)                         (8)
+
+             shows that
+                                                 E                                                  (9)
+
+
+             Therefore, we can indeed complete the sum in (7), and the resulting series is
+             absolutely convergent and can be written as an Euler product. This yields
+
+
+                                             ^
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+                                        Goldbach Numbers and Uniform Distribution                            47
+
+            with
+                                       «<->-11(1-^)1                                          ^
+                                                  p\m                        p\m
+            where the products extend over all primes including 2 (contrary to our overall
+            convention, in this formula only). A straightforward use of (9) with Q = P to
+            estimate the error in (10) would produce an unacceptable loss. We circumvent
+            this difficulty and apply (9) with Q = X1/s. Then, for m < X + 1, we can
+            rearrange (10) as
+
+
+                                          ^                 = e(m) - A(m) + O(X~1/*)                        (11)
+                                    q<P V\")
+
+            where
+
+                                                                £
+                   By (6), (7), and (11), we now conclude as follows:
+             Lemma 2            For real v with 1 < v < X one has
+
+                         [ S(a) e(-av)K(a) da = (1 - {v})[v)(e{[v}) + A([v]))
+                                   2
+
+                        Ja
+                                                           + 1) + A(M + 1)) + O(X(logX)-4A).
+
+
+                  We end our preliminary analysis of the major arc contribution by extract-
+             ing a lower bound from the asymptotic relation in Lemma 2. This will only be
+             possible with some control on {v} and A. With this in mind we first observe
+             that 6(ra) = 0 if m is odd, and if m is even, then &{m) ^> 1. Let B be
+             the positive number defined via (1) and (2). We may assume, without loss of
+             generality, that B < A. If we also suppose that ^X < v < X and
+
+                                                                                                            (13)
+                                                                                                  B/6
+                                                                                                        ,   (14)
+             then Lemma 2 gives
+
+                                            S(a)2e(-av)K(a) da > X(logX)~B/8.
+                                        m
+             In the next section, we show that (13) and (14) hold for almost all v in an
+             admissible sequence.
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+             48                                       J. Briidem and A. Perelli
+
+            4. Counting exceptions We remarked already that admissible sequences
+            have uniformly distributed fractional parts. The following simple upper bound
+            is enough for our purposes.
+
+            Lemma 3            Let V be an admissible sequence. Then we have, for any B > 0,
+
+                     # K V :         v < X, a < {av} < b} < V(X)(b - a + (logX)" B )                 (15)
+
+            uniformly for 0 < a < b < 1 and X~1^2 < \a\ < 1.
+            Proof This is well known and may be refined to an asymptotic formula. We
+            give a quick proof for completeness. Let N be a natural number. The Fejer
+            kernel
+
+                                                                          \k\<N
+            is a non-negative function of period 1, and one has ^N(1) > \N for \t\ <
+
+                Now fix B > 0 and write 8 = b — a. We first prove the lemma for
+            (\ogX)~B < S < \. Take N = [6"1]. Then, the left hand side of (15) does not
+            exceed
+
+
+                            vGV,v<X
+
+            The term with fc = 0 contributes 4iV-1T(0) < <5F(X). For 0 < |fc| < TV we
+            have |fca| < (logX) B . Choose A in (2) so large that B < B(A). Since we
+            may suppose that B(A) < A, we deduce that T[ka) < V(X)(\ogX)~B,             and
+            Lemma 3 follows in this case.
+                 If 0 < 6 < (logX)~ B we increase the left hand side of (15) and replace b
+            with a + (\ogX)~B. We then appeal to the previous case, and again confirm
+            (15). For 6 > \ the bound (15) is trivial, and the proof of Lemma 3 is complete.
+                 As an immediate corollary of Lemma 3 (with a = 1) we deduce that
+            (13) holds for all but O{V{X) (logX)" 5 / 8 ) values of v < X in an admissible
+            sequence V.
+                 We now count exceptions to (14). We shall establish the bound
+
+                                                                                              B 2
+                                                                                               / .   (16)
+                                          v€V,v<X
+
+             From this we infer that \A([v])\ > (logX)" 5 / 6 can hold for at most O(V(X)
+             x (logX)~ B / 3 ) values of v < X, v G V. Now note that if V is admissible, then
+             the sequence v 4- 1, v G V, is also admissible; this follows from (1) and (2).
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+                                        Goldbach Numbers and Uniform Distribution                     49
+
+            Hence, (16) also holds with [v] + 1 in place of [v]. Therefore, the number of
+            v<X,veV,      for which (14) does not hold is bounded by   O(V(X)(logX)-B/3).
+            We summarize these results in the following
+            Lemma 4 Let V be an admissible sequence. Then, for all but
+                                                      O(V(X)(logX)-B/8)
+             values ofvGV           in the range \X < v < X, we have
+
+                                       [ S(a)2e(-av)K(a)da^>                         X(logX)-B/8.
+
+             Here B is defined via (1) and (2).
+                 It remains to verify (16). For real v and d € N one has [v] = 0 (mod d) if
+            and only if {v/d} < 1/d. In Lemma 3 we choose a = 0, b = a = 1/d. Then,
+            uniformly for 1 < d < X1/2, we find that
+                                                                                              B
+                                                                    P                               (17)
+                                       [v]=0(modd)
+            where, here and in the following argument, the summation is restricted to
+            v eV,v <X.
+                By (8), (12), and (17) we get
+
+                         £|A(M)i<                  E
+                                                  E          J^q)    E ( ^ W + dV{X){\ogX)-*)
+                                                             ^        d\q
+
+                                                                            +•
+                                                                 0(^)            (\ogX)
+                                                       q>P       ^v^y            v   to   J
+
+
+
+             and (16) follows immediately.
+            5. The minor arcs We complete the proof of the theorem by estimating
+            the contribution of the minor arcs m = E \ 9JI to the integral (5).
+                 We begin by cutting off a tail from m. For any k 6 N,
+
+                                            I/                   S(a)2e(-av)K{a)da
+                                            1
+                                                A<|a|<ib+1
+
+                                                  k<\a\<k+1         N
+
+                                                              (a)| 2 da <AT 2 X log X
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+             50                                       J. Brudern and A. Perelli
+
+            and hence
+
+                                  /                S(a)2e(-av)K(a) da < X(logX)~A,                       (18)
+                                               A
+                                 J\a\>(\ogX)
+                                 l\a\>(\ogX)
+            uniformly in v.
+                 It now suffices to consider the truncated minor arcs
+
+
+
+            We apply the familiar method of estimating the variance
+
+                                        3 = ]C | / S(a)2e(-av)K(a) da
+
+            Squaring out produces
+
+                                 E=        f f S{a)2S(-(3)2K(a)K((3)T(a                  - (3) da d(3.   (19)
+                                        J x\ J n
+
+            Invoking the simple bound
+
+                                      [\S(a)\2K{a)da<                f        \S(a)\2K(a)da
+                                      Jn                            J — oo
+
+                                                                — /__^(l°gp)2 ^ ^ l ° g ^ ?              (20)
+                                                                    p<X
+
+            we deduce from (2) that the contribution to (19) arising from pairs (a, /?) G n x n
+            with \a — (3\> X~ 1 (logX) A does not exceed
+
+
+
+
+             In the remaining set, we have (3 = a + C w ^ h \(\ < X - 1 ( l o g X ) A . After a
+             change of variable we see that this set contributes to (19) at most
+
+                                                                          /
+
+
+
+             here we have used (20) and the trivial bound for T(a). By Vinogradov's es-
+             timate (see Theorem 3.1 of Vaughan [6]) we have S((3) < X(logX)" 2 A for
+             (3 G m. Hence, the quantity under consideration is
+                                                                                1-3A
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+                                        Goldbach Numbers and Uniform Distribution             51
+
+            and since A > B by our overall assumption, this yields
+
+                                                  E<£V(X)X2(\ogX)2-B.
+
+                   A standard argument now shows that the inequality
+
+                                      I f S(a)2e(-va)K(a)da                 < X(\ogX)~B/4
+                                      ' Jn
+            holds for all but O(V(X)(\ogX)-B/3)    values of v < X,v G V. Combin-
+            ing this with (18), (5) and Lemma 4, we have now shown that for all but
+            O(V(X)(\ogX)-B/8)     values of v G V with \X < v < X we have r(v) >
+            X(\ogX)~~B/s. The theorem follows by applying this result with 2~~JX, where
+            0 < j <2logX.
+
+                                                            References
+              [1] R.C. Baker, G. Harman and J. Pintz. The exceptional set for Goldbach's
+                  problem in short intervals. Sieve Methods, Exponential Sums, and their
+                  Applications in Number Theory (G.R.H. Greaves, G. Harman and M.N.
+                  Huxley, Eds.), Cambridge Univ. Press, London, 1996, pp. 1-54.
+              [2] J. Briidern and A. Perelli. Goldbach numbers in sparse sequences. To ap-
+                  pear.
+              [3] S.W. Graham and G. Kolesnik. Van der CorpuVs Method of Exponential
+                  Sums. Cambridge Univ. Press, London, 1991.
+              [4] H.L. Montgomery and R.C. Vaughan. The exceptional set in Goldbach's
+                  problem. Acta Arith., 27 (1975), 353-370.
+              [5] A. Perelli. Goldbach numbers represented by polynomials. Rev. Mat. Ibe-
+                  roamericana, 12 (1996), 477-490.
+              [6] R.C. Vaughan. The Hardy-Littlewood Method. Cambridge Univ. Press,
+                  London, 1981.
+                   Jorg Briidern
+                   Mathematisches Institut A, Universitat Stuttgart
+                   Pfaffenwaldring 57, D-70550 Stuttgart, Germany
+                   Alberto Perelli
+                   Dipartimento di Matematica, Universita di Genova
+                   Via Dodecaneso 35, 1-16146, Genova, Italy
+
+
+
+
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+https://doi.org/10.1017/CBO9780511666179.006 Published online by Cambridge University Press
+

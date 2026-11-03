@@ -1,0 +1,67 @@
+# Plan: dirichlet@gpt-6.1-sol
+
+Model: codex:gpt-6.1-sol
+
+A six-proposition plan retaining every polynomial and the original weight. Uniform squarefree-pair estimates reduce the problem to an explicit singular-series sum over h. A fractional-part kernel evaluates that sum without a difficult contour shift. The resulting asymptotic range is x^{7/9+δ} ≤ f(y) ≤ x^{1−δ}. Numerical constants agree with the reported extrapolation bands. Persistent fixed-ratio corrections explain why joint numerical fits give exponents different from 1/2 and 3/2. No excluded source was consulted. The published input used is R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), https://doi.org/10.1112/S0024611505015352.
+
+## Main theorem
+
+Proposed theorem. Let f satisfy all hypotheses in problem.md, let d be its degree, and put Y=f(y). Define ζ(s)=∑_{n≥1}n^{−s} for real s>1 and M_f=∏_p[1+((√p−p)ρ(p))/(p(p²+p−2))+((1−√p)ρ(p²))/(p²(p²+p−2))], where every product indexed by p runs over primes. These products converge absolutely, M_f>0, and C_f=(2ζ(3/2)/(3π))∏_p(1−3/p²+2/p³) M_f. For every 0<ε<1/20 there is a constant C(f,ε)>0 such that, uniformly for real x≥2 and y≥2 with Y≤x, |V_f(x,y)−C_f x^{1/2}Y^{3/2}| ≤ C(f,ε)[x^{5/3+ε}log(2x)+x^{2/5+ε}Y^{8/5}+x^{1/2}Y^{3/2+ε}y^{−3/4+ε}]. Consequently, for every 0<δ<1/9, putting η=min{δ/20,1/(20d)}, there are constants C(f,δ)>0 and x₀(f,δ)≥2 such that |V_f(x,y)−C_f x^{1/2}Y^{3/2}| ≤ C(f,δ)x^{1/2}Y^{3/2}x^{−η} uniformly when x≥x₀(f,δ) and x^{7/9+δ}≤Y≤x^{1−δ}.
+
+## Numerics check
+
+Compatible with the evidence, although the data do not establish the shrinking-ratio limit. The reported extrapolations are respectively 0.13447±0.00728, 0.13632±0.00240, and 0.14169±0.00822; all contain the predicted constants. Fixed-ratio slopes are near 2, agreeing with 1/2+3/2. Joint fits around α=0.45 and β=1.53–1.55 differ from the limiting prediction, but the normalized data retain substantial ratio dependence. An independent evaluation of the singular-series pair model at x=1,000,000 and f(t)=2t+1 gives normalized variance 0.18369168 at Y/x≈1, against the recorded 0.18368977, whereas the limiting constant is 0.14261. Thus the finite-ratio effect already occurs in the arithmetic model. Cubic discretization also remains visible. The recorded implementation validations and this comparison give no indication of a counting error; extrapolation uncertainty remains heuristic.
+
+## P1: Local densities and the linear centering term
+
+Depends on: none  
+Cites: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), https://doi.org/10.1112/S0024611505015352
+
+Let c=1/ζ(2)=6/π², where ζ(s)=∑_{n≥1}n^{−s} for real s>1. For integers q≥1 and l, write p∥q when p divides q and p² does not divide q. Then g(q,l)=(c/q)∏_{p|q}(1−p^{−2})^{−1} ∏_{p∥q, p|l}(1−p^{−1}) ∏_{p²|q}1_{p²∤l}, where 1_A denotes the indicator of A. Define D(q)=∑_{l=1}^q g(q,l)² and C=∏_p(1−2/p²). Then D(q)=(C/q)∑_{r≥1} μ²(r)gcd(r²,q)/(r²∏_{p|r}(p²−2)); the series converges absolutely. Extend g(q,l) periodically to every integer l. There is an absolute constant C₀>0 such that, uniformly for real x≥2 and integers 1≤q≤x, |Q(x;1,1)−cx|≤C₀√x and |∑_{1≤n≤x}μ²(n)g(q,n)−xD(q)|≤C₀√x/q. Empty products equal 1, and all products over p are over primes.
+
+*Risk:* The local formula must include non-coprime residue classes. The linear-moment bound needs the factor 1/q; losing it would substantially weaken the final range.
+
+## P2: Uniform squarefree-pair correlation
+
+Depends on: none  
+Cites: none
+
+Define C=∏_p(1−2/p²) and, for integers r≥1, S(r)=C∏_{p²|r}(p²−1)/(p²−2), with products over primes. For every 0<ε<1/20 there is C₂(ε)>0 such that, uniformly for real x≥2 and integers 1≤r≤x, |∑_{1≤n≤x−r} μ²(n)μ²(n+r)−(x−r)S(r)|≤C₂(ε)x^{2/3+ε}. A sum over an empty interval equals zero. No dependence on r is permitted in C₂(ε).
+
+*Risk:* This is an elementary truncated Möbius-expansion contract. The truncation and singular-series tail must remain uniform when r is near x or has many square divisors.
+
+## P3: A uniform fractional-part kernel estimate (CRUX)
+
+Depends on: none  
+Cites: none
+
+For positive integers n define b(n)=μ²(n)∏_{p|n}p²/(p²−2). For positive integers q define β(q)=∏_{p|q}(1−1/p) ∏_{p∤q}(1−1/p)(1+p/(p²−2)); the infinite product converges absolutely. For real u let {u}=u−floor(u) and ψ(u)={u}(1−{u}). Define I=∫₀^∞ψ(t^{−2})dt. This integral converges and I=ζ(3/2)/π, where ζ(3/2)=∑_{n≥1}n^{−3/2}. For every 0<ε<1/20 there is C₃(ε)>0 such that, uniformly for all integers q≥1 and real R≥1, |∑_{n≤R, gcd(n,q)=1}b(n)−β(q)R|≤C₃(ε)q^εR^{1/2+ε}. Moreover, uniformly for all integers q≥1 and all real T>0, |∑_{n≥1, gcd(n,q)=1}b(n)ψ(T/n²)−β(q)I√T|≤C₃(ε)q^εT^{2/5+ε}. The last series converges absolutely. All products indexed by p are over primes.
+
+*Risk:* The kernel oscillates increasingly rapidly near zero. A direct global variation estimate fails; the estimate must split off the short initial segment. Uniformity for T<1 and unrestricted q is essential when squareful divisors are separated later.
+
+## P4: Generating series and evaluation of the h-sum
+
+Depends on: P1, P3  
+Cites: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.15, https://doi.org/10.1112/S0024611505015352, R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.16, https://doi.org/10.1112/S0024611505015352
+
+Let c=1/ζ(2), C=∏_p(1−2/p²), S(r)=C∏_{p²|r}(p²−1)/(p²−2) for integers r≥1, and D(q)=∑_{l=1}^q g(q,l)². Here ζ(s)=∑_{n≥1}n^{−s} for complex s with Re(s)>1. For each integer q≥1, let v_p(q) be the exponent of p in q. The absolutely convergent generating series satisfies ∑_{h≥1}S(qh)h^{−s}=Cζ(s)∏_p[1+p^{−max(2−v_p(q),0)s}/(p²−2)] for Re(s)>1. Define A(q)=∏_{p∥q}(p²−2+√p)/(p²+p−2) ∏_{p²|q}(p²−1)/(p²+p−2), where p∥q means v_p(q)=1, and define K=(ζ(3/2)/π)∏_p(1−3/p²+2/p³). For every 0<ε<1/20 there is C₄(ε)>0 such that, uniformly for real x≥2 and integers 1≤q≤x, |2∑_{h≥1, qh≤x}(x−qh)S(qh)−x²D(q)+cx−KA(q)√(xq)|≤C₄(ε)x^{2/5+ε}q^{3/5}. A usable exact identity is 2∑_{h≥1, qh≤x}(x−qh)S(qh)−x²D(q)+cx=Cq∑_{r≥1}a(r)m_q(r)ψ(x/(qm_q(r))), where a(r)=μ²(r)/∏_{p|r}(p²−2), m_q(r)=r²/gcd(r²,q), and ψ(u)={u}(1−{u}) with {u}=u−floor(u). The last series converges absolutely. Products indexed by p are over primes.
+
+*Risk:* The cancellation of x²D(q) and cx must be exact. Distinguishing v_p(q)=1 from v_p(q)≥2 is necessary for the local factor A(q). A contour shift of the displayed series alone would require additional convergence arguments; the kernel identity avoids that issue.
+
+## P5: Polynomial average of the local factor (CRUX)
+
+Depends on: none  
+Cites: none
+
+Let f, d and ρ be as in problem.md, without a separability assumption on f. For positive integers q define A(q)=∏_{p∥q}(p²−2+√p)/(p²+p−2) ∏_{p²|q}(p²−1)/(p²+p−2), where p∥q means p|q and p²∤q. Define M_f=∏_p[1+((√p−p)ρ(p))/(p(p²+p−2))+((1−√p)ρ(p²))/(p²(p²+p−2))]. This product converges absolutely and M_f>0. For every 0<ε<1/20 there is C₅(f,ε)>0 such that, uniformly for real y≥2 and Y=f(y), |∑_{1≤k≤y}A(f(k))−M_f y|≤C₅(f,ε)Y^εy^{1/4+ε} and |∑_{1≤k≤y}f′(k)√f(k)A(f(k))−(2/3)M_fY^{3/2}|≤C₅(f,ε)Y^{3/2+ε}y^{−3/4+ε}. All products indexed by p are over primes; constants may depend only on f and ε.
+
+*Risk:* Repeated polynomial factors can make ρ(p²) grow with p, so a bounded-root hypothesis cannot be assumed. The divisor expansion must exploit the stronger decay of A(p²)−A(p). Primes dividing every coefficient of f require separate finite local treatment.
+
+## P6: Reconstruction of the weighted variance
+
+Depends on: P1, P2, P4, P5  
+Cites: none
+
+Let f and V_f be as in problem.md and put Y=f(y). For positive integers q define A(q)=∏_{p∥q}(p²−2+√p)/(p²+p−2) ∏_{p²|q}(p²−1)/(p²+p−2), where p∥q means p|q and p²∤q. Define K=(ζ(3/2)/π)∏_p(1−3/p²+2/p³), with ζ(3/2)=∑_{n≥1}n^{−3/2} and products over primes. For every 0<ε<1/20 there is C₆(f,ε)>0 such that, uniformly for real x≥2 and y≥2 with Y≤x, |V_f(x,y)−K√x∑_{1≤k≤y}f′(k)√f(k)A(f(k))|≤C₆(f,ε)[x^{5/3+ε}log(2x)+x^{2/5+ε}Y^{8/5}]. Constants may depend only on f and ε. Together with P5 this yields the stated main theorem.
+
+*Risk:* Summing the individual pair-correlation errors produces the x^{5/3+ε} term and the lower threshold 7/9. The arithmetic-kernel error requires Y/x to tend to zero for an asymptotic. These bounds do not establish a constant main term at fixed positive Y/x.

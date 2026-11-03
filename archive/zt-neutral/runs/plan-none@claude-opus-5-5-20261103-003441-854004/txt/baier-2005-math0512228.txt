@@ -1,0 +1,993 @@
+arXiv:math/0512228v1 [math.NT] 12 Dec 2005
+                                              On the large sieve with sparse sets of moduli
+                                                                        Stephan Baier
+                                                                              22.08.05
+
+
+
+
+                                             Address of the author:
+                                             Stephan Baier
+                                             Jeffery Hall
+                                             Department of Mathematics and Statistics
+                                             Queen’s University
+                                             University Ave
+                                             Kingston, Ontario, Canada
+                                             K7L 3N6
+                                             e-mail: sbaier@mast.queensu.ca
+
+
+
+
+                                                                                 1
+Abstract: Extending a method of D. Wolke [10], we establish a general
+result on the large sieve with sparse sets S of moduli which are in a sense
+well-distributed in arithmetic progressions. We then use this result together
+with Fourier techniques to obtain large sieve bounds for the case when S
+consists of sqares. These bounds improve a recent result by L. Zhao [11].
+
+Mathematics Subject Classification (2000): 11N35, 11L07, 11B57
+
+Key words: large sieve, Farey fractions in short intervals, estimates on ex-
+ponential sums
+
+
+
+1     A general result on the large sieve
+Throughout this paper, we reserve the symbols ci (i = 1, 2, ...) for absolute
+constants and the symbol ε for an arbitrary (small) positive number. The
+≪-constants in our estimates may depend on ε. As usual in analytic number
+theory, the ε may be different from line to line. We further suppose that
+(an ) is a sequence of complex numbers and that Q, N ≥ 1. We set
+                                    X
+(1)                         S(α) :=    an e(nα).
+                                         n≤N
+
+    Bombieri’s [3] classical large sieve inequality asserts that
+                             q         2
+                    X X                a
+(2)                                S         ≤ (N + Q2 )Z,
+                    q≤Q
+                                       q
+                           a=1
+                         (a, q) = 1
+
+where                                    X
+                                  Z :=         |an |2 .
+                                         n≤N
+
+One may ask whether (2) can be improved if the moduli q run over a sparse
+set S of natural numbers ≤ Q. It seems to be difficult to obtain a consid-
+erable improvement if nothing is known about the structure of S. The goal
+of the present paper is to improve (2) for sets S of moduli which are in a
+sense well-distributed in arithmetic progressions.
+
+                                          2
+   In the sequel, we suppose, more generally, that S ⊂ (M, M + Q], where
+0 ≤ M ≤ Q. We put S := |S| (the cardinality of S). For t ∈ we put                N
+                                 St := {q ∈     N : tq ∈ S}
+and St := |St |. We note that St ⊂ (M/t, M/t + Q/t]. We shall require that
+the number of elements of St in short segments of arithmetic progressions
+does not differ too much from the expected number. To measure the distri-
+bution of St in segments of arithmetic progressions, we define the quantity
+       At (u, k, l) :=        max         |{q ∈ St ∩ (y, y + u] : q ≡ l mod k}|,
+                         M/t≤y≤(M +Q)/t
+
+where u ≥ 0, k ∈         N, l ∈ Z with (k, l) = 1. We shall establish the following
+     Theorem 1: We have
+
+                                       
+               q           2
+     X       X             a
+                        S      ≤ c1 NZ 1 + max       max √                           max
+                                       
+     q∈S     a=1
+                           q                  √
+                                            r≤ N 1/N ≤z≤1/(r N )                       h∈  Z
+                                                                                     (h, r) = 1
+           (a, q) = 1
+                                                                                           
+                                                                                    
+                                      X              X                       2Q r
+                                                                   At          , , hm  .
+                                                                                      
+                                                                            tzN t     
+                                          t|r   0 < |m| ≤ 6rzQ/t
+                                                   (m, r/t) = 1
+
+
+    If we assume the set St to be nearly evenly distributed in the residue
+classes l mod k, then, if M/t ≤ y ≤ (M + Q)/t − u, the expected number
+of elements of the set
+                           {q ∈ St ∩ (y, y + u] : q ≡ l mod k}
+is
+                                     St /k
+                                           · u.
+                                     Q/t
+Therefore, if St is well-distributed in the residue classes l mod k, we may
+expect, for any u ≥ 0, that
+                                                      
+                                              St /k
+(3)                    At (u, k, l) ≤ 1 +           · u X,
+                                              Q/t
+
+                                                 3
+where X ≥ 1 is small compared to Q and N.
+   By a short calculation, we infer the following bound from Theorem 1.
+
+    Theorem
+    √        √2: Suppose the condition
+                                     √ (3) to hold for all t, k, l, u with
+t≤    N, k ≤ N /t, (k, l) = 1 and kQ/ N ≤ u ≤ Q/t. Then
+                q       2                    √
+         X X              a        
+                                             ε
+                                                        
+(4)                 S          ≤ c2 N + QXN       N + S Z.
+         q∈S
+                          q
+                a=1
+              (a, q) = 1
+
+
+    This            than the classical large sieve inequality (2) if N 1+ε ≪
+     √ is stronger 2−ε
+QX( N + S) ≪ Q . If the set S is really sparse, that is, if S is small
+compared to Q, and if the condition (3) holds with X = N ε , then (4) is
+sharper than (2) if Q ≫ N 1/2+ε . In section 6 we shall see that in the case
+of square moduli X = N ε is an admissible choice in (3).
+    A conjecture of Elliott [5] would imply that the left-hand side of (4) is
+bounded by
+
+(5)                                 ≪ (N + QS)Z
+if S contains only primes. From (4), we obtain the √
+                                                   slightly weaker bound
+≪ (N + QN ε S)Z if X = N ε is admissible and S ≫ N.
+
+
+2     The case of squares
+Recently, L. Zhao [11] studied the case when the moduli q are squares, that
+is, he investigated the order of magnitude of the expression
+                                          q 2                    2
+                                  X       X                  a
+                           T :=                      S                 .
+                                  q≤Q
+                                                             q2
+                                          a=1
+                                        (a, q) = 1
+
+He proved the estimate
+                                  p   √         
+(6)            T ≪ (log 2Q) Q3 + (N Q + N Q2 )N ε Z
+
+and conjectured that
+(7)                               T ≪ Qε (Q3 + N)Z.
+
+                                                4
+The classical form (2) of the large sieve implies only the bound
+
+(8)                               T ≪ (N + Q4 )Z,
+
+which is weaker than (6) if Q ≫ N 2/7+ε . Using the bound
+                       q 2                     2
+                       X                   a
+(9)                                S                 ≪ (N + q 2 )Z,
+                                           q2
+                       a=1
+                     (a, q) = 1
+
+
+which follows from our later Lemma 1 with ∆ = 1/q 2 and (αr ) beeing the
+sequence formed by all fractions a/q 2 with 1 ≤ a ≤ q 2 and (a, q) = 1, we
+also obtain the bound
+
+(10)                              T ≪ Q(N + Q2 )Z
+
+by summing up (9) over all q ≤ Q. This bound is weaker than (6) if
+Q ≪ N 1/2−ε . Thus, (6) is sharper than both (8) and (10) if N 2/7+ε ≪ Q ≪
+N 1/2−ε .
+    Employing Theorem 2 with S a set of squares, we shall obtain the fol-
+lowing improvement of Zhao’s bound (6).
+
+      Theorem 3: We have
+
+(11)              T ≪ (log 2Q)N ε (Q3 + N + N 1/2 Q2 )Z.
+
+
+    The bound (11) is sharper than the three bounds (6), (8) and (10) if
+N 1/4+ε ≪ Q ≪ N 1/3−ε . Combining the elementary methods which we will
+use for the proof of Theorem 3 with Fourier analytic techniques, we shall
+further prove
+
+      Theorem 4: We have
+                       3/5+ε
+                       Q     NZ,                    if Q ≤ N 5/12 ,
+                 T ≪
+                       3+ε
+                         Q Z,                        if Q > N 5/12 .
+
+  This bound is sharper than (6), (8) and (10) if N 5/14+ε ≪ Q ≪ N 1/2−ε .
+Moreover, it establishes Zhao’s conjecture (7) for Q ≫ N 5/12 .
+
+                                                5
+3      The case of primes
+For the case when S is the full set of all primes p ≤ Q D. Wolke [10] proved
+the estimate
+                     p−1     2
+                 XX            a          c3 Q2 log log Q
+(12)                      S          ≤                    Z
+                 p≤Q a=1
+                               p        1−δ      log Q
+
+provided that
+
+(13)              Q ≥ 10,         N = Q1+δ ,      0 < δ < 1.
+
+In this range Elliott’s conjecture (5) would give the slightly better bound
+≪ Q2 Z/ log Q.
+    Now we want to prove that Theorem 1 with M = 0 and S beeing the
+set of all primes p ≤ Q implies Wolke’s bound (12). We need to estimate
+the term At (u, k, l). First we consider the case when t = 1. By the Brun-
+Titchmarsh inequality, we have
+                                  
+                         2Q                      4Q
+(14)                A1       , r, l ≤
+                         zN              zNϕ(r) log(2Q/rzN)
+                                    √
+if √
+   2Q/(zN) > r. If rz ≤ 1/ N , then 2Q/(zN) > r is satisfied since
+1/ N < 2Q/N by (13). From (13) and (14), we deduce
+
+                                                      Q2 log log Q
+                                             
+                   X                2Q
+(15)                        A1         , r, hm ≤ c4
+                                   zN                N(1 − δ) log Q
+             0 < |m| ≤ 6rzQ
+                (m, r) = 1
+
+
+for any integer h with (r, h) = 1.
+    If t ≥ 2, then St contains at most 1 element. This implies
+                                                      
+                    X         X               2Q r
+(16)                                    At      , , hm
+                                             tzN t
+                   t|r    0 < |m| ≤ 6rzQ/t
+                  t≥2        (m, r/t) = 1
+                 X 12rzQ                                   Q log log Q
+             ≤                 ≤ c5 rzQ log log 10r ≤ c6      √
+                          t                                     N
+                  t|r
+
+
+
+
+                                         6
+       √                        √
+if r ≤ N < Q and z ≤ 1/(r N ). Using N = Q1+δ , it is easy to check
+that there exists a constant c7 such that we have
+                       Q log log Q       Q2 log log Q
+(17)                      √        ≤ c7
+                            N           N(1 − δ) log Q
+
+for all Q ≥ 10 and 0 < δ < 1. From Theorem 1, (15), (16) and (17), we
+obtain Wolke’s bound (12).
+
+
+4      Counting Farey fractions in short intervals
+In this section we establish some preliminary results which we then use for
+the proof of Theorem 1. Our starting point is the following variant of the
+large sieve which follows immediately from Theorem 2.11 in [7].
+
+   Lemma 1: Let (αr )r∈N be a sequence of real numbers. Suppose that
+                       N
+0 < ∆ ≤ 1/2 and R ∈ . Put
+                                                  R
+                                                  X
+                          K(∆) := max                         1,
+                                   α∈R
+                                                  r=1
+                                             ||αr − α|| ≤ ∆
+
+
+where ||x|| denotes the distance of a real x to its closest integer. Then
+                    R
+                    X
+                          |S (αr )|2 ≤ c8 K(∆)(N + ∆−1 )Z.
+                    r=1
+
+
+
+
+    In our situation, the sequence α1 , ..., αR equals the sequence of Farey
+fractions a/q with q ∈ S, 1 ≤ a ≤ q and (a, q) = 1. For α ∈ we put         R
+                                                         X
+          I(α) := [α − ∆, α + ∆] and P (α) :=                    1.
+                                                              q ∈ S, (a, q) = 1
+                                                                 a/q ∈ I(α)
+
+
+Then we have
+
+(18)                          K(∆) = max P (α).
+                                         α∈   R
+                                         7
+   To estimate P (α), we begin with a method of D. Wolke [10]. Let
+                                            1
+(19)                                  τ := √ .
+                                             ∆
+Then, by Dirichlet’s approximation theorem, α can be written in the form
+                   b                                                 1
+(20)          α=     + z,    where r ≤ τ, (b, r) = 1, |z| ≤            .
+                   r                                                rτ
+Thus, it suffices to estimate P (b/r + z) for all b, r, z satisfying (20).
+  We further note that we can restrict ourselves to the case when
+
+(21)                                   z ≥ ∆.
+
+If |z| < ∆, then
+                                                 
+                                      b         b
+                     P (α) ≤ P          −∆ +P     +∆ .
+                                      r         r
+
+Furthermore, we have
+                                   1      1
+                                  ∆=  ≤     .
+                                  τ2     rτ
+Therefore this case can be reduced to the case |z| = ∆. Moreover, as
+P (α) = P (−α), we can choose z positive. So we can assume (21).
+   Summarizing the above observations, we deduce
+
+   Lemma 2: We have
+                                                                     
+                                                                  b
+(22)         K(∆) ≤ 2       max        max         max    P         +z .
+                              N
+                           r∈ √         b∈Z          √
+                                                 ∆≤z≤ ∆/r         r
+                         r ≤ 1/ ∆     (b, r) = 1
+
+
+
+   The next lemma provides a first estimate for P (b/r + z).
+
+    Lemma 3: Suppose that the conditions (19), (20) and (21) are satis-
+fied. Suppose further that
+                                  Q∆
+(23)                                 ≤ δ ≤ Q.
+                                   z
+
+
+                                          8
+Let I(δ, y) := [y − δ, y + δ], J(δ, y) := [(y − 4δ)rz, (y + 4δ)rz] and
+                                     X           X
+                      Π(δ, y) :=                          1.
+                                    q∈S∩I(δ,y)        m ∈ J(δ, y)
+                                                    m ≡ −bq mod r
+                                                         m 6= 0
+
+
+Then,
+                                                  M
+                                                    Z+Q
+                             b              1
+                     P         +z       ≤2+               Π(δ, y) dy.
+                             r              δ
+                                                    M
+
+
+
+   Proof: By δ ≤ Q, we have
+                                         M
+                                         Z+Q
+                                 1
+(24)                     P (α) ≤                  P (α, y, δ) dy,
+                                 δ
+                                         M
+
+where                                                X
+                             P (α, y, δ) :=                       1.
+                                              q ∈ S ∩ I(δ, y)
+                                                   (a, q) = 1
+                                                  a/q ∈ I(α)
+
+Now, for a/q ∈ I(α), we have
+
+                             q(α − ∆) ≤ a ≤ q(α + ∆).
+
+From this and α = b/r + z, we obtain
+
+(25)                  qr(z − ∆) ≤ ar − bq ≤ qr(z + ∆).
+
+If y − δ ≤ q ≤ y + δ, then from (20), (21), (23) and (25) it follows that
+
+(26) (y − 4δ)rz ≤ (y − δ)r(z − ∆) ≤ ar − bq ≤ (y + δ)r(z + ∆) ≤ (y + 4δ)rz.
+
+If ar − bq = 0, then r = q because (a, q) = 1 = (b, r). From this observation,
+(24) and (26), we deduce the result of Lemma 3.✷
+
+
+
+                                              9
+5     Proof of Theorem 1
+Next, we express Π(y, δ) in terms of At (u, k, l). This shall lead us to the
+following estimate for P (b/r + z).
+
+    Lemma 4: We have
+                                                                                  
+          b              X                     X                          2∆Q r
+      P     + z ≤ 2 + c9                                         At           , , −bm ,
+          r                                                                tz t
+                                t|r     0 < |m| ≤ 6rzQ/t
+                                           (m, r/t) = 1
+
+
+where bb ≡ 1 mod r.
+
+    On choosing ∆ := 1/N, Theorem 1 follows immediately from Lemmas
+1,2 and 4.
+
+    Proof of Lemma 4: We split Π(δ, y) into
+                       X     X                                        X
+             Π(δ, y) =                                                            1.
+                         t|r    q ∈ St ∩ I(δ/t, y/t)            m ∈ J(δ/t, y/t)
+                                       (q, r/t) = 1            m ≡ −bq mod r/t
+                                                                    m 6= 0
+
+
+Rearranging the order of summation, and using the definition of At (u, k, l),
+the right-hand side is
+                       X     X              X
+(27)               =                                  1
+                       t|r     m ∈ J(δ/t, y/t)        q ∈ St ∩ I(δ/t, y/t)
+                                (m, r/t) = 1           q ≡ −bm mod r/t
+                                      m 6= 0
+                                                                       
+                       X              X                        2δ r
+                   ≤                                  At         , , −bm .
+                                                                t t
+                       t|r     m ∈ J(δ/t, y/t)
+                                (m, r/t) = 1
+                                      m 6= 0
+
+
+Integrating the last line of (27) over y in the interval M ≤ y ≤ M + Q, and
+
+
+
+
+                                               10
+rearranging the order of summation and integration, we obtain
+
+(28)
+ MZ+Q                                                                                         
+                     X                                X                               2δ r
+     Π(δ, y) dy ≤ 2δ                                                         At         , , −bm .
+                                                                                       t t
+ M                        t|r   (M − 4δ)rz/t ≤ m ≤ (M + Q + 4δ)rz/t
+                                                 (m, r/t) = 1
+                                                   m 6= 0
+
+
+Choosing δ := Q∆/z, and taking 0 ≤ M ≤ Q and Q∆/z ≤ Q into account,
+we obtain the result of Lemma 4 from Lemma 3 and (28). ✷
+
+   From Lemma 4, we also infer the following estimate for P (b/r + z) by a
+short calculation.
+
+    Lemma 5: Suppose that the conditions (19), (20) and (21) are satis-
+fied. Suppose further the condition (3) to hold for t|r, k = r/t, (k, l) = 1
+and u = 2∆Q/(tz). Then
+                       
+                   b
+                     + z ≤ c10 1 + QX∆−ε (rz + ∆S) Z.
+                                                         
+               P
+                   r
+
+     This estimate corresponds to Theorem 2. We shall use it in section 7.
+
+
+6      Proof of Theorem 3
+In this section, we derive Theorem 3 from Theorem 2. First, we rewrite the
+sum in question in the form
+                         q  2                   2               q             2
+                 X       X                  a             X       X             a
+           T =                      S                 =                      S      ,
+                 q≤Q
+                                            q2            q∈S
+                                                                                q
+                         a=1                                      a=1
+                       (a, q) = 1                               (a, q) = 1
+
+
+where S is the set of squares ≤ Q2 . We split up the set S into O(log Q)
+subsets of the form
+                         S(Q0 ) := S ∩ (Q0 , 2Q0 ],
+
+
+
+                                                 11
+where Q0 ≥ 1. Our aim is to estimate the corresponding partial sums. As
+previously, we define
+
+                            St (Q0 ) := {q ∈    N : tq ∈ S(Q0 )}
+and St (Q0 ) := |St (Q0 )|. We now determine the set St (Q0 ). Let t = pv11 · · · pvnn
+be the prime number factorization of t. For i = 1, ..., n let
+                               
+                                vi ,     if vi is even,
+                         ui :=
+                                 vi + 1, if vi is odd.
+                               
+
+Put
+                                              u /2
+                                     ft := p1 1 · · · pnun /2 .
+Then q = q12 ∈ S is divisible by t iff q1 is divisible by ft . Thus,
+                n         p                  p         o
+                   2
+     St (Q0 ) = q2 gt :     Q0 /ft < q2 ≤ 2Q0 /ft ⊂ (Q0 /t, 2Q0 /t],
+
+where
+                            ft2
+                                = pu1 1 −v1 · · · punn −vn .
+                               gt :=
+                             t
+As previously, we suppose that u ≥ 0, k ∈ , l ∈             N     Z and (k, l) = 1, and
+define
+
+      At (u, k, l) :=       max          |{q ∈ St (Q0 ) ∩ (y, y + u] : q ≡ l mod k}|.
+                        Q0 /t≤y≤2Q0 /t
+
+
+Let δt (k, l) be the number of solutions x mod k to the congruence
+
+(29)                                     x2 gt ≡ l mod k.
+
+Then, from our above observations it follows quickly that
+                                                
+                                        St /k
+                 At (u, k, l) ≤ c11 1 +       · u δt (k, l).
+                                        Q/t
+
+The remaining task is to bound δt (k, l).
+   If (gt , k) > 1, then δt (k, l) = 0 since k and l are supposed to be coprime.
+Therefore, we can assume that (gt , k) = 1. Let g mod k be the multiplicative
+
+
+                                                12
+inverse of gt mod k, i.e. ggt ≡ 1 mod k. Put l∗ = gl. Then (29) is equivalent
+to
+
+(30)                                x2 ≡ l∗ mod k.
+
+Taking into account that (k, l∗ ) = 1, and using some elementary facts on the
+number of solutions of polynomial congruences modulo prime powers (see
+[9], for example), we see that (30) has at most 2 solutions if k is a power
+of an odd prime and at most 4 solutions if k is a power of 2. From this it
+                               N
+follows that for all k ∈ we have
+
+                                   δt (k, l) ≤ 2ω(k)+1 ,
+                                                                     √
+where ω(k) is the number of distinct prime divisors of k. For k ≤        N we
+have
+                               2ω(k) ≪ N ε
+(see [4]). Therefore, (3) holds with
+
+(31)                         X := c12 N ε .
+                                   √
+Now, from Theorem 2, (31) and S ≪ Q0 , we obtain
+                    q             2                  √
+        X           X             a                         p 
+                               S      ≤ c13 N + Q0 N ε    N + Q0 Z.
+                                  q
+       q∈S(Q0 )     a=1
+                  (a, q) = 1
+
+
+This implies the result of Theorem 3. ✷
+
+
+7      Proof of Theorem 4
+Throughout this section, we suppose that S consists of all squares in the
+interval (Q0 , 2Q0 ]. To prove Theorem 4, we use the following estimates for
+P (b/r + z).
+
+    Lemma 6: Suppose that the conditions (19), (20) and (21) are satis-
+fied. Then we have
+                        
+                    b              
+                                                 3/2
+                                                     
+(32)            P     + z ≤ c14 ∆−ε 1 + Q0 rz + Q0 ∆
+                    r
+
+                                            13
+and
+                          
+                   b                    
+                                          3/2    1/2
+                                                                       
+(33)      P          +z        ≤ c15 ∆−ε Q0 ∆ + Q0 ∆r −1/2 z −1 + ∆−1/4 .
+                   r
+
+    The inequality (32) follows immediately from Lemma 5 and the fact that
+(3) holds with X := c16 ∆−ε under the conditions of Lemma 5. This can be
+seen in the same way as it was proved that (31) is an admissable choice in
+(3) under the conditions of Theorem 3.
+    We postpone the proof of (33) to the last section.
+    We are now ready to prove Theorem 4. Combining (32) and (33), we
+obtain
+
+(34)           
+         b                          
+                                         3/2
+                                                           n
+                                                                       1/2
+                                                                                        o
+                                                                                             −1/4
+                                                                                                    
+     P     +z       ≤ c17 ∆    −ε
+                                        Q0 ∆ + min             Q0 rz, Q0 ∆r −1/2 z −1       +∆          .
+         r
+If
+                                                           −1/4 −3/4
+                                         z ≤ ∆1/2 Q0                r   ,
+then              n                      o
+                           1/2                       3/4
+               min Q0 rz, Q0 ∆r −1/2 z −1 = Q0 rz ≤ Q0 ∆1/2 r 1/4 .
+If
+                                                           −1/4 −3/4
+                                          z > ∆1/2 Q0               r   ,
+then
+               n                                    o
+                           1/2                                1/2                 3/4
+         min       Q0 rz, Q0 ∆r −1/2 z −1               = Q0 ∆r −1/2 z −1 ≤ Q0 ∆1/2 r 1/4 .
+
+From the above inequalities and (20), we deduce that
+                    n                      o
+                              1/2                3/4
+(35)            min Q0 rz, Q0 ∆r −1/2 z −1 ≤ Q0 ∆3/8 .
+
+Furthermore,
+                                        q
+                     3/4                      3/2                           3/2
+(36)                Q0 ∆3/8 =               (Q0 ∆) · ∆−1/4 ≤ Q0 ∆ + ∆−1/4 .
+
+Combining (34), (35) and (36), we get
+                         
+                     b                
+                                        3/2
+                                                 
+(37)            P      + z ≤ c18 ∆−ε Q0 ∆ + ∆−1/4 .
+                     r
+
+                                                         14
+    Now we choose
+                                  −6/5
+                                  Q0 ,             if Q0 ≤ N 5/6 ,
+                       ∆ :=
+                                      N −1 ,        otherwise.
+                                 
+
+Then from Lemma 1, Lemma 2 and (37) it follows that
+                                     3/10+ε
+                   q2         2    Q0       NZ,                    if Q0 ≤ N 5/6 ,
+          X       X        a
+(38)                   S          ≪
+      √      √             q2        3/2+ε
+       Q0 ≤q≤ 2Q0 a=1                  Q0     Z,                      otherwise.
+                    (a, q) = 1
+
+
+We
+√ can√ devide
+             the interval [1, Q] into O(log Q) subintervals of the form
+   Q0 , 2Q0 , where 1 ≤ Q0 ≤ Q2 . Hence, the result of Theorem 4 follows
+from (38). ✷
+
+
+8       Tools from harmonic analysis
+For the proof of (33) we need the following standard results from harmonic
+analysis.
+
+    Lemma 7: (Poisson summation formula, [2]) Let f (X) be a complex-
+valued function on the real numbers that is piecewise continuous with only
+finitely many discontinuities and for all real numbers a satisfies
+                                                     
+                            1
+                    f (a) =     lim f (x) + lim+ f (x) .
+                            2 x→a−           x→a
+
+
+Moreover, suppose that f (x) ≤ c19 (1 + |x|)−c for some c > 1. Then,
+
+                                            fˆ(n),
+                           X            X
+                               f (n) =
+                                 n∈  Z               Z
+                                                    n∈
+
+where
+                                          Z∞
+                             fˆ(x) :=          f (y)e(xy)dy,
+                                         −∞
+
+the Fourier transform of f (x).
+
+
+                                               15
+      Lemma 8: (see [11], for example) For x ∈                  R \ {0} define
+                                                      2
+                                              sin πx
+                             φ(x) :=                        .
+                                                2x
+
+Set
+                                            π2
+                        φ(0) := lim φ(x) = .
+                                 x→0        4
+Then φ(x) ≥ 1 for |x| ≤ 1/2, and the Fourier transform of the function
+φ(x) is
+                              π2
+                      φ̂(s) =     max{1 − |s|, 0}.
+                              4
+
+   Lemma 9: (see Lemma 3.1. in [6]) Let F : [a, b] → be twice differ-    R
+entiable. Assume that |F ′ (x)| ≥ u > 0 for all x ∈ [a, b]. Then,
+
+                                 Zb
+                                                       c20
+                                      eiF (x) dx ≪         .
+                                                        u
+                                 a
+
+
+   Lemma 10: (see Lemma 4.3.1. in [1]) Let F : [a, b] →           be twice       R
+                                             ′′
+continuously differentiable. Assume that |F (x)| ≥ u > 0 for all x ∈ [a, b].
+Then,
+                             Zb
+                                             c21
+                                eiF (x) dx ≤ √ .
+                                                u
+                                 a
+
+
+      We shall also need the following estimate for quadratic Gauß sums.
+
+   Lemma 11: (see page 93 in [6]) Let c ∈ , k, l ∈          N           Z with (k, c) = 1.
+Then,
+                     r
+                                        √
+                           2       
+                    X       kd + ld
+                        e             ≤ 2c.
+                               c
+                           d=1
+
+
+
+
+                                           16
+9      Proof of (33)
+Applying
+       Lemma
+          √   3 with√Q replaced by Q0 , M = Q0 and
+S := q 2 : Q0 < q ≤ 2Q0 , we have, for any δ satisfying the condition
+(23),
+                                                       Z2Q0
+                                     b              1
+(39)                       P           +z       ≤2+          Π(δ, y) dy,
+                                     r              δ
+                                                         Q0
+
+where                                           X                X
+                      Π(δ, y) :=                                               1.
+                                        √         √
+                                            y−δ≤q≤ y+δ        m ∈ J(δ, y)
+                                                          m ≡ −bq 2 mod r
+                                                                m 6= 0
+
+By Taylors formula and δ ≤ Q0 , we have
+        √           p     p          p   √          p
+          y − c22 δ/ Q0 ≤ y − δ < y + δ ≤ y + c22 δ/ Q0 .
+Hence,
+                                            X                                X
+(40)        Π(δ, y) <                                                                         1.
+                           √           √      √        √
+                               y−c22 δ/ Q0 ≤q≤ y+c22 δ/ Q0 (y − 4δ)rz ≤ m ≤ (y + 4δ)rz
+                                                                      m ≡ −bq 2 mod r
+
+By Lemma 8, the double sum on the right-hand side is bounded by
+             X  q − √y               X          
+                                                     m − yrz
+                                                             
+(41)   ≤ c23      φ         √                   φ              dy.
+             q∈Z
+                     2c22 δ/ Q0                       8δrz
+                                                          m∈    Z
+                                                     m ≡ −bq 2 mod r
+
+Using Lemma 7 after a linear change of variables, we transform the inner
+sum into
+         X          
+                      m − yrz
+                                      X  jbq 2         
+                  φ              = 8δz     e       + jyz φ̂(8jδz).
+                        8δrz           j∈Z
+                                                r
+             m∈Z
+         m ≡ −bq 2 mod r
+
+Therefore, the double sum in (41) is
+                                r∗    ∗ 2                                                    √ 
+                                                                                          k− y
+                                                                                    
+            X                  X      j bd                          X
+(42) = 8δz      e(jyz)φ̂(8jδz)     e                                            φ              √   ,
+            j∈Z
+                                        r∗                                              2c22 δ/ Q0
+                               d=1                                 k∈    Z
+                                                               k ≡ d mod r ∗
+
+
+                                                    17
+where r ∗ := r/(r, j) and j ∗ := j/(r, j). Again using Lemma 7 after a linear
+change of variables, we transform the inner sum in (42) into
+(43)                      √                             √  
+                     k− y                            d− y
+                                                                       
+     X                               2c22 δ X                    2c22 lδ
+              φ           √      = ∗√           e l·         φ̂ ∗ √        .
+                   2c22 δ/ Q0       r Q0 l∈Z            r∗       r Q0
+      k∈ Z
+  k ≡ d mod r ∗
+
+From (42) and (43), we obtain
+             Z2Q0 X                   √ 
+                                 q− y
+                                                                             
+        1                                          X                 m − yrz
+(44)                   φ              √                            φ               dy
+        δ          Z           2c22 δ/ Q0                             8δrz
+            Q0    q∈                            m∈     Z
+                                            m ≡ −bq 2 mod r
+                                           r
+                                           X    ∗ 2         ∗
+      16c22 δz X φ̂(8jδz) X       2c22 lδ        j bd + ld
+    ≤ √                       φ̂ ∗ √          e              |E(j, l)|,
+         Q0 j∈Z     r∗            r Q0 d=1           r∗
+                          l∈Z
+
+where
+                                      Z2Q0          √ 
+                                                        y
+                           E(j, l) :=     e jyz − l · ∗   dy.
+                                                      r
+                                     Q0
+
+Applying Lemmas 8 and 11, we deduce that the right-hand side of (44) is
+bounded by
+              c24 δz X          1      X
+(45)        ≤ √                √               |E(j, l)| .
+                 Q0 |j|≤1/(8δz) r ∗   √
+                                    ∗        |l|≤r     Q0 /(2c22 δ)
+
+   We have
+                                      E(0, 0) = Q0 .
+If j 6= 0, then
+                                                      1
+                                     |E(j, 0)| ≤          .
+                                                     |j|z
+If l 6= 0, then
+                                                         1/2
+                                       c25 Q0
+                                    |E(0, l)| ≤
+                                          |l|
+                                      ∗
+by Lemma 9 (take into account that r = 1 if j = 0). If j 6= 0 and l 6= 0,
+then Lemma 10 yields
+                                        √      3/4
+                                    c26 r ∗ Q0
+                        |E(j, l)| ≤     p          .
+                                           |l|
+
+                                            18
+Therefore, the expression in (45) is bounded by
+               
+                   p           1       X           1           X            1
+(46) ≤ c27 δ z Q0 + √                             √ +z                       +
+                               Q0                j r    ∗     √             l
+                                  1≤j≤1/(8δz)             1≤l≤ Q0 /(2c22 δ)
+                                                        
+              1/4
+                     X               X              1
+           zQ0                                     √ 
+                                     √
+                  1≤j≤1/(8δz) 1≤l≤r ∗ Q0 /(2c22 δ)
+                                                      l
+              
+                   p           δ       X           1
+      ≤ c28 δz Q0 + √                             √ + δz∆−ε +
+                               Q0 1≤j≤1/(8δz) j r ∗
+                                      
+            √ 1/2        X √
+           z δQ0                  r∗  .
+                      1≤j≤1/(8δz)
+
+    Now, we evaluate the sums over j in the last line of (46). By the definition
+of r ∗ , we have
+                 X        1         1 X√              X         1
+(47)                     √     =   √          t
+                        j r∗          r                         j
+               1≤j≤1/(8δz)                      t|r       1 ≤ j ≤ 1/(8δz)
+                                                             (r, j) = t
+
+                                          c29 log(2 + 1/(8δz)) X 1
+                                     ≤             √            √
+                                                     r            t       t|r
+                                                −ε −1/2
+                                     ≤ c30 ∆ r
+and
+                    X          √          √ X 1            X
+(48)                               r∗ =    r     √                   1
+                 1≤j≤1/(8δz)                 t|r
+                                                   t 1 ≤ j ≤ 1/(8δz)
+                                                             (r, j) = t
+                                  √ X
+                                     r        1
+                              ≤              3/2
+                                  8δz       t
+                                        t|r
+                                      √
+                                  c31 r
+                              ≤           .
+                                     δz
+   Combining (39), (40), (41), (44), (45), (46), (47) and (48), we obtain
+                                                                 1/2 √
+             
+         b                        p             −1/2
+                                                                        
+(49) P     + z ≤ c32 ∆−ε 1 + δz Q0 + δQ0 r −1/2 + δ −1/2 Q0            r .
+         r
+
+                                           19
+Choosing δ := Q0 ∆/z, we infer the desired estimate from (49) and (20).✷
+
+    Acknowledgement. This paper was written during postdoctoral stays
+at the Harish-Chandra Research Institute at Allahabad (India) and the De-
+partment of Mathematics and Statistics at Queen’s University in Kingston
+(Canada). The author wishes to thank these institutions for financial sup-
+port.
+
+
+References
+[1] J. Brüdern, Einführung in die analytische Zahlentheorie, Springer-
+    Verlag, Berlin ect., 1995.
+[2] D. Bump, Automorphic Forms and Representations, Cambridge Stud.
+    Adv. Math. 55, Cambridge Univ. Press, Cambridge, 1996.
+[3] E. Bombieri, On the large sieve, Mathematika 12 (1965) 201-225.
+[4] B. Crstici, D.S. Mitrinović, J. Sándor, Handbook of number theory,
+    Kluwer Academic Publishers Group, Dordrecht, 1996.
+[5] P.D.T.A. Elliott, On inequalities of large sieve type, Acta Arith. 18
+    (1971) 405-422.
+[6] S.W. Graham, G. Kolesnik, Van der Corput’s method of exponential
+    sums, Cambridge University Press, Cambridge ect., 1991.
+[7] H.L. Montgomery, Topics in multiplicative number theory, Lecture Notes
+    in Mathematics, Vol. 227, Springer-Verlag, Berlin-New York, 1971.
+[8] H.L. Montgomery, R.C. Vaughan, The large sieve, Mathematika 20
+    (1973) 119-134.
+[9] I. Niven, H.S. Zuckerman, H.L. Montgomery, An introduction to the
+    theory of numbers, John Wiley & Sons, New York, 1991.
+[10] D. Wolke, On the large sieve with primes, Acta Math. Acad. Sci. Hun-
+    gar. 22 (1971/72) 239-247.
+[11] L. Zhao, Large sieve inequality with characters to square moduli, Acta
+    Arith. 112 (2004) 297-308.
+
+
+                                    20
+

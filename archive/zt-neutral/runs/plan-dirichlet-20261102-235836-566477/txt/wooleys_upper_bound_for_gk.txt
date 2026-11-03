@@ -1,0 +1,913 @@
+                     12
+                     Woo ley's upper bound for G(k)
+
+                     12.1 Smooth numbers
+                     Many of the most recent developments in additive number theory
+                     have come about through the multiplicative properties of suitable sets
+                     of natural numbers. The progenitors of these methods can be found in
+                     Lemma 5.4 and Theorem 6.5. Very effective use has been made of sets
+                     of numbers of the form
+                                         s/{X9 Y) = {n ^ X:p\ n implies p^                    Y},       (12.1)
+                     sometimes called smooth numbers when Y is relatively small by
+                     comparison with X. Let
+                                                    A(X, Y) = cardj/(X, Y)                              (12.2)
+                     be their counting function, and define p(u): U -> 1R to be continuous
+                     for all u ^ 0, differentiate for all u # 0,1 and to satisfy
+
+                                             p(«) =-0(u < 0 ) , = 1 (0 <u s£1),                         (12.3)
+                                                 up'(«) = - P ( t               u>\                     (12.4)
+                        It is useful to establish a connection between A and p, and some
+                      basic properties of p.
+
+                      Lemma 12.1 (i) p is positive and strictly decreasing on [1, oo).
+                      (ii) There is a real number B > 1 such that for all X ^ 1 and u > 0,
+                                         \A(X,Xllu)       - Xp(u)\ < BuX(\og2X)~                l
+                                                                                                    .
+
+                     Proof (i) By (12.3) and (12.4), when u ^ 1, up{u) = \uu_xp{v)dv.
+                     Suppose that there exist u ^ 1 such that p(u) = 0, and let u0 be the
+                     least such u. Then u0 > 1 and 0 = uop(uo) = ^°o_1 p(v)dv > 0.
+                     (ii) It suffices to show that, for some number B> 1, for each
+
+
+                          A(X,Xllu) - Xp{u)\ ^ B^iloglX)'1                         (n < u ^ n + 1). (12.5)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     176                                                  Wooley's upper bound for G(k)
+
+                     The case n = 0 is immediate from the observations
+
+                                               ,X^) + Xp(u) = {X} < e/2 £
+
+                     The inductive step of the proof uses a special case of the Buchstab
+                     identity, namely
+
+                                   A{X,Xli»)       = A(X,X1/V)        -         X        A(X/P,P)   (12.6)
+
+                     valid when 1 ^ v ^ w. This is easily established by sorting the
+                     elements of
+
+
+                     according to their largest prime factor. The proof of (12.5) for n ^ 1 is
+                     by induction on n.
+                       When 1 = v < u ^ 2, (12.6) becomes
+
+                                                                              X [X/p]
+
+                     and the case n = 1 of (12.5) follows from elementary prime number
+                     theory.
+                       The case n > 1 now follows from (12.5) with v = n and the
+                     inductive hypothesis, again by elementary prime number theory,
+                     together with some partial summation. This completes the proof of
+                     the lemma.
+                        It has already been seen in Chapters 5, 6 and 7 that an important
+                     role is played in Waring's problem by the number of solutions of
+                     auxiliary equations of the form
+
+
+
+                     with the variables lying in various subsets of the natural numbers.
+                     Here the interest is in the number SS(P, R) of solutions of (12.7) with
+
+                                                  xj9yjes/(P,R)(l^j^s).                             (12.8)
+
+                     The aim ultimately is to bound Ss + x in terms of Ss. This will be done
+                     via a differencing procedure. For simplicity of exposition, as well as
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     The fundamental lemma                                                           ill
+
+                     for other applications, it is useful to deal with a more general
+                     situation. Thus take *F(z,u) to be a polynomial with integer coeffi-
+                     cients in the variables z and u = (w l 5 ..., ut) and of degree at least one
+                     in z, and denote dx¥(z, u)/dz by ¥'(z, u). Further, define SS(P, g, fl) =
+                      S S (P,Q,#; 1 *') = S ^ g , / ? ; ^ ; ^ ) to be the number of solutions of
+                     the equation
+                                  ¥(z,u) + x\ + • • • + xj = *F(w, v) 4- / i + • • • + yk            (12.9)
+                     with
+                                                                      )(l^7^s),                  (12.10)
+                                                                      and u , v e ^              (12.11)
+                     where ^ is a subset of ( Z n [l,CP]) r with cardinality 1/ and C a
+                     number depending at most on k and the coefficients of ¥ .
+
+
+                     12.2 The fundamental lemma
+                     The first objective is to relate the equation (12.9) to the equation
+
+                     ¥ ( z , u ) + m\x\     + ••• + xks) = *F(w,u) + mk(y\ + ••• + yks).         (12.12)
+
+                     Define TS(P,g,R,M) = TS(P9Q,R,M;V)=         TS(P,Q,R,M;^;*)      to
+                     be the number of solutions of (12.12) with z, w,u as before, and
+                                M <m^          MR, xpyjestf(Q/M,R),               z = w (modm*). (12.13)
+                     The expression
+                                                     ( x F(w,u)- l F(z,u))m- k
+                     is often referred to as an efficient difference.
+
+
+                     Theorem 12.1 Suppose that 1 < M < Q ^ P. Then
+                                         SS(P,Q,R)<SS(P,M,R)       +N
+                                + QMPESS _ x (P, g, R) + P*U(MR)2s ~ * TS(P, Q, R, M)
+                     where N denotes the number of solutions of (12.9) subject to (12.10),
+                     (12.11) and ^'(Z^VL) = ^'(w,v) = 0. The implicit constant may depend
+                     on the coefficients and total degree of
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     178                                                 Wooley's upper bound for G(k)
+
+                        Before proceeding with the proof of Theorem 12.1 it is useful to
+                     establish the following combinatorial lemma. For a given natural
+                     number n let so(n) = Tlp\np denote the squarefree kernel of n.
+
+                     Lemma 12.2 Suppose that r is a natural number and X ^ 1 is a real
+                     number. Then for each positive number e,
+                                             card {n ^X:so(n)           = so(r)} < Xe.
+
+                     Proof Let p 1 ? . . . ,p, denote the different prime factors of r in increas-
+                     ing order. Then it is necessary to bound the number of choices of
+                     natural    numbers           ul9...,ut     such   that    ullogp1 + • • • +
+                     ut\ogpt ^ logX. Let v be an integer parameter at our disposal. The
+                     number of choices for ux,...,uv          is at most (logX/\ogIf and the
+                     number of choices for uv + 1,..., ut is bounded by the number of
+                     choices with uv + x 4- • • • + ut < M where M = [log X/log(t; + 1)],
+                     and (cf Exercise 1.5.1) the number of such choices is
+
+
+                                                         M-(t-v)
+                     A choice such as v = [1/e] gives the desired conclusion.
+
+                     Proof of Theorem 12.1 The proof is divided into four different cases. It
+                     is helpful in order to categorise the cases to introduce the notation
+
+
+                     to mean that there is some divisor d of x with d ^ X such that each
+                     prime factor of x/d divides y.
+                        Let S(1) denote the number of solutions of (12.9), (12.10), (12.11) for
+                     which
+                                                         min{xp yj} ^M                         (12.14)
+                                                          (2)
+                     for at least one j and let 5               denote the number for which
+                                                 *F(z,u) = 0 or ¥'(w,v) = 0.                   (12.15)
+                     Further let S(3) denote the number for which Xj > M and yj > M for
+                     every 7, (12.15) does not hold and
+
+                                                                9u) or y,^(M)¥'(w,v)           (12.16)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     The fundamental lemma                                                    179
+
+                     holds for at least one j . Finally let <S(4) denote the number for which
+                     Xj > M and yj > M for every 7, (12.15) does not hold and (12.16)
+                     holds for no j . Then
+
+
+                        (i) Suppose that S{1) is maximal, so that SS(P,Q,R) ^ 4S (1) . Let
+
+
+                                                                  xerf(X,R)
+
+                     and
+
+
+                                                                 z,u
+
+                     where the sum is over z and u satisfying (12.11). For brevity write/(a)
+                     for/(a, Q). Then
+
+
+                                                    Joo
+                     Hence by Holder's inequality,
+                                   SS(P,Q,R) < S^PtM
+                     which gives the theorem in the first case,
+                       (ii) Suppose that 5 (2) is maximal and let
+
+                                                      G(a) = 2 X ^ ( 2 , 1 1 ) )
+                                                                 z,u
+
+                     where the summation is over z,u satisfying (12.11) and *F'(z,u) = 0.
+                     Then
+
+                                                S(2) <^        I G(a)F(a)/(a) 2s | da
+                                                          Jo
+                     and so by Schwarz's inequality
+                                              SS(P9Q9R)<SS(P9Q9R)1I2N112
+                     and the theorem follows once more.
+                       (iii) Now suppose that S{3) is maximal. Given z and u satisfying
+                     (12.11) and ¥'(2,11) ^ 0, denote by #*(z,u) the set of integers x such
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     180                                                Wooley's upper bound for G(k)
+
+                     that x ^ Q and x®(Af )*F'(z, u). Let
+
+
+
+
+                     where the summation is over z and u satisfying (12.11) and
+                     *F'(z,u)^0. Then
+
+
+                                                      Jo
+                     and so by Schwarz's inequality
+
+
+                               S,(P,Q,R) < S S (P,G,K) 1/
+
+                     Hence
+
+                                                     Ss(P9Q,R)<Y.v(q,r\                         (12.17)
+
+                      where F(^f, r) denotes the number of solutions of the equation
+
+                                                   ,u) + dkxk + x\ + - - - + xks_ !
+                                                   (W, V)
+
+                     with z,u, w,v satisfying (12.10) and (12.11) subject to
+
+                                   ^'(z, u) # 0, *F'(w, v) # 0, ^ I ^ ( z , u), r | ¥'(w, v),
+                                1 ^ d,e ^ M, x ^ 6/rf, y ^ Q/e, so(x) = q9 so(y) = r.
+
+                         Let
+
+                                                                                                (12.18)
+
+
+                      where the summation is over z,u satisfying (12.11), *F'(z,u) ^ 0 and
+                      q I *F(z,u). Then by (12.17), for some constants Cx and Z) (the total
+                      degree of *F),
+
+
+
+                                                                r
+                                                                Jo
+                                                                     |/(a) 2 /(a) 2 s - 2 |da
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     The fundamental lemma                                                               181
+
+                     where
+
+
+                                                   q ^ CiP D         d < M       x^Q/d
+                                                                             so(x) = q
+
+                     By Cauchy's inequality
+
+
+                                                                                 d ^ M       x^Q/d
+                                                                                         So(x) = q
+
+                     By interchanging the order of summation
+
+
+                                     d^Mx^Q/d
+                                                                  = q^CiPI   D
+                                                                                   x^Q        d^M
+                                            so(x) = q                             so(x) = q d < Q/x
+
+                     By Lemma 2.2 the latter expression is
+
+                                                                   1Q
+                                                                so(x) = q
+
+                     Hence
+
+
+                                                          J0   \«<Ci
+
+                     By considering the underlying diophantine equation the integral on
+                     the right here is
+
+
+                     and the thereom now follows in the third case.
+                        (iv) Finally suppose that 5 (4) is maximal. Then for a given solution
+                     of (12.9) counted by 5 (4) , for every 7,
+                                       x, > M, yj > M, *F'(z,u) * 0, V'(w,v) # 0
+                     and neither
+                                           Xj®(My¥'(z,u) nor ^.®(M)V(w,v).                            (12.19)
+
+
+                     Let m be the greatest divisor of Xj with the property that (m,
+                     ^'(z,u)) = 1. If m < M, then x ^ ( M ) ^ ( z , u ) contradicting (12.19).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     182                                                  Wooley's upper bound for G(k)
+
+                     Thus m > M, and since no prime divisor of Xj exceeds R there is a
+                     divisor mj of Xj with
+                                          M <mj^           MR and ( m ^ ' f o u ) ) = 1.
+                     The same conclusion also holds for a suitable divisor lj of yy
+                     Therefore
+                                                         Sa(P9Q9R)<Vl9
+                     where Kx is the number of solutions of the equation
+
+
+                                                       j= i                           j = i
+
+                     with z,w,u,v satisfying (12.11) and
+
+                                     Xjes/(Q/M)9 yjes/(Q/M)9                 M < mj9lj ^ MR       (12.20)
+                     and
+
+
+                         Let
+
+
+
+
+                     where the summation is over all z,u satisfying (12.11) and (h,
+                     »P'(z,u))= 1, and let
+
+                            = /(m J a,Q/M) (1 <y ^ s),/ s + ; (a) = / ( — ljOi,Q/M) (1 < J < s).
+
+                      Then
+
+                                           Fx ^ X             f
+                                                                  («. a)F( - «, *) I! ^ « ) d a
+                                                   m,lJO                           7=1
+
+
+                     where the summation is over m = m l 5 . . . , ms, 1 = / l 5 . . . , /s satisfying
+                     (12.20), and a = m1 ...ms,b = lx... /s.
+                       By Holders inequality
+
+
+                                                       ^i < n w™,
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     The fundamental lemma                                                               183
+
+                     where
+
+                                               /.= £ f |F(a,a)|2|//a)|2sda
+                                                     m,l J0
+
+                     and
+
+
+
+
+                     Clearly neither /, nor J, exceeds (MR)2s                     * F 2 where K2 is the number
+                     of solutions of
+                     4>(z,u) + m*(x*i + . . . + xj) = ¥(w, v)
+                     with z,w,u,v satisfying (12.11), M < m ^ MR and
+                                    xj9yj€^(Q/M9R)            and CF'(z,u)V'(w,v),m) = 1.
+                      Hence
+
+                                                  SS(P, fi, K ) < (MK)2s~ ^ 2 .
+                        For a given m, let ^(/i,u) denote the set of solutions of the
+                      congruence
+                                                       *F(z,u) = fe (modmk)
+                      with (^'(z, u), m) = 1. Let p be a prime divisor of m and p* || mk. Then
+                      by Theorem 107 of Hardy and Wright (1979) and repeated applica-
+                      tion of Theorem 123, ibid., the number of solutions of *F(z,u) = h
+                      (modpff) with p\x¥'(z,u) is bounded by the absolute degree of *F.
+                      Hence, by the Chinese remainder theorem,
+                                                         card^(/i,u)<^m £ .                           (12.22)
+                         Obviously in (12.21)
+                                                          O ^ V ^ v ) (rnodm*).
+                      Hence each solution of (12.21) can be classified according to the
+                      common residue class modulo mk of *F(z,u) and *F(w,v). Let
+
+                                             g(aL, x, u; m) =          ^          ^(a l F(z, u)).
+
+                                                                 z = .x(modmli)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                    184                                                 Wooley's upper bound for G(k)
+
+                     Then, by (12.21),
+
+
+                                                              M
+
+                     where
+
+                                          V(m)                       ) \f(mk(x, Q/M) | 2s da   (12.23)
+                                                     Jo
+                     and
+
+                                         G(a,m)= I
+
+                     Hence, by Cauchy's inequality and (12.22),
+
+
+
+
+                                                            u x= 1
+
+                     The theorem now follows from this and (12.23) on considering the
+                     underlying diophantine equation.
+                       For the purposes at hand it is necessary to specialise the function *¥.
+                     First, define the forward difference operator
+
+
+                     by
+                                                                                hmk) -         (12.24)
+                                    A,. + ,(/(*); h;m) =
+                                                                                               (12.25)
+                     and for convenience put
+                                                      A0(/(x);h;m)=/(x).
+                     Then put
+                                                   ¥,-(x; h; m) = A/x*; h; m).                 (12.26)
+                     Also, suppose that the real numbers <f>t, <!>,•, Mp Hp Qj satisfy
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     The fundamental lemma                                                           185
+
+                                    0<4>t^        l/k (1 < i <fc),<t>j = 0X + ••• + 0,.,             (12.27)
+                                                                                 1
+                                     M,. = P*;, H • = P M : \ g,. = P ~ *;, Qo = P.                 (12.28)
+                     Now take °U = (Hj to be the set of hl9..., /*,-, m 1 ? ..., m7- with
+                                                1 < Jif < //^ Mf < m{ < MfK.                    (12.29)
+
+                       Henceforward n will be a positive real number, usually sufficiently
+                     small in terms of e,/c,0 1? .. .,</>k, and the implicit constants in
+                     expressions will possibly depend on n and $ x , . . . , (j)k as well as /c and s.
+
+                     Theorem 12.2 Assume the above notation and put R = Pn. Then for
+
+
+
+
+                                                           j+ ^ ) 2 s " xrf(P,QpR9Mj+1;^).
+
+                     Proo/The inequality *F}(z;h;m)>0 holds for all choices of the
+                     variables under consideration. Thus in the notation of Theorem 12.1,
+                     N = 0.
+                       Write SS(P, M} + 1? R; ¥,-) as an integral via exponential sums. Then
+                     by making a suitable trivial estimate
+
+                                     SS(P,Mj +l,R; Vj) ^ Mj+ XSS_ ,(P, 6,,P;%•)
+                                                                ^e.M^A-^p,^^;^).
+                     Hence, by Theorem 12.1,
+
+                                    Sa(P9 QpR'^j)          < P£QJMJ + XSS_ !(P, QJ9R; T ; )
+
+                                        n H £ M ^ (M^ + ,R)2s~             1
+                                                                               TS(P,6,,R,MJ+1;^).
+
+                         If
+
+
+
+                     for a suitably small positive constant c, then the proof is complete.
+                     Otherwise one may suppose that
+                                   PeQjMj+ ,5 S _          tf^RiVj)         > cSa(P9Qj9R;Vj).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     186                                                 Wooley's upper bound for G(k)
+
+                     On writing Ss_ ^P.QpR'^j)                  as an integral and applying Holder's
+                     inequality one has
+
+                           Ss- X (P,Q P RlVj) < S0(P,QpR;Vj)1/sSs(P,G,,                       K; ¥ / ~ 1)/s.
+                     Hence
+
+
+
+                                                                       jMJ+Jp( fl H^RY.
+                     On the other hand, by considering only the solutions to (12.12) in
+                     which xt = yt (i = 1,... ,s) and z = w one has by Lemma 12.1 that
+                                     J
+                                                          j + ,R)2s~            *TS{P,QJ9R,MJ+1;^)
+                                     1
+                                   i = 1
+
+
+                       > ( PI HiMiRJ(MJ+1R)28-lp(                       n       HiMiR\Mj+1R(QJ/Mj+1Y.
+
+                     This completes the proof of the theorem.
+
+
+                     12.3 Successive efficient differences
+                     The differencing process continues by relating
+
+
+                     to Ss(Qj+l9R) and Ss(P,Qj+l9R;x¥j+1).   There are many ways of
+                     dealing with Ts9 as is done, for example, in Vaughan (1989a,fo),
+                     Vaughan and Wooley (1993, 1994, 1995) and Wooley (1992, 1995d).
+                     The manner chosen is relatively simple, and suffices for the con-
+                     clusions here.
+
+                     Lemma 12.3 For j = 0 , . . . , k — 1 one has
+
+                                 ,QpR9MJ+1;Vj)            < PMj + ,R(n            HtMiR\Ss(Qj           +l9R)
+
+
+
+
+                     Proof By definition TS(P9 Qj9 R, Mj+1)                  is the number of solutions of
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     A mean value theorem                                                            187
+
+                     (12.12)    with l ^ z , w ^ P , z = w (modm k ),         Mj+l<m^
+                     Mj+1R, xi,yies/(Qj+l,R),        and hi,mi satisfying (12.29) when
+                     1 ^ i ^ ;. Thus
+
+
+                     where Uo and U1 are the number of solutions with z = w and z < w
+                     respectively. Clearly
+
+                                        Uo
+
+                                                                                              k
+                     Thus it remains to deal with U v Let w = z + hmk. Then
+                     1 ^ /z ^ Mj+ 1 and the equation (12.12) becomes
+
+
+
+
+                     Thus t/i is bounded by the number of solutions of this with
+                     1 ^ z ^ P, xi,yies^(Qj+l,R),    and hi,mi satisfying (12.29) when
+                     1 < i <./ + 1. Now it is a simple matter to use an integral of an
+                     appropriate product of exponential sums to count the number of such
+                     solutions. A simple application of Schwarz's inequality then shows
+                     that
+
+
+                     and this completes the proof of the lemma.
+
+
+                     12.4 A mean value theorem
+                     It is necessary to make a suitable (simplifying) choice of parameters in
+                     the previous theorem, and it is convenient to suppose that there is a
+                     number ks with 0 ^ Xs ^ 2s such that for each e > 0 there is an rj > 0
+                     such that when R = Pn one has
+                                                         SS(P,R)<$PX*        +E
+                                                                                .                 (12.30)
+                     Observe in passing that this implies that (12.30) holds whenever
+                     R ^ Pn. For convenience put
+                                                         S=L-2s            + k.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     188                                                 Wooley's upper bound for G(k)
+
+                     This gives a measure of how close Xs is to the 'ideal' value Xs = 2s — k.
+                     For 7 = 1,... ? /c let
+
+
+
+
+                     It is now proved by induction on j = k — 1 , . . . , 0 that
+
+                     Ta(P, QJ9 R,                                                     (
+
+                                                                                               (12.32)
+                     By writing S^F, Qk9 R; ^ k ) as an integral of an appropriate product of
+                     exponential sums and making a trivial estimate one has
+
+                                     S,(P, Qk,R; Vk) < P2 (J\                 H.M.R
+
+                     Moreover <j)k = \jk so that Hk = 1. Thus, by Lemma 12.3, the case
+                     7 = fc - 1 of (12.32) is established.
+                        Now suppose that j ^ k — 2 and (12.32) holds withy replaced by
+                     7 + 1. By (12.27) and (12.31),
+
+                                                    i                         1-1/*.
+                     Hence, by Theorem 12.2 and the inductive hypothesis,
+
+
+
+                                P1 + <*' ^>(M, + 2R)2s
+
+                     Hence, by Lemma 12.3,
+
+
+                     where
+
+
+                                                                   u =1
+                      and
+                                                                           m
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     A mean value theorem                                                                   189
+
+                     By (12.27) and (12.31),
+
+
+                                + 2(1 - (k - l ) 0 j + x) - 2(1
+                                        = l + (*-55)^ +2
+                     Thus
+                                                               )
+                                                                   ( f l H,M^ )
+                                                                   \i = I           /
+
+                     and (12.32) follows.
+                       By Theorem 12.2 and (12.32) with; = 0,
+                                    SS(P,P^R-^o)          ^P1+ik+           1)e
+                                                                               MisR2ik        + 1)£
+                                                                                                   Q\s+ \
+                     Thus the following lemma has been established for all s ^ 1. The case
+                     s = 0 is trivial from the observation that then 2 0 = 0,(5o = / c , ^ =
+                     i k - 1 , ^ = 1.
+
+                     Lemma 12.4 Suppose that there is a number ks with 0 ^ ks ^ 2s such
+                     that for each e > 0 there is an rj > 0 such that when R = Pn one has
+
+
+                     Let 5S = Xs - 2s + /c,
+
+
+                                                                                        2/c
+
+                     Ss+1 = Ss(l - 0) + kO - I and Xs+ ! = 2s + 2 - k + 8S+ x. Then for
+                     each e > 0 there is an rj > 0 such that when R = Pn one has
+
+
+                       It is useful to state a simple corollary of the above which follows
+                     easily by induction on s on noting that 6 ^ £. Many refinements are
+                     possible.
+
+                     Theorem 12.3 Let
+
+
+                                                                                    k '
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     190                                                   Wooley's upper bound for G(k)
+
+                     Then for each e > 0 there is an rj > 0 such that when R = P*1 one has
+
+
+                        The following theorem is the main estimate for SS(P,R).
+
+                     Theorem 12.4 Suppose that k ^ 4 and let os denote the root of the
+                     transcendental equation
+
+                                                      os + log os = 1                            (12.33)
+
+                     with 0 < crs ^ 1 and let
+                                                        As = 2s-      k + kos.                   (12.34)
+                     Then for each e > 0 there is an rj > 0 such that when R = Pn one has
+                                                                             +E
+                                                        SS(P,R)<P^              .                (12.35)
+                     Moreover
+
+                                                                                  -j).           (12.36)
+
+                     Proof This is by induction on s = 0,1,          The case s = 0 is
+                     immediate from the observation that a0 = 1.
+                        Assume the theorem for a given s. Then the hypothesis of Lemma
+                     12.4 holds with (5S = kos. Thus the conclusion holds with ks+l =
+                      2s + 2 - k + d* and d* = Ss - 1 + (k - Ss)6 with
+
+                                                  l         /l         l     \A-5.Y-1
+
+
+                     Therefore
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                    Wolley's upper bound for G(k)                                               191
+
+                        By definition of as and GS+1,
+
+
+
+
+                     Let
+
+
+
+
+                     The expression a + log a is a strictly increasing function of a. Hence
+                     0 < fi < 1, fi < v ^ 2fi. Moreover
+
+                                                    - = v — u — log(l — u)
+                                                    k
+
+                     and — fi — log(l — /z) is an increasing function of fi when 0 < fi < 1.
+                     Therefore
+
+
+
+
+                     and so
+                                                                 (2-21-*)
+                                                          V<
+                                                                     fc        '
+                     Thus
+
+
+
+
+                     and the case 5 + 1 follows.
+
+
+                     12.5 Wooley's upper bound for G(k)
+                     Let
+
+                                               *(«)=         I            Z     ^(apV).       (12.37)
+                                                         iA: < p < X xe^(X, Y)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     192                                                 Wooley's upper bound for G(k)
+
+                     Lemma 12.5 Suppose that a = a/q + /? with | /? | ^ ^ " *X ~\
+                     4 ^ 2Xk,(a,(7) = 1, and that when q ^ X one has \f}\ > q~lXx~2k.
+                     Then for every s > 0 there is anrj > 0 swc/z £/ia£ w/ie/t Y = Xn one has
+                                                        h(oc) <^ X 2 ( 1 ~ff)+ £
+
+
+
+                                            a = max     Y' k
+                                                           ---exp(l--)).                       (12.38)
+
+                     Moreover,
+
+                                                                     +   0
+                                                                             (-2T-T))          ( 12 - 39 )
+                                                                               i2
+                                                                                \ogkJ J
+                     where x is the positive root of the transcendental equation
+                                                          e* = ke(l + T),                       (12.40)
+                     and
+                                                               1
+                                                                    as/c->oo.                  (12.41)
+                                                           2/clog/c
+                     Proo/ Let u e N. By Holder's inequality
+
+
+
+
+                     where cm is the number of solutions of the equation
+                                                        x \ + • • • + xku = m
+                     with Xj€s/(X, Y). Following the proof of Lemma 5.4 gives
+
+
+
+
+                     and the lemma follows from Theorem 12.4.
+
+                     Theorem 12.5 Suppose that X = klog^ where a is given by (12.38).
+                     Then
+                                                          G(k) < k + O(k)
+                     and X = klogk + fcloglogfc + O(k).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                    Exercises                                                                      193
+
+                     Proof Let
+                                                 ke            2      1    (\
+                                             A=-,B           = -,fi = -\og(-A
+                                                  a            k      B   \2
+                     and choose b, c so that | b — \i | ^ \ and
+                                                    c = [A exp( - bB)] + 1.
+                       Let s = 4k + 2b + c and put P = n1/fc, g = (£)1/k,                     X = Q1/2,
+                     R= Qv,rj arbitrarily small,
+
+                                                         /(a) = X e{an%
+
+
+
+                                                                nerf(Q, R)
+
+                     h(a) as in (12.37) and consider
+
+                                           r(n) =        f(a)*kg((x)2bh(0L)ce( - ocn)d(x.
+                                                    Jo
+                     Now we may proceed much as in §5.4, but via Theorem 12.4 and
+                     Lemma 12.5. It follows that G(k) ^ 4/c + 2b + c. Moreover Bb =
+                     Bfi + O(B\
+
+                                                                          = A (1 + 0(B))
+
+                      and c = | + 0(1). Thus
+
+                                    2b + c = - l o g — + - + 0(1) = fclog- + 0(k)
+                                             B I B                       o
+                      as required.
+
+
+                      12.6 Exercises
+                        1 Show that when u > 1 one has up(u) = J"_ x p(i;)di;, and that
+                      Y(u + 1) ~ 2 ^ p(w) ^ F(w + 1) ~ x.
+                        2 Let Gx(/c) denote the least s such that almost every natural
+                      number is the sum of s fcth powers. Show that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+                     194                                                   Wooley's upper bound for G(k)
+
+
+                                                       hm s u p — — r ^ x
+                                                        ^     klogk     2
+                       3 (Ford, to appear) Show that there is a positive number c such
+                     that if / > ck2 log /c, then every sufficiently large number can be
+                     written in the form
+
+                                                                  I 4
+                                                               j = k + 1
+
+                         4 (Vaughan, 1989b) Assume the notation of §§12.1 and 12.2. Let
+                     f1(x9h9m) = V1(x,h,m),
+
+                                       / 2 (x 1 ,x 2 ,/i,m) = f1(x2,h,m)             -f^x^h.m),
+
+                                         F
+                                           («) = Z               I          I ^(x^m)),
+                                                                     MR x ^ P
+
+
+
+
+                      and suppose that for 7 = 1,2 the number Rj(n) of solutions of
+                     fj(x9 h,m) = n with x e [1, P] J , /i ^ i/, M < m ^ MR satisfies
+                      Rj(n) < (nPf. Show that
+
+
+                      Put TS(P,M,R) = r s (P,P,R,M;^ 0 ). Show that
+                           T2(P,R,M) < PMRS2(P/MyR) + P±
+                          T2(P,R,M) <$ PMRS2(P/M,R) + P^
+                          T3(P,R,M) < PMRS3(P/M,R) + P^
+                     Deduce that if k = 4, then
+
+
+                     where k = 3 + 5 + 2 / j j and that if k ^ 5, then
+
+                                             5 3 (P, K) ^ PA3 + e, 5 4 (P, /^) « PA4 + £
+                     where A3 = 3 + 2 M 4 = (4 + (k - 3)6)/(l - 6) and 6 is the smallest
+                     non-negative      root     of      63(2k + 32) + 02(15k - 48) +
+                         2
+                     6(3k - llfcH- 22) — 3.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.015 Published online by Cambridge University Press
+

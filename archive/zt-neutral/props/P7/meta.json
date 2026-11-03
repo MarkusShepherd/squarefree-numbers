@@ -1,0 +1,14 @@
+{
+  "id": "P7",
+  "title": "Single-modulus variance asymptotic",
+  "statement": "Notation: V(x;q) = sum_{l=1}^q E(x;q,l)^2, with E as in problem.md. MT(x;q) and h(q) are as follows:\n- MT(x;q) = A_0 q sum_{t>=1} eta(t) m_t(q) B(x/(q m_t(q))), where B(u) = {u}(1 - {u}), A_0 = prod_p (1 - 2/p^2), eta(t) = mu^2(t) prod_{p|t} (p^2-2)^{-1} and m_t(q) = t^2/gcd(t^2,q);\n- h(q) = -4 zeta(-1/2) \u00b7 prod_{p\u2224q} (1 - 3/p^2 + 2/p^3) \u00b7 prod_{p||q} (p-1)(p^2 - 2 + sqrt p)/p^3 \u00b7 prod_{p^2|q} (p-1)^2 (p+1)/p^3.\n\nClaim. For every eps > 0 there is c(eps), depending only on eps, such that for all real x >= 2 and integers 1 <= q <= x:\n\n(i) |V(x;q) - MT(x;q)| <= c(eps) (x^{5/3+eps}/q + sqrt(x));\n\n(ii) |V(x;q) - h(q) sqrt(xq)| <= c(eps) (x^{1/3} q^{2/3+eps} + x^{5/3+eps}/q + sqrt(x)).",
+  "depends_on": [
+    "P2",
+    "P3",
+    "P4",
+    "P6"
+  ],
+  "cites": [],
+  "crux": false,
+  "risk": "Low once P2, P3, P4 and P6 hold.\n\nInsert into P2:\n- P3 bounds 2 sum_{h<=x/q} |D_x(hq)| <= 2 (x/q) c(eps) x^{2/3+eps};\n- P4(i) bounds Q(x) - 6x/pi^2;\n- P4(ii) gives 2x \u00b7 c_0 sqrt(x)/q <= 2 c_0 x^{5/3}/q.\nThen apply P6 for (ii)."
+}

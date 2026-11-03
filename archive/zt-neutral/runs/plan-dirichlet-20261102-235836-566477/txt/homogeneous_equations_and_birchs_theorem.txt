@@ -1,0 +1,364 @@
+                     Homogeneous equations and
+                     Birch's theorem
+
+                     9.1 Introduction
+
+                     Let F ( x l 5 . . . , xs) be a homogeneous form of degree k ^ 2 with integer
+                     coefficients. A natural question is to ask whether the equation
+                                                         F(x1,...,xs) = 0                     (9.1)
+                     has a non-trivial solution, i.e. a solution in integers Xj not all zero.
+                     Obviously when k is even the equation may only have the trivial
+                     solution. However, when k is odd there is more hope. Lewis (1957)
+                     building on earlier work of Brauer (1945) showed that if s is
+                     sufficiently large, then any cubic form in s variables with integer
+                     coefficients has a non-trivial zero. Shortly afterwards this was
+                     extended by Birch (1957) to forms of arbitrary odd degree. Indeed,
+                     Birch proved somewhat more than this. The object here is to give an
+                     account of Birch's theorem. For references to later work on this and
+                     related topics the interested reader should see Davenport's collected
+                     works (Davenport, 1977).
+                        The proof of Birch's theorem rests on a special case, namely on the
+                     solubility of the additive homogeneous equation
+                                                      cxx\ + . . . + csxJ = 0,                (9.2)
+                     and this can be treated by an application of the Hardy- Littlewood
+                     method.
+
+                     9.2 Additive homogeneous equations
+
+                     The methods of Chapters 2, 4 and 5 are readily adapted to give the
+                     following theorem, and so the proof is only given in outline.
+
+                    Theorem 9.1 Let k > 2 and s0 be as in Theorem 5.4, and suppose that
+                    s ^ min(s 0 , 2k + 1) and s > 4/c2 — k + 1 . Suppose further that when k
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                     148                              Homogeneous equations and Birch's theorem
+
+                     is even not all of the integers cv . . . , cs are of the same sign. Then the
+                     equation (9.2) has a non-trivial solution in integers x l 9 . . ., xs.
+
+                        Throughout this section, implicit constants may depend on
+                     Ci, . • • , C5.
+                       If there is a j such that cj = 0, then the conclusion is trivial. Thus it
+                     may be assumed that, for every j , c7 =/= 0. Also, when k is odd, it can be
+                     assumed (if necessary by replacing xx by — xx) that not all the cj are of
+                     the same sign. Let R(N) denote the number of solutions of (9.2) with
+                     1 ^ Xjf ^ N. Then the methods developed in Chapters 2, 4 and 5 give
+
+
+                     where
+
+
+                                                      P                      *
+                                                             q        s
+
+
+                                                            a= 1    j=
+
+                     and
+                                                      ATk            ^k
+
+                                       J(AT)=         y      ...    V k~s(mx        ...mylk~l.
+                                                    mi = 1         ms = 1
+
+
+                     They further show that there is a number C, depending at most on
+                     C j , . . . , cs, such that
+
+
+
+                     and that
+
+
+                     Now it suffices to show that T(p) > 0 and, again, this will follow if it is
+                     shown that MF(q\ the number of solutions of
+                                       F ( x l 5 . . ., xs) = c^x\ + . .. + csxks = 0(mod q)
+                     with 1 ^ Xj, ^ q, satisfies, for t sufficiently large,
+                                                       MF(pt)>C(p)pt{s-l)                        (9.3)
+                     for some positive number C(p) depending only on c 1 ? . . . , cs and p.
+                        In order to treat MF it is necessary to transform the variables so as
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                     Additive homogeneous equations                                                             149
+
+                     to obtain a new form H in which an appreciable number of the
+                     coefficients are coprime with p. Choose T ; SO that pXj || c} and choose
+                     hj, lj so that Tj = hjk + l} and 0 ^ l} < k. Then
+
+
+                     where
+
+
+                     with dj = Cjp]~Zj. Now let h = maxft7-.Then
+                                       F(ph ~ h>xv ...,      pH ~ h°xs) = PhkG(x^                . . . , xs)
+                     and, for t > ft,
+                                                             pt-h   +   fci    pt-h       + hs
+
+
+
+
+                                                                              j=      1
+
+                     whence
+                                                      AM/OS* Mc(//"**).                                        (9.4)
+
+                        The form G can be rewritten as
+
+
+                     where
+
+
+                                                                              I = 1
+
+
+                     Clearly there exist i and r with r ^ s/k and G(I) containing at least r
+                     variables. Consider the form
+
+                              H(xv ..., xs) = ( X pJG{»{px{S)) + X p ^ V ^ ) V ''.
+                     Now
+                                                        M^p^M^'1)                                              (9.5)
+                     and H has the shape
+
+
+                     with i/ (0) containing at least r variables, where r ^ s/k, and all its
+                     coefficients relatively prime to p. It can be assumed, if necessary by
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                      150                              Homogeneous equations and Birch's theorem
+
+                     relabelling the variables, that
+                                                                                  k
+                                   H(O) = #<o) (Xi? . . ., Xf) = d,x\ + . .. + drx .
+
+                       By (9.5) and (9.4), to prove (9.3) it now suffices to show that there is a
+                     positive number C^p) such that for t sufficiently large
+                                                     MH(pt)>Cl(p)pt{*-l).                     (9.6)
+                     Let T denote the highest power of p dividing k and write y = x + 1
+                     when p > 2 or x = 0, and y = x + 2 when p = 2 and T ^ 1. Then, as in
+                     §26, (9.6) will follow on showing that, for each m,
+                                                dxx\ + . . . + drxkr = m(mod py)              (9.7)
+                     is soluble in x 1 ? . . . , xr with p\xv
+                        Let X = /? y ~ T " 1 (/c, p T (p-1)). Then the number of kth power
+                     residues modulo py is (j){py)/K. Hence, by Lemma 2.14, the set M^ of
+                     residues m modulo py which can be written in the form
+
+
+                     satisfies c a r d ^ ^ mm(pyJ(t)(py)/K). Thus, if r ^ 4k, i.e. s > 4k2 - k,
+                     then (9.7) has a solution of the desired kind, and this completes the
+                     proof of Theorem 9.1.
+
+                       Suppose that ci9...,             cs are integers such that for every q the
+                     congruence
+
+
+                     has a solution with (xp q)=l for some j . Then, following Davenport
+                     & Lewis (1963) c 1 ? . . . , cs are said to satisfy the congruence condition.
+                     They define F*(k) to be the least s such that every set of s integers
+                     c 1 ? . . . , cs satisfies the congruence condition. They further define
+                     G*(k) to be the least number t such that whenever 5 ^ t the equation
+                                                       cxx\ + . . . + eycJ = 0
+                     has a non-trivial solution in integers when cy,..., cs are not all of the
+                     same sign when k is even and satisfy the congruence condition.
+                         The argument above gives F*(k)^4k 2 — k + 1 and G*(k)^
+                     min(s 0 , 2k + 1). Davenport and Lewis show (i) that T*(k) ^ k2 + 1,
+                     (ii) that T*(k) = k2 + 1 when k + 1 is prime, and (iii) that G*(k) <
+                     k2 + 1 when k ^ 18 and k ^ 6. Vaughan (19776,1989a) has removed
+                     the gap in (iii) by using the methods of Chapters 5, 6, 7 and 12.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                     Birch's theorem                                                                                                151
+
+                        For small values of k, T*(k) is known. (See Bierstedt (1963), Bovey
+                     (1974), Dodson (1967), Norton (1966).) Also, following earlier work of
+                     Norton (1966) and Chowla & Shimura (1963), Tietavainen (1971) has
+                     shown that
+                                                    r*(2/c+l)      2
+                                           lim sup ———-— = -—-.
+                                             fc ^oc   fclogfc    Iog2
+
+                     9.3 Birch's theorem
+
+                     Theorem 9.2 (Birch, 1957) Let j , I denote natural numbers and let
+                     kl9...9kj            be odd natural numbers. Then there exists a
+                     number *P,-(fci,..., kj9 I) with the following property. Let
+                     F J J C ) , . . . , Fj(x) denote forms of degrees kl9..., k} respectively in
+                     x = ( x ! , . . . , xs) with rational coefficients. Then, whenever
+                                                             s>Vj(kl9...9kfil)
+                     there is an l-dimensional vector space V in Qs such that for every xe V
+
+
+                       The first step in the proof is to establish the case when j = 1, Fl is
+                     additive and k ^ 3.
+
+                     Lemma 9.1 There is a number O(/c, /), defined for natural numbers A, /
+                     with k odd and k ^ 3, such that, if s ^ O(/c, /), then for each form
+                     cxx\ 4 - . . . + csxks with cl9. .., cs rational, there is an l-dimensional
+                     vector space V in Qs such that for every xeV
+                                                            cxx\ + . . . + csx£ = 0.                                               (9.8)
+
+                     Proof By Theorem 9.1 there are t = t(k) and yl9.. ., yt not all zero
+                     such that
+                                                            C ' I ^ + . - . + C J ? = 0.
+                     Similarly for
+                                                       c f + 1 t f + 1 + . . . + c2fj4f = 0
+                     and so on. Hence, when s > It, the point
+                               ( u t y l 9 . . . , u x y t , u 2 y t + l f . . ., u 2 y 2 t , . . . , u t y l t , 0 , . . ., 0 )
+                     satisfies (9.8) for all ul9...,                 ux.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                     152                                     Homogeneous equations and Birch's theorem
+
+                     Proof of Theorem 9.2 Let k = max kh so that k is an odd positive
+                     integer. The proof is by induction through odd values of k. The result
+                     for k = 1 is straightforward. For k ^ 3 the principal step is to show
+                     that if the result holds for systems of forms with max k{ ^ k — 2, then it
+                     holds for a single form of degree k. The conclusion is then easily
+                     extended to a system of forms of degree at most k.
+                        For a form
+
+                                                   F{x1<. . . , xs)=
+
+                     of (odd) degree /c, consider
+                                         uoy{O) + u1/l)            + ... +
+
+                                         = I               cu
+
+
+
+                                                 7i         7k
+                                               0 < ./,. «S n + 1
+
+                     Now define «(1) = (1, 0, 0,...), ^(2) = (0, 1, 0,. ..), and so on, and take
+                     u = L
+                      o '' y 0 ) = J' y n =^ (1) , y 2 ) = ^ ( 2 ) ,... - Then a further regrouping
+                     of terms gives
+
+
+                                     v
+                            = I         "         I          uJl...uJk_kFiy;hJl9...Jk-k)         (9.9)
+                               fc = o         h        h-h
+                                            1 < jr < n + 1
+                     where
+                                                              F(>v/ 1 , 7 - 1 ,..., ;fc _ /i )
+                     is a form of degree h in y — (\\,. . ., ys). The total number of such
+                     forms with h odd, 1 ^ h ^ k — 2 and 1 ^ jr ^ n + 1 does not exceed
+                     /C(H + l)k. Hence, on the inductive hypothesis, and provided that
+
+
+                     one finds that the corresponding simultaneous equations
+
+
+                     have a non-trivial solution z{0) in Qs.
+                       If ^(0), e{l\ .. ., e(n + u are linearly dependent over Q, then omitting
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                     Birch's theorem                                                                  153
+
+                     one of the eU) gives a linearly independent set of n + 1 points in Qs.
+                     Thus, in any case, by taking one of the u} to be zero in (9.9) and, if
+                     necessary, relabelling, one obtains z{0\ z{1),..., z(n) that are linearly
+                     independent and such that
+                                                                              k -   I
+
+                         F{vzm     + uxzn)    + . . . + unz{n)) =cvk+           X vhGh(u) + G0(w)   (9.10)
+                                                                              fi = 2
+                                                                              /i even
+                     where Gft(«) is a form of degree /c - h in w = (ux,. . . , i/J.
+                       The linear independence of z(0\.,.,     z{n) ensures that, when
+                                               X = I?Z (0) + U 1 Z ( 1 ) + . . . + KIIZ(II),
+
+                     non-trivial choices for (v, w x , . . . , un) give non-trivial values for x.
+                       Consider the system of forms
+                                             Gfc(n) = 0,     /?even,       2</?<fc-l.               (9.11)
+                     The degree, /c — /i, is odd in each case. Hence, a further application
+                     of the inductive hypothesis shows that when n ^ 4\(A: — 2 , . . . ,
+                     /c — 2, m), i.e.
+                                                            s>so{k, w),
+                     the system (9.11) is soluble for every member u of an m-dimensional
+                     vector space U in Q". Let w ( 1 ) , . . . , u{m) denote m linearly independent
+                     points in U and consider
+
+                                                   M = W 1 W (1) + - • • + H'mM(m).
+
+                     The linear independence again ensures that non-trivial w in Qm give
+                     rise to non-trivial u in Q". Hence, by (9.10), for non-trivial
+                     (i>, U j , . . . , wm) there are non-trivial x = ( x j , . . . , x s ) such that
+                                                        F(JC) = ci'fc + H(w)
+                     where H is a form in w = ( w l 5 . . . , wm) of degree /c, i.e. F represents
+                     cvk -f H(w).
+                        Continued repetition of this argument shows that if s^sx(k,            /),
+                     then F represents a diagonal form
+                                                          cxv\ + . . . + cfr!c
+                     with t = O(/c, /). Lemma 9.1 now gives the case j = 1, kx = k of the
+                     theorem.
+                       To complete the inductive argument, it remains to establish the
+                     general case of j simultaneous equations Fx=..      . = Fj = 0 with
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+                     154                              Homogeneous equations and Birch's theorem
+
+                     max k( = k. This is done by subinduction on j . The case j = 1 has
+                     just been dealt with. Suppose j > 1. Without loss of generality
+                     it can be supposed that k} = k. By the case 7 = 1, given m, if s ^
+                     ^(/Cj, m), then there is an m-dimensional vector space U in Q5 such
+                     that Fj(x) = 0 for every x in U. The points of U can be represented by
+
+
+                     where JC(1), . . . , x{m) are linearly independent points of Qs. For these
+                     points the forms F l 5 . . . , F}_ 1 become forms in y = ( y l 9 . . . , >m). If
+
+                                                           max         kt^k    —2
+                                                        1<i<j- 1
+                     then one uses the main inductive hypothesis. If
+                                                               max         kt = k
+                                                           1 *Zi**j-   1
+
+                     then one uses instead the subinductive hypothesis. In either case,
+                     provided that m ^ ^ _ J / c j , . . . , /c;_ l5 /), there is an /-dimensional
+                     vector space V in Qm on which each Ft vanishes. This completes
+                     the proof of the theorem.
+
+                     9.4 Exercises
+
+                         1 Adapt the methods of Chapter 7 to show that
+
+                                                        hmsup——-^2.
+                                                          /c^oc /clog/c
+                       2 Adapt the methods of Chapter 6 to show that G*(3)^8,
+                     G*(4) ^ 14, G*(5) ^ 23, G*(6) ^ 36.
+                       3 Show that r*(2) = 5, P*(3) = 7, r*(4)=17, and that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.012 Published online by Cambridge University Press
+

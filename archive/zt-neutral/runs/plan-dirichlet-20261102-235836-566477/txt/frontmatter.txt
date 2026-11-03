@@ -1,0 +1,155 @@
+             CAMBRIDGE STUDIES IN ADVANCED MATHEMATICS 97
+                                             Editorial Board
+         B. Bollobas, W. Fulton, A. Katok, F. Kirwan, P. Sarnak, B. Simon, B. Totaro
+
+
+                       MULTIPLICATIVE NUMBER THEORY I:
+                              CLASSICAL THEORY
+
+        Prime numbers are the multiplicative building blocks of natural numbers. Un-
+        derstanding their overall inﬂuence and especially their distribution gives rise
+        to central questions in mathematics and physics. In particular their ﬁner distri-
+        bution is closely connected with the Riemann hypothesis, the most important
+        unsolved problem in the mathematical world. Assuming only subjects covered
+        in a standard degree in mathematics, the authors comprehensively cover all the
+        topics met in ﬁrst courses on multiplicative number theory and the distribution
+        of prime numbers. They bring their extensive and distinguished research exper-
+        tise to bear in preparing the student for intelligent reading of the more advanced
+        research literature. The text, which is based on courses taught successfully over
+        many years at Michigan, Imperial College and Pennsylvania State, is enriched
+        by comprehensive historical notes and references as well as over 500 exercises.
+
+        Hugh Montgomery is a Professor of Mathematics at the University of Michigan.
+        Robert Vaughan is a Professor of Mathematics at Pennsylvannia State
+        University.
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        CAMBRIDGE STUDIES IN ADVANCED MATHEMATICS
+        All the titles listed below can be obtained from good booksellers of from Cambridge University
+        Press. For a complete series listing visit:
+        http://www.cambridge.org/series/sSeries.asp?code=CSAM
+        Already published
+               70 R. Iorio & V. Iorio Fourier analysis and partial differential equations
+               71 R. Blei Analysis in integer and fractional dimensions
+               72 F. Borceaux & G. Janelidze Galois theories
+               73 B. Bollobás Random graphs
+               74 R. M. Dudley Real analysis and probability
+               75 T. Sheil-Small Complex polynomials
+               76 C. Voisin Hodge theory and complex algebraic geometry, I
+               77 C. Voisin Hodge theory and complex algebraic geometry, II
+               78 V. Paulsen Completely bounded maps and operator algebras
+               79 F. Gesztesy & H. Holden Soliton Equations and Their Algebro-Geometric Solution, I
+               81 S. Mukai An Introduction to Invariants and Moduli
+               82 G. Tourlakis Lectures in Logic and Set Theory, I
+               83 G. Tourlakis Lectures in Logic and Set Theory, II
+               84 R. A. Bailey Association Schemes
+               85 J. Carlson, S. Müller-Stach & C. Peters Period Mappings and Period Domains
+               86 J. J. Duistermaat & J. A. C. Kolk Multidimensional Real Analysis I
+               87 J. J. Duistermaat & J. A. C. Kolk Multidimensional Real Analysis II
+               89 M. Golumbic & A. Trenk Tolerance Graphs
+               90 L. Harper Global Methods for Combinatorial Isoperimetric Problems
+               91 I. Moerdijk & J. Mrcun Introduction to Foliations and Lie Groupoids
+               92 J. Kollar, K. E. Smith & A. Corti Rational and Nearly Rational Varieties
+               93 D. Applebaum Levy Processes and Stochastic Calculus
+               94 B. Conrad Modular Forms and the Ramanujan Conjecture
+               95 M. Schechter An Introduction to Nonlinear Analysis
+               96 R. Carter Lie Algebras of Finite and Afﬁne Type
+               97 H. L. Montgomery & R. C Vaughan Multiplicative Number Theory I
+               98 I. Chavel Riemannian Geometry
+               99 D. Goldfeld Automorphic Forms and L-Functions for the Group GL(n,R)
+              100 M. Marcus & J. Rosen Markov Processes, Gaussian Processes, and Local Times
+              101 P. Gille & T. Szamuely Central Simple Algebras and Galois Cohomology
+              102 J. Bertoin Random Fragmentation and Coagulation Processes
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                     Multiplicative Number Theory
+                          I. Classical Theory
+
+                                HUGH L. MONTGOMERY
+                               University of Michigan, Ann Arbor
+                                ROBERT C. VAUGHAN
+                        Pennsylvania State University, University Park
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+      cambridge university press
+      Cambridge, New York, Melbourne, Madrid, Cape Town, Singapore, São Paulo
+
+      Cambridge University Press
+      The Edinburgh Building, Cambridge cb2 2ru, UK
+      Published in the United States of America by Cambridge University Press, New York
+      www.cambridge.org
+      Information on this title: www.cambridge.org/9780521849036
+
+      © Cambridge University Press 2006
+
+
+      This publication is in copyright. Subject to statutory exception and to the provision of
+      relevant collective licensing agreements, no reproduction of any part may take place
+      without the written permission of Cambridge University Press.
+
+      First published in print format 2006
+
+      isbn-13    978-0-511-61831-4 OCeISBN
+
+
+      isbn-13    978-0-521-84903-6 hardback
+      isbn-10    0-521-84903-9 hardback
+
+
+
+
+      Cambridge University Press has no responsibility for the persistence or accuracy of urls
+      for external or third-party internet websites referred to in this publication, and does not
+      guarantee that any content on such websites is, or will remain, accurate or appropriate.
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                      Dedicated to our teachers:
+                                                     P. T. Bateman
+                                                     J. H. H. Chalk
+                                                     H. Davenport
+                                                     T. Estermann
+                                                     H. Halberstam
+                                                     A. E. Ingham
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                            Talet är tänkandets början och slut.
+                                            Med tanken föddes talet.
+                                            Utöfver talet når tanken icke.
+
+                                         Numbers are the beginning and end of thinking.
+                                         With thoughts were numbers born.
+                                         Beyond numbers thought does not reach.
+                                        Magnus Gustaf Mittag-Leffler, 1903
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+

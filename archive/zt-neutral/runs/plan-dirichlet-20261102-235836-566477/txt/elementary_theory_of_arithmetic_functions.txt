@@ -1,0 +1,2501 @@
+                                                            2
+           The elementary theory of arithmetic functions
+
+
+
+
+                                              2.1    Mean values
+        We say that an arithmetic function F(n) has a mean value c if
+
+                                                     
+                                                   1 N
+                                              lim        F(n) = c.
+                                              N →∞ N
+                                                     n=1
+
+        In this section we develop a simple method by which mean values can be shown
+        to exist in many interesting cases.
+            If two arithmetic functions f and F are related by the identity
+                                               
+                                       F(n) =      f (d),                        (2.1)
+                                                            d|n
+
+        then we can write f in terms of F:
+                                           
+                                   f (n) =   µ(d)F(n/d).                                           (2.2)
+                                                      d|n
+
+        This is the Möbius inversion formula. Conversely, if (2.2) holds for all n then
+        so also does (2.1). If f is generally small then F has an asymptotic mean value.
+        To see this, observe that
+                                                
+                                         F(n) =           f (d).
+                                           n≤x              n≤x d|n
+
+
+        By iterating the sums in the reverse order, we see that the above is
+                                                 
+                             =       f (d)    1=       f (d)[x/d].
+                                        d≤x         n≤x           d≤x
+                                                    d|n
+
+                                                            35
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        36                    The elementary theory of arithmetic functions
+
+
+        Since [y] = y + O(1), this is
+                                                                                    
+                                            f (d)                       
+                                    =x                        + O              | f (d)| .          (2.3)
+                                            d≤x
+                                                      d                  d≤x
+                                         ∞
+        Thus F has the mean value          d=1 f (d)/d if this series converges and if
+        
+           d≤x | f (d)| = o(x). This approach, though somewhat crude, often yields use-
+        ful results.
+
+        Theorem 2.1           Let ϕ(n) be Euler’s totient function. Then for x ≥ 2,
+                                         ϕ(n)                6
+                                                          =      x + O(log x).
+                                          n≤x     n           π2
+                                                      
+        Proof We recall that ϕ(n) = n                     p|n (1 − 1/ p). On multiplying out the prod-
+        uct, we see that
+                                                  ϕ(n)  µ(d)
+                                                      =       .
+                                                   n    d|n
+                                                            d
+
+        On taking f (d) = µ(d)/d in (2.3), it follows that
+                                     ϕ(n)                 µ(d)
+                                                  =x                      + O(log x).
+                                    n≤x      n            d≤x
+                                                                    d2
+                            −2
+        Since        d>x d         x −1 , we see that
+                            µ(d)            
+                                             ∞
+                                                 µ(d)    1     1      1
+                                        =             +O   =       +O
+                             d≤x
+                                   d2        d=1
+                                                  d 2    x   ζ (2)    x
+
+        by Corollary 1.10. From Corollary B.3 we know that ζ (2) = π 2 /6; hence the
+        proof is complete.                                                        
+
+             Let Q(x) denote the number of square-free integers not exceeding x, Q(x) =
+        
+             n≤x µ(n) . We now calculate the asymptotic density of these numbers.
+                     2
+
+
+        Theorem 2.2           For all x ≥ 1,
+                                                          6         1/2 
+                                            Q(x) =           x + O  x      .
+                                                          π2
+        Proof Every positive integer n is uniquely of the form n = ab2 where a is
+        square-free. Thus n is square-free if and only if b = 1, so that by (1.20)
+                                            
+                                    µ(d) =       µ(d) = µ(n)2 .                    (2.4)
+                                        d 2 |n                d|b
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                2.1 Mean values                                      37
+
+                                                                 √
+        This is a relation of the shape (2.1) where f (d) = µ( d) if d is a perfect square,
+        and f (d) = 0 otherwise. Hence by (2.3),
+                                                                   
+                                            µ(d)           
+                                Q(x) = x             +O            1 .
+                                           d 2 ≤x
+                                                  d2        d 2 ≤x
+
+        The error term is            x 1/2 , and the sum in the main term is treated as in the
+        preceding proof.                                                                              
+
+           We note that the argument above is routine once the appropriate identity
+        (2.4) is established. This relation can be discovered by considering (2.2), or by
+        using Dirichlet series: Let Q denote the class of square-free numbers. Then for
+        σ > 1,
+                                                       1 − p −2s    ζ (s)
+                           n −s =     (1 + p −s ) =           −s
+                                                                  =        .
+                       n∈Q          p                p 1− p         ζ (2s)
+
+        Now 1/ζ (2s) can be written as a Dirichlet series in s, with coefﬁcients f (n) =
+        µ(d) if n = d 2 , f (n) = 0 otherwise. Hence the convolution equation (2.4) gives
+        the coefﬁcients of the product Dirichlet series ζ (s) · 1/ζ (2s).
+           Suppose that ak , bm , cn are joined by the convolution relation
+                                               
+                                         cn =       ak bm ,                         (2.5)
+                                                        km=n
+
+        and that A(x), B(x), C(x) are their respective summatory functions. Then
+                                               
+                                     C(x) =        ak bm ,                      (2.6)
+                                                         km≤x
+
+        and it is useful to note that this double sum can be iterated in various ways. On
+        one hand we see that
+                                               
+                                       C(x) =      ak B(x/k);                       (2.7)
+                                                       k≤x
+
+        this is the line of reasoning that led to (2.3) (take ak = f (k), bm = 1). At the
+        opposite extreme,
+                                             
+                                    C(x) =        bm A(x/m),                        (2.8)
+                                                      m≤x
+
+        and between these we have the more general identity
+                                         
+                 C(x) =      ak B(x/k) +      bm A(x/m) − A(y)B(x/y)                               (2.9)
+                                 k≤y                   m≤x/y
+
+        for 0 < y ≤ x. This is obvious once it is observed that the ﬁrst term on the right
+        sums those terms ak bm for which km ≤ x, k ≤ y, the second sum includes the
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        38                   The elementary theory of arithmetic functions
+
+
+        pairs (k, m) for which km ≤ x, m ≤ x/y, and the third term subtracts those ak bm
+        for which k ≤ y, m ≤ x/y, since these (k, m) were included in both the previous
+        terms. The advantage of (2.9) over (2.7) is that the number of terms is reduced
+        ( y + x/y instead of        x), and at the same time A and B are evaluated only
+        at large values of the argument, so that asymptotic formulæ for these quantities
+        may be expected to be more accurate. For example, if we wish to estimate the
+        average size of d(n) we take ak = bm = 1, and then from (2.3) we see that
+                                   
+                                       d(n) = x log x + O(x).
+                                          n≤x
+
+        To obtain a more accurate estimate we observe that the ﬁrst term on the
+        right-hand side of (2.9) is
+                                             
+                                    [x/k] = x   1/k + O(y).
+                                       k≤y                k≤y
+
+        By Corollary 1.15 this is
+
+                                        x log y + C0 x + O(x/y + y).
+
+        Here the error term is minimized by taking y = x 1/2 . The second term
+        on the right in (2.9) is then identical to the ﬁrst, and the third term is
+        [x 1/2 ]2 = x + O(x 1/2 ), and we have
+
+        Theorem 2.3          For x ≥ 2.
+                                                                    
+                                 d(n) = x log x + (2C0 − 1)x + O x 1/2 .
+                              n≤x
+
+             We often construct estimates with one or more parameters, and then choose
+        values of the parameters to optimize the result. The instance above is typical –
+        we minimized x/y + y by taking y = x 1/2 . Suppose, more generally, that we
+        wish to minimize T1 (y) + T2 (y) where T1 is a decreasing function, and T2 is
+        an increasing function. We could differentiate and solve for a root of T1 (y) +
+        T2 (y) = 0, but there is a quicker method: Find y0 so that T1 (y0 ) = T2 (y0 ). This
+        does not necessarily yield the exact minimum value of T1 (y) + T2 (y), but it is
+        easy to see that
+
+                                T1 (y0 ) ≤ min(T1 (y) + T2 (y)) ≤ 2T1 (y0 ),
+                                                y
+
+        so the bound obtained in this way is at most twice the optimal bound.
+           Despite the great power of analytic techniques, the ‘method of the hyperbola’
+        used above is a valuable tool. The sequence cn given by (2.5) is called the
+        Dirichlet convolution of ak and bm ; in symbols, c = a ∗ b. Arithmetic functions
+        form a ring when equipped with pointwise addition, (a + b)n = an + bn , and
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                2.1 Mean values                                    39
+
+
+        Dirichlet convolution for multiplication. This ring is called the ring of formal
+        Dirichlet series. Manipulations of arithmetic functions in this way correspond
+        to manipulations of Dirichlet series without regard to convergence. This is
+        analogous to the ring of formal power series, in which multiplication is provided
+                                          
+        by Cauchy convolution, cn = k+m=n ak bm .
+            In the ring of formal Dirichlet series we let O denote the arithmetic function
+        that is identically 0; this is the additive identity. The multiplicative identity is i
+        where i 1 = 1, i n = 0 for n > 1. The arithmetic function that is identically 1 we
+        denote by 1, and we similarly abbreviate µ(n), (n), and log n by µ, Λ, and
+        L. In this notation, the characteristic property of µ(n) is that µ ∗ 1 = i, which
+        is to say that µ and 1 are convolution inverses of each other, and the Möbius
+        inversion formula takes the compact form
+                                       a∗1=b           ⇐⇒         a = b ∗ µ.
+        In the elementary study of prime numbers the relations Λ ∗ 1 = L, L ∗ µ = Λ
+        are fundamental.
+
+
+                                               2.1.1      Exercises
+          1. (de la Vallée Poussin 1898; cf. Landau 1911) Show that
+                                                                
+                                     {x/n} = (1 − C0 )x + O x 1/2
+                                        n≤x
+
+             where C0 is Euler’s constant, and {u} = u − [u] is the fractional part of u.
+          2. (Duncan 1965; cf. Rogers 1964, Orr 1969) Let Q(x) be deﬁned as in The-
+             orem 2.2.
+                                          
+             (a) Show that Q(N ) ≥ N − p [N / p 2 ] for every positive integer N .
+             (b) Justify the relations
+                     1            1 ∞
+                                             1            1
+                                                     1 1 ∞           1
+                               <    +               < +         −        = 1/2.
+                      p   p2       4 k=1 (2k + 1) 2  4 2 k=1 2k   2k + 2
+
+             (c) Show that Q(N ) > N /2 for all positive integers N .
+             (d) Show that every positive integer n > 1 can be written as a sum of two
+                 square-free numbers.
+          3. (Linfoot & Evelyn 1929) Let Qk denote the set of positive k th power free
+             integers (i.e., q ∈ Qk if and only if m k |q ⇒ m = 1).
+             (a) Show that
+                                                          ζ (s)
+                                                  n −s =
+                                             n∈Q
+                                                          ζ (ks)
+                                                          k
+
+
+                   for σ > 1.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        40                   The elementary theory of arithmetic functions
+
+
+              (b) Show that for any ﬁxed integer k > 1
+                                                  x            
+                                            1=         + O x 1/k
+                                       n≤x       ζ (k)
+                                                 n∈Qk
+
+                  for x ≥ 1.
+          4. (cf. Evelyn & Linfoot 1930) Let N be a positive integer, and suppose that
+             P is square-free.
+             (a) Show that the number of residue classes n (mod P 2 ) for which (n, P 2 )
+                  is square-free and (N − n, P 2 ) is square-free is
+                                                                    
+                                                    1                2
+                                   P 2
+                                             1− 2              1− 2 .
+                                       p|P
+                                                   p     p|P
+                                                                     p
+                                               p 2 |N                p 2 N
+
+              (b) Show that the number of integers n, 0 < n < N , for which (n, P 2 ) is
+                  square-free and (N − n, P 2 ) is square-free is
+                                                              
+                                           1                  2
+                              N        1− 2              1 − 2 + O(P 2 ).
+                                 p|P
+                                          p        p|P
+                                                             p
+                                      p 2 |N                p 2 N
+
+              (c) Show that the number of n, 0 < n < N , such that n is divisible by the
+                  square of a prime > y is      N /y.
+              (d) Take P to be the product of all primes not exceeding y. By letting y
+                  tend to inﬁnity slowly, show that the number of ways of writing N as
+                  a sum of two square-free integers is ∼ c(N )N where
+                                                                           
+                                                  1                         2
+                         c(N ) = a           1+ 2       ,   a=        1− 2 .
+                                    p 2 |N
+                                               p −2               p        p
+
+          5. (cf. Hille 1937) Suppose that f (x) and F(x) are complex-valued functions
+             deﬁned on [1, ∞). Show that
+                                                  
+                                        F(x) =        f (x/n)
+                                                            n≤x
+
+              for all x if and only if
+                                                         
+                                               f (x) =         µ(n)F(x/n)
+                                                         n≤x
+
+             for all x.
+                                                       
+          6. (cf. Hartman & Wintner 1947) Suppose that | f (n)|d(n) < ∞, and that
+             
+                |F(n)|d(n) < ∞. Show that
+                                              
+                                       F(n) =      f (m)
+                                                                m
+                                                               n|m
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 2.1 Mean values                                   41
+
+
+              for all n if and only if
+                                                          
+                                              f (n) =           µ(m/n)F(m).
+                                                           m
+                                                          n|m
+
+          7. (Jarnı́k 1926; cf. Bombieri & Pila 1989) Let C be a simple closed curve in
+             the plane, of arc length L. Show that the number of ‘lattice points’ (m, n),
+             m, n ∈ Z, lying on C is at most L + 1. Show that if C is strictly convex
+             then the number of lattice points on C is 1 + L 2/3 , and that this estimate
+             is best possible.
+          8. Let C be a simple closed curve in the plane, of arc length L that encloses
+             a region of area A. Let N be the number of lattice points inside C. Show
+             that |N − A| ≤ 3(L + 1).
+          9. Let r (n) be the number of pairs ( j, k) of integers such that j 2 + k 2 = n.
+             Show that
+                                                             
+                                          r (n) = π x + O x 1/2 .
+                                             n≤x
+                                                 
+        10. (Stieltjes 1887) Suppose that    an ,     bn are convergent series, and that
+                                               −1/2
+            cn = km=n ak bm . Show that cn n          converges. (Hence if two Dirichlet
+            series have abscissa of convergence ≤ σ then the product series γ (s) =
+            α(s)β(s) has abscissa of convergence σc ≤ σ + 1/2.)
+                           
+        11. (a) Show that n≤x ϕ(n) = (3/π 2 )x 2 + O(x log x) for x ≥ 2.
+            (b) Show that
+                                                          
+                                            1 = −1 + 2        ϕ(n)
+                                                   m≤x                  n≤x
+                                                  n≤x
+                                                (m,n)=1
+
+                for x ≥ 1. Deduce that the expression above is (6/π 2 )x 2 + O(x log x).
+                        
+        12. Let σ (n) = d|n d. Show that
+                                                          π2 2
+                                                σ (n) =       x + O(x log x)
+                                          n≤x              12
+
+            for x ≥ 2.
+        13. (Landau 1900, 1936; cf. Sitaramachandrarao 1982, 1985, Nowak 1989)
+                                    
+            (a) Show that n/ϕ(n) = d|n µ(d)2 /ϕ(d).
+            (b) Show that
+                                 n          ζ (2)ζ (3)
+                                          =             x + O(log x)
+                                n≤x ϕ(n)        ζ (6)
+
+                   for x ≥ 2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        42                     The elementary theory of arithmetic functions
+
+
+              (c) Show that
+                        
+                        ∞                                                                    
+                          µ(d)2 log d                            log p                     1
+                                                =                                   1+             .
+                         d=1
+                                   dϕ(d)                  p   p2 − p + 1       p       p( p − 1)
+              (d) Show that for x ≥ 2,
+                   1                                          
+                             ζ (2)ζ (3)                    log p
+                           =              log x +C0 −              + O((log x)/x).
+                  n≤x ϕ(n)      ζ (6)                 p p − p+1
+                                                         2
+
+
+        14. Let κ be a ﬁxed real number. Show that
+                                  ϕ(n) κ
+                                             = c(κ)x + O (x ε )
+                                  n≤x  n
+              where
+                                                               1
+                                     c(κ) =              1−      (1 − (1 − 1/ p)κ ) .
+                                                    p          p
+        15. (cf. Grosswald 1956, Bateman1957)
+            (a) By using Euler products, or otherwise, show that
+                                               
+                                     2ω(n) =        µ(d)d(m).
+                                                              d 2 m=n
+
+              (b) Deduce that
+                                                        6                              
+                                          2ω(n) =           x log x + cx + O x 1/2 log x
+                                    n≤x                 π 2
+
+
+                  for x ≥ 2 where c = 2C0 − 1 − 2ζ  (2)/ζ (2)2 .
+              (c) Show also that
+                                 
+                                     2(n) = C x(log x)2 + O(x log x)
+                                          n≤x
+
+                   where
+                                                                        
+                                                 1                 1
+                                           C=               1+             .
+                                              8 log 2 p>2      p( p − 2)
+
+        16. (a) Show that for any positive integer q,
+                                 µ(d) log d          ϕ(q)  log p
+                                                =−                 .
+                                d|q
+                                         d             q p|q p − 1
+
+              (b) Show that for any real number x ≥ 1 and any positive integer q,
+                       1                         log p  ϕ(q)                 
+                                = log x + C0 +                     + O 2ω(q) /x .
+                      m≤x m                       p|q
+                                                      p−1      q
+                         (m,q)=1
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                2.1 Mean values                                    43
+
+
+              (c) Show that for any real number x ≥ 2 and any positive integer q,
+                                                                           log p
+                      1      ζ (2)ζ (3)             p
+                          =                1− 2               log x + C0 +
+                n≤x ϕ(n)        ζ (6) p|q       p − p+1                      p|q
+                                                                                  p−1
+              (n,q)=1
+
+                                                         
+                                             log p                          log x
+                                  −         2− p+1
+                                                                + O 2ω(q)         .
+                                      pq
+                                          p                                   x
+
+        17. (cf. Ward 1927) Show that for x ≥ 2,
+                         µ(n)2                                  log p                   
+                                     = log x + C0 +                        + O x −1/2 log x .
+                        n≤x   ϕ(n)                          p    p( p − 1)
+
+        18. Let dk (n) be the number of ordered k-tuples (d1 , . . . , dk ) of positive integers
+            such that d1 d2 · · · dk = n.
+                                        
+            (a) Show that dk (n) = d|n dk−1 (d).
+                            ∞
+            (b) Show that n=1 dk (n)n −s = ζ (s)k for σ > 1.
+            (c) Show that for every ﬁxed positive integer k,
+                                                                                
+                                   dk (n) = x Pk (log x) + O x 1−1/k (log x)k−2
+                                  n≤x
+
+                 for x ≥ 2, where P ∈ R[z] has degree k − 1 and leading coefﬁcient
+                 1/(k − 1)!.
+        19. (cf. Erdős & Szekeres 1934, Schmidt 1967/68) Let An denote the number
+            of non-isomorphic Abelian groups of order n.
+                                          
+            (a) Show that ∞  n=1 An n
+                                      −s
+                                         = ∞ k=1 ζ (ks) for σ > 1.
+            (b) Show that
+                                                             
+                                           An = cx + O x 1/2
+                                                 n≤x
+                                  ∞
+                where c = k=2 ζ (k).
+                                                   
+        20. (Wintner 1944, p. 46) Suppose that        |g(d)|/d < ∞. Show that
+                                                  d
+              d≤x |g(d)|
+                   
+                         = o(x). Suppose also that n≤x f (n) = cx + o(x), and put
+            h(n) = d|n f (d)g(n/d). Show that
+                                    
+                                       h(n) = cgx + o(x)
+                                               n≤x
+                              
+            where g = d g(d)/d.
+                                                                                     √
+        21. (a) Show that if a 2 is the largest perfect square ≤ x then x − a 2 ≤ 2 x.
+            (b) Let a 2 be as above, and let b2 be the least perfect square such that a 2 +
+                b2 > x. Show that a 2 + b2 < x + 6x 1/4 . Thus for any x ≥ 1, there is
+                a sum of two squares in the interval (x, x + 6x 1/4 ). (It is somewhat
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        44                   The elementary theory of arithmetic functions
+
+
+                embarrassing that this is the best-known upper bound for gaps between
+                sums of two squares.)
+        22. (Feller & Tornier 1932) Let f (n) denote the multiplicative function such
+            that f ( p) = 1 for all p, and f ( p k ) = −1 whenever k > 1.
+            (a) Show that
+                                     ∞                                
+                                          f (n)                     2
+                                                 =   ζ (s)     1 −
+                                     n=1
+                                           ns              p       p 2s
+
+                  for σ > 1.
+              (b) Deduce that
+                                                             
+                                                   f (n) =            µ(d)2ω(d) .
+                                                             d 2 |n
+
+              (c) Explain why 2ω(n) ≤ d(n) for all n.
+              (d) Show that
+                                                                 
+                                        f (n) = ax + O x 1/2 log x
+                                            n≤x
+
+                  where a is the constant of Exercise 3.
+              (e) Let g(n) denote the number of primes p such that p2 |n. Show
+                  that the set of n for which g(n) is even has asymptotic density
+                  (1 + a)/2.
+              (f) Put
+                                                1
+                                          ek =        µ(d)2k/d .
+                                                k d|k
+
+                   Show that if |z| < 1, then
+                                                              
+                                                              ∞
+                                                                                   
+                                          log(1 − 2z) =               ek log 1 − z k .
+                                                              k=1
+
+              (g) Deduce that
+                                                             ∞
+                                                      a=           ζ (2k)ek .
+                                                             k=1
+
+                   Note that the k th factor here differs from 1 by an amount that is
+                       1/(k2k ). Hence the product converges very rapidly. Since ζ (2k)
+                   can be calculated very accurately by the Euler–Maclaurin formula (see
+                   Appendix B), the formula above permits the rapid calculation of the
+                   constant a.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                2.1 Mean values                                       45
+
+
+        23. Let B1 (x) = x − 1/2, as in Appendix B.
+            (a) Show that
+                            1
+                                  = log x + C0 − B1 ({x})/x + O(1/x 2 ).
+                            n≤x n
+                       
+            (b) Write n≤x d(n) = x log x + (2C0 − 1)x + (x). Show that
+                                            
+                                  (x) = −2       B1 ({x/n}) + O(1).
+                                                               √
+                                                             n≤ x
+                           X
+              (c) Show that 0 (x) d x                    X.
+              (d) Deduce that
+                                                                          
+                                                        X       
+                         d(n)(X − n) =                                 d(n)    dx
+                        n≤X                          0           n≤x
+                                                                     
+                                                   1 2              3
+                                               =     X log X + C0 −     X 2 + O(X ).
+                                                   2                4
+        24. Let r (n) be the number of ordered pairs (a, b) of integers for which a 2 +
+            b2 = n.
+            (a) Show that
+                                      √                                  2
+                         r (n) = 1 + 4[ x] + 8              x − n 2 − 4 x/2 .
+                                                                     √
+                        n≤x                                      1≤n≤ x/2
+
+              (b) Show that
+                                                        
+                                                     π   1               1 √
+                                    x − n2 =           +     x − B1     x/2 −     x + O(1).
+                         √                           8   2                    2
+                     1≤n≤ x/2
+                           
+              (c) Write        0≤n≤x r (n) = π x + R(x). Show that
+                                                                                   
+                                   R(x) = −8                       B1         x − n2        + O(1).
+                                                             √
+                                                   1≤n≤ x/2
+
+        25. (a) Show that if (a, q) = 1, and β is real, then
+                                  q               
+                                            a
+                                      B1      n+β         = B1 ({qβ}).
+                                  n=1
+                                            q
+
+              (b) Show that if A ≥ 1, | f  (x) − a/q| ≤ A/q 2 for 1 ≤ x ≤ q, and (a, q) =
+                  1, then
+                                                   
+                                                   q
+                                                             B1 ({ f (n)})      A.
+                                                     n=1
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        46                   The elementary theory of arithmetic functions
+
+
+              (c) Suppose that Q ≥ 1 is an integer, B ≥ 1, and that 1/Q 3 ≤ ± f  (x) ≤
+                  B/Q 3 for 0 ≤ x ≤ N where the choice of sign is independent of
+                  x. Show that numbers ar , qr , Nr can be determined, 0 ≤ r ≤ R for
+                  some R, so that (i) (ar , qr ) = 1, (ii) qr ≤ Q, (iii) | f  (Nr ) − ar /qr | ≤
+                  1/(qr Q), and (iv) N0 = 0, Nr = Nr −1 + qr −1 for 1 ≤ r ≤ R, N − Q ≤
+                  NR ≤ N .
+              (d) Show that under the above hypotheses
+                                           
+                                           N
+                                                 B1 ({ f (n)})     B(R + 1) + Q.
+                                           n=0
+
+              (e) Show that the number of s for which as /qs = ar /qr is Q 2 /q 2 .
+                  Let 1 ≤ q ≤ Q. Show that the number of r for which qr = q is
+                     (Q/q)2 (B N q/Q 3 + 1).
+              (f) Conclude that under the hypotheses of (c),
+                                    
+                                    N
+                                          B1 ({ f (n)})      B 2 N Q −1 log 2Q + B Q 2 .
+                                    n=0
+                                      √
+        26. Show that if U ≤              x, then
+                                             
+                                                    B1 ({x/n})        x 1/3 log x.
+                                          U <n≤2U
+
+            Let (x) be as in Exercise 23(b). Show that (x)                         x 1/3 (log x)2 .
+        27. Let R(x) be as in Exercise 24(c). Show that R(x)                       x 1/3 log x.
+
+
+
+               2.2      The prime number estimates of Chebyshev and
+                                     of Mertens
+        Because of the irregular spacing of the prime numbers, it seems hopeless to
+        give a useful exact formula for the n th prime. As a compromise we estimate the
+        n th prime, or equivalently, estimate the number π (x) of primes not exceeding x.
+                                                            
+        Similarly we put ϑ(x) = p≤x log p, and ψ(x) = n≤x (n). As we shall see,
+        these three summatory functions are closely related. We estimate ψ(x) ﬁrst.
+
+        Theorem 2.4          (Chebyshev) For x ≥ 2, ψ(x)                x.
+
+           The proof we give below establishes only that there is an x0 such that
+        ψ(x) x uniformly for x ≥ x0 . However, both ψ(x) and x are bounded away
+        from 0 and from ∞ in the interval [2, x0 ], and hence the implicit constants can
+        be adjusted so that ψ(x) x uniformly for x ≥ 2. In subsequent situations of
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                               2.2 Estimates of Chebyshev and of Mertens                                 47
+
+
+        this sort, we shall assume without comment that the reader understands that it
+        sufﬁces to prove the result for all sufﬁciently large x.
+
+        Proof       By applying the Möbius inversion formula to (1.22) we ﬁnd that
+                                             
+                                    (n) =       µ(d) log n/d .
+                                                      d|n
+
+        Thus by (2.7) it follows that
+                                                      
+                                             ψ(x) =         µ(d)T (x/d)                            (2.10)
+                                                      d≤x
+                            
+        where T (x) =          n≤x log n. By the integral test we see that
+
+                                       N                                N +1
+                                           log u du ≤ T (N ) ≤                 log u du
+                                   1                                1
+                                                      
+        for any positive integer N . Since                log x d x = x log x − x, it follows easily
+        that
+
+                                       T (x) = x log x − x + O(log 2x)                             (2.11)
+
+        for x ≥ 1. Despite the precision of this estimate, we encounter difﬁculties when
+        we substitute this in (2.10), since we have no useful information concerning the
+        sums
+                                  µ(d)            µ(d) log d
+                                            ,                    ,
+                                  d≤x
+                                        d         d≤x
+                                                           d
+
+        which arise in the main terms. To avoid this problem we introduce an idea that
+        is fundamental to much of prime number theory, namely we replace µ(d) by
+        an arithmetic function ad that in some way forms a truncated approximation to
+        µ(d). Suppose that D is a ﬁnite set of numbers, and that ad = 0 when d ∈ / D.
+        Then by (2.11) we see that
+                                                                        ad log d
+                   ad T (x/d) = (x log x − x)               ad /d − x                     + O(log 2x).
+             d∈D                                     d∈D                 d∈D
+                                                                                   d
+                                                                                                   (2.12)
+        Here the implicit constant depends on the choice of ad , which we shall consider
+        to be ﬁxed. Since we want the above to approximate the relation (2.10), and
+        since we are hoping that ψ(x) x, we restrict our attention to ad that satisfy
+        the condition
+                                          ad
+                                                 = 0,                             (2.13)
+                                         d∈D
+                                             d
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        48                   The elementary theory of arithmetic functions
+
+
+        and hope that
+                                                 ad log d
+                                            −                     is near 1.                       (2.14)
+                                                d∈D
+                                                        d
+
+        By the deﬁnition of T (x) we see that the left-hand side of (2.12) is
+                                                         
+                           ad log n =      ad      (k) =         ad (k)
+                           dn≤x                  dn≤x       k|n           dkm≤x
+                                                                                                  (2.15)
+                                             =         (k)E(x/k)
+                                                 k≤x
+                                               
+        where E(y) = dm≤y ad = d ad [y/d]. The expression above will be near
+        ψ(x) if E(y) is near 1. If y ≥ 1 then
+                                                      
+                 µ(d)[y/d] =        µ(d)      1=   µ(d) =    µ(d) = 1,
+                 d                      d           k≤y/d         dk≤y          n≤y d|n
+
+        in view of (1.20). Thus E(y) will be near 1 for y not too large if ad is near µ(d)
+                                                                 
+        for small d. Moreover, by (2.13) we see that E(y) = − d∈D ad {y/d}, so that
+        E(y) is periodic with period dividing lcmd∈D d. Hence for a given choice of
+        the ad , the behaviour of E(y) can be determined by a ﬁnite calculation.
+           The simplest realization of this approach involves taking a1 = 1, a2 = −2,
+        ad = 0 for d > 2. Then (2.13) holds, the expression (2.14) is log 2, E(y) has
+        period 2 and E(y) = 0 for 0 ≤ y < 1, E(y) = 1 for 1 ≤ y < 2. Hence for this
+        choice of the ad the sum in (2.15) satisﬁes the inequalities
+                                                                  
+           ψ(x) − ψ(x/2) =            (k) ≤      (k)E(x/k) ≤          (k) = ψ(x).
+                                     x/2<k≤x                k≤x                    k≤x
+
+        Thus ψ(x) ≥ (log 2)x + O(log x), which is a lower bound of the desired shape.
+        In addition,
+
+                                  ψ(x) − ψ(x/2) ≤ (log 2)x + O(log x).
+
+        On replacing x by x/2r and summing over r we deduce that
+
+                                      ψ(x) ≤ 2(log 2)x + O((log x)2 ),
+
+        so the proof is complete.                                                                      
+
+            Chebyshev obtained better constants than above, by taking a1 = a30 = 1,
+        a2 = a3 = a5 = −1, ad = 0 otherwise. Then (2.13) holds, the expression (2.14)
+        is 0.92129 . . . , E(y) = 1 for 1 ≤ y < 6, and 0 ≤ E(y) ≤ 1 for all y, with the
+        result that
+
+                                        ψ(x) ≥ (0.9212)x + O(log x)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                               2.2 Estimates of Chebyshev and of Mertens                                   49
+
+
+        and
+
+                                        ψ(x) ≤ (1.1056)x + O((log x)2 ).
+
+        By computing the implicit constants one can use this method to determine a
+        constant x0 such that ψ(2x) − ψ(x) > x/2 for all x > x0 . Since the contribution
+        of the proper prime powers is small, it follows that there is at least one prime
+        in the interval (x, 2x], when x > x0 . After separate consideration of x ≤ x0 ,
+        one obtains Bertrand’s postulate: For each real number x > 1, there is a prime
+        number in the interval (x, 2x).
+                                Chebyshev said it, but I’ll say it again:
+                                There’s always a prime between n and 2n.
+                                                                  N. J. Fine
+
+        Corollary 2.5 For x ≥ 2,
+                                                                 
+                                            ϑ(x) = ψ(x) + O x 1/2
+
+        and
+                                                                   
+                                                ψ(x)          x
+                                         π(x) =       +O              .
+                                                log x      (log x)2
+        Proof       Clearly
+                                                                       
+                                                                        ∞
+                                                                                    
+                                     ψ(x) =                   log p =         ϑ x 1/k .
+                                                     p k ≤x             k=1
+
+        But ϑ(y) ≤ ψ(y)        y, so that
+                                     
+                      ψ(x) − ϑ(x) =       ϑ(x 1/k )                  x 1/2 + x 1/3 log x         x 1/2 .
+                                            k≥2
+
+        As for π(x), we note that
+                                    x
+                                                                    ϑ(x)             x
+                                                                                           ϑ(u)
+                      π(x) =            (log u)−1 dϑ(u) =                 +                        du.
+                                   2−                               log x        2       u(log u)2
+        This last integral is
+                                                x
+                                                    (log u)−2 du         x(log x)−2 ,
+                                            2
+
+        so we have the stated result.                                                                      
+
+        Corollary 2.6         For x ≥ 2, ϑ(x)                  x and π (x)       x/ log x.
+
+          In Chapters 6 and 8 we shall give several proofs of the Prime Number
+        Theorem (PNT), which asserts that π (x) ∼ x/ log x. By Corollary 2.5 this is
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        50                     The elementary theory of arithmetic functions
+
+
+        equivalent to the estimates ϑ(x) ∼ x, ψ(x) ∼ x. By partial summation it is
+        easily seen that the PNT implies that
+                                      log p
+                                              ∼ log x,
+                                     p≤x    p
+
+        and that
+                                               1
+                                                            ∼ log log x.
+                                               p≤x p
+
+        However, these assertions are weaker than PNT, as we can derive them from
+        Theorem 2.4.
+
+        Theorem 2.7 For x ≥ 2,
+             (n)
+        (a)         = log x + O(1),
+            n≤x n
+             log p
+        (b)         = log x + O(1),
+            p≤x p
+                    x
+         (c)            ψ(u)u −2 du = log x + O(1),
+                1
+               1
+        (d)               = log log x + b + O(1/ log x),
+               p≤x p
+                              1 −1
+         (e)             1−        = eC0 log x + O(1)
+               p≤x            p
+        where C0 is Euler’s constant and
+                                                              ∞
+                                                                    1
+                                             b = C0 −                 k
+                                                                        .
+                                                             p k=2 kp
+
+        Proof           Taking f (d) = (d) in (2.1), we see from (2.3) that
+                                                      (d)
+                               T (x) =     log n = x            + O (ψ(x)) .
+                                       n≤x            d≤x
+                                                           d
+
+        By Theorem 2.4 the error term is       x. Thus (2.11) gives (a). The sum in (b)
+        differs from that in (a) by the amount
+                                  log p  log p
+                                           ≤                   1.
+                                 p k ≤x
+                                        pk     p p( p − 1)
+                                       k≥2
+
+
+        To derive (c) we note that the sum in (a) is
+                x
+                                    ψ(u) x              x                        x
+                    u −1 dψ(u) =           +                ψ(u)u −2 du =            ψ(u)u −2 du + O(1)
+               2−                    u 2−           2                        2
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                   2.2 Estimates of Chebyshev and of Mertens                           51
+
+
+        by Theorem 2.4. We now prove (d) without determining the value of the con-
+        stant b. We express (b) in the form L(x) = log x + R(x) where R(x)      1.
+        Then
+               1         x                        x
+                                                       1               x
+                                                                         d R(u)
+                      =     (log u)−1 d L(u) =             d log u +
+                p≤x p    2−                       2− log u            2− log u
+                                        
+                          x
+                               du         R(u) x        x
+                      =             +              −      R(u) d(log u)−1
+                         2− u log u       log u 2−     2−
+                                                                                 x
+                                                               R(u)    R(x)
+                           = log log x − log log 2 + 1 +               du.   +
+                                                          2  u(log u)2 log x
+                                                                     ∞ ∞
+        The
+         ∞ penultimate term is       1/ log x, and the integral is 2 − x =
+         2 +O(1/ log x), so we have (d) with
+                                                                   ∞
+                                                                         R(u)
+                                     b = 1 − log log 2 +                         du.
+                                                               2       u(log u)2
+        As for (e), we note that
+                               −1                       −1     
+                               1          1                1       1
+                     log 1 −        =       +       log 1 −       −     .
+                 p≤x           p      p≤x p   p≤x           p       p
+
+        The second sum on the right is
+                                          ∞                   
+                                                1              −2
+                                                  k
+                                                    + O      p
+                                         p k=2 kp        p>x
+                                                         −2
+        and the error term here is                n>x n            x −1 , so from (d) we have
+
+                                       −1
+                                       1
+                               log 1 −       = log log x + c + O(1/ log x)                         (2.16)
+                           p≤x         p
+                        
+        where c = b + p k≥2 (kp k )−1 . Since e z = 1 + O(|z|) for |z| ≤ 1, on expo-
+        nentiating we deduce that
+                                      −1
+                                     1
+                                  1−       = ec log x + O(1).
+                            p≤x      p
+
+        To complete the proof it sufﬁces to show that c = C0 . To this end we ﬁrst note
+        that if p ≤ x and p k > x, then k ≥ (log x)/ log p. Hence
+              1               log p             log p                       1  log p            1
+                 k
+                                                                       p −k                              ,
+          p≤x kp          p≤x (log x) p k         p   log x k≥2               log x p p 2          log x
+         p k >x           p k >x
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        52                       The elementary theory of arithmetic functions
+
+
+        so that from (2.16) we have
+                           (n)
+                                                       = log log x + c + O(1/ log x).
+                                  1<n≤x
+                                           n log n
+
+        By Corollary 1.15 this can be written
+                                   (n)     1
+                                          =          + (c − C0 ) + O(1/ log 2x).
+                             1<n≤x
+                                   n log n n≤log x n
+
+        Since this is trivial when 1 ≤ x < 2, the above holds for all x ≥ 1. We
+        express  this brieﬂy as T1 = T2 + T3 + T4 , and estimate the quantities Ii =
+           ∞ −1−δ
+        δ 1 x       Ti (x) d x. On comparing the results as δ → 0+ we shall deduce
+        that c = C0 . By Theorem 1.3, Corollary 1.11, and Corollary 1.13 we see that
+                                                                               1
+                                          I1 = log ζ (1 + δ) = log               + O(δ)
+                                                                               δ
+        as δ → 0+ . Secondly,
+                                  
+                                  ∞
+                                    1           ∞                     
+                                                                      ∞
+                                                                        1
+                         I2 = δ                     x −1−δ d x =               e−δn = log(1 − e−δ )−1
+                                  n=1
+                                      n        en                      n=1
+                                                                           n
+                             = log(δ + O(δ 2 ))−1 = log 1/δ + O(δ).
+
+        Thirdly,
+
+                                                         I3 = c − C 0 ,
+
+        and ﬁnally
+                         ∞                                     e1/δ                  ∞
+                                        dx                              dx
+         I4      δ           x −1−δ                 δ+δ                       + δ2      x −1−δ d x   δ log 1/δ.
+                     1                log 2x               2          x log x      e1/δ
+
+        Since the main terms cancel, on letting δ → 0+ we see that c = C0 .
+                                                                                                             
+
+        Corollary 2.8             We have
+                                                                 π (x)
+                                                     lim sup             ≥1
+                                                      x→∞       x/ log x
+        and
+                                                           π (x)
+                                                     lim inf       ≤ 1.
+                                                      x→∞ x/ log x
+
+        Proof By Corollary 2.5 it sufﬁces to show that lim sup ψ(u)/u ≥ 1, and that
+        lim inf ψ(u)/u ≤ 1. Suppose that lim sup ψ(u)/u = a, and suppose that ε > 0.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                               2.2 Estimates of Chebyshev and of Mertens                               53
+
+
+        Then there is an x0 such that ψ(x) ≤ (a + ε)x for all x ≥ x0 , and hence
+               x                        x0                           x
+                   ψ(u)u −2 du ≤             ψ(u)u −2 du +(a + ε)        u −1 du ≤ (a + ε) log x + Oε (1).
+           1                        1                               x0
+                                                             x
+        Since this holds for arbitrary ε > 0, it follows that 1 ψ(u)u −2 du ≤ (a +
+        o(1)) log x. Thus by Theorem 2.7(c) we have a ≥ 1. Similarly lim inf ψ(u)/u
+        ≤ 1.                                                                      
+
+
+                                                   2.2.1   Exercises
+          1. (a) Let dn = [1, 2, . . . , n]. Show that dn = eψ(n) . 
+                                                                       1
+             (b) Let P ∈ Z[x], deg P ≤ n. Put I = I (P) = 0 P(x) d x. Show that
+                  I dn+1 ∈ Z, and hence that dn+1 ≥ 1/|I | if I = 0.
+             (c) Show that there is a polynomial P as above so that I dn+1 = 1.
+                                20≤x≤1 |x2 (1 − x) (2x
+             (d) Verify that max             2         2
+                                                            − 1)| = 5−5/2 .
+                                                         2n
+             (e) For P(x) = x (1 − x) (2x − 1) , verify that 0 < I < 5−5n .
+              (f) Show that ψ(10n + 1) ≥ ( 12 log 5) · 10n.
+          2. Let A be the set of integers composed entirely of primes p ≤ A1 , and
+             let B be the set of integers composed entirely of primes p > A1 . Then n
+             is uniquely of the form n = ab, a ∈ A, b ∈ B. Let δ(A1 , A2 ) denote the
+             density of those n such that a ≤ A2 .
+             (a) Give a formula for δ(A1 , A2 ).
+             (b) Show that δ(A1 , A2 )        (log A2 )/ log A1 for 2 ≤ A2 ≤ A1 .
+          3. Let an = 1 + cos log n, and note that an ≥ 0 for all n.
+             (a) Show that
+                                         
+                                         ∞
+                                                              1           1
+                                             an n −s = ζ (s) + ζ (s + i) + ζ (s − i)
+                                         n=1
+                                                              2           2
+                       for σ > 1.
+                   (b) By Corollary 1.15, or otherwise, show that
+                                               an
+                                                     = log x + O(1).
+                                              n≤x n
+
+                   (c) By integrating by parts as in the proof of Theorem 1.12, show that
+                                                                   
+                                                    xi         x −i
+                                    an = 1 +              +            x + O(log x).
+                                n≤x             2(1 + i) 2(1 − i)
+                   (d) Deduce that
+                               1             1                                 1             1
+                          lim inf    an = 1 − √ ,                    lim sup          an = 1 + √ .
+                           x→∞ x               2                         x→∞    x n≤x           2
+                                 n≤x
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        54                   The elementary theory of arithmetic functions
+
+
+                 Thus for the coefﬁcients an we have an analogue of Mertens’ esti-
+                 mate of Theorem 2.7(b), but not an analogue of the Prime Number
+                 Theorem.
+          4. (Golomb 1992) Let dx denote the least common multiple of the positive
+             integers not exceeding x. Show that
+                                                ∞
+                                         2n           (−1)k−1
+                                              =      d2n/k    .
+                                          n      k=1
+
+          5. (Chebyshev 1850) From Corollaries 2.5 and 2.8 we see that if there is a
+             number a such that ψ(x) = (a + o(1))x as x → ∞, then we must have
+             a = 1. We now take this a step further.
+             (a) Suppose that there is a number a such that
+
+                                                ψ(x) = x + (a + o(1))x/ log x                      (2.17)
+
+                   as x → ∞. Deduce that
+                                          x
+                                              ψ(u)
+                                                   du = log x + (a + o(1)) log log x
+                                      2        u2
+                  as x → ∞.
+              (b) By comparing the above with Theorem 2.7(c), deduce that if (2.17)
+                  holds, then necessarily a = 0.
+              (c) Suppose that there is a constant A such that
+                                                                     
+                                                 x              x
+                                   π (x) =             +o                        (2.18)
+                                            log x − A        (log x)2
+                                                   x
+                  as x → ∞. By writing ϑ(x) = 2− log u dπ (u), integrating by parts,
+                  and estimating the expressions that arise, show that if (2.18) holds,
+                  then
+
+                                              ψ(x) = x + (A − 1 + o(1))x/ log x
+
+                  as x → ∞.
+              (d) Deduce that if (2.18) holds, then A = 1.
+
+
+
+
+                         2.3      Applications to arithmetic functions
+        The results above are useful in determining the extreme values of familiar
+        arithmetic functions. We consider three instances.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 2.3 Applications to arithmetic functions                             55
+
+
+        Theorem 2.9          For all n ≥ 3,
+                                           n      −C0                  
+                              ϕ(n) ≥              e    + O(1/ log log n) ,
+                                       log log n
+        and there are inﬁnitely many n for which the above relation holds with equality.
+
+        Proof Let R be the set of those n for which ϕ(n)/n < ϕ(m)/m for all m < n.
+        We ﬁrst prove the inequality for these ‘record-breaking’ n ∈ R. Suppose that
+        ω(n) = k, and let n ∗ be the product of the ﬁrst k primes. If n = n ∗ then n ∗ < n
+        and ϕ(n ∗ )/n ∗ < ϕ(n)/n. Hence R is the set of n of the form
+
+                                                    n=           p.                                (2.19)
+                                                           p≤y
+
+        Taking logarithms, we see that log n = ϑ(y) y by Corollary 2.6. On taking
+        logarithms a second time, it follows that log log n = log y + O(1). Thus by
+        Mertens’ formula (Theorem 2.7(e)) we see that
+                                          
+                      ϕ(n)              1      e−C0                 
+                           =        1−       =        1 + O(1/ log y) ,
+                       n      p≤y        p     log y
+
+        which gives the desired result for n ∈ R. If n ∈/ R then there is an m < n such
+        that m ∈ R, ϕ(m)/m < ϕ(n)/n. Hence
+                                                                       
+                    ϕ(n)     ϕ(m)           1                       1
+                          >        =                e−C0 + O
+                      n       m        log log m               log log m
+                                                                      
+                                           1                      1
+                                   ≥               e−C0 + O                .
+                                       log log n              log log n
+        We note that equality holds for n of the type (2.19), so the proof is complete. 
+
+        Theorem 2.10           For all n ≥ 3,
+                                                 log n
+                              1 ≤ ω(n) ≤                 (1 + O(1/ log log n)) .
+                                               log log n
+        Proof As in the preceding proof we see that record-breaking values of ω(n)
+        occur when n is of the form (2.19), and that it sufﬁces to prove the bound for
+        these n. As in the preceding proof, for n given by (2.19) we have ϑ(y) = log n
+        and log y = log log n + O(1). This gives the result, and we note that the bound
+        is sharp for these n.                                                         
+
+           We now consider the maximum order of d(n). From the pairing d ↔ n/d
+                                                                 √
+        of divisors, and the fact that at least one of these is ≤ n, it is immediate that
+                 √
+        d(n) ≤ 2 n. On the other hand, if n is square-free then d(n) = 2ω(n) , which
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        56                   The elementary theory of arithmetic functions
+
+                                                               √
+        can be large, but not nearly as large as                   n. Indeed, for each ε > 0 there is a
+        constant C(ε) such that
+                                                    d(n) ≤ C(ε)n ε                                       (2.20)
+        for all n ≥ 1. To see this we express n in terms of its canonical factorization,
+             
+        n = p pa , so that
+                                       d(n)              a+1
+                                            =                 =              f p (a),
+                                        nε           p    paε         p
+
+        say. Let α p be an integral value of a for which f p (a) is maximized. From the
+        inequalities f p (α p ) ≥ f p (α p ± 1) we see that
+                                    ( p ε − 1)−1 − 1 ≤ α p ≤ ( p ε − 1)−1 ,
+        so that we may take α p = [( p ε − 1)−1 ]. Hence (2.20) holds with
+
+                                               C(ε) =          f p (α p ).
+                                                           p
+                                                                                                        αp
+        This constant is best possible, since equality holds when n =                              p p        . By
+        analysing the rate at which C(ε) grows as ε → 0+ , we derive
+        Theorem 2.11           For all n ≥ 3
+                                              log n
+                             log d(n) ≤               (log 2 + O(1/ log log n)) .
+                                            log log n
+             We note that this bound is sharp for n of the form in (2.19).
+        Proof       It sufﬁces to show that there is an absolute constant K such that
+                                                            
+                                      C(ε) ≤ exp K ε2 21/ε ,                        (2.21)
+        since the stated bound then follows by taking ε = (log 2)/ log log n. We observe
+        that α p = 0 if p > 21/ε , that α p = 1 if (3/2)1/ε < p ≤ 21/ε , and that α p 1/ε
+        when p ≤ (3/2)1/ε . Hence
+                                                           
+                        log C(ε)            log(2/ p ε ) +        log(1/ε).
+                                            p≤21/ε                    p≤(3/2)1/ε
+                                               
+        Here the second sum is π (3/2)1/ε log 1/ε        ε2 21/ε . The ﬁrst sum is
+        (log 2)π(2 ) − εϑ(2 ), and by Corollary 2.5 this is ε2 21/ε . Thus we have
+                   1/ε         1/ε
+
+        (2.21), and the proof is complete.                                      
+
+           It is very instructive to consider our various results from the perspective of
+        elementary probability theory. Let d be a ﬁxed integer. Then the set of n that
+        are divisible by d has asymptotic density 1/d, and we might say, loosely, that
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 2.3 Applications to arithmetic functions                          57
+
+
+        the ‘probability’ that d|n when n is ‘randomly chosen’ is 1/d. If d1 and d2
+        are two ﬁxed numbers then the ‘probability’ that d1 |n and d2 |n is 1/[d1 , d2 ].
+        If (d1 , d2 ) = 1 then this ‘probability’ is 1/(d1 d2 ), and we see that the ‘events’
+        d1 |n, d2 |n are ‘independent.’ To make this rigourous we consider the integers
+        1 ≤ n ≤ N , and assign probability 1/N to each of the N numbers n. Then
+                                                                 1  1
+                                  P(d|n) = [N /d]/N =              − {N /d}.
+                                                                 d  N
+        This is 1/d if d|N ; otherwise it is close to 1/d if d is small compared to N .
+        Similarly the events d1 |n, d2 |n are not independent in general, but are nearly
+        independent if N /(d1 d2 ) is large. The probabilistic heuristic, in which inde-
+        pendence is assumed, provides a useful means of constructing conjectures.
+        Many of our investigations can be considered to be directed toward determin-
+        ing whether the cumulative effect of the error terms {N /d}/N have a discernible
+        effect.
+            As an example of the probabilistic approach, we note that n is square-free
+        if and only if none of the numbers 22 , 32 , 52 , . . . , p 2 , . . . divide n. The ‘prob-
+        ability’ that p 2  n is approximately 1 − 1/ p 2 . Since these events are nearly
+        independent, we predict that the probability that a random integer n ∈ [1, N ] is
+                                       
+        square-free is approximately p≤N (1 − 1/ p 2 ). This was conﬁrmed in Theorem
+        2.2. On the other hand, the sieve of Eratosthenes asserts that
+                                                        √ 
+                                        1 = π (N ) − π N + 1
+                                        n≤N
+                                      (n,P)=1
+                    
+        where P = p≤√ N p. For a random n ∈ [1, N ] we expect that the probability
+        that (n, P) = 1 should be approximately
+                                                 
+                              ϕ(P)              1     2e−C0
+                                    =        1−     ∼
+                                P       √       p     log N
+                                                 p≤ N
+
+        by Mertens’ formula (Theorem 2.7(e)). This would suggest that perhaps
+                                                                   x
+                                              π (x) ∼ 2e−C0            .
+                                                                 log x
+        However, since 2e−C0 = 1.1229189 . . . , this conﬂicts with the Prime Number
+        Theorem, and also with Corollary 2.8. Thus the probabilistic model is mislead-
+        ing in this case.
+           Suppose now that X p (n) is the arithmetic function
+                                             
+                                               1 if p|n,
+                                  X p (n) =
+                                               0 otherwise,
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        58                   The elementary theory of arithmetic functions
+
+                         
+        so that ω(n) = p X p (n). If we were to treat the X p as though they
+        were independent random variables then we would have E(X p ) = 1/ p,
+        Var(X p ) = (1 − 1/ p)/ p. Hence we expect that the average of ω(n) should be
+        approximately
+                                              1
+                   E       Xp =         E(X p ) =       = log log n + O(1),
+                       p≤n          p≤n           p≤n p
+
+        and that its variance is approximately
+                                                  
+                                                       1 1
+            Var        Xp =         Var(X p ) =     1−     = log log n + O(1).
+                   p≤n          p≤n             p≤n    p p
+
+        The ﬁrst of these is easily conﬁrmed, since by (2.3) we have
+
+                                                       1
+                                            ω(n) = x            + O (π (x)) .
+                                      n≤x               p≤x p
+
+        By Mertens’ formula (Theorem 2.7(d)) and Chebyshev’s bound (Corollary 2.6)
+        this is
+
+                                                    = x log log x + bx + O(x/ log x).              (2.22)
+
+        As for the variance, we have
+
+        Theorem 2.12 (Turán) For x ≥ 3,
+                        
+                             (ω(n) − log log x)2                      x log log x                  (2.23)
+                                   n≤x
+
+        and
+                                   
+                                         (ω(n) − log log n)2           x log log x.                (2.24)
+                                 1<n≤x
+
+        These estimates also hold with ω(n) replaced by (n).
+
+             Let E be the set of ‘exceptional’ n for which
+
+                                     |ω(n) − log log n| > (log log n)3/4 .
+
+        By Theorem 2.12 we see that
+                                                                                     x
+               1 ≤ (log log x)−3/2   (ω(n) − log log n)2                                       = o(x),
+            n∈E                              n≤2x
+                                                                                (log log x)1/2
+          x<n≤2x
+
+        so we have
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 2.3 Applications to arithmetic functions                             59
+
+
+        Corollary 2.13 (Hardy–Ramanujan) For almost all n, ω(n) ∼ (n) ∼
+        log log n.
+
+           Note that in analytic number theory we say ‘almost all’ when the excep-
+        tional set has asymptotic density 0; this conﬂicts with the usage in some
+        parts of algebra, where the term means that there are at most ﬁnitely many
+        exceptions.
+
+        Proof of Theorem 2.12 To prove (2.23) we ﬁrst multiply out the square on the
+        left, and write the sum as
+
+                                   2 − 2(log log x)1 + [x](log log x)2 .                         (2.25)
+
+        We have already determined the size of 1 in (2.22). The new sum is
+                                                        
+                  2 =      ω(n) =
+                                2
+                                               1        1 =            1.
+                                n≤x             n≤x     p1 |n       p2 |n        p1 ≤x   n≤x
+                                                                                 p2 ≤x   pi |n
+
+        The terms for which p1 = p2 contribute
+                                            1
+                              [x/ p] = x             + O (π (x)) = x log log x + O(x).
+                        p≤x                  p≤x p
+
+        The terms p1 = p2 contribute
+
+
+            x                                  2
+                                        1              1
+                          ≤x                  ≤x         = x(log log x)2 + O(x log log x)
+         p1 = p2
+                  p 1 p 2    p1 p2 ≤x p 1 p 2      p≤x p
+                                  p1 = p2
+                                                                                                   (2.26)
+
+        by Mertens’ formula (Theorem 2.7(d)). Thus
+
+                                      2 ≤ x(log log x)2 + O(x log log x).
+
+        The estimate (2.23) now follows by inserting this and (2.22) in (2.25).
+          We derive (2.24) from (2.23) by applying the triangle inequality x −
+        y ≤ x − y for vectors. This gives
+                                         1/2                            1/2
+                       (ω(n) − log log n)2     −         (ω(n) − log log x)2
+                     1<n≤x                                       1<n≤x
+                                                              1/2
+                    ≤              (log log x − log log n)2            .
+                           1<n≤x
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        60                    The elementary theory of arithmetic functions
+
+
+        By the integral test the sum on the right is
+                                   x
+                          =            (log log x − log log u)2 du + O((log log x)2 ).
+                               e
+
+        By integrating by parts twice we ﬁnd that this integral is
+                                                            x
+                                                                1 + log log x −log log u              x
+          −e(log log x)2 −2e log log x +2                                                du                 .
+                                                        2               (log u)2                   (log x)2
+        Thus
+                                  1/2                      1/2
+                                                                                    
+                   (ω(n)−log log n)2 =      (ω(n) − log log x)2     + O x 1/2 / log x ,
+           1<n≤x                                        n≤x
+
+        and (2.24) follows by squaring both sides and applying (2.23). We omit the
+        similar argument for (n).                                              
+
+           Since 2ω(n) ≤ d(n) ≤ 2(n) for all n, Corollary 2.13 carries an interesting
+        piece of information for d(n):
+
+                                               d(n) = (log n)(log 2+o(1))
+
+        for almost all n. Since this is smaller than the average size of d(n), we see that
+        the average is determined not by the usual size of d(n) but by a sparse set of n for
+        which d(n) is disproportionately large. Since the ﬁrst moment (i.e., average) of
+        d(n) is inﬂated by the ‘tail’ in its distribution, it is not surprising that this effect
+        is more pronounced for the higher moments. As was originally suggested by
+        Ramanujan, it can be shown that for any ﬁxed real number κ there is a positive
+        constant c(κ) such that
+                                                                 κ
+                                       d(n)κ ∼ c(κ)x(log x)2 −1                          (2.27)
+                                            n≤x
+
+        as x → ∞.
+           In order to handle the error terms that arise in our arguments we are frequently
+        led to estimate the mean value of multiplicative functions. In most such cases
+        the method of the hyperbola or the simpler identity (2.3) will sufﬁce, but the
+        labour involved quickly becomes tiresome. It will therefore be convenient to
+        have the following result on record, as it is very readily applied.
+
+        Theorem 2.14 Let f be a non-negative multiplicative function. Suppose that
+        A is a constant such that
+                                  
+                                    f ( p) log p ≤ Ax                       (2.28)
+                                                  p≤x
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 2.3 Applications to arithmetic functions                             61
+
+
+        for all x ≥ 1, and that
+                                             f ( p k )k log p
+                                                                    ≤ A.                           (2.29)
+                                                         pk
+                                             pk
+                                            k≥2
+
+        Then for x ≥ 2,
+                                                                x  f (n)
+                                          f (n)     (A + 1)                .
+                                    n≤x                        log x n≤x n
+            We note that this is sharper than the trivial estimate
+                                                  
+                                         f (n) ≤ x      f (n)/n                                    (2.30)
+                                           n≤x                n≤x
+
+        that holds whenever f ≥ 0.
+           If f ≥ 0 and f is multiplicative, then
+                        f (n)                                        
+                                                f ( p)   f ( p2 )
+                                 ≤        1+           +          + ··· .
+                       n≤x   n      p≤x           p        p2
+        On combining this with Theorem 2.14 we obtain
+        Corollary 2.15        Under the above hypotheses
+                                                                             
+                                           x            f ( p)   f ( p2 )
+                        f (n)   (A + 1)              1+        +          + ··· .
+                    n≤x                  log x p≤x        p        p2
+            Suppose for example that f (n) = d(n)κ . We write
+                                                       κ           κ
+                      2κ    3κ                          1 −2             1 2
+                   1+     + 2 + ··· =             1−                  1−
+             p≤x       p    p               p≤x         p       p≤x      p
+                                                                 
+                                                     2κ    3κ
+                                           × 1+         + 2 + ···
+                                                      p    p
+        and observe that the second product tends to a ﬁnite limit as x → ∞, so that
+        by Mertens’ formula (Theorem 2.7(e)) we have
+                                                       κ
+                                     d(n)κ     x(log x)2 −1                   (2.31)
+                                           n≤x
+
+        for any ﬁxed κ. Though weaker than (2.27), this is all that is needed in many
+        cases. We can similarly show that for any ﬁxed real κ,
+                                      n κ
+                                                      x.                        (2.32)
+                                    n≤x    ϕ(n)
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        62                      The elementary theory of arithmetic functions
+
+
+        Thus we see that ϕ(n)/n is not often very small.
+        Proof of Theorem 2.14 The desired bound is obtained by adding the two
+        estimates
+                                          x     f (n)
+                                 f (n) log    x           ,             (2.33)
+                            n≤x            n    n≤x   n
+                                                  f (n)
+                                  f (n) log n Ax            .           (2.34)
+                             n≤x                  n≤x   n
+        The ﬁrst of these is immediate, since f ≥ 0 and log x/n                          x/n uniformly for
+                                  
+        1 ≤ n ≤ x. Since log n = d|n (d), the second sum is
+                                             
+                                        (d)       f (md).
+                                             d≤x          m≤x/d
+
+        Writing d = pi , m = p j r where p  r , we see that this is
+                                                                          
+                   (log p) f ( pi+ j )     f (r ) =       k(log p) f ( p k )   f (r ).
+             p,i≥1, j≥0                     r ≤x/ pi+ j                p,k                   r ≤x/ p k
+               pi+ j ≤x                        pr                    p k ≤x                    pr
+
+        Here we have put i + j = k. We now drop the condition p  r on the right-
+        hand side, and consider ﬁrst the contribution of the proper prime powers (i.e.,
+        k ≥ 2). By (2.30) with x replaced by x/ p we see that the terms for which k ≥ 2
+        contribute
+                                                                   
+                    x      (log p k ) f ( p k ) p −k   f (r )/r ≤ Ax    f (n)/n
+                            p,k≥2                         r ≤x/ p k                    n≤x
+
+        by (2.29). It remains to bound
+                                                        
+                        (log p) f ( p)   f (r ) =   f (r )   f ( p) log p.
+                          p≤x               r ≤x/ p            r ≤x            p≤x/r
+                                         
+        By (2.28) this is ≤ Ax               r ≤x   f (r )/r , so we have (2.34) and the proof is
+        complete.                                                                                        
+
+           In the above proof we made no use of prime number estimates, but as we
+        have seen the estimates of Chebyshev are useful in verifying the hypotheses
+                                                             
+        and Mertens’ formula is helpful in estimating the sum n≤x f (n)/n.
+
+
+                                               2.3.1      Exercises
+                                
+        1. Let σ (n) = d|n d.
+           (a) Show that σ (n)ϕ(n) ≤ n 2 for all n ≥ 1 .        
+           (b) Deduce that n + 1 ≤ σ (n) ≤ eC0 n log log n + O(1) for all n ≥ 3.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 2.3 Applications to arithmetic functions                          63
+
+                               √
+        2. Show that d(n) ≤ 3n with equality if and only if n = 12.
+                        
+        3. Let f (n) = p|n (1 + p −1/2 ).
+           (a) Show that there is a constant a such that if n ≥ 3, then
+                                                                     
+                                 f (n) < exp a(log n)1/2 (log log n)−1 .
+                                                                  
+           (b) Show that n≤x f (n) = cx + O x 1/2 where c = p (1 + p −3/2 ).
+        4. Let dk (n) be as in Exercise 2.1.18. Show that if k and κ are ﬁxed, then
+                                                           κ
+                                        dk (n)κ    x(log x)k −1 .
+                                              n≤x
+
+           for x ≥ 2.
+        5. (Davenport 1932) Let
+                                                                µ(d) log d
+                                                f (n) = −                      .
+                                                                d|n
+                                                                           d
+
+           (a) By recalling Exercise 2.1.16(a), or otherwise, show that f (n) ≥ 0 for
+                all n.
+           (b) Show that f (n)     log log n for n ≥ 3.
+                                                     
+           (c) Show that f (n) ∼ 14 log log n if n = y< p≤y 2 p.
+                                            
+           (d) Show that f (n) ≤ 14 + o(1) log log n as n → ∞.
+        6. (cf. Bateman & Grosswald 1958) Let F be the set of ‘power-full’ numbers
+           where n is power-full if p|n ⇒ p 2 |n.
+           (a) Show that
+                                                   ζ (2s)ζ (3s)
+                                             n −s =
+                                         n∈F
+                                                       ζ (6s)
+
+                for σ > 1/2.
+            (b) Show that
+                                                                     
+                                                                       1   if n ∈ F,
+                                                             µ(c) =
+                                                  a,b,c
+                                                                       0   otherwise.
+                                              a 2 b3 c6 =n
+
+            (c) Show that
+                                                                                   
+                                            1 = ζ (3/2)y 1/2 + ζ (2/3)y 1/3 + O y 1/5 .
+                                a 2 b3 ≤x
+
+            (d) Show that
+                                               ζ (3/2) 1/2 ζ (2/3) 1/3      
+                                       1=              x +         x + O x 1/5 .
+                                 n≤x             ζ (3)       ζ (2)
+                                 n∈F
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        64                   The elementary theory of arithmetic functions
+
+
+        7. (Bateman 1949) Let q (z) denote the q th cyclotomic polynomial,
+                                                              q
+                                              q (z) =                (z − e(a/q))
+                                                              a=1
+                                                            (a,q)=1
+
+
+             where e(θ ) = e2πiθ .
+             (a) Show that
+                                                           d (z) = z q − 1.
+                                                     d|q
+
+             (b) Show that
+                                                  q (z) =            (z d − 1)µ(q/d) .
+                                                               d|q
+                                                             
+             (c) If P(z) =     pn z and Q(z) = qn z n are polynomials with real coefﬁ-
+                                          n
+
+                 cients, then we say that P  Q if | pn | ≤ qn for all non-negative integers
+                 n. Show that if P1  Q 1 and P2  Q 2 , then P1 + P2  Q 1 + Q 2 and
+                 P1 P2  Q 1 Q 2 .
+             (d) Show that q (z)  Q q (z) where
+                                        Q q (z) =         (1 + z d + z 2d + · · · + z q−d ).
+                                                    d|q
+
+             (e) Show that Q q (1) = q d(q)/2 .
+             (f) Show that for any ε > 0 there is a q0 (ε) such that if q > q0 (ε), then all
+                 coefﬁcients of q have absolute value not exceeding
+                                                                   
+                                          exp q (log 2+ε)/ log log q .
+        8. (Turán 1934) (a) Show that the ﬁrst sum in (2.26) is
+                                                   1
+                                     =x                  + O(x).
+                                          p1 p2 ≤x p1 p2
+
+             (b) Explain why the sum above is
+                                  2                                 ⎛            ⎞2
+                         1                  1                 1         1
+                                        −2                           +⎝            ⎠ .             (2.35)
+                           p≤x p
+                                              √ p1               p 2    √        p
+                                           p ≤ x
+                                              1    x/ p1 < p2 ≤x          x< p≤x
+                                  √
+             (c) Show that if y ≤ x, then
+                            1
+                                    = log log x − log log(x/y) + O(1/ log x).
+                         x/y< p≤x
+                                  p
+
+             (d) Show that the right-hand side above is                       (log y)/ log x.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    2.4 The distribution of (n) − ω(n)                            65
+
+
+            (e) Deduce that the second and third terms in (2.35) are                      1.
+            (f) Conclude that
+                                 2 = x(log log x)2 + (2b + 1) log log x + O(x)
+                where b is the constant in Theorem 2.7(d).
+           (g) Show that the left-hand side of (2.23) is = x log log x + O(x).
+           (h) Show that the left-hand side of (2.24) is = x log log x + O(x).
+        9. (cf. Pomerance 1977, Shan 1985) Note that ϕ(n)|(n − 1) when n is prime. An
+           old – and still unsolved – problem of D. H. Lehmer asks whether there exists
+           a composite integer n such that ϕ(n)|(n − 1). Let S denote the (presumably
+           empty) set of such numbers.
+           (a) Show that if n ∈ S, then n is square-free.
+           (b) Suppose that mp ∈ S. Show that m ≡ 1 (mod p − 1).
+           (c) Let p be given. Show that the number of m such that mp ≤ x and mp ∈ S
+                is   x/ p 2 .
+           (d) Show that the number of n ∈ S, n ≤ x, such that n has a prime factor
+                > y is     x/(y log y).
+           (e) Suppose that x/y < n ≤ x and that n is composed entirely of primes
+                p ≤ y. Show that ω(n) ≥ (log x)/(log y) − 1.
+            (f) By Exercise 4, or otherwise, show that the number of n ≤ x such that
+                ω(n) ≥ z is     x(log x)2 /3z .
+           (g) Conclude that the number of n ≤ x such that n ∈ S is
+                            √
+                   x/ exp( log x).
+
+
+
+                             2.4      The distribution of (n) − ω(n)
+        In order to illustrate further the use of elementary techniques we now discuss
+        an elegant result of Rényi, which asserts that the set of numbers n such that
+        (n) − ω(n) = k has density dk , where the dk are the power series coefﬁcients
+        of the meromorphic function
+                                 ∞                                
+                                                       1           1
+                        F(z) =       dk z =
+                                         k
+                                                   1−       1+          .       (2.36)
+                                 k=0           p       p         p−z
+        By examining this product we see that F has simple poles at the points z = p
+        ( p = 3), and simple zeros at the points z = p + 1 ( p = 2), so that the power
+        series converges for |z| < 2. We let Nk (x) denote the number of n ≤ x for
+        which (n) − ω(n) = k; our object is to show that Nk (x) ∼ dk x. If this holds
+                                            
+        for each k then we can deduce that dk ≤ 1. By taking z = 1 in (2.36) we see
+              
+        that dk = 1, which gives us hope that the asymptotic relation may be fairly
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        66                   The elementary theory of arithmetic functions
+
+
+        uniform in k. This is indeed the case, as we see from the following quantitative
+        form of Rényi’s theorem.
+
+        Theorem 2.16           For any non-negative integer k, and any x ≥ 2,
+                                                             3 k                   
+                                  Nk (x) = dk x + O           4
+                                                                      x 1/2 (log x)4/3 .
+
+           In preparation for the proof of this result we ﬁrst establish a subsidiary
+        estimate.
+
+        Lemma 2.17      For any y ≥ 0 and any natural number f ,
+                                         −1                                   
+                           6            1                                    −1
+                  µ(n)2 = 2          1+          y + O y 1/2        1 − p −1/2       .
+              n≤y          π    p| f
+                                         p                   p| f
+             (n, f )=1
+
+
+        Proof        Let D = {d : p|d ⇒ p| f }. By considering the Dirichlet series identity
+
+           
+           ∞
+                                                         ζ (s)                       ζ (s) 
+                  µ(n)2 n −s =          (1 + p −s ) =               (1 + p −s )−1 =            λ(d)d −s ,
+           n=1                   p f
+                                                        ζ (2s) p| f                 ζ (2s) d∈D
+         (n, f )=1
+
+
+        or by elementary considerations, we see that the characteristic function of the
+        set of those square-free n such that (n, f ) = 1 may be written
+                                        
+                                              λ(d)µ(m)2 .
+                                                   dm=n
+                                                    d∈D
+
+        Hence the sum in question is
+                                                                                               
+                                                     6 y                  
+                         λ(d)       µ(m) =     λ(d)
+                                               2
+                                                        · + O y 1/2 d −1/2
+                     d∈D      m≤y/d        d∈D
+                                                    π d
+                                                      2
+
+
+                                                            
+        by Theorem 2.2. But d∈D λ(d)/d = p| f (1 + 1/ p)−1 and d∈D d −1/2 =
+                     −1/2 −1
+          p| f (1 − p     ) , so that the proof is complete.              
+
+        Proof of Theorem 2.16 Let Q denote the set of square-free numbers and F
+        denote the set of ‘power-full’ numbers (i.e., those f such that p| f ⇒ p 2 | f ).
+        Every number is uniquely expressible in the form n = q f , q ∈ Q, f ∈ F,
+        (q, f ) = 1. Hence
+                                                      
+                                 Nk =                       1.
+                                                         f ≤x          q≤x/ f
+                                                         f ∈F           q∈Q
+                                                   ( f )−ω( f )=k    (q, f )=1
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                       2.4 The distribution of (n) − ω(n)                                         67
+
+
+        By Lemma 2.17 this is
+                                                               ⎛                                                   ⎞
+                                              ⎜                                                                  ⎟
+         6            1                      ⎜ 1/2                                                           ⎟
+                                                                                                            −1/2 −1 ⎟
+            x                    (1 + p ) + O ⎜
+                                       −1 −1
+                                              ⎜x                                 f    −1/2
+                                                                                                     1− p        ⎟.
+         π2          f ≤x
+                          f p| f              ⎝                            f ≤x              p| f                ⎠
+                      f ∈F                                                 f ∈F
+                ( f )−ω( f )=k                                      ( f )−ω( f )=k
+
+        In order to appreciate the nature of these sums it is helpful to observe that each
+        member of F is uniquely of the form a 2 b3 with b square-free, so that there are
+           x 1/2 members of F not exceeding x. Suppose that z ≥ 1. Then the sum in
+        the error term is
+                                                                      −1
+                         ≤ z −k     z ( f )−ω( f ) f −1/2   1 − p −1/2     .
+                                             f ≤x                     p| f
+                                             f ∈F
+
+        Since ( f ) − ω( f ) is an additive function, it follows that z ( f )−ω( f ) is a mul-
+        tiplicative function. Hence the above is
+                                                                              
+                      −k                   −1/2
+                                                −1 z         z2     z3
+                  ≤z           1+ 1− p                  + 3/2 + 2 + · · ·             .
+                         p≤x                         p      p       p
+                                                         √
+        When p = 2 the sum converges only for z < 2. Hence we take z = 4/3, and
+        then the product is
+                                                     
+                                            4      C
+                             ≤        1+       + 3/2         (log x)4/3
+                                p≤x        3 p   p
+        by Mertens’ formula. Thus
+                                                                       −1           3 k
+                               f −1/2                       1 − p −1/2                     (log x)4/3
+                                 f ≤x               p| f
+                                                                                       4
+                                 f ∈F
+                           ( f )−ω( f )=k
+
+        which sufﬁces for the error term.
+           We now consider the effect of dropping the condition f ≤ x in the main
+        term. Since
+                                                
+                    1            1 −1                                              −1
+                             1+         ≤ U −1/2           f −1/2        1 − p −1/2
+          U < f ≤2U
+                    f p| f       p               U < f ≤2U        p| f
+               f ∈F                                                       f ∈F
+         ( f )−ω( f )=k                                            ( f )−ω( f )=k
+                                                 3 k
+                                                           U −1/2
+                                                     (log 2U )4/3 ,
+                                                 4
+        on taking U = x2r and summing over r ≥ 0 we see that
+                                           −1
+                               1           1                3 k
+                                        1+          x −1/2      (log x)4/3 .
+                      f ≤x
+                               f p| f
+                                           p                4
+                                 f ∈F
+                           ( f )−ω( f )=k
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        68                   The elementary theory of arithmetic functions
+
+
+        Hence we have the stated result with
+                                                                                  −1
+                                 6                               1              1
+                         dk = 2                                            1+             .
+                                π       f ∈F
+                                                                 f p| f         p
+                                              ( f )−ω( f )=k
+
+        To see that (2.36) holds, it sufﬁces to multiply this by z k and sum over k.               
+
+
+                                                2.4.1         Exercise
+        1. Let dk be as in (2.36). Show that
+                                                dk = c2−k + O(5−k )
+             where
+                                                1            1      −1
+                                          c=          1−               .
+                                                4 p>2    ( p − 1) 2
+
+
+
+
+                                                   2.5         Notes
+                                                  
+        Section 2.1. Mertens (1874 a) showed that n≤x ϕ(n) = 3x 2 /π 2 + O(x log x).
+        This reﬁnes an earlier estimate of Dirichlet, and is equivalent to Theorem 2.1,
+        by partial summation. Let R(x) denote the error term in Theorem 2.1. Chowla
+        (1932) showed that
+                                                   x
+                                                                       x
+                                                       R(u)2 du ∼
+                                               1                      2π 2
+        as x → ∞, and Walﬁsz (1963, p. 144) showed that
+                                       R(x)            (log x)2/3 (log log x)4/3 .
+        In the opposite direction, Pillai & Chowla (1930) showed (cf. Exercise
+        7.3.6) that R(x) = (log log log x). That the error term changes sign in-
+        ﬁnitely often was ﬁrst proved by Erdős & Shapiro (1951), who showed that
+        R(x) = ± (log log log log x). More recently, Montgomery (1987) showed that
+                      √
+        R(x) = ± ( log log x). It may be speculated that R(x)           log log x and that
+        R(x) = ± (log log x).
+           Theorem 2.2 is due to Gegenbauer (1885).
+           Theorem 2.3 is due to Dirichlet (1849). The problem of improving the error
+        term in this theorem is known as the Dirichlet divisor problem. Let (x) denote
+        the error term. Voronoı̈ (1903) showed that (x)         x 1/3 log x (see Exercises
+        2.1.23, 2.1.25, 2.1.26). van der Corput (1922) used estimates of exponential
+        sums to show that (x)        x 33/100+ε . This exponent has since been reduced
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     2.5 Notes                                     69
+
+
+        by van der Corput (1928), Chih (1950), Richert (1953), Kolesnik (1969, 1973,
+        1982, 1985), Iwaniec & Mozzochi (1988), and by Huxley (1993), who showed
+        that (x)      x 23/73+ε . In the opposite direction, Hardy (1916) showed that
+          (x) = ± (x 1/4 ). Soundararajan (2003) showed that
+                                                                              
+                     (x) =  x 1/4 (log x)1/4 (log log x)b (log log log x)−5/8
+        with b = 34 (24/3 − 1), and it is plausible that the ﬁrst three exponents above are
+        optimal.
+           The result of Exercise 2.1.12 generalizes to Rn : A lattice point
+        (a1 , a, . . . , an ∈ Zn ) is said to be primitive if gcd(a1 , a2 , . . . , an ) = 1. The
+        asymptotic density of primitive lattice points is easily shown to be 1/ζ (n).
+        In addition, Cai & Bach (2003) have shown that the density of lattice points
+        a ∈ Zn such that gcd(ai , a j ) = 1 for all pairs with 1 ≤ i < j ≤ n is
+                                                                   
+                                              1 n n          1 n−1
+                                          1−      +      1−           .
+                                     p        p      p        p
+
+            Section 2.2. Chebyshev (1848) used the asymptotics of log ζ (σ ) as σ → 1+
+        to obtain Corollary 2.8. In his second paper on prime numbers, Chebyshev
+        (1850) introduced the notations ϑ(x), ψ(x), T (x), and proved Theorem 2.4,
+        Corollaries 2.5, 2.6, Theorem 2.7(a), and the results of Exercise 2.2.5. Sylvester
+        (1881) devised a more complicated choice of the ad that gave better constants
+        than those of Chebyshev. Diamond & Erdős (1980) have shown that for any
+        ε > 0 it is possible to choose numbers ad as in the proof of Theorem 2.4 to
+        show that (1 − ε)x < ψ(x) < (1 + ε)x for all sufﬁciently large x. This does
+        not constitute a proof of the Prime Number Theorem, because the PNT is used
+        in the proof. Chebyshev (1850) also used his main results to prove Bertrand’s
+        postulate. Simpler proofs have been devised by various authors. For an easy
+        exposition, see Theorem 8.7 of Niven, Zuckerman & Montgomery (1991).
+        Richert (1949a, b) (cf. Ma̧kowski 1960) used Bertrand’s postulate to show that
+        every integer > 6 can be expressed as a sum of distinct primes. Rosser &
+        Schoenfeld (1962, 1975) and Schoenfeld (1976) have given a large number of
+        very useful explicit estimates for primes and for the Chebyshev functions, of
+        which one example is that π (x) > x/ log x for all x ≥ 17. For the k th prime
+        number, pk , Dusart (1999) has given the lower bound
+                                        pk > k(log k + log log k − 1)
+        for k ≥ 2. For further explicit estimates, see Schoenfeld (1969), Costa Pereira
+        (1989), and Massias & Robin (1996). In Exercise 2.2.1 we ﬁnd that ψ(x) ≥
+        cx + O(1) with c = 12 log 5 = 0.8047 . . . . This approach is mentioned by Gel’-
+        fond, in his editorial remarks in the Collected Works of Chebyshev (1946,
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        70                   The elementary theory of arithmetic functions
+
+
+        pp. 285–288). Polynomials can be found that produce better constants, but
+        Gorshkov (1956) showed that the supremum of such constants is < 1, so
+        the Prime Number Theorem cannot be established by this method. For more
+        on this subject, see Montgomery (1994, Chapter 10), Pritsker (1999), and
+        Borwein (2002, Chapter 10).
+           Theorem 2.7(b)–(e) is due to Mertens (1874a, b). Our determination of the
+        constant in Theorem 2.7(e) incorporates an expository ﬁnesse due to Heath-
+        Brown.
+           Section 2.3. Theorem 2.9 is due to Landau (1903). Runge (1885) proved
+        (2.20), and Wigert (1906/7) showed that d(n) < n (log 2+ε)/ log log n for n > n 0 (ε).
+        Ramanujan (1915a, b) established the upper bound of Theorem 2.11, ﬁrst with
+        an extra log log log n in the error term, and then without. Ramanujan (1915b)
+        also proved that
+                           log d(n)                                
+                                    < li(n) + O n exp − c log n
+                             log 2
+        for all n ≥ 2, and that
+                                log d(n)                          
+                                         > li(n) + O n exp − c log n
+                                  log 2
+        for inﬁnitely many n. For a survey of extreme value estimates of arithmetic
+        functions, see Nicolas (1988).
+            Theorem 2.12 is due to Turán (1934), although Corollary 2.13 and the es-
+        timate (2.22) used in the proof of Theorem 2.12 were established earlier by
+        Hardy & Ramanujan (1917). Kubilius (1956) generalized Turán’s inequality to
+        arbitrary additive functions. See Tenenbaum (1995, pp. 302–304) for a proof,
+        and discussion of the sharpest constants.
+            Theorem 2.14 is due to Hall & Tenenbaum (1988, pp. 2, 11). It represents
+        a weakening of sharper estimates that can be derived with more work. For
+        example, Wirsing (1961) showed that if f is a multiplicative function such that
+         f (n) ≥ 0 for all n, if there is a constant C < 2 such that f ( pk ) C k for all
+        k ≥ 2, and if
+                                       
+                                            f ( p) ∼ κ x/ log x
+                                             p≤x
+
+        as x → ∞ where κ is a positive real number, then
+                                        e−C0 κ x         f ( p)   f ( p2 )
+                             f (n) ∼                   1+        +          + ··· .
+                       n≤x               (κ) log x p≤x      p        p2
+
+        For more information concerning non-negative multiplicative functions, see
+        Wirsing (1967), Hall (1974), Halberstam & Richert (1979), and Hildebrand
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 2.6 References                                    71
+
+
+        (1984, 1986, 1987). For a comprehensive account of the mean values of (not
+        necessarily non-negative) multiplicative functions, see Tenenbaum (1995, pp.
+        48–50, 308–310, 325–357). The two sides of (2.31) are of the same order of
+        magnitude, and with more work one can derive a more precise asymptotic
+        estimate; see Wilson (1922).
+           Section 2.4. Rényi (1955) gave a qualitative form of Theorem 2.16. Robinson
+        (1966) gave formulæ for the densities dk . Kac (1959, pp. 64–71) gave a proof
+        by probabilistic techniques. Generalizations have been given by Cohen (1964)
+        and Kubilius (1964). Sharper estimates for the error term have been derived
+        by Delange (1965, 1967/68, 1973), Kátai (1966), Saffari (1970), and Schwarz
+        (1970).
+           For a much more detailed historical account of the development of prime
+        number theory, see Narkiewicz (2000).
+
+
+
+                                              2.6      References
+        Bateman, P. T. (1949). Note on the coefﬁcients of the cyclotomic polynomial, Bull. Amer.
+             Math. Soc. 55, 1180–1181.
+        Bateman, P. T. & Grosswald, E. (1958). On a theorem of Erdős and Szekeres, Illinois J.
+             Math. 2, 88–98.
+        Bombieri, E. & Pila, J. (1989). The number of integral points on arcs and ovals, Duke
+             Math. J. 59, 337–357.
+        Borwein, P. (2002). Computational excursions in analysis and number theory. Canadian
+             Math. Soc., New York: Springer.
+        Cai, J.-Y. & Bach, E. (2003). On testing for zero polynomials by a set of points with
+             bounded precision, Theoret. Comp. Sci. 296, 15–25.
+        Chebyshev, P. L. (1848). Sur la fonction qui détermine la totalité des nombres premiers
+             inférieurs à une limite donné, Mem. Acad. Sci. St. Petersburg 6, 1–19.
+          (1850). Mémoire sur nombres premiers, Mem. Acad. Sci. St. Petersburg 7, 17–33.
+          (1946). Collected works of P. L. Chebyshev, Vol. 1, Akad. Nauk SSSR, Moscow–
+             Leningrad.
+        Chih, T.-T. (1950). A divisor problem, Acta Sinica Sci. Record 3, 177–182.
+        Chowla, S. (1932). Contributions to the analytic theory of numbers, Math. Zeit. 35,
+             279–299.
+        Cohen, E. (1964). Some asymptotic formulas in the theory of numbers, Trans. Amer.
+             Math. Soc. 112, 214–227.
+        van der Corput, J. G. (1922). Vereschärfung der Abschätzung beim Teilerproblem, Math.
+             Ann. 87, 39–65.
+          (1928). Zum Teilerproblem, Math. Ann. 98, 697–716.
+        Costa Pereira, N. (1989). Elementary estimates for the Chebyshev function ψ(x) and
+             for the Möbius function M(x), Acta Arith. 52, 307–337.
+        Davenport, H. (1932). On a generalization of Euler’s function φ(n), J. London Math. Soc.
+             7, 290–296; Collected Works, Vol. IV. London: Academic Press, pp. 1827–1833.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        72                   The elementary theory of arithmetic functions
+
+
+        Delange, H. (1965). Sur un théorème de Rényi, Acta Arith. 11, 241–252.
+          (1967/68). Sur un théorème de Rényi, II, Acta Arith. 13, 339–362.
+          (1973). Sur un théorème de Rényi, III, Acta Arith. 23, 157–182.
+        Diamond, H. G. & Erdős, P. (1980). On sharp elementary prime number estimates,
+             Enseignement Math. (2) 26, 313–321.
+        Dirichlet, L. (1849). Über die Bestimmung der mittleren Werthe in der Zahlentheorie,
+             Math. Abhandl. Königl. Akad. Wiss. Berlin, 69–83; Werke, Vol. 2, pp. 49–66.
+        Duncan, R. L. (1965). The Schnirelmann density of the k-free integers, Proc. Amer.
+             Math. Soc. 16, 1090–1091.
+        Dusart, P. (1999). The kth prime is greater than k(log k + log log k − 1) for k ≥ 2, Math.
+             Comp. 68, 411–415.
+        Erdős, P. & Shapiro, H. N. (1951). On the change of sign of a certain error function,
+             Canadian J. Math. 3, 375–385.
+        Erdős, P. & Szekeres, G. (1934). Über die Anzahl der Abelschen Gruppen gegebener
+             Ordnung und über ein verwandtes zahlentheoretisches Problem, Acta Litt. Sci.
+             Szeged 7, 95–102.
+        Evelyn, C. J. A. & Linfoot, E. H. (1930). On a problem in the additive theory of numbers,
+             II, J. Reine Angew. Math. 164, 131–140.
+        Feller, W. & Tornier, E. (1932). Mengentheoretische Untersuchungen von Eigenschaften
+             der Zahlenreihe, Math. Ann. 107, 188–232.
+        Gegenbauer, L. (1885). Asymptotische Gesetse der Zahlentheorie, Denkschriften
+             Österreich. Akad. Wiss. Math.-Natur.
+                                                  Cl. 49, 37–80.
+        Golomb, S. (1992). An inequality for 2n   n
+                                                     , Amer. Math. Monthly 99, 746–748.
+        Gorshkov, L. S. (1956). On the deviation of polynomials with rational integer coefﬁcients
+             from zero on the interval [0, 1]. Proceedings of the 3rd All-union congress of Soviet
+             mathematicians, Vol. 3, Moscow, pp. 5–7.
+        Grosswald, E. (1956). The average order of an arithmetic function, Duke Math. J. 23,
+             41–44.
+        Halberstam, H. & Richert, H.-E. (1979). On a result of R. R. Hall, J. Number Theory
+             11, 76–89.
+        Hall, R. R. (1974). Halving an estimate obtained from the Selberg upper bound method,
+             Acta Arith. 25, 487–500.
+        Hall, R. R. & Tenenbaum, G. (1988). Divisors, Cambridge Tract 90. Cambridge: Cam-
+             bridge University Press.
+        Hardy, G. H. (1916). On Dirichlet’s divisor problem, Proc. London Math. Soc. (2)
+             15, 1–25; Collected Papers, Vol. 2. Cambridge: Cambridge University Press,
+             pp. 268–292.
+        Hardy, G. H. & Ramanujan, S. (1917). The normal order of prime factors of a number
+             n, Quart. J. Math. 48, 76–92; Collected Papers, Vol. II. Oxford: Oxford University
+             Press, 100–113.
+        Hartman, P. & Wintner, A. (1947). On Möbius’ inversion, Amer. J. Math. 69, 853–858.
+        Hildebrand, A. (1984). Quantitative mean value theorems for non-negative multiplicative
+             functions I, J. London Math. Soc. (2) 30, 394–406.
+          (1986). On Wirsing’s mean value theorem for multiplicative functions, Bull. London
+             Math. Soc. 18, 147–152.
+          (1987). Quantitative mean value theorems for non-negative multiplicative functions
+             II, Acta Arith. 48, 209–260.
+        Hille, E. (1937). The inversion problem of Möbius, Duke Math. J. 3, 549–568.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 2.6 References                                    73
+
+
+        Huxley, M. N. (1993). Exponential sums and lattice points II. Proc. London Math. Soc.
+              (3) 66, 279–301.
+        Iwaniec, H. & Mozzochi, C. J. (1988). On the divisor and circle problems, J. Number
+              Theory 29, 60–93.
+        Jarnı́k, V. (1926). Über die Gitterpunkte auf konvexen Curven, Math. Z. 24, 500–
+              518.
+        Kac, M. (1959). Statistical Independence in Probability, Analysis and Number Theory,
+              Carus Monograph 12. Washington: Math. Assoc. Amer.
+        Kátai, I. (1966). A remark on H. Delange’s paper “Sur un théorème de Rényi”, Magyar
+              Tud. Akad. Mat. Fiz. Oszt. Közl. 16, 269–273.
+        Kolesnik, G. (1969). The improvement of the error term in the divisor problem, Mat.
+              Zametki 6, 545–554.
+          (1973). On the estimation of the error term in the divisor problem, Acta Arith. 25,
+              7–30.
+          (1982). On the order of ζ ( 12 + it) and (R), Paciﬁc J. Math. 82, 107–122.
+           (1985). On the method of exponent pairs, Acta Arith. 45, 115–143.
+        Kubilius, J. (1956). Probabilistic methods in the theory of numbers (in Russian), Uspehi
+              Mat. Nauk 11, 31–66; Amer. Math. Soc. Transl. (2) 19 (1962), 47–85.
+           (1964). Probabilistic Methods in the Theory of Numbers, Translations of Mathematical
+              Monographs, Vol. 11. Providence: American Mathematical Society.
+        Landau, E. (1900). Ueber die zahlentheoretische Function ϕ(n) und ihre Beziehung zum
+              Goldbachschen Satz, Nachr. Akad. Wiss. Göttingen, 177–186; Collected Works,
+              Vol. 1. Essen: Thales Verlag, 1985, pp. 106–115.
+          (1903). Über den Verlauf der zahlentheoretischen Funktion ϕ(x), Arch. Math. Phys.
+              (3) 5, 86–91; Collected Works, Vol. 1. Essen: Thales Verlag, 1985, pp. 378–383.
+          (1911). Sur les valeurs moyennes de certaines fonctions arithmétiques, Bull. Acad.
+              Royale Belgique, 443–472; Collected Works, Vol. 4. Essen: Thales Verlag, 1986,
+              pp. 377–406.
+          (1936). On a Titchmarsh–Estermann sum, J. London Math. Soc. 11, 242–245;
+              Collected Works, Vol. 9. Essen: Thales Verlag, 1987, pp. 393–396.
+        Linfoot, E. H. & Evelyn, C. J. A. (1929). On a problem in the additive theory of numbers,
+              I, J. Reine Angew. Math. 164, 131–140.
+        Ma̧kowski, A. (1960). Partitions into unequal primes, Bull. Acad. Pol. Sci. 8, 125–126.
+        Massias, J.-P. & Robin, G. (1996). Bornes effectives pour certaines fonctions concernant
+              les nombres premiers, J. Théor. Nombres Bordeaux 8, 215–242.
+        Mertens, F. (1874a). Ueber einige asymptotische Gesetze der Zahlentheorie, J. Reine
+              Angew. Math. 77, 289–338.
+          (1874b). Ein Beitrag zur analytischen Zahlentheorie, J. Reine Angew. Math. 78,
+              46–62.
+        Montgomery, H. L. (1987). Fluctuations in the mean of Euler’s phi function, Proc. Indian
+              Acad. Sci. (Math. Sci.) 97, 239–245.
+          (1994). Ten Lectures on the Interface of Analytic Number Theory and Harmonic
+              Analysis, CBMS 84. Providence: Amer. Math. Soc.
+        Narkiewicz, W. (2000). The Development of Prime Number Theory. Berlin: Springer-
+              Verlag.
+        Nicolas, J.-L. (1988). On Highly Composite Numbers. Ramanujan Revisited (G. E.
+              Andrews, R. A. Askey, B. C. Berndt, K. G. Ramanathan, R. A. Rankin, eds.). New
+              York: Academic Press, pp. 215–244.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        74                   The elementary theory of arithmetic functions
+
+
+        Niven, I. Zuckerman, H. S. & Montgomery, H. L. (1991). An Introduction to the Theory
+              of Numbers, Fifth edition. New York: Wiley & Sons.
+        Nowak, W. G. (1989). On an error term involving the totient function, Indian J. Pure
+              Appl. Math. 20, 537–542.
+        Orr, R. C. (1969). On the Schnirelmann density of the sequence of k-free integers, J.
+              London Math. Soc. 44, 313–319.
+        Pillai, S. S. & Chowla, S. D. (1930). On the error term in some formulae in the theory
+              of numbers (I), J. London Math. Soc. 5, 95–101.
+        Pomerance, C. (1977). On composite n for which ϕ(n)|(n − 1), II, Paciﬁc J. Math. 69,
+              177–186.
+        Pritsker, I. E. (1999). Chebyshev Polynomials with Integer Coefﬁcients, in Analytic and
+              Geometric Inequalities and Applications, Math. Appl. 478. Dordrecht: Kluwer,
+              pp. 335–348.
+        Ramanujan, S. (1915a). On the number of divisors of a number, J. Indian Math. Soc.
+              7, 131–133; Collected Papers, Cambridge: Cambridge University Press, 1927,
+              pp. 44–46.
+           (1915b). Highly composite numbers, Proc. London Math. Soc. (2) 14, 347–409;
+              Collected Papers, Cambridge: Cambridge University Press, 1927, pp. 78–128.
+        Rényi, A. (1955). On the density of certain sequences of integers, Acad. Serbe Sci. Publ.
+              Inst. Math. 8, 157–162.
+        Richert, H.-E. (1949a). Über Zerfällungen in ungleiche Primzahlen, Math. Z. 52, 342–
+              343.
+           (1949b). Über Zerlegungen in paarweise verschiedene Zahlen, Norsk Mat. Tidsskr.
+              31, 120–122.
+           (1953). Verschärfung der Abschätzung beim Dirichletschen Teilerproblem, Math. Z.
+              58, 204–218.
+        Robinson, R. L. (1966). An estimate for the enumerative functions of certain sets of
+              integers, Proc. Amer. Math. Soc. 17, 232–237; Errata, 1474.
+        Rogers, K. (1964). The Schnirelmann density of the square-free integers, Proc. Amer.
+              Math. Soc. 15, 515–516.
+        Rosser, J. B. & Schoenfeld, L. (1962). Approximate formulas for some functions of
+              prime numbers, Illinois J. Math. 6, 64–94.
+           (1975). Sharper bounds for the Chebyshev functions θ(x) and ψ(x), Math. Comp. 29,
+              243–269.
+        Runge, C. (1885). Über die auﬂösbaren Gleichungen von der Form x 5 + ux + v = 0,
+              Acta Math. 7, 173–186.
+        Saffari, B. (1970). Sur quelques applications de la “méthode de l’hyperbole” de Dirichlet
+              à la théorie des nombres premiers, Enseignement Math. (2) 14, 205–224.
+        Schmidt, P. G. (1967/68). Zur Anzahl Abelscher Gruppen gegebener Ordnung, II, Acta
+              Arith. 13, 405–417.
+        Schoenfeld, L. (1969). An improved estimate for the summatory function of the Möbius
+              function, Acta Arith. 15, 221–233.
+           (1976). Sharper bounds for the Chebyshev functions θ(x) and ψ(x), II, Math. Comp.
+              30, 337–360.
+        Schwarz, W. (1970). Eine Bemerkung zu einer asymptotischen Formel von Herrn Rényi,
+              Arch. Math. (Basel) 21, 157–166.
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 2.6 References                                    75
+
+
+        Shan, Z. (1985). On composite n for which ϕ(n)|(n − 1), J. China Univ. Sci. Tech. 15,
+              109–112.
+        Sitaramachandrarao, R. (1982). On an error term of Landau, Indian J. Pure Appl. Math.
+              13, 882–885.
+           (1985). On an error term of Landau, II, Rocky Mountain J. Math. 15, 579–588.
+        Soundararajan, K. (2003). Omega results for the divisor and circle problems, Int. Math.
+              Res. Not., 1987–1998.
+        Stieltjes, T. J. (1887). Note sur la multiplication de deux séries, Nouvelles Annales (3)
+              6, 210–215.
+        Sylvester, J. J. (1881). On Tchebycheff’s theory of the totality of the prime numbers
+              comprised within given limits, Amer. J. Math. 4, 230–247.
+        Tenenbaum, G. (1995). Introduction to Analytic and Probabilistic Number Theory, Cam-
+              bridge Studies 46, Cambridge: Cambridge University Press.
+        Turán, P. (1934). On a theorem of Hardy and Ramanujan, J. London Math. Soc. 9,
+              274–276.
+        de la Vallée Poussin, C. J. (1898). Sur les valeurs moyennes de certaines fonctions
+              arithmétiques, Ann. Soc. Sci. Bruxelles 22, 84–90.
+        Voronoı̈, G. (1903). Sur un problème du calcul des fonctions asymptotiques, J. Reine
+              Angew. Math. 126, 241–282.
+        Walﬁsz, A. (1963). Weylsche Exponentialsummen in der neueren Zahlentheorie, Math-
+              ematische Forschungsberichte 15, Berlin: VEB Deutscher Verlag Wiss.
+        Ward, D. R. (1927). Some series involving Euler’s function, J. London Math. Soc. 2,
+              210–214.
+        Wigert, S. (1906/7). Sur l’ordre de grandeur du nombre des diviseurs d’un entier, Ark.
+              Mat. 3, 1–9.
+        Wilson, B. M. (1922). Proofs of some formulæ enunciated by Ramanujan, Proc. London
+              Math. Soc. 21, 235–255.
+        Wintner, A. (1944). The Theory of Measure in Arithmetic Semigroups. Baltimore:
+              Waverly Press.
+        Wirsing, E. (1961). Das asymptotische Verhalten von Summen über multiplikative Funk-
+              tionen, Math. Ann. 143, 75–102.
+           (1967). Das asymptotische Verhalten von Summen über multiplikative Funktionen,
+              II, Acta Math. Acad. Sci. Hungar. 18, 411–467.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.004 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

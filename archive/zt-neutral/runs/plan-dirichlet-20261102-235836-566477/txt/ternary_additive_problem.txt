@@ -1,0 +1,1004 @@
+                     8
+                     A ternary additive problem
+
+
+
+                     8.1 A general conjecture
+
+                     Suppose that kv k2,...            ,ks are s integers satisfying
+                                                                                   s
+
+                                       2 ^ kx ^ k2 ^ . . . ^ k5            and    £ kj l > 1.    (8.1)
+                                                                                 j= i
+                     Then the arguments discussed above, particularly in Chapters 2 and
+                     4, suggest that the equation
+                                                                    xk J
+                                                              t       j =n                      (8-2)
+                                                             j= i
+                     has a solution in natural numbers x l 5 . . . , xs whenever
+                         (i) for each prime p and large k the equation (8.2) is soluble modulo
+                     pk with pjlxj for some 7;
+                        (ii) n is sufficiently large.
+                        There are some exceptions to this, see Exercise 5, but they all seem
+                     to have the general property that for some i there is a polynomial
+                     sequence of n for which n — xki has certain multiplicative properties
+                     arising from its polynomial factorisation which are at odds with the
+                     multiplicative properties of X ] = u » ix)j- ^ simplified form of this
+                     phenomenon occurs in Exercise 2. Even in these examples it should be
+                     true that (8.2) holds for almost all n.
+                        There has been a great deal of work on questions of this kind, much
+                     of it rather inconclusive in nature because the treatment of the minor
+                     arcs in the present state of knowledge generally requires £ kj l to be
+                     appreciably larger than unity.
+                        The smallest value of s for which (8.1) is satisfied is s = 3. Then the
+                     only case which has been completely solved is that of kx = k2 = /c3 = 2,
+                     the classical theorem of Legendre on sums of three squares. However,
+                     in all the remaining cases it has been shown that almost all numbers
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     128                                                       A ternary additive problem
+
+                     can be represented in the form (8.2). The cases with kx = k2 = 2 and
+                     with/cj = 2, k2 = /c3 = 3 are due to Davenport &Heilbronn( 1937a, b),
+                     the case kx = 2,/c2 = 3,/c2 = 4 is due to Roth (1949) and the case kx = 2,
+                     k2 = 3, k3 = 5 is due to Vaughan (1980a).
+                        The last case is the hardest, and the remainder of this chapter is
+                     taken up with its elucidation. The method can be readily adapted to
+                     the other cases.
+
+                     8.2 Statement of the theorem
+                     Let E(X) denote the number of natural numbers not exceeding X and
+                     not being the sum of a square, a cube and a fifth power of natural
+                     numbers.
+
+                     Theorem 8.1 There is a positive number S such that E(X) <^Xl ~s.
+
+                        In general principle the argument is similar to that of § 3.2. An
+                     important feature is that the major arcs can be taken to be longer and
+                     more numerous than the presence of the cube and fifth power might
+                     suggest. However, a large part of the major arcs is treated, in some
+                     respects, more like minor arcs.
+                        Another feature of the argument is that there is some difficulty
+                     connected with the convergence of the singular series. This is
+                     overcome by replacing the singular series by a finite product.
+
+                     8.3 Definition of major and minor arcs
+                     Let n denote a large natural number and write
+
+
+                     Further, let R(m) = R(m, n) denote the number of representations of m
+                     in the form
+                                                         m = x\ +x\ + X5
+                     with Pk < xk < 2Pfc, and let
+
+
+
+
+                     where the variables of summation satisfy Pkk < yk ^ (2Pkf                        and
+                     y2 +       +
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     Definition of major and minor arcs                                                     129
+
+                         Also define
+                                                   Sk = Sk(q,a)=             t     e{arkjq\                (8.4)
+                                                                            r= 1
+
+
+                                            A(m,q)=           £        q-3S2S3S5e(-am/q)                   (8.5)
+                                                             a=1
+                                                           (a,q) = 1
+                      and
+
+                                                                       g< x
+                         The first part of the proof of Theorem 8.1 is the establishment of
+
+                      Theorem 8.2 There is a positive constant S such that for every
+                      sufficiently large n
+                                            R(m) = /(m)S(m, n1'2) + O(n1/30 ~ d)
+
+                     for all but < n1 ~s values ofm with n < m ^ In.
+                      Proof Let
+                                                 hk = hk(oi)=                X       <KaA                 (8.7)
+                                                                   Pk < x ^ 2Pk
+
+                                                                        1
+                                                                         \         <% = (P/n9l + P/ri].      (8.8)
+                     Then
+
+                                           R(m)=            h2(a)h3((x)h5(0L)e(-(xm)d(x.                   (8.9)
+                                                       J
+                         When 1 ^ a ^ q ^ P and (a, q) = 1, define the major arc 9W(g, a) by
+                                             Wl(q, a) = {a : |a - a/g| ^ Pq~ ln~ *}                       (8.10)
+                      and take 901 to be the union of all the major arcs. As usual, it is easy to
+                      show that the $R(g, a) are disjoint, and the minor arcs m are taken to
+                      by *\9K.
+                        There is an important further subdivision of $R. Let $0^ denote the
+                      subset of $ft formed from those $ft(g, a) with q > n1/12, and let
+                                            W(q9 a) = {a : |a - a/q\ ^ n3d " 1 4 / 1 5 } .                (8.11)
+
+                      Now define Wl2 t o be the union of the 5R(g, a)\^R (q, a) with
+                      1 ^ a ^ ^f ^ n 1/12 and (a, ^f) = 1. Then, if one writes
+                                                                                                          (8.12)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     130                                                               A ternary additive problem
+
+                     and
+
+                                            Rl(m)=              h2((x)h3((x)h5((x)e(-           am)da,
+
+                     the aim is to show that
+
+
+
+                     and
+
+                                        Z           t          f h2(oi)h3(oi)h5(*)e(-am)doL
+                                        ni/i2     a = 1        J<R(«,a)
+                                                (a,q)=l
+                                                                             1/12
+                                                                                    ) + 0(l).              (8.13)
+
+                     The first of these estimates will follow from Parseval's identity if it is
+                     shown that
+                                        r
+                                                  |/22(a)/23(a)/z5(a)|2da < n16'15 ~ 3S.                   (8.14)
+
+
+                     8.4 The treatment of n
+                     The minor arcs m can be treated in a straightforward manner. The
+                     integral
+
+
+
+                     is the number of solutions ofJothe equation
+                                                                  f       \h22h*\d*
+
+
+                                                u2 - v2 + x 5 - y5 + z5 - r5 = 0
+                     with P2<u,v^            2P 2 , P5 < x, >', z, r ^ 2P5. The solutions are of three
+                     kinds
+                           (i) u ± v,
+                         (ii) u =    v,xj-y,
+                        (iii) u = v,x = y9z = t.
+                     Hence the total number of solutions is
+
+
+                     Therefore, by (8.3),
+                                                          f1
+                                                          f
+                                                          Jo
+                                                                                                           (8.15)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The treatment of n                                                                    131
+
+                     Similarly
+
+                                                             \h43\da<n2/3+E.                             (8.16)
+                                                        Jo
+                         By Weyl's inequality (Lemma 2.4), it follows that for each aem
+                                      /i2(a) <^ nl/2+E(P~         l
+                                                                      + rC 1 / 2 ) 1 / 2 < nE{n/P)112.
+                     Hence, by (8.16),
+
+
+
+                     Therefore, by Schwarz's inequality, (8.15) and (8.8),
+                                                                                       3i
+                                                                                         .               (8.17)
+
+
+                        Let
+                                                  w»(/J) = I(l/fc)x 1 /*- 1 e (/Jx)                      (8.18)
+                                                              X
+
+
+                     where the variable of summation satisfies Pkk < x ^ (2Pkf, and define
+                                        Wk = Wk(ot, q9a) = q- lSk(q, a)wk(a - a/q).                       (8.19)
+                     For ae501, define </>fc, Ak by
+                            0fc = <t>M = Wk(aL, q, a) (aeSRfa, a)), Ak = A, (a) = hk- </>,.
+                                                                                      (8.20)
+                     The first step in the treatment of yJllvyR2 is to replace h2 by 0 2 . By
+                     Theorem 4.1, when aeSOl one has A2(a) <^ P1/2 + £. Also, in a similar
+                     manner to the proof of (8.16),
+                                                        P
+                                                       Jo 3 5
+                     Therefore, by (8.8),
+
+                                                         I |Al^l^||da ^ n.                               (8.21)
+                                               Jan
+                        The next step is to estimate
+                                                                  mlh\\d*.
+                                                          L
+                     To this end it is first necessary to consider the corresponding integrals
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     132                                                                          A ternary additive problem
+
+                     with the integrand replaced by \4>\h\\ anc *
+                       By (8.19) and (8.20),
+
+
+
+
+                                                                       l/2
+                                                                                Iw 2 (j5) 2 /i 5 (^+^) 4 |d^,         (8.22)
+                                  q< P     a — 1                     J -- 1/2
+                                         (a, 4) = 1
+
+                     and, by (8.18),
+
+
+
+                     where
+                                                                          I i 1 / 2                                   (8.23)
+
+                     with x - y = ft, in = P\ < x, y < (2P2)2 = n. Moreover, by (8.7),
+
+
+
+
+                                                                                x,y,z,t
+                              5          5       5        5
+                     with x - >' 4- z - t = /i and P 5 < x, y, z, t =^ 2P 5 . Therefore
+                                         •1/2
+                                                 |w2(j5)2/i5(j5 4- a/^f)4|dj5 = Z b(h)c(h)e(ah/q).
+                                     ; - i / 2                                                   /i
+
+                     Hence, by (8.22),
+
+
+                                   19W                          h            q^P
+                                                                                          (a,q)=
+                                                                                                a=l
+
+
+                     It is trivial that |S 2 |, defined by (8.4), is independent of a and satisfies
+                     |5 2 | 2 <^ q. Therefore, by (3.14), for h + 0,
+
+
+                                                   a=\
+                                                      X         4-2|S2|2e(a/*A?M<T1 d\(q,h)
+                                                                                     £ *
+                                                   a = 1
+                                                 (a,q)=
+                                                 (a, g ) = 11
+                     Thus
+
+
+                                    JL'
+                     It is immediate from (8.23) that b(h) < 1. Also, in a similar manner to
+
+
+
+
+                                  Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The treatment of n                                                                          133
+
+                     the proof of (8.16), c(0) < n2/5 + E. Moreover £fcC(/i) < n 4/5 . Therefore,
+                     by (8.8),
+                                                           I |<£ 2 /z 4 |da<^ 5/6 + 8*.                        (8.24)
+
+                        Various forms of Holder's inequality are applied in order to
+                     estimate
+
+                                                                   I       102*31
+
+                     and consequently an estimate is required for
+
+
+                                                                   J   m
+                                                                           |0 4 |da.
+
+                     By (8.20) and Lemma 6.3,
+                                        r                                      fi/2
+                                              \<t>t\doi<      X q~l\                  n2
+                                        Jaw                 q^p             Jo
+                     so that
+                                                              f        4 l(x<n1+E
+                                                                               l+«
+                                                                                 .                             (8.25)
+                                                             Ja»
+                     Therefore, by Holder's inequality and (8.16),
+
+                                    J    |(/>?Ao/z?|da <^ (n1 + £ ) 1/4 (n 2/3 + £ ) 3/4 sup 102
+
+                      By Lemmas 6.1 and 6.3, for ae9W(g, a) one has
+
+                      Hence
+
+
+                                           Jan        L
+                         By Schwarz's inequality, (8.25) and (8.16),
+                                                                                                               (8.26)
+
+
+
+                                         f)l^ 3 A 3 ^||da « ( n 1 + £ ) 1 / 2 (n 2 / 3 + e ) 1 / 2 sup \<p3l
+
+                     and by Lemmas 6.1 and 6.3, when a.eW(q,a),
+                                              4>3(a)A3(a) < nll3q116             +£
+                                                                                       < nlliP116   +£
+                                                                                                     .
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     134                                                          A ternary additive problem
+
+                     Hence, by (8.8),
+                                                       r
+                                        Jaw         I   ioc < n514.
+
+                        By Lemmas 6.1 and 6.3, and (8.8),
+                                                                                                          (8.27)
+
+
+
+                                 f                                 1/3+e P / 2 " 5/3
+                                Jan                        q^p          Jo (1 + w^
+
+                     Therefore, by (8.26) and (8.27),
+
+                                          I     |(^/z4Jda<^5/4 + £ + |                 \4l4i\da.          (8.28)
+                                          Ja»
+                     Now consider the integral on the right. By (8.20), (8.19), Lemma 6.2
+                     and Theorem 4.2,
+                                                                      q
+                            f                                                              P12     n113
+                            JaWi                 n i / i 2 < ^ P    a = 1                  Jo    (1+wp)
+                                                                   (a,«) = 1
+
+
+
+
+                      where
+                                              J = YJ F(q\            F(q) =        ^
+                                                                               (a,q) = 1
+
+                      By Theorem 4.2, F(q)<q-1/3  -1/3
+                                                    .    Thus X,X= 3F F ^^ ^ P~ ll- A l s o ' b y
+                      Lemmas 4.3 and 4.4, \S3{p ,a)\<^p112 when / = 1 or 2. Hence
+                                                       l
+
+                      X?=i F{ph)<p~l- Moreover, by Lemma 4.5, F is a multiplicative
+                      function of q. Therefore, there is an absolute constant C such that
+                                                            J ^ n (1+QT1).
+                      Hence, by (8.28) and elementary prime number theory,
+
+
+                                                           JOT,
+
+                      Therefore, by Schwarz's inequality and (8.24),
+
+                                                            |0!fc|fc§|da<H 16/15 - 3 *.
+
+                      Hence, by (8.21),
+                                                   r
+                                                             \h22h2h2\d0L<n16115-33.                       (8.29)
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The major arcs 9l(q, a)                                                           135
+
+                        Now consider 9Ji2. By Lemma 6.3,
+                                                                       '1/2            M2
+
+                                       f
+                                       Jan2
+
+                     By Hua's lemma (Lemma 2.5),
+
+                                           I |/z||da<^n5/3 + £,         I      \h*\da<n1+
+                                  Jo                                  Jo
+                     Hence, by Holder's inequality,
+
+
+
+
+                     Therefore, by (8.21),
+
+
+
+                     This with (8.29) and (8.17) gives (8.14).
+
+
+
+                     8.5 The major arcs 9!(g, a)
+
+                     To complete the proof of Theorem 8.2 it remains to establish (8.13).
+                     A simple calculation shows that iffc= 2, 3 or 5, if q^n1/12, and
+                     if|j3|^n 3 < 5 - 1 4 / 1 5 , then
+                                           q1/2 +         *(l+n\P\)4{n/q)llk{l+n\P\rl.
+                      Hence, by Lemmas 6.1 and 6.3, when ae9l(g, a) one has
+                                           fek(a), Wk(a)<(n/q)l/k(\                +n\a-a/q\rl
+                      and
+                                              h2(0t)h3(a)h5((x)-W2((x)W3(0L)W5(0L)
+                                                 ^ («/(7) 5 / 6 (l + w|a -a/q\)~            1 ll2+E
+                                                                                              q    .
+                      Thus
+
+                                       Z         I         [         \h2h3h5-w2w3w5\d*<\.
+                                                  )   1
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     136                                                                 ternary additive problem
+
+                         Let         a)                       14/15
+                                                                          < | « - a / , | < £}. Then , by Lemma 6.3,
+                                                              q
+                                             I                    r                     ^ 5 |da<^ 1.
+                                          g^nl/12         a
+                                                               =i J*(
+                                                              o)=i
+                                                        (a,
+
+                     Therefore, by (8.19), (8.4), (8.5) and (8.6),
+                                                              q
+                                             Z                Z       f           h2h3h5e(- am)da
+                                             : /jl/12    fl = i   J<R(g,a)
+                                                        (a,q) = 1
+
+
+
+                     where
+
+
+                                                         Jo
+                     By (8.18) and (8.3), /j(m) = l(m\ which gives (8.13) as required.
+
+
+                     8.6 The singular series
+
+                     The principal difficulty is that X^L J>4(w, g)| apparently diverges.
+                     This is resolved by approximating to 6(m, nl/l2) by a finite Euler
+                     product.
+
+
+                     Theorem 8.3 For all except <^nl ~s values of m with n < m < 2n one
+                     has
+                               3(m,n1/12)= PI ( I ^(m,p/l)) + O(exp(-(log^)). (8.30)
+                                                    p < n \h = 0                    /
+
+                        It is possible that one could show under similar conditions that the
+                     finite product can be replaced by the infinite product, perhaps by a
+                     method allied to that of Miech (1968). However there are attendant
+                     difficulties which the method described here avoids. For a further
+                     discussion of this matter in the case kl = 2, k2 = k3 = 3, see
+                     Davenport & Heilbronn (1937a).
+                        By (8.4), (8.5) and Theorem 4.2,
+
+                                                A(m, 1 ) = 1 , ,4(m,4M4- 1 / 3 °.                             (8.31)
+                     Thus each of the series on the right of (8.30) converges absolutely.
+                       For the proof of Theorem 8.3, precise estimates are required for
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The singular series                                                       137
+
+                     A(m, ph). To this end the following formulae for Sfc(p\ a), valid when
+                     pfa, are basic. They are consequences of Lemmas 4.3 and 4.4.
+                       When p > 2
+                                                  /2
+                                                        V
+                                        S 2 (p\a)=</fl\. , „ _ _ _ , ,                        (8-32)
+
+                     when p > 3
+
+                                                                  (/i=l(mod3),p = 2(mod3)), (8.33)
+                                      S3(p, a)p 2(/l " 1)/3       (/? = p = 1 (mod 3)),
+                     and when p > 5
+                                     V 4/l/51       (/i#l(mod5)),
+                                                    (/i=l(mod5),p^l(mod5)),                   (8.34)
+                                          Mh l)/5
+                                    (p,a)p -        (/i = p=l(mod5)).
+                     Also, when /c = 3 or 5 and p = 1 (mod /c),
+
+                                                      S t (p,fl)= Z /(a)t(z)                  (8.35)
+
+                     where J2/ denotes the set of k — 1 non-principal characters / modulo p
+                     with xk = Xo- Moreover,
+                                   |i(x)| = p 1 / 2 and |52(p, 1)| =p 1 / 2 (p > 2).  (8.36)
+
+                     Lemma 8.1 Suppose              that h^\ and p > 5. Then
+                                                h
+                                      A (m, p ) = 0        when      h>\       and ph~ l\m,   (8.37)
+                                                                                  \           (8.38)
+
+
+                                                                                              (8.39)
+
+                              srf(p) is a collection of non-principal characters modulo p,
+                                          kMl^p"1             and c a r d ^ ( p K 8 .         (8.40)
+
+                     Proof By (8.5), (8.32), (8.33), (8.34) and (8.35),
+                                                                        Ph
+                                        A(m,ph)=          X      b(x) Z i(a)e{-ap-hm)         (8.41)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     138                                                       A ternary additive problem
+
+                     where ^(ph) is a subset of the set of characters modulo p and the b(y)
+                     are suitable complex numbers. When h > 1 and ph~ 1j[m the innermost
+                     sum is
+                                         P                            Ph~l
+
+                                        X x{x)e(-xp- m) X e(-yp1~hm) = 0.
+                                                              h
+                                       x = 1                        y = 1
+                     This gives (8.37).
+                        The proof of (8.38) is by division into eight different cases.
+                          (i) Suppose that 2\h, h # 1 (mod 3) and h ^ 1 (mod 5). Then s4(ph)
+                     consists solely of the principal character and, by (8.32), (8.34) and
+                     (8.35), one has
+
+
+                     where X = \h + [2/i/3] + [4/i/5] — 2h. The number X is an integer and
+                     does not exceed - h/30 < - [(ft - l)/30] - 1/30. Hence (8.38).
+                        In all the remaining cases (8.41) holds with all the elements oisrf(ph)
+                     being non-principal characters modulo p. Thus when ph\m the
+                     innermost sum is automatically 0 and (8.38) follows at once. Also, by
+                     (8.37) it can be supposed that either h — 1 or h > 1, ph ~ 1\m and ph\m.
+                     In either case the innermost sum in (8.41) is
+                                                     a(-m)\           .(       m      ,_„.,_          (g42)
+
+                                       a=l          \P
+                           (ii) Suppose that 2//i, h # 1 (mod 3) and h j= 1 (mod 5). Then
+                               consists solely of the quadratic character, and
+                                                            ph/2 + [2h/3] + [4*/5] - 3/i
+
+                     Hence, by (8.42),
+                             \A(m, ph)\ = px       with       A = i/i-h [2fc/3] + [4fc/5] - 2/i - f
+                     The exponent A is an integer which does not exceed — h/30 — \. Thus
+                     (8.38).
+                          (iii) Suppose that 2|/i, h = 1 (mod 3) and h # 1 (mod 5). When
+                     p ^ 1 (mod 3), (8.33) gives A(m, ph) = 0. Hence it may be assumed that
+                     / ? = l ( m o d 3). Then card J ^ / ) = 2, and \A(m,ph)\^ 2pk with A =
+                     ifc 4- 2(h - l)/3 + i + [4/i/5] -2h-\.     The number /I is an integer
+                     not exceeding - A/30 -f. Therefore (8.38) holds.
+                          (iv) Suppose that 2|/z, h ^ I(mod3) and h = I(mod5). The case
+                     p =£ 1 (mod 5) is again trivial, so it may be assumed that p = 1 (mod 5).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The singular series                                                      139
+
+                     Then \A(m9 ph)\ ^ 4px with X = $h + [2ft/3] + 4(ft - l)/5 - 2ft, and the
+                     argument is completed as before.
+                           (v) Suppose that 2|ft and ft = 1 (mod 15). The case p # 1 (mod 15)
+                     is trivial, and when p = l(mod 15) one obtains \A{m9 ph)\ ^ 8px + 1/2
+                     with A = \h + 2(ft - l)/3 + 4(/i - l)/5 - 2ft. This is again an integer
+                     which does not exceed - ft/30 - f f < - [(ft - l)/30] - 1. Hence the
+                     exponent A + \ satisfies A + ^ - [(ft - l)/30] - f.
+                          (vi) Suppose that ft = 1 (mod 10) and ft # 1 (mod 3). When
+                     p ^ I(mod5), (8.38) is immediate from (8.34), so it may be assumed
+                     that p = l ( m o d 5 ) . Then \A(m, ph)\ ^ 4 p A + 1 / 2 with X = \(h-\)
+                      4- [2ft/3] + 4(ft — l)/5 — 2ft. As in the previous case the exponent does
+                     not exceed - [(ft - l)/30] - f.
+                         (vii) Suppose that ft = 1 (mod 6) and ft # 1 (mod 5). This can be
+                     dealt with in a similar way to case (vi).
+                        (viii) Suppose, finally, that ft = l(mod30). Then A(m,ptl) = 0
+                     for p =£ 1 (mod 15). This leaves the possibility p = 1 (mod 15).
+                     Then \A(m,ph)\ ^ 8pA with A = |ft-h 2(ft - l ) / 3 + | - f 4(ft - l)/5
+                     + \ — 2h — \. Again A is an integer not exceeding —ft/30— f — \ =
+
+                        The proof of the lemma is now completed by establishing (8.39)
+                     with (8.40). When ft = 1, (8.32), (8.33), (8.34) and (8.35) give (8.41) with
+                     b(x) = 0 unless p = 1 (mod 15). Thus, when p ^ 1 (mod 15) one obtains
+                     (8.39) with (8.40) trivially satisfied.
+                     When p = l (mod 15), (8.41) holds with s/(p) consisting of the
+                     characters % of the form x = XiXiXsi where %k denotes a non-principal
+                     character of order k. Thus all the elements of <srf(p) are non-principal
+                     and card<£/(p) = 8. Moreover,
+
+
+                     Hence, by (8.41) and (8.42),
+
+
+
+                     If a character x belongs to srf(p) then so does /.
+                        Also, by (8.36), one has
+
+
+                     This gives (8.39) with (8.40), as required.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     140                                                         A ternary additive problem
+
+                        Let the set £8 consist of 1 and those natural numbers q such that if
+                     p\q, then p ^ n and either p2\q or p ^ 5. Let ^ denote the set of
+                     squarefree numbers all of whose prime factors p satisfy 5 < p ^ n.
+                     Finally, let 2 denote the set of natural numbers with no prime factor
+                     exceeding n. Then each q in 2 can be written uniquely in the form
+                     q = rs with re&, seW and (r, s) = 1.
+                        The next stage of the argument is to estimate
+
+                                                              I Mm,q)                                     (8.43)
+                                                          U <q ^ V
+
+                     where
+                                              U = n1/12,          F = exp((logn) 1+2<5 ).                 (8.44)
+                     By (8.5) and Lemma 4.5, A(m, q) is a multiplicative function of q.
+                     Therefore
+
+                                                  A(m,q)
+                                                                     n8Od   s
+
+
+
+                                                                            \A(m,r)\                    . (8.45)
+                                                                                       (7/r < s ^ V/r
+                                                                                       is,r)= \,se<#
+
+                     The first double sum is
+
+                                                                                                          (8.46)
+
+                     The first sum here is
+
+
+                             n
+                     and, by (8.31), (8.37) and (8.38), this is
+
+
+                                                            p,t
+
+                     where the product is over all pairs p, t with //||m. This is
+
+
+                         By (8.38), the second sum in (8.46) does not exceed
+                                                        11 (l+Sp-'Kn*.
+                                                       p< n
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The singular series                                                                  141
+
+                     Hence, by (8.31) and (8.45),
+
+                                                                                      F{m)              (8.47)
+
+                     where
+                                                F(m)=                                                   (8.48)
+                                                                           I
+                                                                       V/r<s< V/r
+                                                                                           s)
+
+                                                                       (s,r)=l,se<f
+                         By (8.39) and (8.40) and the multiplicative property of A{m, s),
+                                                 A(m, s) = X* c(x)X(m) (seV)                            (8.49)
+                                                               mod s
+                     where 2]* denotes a sum over primitive characters,
+                                                             Ictol^s" 1                                 (8.50)
+                     and, for / > 0,
+                                                       I          |A^8"(s)s-\                           (8.51)
+                                                       I*
+                     Lemma 8.2 Let I denote a natural number. Then, for arbitrary complex
+                     numbers b(x),
+                                                                                      3/2X2/3
+                                                                       Hx)x(x)
+                                                               mod 4
+                                                                                                 (2/-
+
+                                                                  mod q
+
+
+                     where
+                                         B = (N112 + Q ^ A T ^
+                                implied constant is absolute.
+
+                     Proof By the case / = 1 of Lemma 5.3 (the large sieve inequality), for
+                     arbitrary complex numbers cl9..., cN,
+
+                                     z i
+                                    q < Q     a= 1                                              x= 1
+                                                                                                        (8.52)
+                                            (a,q)=
+
+                     By the theory of Gauss sums (see § 20 of Hasse (1964) or §9 of
+                     Davenport (1966)) for a primitive character x modulo q,
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     142                                                                                   A ternary additive problem
+                                        2
+                     where |r(x)| = q- Therefore
+                                              N
+
+                                             z
+                                            x = 1
+                                                                                           l
+                                                                                                 q
+
+                                                                                                Z X(y) Z c,e{yx/q).
+                                                                                               y = 1      x=    1
+
+                     Hence
+                                             N                        2
+
+                                Z*          x = 1
+                                                                                                       Z xoo Z ^
+                                "modg                                                      "mod<y
+
+
+                     Hence, by the orthogonality of characters, and (8.52),
+
+                                                                      Z c xZ
+                                                    v
+                                                        mod</
+
+
+
+                     Applying this to the /th power of Z x = i cxZ(*) gi v e s
+
+
+                                                  z z*
+                                              4 < Q zmod<?            x=       1
+
+                     where
+
+                                                                                                        . . . cX
+                                                                               X!...x, = y
+
+                     and Z ' denotes that the summation is restricted to Xj with Xj < N.
+                     Suppose that / > 2. Then, by two applications of Holder's inequality,
+                                                                                                                                    2/X
+
+                                                                                                        K--.cXt
+                     and
+                                                                                                         1 -   2/A   /     N
+
+                                                          Z 4
+                     where dt(y) is the number of solutions of xx . . . xt = ^ in xl9..., x,.
+                     Hence, by Theorem 288 of Hardy, Littlewood & Polya (1951), '
+                                                           A/a- D \ a - DM
+                                                                q^Q        X
+
+                                                                                                                         (2/-
+
+
+                                                                          «Q       X
+
+
+
+                     where
+                                                                                                                                -     2M)/(2I)
+
+                                                                                       Z
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     The singular series                                                        143
+
+                     Let A — 3. Then the lemma follows provided that, for X ^ 1,
+                                                   X d^yf ^ X (log Xef~\
+                     In fact, it is easily seen by induction on r that dr(xy) ^ dr(x)dr(y) and by
+                     induction on s that
+
+
+
+                     and
+                                                    I
+                     Let Qo = Ur~ 1 and Q, = nl/2, let b(#) = c(x) when cjf, the modulus of x,
+                     is in ^ , (g, r) = 1 and l//r < ^f ^ F/r, and let b(x) = 0 otherwise. Then,
+                     by (8.48) and (8.49),
+
+                                                F(m)=              I I* feto                  (8.53)
+                                                                        modq
+
+
+                          By Lemma 8.2, Holder's inequality, (8.50) and (8.51),
+                           In
+
+                           I            I          Z* Hx)x(m)
+
+                                                                           p ^ n
+
+
+                     This is
+                                             nlls(l\og(2ne)r
+                     or
+
+                     according as / > 1 or / = 1. Hence, summing over / with Qt _ x ^ V
+                     gives, via (8.44) and (8.53),
+
+
+
+                     Hence, for all but ^ n 1 " 5 values of m with n<m^2n         one has
+                     F(m) <^ «~ 5 , and so, by (8.47), when m is not exceptional,
+
+                                                                /4(m,                         (8.54)
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     144                                                       A ternary additive problem
+
+                        The proof of Theorem 8.3 is completed by examining
+
+                                                              I A(m,q).
+                                                            q>V
+                                                            qe9
+
+                     Let A= l/(logw). Then
+
+
+
+
+                                                                             X       phX\A(m,ph)\).
+                                                                            h=1
+
+                     Hence, by (8.31), (8.38) and (8.44),
+
+                              I \A(m,q)\
+                             q>\
+
+
+                                                             n       (1+240
+                                                           5<p<n
+
+                                   <exp(-(logn)*).
+
+                     Therefore, by (8.54), (8.44) and (8.6), for all but <^nl~d values of m
+                     with n < m < 2n one has
+
+
+
+                                \p^    n \h = 0
+
+
+                      as required.
+
+
+                     8.7 Completion of the proof of Theorem 8.1
+
+                     By Theorems 8.2 and 8.3, for all but <^nl~d                              values of m with
+                     n < m ^ 2n one has
+
+                     R(m)
+                                                  x
+                                      //     /
+                                                  I
+                     Consider /(m), given by (8.3), when n < m ^ 2n. For > 3 , y5 satisfying
+                     \m — \n < y 3 , y 5 <\m — ^n o n e h a s \n < y 3 , y 5 < n                      a n d \n <
+                     m- >'3 - y5<n. Hence I(m)$>n1130. It is trivial that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     Completion of the proof of Theorem 8.1                                     145
+
+                     Thus it suffices to show that
+
+                                               II ( Z A(m,ph))>(\ognyc.                       (8.55)
+                                              p < n \h = 0               /
+                        By (8.38), there is a constant C such that
+
+
+                                  p                              C < p^ n
+
+                     Therefore it is only necessary to show that for each prime p one has
+                                                         00
+
+                                                        X A(m,ph)^p-6.                        (8.56)
+                                                       h =0
+
+                        It is easily deduced from (8.5) (cf. Lemma 2.12) that
+                                                         t
+                                                  p2t X A(m,ph) = M(m,pt)                     (8.57)
+                                                      h=0
+                     where M(m, //) is the number of solutions of
+
+                                                    x2 + y 3 + z5 = m (mod p')                (8.58)
+
+                     with 1 ^ x, y, z ^ pf. Let y(2) = 3, y(p) = 1 (p > 2). When p/a the
+                     congruence x2 = a (mod pr) has a solution for each t^y(p) whenever it
+                     has one for t = y{p). Thus if it can be shown that (8.58) is soluble when
+                     t = y(p) with p/x, then p2t' 2y(p) different solutions can be produced in
+                     the general case t ^ y(p) by taking any y\ z with y' = y(mod pnp)\
+                     z' = z(modp y(p) ). Thus
+
+
+                      which, by (8.57), yields (8.56).
+                        It is trivial that (8.58) is soluble with 2/x when p = 2 and
+                     t = y(p) = 3. it remains to establish the corresponding result when
+                     p>2.
+                        The number of cubic or zero residues modulo p is at least
+                     (p — l)/(3, p — 1) + 1. Hence the conclusion will follow by the pigeon
+                     hole principle if it can be shown that the number N of residues modulo
+                     p of the form x 2 or x 2 + 1 with 1 ^ x ^ p — 1 satisfies
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+                     146                                                       A ternary additive problem
+
+                     This is readily done starting from the formula
+
+
+
+
+                     8.8 Exercises
+                        1 Show that almost every natural number is of the form p + xk.
+                        2 (Babaev, 1958) Show that card {n:n # p + xk,n ^ X} > X1/k.
+                        3 Let R(n) denote the number of solutions of
+                                                         x2 +y3 + z6 = n
+                     with x > 0, y > 0, z > 0. Show that
+                          (0 £ „ « * ( " ) = AT(f)r(f)r$ + O(X5'6),
+                         (h) r(f)r(f)r® = o.73...,
+                        (iii) x 2 + ,y3 + z6 = n(mod ^f) is always soluble with (x, q)= 1.
+                        4 Obtain an asymptotic formula for the number of representations
+                     of a number as a sum of two squares, two cubes and two fifth powers.
+                        5 (modified version of Jagy & Kaplansky, to appear) Suppose that
+                     p = 3 (mod4), p > 3, v = x2 + y2 = (18p)3 - z 9 and M = 18p - z 3 .
+                     Show that z = 3 (mod 4), (2p, ti) = 1, (II,I;/M)|3 5 ,M = 3 (mod 4) and 3
+                     divides u to an even power. Prove that there is a prime number q = 3
+                     (mod4) and an odd natural number s such that gs || u and
+                     Deduce that x2 + y2 + z9 = (18/?)3 is insoluble.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.011 Published online by Cambridge University Press
+

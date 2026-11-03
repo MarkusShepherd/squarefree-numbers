@@ -1,0 +1,114 @@
+{
+  "summary": "APPROACH (follows the hint, no circle method). (1) Exact reduction, one modulus at a time: V(x;q) := \u03a3_l E(x;q,l)^2 = Q(x) + 2N(x;q) \u2212 x^2 G(q) \u2212 2x R(x;q). Here N is the off-diagonal count #{m<n\u2264x squarefree, q | n\u2212m}, G(q) = \u03a3_l g(q,l)^2, and R is a small gcd-error term (P2). (2) Write n \u2212 m = hq, so N(x;q) = \u03a3_{h<x/q} T(x,hq) with T(x,r) = \u03a3_m \u03bc\u00b2(m)\u03bc\u00b2(m+r). Replace T by A(r)(x\u2212r) + O(x^{2/3+\u03b5}) uniformly in r (P3, Mirsky-type, elementary). (3) The resulting singular-series sum q\u00b7\u03a3_q(H), \u03a3_q(H) = \u03a3_{h\u2264H} A(hq)(H\u2212h) with H = x/q, has Dirichlet series \u03a3_h A(hq)h^{-s} = c2 \u03b6(s) \u03b6(2s+2) P_q(s), where P_q is holomorphic for Re s > \u22123/4. Poles: s = 1 gives x^2 G(q)/2, which cancels exactly (identity qG(q) = c2 F_q(1)). s = 0 gives \u22123x/\u03c0\u00b2, which cancels the diagonal Q(x). The pole of \u03b6(2s+2) at s = \u22121/2 gives the main term (\u03ba(q)/2) x^{1/2} q^{1/2}. A technical obstruction: for the Ces\u00e0ro-1 weight (H\u2212h), the Perron integral diverges to the left of Re s = \u22121/2, because |\u03b6(s)| grows like |t|^{1/2\u2212\u03c3}. So the contour shift is done for the Ces\u00e0ro-2 sum, where it converges (P4); this identifies the constant. The Ces\u00e0ro-1 asymptotic, with error H^{1/4+\u03b5}, is then obtained from an exact formula, \u03a3_q(H) = smooth part + (c2/2) \u03a3_d a(d) L_d \u03b2(H/L_d) with \u03b2(Y) = {Y}(1\u2212{Y}), using truncated Poisson summation / van der Corput (P5, the crux). Integrating the result and comparing with P4 pins down the H^{1/2} coefficient. (4) The per-modulus result is V(x;q) = \u03ba(q) x^{1/2} q^{1/2} + O(x^{5/3+\u03b5}/q + x^{1/4+\u03b5} q^{3/4+\u03b5} + x^{1/2}) (P6). Averaging \u03ba(f(k)) over k uses the densities \u03c1(p)/p and \u03c1(p\u00b2)/p\u00b2 (P7), giving C_f.\n\nCONSTANT CHECKS. (i) With \u03c1 \u2261 1 (all moduli), the formula for C_f reproduces Vaughan's (2005) constant c_2 = 8C_1(\u2212\u03b6(\u22121/2))/(3\u03b6(2)^2) = 0.1284787 to 7 digits. (ii) An independent computation at x = 4\u00b710^7 for 8 single moduli gives V(x;q)/(xq)^{1/2} within about 10% of \u03ba(q), and it tracks the arithmetic dependence: prime q gives 0.238; q = 10^5 gives 0.153 vs observed 0.155; q = 360360 gives 0.106 vs observed 0.094. (iii) A direct computation of \u03a3_q(H) for q = 1, 6, 7, 12 and H \u2264 10^5 matches the predicted three-term expansion, with residual about 0.01\u20130.02\u00b7H^{1/4}.\n\nNUMERICS. The predicted constants are C_{k\u00b2+1} = 0.13808, C_{k\u00b3+2} = 0.13561 and C_{2k+1} = 0.14261. The results.json extrapolations (r = f(y)/x \u2192 0) are 0.1345\u00b10.0073, 0.1363\u00b10.0024 and 0.1417\u00b10.0082. All three agree, and no discrepancy was found. The fixed-ratio slopes \u03b1+\u03b2 \u2248 2.000 confirm the exponent pair (1/2, 3/2). The fixed-x exponent \u03b2 \u2248 1.54 and the joint-fit C \u2248 0.17\u20130.20 are artifacts of a secondary term: (normalised \u2212 C_f)/\u221ar \u2248 0.03\u20130.04 is nearly constant in r, i.e. V_f contains roughly +0.035\u00b7f(y)^2. That term sits inside the theorem's error x^{1/4} f(y)^{7/4}; Vaughan's full-moduli theorem also only bounds such a term. Caveat: all data have f(y)/x \u2265 0.005, which is outside the proven asymptotic range for fixed x, so the comparison rests on the r \u2192 0 extrapolation, and the extrapolations agree.\n\nRANGE. The proven range is x^{7/9+\u03b4} \u2264 f(y) \u2264 x^{1\u2212\u03b4}. The only bottleneck is the trivial summation of the uniform x^{2/3+\u03b5} error of P3 over \u2248 x log x shifts, which costs x^{5/3+\u03b5}. Any averaged bound \u03a3_k f'(k) \u03a3_h |T(x,hf(k)) \u2212 A(hf(k))(x\u2212hf(k))| \u226a x^{3/2+\u03b5} would extend the range to x^{2/3+\u03b4}. That is the natural barrier, because the R-term in P2 is genuinely of size x^{3/2}/q, as in Vaughan 2005's x^{1+1/k} error. The upper limit x^{1\u2212\u03b4} only reflects \u03b5-losses; the main term already dominates once x/f(y) \u2192 \u221e by a power.\n\nCOMPLIANCE. No web searches were made and nothing by the excluded author or the excluded paper was opened or used. Sources used: Vaughan 2005, Br\u00fcdern\u2013Wooley 2011 (structure of the Dirichlet-series/Perron step, \u00a75), Montgomery\u2013Vaughan 2007 (Ch. 1, 10), Vaughan 1997 (Lemma 4.2). P3 is classical (L. Mirsky, Quart. J. Math. 18 (1947) / Proc. London Math. Soc. (2) 50 (1949)); it should be proved from scratch, and the citation details are from memory and unverified.",
+  "main_theorem": "Let f \u2208 Z[t] have degree d \u2265 1, with f(t) \u2265 2 and f'(t) \u2265 1 for all t \u2265 1, and let \u03c1(m) = #{a mod m : f(a) \u2261 0 mod m}. For each prime p put \u03bb\u0304_p := 1 \u2212 \u03c1(p)/p + p^{-1/2}(\u03c1(p)/p \u2212 \u03c1(p\u00b2)/p\u00b2) + p^{-1}\u00b7\u03c1(p\u00b2)/p\u00b2, and define\nC_f := (2\u03b6(3/2)/(3\u03c0)) \u00b7 \u220f_p (1 \u2212 1/p)(1 \u2212 2/p\u00b2 + \u03bb\u0304_p/p).\nThe product converges absolutely and C_f > 0. Then for every \u03b5 > 0 there is a constant C(f,\u03b5) such that, for all real x \u2265 2 and y \u2265 1 with f(y) \u2264 x,\n| V_f(x,y) \u2212 C_f x^{1/2} f(y)^{3/2} | \u2264 C(f,\u03b5) \u00b7 ( x^{5/3+\u03b5} + x^{1/4+\u03b5} f(y)^{7/4} + x^{1/2} f(y)^{3/2} y^{-1/3} ).\nIn particular, for each fixed \u03b4 \u2208 (0, 1/9), V_f(x,y) = C_f x^{1/2} f(y)^{3/2} (1 + O_{f,\u03b4}(x^{-\u03b4/8})) uniformly for x^{7/9+\u03b4} \u2264 f(y) \u2264 x^{1\u2212\u03b4}.\nEquivalently, C_f = (2/3)\u00b7lim_{Y\u2192\u221e} Y^{-1} \u03a3_{k\u2264Y} \u03ba(f(k)), where \u03ba(q) := (\u03b6(3/2)/\u03c0) \u220f_p (1\u22121/p)(1 \u2212 2/p\u00b2 + \u03bb_p(q)/p) and \u03bb_p(q) = 1, p^{-1/2} or p^{-1} according as p \u2224 q, p \u2016 q or p\u00b2 | q. Here \u03b6(3/2)/\u03c0 = \u22124\u03b6(\u22121/2). With \u03c1 \u2261 1, the formula for C_f gives Vaughan's constant c_2 = 0.128479 for the full variance.",
+  "predicted_main_term": "V_f(x,y) ~ C_f \u00b7 x^{1/2} \u00b7 f(y)^{3/2}, with C_f = (2\u03b6(3/2)/(3\u03c0)) \u220f_p (1\u22121/p)(1 \u2212 2/p\u00b2 + \u03bb\u0304_p/p) and \u03bb\u0304_p = 1 \u2212 \u03c1(p)/p + p^{-1/2}(\u03c1(p)/p \u2212 \u03c1(p\u00b2)/p\u00b2) + \u03c1(p\u00b2)/p\u00b3. Numerically: C_{k\u00b2+1} = 0.138083, C_{k\u00b3+2} = 0.135608, C_{2k+1} = 0.142613. For reference, \u03c1 \u2261 1 (all moduli) gives 0.128479 = Vaughan's c_2.",
+  "agrees_with_numerics": "Yes. Exponents: the fixed-ratio log-log slopes in results.json give \u03b1+\u03b2 = 2.0008\u00b10.0006 (k\u00b2+1), and similarly \u2248 2.00 for the other two polynomials, matching x^{1/2} f(y)^{3/2}. Constants, comparing results.json's r = f(y)/x \u2192 0 extrapolation with the prediction: k\u00b2+1: 0.1345\u00b10.0073 vs 0.1381; k\u00b3+2: 0.1363\u00b10.0024 vs 0.1356; 2k+1: 0.1417\u00b10.0082 vs 0.1426. All are within the stated uncertainty. At the largest x (2.56\u00b710^8), (normalised \u2212 C_f)/\u221ar \u2248 0.028\u20130.041 (k\u00b2+1), 0.031\u20130.044 (k\u00b3+2) and 0.020\u20130.048 (2k+1), roughly constant in r. This points to a secondary term \u2248 0.035\u00b7f(y)^2, which is O(x^{1/4} f(y)^{7/4}) and explains both the fixed-x exponent \u03b2 \u2248 1.54 and the inflated joint-fit C \u2248 0.17\u20130.20. The prediction is not adjusted to the data. Caveat: every data row has f(y)/x \u2265 0.005, outside the proven asymptotic range at these x, so the agreement rests on the extrapolation r \u2192 0. Independent cross-checks: the \u03c1 \u2261 1 formula equals Vaughan's c_2 to 7 digits, and a direct computation of single-modulus variances at x = 4\u00b710^7 tracks \u03ba(q) to within about 10%.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Local densities, pair singular series, and basic identities",
+      "statement": "Notation: p always denotes a prime; (a,b) is the gcd and [a,b] the lcm; 1[\u00b7] is an indicator. Put c2 := \u220f_p (1 \u2212 2p^{-2}). For q \u2208 N put G(q) := \u03a3_{l=1}^{q} g(q,l)^2 and F_q(1) := \u220f_p (1 + (p\u00b2,q)\u00b7p^{-2}(p\u00b2\u22122)^{-1}). For d \u2208 N put a(d) := \u03bc\u00b2(d) \u220f_{p|d} (p\u00b2\u22122)^{-1}. For r \u2208 N put A(r) := \u220f_p (1 \u2212 (2 \u2212 1[p\u00b2 | r])\u00b7p^{-2}). Let Q(x) := #{1 \u2264 n \u2264 x : n squarefree}. g(q,l) is as in problem.md. Claims:\n(a) For all q \u2208 N and l \u2208 Z, g(q,l) = q^{-1} \u220f_p (1 \u2212 (p\u00b2,q) p^{-2} \u00b7 1[(p\u00b2,q) | l]). Consequently g(q,l) depends only on (l,q), and 0 \u2264 g(q,l) \u2264 1/q.\n(b) For all q \u2208 N, q\u00b7G(q) = c2\u00b7F_q(1). Moreover c2\u00b7\u03a3_{d\u22651} a(d) = 6/\u03c0\u00b2, and 0 < c2 F_q(1) \u2264 6/\u03c0\u00b2.\n(c) For all r \u2208 N, A(r) = c2 \u03a3_{d\u22651, d\u00b2|r} a(d) = \u03a3_{a,b\u22651, (a\u00b2,b\u00b2)|r} \u03bc(a)\u03bc(b)/[a\u00b2,b\u00b2], where the last double series converges absolutely.\n(d) For all real x \u2265 1, |Q(x) \u2212 6x/\u03c0\u00b2| \u2264 3\u221ax.\nAll statements are exact or carry absolute constants.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, (1.2) and (1.4)",
+        "Vaughan 2005, Lemma 2.4"
+      ],
+      "crux": false,
+      "risk": "Low. These are Euler-product bookkeeping. (b) was checked numerically for q \u2208 {1,2,4,6,12,18,25,30}. In (a), note that the factor is 0 when p\u00b2 | q and p\u00b2 | l (no squarefree n \u2261 l mod q)."
+    },
+    {
+      "id": "P2",
+      "title": "Exact reduction to the off-diagonal count; gcd-error term",
+      "statement": "Notation: for q \u2208 N and real x \u2265 1 let V(x;q) := \u03a3_{l=1}^{q} E(x;q,l)^2; let N(x;q) := #{(m,n) \u2208 N\u00b2 : m < n \u2264 x, \u03bc\u00b2(m) = \u03bc\u00b2(n) = 1, q | n\u2212m}; let G(q) := \u03a3_{l=1}^q g(q,l)^2; let R(x;q) := \u03a3_{n\u2264x} \u03bc\u00b2(n) g(q,n) \u2212 x\u00b7G(q); let Q(x) := #{n \u2264 x : n squarefree}; \u03c4 is the divisor function. E and g are as in problem.md. Claims:\n(a) For all q \u2208 N and x \u2265 1: V(x;q) = Q(x) + 2N(x;q) \u2212 x\u00b2G(q) \u2212 2x\u00b7R(x;q).\n(b) There is an absolute constant C such that for all real x \u2265 1 and integers 1 \u2264 q \u2264 x: |R(x;q)| \u2264 C\u00b7\u03c4(q)^3\u00b7x^{1/2}\u00b7q^{-1}.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "Vaughan 2005, Lemma 2.2",
+        "Vaughan 2005, Lemma 2.3",
+        "Vaughan 2005, Lemma 2.4"
+      ],
+      "crux": false,
+      "risk": "Low. (a) comes from expanding the square, using \u03a3_l Q(x;q,l)\u00b2 = Q(x) + 2N(x;q) and \u03a3_l g(q,l)Q(x;q,l) = \u03a3_{n\u2264x} \u03bc\u00b2(n)g(q,n). For (b), write R = \u03a3_{r|q} g(q,r)(S_r(x) \u2212 x \u03c6(q/r) g(q,r)) with S_r(x) = #{n \u2264 x squarefree : (n,q) = r}. Expand S_r by M\u00f6bius over t | q/r. Vaughan 2005 Lemma 2.2(ii) (k=2) gives \u03a3_{n\u2264x, D|n} \u03bc\u00b2(n) = g(D,D)x + O(\u03c4(D)(x/D)^{1/2}) for D \u2264 x; for D > x the sum is 0 and g(D,D)x < 1. Lemma 2.3 identifies the main terms. Vaughan states his lemmas for x large; small x is trivial."
+    },
+    {
+      "id": "P3",
+      "title": "Uniform asymptotic for shifted squarefree correlations",
+      "statement": "Let T(x,r) := \u03a3_{1 \u2264 m \u2264 x\u2212r} \u03bc\u00b2(m) \u03bc\u00b2(m+r) and A(r) := \u220f_p (1 \u2212 (2 \u2212 1[p\u00b2|r]) p^{-2}). For every \u03b5 > 0 there is a constant C(\u03b5), depending only on \u03b5, such that for all real x \u2265 2 and all integers r with 1 \u2264 r < x: |T(x,r) \u2212 A(r)(x \u2212 r)| \u2264 C(\u03b5)\u00b7x^{2/3+\u03b5}.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "Low. Classical (Mirsky 1947/49); prove directly. Write \u03bc\u00b2(n) = \u03a3_{a\u00b2|n} \u03bc(a) on both factors and use z = x^{1/3}. Pairs a,b \u2264 z: the count of m \u2264 X with a\u00b2|m and b\u00b2|m+r is X\u00b71[(a\u00b2,b\u00b2)|r]/[a\u00b2,b\u00b2] + O(1), which gives O(z\u00b2) error. Completing the main term costs X\u00b7\u03a3_{max(a,b)>z} 1/[a\u00b2,b\u00b2] \u226a X z^{-1} log z. Terms with a > z: at most \u03a3_{a>z} X/a\u00b2 \u226a X/z. Terms with a \u2264 z, b > z: bounded by x^\u03b5\u00b7X/z, using |\u03a3_{a\u00b2|m, a\u2264z} \u03bc(a)| \u2264 \u03c4(m). The only real requirement is that the constant be independent of r."
+    },
+    {
+      "id": "P4",
+      "title": "Dirichlet series in h and the Ces\u00e0ro-2 singular-series sum (contour shift)",
+      "statement": "Notation: c2, a(d), A(r), G(q) as in P1 (c2 = \u220f_p(1\u22122p^{-2}), a(d) = \u03bc\u00b2(d)\u220f_{p|d}(p\u00b2\u22122)^{-1}, A(r) = \u220f_p(1 \u2212 (2 \u2212 1[p\u00b2|r])p^{-2}), G(q) = \u03a3_{l\u2264q} g(q,l)\u00b2). For q \u2208 N let L_d(q) := d\u00b2/(d\u00b2,q), F_q(s) := \u03a3_{d\u22651} a(d) L_d(q)^{-s}, P_q(s) := \u220f_p (1 \u2212 p^{-2s\u22122})(1 + (p\u00b2,q)^s p^{-2s}(p\u00b2\u22122)^{-1}), \u03bb_p(q) := 1 if p\u2224q, p^{-1/2} if p\u2016q, p^{-1} if p\u00b2|q, and \u03ba(q) := (\u03b6(3/2)/\u03c0)\u00b7\u220f_p (1 \u2212 p^{-1})(1 \u2212 2p^{-2} + \u03bb_p(q) p^{-1}). For real H \u2265 1 let \u0398_q(H) := \u03a3_{1\u2264h\u2264H} A(hq)(H \u2212 h)\u00b2. Claims:\n(a) For Re s > 1, \u03a3_{h\u22651} A(hq) h^{-s} = c2 \u03b6(s) F_q(s). F_q(s) converges absolutely for Re s > \u22121/2, and F_q(s) = \u03b6(2s+2) P_q(s) there. P_q extends holomorphically to Re s > \u22123/4, and for every \u03b5 \u2208 (0,1/8) there is C(\u03b5) with |P_q(s)| \u2264 C(\u03b5) q^\u03b5 for all q \u2208 N and \u22123/4+\u03b5 \u2264 Re s \u2264 3.\n(b) c2 F_q(1) = q G(q), c2 F_q(0) = 6/\u03c0\u00b2, and \u03ba(q) = \u22124 \u03b6(\u22121/2) c2 P_q(\u22121/2), using \u03b6(\u22121/2) = \u2212\u03b6(3/2)/(4\u03c0). Also 0 < \u03ba(q) \u2264 \u03b6(3/2)/\u03c0.\n(c) For every \u03b5 \u2208 (0,1/8) there is C(\u03b5) such that for all q \u2208 N and real H \u2265 1: |\u0398_q(H) \u2212 (qG(q)/3)H\u00b3 + (3/\u03c0\u00b2)H\u00b2 \u2212 (2/3)\u03ba(q)H^{3/2}| \u2264 C(\u03b5) q^\u03b5 H^{5/4+\u03b5}.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "Montgomery\u2013Vaughan 2007, Corollary 10.4",
+        "Montgomery\u2013Vaughan 2007, Corollary 10.5",
+        "Montgomery\u2013Vaughan 2007, Corollary 1.17",
+        "Br\u00fcdern\u2013Wooley 2011, \u00a75 (37)\u2013(38)"
+      ],
+      "crux": true,
+      "risk": "Medium. Use \u0398_q(H) = (1/\u03c0i)\u222b_{(2)} c2 \u03b6(s)F_q(s) H^{s+2} ds/(s(s+1)(s+2)) and shift to Re s = \u22123/4+\u03b5. On that line |\u03b6(s)| \u226a \u03c4^{5/4} (MV Cor. 10.5) and |\u03b6(2s+2)| \u226a \u03c4^{1/2} (MV Cor. 1.17), so the integrand is \u226a q^\u03b5 \u03c4^{-5/4}: integrable. The only poles crossed are s = 1, 0, \u22121/2. Residues: s=1 gives qG H\u00b3/3; s=0 gives \u03b6(0)c2F_q(0)H\u00b2 = \u2212(3/\u03c0\u00b2)H\u00b2; s=\u22121/2 gives (2/3)\u03ba(q)H^{3/2}, since F_q ~ P_q(\u22121/2)/(2(s+1/2)). Pitfalls: the Euler factors at p | q must be bounded uniformly (\u220f_{p|q}(1+p^{-1/2}) \u226a q^\u03b5). P_q may have singularities (zeros of \u03b6(4s+4)) for Re s \u2264 \u22123/4, so do not go further left. Do NOT try the same shift for the Ces\u00e0ro-1 weight: that integral diverges left of Re s = \u22121/2, which is why P5 exists."
+    },
+    {
+      "id": "P5",
+      "title": "Ces\u00e0ro-1 singular-series sum with the H^{1/2} term",
+      "statement": "Notation: A(r), c2, a(d), G(q) as in P1; L_d(q) := d\u00b2/(d\u00b2,q); \u03ba(q) := (\u03b6(3/2)/\u03c0)\u00b7\u220f_p (1 \u2212 p^{-1})(1 \u2212 2p^{-2} + \u03bb_p(q)p^{-1}), with \u03bb_p(q) = 1, p^{-1/2}, p^{-1} according as p\u2224q, p\u2016q, p\u00b2|q. For q \u2208 N and real H \u2265 1 let \u03a3_q(H) := \u03a3_{1\u2264h\u2264H} A(hq)(H \u2212 h). Claim: for every \u03b5 \u2208 (0,1/8) there is a constant C(\u03b5), depending only on \u03b5, such that for all q \u2208 N and all real H \u2265 1:\n| \u03a3_q(H) \u2212 (q G(q)/2) H\u00b2 + (3/\u03c0\u00b2) H \u2212 (\u03ba(q)/2) H^{1/2} | \u2264 C(\u03b5) q^\u03b5 H^{1/4+\u03b5}.",
+      "depends_on": [
+        "P1",
+        "P4"
+      ],
+      "cites": [
+        "Vaughan 1997 (The Hardy\u2013Littlewood Method), Lemma 4.2"
+      ],
+      "crux": true,
+      "risk": "This is the main difficulty. Suggested route: (i) exact formula \u03a3_q(H) = c2 \u03a3_d a(d) L_d \u03a6(H/L_d) with \u03a6(Y) = \u03a3_{1\u2264j\u2264Y}(Y\u2212j) = (Y\u00b2 \u2212 Y + \u03b2(Y))/2 and \u03b2(Y) = {Y}(1\u2212{Y}); this holds for all Y \u2265 0, since \u03a6 = 0 = (Y\u00b2 \u2212 Y + Y(1\u2212Y))/2 when Y < 1. Hence \u03a3_q(H) = (qG/2)H\u00b2 \u2212 (3/\u03c0\u00b2)H + (c2/2)\u00b7B_q(H), with B_q(H) := \u03a3_d a(d) L_d \u03b2(H/L_d). (ii) Show B_q(H) = K(q)H^{1/2} + O(q^\u03b5 H^{1/4+\u03b5}). Write d = e\u00b7d' with e | rad(q) and (d',q) = 1, and remove squarefreeness and coprimality by M\u00f6bius inversion. Expand \u03b2 = 1/6 \u2212 \u03c0^{-2}\u03a3_{j\u22651} j^{-2} cos(2\u03c0jY); the Fourier series converges absolutely. Estimate \u03a3_{d'} e(jY/d'^2) using Lemma 4.2 (truncated Poisson) plus first/second-derivative bounds for the integrals. The range L_d > H, where \u03b2(Y) = Y(1\u2212Y), must be treated too. (iii) Identify K(q) = \u03ba(q)/c2 by integrating: \u0398_q(H) = 2\u222b_0^H \u03a3_q(u) du, then compare the H^{3/2} coefficient with P4(c); the P4 error H^{5/4+\u03b5} is o(H^{3/2}). Risks: uniformity in q of the M\u00f6bius/coprimality decomposition, and possibly an extra log. If only an exponent \u03b8 \u2208 (1/4, 1/2) is obtained in place of 1/4, the main theorem still holds with x^{1/4+\u03b5}f(y)^{7/4} replaced by x^{\u03b8+\u03b5}f(y)^{2\u2212\u03b8}. Numerically, for q \u2208 {1,6,7,12} and H \u2264 10^5, the remainder is \u2248 0.01\u20130.02\u00b7H^{1/4}."
+    },
+    {
+      "id": "P6",
+      "title": "Asymptotic for the variance to a single modulus",
+      "statement": "Notation: V(x;q) := \u03a3_{l=1}^{q} E(x;q,l)\u00b2, with E as in problem.md. \u03ba(q) := (\u03b6(3/2)/\u03c0)\u00b7\u220f_p (1 \u2212 p^{-1})(1 \u2212 2p^{-2} + \u03bb_p(q)p^{-1}), with \u03bb_p(q) = 1, p^{-1/2}, p^{-1} according as p\u2224q, p\u2016q, p\u00b2|q. Claim: for every \u03b5 \u2208 (0,1/8) there is a constant C(\u03b5), depending only on \u03b5, such that for all real x \u2265 2 and all integers 1 \u2264 q \u2264 x:\n| V(x;q) \u2212 \u03ba(q) x^{1/2} q^{1/2} | \u2264 C(\u03b5)\u00b7( x^{5/3+\u03b5} q^{-1} + x^{1/4+\u03b5} q^{3/4+\u03b5} + x^{1/2} ).",
+      "depends_on": [
+        "P1",
+        "P2",
+        "P3",
+        "P5"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "Low (assembly). By P2(a), V = Q(x) + 2N \u2212 x\u00b2G \u2212 2xR. Then N(x;q) = \u03a3_{1\u2264h<x/q} T(x,hq) = q\u03a3_q(x/q) + \u03a3_{h<x/q}(T(x,hq) \u2212 A(hq)(x\u2212hq)); the term h = x/q contributes 0 to \u03a3_q. P5 gives 2q\u03a3_q(x/q) = x\u00b2G \u2212 (6/\u03c0\u00b2)x + \u03ba x^{1/2}q^{1/2} + O(q^{3/4+\u03b5}x^{1/4+\u03b5}). P3 gives the error 2(x/q)\u00b7C x^{2/3+\u03b5}. P1(d) handles Q(x) \u2212 6x/\u03c0\u00b2. P2(b) gives 2x|R| \u226a \u03c4(q)\u00b3x^{3/2}/q \u226a x^{5/3}/q. Watch the h-range conventions."
+    },
+    {
+      "id": "P7",
+      "title": "Mean of \u03ba over polynomial values",
+      "statement": "Let f, \u03c1 be as in problem.md (f \u2208 Z[t], degree d \u2265 1, f(t) \u2265 2 and f'(t) \u2265 1 for t \u2265 1). For q \u2208 N let \u03ba(q) := (\u03b6(3/2)/\u03c0)\u00b7\u220f_p (1 \u2212 p^{-1})(1 \u2212 2p^{-2} + \u03bb_p(q)p^{-1}), with \u03bb_p(q) = 1, p^{-1/2}, p^{-1} according as p\u2224q, p\u2016q, p\u00b2|q. For primes p let \u03bb\u0304_p := 1 \u2212 \u03c1(p)/p + p^{-1/2}(\u03c1(p)/p \u2212 \u03c1(p\u00b2)/p\u00b2) + p^{-1}\u03c1(p\u00b2)/p\u00b2, and C_f := (2\u03b6(3/2)/(3\u03c0))\u00b7\u220f_p (1 \u2212 p^{-1})(1 \u2212 2p^{-2} + \u03bb\u0304_p p^{-1}). Claims: (a) the product defining C_f converges absolutely and C_f > 0; (b) there is a constant C(f), depending only on f, such that for all real y \u2265 1:\n| \u03a3_{1\u2264k\u2264y} f'(k) f(k)^{1/2} \u03ba(f(k)) \u2212 C_f f(y)^{3/2} | \u2264 C(f) f(y)^{3/2} y^{-1/3}.",
+      "depends_on": [],
+      "cites": [
+        "Br\u00fcdern\u2013Wooley 2011, Lemma 2"
+      ],
+      "crux": false,
+      "risk": "Low to medium. Write \u03ba(q) = K0 \u03a3_{d|q} \u03b8(d), where K0 = \u03ba(1) and \u03b8 is multiplicative, supported on d whose prime exponents are \u2264 2, with \u03b8(p) = r1(p) \u2212 1, \u03b8(p\u00b2) = r2(p) \u2212 r1(p), r1 = (1\u22122/p\u00b2+p^{-3/2})/(1\u22122/p\u00b2+1/p), r2 = (1\u22122/p\u00b2+p^{-2})/(1\u22122/p\u00b2+1/p). Then |\u03b8(p)| \u2264 1/p and |\u03b8(p\u00b2)| \u2264 2p^{-3/2}. Count k \u2264 y with d | f(k) in residue classes (error O(\u03c1(d)\u00b7f(y)^{3/2}/y) by Euler summation), truncate at D = y^{4/3}, and bound the k-tail by \u03c4(f(k))2^{\u03c9(f(k))}D^{-3/4}. Pitfall: if f has repeated irreducible factors, \u03c1(p\u00b2) can be as large as p\u00b7\u03c1(p) for infinitely many p. Only \u03c1(p\u00b2) \u2264 p\u03c1(p), and \u03c1(p) \u2264 d for p not dividing the content, may be assumed. This is why the error is stated as y^{-1/3} rather than y^{-1}. Lower limit: \u222b_1^y f'(t)f(t)^{1/2}dt = (2/3)(f(y)^{3/2} \u2212 f(1)^{3/2}), and f(y) \u2265 y+1."
+    },
+    {
+      "id": "P8",
+      "title": "Main theorem: assembly over k",
+      "statement": "Let f, \u03c1, V_f be as in problem.md and C_f as defined in P7. For every \u03b5 > 0 there is a constant C(f,\u03b5) such that for all real x \u2265 2 and y \u2265 1 with f(y) \u2264 x:\n| V_f(x,y) \u2212 C_f x^{1/2} f(y)^{3/2} | \u2264 C(f,\u03b5)\u00b7( x^{5/3+\u03b5} + x^{1/4+\u03b5} f(y)^{7/4} + x^{1/2} f(y)^{3/2} y^{-1/3} ).\nHence, for each fixed \u03b4 \u2208 (0,1/9), V_f(x,y) = C_f x^{1/2} f(y)^{3/2}(1 + O_{f,\u03b4}(x^{-\u03b4/8})) uniformly for x^{7/9+\u03b4} \u2264 f(y) \u2264 x^{1\u2212\u03b4}.",
+      "depends_on": [
+        "P6",
+        "P7"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "Low. V_f = \u03a3_{k\u2264y} f'(k) V(x; f(k)), and P6 applies because 2 \u2264 f(k) \u2264 f(y) \u2264 x (f is increasing on [1,\u221e)). Sum the P6 errors: \u03a3_k f'(k)/f(k) \u226a_f log(2y) \u2264 log x, absorbed into x^\u03b5; \u03a3_k f'(k) f(k)^{3/4+\u03b5} \u2264 C(f) f(y)^{7/4+\u03b5} \u2264 C(f) x^\u03b5 f(y)^{7/4}; \u03a3_k f'(k) x^{1/2} \u2264 x^{1/2} f(y) \u2264 x^{1/2} f(y)^{3/2} y^{-1/3}, using f(y) \u2265 y+1. The main term comes from P7 multiplied by x^{1/2}. For the 'hence' part, take \u03b5 = \u03b4/8 and use y \u2265 (f(y)/C(f))^{1/d}."
+    }
+  ],
+  "model": "claude-opus-5-5"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "P1",
+  "title": "Closed form and moments of g(q,l)",
+  "statement": "Notation: mu is the Mobius function, A_0 = prod_p (1 - 2/p^2), eta(t) = mu^2(t) prod_{p|t} (p^2-2)^{-1}. For q in N and l in Z, g(q,l) = lim_{x->oo} Q(x;q,l)/x (problem.md).\n\nClaims. For every q in N and l in Z:\n\n(i) The limit g(q,l) exists, and g(q,l) = sum_{d>=1} mu(d) \u00b7 gcd(d^2,q)/(d^2 q) \u00b7 1[gcd(d^2,q) | l]. The series converges absolutely. Also 0 <= g(q,l) <= 1/q, and g(q,l) depends only on l mod q.\n\n(ii) sum_{l=1}^q g(q,l) = 6/pi^2.\n\n(iii) For squarefree n,\n  g(q,n) = (6/pi^2) \u00b7 q^{-1} \u00b7 prod_{p|q} (1 - p^{-2})^{-1} \u00b7 prod_{p | gcd(n,q), p||q} (1 - 1/p).\n\n(iv) sum_{l=1}^q g(q,l)^2 = (A_0/q) \u00b7 sum_{t>=1} eta(t) gcd(t^2,q)/t^2.\n\n(v) sum_{t>=1} eta(t) = 6/(pi^2 A_0).\n\nNo implied constants occur.",
+  "depends_on": [],
+  "cites": [
+    "Vaughan 2005, eq. (1.2) and (1.4) (formula and limit property of f(q,a), case k=2)"
+  ],
+  "crux": false,
+  "risk": "Low. (i) follows from mu^2(n) = sum_{d^2|n} mu(d). (ii)\u2013(iv) follow by multiplicativity over p^a || q: compute local densities of squarefree n in a class mod p^a, and compare Euler factors. For (iv), compare prod_{p^a||q} sum_{l mod p^a} (local factor)^2 with A_0/q \u00b7 prod_p (1 + eta(p) gcd(p^2,q)/p^2). I checked (iv) numerically and exactly for q <= 50. Care is needed at p^2 | q, where classes with p^2 | l have g = 0, and at p || q, p | l."
+}

@@ -1,0 +1,803 @@
+                     6
+                     Davenporfs methods
+                     6.1 Sets of sums of kth powers
+                     It was demonstrated in §5.4 that the upper bound for G(k) could be
+                     radically reduced by first of all constructing a set M of natural
+                     numbers m not exceeding Zk which are the sum of tfcthpowers. The
+                     construction yields c a r d ^ > zka, where a = 1 — (1 — l/k)\ and is a
+                     slight simplification of one due to Hardy and Littlewood (1925). In
+                     fact, in their construction Zi is as above for 7 = 1 , . . . , t — 1, but they
+                     take Zt = Z, _ v The argument proceeds as before until the (t — l)th
+                     step, when (5.39) reduces to
+
+
+                     For each given pair yt-l9yt,                   the number of choices for   xt_uxt
+                     is ^ Z\. It follows that
+
+
+
+
+                     Moreover
+
+                     Hence, by Cauchy's inequality,
+                                                                k    ik   2)(1
+                                                                                 ~ i/^" 2 -«
+                                                 Z I ^> 7 ~ ~
+                                              Qz(m) > 0
+
+
+                       Let Nt(X) denote the number of natural numbers m not exceeding
+                     X such that m is the sum of at most t /cth powers. Then this yields
+                                        Nt(X)>X"<-*(X>X0(t,e))                     (6.1)
+                     with
+
+
+
+                     Note that a2 = 2/fc.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     Sets of sums ofkth powers                                                   95
+
+                        There have been a number of refinements of this argument, which
+                     have been effective in giving improved upper bounds for G(k) when k
+                     is relatively small. The following theorem is a generalization of one
+                     due to Davenport and Erdos (1939).
+
+                     Theorem 6.1 Let t > 3, 6 = 1 - l//c, kx = 1,
+                                       k2 — W ~ 3                       k2 — k — 1
+
+
+
+                           Q(m) denote the number of solutions of
+                                          x\ + . . . + x* = m wit^i ZA^ < x,. < 2ZA^.          (6.3)
+
+
+
+
+                     Corollary T/i^ inequality (6.1) too/ds wit/i af = 1 — p where
+
+
+
+                       The corollary follows by using Cauchy's inequality in the same way
+                     as above.
+
+                     Proof of the theorem Let Ms denote the number of solutions of
+                                                 yk _ | _ _ J _ y ^ =    yk _j_   # _j_   y*   (6.5)
+
+                     with ZA-> < xpyj < 2Zkj and x s ± ys. Since Mx = 0,
+
+
+                                      m              s= 2
+                     Also M 2 is the number of solutions of
+                                                           k     k        k       k
+                                                       x
+                                                        i — yi = x2 — yi
+                     with x 2 =/= y2 and ZAJ < xp y} < 2ZXK For each given pair x 2 , y2
+                     with x2i=y2 the number of possible choices for x 1? yx is <^Z£.
+                     Hence
+                                                     M2 <^ Z 2A2 + £ <^ Z Al + Xl.             (6.7)
+                         For s ^ 3,
+                                                           M s = M; -h 2 M ;                   (6.8)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     96                                                                 Davenport's methods
+
+                     where M's is the number of solutions of (6.5) with the additional
+                     constraint xx = y{, and M's' is the number with xx > yx. Then
+                                                             M'S<ZX*LS                                    (6.9)
+                     where Ls is the number of solutions of
+                                           x$ + . . . + x; = / 2 + . . . + 3>{.        (6.10)
+                     Given x 2 ,...,x s , the number of y2,••-,>'* is <^ l(c.f. §5.4). Thus
+                                                         LS«ZA2+           +As
+                                                                                 .                        (6.11)
+                                                                                                    lkl
+                       Now consider M'J. The number of choices for x 2 , y2 is <^ Z . For
+                     any such choice (6.5) becomes
+
+                                               x*-f1+A          + £ (x}->J) = 0                           (6.12)
+                     where .4 is fixed. Let h = xl — yv Then x\ — y\ > hZk ~ l. Also
+
+                                                    A+t            (xk-yk)<ZkX\
+                                                          j=3
+
+                     Hence 0 < h <| ZfcA2"fc + \ and (6.12) can be rewritten in the form
+                                                                +h)k-/x<ZkX\                              (6.13)
+                     For a given ft let y and y + ; be two possible values of y\ for which
+                     (6.13) holds. Then
+                                       (y + j + h)k - (y +j)k -(y + h)k + / < ZkX\
+                     whence hjZk ~2< ZkX\ Thus the number of possible choices for y{ is
+                                                       <l+ZkX>-k         +2
+                                                                            h-\                       (6.14)
+                     For given x l5 yl9 (6.12) becomes
+
+                                                      ^ i + I (x}->J) = 0                                 (6.15)
+
+                     where y4x is fixed. The number of choices for y3,...,                      ys_ x
+                     is <^ ZA3 + + As -1 and for any such choice the number of choices
+                     for x 3 , . . . , x s _ ! is < 1 (observe that x\ 4 - . . . + xk < Z*30 and that
+                     there are <^ 1 values of xk3 in an interval of length ZAa0, and so on).
+                        Given v 3 , . . . , ys- x, x 3 , . . . , x s _ l9 (6.15) becomes
+                                                         ^ 2 + ^ - ^ =0
+                     where A2 is fixed, and since x s ^ ys the number of choices for xs, ys
+                     is <Z\ Therefore, by (6.14),
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     Sets of sums ofkth powers                                                                          97
+
+
+
+                     Thus, by (6.8), (6.9), (6.11),
+
+                                                  Z k A 2 ~ k + * 4- Z k A a ~ k + 2 ) Z A a + • • • + As - 1 + 2s
+                     The theorem now follows from (6.6) on observing that for s = 3 , . . . , t,
+                     (fc + l)X2 - k ^ As and A2 -h /c/L3 - k + 1 < As.
+
+                        The following theorem is due to Davenport (1942a).
+
+                     Theorem 6.2 Suppose that K ; < /c - 2, 0 < v < 1, j?/ is a set o/
+                     natural numbers a with a^Zv               +k l
+                                                                  ~ ,S      = card J ^ , Q(m) is rte number of
+                     solutions of
+                                                               xk +a = m
+                     with Z<x<2Z             and aestf, and T = £ m 6 ( m ) 2 . Then
+
+
+
+
+                     Proof Let A, be as in § 2.2 and write
+                                        jrj = {h:hj>0;            hx < ZV; h2,..., fc, < Z } .
+                     Let p^A, m) denote the number of solutions of
+                                      Aj(xk;h)+a = m with Z<x<2Z,aesf,                                               (6.16)
+                     and put
+
+                                                               heJfj aes/
+                     Clearly
+                                                            T ^ Z S + Af^                                            (6.18)
+                     Also, by Cauchy's inequality,
+
+
+
+                     The double sum is the number of solutions of
+                                              Aj(x\; h) + at = Aj(xk2 ;h) + a2=a
+                     with Z < x l 9 x 2 < 2Z,a 1 6.j/,a 2 6 t s/,flGcg/,ZieJfj, Since the elements
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                      98                                                                 Davenport's methods
+
+                     of stf are distinct this is <^ M} + Mj+1. Hence
+
+
+                     Thus, by induction on j9
+                              M i   ^ Z v + l - 2 - , 5    +   Z(v+l)(l-2-J)-,-2-,
+
+
+
+                      By (6.17), Mj+ x is the number of solutions of
+
+
+                      with Z < x < 2Z, he3tfj+ l9 a^esrf, aesrf. By Exercise 2.1, when
+                     j < /c — 2, for each pair a1? a the number of choices for x, h is <^ Z£.
+                      Thus M J + x < 5 2 Z £ . The theorem now follows from (6.18) and (6.19)
+
+
+                        Theorem 6.2 is usually applied iteratively to give lower bounds for
+                     Nt(X) for successive values oft. More generally, let $4 denote a strictly
+                     increasing sequence of natural numbers a with the property that
+                                         A(X) = card {a :aes/, a ^ X}                   (6.20)
+                     satisfies
+                                          A(X)>X*~* (X>X0(e)),                          (6.21)
+                     where 0 < a < 1, and let N(s/9 X) denote the number of different
+                     numbers of the form xk + a with xk 4- a < X and aest. Let Z = £
+                     Then, in the notation of Theorem 6.2,
+
+                                                          N{s/,X)>        X 1.
+                                                                         m
+                                                                       Q(m)>0
+
+                     and by Cauchy's inequality
+
+                                                      )
+                                              m       / m
+                                           Q(m)> 0
+
+                     where 5 = ,4(ZV + k' x). Hence, by Theorem 6.2,
+                                 N(s/, x) > zs(i + zx+E(z-2 + z~v-j-                          x
+                                                                                              s)2 ~Y1.
+                     Thus, by (6.21),
+                                               N(sf9 X)>XP~E               (X> Xx(e))                    (6.22)
+                     where
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     Sets of sums ofkth powers                                                      99
+
+                     and
+                       T=       max           sup (min(va, 2 1 ~J — v(l — a),
+                             l ^ j ^ k - 2 0 < v < l
+                                             0' + 1)2"' - (k - I ) a 2 ^ - v(l - a)(l - 2"''))).
+                     When j + 1 <(fc — l)a the above supremum is non-positive, so the
+                     maximum occurs for a value of j with j + 1 > (k — l)a. For such a
+                     given value of j the supremum occurs when v is the lesser of the two
+                     values given by
+
+
+                                   va   = 0' + 1)2" j ~(k- I)a2" j - v(l - a)(l - 2
+                     i.e. by
+                                                           ...           7 -h 1 — (/c -    l)a
+
+                     Thus
+
+                                         =a       max mm 2                   \
+                                              i < j< k- 2            \
+
+
+                     Consider the inequality
+
+
+
+                     This is equivalent to each of the following inequalities
+
+                                                       z
+                                                                 ^   2^-1-fa           '
+                                                                                 1 j
+                                                 l+(/c-l)a^;+2 - (l-a).                          (6.23)
+                     The right-hand side of (6.23) is a strictly increasing function of j . Thus
+                     if J is the largest value of; such that (6.23) holds, then
+                                                                 J + l -(fc-l)a
+
+                     and if there is no such value of j , i.e. if a < l//c, then T = a. This
+                     establishes the following theorem.
+
+                     Theorem 6.3 Suppose that $4 satisfies (6.20) and (6.21). Let
+                     H = [(k- l)a], andJ = H+\ when
+                                    2H((k-l)a-H)>\-(x                        and H + 1 ^ k - 2
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     100                                                                Davenport's methods
+
+                     and J = H otherwise. Tlien N(,c/, X) satisfies (6.22) with
+
+                                         F
+                                          ~fcV                                  2'-l+a
+                                   \/k and fl = l/k + a w/zerc a < 1/fc.
+
+                        It is useful, in the case of fourth powers, to have a slight refinement
+                     of this. The above argument is not materially altered if Q{m) is taken
+                     to be the number of solutions of m = x 4 + a with
+                     Z < x < 2Z, x = r(mod 16), as,$/, a ^ Z v + 3. Likewise the argument
+                     that gives (6.1) with (6.2) is essentially unchanged when each Xj is
+                     restricted to a given residue class modulo 16. Thus
+
+                     Theorem 6.4 (Davenport, 1939c) Let N\h)(X) denote the number of
+                     natural numbers n not exceeding X in the residue class h modulo 16 which
+                     are the sum of t fourth powers. Then for t ^ 2 and 0 ^ h ^ min(t, 16),
+                                              N[h)(X) > X*< ~E             (X> X0(e, t))             (6.24)
+                     where
+                                                   a2
+                                                         4 a ' +i= T2r5;-                           (6 25)
+                                                                                                     -
+                     In particular,
+
+                                                                                                     (6.26)
+
+                        Davenport (1942a) has given an improvement upon the argument
+                     of Theorem 6.2 which is particularly effective when k = 5 or 6. With
+                     the same assumptions as in Theorem 6.2, let Q(m) denote the number
+                     of solutions of
+                                                            xk + pka = m                             (6.27)
+                                                      v + fc           1    v    k      1     v
+                     with Z < x < 2 Z , a < Z       -\ ^ Z " < p < Z " , p{x. Also, let
+                     Q(m, p) denote the number of solutions of (6.27), for a given p, with
+                     Z < x < 2Z, a ^ Z v + k ~ \ p/x. Then, by Cauchy's inequality,
+
+
+
+                     satisfies
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     Sets of sums ofkth powers                                                                101
+
+                     where P is the number of primes p with \Zl ~v < pk < Z 1 ~v. For a
+                     given prime p and integer r with p\r the number of solutions of
+                     xk = r(modp*) is 0 or (fc, (j)(pk)). Thus the integers x with p\x can be
+                     divided into q(p) = (k, <f>{pk)) classes 01 x,... ,&qip) such that, if x and y
+                     are in a given class 0tr, then xk = yk(modpk) if and only if
+                     x = y(mod pk). Let Qr(m, p) denote the number of solutions of (6.27)
+                     with Z < x < 2Z, a < Z v + k ~ 1 , x e f r . Then, by Cauchy's inequality,
+                                                                  /«(P)                    \2
+
+
+                                                              p \r=        1
+
+
+
+
+                                                            r= 1 p        m
+
+                     where Qr(m, p) is taken to be 0 when r > q(p). The triple sum here is
+                     bounded by the number of solutions of
+                                                      xk+pka1==xk2+pka2
+                     with x 1 =x 2 (modp f c ) and x x , x 2 ,a 1 ,a 2 , p'satisfying the same con-
+                     ditions as before.
+                        Let Aj be as above and write
+                                      #>. = {h : ht >0;hl<                2Z V ; h2,...,        hs < Z}.
+                       Let Pj(h, m, p) denote the number of solutions of
+                                            p~ kAj(xk;    p k h v h29...,hj)          +a =m
+                     and put
+
+
+                     Then, as in the proof of Theorem 6.2,
+
+
+                     and
+                                        Mj <^ Z v + j~ XPS + (Zv + ^~                      7
+
+                     Thus, if it can be shown that
+                                                           Mj+1<S2Z\                                       (6.28)
+                     then it follows that
+                                   T<P2ZS(1+ZV             +E
+                                                              (Z-2         + Z-V-J-1P-1S)2~J)              (6.29)
+                                                              x
+                     and the extra factor of P~ in the innermost bracket gives an
+                     improvement over Theorem 6.2.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                      102                                                               Davenport's methods
+
+                       It is probable that (6.28) holds whenever j ^ k — 3, but this seems
+                     rather difficult to prove in general. However, it can be established for
+                     certain values ofj. Consider the central difference operator V, which
+                     can be defined in terms of A; by
+
+
+                     Then
+                     V,(a*;/?,,...,
+
+                                                     I
+                                   ± 1         0, = ± 1
+
+                             y y              y
+                             La La            'La
+                                21« i          2/i
+                            / +^ +         +h
+
+                                                          "
+
+
+                      If k — j is odd, then l0 ^ 1 in every term, and so
+                                         V , V ; fil9..., ^ ) = a ^ ... pjPj(a; fil9
+                      where
+                          Pj(ot; j S j , . . . , jSj)
+
+
+
+
+                                          t'"
+                     I f / c - ; = 2, then
+
+
+
+                       The number Mj + 2 can now be reinterpreted as the number of
+                     solutions of
+                                           p~kyj+l(ock;       hxpk, h29...,   hj+J+ai         =a2
+                     with a = x + 2^iP* + • • • + i^jf + i- When k — j — 1 is odd and positive
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     Sets of sums ofkth powers                                                              103
+
+                     which is positive. Given ava2 the number of choices for a,
+                     hx, . . . , hj + j , i.e. for x, fc^ . . . , /*, + 1? is <^ Z£. If moreover k —j — I
+                      > 3, then p j + x (a; j 8 l 5 . . . , /?,+ J is a polynomial in Px of degree at
+                     least 2. Thus given a l9 a2, a, / i 1 ? . . . , h}•,+ ls the number of choices for p
+                     is <^ 1. Hence in this case one has (6.28).
+                        When k-j - 1 = 2 ,
+
+
+                                                           2j+lk\
+
+
+                     Given al9 a2, the number of choices for hu ... ,hj+l is <^ XE. Then
+                     givena x , a2, f i l 5 . . . , hj + 1? the number of choices for a, /?, i.e. for x, p, is
+                     again <^ XE, since the number of solutions of 3w2 + v2 = m is <^ m£.
+                     Thus, if 7 = /c — 3, then (6.28) holds once more. This yields
+
+                     Theorem 6.5 (Davenport, 1942a) Suppose that I ^ jf ^ k - 4and k -j
+                     is even, or that'} = k — 3. Suppose further that 0 < v < 1 and stf is a set of
+                     natural numbers a with a^Zv + k~ 1. Let Q(m) denote the number of
+                     solutions of
+                                                              X
+                     with Z < x < 2Z, a                             < pk < Z1 ' \ p/x, let T =
+                     and let S = card .a/. Then
+
+
+                     where P is the number of primes p with \ZX                     v
+                                                                                        < pk < Z 1   v
+                                                                                                     .
+
+                     Corollary Suppose that (6.1) holds, that 1 ^ j ^ k - 4 and k-j                      is even,
+                     or that j = k - 3. Then
+                                         Nt+l(X)>Xa<+i~E                   {X> X0(t + 1, e))
+                     with
+                                                              1
+                                                    ' +1      Ik       l            J
+
+                     and
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     104                                                                     Davenport's methods
+
+                        This follows from Theorem 6.5 in the same way that Theorem 6.3
+                     follows from Theorem 6.2.
+
+                        Suppose that k = 5. Then (6.2) gives a2 = f, the above corollary
+                     gives
+                                                       16 +85a,
+
+
+                     and Theorem 6.3 gives
+
+                                                        7 +33a,            ,     3   .
+                                             a + l=                    when I < a < L
+                                               ' WTW)                                    '
+                     Hence
+
+                     Theorem 6.6 (Davenport, 1942a) When /c = 5, (6.1) holds with
+
+                               *2=h           *3=f, «4 = S& a 8 = f f ^ ( > 0.912 53).
+
+                       Now suppose that /c = 6. Then (6.12) gives a2 = |, and the corollary
+                     to Theorem 6.5 gives
+                                                      19+120a,
+                                         a
+
+                                                      43 + 2 4 6 a ,
+
+
+                     and Theorem 6.3 gives
+                                                       15 +81a,
+                                             a +1 =                    when
+                                             <        67l5T^)
+                     Hence
+
+                     Theorem 6.7 (Davenport, 1942 a) Wten k = 6, (6.1) /zo/ds wi
+
+                                  —I      ~ _ 59           a
+                                                                   1661    a
+                                                                                  _ 5549      a
+                                                                                                  ^ _ 575 117
+                                  ~ 3'    ^3 ~ 126'            4 ~ 2886'       5 ~~ 8379'         6 ~~ 787 182
+                                             n
+                                             a
+                                                  _ 24 040 980 990 984 981/
+                                               13 — 25 335 323 032 000 606V
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     G(4) = 16                                                                    105
+
+                     6.2 G(4) = 16
+                     It is useful to introduce here the generating function
+
+                                                      /!(«)=           £         e(ow*)         (6.30)
+
+                     and the corresponding auxiliary functions
+
+                                               w(a)=           £            |x 1 / f c "^(ax)   (6.31)
+                                                          k
+                                                        X < x < (2X)* *
+                     and
+                                        W(a, q9a) = q~ lS(q, a)w(a - a/q)           (6.32)
+                     where S(q, a) satisfies (4.10). The following lemma is then immediate
+                     from Theorem 4.1 on taking n = \_2X~\k and n = \_X~\k.
+
+                     Lemma 6.1 Suppose that (a, q) = 1 and oi=a/q + p. Then
+                                           h(a) - W(a9 q, a) < q1/2 + E(l + Xk\P\)              (6.33)
+                                                                   1        fc
+                     and if moreover \p\<:(2kq)~ \2X)                      ~ , ften
+                                                                                    /2 + £
+                                                                                          .     (6.34)
+
+                        One reason for this kind of choice for /?(a) is that it fits more readily
+                     into the area of ideas used in § 6.1. Another reason is exemplified by
+                     the next lemma which shows that h(a/q + /?) decays like \\fi\\ ~ * as ||)8||
+                     grows, rather than like ||j?||" 1/k as for f(a/q + j?)(cf. Lemma 4.6). This
+                     is not usually of vital importance, but can often result in a reduction of
+                     technical difficulties.
+
+                     Lemma 6.2 Suppose that \p\ < \. Then
+
+
+
+                       This can be shown in the same way as Lemma 2.8. As an immediate
+                     consequence of this and Theorem 4.2 one has
+
+                     Lemma 6.3 Suppose that (q, a) = 1. Then
+                                         W(a/q + 0, q, a) < Xq~ 1/fc(l + X*|| j8||)- l.
+
+                       The following theorem is due to Davenport (1939c) and is still the
+                     best that is known for fourth powers. Exercise 2.2 gives G(4)^ 16.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     106                                                                Davenport's methods
+
+                     Theorem 6.8 Suppose that n ^ 0 or — 1 (mod 16) and n is sufficiently
+                     large. Then n is the sum offourteen fourth powers.
+
+                     Corollary G(4)=16.
+
+                     Proof of Theorem 6.8 Choose hl,h2,j                    so that
+                               hx + h2 +j = n(mod 16), 0 < hx ^ 4, 0 ^ h2 ^ 4, 1 < ; < 6.
+                     Let
+
+                                                                       X                             (
+                                                       -TSSf            ''"'"•                           "5)
+                     and let s#{h) denote the set of natural numbers a such that a < X3 + v,
+                     a = h(mod 16) and a is the sum of four fourth powers. Further, let
+
+
+
+                     Then, by Theorem 6.4,
+
+                                                    Vr(0)>X»-\ /* = — •                                  (6.36)
+
+                         By (6.30) (with k = 4),
+
+
+
+                     where Q(m) is the Jo
+                                                  f
+                                                  JO
+                                      number of solutions of
+                                                                            m
+
+
+                                                               x*+a = m
+                     with X < x < 2X and aes/(hr). Hence, by Theorem 6.2 with k — 4,
+                     7=2,
+
+                                |/i(oc)Fr(a)|2da < XFr(0)(l + Xv + e(X~2 + X" V " 3Fr(0))1/4).
+                         Jo
+
+                     Hence, by (6.36) and Cauchy's inequality,
+
+                                                                                                      (6.37)
+                           0
+
+
+
+
+                                 Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     G(4) = 16                                                                           107
+
+                        Define the major arcs Wl(q, a) by taking P = (2X)/{2k) = X/k and
+                                            gjtto,«) = {« : | a - a/q\ ^ Pq~ 1n~ 1 }.
+                     Let 9K denote the union of all the Wl(q, a) with 1 ^ a ^ q ^ P and
+                     (a, q)—l. Then the $R(g,a) are disjoint and lie in °ll =
+                     (Pn~\ 1 + P n " 1 ] .
+                        Let m = ty \ffll. By WeyFs inequality (Lemma 2.4) and the argument
+                     used to prove Theorem 2.1,
+                                                      h((x)<$X1/8 + E         (aem).
+                     Hence, by (6.35) and (6.37),
+
+
+                                        1    \h(a)6V1(0L)V2(0L)\da < nm
+
+                     where S is a suitable positive constant.
+                                                                                 ~S^(0)^(0)             (6.38)
+
+
+                       In a similar manner to the proof of Theorem 4.4, one has, for
+                     1 < m ^ n,
+
+                                                                                              - <5 )   (6.39)
+                                      JOT
+                     where
+
+                              Hm)=         X^ (2X) - •.. X* Z
+                                                      4
+
+
+                                          * JC! + 4. . . + x*=
+                                              Xl
+                                                              66
+
+
+                     and 8(m) is the singular series defined in Theorem 4.3. It is
+                     readily verified, for instance by considering the x x , . . . , x 5 with
+                     X* < Xj ^ 2X*, that
+                                               I(m)>n112           when    \n < m ^ n.                 (6.40)
+
+                        By Lemma 2.15, when s = 6 and p > 2, one has M*(p7) > 0.
+                     Moreover, when s = 6, p = 2 and w = j (mod 16) with 1 ^ j ^ 6, it is
+                     trivial from the definition of M* in § 2.6 that M*(2y) > 0. Hence, by
+                     Theorem 4.5,
+                                             S(m) > 1 when             m = j (mod 16).
+                       If m = n—al—a2 with ares/{hr\ then m satisfies | n < m ^ n and
+                     m = ; ( m o d 16). Hence, by (6.39) and (6.40),
+
+                              f fc(a)
+                              Jan
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     108                                                                Davenport's methods
+
+                     where J(n)> nm^(0)1^(0).                Hence, by (6.38)
+
+
+                                            R(n)=             h(a)6V1(a)V2(oL)e('-OLn)doL
+                                                       Jo
+                     satisfies
+                                                    R{n)>n1/2V1(0)V2(0)>0.
+                     Hence n is the sum of fourteen fourth powers as required.
+
+                      6.3 Davenport's bounds for G(5) and G(6)
+
+                     Theorem 6.9 (Davenport, 19426) G(5) ^ 23, G(6) < 36.
+
+                        The proof of this is similar to but simpler than that of Theorem 6.8.
+                     On this occasion it suffices to adopt the notation of § 4.4, so that
+                     (4.29),..., (4.32) hold.
+                        Let r = 7, t = 8 when k = 5, and r = 10, t = 13 when k = 6. Further,
+                     let stf denote the set of natural numbers a not exceeding \n for which a
+                     is the sum of t kth powers and write
+
+
+
+                     By Theorems 6.6 and 6.7,
+
+
+                                                    f
+                                                    Jo
+                                                         |F(a)| 2 da<
+
+                                         Jo k = 5, and \x = 0.948 91 when k = 6.
+                     where ^ = 0.912 53 when
+                       Let m = ^\2R. Then, by Weyl's inequality (Lemma 2.4),
+
+                                                  |/(a)T(a) 2 |da ^ «r/fc" l ~dV{0)2                 (6.41)
+                                             Jm
+                     where <5 is a suitable fixed positive number.
+                       By Theorem 4.4, when 1 ^ m ^ n,
+
+
+                                  I SOT
+                                                - am)da = Cmr/k ~ x6(m) + O(n r/k ~ x ~d)
+
+                     where C is a positive number depending only on k and r.
+                                                                                                     (6.42)
+
+
+
+                       By Lemma 2.15 with s = r, k = 5 or 6 and n replaced by m, one has
+                     M*(py) > 0. Hence, by Theorem 4.5, S(m) ^> 1. It now follows easily
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     Exercises                                                                      109
+
+                     from (6.41) and (6.42) that
+
+                                        I f(0L)rV((x)2e( - <xn)d<x > nr/k ~ * V(0)2 > 0,
+                                       Jo
+                     and therefore that G(k) ^ r + It when k = 5 or 6.
+
+
+
+                     6.4 Exercises
+
+                        1 Show that for X > Xo one has
+                                              N19(X)>X09668               when /c = 7,
+                                              JV28(A:)>A:0-9838           when fc = 8.
+                     Deduce that G(7) ^ 53t, G(8) ^ 73.
+                        2 (Davenport, 1939a) Let Q(m) denote the number of solu-
+                     tions of m = x 3 +>> 3 +z 3 with Z < x < 2 Z , Z 4/5 < y < 2Z 4/5 ,
+                     Z 4/5 < z < 2Z 4/5 . Show that
+
+
+
+                     Deduce that (i) G(3) < 8, and (ii) almost every natural number is the
+                     sum of four positive cubes.
+                       3 (Davenport, 1950) Show that when k = 3 one has
+                                             iV3(X)>*47/54-£                  (X>X0(e)).
+
+                       4 (Vaughan, 1985) Let Q(m) denote the number of solutions of
+                          3   3    3                       5/6
+                     m = x + y + z with Z < x ^ 2Z,y ^ Z       ,z ^ Z 5/6 . Show that
+                                                              +£                              4
+                                               ) ^ >* ++J Of f X X / f/cfc()(a)| ^| ^(a)
+                                                               i^H
+                                                                                    ( ) 141da
+                                                                    JO    fi^H
+
+                     where H = Z 1 / 2 ,
+
+
+
+
+                                                       g(oc) =      £     e(ccy3).
+
+
+                      *Note that the claim G(7) ^ 52 of Sambasiva Rao (1941) is based on an arithmetical
+                     error.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+                     110                                                               Davenport's methods
+
+                     Show also that whenever (a, q) = 1 and | a — a/q | ^ q ~ 2 one has
+
+                                        X |/»(«) I 2 « HZ 2 + */q + HZ1 + ° + qZ*.
+                                       h^ H
+
+                     Deduce that
+
+
+
+                     and
+                                                N3(X)>x8/9-£(X>X0(s))
+                     whenfc= 3.
+                       5 (Vaughan, 1989a). Show that when k = 3 one has
+                                              N3(X)>X19'21-*(X>X0(s)).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.009 Published online by Cambridge University Press
+

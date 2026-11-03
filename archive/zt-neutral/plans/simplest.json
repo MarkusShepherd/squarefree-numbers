@@ -1,0 +1,83 @@
+{
+  "summary": "Plan: use elementary squarefree correlations, retain the resulting fractional-part kernel, and average that kernel over polynomial moduli using periodicity. Seven propositions give a theorem for every polynomial allowed in problem.md. The constant-term asymptotic holds in the weaker range x^(\u03b8_d+\u03b4) \u2264 f(y) \u2264 x^(1\u2212\u03b4), where \u03b8_d=max(7/9,d/(d+1)). A ratio-dependent main term also covers f(y) comparable to x. The predicted constants agree with the numerical extrapolation uncertainties; the ratio profile explains the persistent ratio dependence. Sources used: J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, [On the exponential sum over k-free numbers](https://doi.org/10.1098/rsta.1998.0183), 1998, particularly Lemma 2.1; background comparisons were R. C. Vaughan, [A variance for k-free numbers in arithmetic progressions](https://doi.org/10.1112/S0024611505015352), 2005, and J. Br\u00fcdern and T. D. Wooley, [Sparse variance for primes in arithmetic progression](https://doi.org/10.1093/qmath/hap029), the explicitly permitted supplied 2011 paper. No excluded source or other post-2010 result was used. This is a proof plan, not a proof.",
+  "main_theorem": "Let f satisfy every hypothesis in problem.md, let d=deg(f), and put Y=f(y). For each prime p define w\u2080(p)=1\u2212\u03c1(p)/p, w\u2081(p)=\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2, and w\u2082(p)=\u03c1(p\u00b2)/p\u00b2. Define the absolutely convergent positive Euler product C_f=\u2212(8/3)\u03b6(\u22121/2) \u220f_p (1\u22121/p)[1\u22122/p\u00b2+(p w\u2080(p)+\u221ap w\u2081(p)+w\u2082(p))/p\u00b2], where \u03b6 is the analytically continued Riemann zeta function. For every \u03b5>0 there is a constant A(f,\u03b5)>0 such that, uniformly for real x\u22652 and y\u22652 with Y\u2264x, |V_f(x,y)\u2212C_f x^(1/2)Y^(3/2)| \u2264 A(f,\u03b5)[x^(1/3)Y^(5/3)+x^(5/3+\u03b5)+xY\u221a(log(2x)/y)]. In particular, put \u03b8_d=max(7/9,d/(d+1)). For every 0<\u03b4<(1\u2212\u03b8_d)/2 there are constants A(f,\u03b4)>0 and x\u2080(f,\u03b4) such that, uniformly for x\u2265x\u2080(f,\u03b4) and x^(\u03b8_d+\u03b4)\u2264Y\u2264x^(1\u2212\u03b4), |V_f(x,y)/(C_f x^(1/2)Y^(3/2))\u22121| \u2264 A(f,\u03b4)x^(\u2212\u03b4/6). No irreducibility, separability, or restriction on fixed prime divisors of f is imposed.",
+  "predicted_main_term": "C_f x^(1/2)f(y)^(3/2), with C_f given in the main theorem. Euler products truncated at primes below 10\u2076 give approximately C_(t\u00b2+1)=0.13808, C_(t\u00b3+2)=0.13561, and C_(2t+1)=0.14261. For ratios r=f(y)/x that stay positive, the more precise main term is x\u00b2F_f(r), with the explicit convergent function F_f defined in P4; P6 gives |F_f(r)\u2212C_f r^(3/2)|\u2264A(f)r^(5/3) for 0<r\u22641.",
+  "agrees_with_numerics": "Yes, within the distinction between a fixed-ratio profile and its small-ratio limit. The reported extrapolations are 0.134475\u00b10.007285 for t\u00b2+1, 0.136321\u00b10.002404 for t\u00b3+2, and 0.141686\u00b10.008218 for 2t+1; all contain the predicted constants. These uncertainty envelopes are heuristic. Independent evaluation of the P4 profile with its square-divisor index truncated at 40000 reproduces the observed ratio dependence. For example, at ratio 1 it gives normalized values approximately 0.171077, 0.166100, and 0.183684, respectively. The largest-x observations are 0.171101, 0.166706, and 0.183691, at their recorded actual ratios. The cubic has only 634 sampled moduli. Keeping those actual moduli instead of averaging them, the P3 kernel truncated at 40000 gives 0.166698419, compared with 0.166705566 observed; the difference 0.000007147 is below the explicit kernel truncation bound. Thus finite sampling explains the larger cubic discrepancy. The validation records in results.json support the numerical implementation, although its production code was not available for an independent audit. No theorem was adjusted to fit the regression.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Local densities and the mixed moment",
+      "statement": "Let c=1/\u03b6(2), where \u03b6 denotes the Riemann zeta function. For integers q\u22651 and 1\u2264l\u2264q, the density g(q,l) from problem.md is zero if some prime p satisfies p\u00b2|q and p\u00b2|l. Otherwise g(q,l)=(c/q)\u220f_{p|q}(1\u2212p^(\u22122))^(\u22121)\u220f_{p\u2225q, p|l}(1\u2212p^(\u22121)). Here p\u2225q means that p divides q exactly once, all products are over primes, and an empty product is 1. Define D(q)=\u2211_{l=1}^q g(q,l)\u00b2. Then D(q)=(c\u00b2/q)\u220f_{p\u2225q}[(1\u22122p^(\u22122)+p^(\u22123))/(1\u2212p^(\u22122))\u00b2]\u220f_{p\u00b2|q}(1\u2212p^(\u22122))^(\u22121). There is an absolute constant A>0 such that, uniformly for every real x\u22652 and integer q\u22651, |\u2211_{1\u2264n\u2264x} \u03bc\u00b2(n)g(q,n mod q)\u2212xD(q)|\u2264A\u221ax/q and |\u2211_{1\u2264n\u2264x}\u03bc\u00b2(n)\u2212cx|\u2264A\u221ax. In g(q,n mod q), the residue zero is represented by l=q.",
+      "depends_on": [],
+      "cites": [
+        "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 2.1, specialized to k=2, for the density Euler product; https://doi.org/10.1098/rsta.1998.0183. The mixed-moment estimate is an additional elementary contract."
+      ],
+      "crux": false,
+      "risk": "The cases p\u2225q and p\u00b2|q must remain distinct. The mixed-moment bound requires uniform treatment of divisibility parameters exceeding x; a fixed-q asymptotic is insufficient."
+    },
+    {
+      "id": "P2",
+      "title": "A correlation estimate uniform in the shift",
+      "statement": "Define C\u2080=\u220f_p(1\u22122/p\u00b2), with the product over all primes. For each positive integer h define S(h)=C\u2080\u220f_{p\u00b2|h}(p\u00b2\u22121)/(p\u00b2\u22122). For every \u03b5>0 there is a constant A(\u03b5)>0 such that, uniformly for real x\u22652 and integers 1\u2264h\u2264x, |\u2211_{1\u2264n\u2264x\u2212h} \u03bc\u00b2(n)\u03bc\u00b2(n+h)\u2212(x\u2212h)S(h)|\u2264A(\u03b5)x^(2/3+\u03b5). The sum is zero when its upper limit is below 1. The constant is independent of h and x.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "Uniformity for shifts as large as x is essential. An estimate stated only for each fixed shift cannot be substituted. Elementary M\u00f6bius truncation must bound the shift-dependent divisor factors uniformly."
+    },
+    {
+      "id": "P3",
+      "title": "Reduction of each variance to a positive kernel",
+      "statement": "For positive integers m define a(m)=\u03bc\u00b2(m)\u220f_{p|m}(p\u00b2\u22122)^(\u22121), where the empty product is 1. Put C\u2080=\u220f_p(1\u22122/p\u00b2), c=1/\u03b6(2), B(t)={t}(1\u2212{t}) for t\u22650, and R_q(m)=m\u00b2/gcd(m\u00b2,q), where {t}=t\u2212floor(t). For real x\u22652 and integers 1\u2264q\u2264x define the absolutely convergent series W(x;q)=C\u2080q\u2211_{m\u22651}a(m)R_q(m)B(x/(qR_q(m))). Define D(q)=\u2211_{l=1}^q g(q,l)\u00b2 and S(h)=C\u2080\u220f_{p\u00b2|h}(p\u00b2\u22121)/(p\u00b2\u22122). Then W(x;q)=cx+2\u2211_{1\u2264h\u2264x/q}(x\u2212hq)S(hq)\u2212x\u00b2D(q), and 0\u2264W(x;q)\u2264cx. For every \u03b5>0 there is a constant A(\u03b5)>0 such that, uniformly in this entire range, |\u2211_{l=1}^q E(x;q,l)\u00b2\u2212W(x;q)|\u2264A(\u03b5)x^(5/3+\u03b5)/q. The constants are independent of q and x.",
+      "depends_on": [
+        "P1",
+        "P2"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The diagonal and both centering terms must cancel exactly before averaging small moduli. Losing an x\u00b2/q contribution would invalidate the plan."
+    },
+    {
+      "id": "P4",
+      "title": "Periodic averaging of the kernel over polynomial moduli",
+      "statement": "Let f satisfy problem.md and put Y=f(y). Define C\u2080=\u220f_p(1\u22122/p\u00b2), a(m)=\u03bc\u00b2(m)\u220f_{p|m}(p\u00b2\u22122)^(\u22121), B(t)={t}(1\u2212{t}), and R_m(b)=m\u00b2/gcd(m\u00b2,f(b)) for integers m\u22651 and b, using gcd(m\u00b2,0)=m\u00b2. For r>0 define F_f(r)=C\u2080\u2211_{m\u22651}a(m)m^(\u22122)\u2211_{b=0}^{m\u00b2\u22121}\u222b\u2080\u02b3 tR_m(b)B(1/(tR_m(b)))dt; the integrand at t=0 is defined as zero. Define W(x;q)=C\u2080q\u2211_{m\u22651}a(m)[m\u00b2/gcd(m\u00b2,q)]B(x/(q[m\u00b2/gcd(m\u00b2,q)])). All these series converge absolutely. There is a constant A(f)>0 such that, uniformly for real x\u22652, y\u22652, Y\u2264x, and integers 1\u2264M\u2264floor(y), |\u2211_{1\u2264k\u2264y}f\u2032(k)W(x;f(k))\u2212x\u00b2F_f(Y/x)|\u2264A(f)xY[M^(\u22121)+M log(2x)/y]. Consequently, throughout the same x,y range, the left side is at most A(f)xY\u221a(log(2x)/y), after increasing A(f). If F_{f,M} denotes the displayed definition of F_f with m\u2264M, then 0\u2264F_f(r)\u2212F_{f,M}(r)\u2264r/M for every r>0 and integer M\u22651.",
+      "depends_on": [],
+      "cites": [],
+      "crux": true,
+      "risk": "The fractional-part kernel oscillates infinitely often near t=0. A quadrature argument must isolate the initial interval and bound variation on the remaining interval uniformly in m and its residue class. The claimed dependence on M must survive summation over all m\u00b2 residue classes."
+    },
+    {
+      "id": "P5",
+      "title": "The universal square kernel",
+      "statement": "Let B(t)={t}(1\u2212{t}) for real t\u22650, where {t}=t\u2212floor(t), and let \u03b6 denote the analytically continued Riemann zeta function. Define \u03ba=\u222b\u2080^\u221eB(1/u\u00b2)du. This integral converges and \u03ba=\u22124\u03b6(\u22121/2)>0. There is an absolute constant A>0 such that, uniformly for every real Z>0, |\u2211_{v\u22651}B(Z/v\u00b2)\u2212\u03ba\u221aZ|\u2264AZ^(1/3). The series converges absolutely for every Z>0.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "The integral and the square-root scaling must be evaluated with the correct normalization. The error bound must include 0<Z<1 because arithmetic convolution produces such arguments."
+    },
+    {
+      "id": "P6",
+      "title": "Small-ratio expansion and the polynomial Euler product",
+      "statement": "Let f and \u03c1 be as in problem.md. Define C\u2080=\u220f_p(1\u22122/p\u00b2), a(m)=\u03bc\u00b2(m)\u220f_{p|m}(p\u00b2\u22122)^(\u22121), B(t)={t}(1\u2212{t}), and R_m(b)=m\u00b2/gcd(m\u00b2,f(b)), with gcd(m\u00b2,0)=m\u00b2. For r>0 define F_f(r)=C\u2080\u2211_{m\u22651}a(m)m^(\u22122)\u2211_{b=0}^{m\u00b2\u22121}\u222b\u2080\u02b3 tR_m(b)B(1/(tR_m(b)))dt, defining the integrand as zero at t=0. For each prime p put w\u2080(p)=1\u2212\u03c1(p)/p, w\u2081(p)=\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2, and w\u2082(p)=\u03c1(p\u00b2)/p\u00b2. The product C_f=\u2212(8/3)\u03b6(\u22121/2)\u220f_p(1\u22121/p)[1\u22122/p\u00b2+(p w\u2080(p)+\u221ap w\u2081(p)+w\u2082(p))/p\u00b2] converges absolutely and is strictly positive. There is a constant A(f)>0 such that, uniformly for 0<r\u22641, |F_f(r)\u2212C_f r^(3/2)|\u2264A(f)r^(5/3). This assertion includes polynomials with repeated factors and fixed prime-square divisors.",
+      "depends_on": [
+        "P5"
+      ],
+      "cites": [],
+      "crux": true,
+      "risk": "The arithmetic factorization must distinguish valuations zero, one, and at least two, which produce factors p, \u221ap, and 1 in the constant. A sufficient intermediate contract is to factor the relevant coefficient Dirichlet series as \u03b6(2s)G_f(s), with the coefficients \u03b3_f(n) of G_f satisfying \u2211_{n\u22651}|\u03b3_f(n)|n^(\u22121/3)\u2264A(f). Exceptional primes dividing the polynomial content must be retained."
+    },
+    {
+      "id": "P7",
+      "title": "Assembly and the uniform asymptotic range",
+      "statement": "Let f satisfy problem.md, write d=deg(f) and Y=f(y), and define w\u2080(p)=1\u2212\u03c1(p)/p, w\u2081(p)=\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2, w\u2082(p)=\u03c1(p\u00b2)/p\u00b2 for every prime p. Let C_f=\u2212(8/3)\u03b6(\u22121/2)\u220f_p(1\u22121/p)[1\u22122/p\u00b2+(p w\u2080(p)+\u221ap w\u2081(p)+w\u2082(p))/p\u00b2]. For every \u03b5>0 there is a constant A(f,\u03b5)>0 such that, uniformly for real x\u22652 and y\u22652 with Y\u2264x, |V_f(x,y)\u2212C_f x^(1/2)Y^(3/2)|\u2264A(f,\u03b5)[x^(1/3)Y^(5/3)+x^(5/3+\u03b5)+xY\u221a(log(2x)/y)]. Put \u03b8_d=max(7/9,d/(d+1)). For every 0<\u03b4<(1\u2212\u03b8_d)/2 there are constants A(f,\u03b4)>0 and x\u2080(f,\u03b4) such that, uniformly for x\u2265x\u2080(f,\u03b4) and x^(\u03b8_d+\u03b4)\u2264Y\u2264x^(1\u2212\u03b4), |V_f(x,y)/(C_f x^(1/2)Y^(3/2))\u22121|\u2264A(f,\u03b4)x^(\u2212\u03b4/6). Every constant is independent of x and y. In summing the individual-modulus errors, the required auxiliary bound is \u2211_{1\u2264k\u2264y}f\u2032(k)/f(k)\u2264A(f)log(2y), uniformly for y\u22652.",
+      "depends_on": [
+        "P3",
+        "P4",
+        "P6"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "The correlation error must be summed with f\u2032(k)/f(k), preserving its logarithmic growth. The relative averaging error imposes the degree-dependent threshold d/(d+1), while the correlation error imposes 7/9."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

@@ -1,0 +1,1419 @@
+A NNALES DE L’ INSTITUT F OURIER
+
+
+
+
+ J ÖRG B RÜDERN
+ A LBERTO P ERELLI
+ Goldbach numbers in sparse sequences
+ Annales de l’institut Fourier, tome 48, no 2 (1998), p. 353-378
+ <http://www.numdam.org/item?id=AIF_1998__48_2_353_0>
+
+
+
+
+    © Annales de l’institut Fourier, 1998, tous droits réservés.
+    L’accès aux archives de la revue « Annales de l’institut Fourier »
+    (http://annalif.ujf-grenoble.fr/) implique l’accord avec les conditions gé-
+    nérales d’utilisation (http://www.numdam.org/conditions). Toute utilisa-
+    tion commerciale ou impression systématique est constitutive d’une in-
+    fraction pénale. Toute copie ou impression de ce fichier doit conte-
+    nir la présente mention de copyright.
+
+
+
+
+                  Article numérisé dans le cadre du programme
+                Numérisation de documents anciens mathématiques
+                              http://www.numdam.org/
+Ann. Inst. Fourier, Grenoble
+48, 2 (1998), 353-378
+
+
+
+
+     GOLDBACH NUMBERS IN SPARSE SEQUENCES
+
+                  by J. BRUDERN and A. PERELLI
+
+
+
+
+                               1. Introduction.
+
+
+      An integer which can be written as the sum of two odd primes is called
+a Goldbach number, in remembrance of Goldbach's famous letter to Euler,
+dated 1742, where the belief was expressed that all even natural numbers
+exceeding 4 are of this form. The question is still undecided, and even
+counting possible exceptions is a difficult problem. Hardy & Littlewood
+[HL] assumed the truth of the Riemann Hypothesis for all Dirichlet L-
+functions and were then able to estimate successfully the number E{N) of
+all even integers n <^ N which are not the sum of two primes. Their result
+was E{N) <^ A^2+ 6 ^ and at the moment there seems to be no argument
+available which would produce bounds for E(N) breaking the barrier v^V,
+unless one is prepared to introduce further hypotheses which go well beyond
+the scope of the Riemann Hypothesis (see Goldston [G] and Languasco &
+Perelli [LP]). The best unconditional estimates, of the form E(N) < TV1-6,
+derive from work of Montgomery & Vaughan [MV]; here 6 > 0 is rather
+small.
+
+       One can set up a more sensitive test for the distribution of possible
+exceptions by choosing a thin subset V of the even integers, and then try
+to establish that almost all elements of V are Goldbach numbers. In this
+spirit, Perelli [P] has checked the values of a fixed integer polynomial, sat-
+isfying some natural arithmetical conditions. There is also a vast literature
+concerned with short intervals. We only mention the current record due to
+Baker, Harman & Pintz [BHP]: if 0 > —— then almost all even integers in
+                                         160
+the interval [x, x -4- x°] are Goldbach numbers.
+
+Key words: Goldbach's problem.
+Math. classification : 11P32 - 11P55.
+354                          J. BRUDERN,A.PERELLI
+
+
+
+     In a precursor to this paper [BP], we have described a method which
+has the potential to yield almost-all results for Goldbach numbers in se-
+quences rather thinner than the values taken by any polynomial. We shall
+now refine these ideas and prove the following result.
+                                       ^
+     THEOREM 1. — Let 1 < 7 < -. Let E(N) be the number of all
+natural numbers n <_ N for which the inequality
+
+(1)                    |pi + p2 - exp ((log n)7) | < 1
+
+has 120 solution in odd primes pi,p2. Then, there exists a constant c > 0
+such that
+                     E{N) < TV exp ( - c(logA03-27).
+
+       We note that c and the implicit constant are effective; our argument
+will, in particular, be free of any use of the Siegel-Walfisz theorem.
+      Throughout this paper, we shall write
+
+                      F(^)=F^)=exp((log^) 7 ).
+
+For n € N, let Vn = [^(n)] ^OT convenience of notation. One of the two
+integers Vni ^n + 1 next to F(n) is even, and this number is denoted by i>n-
+Theorem 1 implies, in particular, that almost all numbers Vn 8Lr^ Goldbach
+numbers.
+      By the methods of [BP], the estimation of the exceptional set is linked
+with a study of the exponential sum formed with the numbers F{n). Our
+basic auxiliary result is Theorem 2 below, which might be of some inde-
+pendent interest.
+                                        Q
+
+     THEOREM 2. — Let 1 < 7 < -. Given real numbers 0 < c < 1
+                                    z^
+and 0 < C < 7 — 1, there exists a constant K > 0 such that uniformly in
+F^N)-0 ^ H < J^TV)0 one has
+
+                  ^       e{aF(n)) < 7vexp(-/<logA0 3 - 27 ).
+               N<^n<,2N
+
+
+
+      A very similar result occurs as Theorem 2 in Karacuba [K], but with
+a much more restricted range of uniformity. Since Karacuba's argument is
+rather sketchy and it is not immediately clear that values of \a\ as small
+as F(NY~1 are covered by his method, we have felt a need to present a
+detailed proof, in §8.
+               GOLDBACH NUMBERS IN SPARSE SEQUENCES                          355
+
+
+
+      In §3 the principal ideas of [BP] will be recalled. We shall count the so-
+lutions of (1) by a Fourier transform method. An application of the Poisson
+summation formula will reduce a relevant integral to more familiar Fourier
+coefficients over major and minor arcs in the Hardy-Littlewood treatment
+of Goldbach's problem. The minor arcs are readily dispensed with by the
+methods of [BP] in conjunction with Theorem 2 and Vinogradov's estimate
+for exponential sums over primes.
+
+      The major arcs will be dealt with in §4. Based on the subtle approach
+of Montgomery & Vaughan [MV], there is a ramification in the argument
+due to the possible existence of exceptional zeros of L- functions. The treat-
+ment of Montgomery & Vaughan applies immediately in the new context
+if such zeros do not exist, but if they do then Montgomery & Vaughan use
+an averaging procedure, and it is this part of their method which we will
+have to reexamine. Roughly speaking, we will have to show that averaging
+over the thin set Vn is enough. There is also the unconventional problem
+that an upper bound is needed for the major arc contribution in the binary
+Goldbach problem for an odd number. It is, however, not appropriate to
+comment on this matter at the present stage.
+
+
+                               2. Notation.
+
+
+      Some parts of this analysis are heavily dependent on the work of
+Montgomery & Vaughan [MV], and for ease of reference we have tried to
+use their notation whenever possible. Most of our notation is standard
+and should be clear from the context. Implicit constants in the 0 and <^
+symbols will depend on 7 and on various other constants introduced later,
+for which we use c, C or <5, but they will never be dependent on P, X, N and
+A. The parameters P, N and X are always assumed to be sufficiently large,
+and will ultimately be related via P = X66 and X = F(N), although this
+is not necessary in parts of the paper. The parameter A will take different
+values (in terms of X) in different contexts.
+
+
+                 3. The Fourier transform method.
+
+
+     In the next two sections we prove Theorem 1. Our first lemma is an
+abstract version of [BP], Lemma 1.
+
+      LEMMA 1. — Let h : R —> C be a function of period 1 which is
+356                              J. BRUDERN, A. PERELLI
+
+
+
+integrable on [0,1], and let
+                                   r1
+                           h(n) = / h(a)e(—an)da.
+                                  Jo
+Let K € L1 (R) be continuous, and such that its Fourier transform
+
+                           K(o) == F K((3)e(-a(3)d(3
+                                     J —00
+
+
+has support in [—1,1]. Then, for any v € R,
+
+       /       h(a)K(a)e(-av)da = K{{v})h([v]) + K({v} - l)h([v] + 1).
+       J—00
+
+
+
+
+       Proof. — The left hand side of the proposed identity equals
+  oo       »n-H                               /•!        oo
+ ^         /      h(a)K(a)e(-av)da = / h{a) ^ K(a+n)e(-v{a-{-n))da.
+n=-oo'771                                    •/0       n=-oo
+
+
+The Fourier transform of G(x) = e{—v(a -h a;))Jf(a + a^) is G(x) = e(aa;)
+A"(z? + x). Hence, by the Poisson summation formula,
+  00
+
+ ^ e(-v(a + n))K(a + n) = e(-Q[u])X({v}) + e(-a[v] - 0!)X({u} - 1),
+n=—oo
+
+and the lemma follows immediately.
+
+     We now take 0 < A < -, to be determined later, and define the
+weight function
+                                 1              if   |a| ^ 1 - A
+(2)                  w(a)=
+                             (   0
+                                 1
+                                     ^
+                                               if
+                                               if
+                                                     |a|>l
+                                                     1 - A < |a| < 1.
+Then w{a) is continuous and even. We define K(a) = w(a) and note
+that K{a) is infinitely often differentiable and even; Fourier's inversion
+formula shows K(a) = w(a). To write K{a) in closed form, we put T(a) =
+max(0,1 — | a |) and note that
+                             l                1                < a
+                      ,.  nr^^
+                     w (a)= ^ T ((a ) - (
+                                        - ^ ^ n ^ /
+                                          ^-ljT^J   ^
+                                                      .
+
+                      2
+a-    ^( \= /sin7ro;\
+Since T(a)    ——— ) we have
+            \ TTO /
+ 3 K
+()                ^--^'}-^-^^^'}-
+                GOLDBACH NUMBERS IN SPARSE SEQUENCES                        357
+
+
+
+For later use, we note the simple bound
+
+(4)                       ^(a^min^A-1^!-2)
+
+implied by (3).
+        We are now in a position to embark on the proof of Theorem 1. Let
+0 < 6 < —— be another parameter to be chosen later. Put P = X66. For
+         1UU
+a real number v consider the weighted counting function
+
+(5)         r(v) = r(v\ X) =     ^           log pi logp2 w(pi + p^ - v).
+                               P<Pl,P2^X
+
+
+Roughly speaking, one expects that if 3 X < v < X and v is not too close
+to an integer, then r(v) ^> X, and we shall now prove this on average for
+v = F(n).
+
+        With K(a) given by (3) and
+
+                          s a
+                           { ) = ^ log? e(ap)
+                                      P<p<X
+
+we can write (5) as a Fourier integral,
+
+(6)                   r{v) = f        S(a)2K(a)e(-av)da.
+                               J—00
+
+
+
+
+       We dissect the real line into the major arcs 9T, defined as the union
+of all intervals \qa -a\< PX~1 with (a, q) = 1, a e Z and 1 < q < P, and
+the minor arcs n = R \ ^ We also write 971 = 9T D [0,1].
+
+      To prepare for the treatment of the major arcs in the next section we
+introduce, for m e Z,
+
+(7)                     R^m) = / S(a)2e(-am)da
+                                      Jyji
+which coincides exactly with the quantity jRi(m) used by Montgomery &
+Vaughan [MV]. By Lemma 1 with h{a) = S{a)2 for a e 9T and h{a) = 0
+otherwise, we have
+
+(8) / 5(a)2^(a)e(-az;)da = w({v})R^([v}) + w({v} - l)^i(M + 1).
+      Jvi
+
+One of the numbers [v] and [v] + 1 is even, and for even m one may expect
+that R^(m) > m. It is therefore plausible to hope that the left hand side
+of (8) is large. We shall make this precise in the next section.
+358                          J. BRUDERN, A. PERELLI
+
+
+
+                          4. The major arcs.
+
+      In this section we try to evaluate J?i(m), defined by (7), as precisely
+as possible. Our argument heavily borrows from Montgomery & Vaughan
+[MV]. It will be convenient to recall the concept of an exceptional character:
+there exists a constant c > 0 such that
+(9)                  ^ X ) ^ 0 for        a>l-——_
+                                                   log?
+for all primitive characters \ of modulus q < P, with the possible exception
+of at most one real primitive character, called the exceptional character. We
+write \ for the exceptional character (if it exists) and r for its modulus; J3
+is the unique zero of L{s,-\} violating (9), which satisfies
+(10)                  r-^logr)- 2 ^-/^ -——.
+                                                log?
+For all this see Davenport [D], chapter 14, for example.
+       Next we introduce the singular series
+
+(11)                         1                 1
+               ^"J -^) !^)
+and can then state
+
+     LEMMA 2. — There exists an absolute constant c\ > 0 such that if
+the exceptional character does not exist one has
+            7^         = 6 ro +o xex                   c
+whenever m < X.
+                •("" '" ( ' (^ •'(- -^))
+       Proof. — Combine (6.17) and (7.1) of Montgomery & Vaughan [MV].
+
+
+     The argument is more subtle if the exceptional character exists, as we
+now suppose. We follow through the argument of Montgomery & Vaughan
+[MV] leading to their important formula (6.17), but avoid divisor estimates
+producing an X6 (these occur only in (6.19) and the formula thereafter).
+A careful examination of their work then produces
+
+     LEMMA 3. — There exists an absolute constant c^ > 0 such that if
+the exceptional character exists one has, for m <^ X,
+R^(m) =m©(m) +J(m)6(m) +Xri(m) +XF2(m)
+             ^(x(m)2rmX\            / mX .        ~      /    logX\         \
+          +0      \^ , . + 0 — — ^ ( l - /1? )) e x p - C 2 - — — log? ,
+               V ^{rY^(m) } \^p{my                 ^\        log?/ 6 ) '
+               GOLDBACH NUMBERS IN SPARSE SEQUENCES                      359
+
+
+
+where
+
+
+^ = «-l)'-((^)) .ra^n(- - (^) n ^ ^                                p\m
+
+(12)
+
+
+(13)                  J(m)=           ^        (k(m-k)f-1
+                                 P<k<m—P
+
+
+
+(14)               Tl(m)<<              E
+                                 ^    q=0 (mod r)
+                                                    ^AT
+
+(15)                rw«. E ^L-^)-       q>p         TWr^ (m,g) ^
+                                     q=0 (mod r)
+
+
+
+
+      This is (6.17) of Montgomery & Vaughan [MV], with the error in
+(6.19) and thereafter kept explicit, followed by an appeal to their (7.1) to
+estimate W.
+
+     We now have to show that ri(m) and T^(m) are small, at least for
+almost all m = Un- Our approach to this problem rests on the following
+consequence of Theorem 2.
+
+    LEMMA 4. — Let K be as in Theorem 2, and suppose that 0 < k < K.
+Then, uniformly for F(N)~^ < \a\ <, 1 and 0 ^ z^ < z\ <_ 1, one has
+
+#[^N <n^N:z^ {aF{n)} < z,\
+
+                                  = 1^! -^)^+0(7Vexp(-^(log7V) 3 - 2 ^).
+
+
+       Proof. — For the rest of this paper we shall write
+
+                              f=exp(/c(logA0 3 - 27 ).
+
+In Theorem 2 take c = - and apply the standard argument of Vinogradov
+                         Zi
+[Vi], chapter 5. We may omit the details. For a very simple variant which
+quickly yields the upper bound <€ (z\ —z^)N-{-NS~1 (which suffices below)
+see [BP].
+360                               J. BRUDERN, A. PERELLI
+
+
+
+         Recall the notation Vn = [F{n}} introduced in §1, and note that
+     =
+Vn  a (mod d) holds if and only if { - } ^ \ ' ) \ < \ a—— >. From
+                                    IdJ    ^ d J    ( d )
+Lemma 4 we infer that
+
+(16)        #^N<n<N:^=a (mod d)\ = N + 0(N£-1)
+
+is valid uniformly for a € Z and 1 < d < F{N) ^ .
+
+     LEMMA 5. — Suppose that X = F(N). With r^(m) satisfying (14)
+and (15), we have for j = 1,2
+
+                      E (1^(^)1+|r,(^+1)|) «7Vf- 1 / 2 .
+                  ^JV<n<N
+
+
+
+         Proof. — We use the elementary inequality ^p{q) ^> g (log log q)~~1.
+By (14),
+
+          E i^")! « ^Oogiog^)2 E
+         ^N<n^N                                                ^N<n<N
+                                                               £
+                                                                              E ^^^
+                                                                              ^p          ,           gr
+                                                                    ~     g=0 (mod r)
+
+
+
+                              « P-^loglogX)2                        ^         ^ ^^l^.
+                                                                ^N<n<Nq<P/r                       '
+
+A routine transformation in conjunction with Lemma 4 shows that
+
+
+            E E^'EEl E '
+          ^N<n<,Nq<P/r        '                  q<P/rd\rq q            ^N<n<N
+                                                                    I/TI=O (rnod d)
+
+
+                                                      1
+                                        « -^ -^ ^
+                                          EE'f^-  z
+                                                  V d   )
+                                                        )  z
+                                                 q<P/rd\rq '        v                         /
+
+
+                                                 N
+                                        «             E g-'^r^+^r^- 1 ).
+                                                      g<P/r
+
+Now use d{rq) < d(r)d(q) and similarly for o-(rq). Well-known divisor sum
+estimates then bound the previous sum as
+
+
+                  « ^f^E^+^^E ^                                                q
+                         \        1<P       ••                      I^P/r             )
+
+                          e             2              i   a    )
+                  <    Nr (logP) +N£-' P ^ -.
+                                         f
+               GOLDBACH NUMBERS IN SPARSE SEQUENCES                               361
+
+
+
+But a(r) < r log log r. Since r < P we deduce
+
+                Y,       |ri(^)| «^P e - l +A^- l (loglogX) 3
+               jN<n^7V
+
+
+which is more than required. The argument is exactly the same if i/n is
+replaced by v^ + 1.
+     The estimation of F^ requires a little more care. We begin as before
+and find that
+
+         E      1^(^)1     « r(loglogX)2              ^          ^        ^
+                                                                          9
+        ^<"^                                      ^<"^^(;n:^)
+
+                           « r-^loglogX)2 2—^
+                                          ^                    V
+                                                               Z-^/
+                                                                      (
+                                                                        ^)
+                                                                        Q,2
+                                                     q>P/r^N<n<N
+
+(17)                       < ^~ l (loglogX) 2 (Zl+Z2),
+where
+
+   ^=          E         E ^ % = E £ (•^':).
+         P/r<g<Xi/3 57V<n^^V        '                  j N<n<N q>X^/^         q
+
+
+
+
+For notational convenience, we temporarily write V = X1/3. We estimate
+Zi in the same way as we treated Fi; this gives
+
+                z
+                   ' ^        E E^
+                          P/r<q<Y d\qr    -1
+                                                   E i
+                                                 ^N<-n<N
+                                               i/n=0 (mod d)
+
+
+
+                     «    N    ^ f^+f-i^).
+                              p/^y^ ^  ^2 ^
+
+(Note that Yr ^ YP < ^/X, so that Lemma 4 is applicable for all relevant
+d.) Proceeding as with the estimation of Fi we now find that
+
+(18)                Zi < N(d(r)rP-1 + f-^r)) logX.
+
+     Turning our attention to Z^, we first use (^n,gr) < (^n,g)(^n,r) and
+observe that for any m G N one has
+
+
+         E^ = E^ E ^E^E^- 2
+         9>y                d{m
+                                    ^O^dd)              ^l"1    ^^
+
+                                    y-l          d-l<y-l
+                      « E     dim
+                                          +E
+                                           d|m
+                                                               ^)-
+                              d<Y          d>Y
+362                         J. BRUDERN, A. PERELLI
+
+
+
+Trivial bounds then immediately yield
+
+(19)           Z2 «Y- 1       ^     (^, r)d(^) « X6- ^ N.
+                           ^N<n^N
+
+From (17), (18) and (19) we obtain
+
+                          E       |r2(^)|«A^- 1 / 2 ,
+                       ^N<n<N
+
+and as before, the same bound holds if Vn is replaced by v^ + 1- The proof
+of Lemma 5 is complete.
+
+      To extract a lower bound for the major arcs contribution, we also
+require an upper bound for R\{m) when m is odd, which is superior to
+what is obtainable from the previous lemmata. We can supply the required
+estimate only on average. With this mind, we write ^ for the unique odd
+integer from the set {z/^, ^ + 1}, and recall that i>n is the even integer in
+this set. In this notation, our result is
+
+       LEMMA 6. — For all but 0(N£~1/12) values ofn e \-N, 7v1 one has
+                                                      \- Zi  j
+                            J?i(^)<X^- 1 / 8 .
+     We postpone the proof to the next section; it will transpire later
+that Lemma 6 is more like a minor arc estimate. We can now deduce the
+important
+     LEMMA 7. — Suppose that 6 > 0 is sufficiently small. Then, for all
+but 0{N£~1/12) values ofn with \X < F(n) < X one has
+
+                     ^l(^)+-Rl(^+l)>^- l / l o .
+     Proof. — In view of Lemma 6 it suffices to show that R\(v-n} ^
+X£~1/10 for all but 0(N£~1/12) values of n in the relevant range. We
+consider various cases.
+     (i) First suppose that the exceptional character does not exist. Then,
+by Lemma 2,
+
+                Rl^n) > WVn) + 0 (XC-01/66^———} ;
+                                 \         ^(^n) )
+
+
+                           m
+but               G(m) > ———         for m = 0 (mod 2),
+                         (p(m)
+
+and hence Ri(i>n) ^> X for all n with -X < i>n ^ X .
+                                        ^
+                 GOLDBACH NUMBERS IN SPARSE SEQUENCES                    363
+
+
+
+      (ii) We may now assume that the exceptional character exists. More-
+over, by Lemma 5 we may also assume that
+                                   1 9
+                          |r,(i/j| ^ f- /      (j=i.2)
+since the number of n violating this is acceptable. By Lemma 3 we then
+infer that
+
+     Rl(Vn) = Vn<S(l>n) + Z(l>n)6(i>n) + C>(xf- 1 / 9 )
+
+
+(20)     ^(w"^^))^^^)^-^-^10^)-
+The argument now bifurcates again.
+        (ii a) Suppose that (z>n,r) = 1. Then, by (12) and (13),
+
+                             ©(^)    « /
+                             •^\*'n/ ^-^ -fe-T
+                                            ~ \ ————
+                                                 / ~\o
+                                                     2
+                                        <^n) ^(r)
+and the bound |J(^n)| <: i>n is trivial. The term I(i>n)G(^n) can therefore
+be absorbed into the error term in (20). Moreover, (10) shows that r ^>
+(log?)3/2 from which we see that ——^   r
+                                          < (log?)"1. We can now argue
+                                     ^( )
+as in case (i) to show that Ri(i>n) ^> X for all n under consideration.
+     (ii b) We may now assume that {pn^) > 1- Then \{i>n) = 0, and
+the middle error term in (20) vanishes. Now, by (11) and (12) we find (see
+[MV], (8.5))
+(21)                    i6(^)i <©(^n) n —i'
+                                         P\r,pyPn,p>3 p
+
+If the product is non-empty, then |©(z>n)| < -^G(i>n), and we recall that
+ ^                                                      o
+|^(^n)| < ^n- Hence
+
+                        ^©(^)+A^)6(^) > J^e^n)      0
+
+and, as before, (20) shows that R\(i>n) ^> X for all n under consideration.
+      (ii c) We may now suppose that the product in (21) is empty. In this
+case we have p\i>n for any prime divisor p > 3 of r, and r is the modulus of
+a real primitive character. Hence r = 2ku where u is odd and squarefree,
+and k < 3. Thus, if the product (21) is empty, we must have (^n,r) > —r.
+With the aim of showing that this happens only for very few n, we estimate
+the sum
+                                                                 d
+                  E= E (^")=E
+                    r     ^N<n<,N             d\r   ^N<n<N
+                                                            E     -
+                                             CK7V
+                                                  i^=0 (mod d)
+364                           J. BRUDERN, A.PERELLI
+
+
+
+
+By (16),
+
+             ^ < $^(^+^~ 1 ) <^d(r)N-{-a(r)N£-1
+                      d\r
+                     d<N
+
+and hence
+
+(22)   #^N<n<N: ^,r)^^«d(j;)-N+a(p.N£-\
+
+
+If r > f 1 / 7 , say, then it follows from (22) that the product in (21) is empty
+only for acceptably few values of n.
+     (ii d) We are now reduced to the case where r < f 1 / 7 and where the
+product in (21) is empty. In this case, we note that I(m] < m^ whence
+
+   i>n@^n) + I(Vn)G{Vn) > 6(^)(^ - ^) » (1 - /3)^(log P) -u———
+                                                         ^n)
+
+(compare with (6.21) of [MV]). From (20) we now infer that for j X <
+^n < X one has
+
+Ri(i>n) » (1 - /3)(logP)X-^- + 0(X8-1/9)
+                             ^n)
+
+
+                                        +o(Xe-^(logP)(l-^)^).
+
+For sufficiently small 6 the last error term will not exceed j times the
+leading term. Moreover, by (10),
+
+             1 - ft > r-^logr)-2 > ^-^(logAO-^3-2^.
+
+It follows that Ri(i>n) > X£~1/10, as required. This completes the proof
+of Lemma 7.
+
+     We are now able to estimate the major arc contribution to (6). In (8)
+we take v = F(n). Then, if
+
+(23)                        A < {F{n}} < 1 - A,
+
+we deduce from (8) and (2) that
+
+            / ^(^(^(-aF^)) da = R^) + Ri^n + 1),
+            J^
+and we can apply Lemma 7. However, if n violates (23), then [F(n)} < A
+or {F(n)} > 1 — A. By Lemma 4, the number of such n does not exceed
+0(7vA + N£~1). We can now conclude as follows:
+                 GOLDBACH NUMBERS IN SPARSE SEQUENCES                           365
+
+
+
+       LEMMA 8. — Suppose that 6 > 0 is sufficiently small, and that
+
+                                      A=£-1/8.
+
+Then, for all but 0(N£~1/12) values ofn with -X < v^, < X one has
+                                                                Zi
+
+
+                    { S(a)2K(a)e(-aF(n)) da > Xf-1/10.
+                   Jyi
+
+
+
+                                 5. The minor arcs.
+
+      In this section we complement the results of Lemma 8 with an upper
+bound for the contribution from the minor arcs. The argument is essentially
+the same as in [BP] but we provide the details for completeness. The first
+step is to reduce to a finite interval. By (4), for k € N we have
+  /.                                              rk+i
+                                                  rk+l | C / ^ \ | 2
+ /              \S(a)2K(a')\da < A-1 /                   —^§-da < A-^-^logX.
+ Jk<\a\<k-^-l                                    Jk         W
+
+We sum over k > P. Then, writing
+
+                                   m=nn[-P,P]
+we deduce that
+
+       /^(^^(^(-a^da^ / S{afK(a)e(-av) da + o( xlogx )                 v
+       Jn                                  Jni                             AP   /
+(24)
+for any v C R.
+       We now consider
+
+(25)             5=          ^     | / S{a)2K{a)e(-aF(n))da\
+                         i         'vnl
+                                     Jni
+                      ^N<n<N
+
+Squaring out brings in the sum
+
+                             $(a) =          ^         e(aF(n))
+                                       ^N<n<N
+
+and yields
+
+(26)         E= [        [ S(a)2S(-/^)2<S>(a-/3)K(a)K(-(3)dadi3.
+                  «/ni«/ni
+366                                J. BRUDERN,A. PERELLI
+
+
+
+In Theorem 2 we take c == 1 - 36. Then, for all (a, /?) € n2 with |a - /3| >
+X36"1 we have ^(/3 - a) < -/V<?~1. Therefore, this set contributes to (26)
+at most
+                     00                 2
+         <7V£- 1
+
+                      ^ \S(a)2K{a)\da) ^ N X2 (log X)2 S-1.
+                            -00                        /
+
+
+
+
+On the complementary set we have [a — /?| < X36~l. By a change of
+variable we see that this contribution to (26) is bounded by
+
+(27)      N ( ^(a^K^da sup                                 /            |5(/3)|2^;
+           Jni                              oi            J
+                                                 (Q'-X^-^Q'+X36-1)!^!
+
+here we have estimated <I>(a — f3) and K((3) trivially. By Vinogradov's
+estimate for trigonometric sums over primes, |5'(/3)|2 <€ X 2 P -l (logX) 8
+uniformly for /3 € HI (see Vaughan [Va], Theorem 3.1), and hence (27) is
+
+       <7V( F \S(a)2K(a)\da)(X2P-l(\ogX)s)X36-l<^NX2-26.
+           ' J —00
+
+
+
+
+     This shows that 5 < NX2(\ogX)2£~l. From (24) and (25) we finally
+deduce via a standard argument that the inequality
+
+                     | ( S(a)2K{a)e{-aF(n))da < X£-1/3
+                     • Jn
+
+
+holds for all but 0(A^~1/4) values of n e \-N, 7v1. When combined with
+Lemma 8 and (6), it follows that r(F(n)) > 0 for all but 0(NS~1/12) values
+of n with -X < Vn ^ X. A routine dyadic dissection argument completes
+          ^
+the proof of Theorem 1.
+
+
+                              6. Proof of Lemma 6.
+
+
+       The basic observation is that for odd m one has
+                                  r1
+                                   / S(a)2e(-am)da==0
+                                  Jo
+so that
+(28)             fii(m) = -                 S{a)2e{-am)da == -R^(m),
+                                   J vc\.
+
+say, where m = n n [0,1].
+                     GOLDBACH NUMBERS IN SPARSE SEQUENCES                                    367
+
+
+
+       Now let
+
+                    A/e   =      ^n: ^ < n < 7 v , ^ = 0 ( m o d 2 ) ^
+
+
+                    A/o   ==     ^ n : ^N < n < 7 v , ^ E E l ( m o d 2 ) ^ .
+
+
+       We proceed to show that
+
+(29)                       ^|^(^+l)|2               « NX^S-1/3
+                          neA/e
+
+(30)                              E |^n)|2          «    NX2^/3.
+                                neA/o
+
+
+But ^ + 1 = ^ when n € A4, and ^n = ^ when .A/o. Therefore, by (28),
+(29) and (30) we get
+
+                                 E       l^iK)!2^^-1/3,
+                               ^N<n<,N
+
+and Lemma 6 follows easily.
+      It remains to establish (29) and (30). We shall concentrate on the
+"even case" (29), the alterations for the cognate (30) will only be indicated.
+We shall again use Lemma 1, with a different kernel. Let w(a) be the
+function defined in (2), and put
+
+(31)                                 We(a) = w ( 2 a + l ) .
+
+Then We(a) == 0 for a < -1 or a > 0, We(a) == 1 for ^A - 1 < a < - A ,
+
+and We (a) is continuous and linear in the intervals - — , 0 , - ! , — - 1 .
+                                                                 L           J L             J
+Its inverse Fourier transform is
+              oo                       1 /•00   /1          \
+K^a) =
+          /   -00
+                    We(/?)e(/?a) d{3 = , / w(^e ( - ($ - l)a ) ^
+                                           ^ J-00          \2            )
+
+
+                                                                       1 /         Q; \   /' a \
+                                                                     '^(-i^b)
+with ^(a) given by (3). Hence (4) is valid for Ke{a) in place of K{a).
+     In Lemma 1 we take h(a) = S(a)2 when a € n, and /i(a) = 0
+otherwise. Then, since Ke(a) = We(a) by construction, we have
+
+        j S(a)2K^a)e(-aF(n))da = We({F(n)} - l)R^n 4-1).
+368                              J. B R U D E R N , A . P E R E L L I
+
+
+
+
+Summing over n we find that
+
+(32) V \R^n+^\2= E I [s(a)2K^a)e{-aF{n))da\0(R)
+       - */•                   -^ A/-   ^n
+      n6A/e                    n€^Ve
+
+where ^ is the contribution from n with 0 < We({F(n)} - 1) < 1. This
+happens only for 0 < {F(n)} < -, or 1 - -. < {F(n)} < 1, and by Lemma
+4 the number of such n is 0(^VA + N£~1). Combined with the trivial
+bound
+                 \R2(m)\<
+                   ^[m)\ S ( ^(a^da^X^gX
+                            Jo
+this yields
+(33)                R < (^VA + Tvf-^X^logX) 2 .
+We note that A is again freely at our disposal, and we now take
+(34)                                    A=f-1/3.
+
+Then (33) is certainly acceptable.
+     As in §5 we now remove a tail from n. We remarked earlier that (4)
+holds with Ke(a) in place of K{a). Arguing as in §5 we find that
+                    r°°                                                 1
+                     / ^(^^(o^dc^XlogJ^yA)- 1 .
+                    JY
+ Therefore, if n-2 == n H [-V, V], we have
+
+ I SS{afK^a)e{-aF(n})da
+
+                  «| I S{a)2K^a)e{-aF{n))da\X2{logXf(Y^)-2.
+                       ' Jn2
+                 1 2
+ We take Y = f / . Then, by (34), (33) and (32),
+
+         Y. \R^n^< E I / S^afK^W-aF^da'+NX^-^
+         '~^.                   „,- »/• ' Jn-z
+        nGA/e                   neA/e '/n2
+ (35)
+         Squaring out now brings in the exponential sum
+ (36)                           ^e(c^) = ^ e(aF(n)),
+                                                 n€A/e
+
+ and further progress with (35) will depend on a successful estimate of this
+ sum.
+
+     LEMMA 9. — Let a € R with \a\ < X6. Suppose that |^e(^)l >
+ ^-1/3 j^ ^.e ^ an integer ^ with \h\ < ^ 2/3 and a--h <, X6-1.
+                          GOLDBACH NUMBERS IN SPARSE SEQUENCES                                  369
+
+
+
+      We prove Lemma 9 in the next section, and proceed directly with
+(35), arguing as in §5. Squaring out yields
+
+(37)                  (     f S(a)2S{-(3)2K^a)K^-(3)W-a)dad^
+                     J ll2 J tl2
+
+
+
+and we begin by considering the subset of all (a, f3) C n| with \^e(l3—a)\ <
+NE~2/3. The contribution of this set to (37) is
+
+                                   < A ^ - 2 / 3 ( / > \S{aYK^a)\da\2,
+                                                        «/tl2
+
+
+
+
+and since |J<e(oQ| <. ~ ^ ( i we have
+
+(38)            ( |5(a)2^e(^)|^< F \S{2a)2K(a)\da<^X\ogX.
+               Jn^                                      J—oo
+
+Therefore, the total contribution of pairs (a,/?) G n| with \^e(f3 — a)\ <
+N£-2/3 is
+                          «7VX 2 f- 2 / 3 (logX) 2 ,
+which is acceptable.
+     It remains to consider the set where \^e(f3 — a)\ > N£~2/3. Here we
+estimate ^e(/3 — a) trivially, but by Lemma 9 we can deduce that the total
+contribution to (37) of the set in question is
+
+^/^(a)2^^!^ ^ l)sup                                                                (        |^)|2^.
+                                                           a
+       i/llo                            1 1 i^/.o
+                                                2 /3i           ^              J
+                                       \h\<€ /                      ^ ^ ^_^6-i ^ ^ ^+X^-i)nn2
+(39)
+Again, by Vinogradov's estimate we have S(f3) <^ XP~^(\ogX)4' uni-
+formly for f3 C Ha, hence by (38) we have that (39) is
+
+                      < NX\ogX£<2/3X6-lX2P-l(\ogX)s < X2-^.
+
+     Collecting these results, we see that (29) follows from (35). To deduce
+(30) one merely has to replace We(a) with Wc^oQ = We(—a) in the above
+argument.
+
+
+                                   7. Another exponential sum.
+
+
+      It remains to establish Lemma 9. We will remove the summation
+condition Vn = 0 (mod 2) implicit in (36) by a Fourier technique. We again
+use the function We{a) from the previous section.
+370                            J. BRUDERN, A. PERELLI
+
+
+
+       The function
+                              ^(a) =]^e(A;-2a)
+                                    fcez
+
+is continuous, of period 1 and vanishes on [-,!]. We write
+
+                              ^(a) = ]^c/ie(/ia),
+                                     /iez
+
+and by the Poisson summation formula, (4) and 1^(^)1 < - ^ f ^ ) ! we
+     . - i .                                           Zi   \ Zi / \
+see that
+(40)                   c^min^.A- 1 ^- 2 ).
+Here we take A = f-1/3, and recall that Vn = 0(mod 2) if and only if
+^ —— ^ < ^. By Lemma 4 and (31) it follows that
+
+          <W      =         ^     ^(^)e(aF(n))+0(7V£-1/3)
+                       ^N<n<N
+
+(41)              =    ^c^(a+ l /l)+0(^- l / 3 ).
+                       /iez
+
+      By (40) and the trivial bound |^(a)| < N we can remove from (41)
+all terms with \h\ > A-^V 3 = <f 2 / 3 . Now, if |a + ^h\ > X6-1 for all
+\h\ < S 2 / 3 , then |^(a+ j ^)| < A^f-1 for all h in this interval, by Theorem
+2. From (40) we then find that
+                       ^e(o0 < N£~1^-1 + A^-1/3,
+contrary to the hypothesis in Lemma 9. This completes the proof.
+
+
+                       8. Proof of Theorem 2.
+
+     In this section we deduce Theorem 2 from the following exponential
+sum estimate due to Karacuba [K].
+
+     LEMMA 10. — For given real numbers 6, G, 60 and 6 satisfying the
+inequalities
+               0<6 < 1 and 0 < e < ( 9 < 9 o < l ,
+let F = y(N,0,Q,QQ,6) be the set of all functions f(x) for which there
+exists a k > 3 such that f(x) is k-times differentiable on [N, 2N],
+                      fW(x)
+                                < TV-00^   {N < x ^ 2N)
+                       k\
+                  GOLDBACH NUMBERS IN SPARSE SEQUENCES                                  371
+
+
+
+and there exists a set S C { 1 , 2 , . . . , k - 1} with #S ^ 6k and
+
+                  N-08^         j
+                                  ^^ ^N-^                    (N<x^2N)
+                                    s\
+for all s 6 S. Then there exist constants B,c > 0, depending only on
+0, 9,9o and 6, such that for any f e T one has
+
+                                 E         ^(^ <BN1-^.
+                              N<n<2N
+
+
+
+      Proof. — This is Theorem 1 of Karacuba [K], with a change of
+notation (our k is Karacuba's n + 1, CQ = 6, c\ = 9o etc.).
+
+       It transpires that precise information is required about the derivatives
+of the function F(x) = exp((loga;)7). It is, in fact, quite straightforward
+to determine the asymptotic behaviour of the s-th derivative F^^x) of
+F(x) as x tends to infinity, for fixed s. However, we will be forced to use
+Karacuba's estimate in the case where k tends to infinity with N , and must
+therefore supply estimates for F^^x) which are explicit in both x and s. It
+is this uniformity problem which is responsible for most of the complication
+below.
+      We now proceed to examine in detail the function F^(x). Most of
+the following is elementary calculus, but the situation is sufficiently tricky
+to justify a fairly detailed exposition. We begin with a preliminary analysis
+of the factorial polynomials defined by qo(x) = 1 and, for s > 1, by
+(42)                        qs(x)=x(x-l)...(x-s+l).
+For 1 <, t < s one has
+
+(43)                       qW(x)= ^                    n            ^-3)
+                                         ii,---,it jej(ii,...,it)
+
+where the sum is over all ordered ^-tuples ( % i , . . . , it) with all entries distinct
+and 0 <, ij <, s-1, and where J(z\,.... ^) is the complement of { z i , . . . , z^}
+in { 0 , 1 , . . . , s - 1}. This is readily established by induction on t, using
+Leibniz's rule. Here the number of terms in the sum over ij is s(s —
+1)... (s -1 + 1) = qt{s), and for x >, s we always have
+
+             II         (x - ^ < x ( x - l ) . . . ( x - ( s - t ) - ^ l ) = q,_t(x).
+        jej{ii,...it)
+
+
+From (43) we now deduce that for 0 < t < s and x > s one has
+(44)                    0 < q^^x) < qt(s)q,.t(x) < s^.^x)
+372                              J. BRUDERN, A. PERELLI
+
+
+
+(we proved this only when t > 1, but for q ^ ' = qs this is obvious from
+(42)). The upper bound in (44) is almost sharp.
+
+     LEMMA 11. — Let 7 > 0 and F(x) = exp((loga07). Then, for any
+s € N there are polynomials Qs,t (0 < t < s — 1) with real coefficients, of
+degree at most s — t and with no constant term, such that
+                                    s-1
+                                 ^; Y^
+                      F^W = F(T.S^ ^(log^-^^Oog^-
+                                   / ^
+                                                  1
+                                                    ).
+                             xx t==0
+
+These polynomials satisfy the recursion relations
+
+(45)            O.,o(0=^(0,        O.+i,.(0=^(7-l)$ ( 5 > 1 )
+
+and, for 1 ^ t < 5 — 1,
+
+(46)Q,4-i,t(0 = ($ - ^)Q.,t(0 + (7 - l)^-i(0 - (^ - l)Q..t-i(0.
+
+      Note that this is some sort of asymptotic expansion. We will see later
+that terms with t >, 1 have a negligible effect. Before we embark on the
+proof, we introduce some useful abbreviations which will be valid for the
+rest of the paper. Let
+
+                       L=\ogx,    ^=7-1,        ^=$(rr)=7^.
+
+           Proof. — We have
+
+(47)                    F\x) = F(x)- 7(log^-1 = F(^)
+                                 x               x
+which proves the lemma when s = 1, with Qi,o(0 = $•
+           Now suppose the lemma holds for s. Then, by (47)
+
+ F(s+l) =
+             ^ 1^ E^-^(O) = |M(^)|>-^)
+ +F(?)E (^Q's^'W - tL-^x-^,^))
+       x
+              ^s                           s
+
+ = ^ (E^^ - ^(o+E^^^-i^)-^-1)^-^))-
+       x
+                t=0                       T=l
+
+
+
+This establishes the formula for F^^^x) and (46). Moreover, we see that
+
+(48)                        Q,+i,o(0=(^-s)^o(0,
+                GOLDBACH NUMBERS IN SPARSE SEQUENCES                     373
+
+
+
+(49)             Qs+lM) - ^Q's.s-1^) - (S - 1)0^-1 (0.
+
+The first identity in (45) is immediate from (48) and Qi,o(0 = $• To verify
+the second identity in (45), we use (49) to confirm that Q2,i(0 == ^? which
+is the identity in question for s = 1. Now, if the second identity in (45)
+holds for s — 1 in place of 5, then (49) yields
+
+               Os+i,s(0 = v^qs-i(y) -(s- l)qs-i(^)f, = ^(^),
+
+as required.
+
+    LEMMA 12. — Let s C N, 0 ^ t <: s - 1 and j > 0 with t + j < s.
+Then, for 1 < 7 < 2 and ^ > s we have
+
+(50)                      |Q^(0|<22^^-,(0
+
+and
+(51)                           O^^O.
+
+     Proof. — Note that (51) is trivial since Qs,t is a polynomial of degree
+at most s — t.
+     The proof of (50) is by nested induction. First suppose that t = 0.
+Then, by (45) and (44) we immediately have (50) for all possible values of
+s and j.
+      We now proceed by induction on t, and assume that (50) holds with
+t replaced by t — 1, and all possible values of s and j. We have to verify
+(50) for all s > t + 1, and all 0 < j < s -1. First take 5 = ^ + 1 . Then,
+by the second identity in (45) (with s = t), the required estimate in (50)
+follows from the obvious inequality |9t(^)| < (t + I)2* (note that |^| < 1 so
+that |^(^)| <: t\ which is rather sharper). This verifies (50) for s = t + 1,
+and all j (note that only j = 0 and j = 1 are of interest).
+      With the value of t fixed, we now induct on s. We suppose that (50)
+is known for s (and all j), and proceed to verify (50) for s + 1 (and all j).
+Since s > t + 1, we can use the recursion formula (46). We differentiate
+(46) j times, using (51) whenever necessary and the obvious formula
+
+                 ^ (^ - a)5(0 = ($ - a)g^^) + ^-1)(0,
+
+to deduce that
+
+                ^i,<(0 = (^ - s)Q^ +J•Qi71)(0 + ^Q^l
+(52)                   +^0°Li(0 - (< - l)^-!^)-
+374                          J. BRUDERN, A. PERELLI
+
+
+
+     We now begin with j = 0. Then, for ^ > s + 1, we deduce from (46)
+and the induction hypothesis (which applies with t — 1 for all s and j)
+  I0.+u(01 < (^ - s)\Q^)\ + $|Q^_i(0| + (t - i)|Q^-i(0|
+  < ($ - 5)^-,(0 + ^-1^(0 + (t - l)^-2^.^)
+  = ((^ - s + t) - t)^-,(0 + (($ - 5 4-1) + 5 - t)^-1^-,^)
+  ^-^-i)^-2^!.^)
+  = (^ ^ ,21-1 ^ _ i)^-2)^_^) ^ (^ _ ^2t _ ts^q^Y
+
+Here we used ($ - s + t)qs-t(£) = 9s+i-t(0. Now, for ^ > 1,
+      ^ ^ ^-1 ^ ^ _ ^^2t-2 < ^ ^_ ^2^          ^ _ ^2t _ ^2t-l ^ ^
+
+
+and (50) follows for 5 + 1 in place of s when j = 0.
+      For j > 0 we can use (??), and the same reasoning produces
+
+ 10^(01 ^ (^ - ^)1^(01 +JlOi71)(01 +^t+-ll)(01 +jlQ^-i(01
+ +(^ 2- l                        2 +^2^-l^-^+l(0
+       i)10^-i(01 ^ (^ - ^^^.-.-.(O
+ +^ ^- ^-,-,(o + a + ^ -1)^- ^!-,-^).
+As before, we use brute force to generate terms with 9s+i_^(^). This
+yields
+              10^u(01 < B.q^.t-^) + B2^-<-,(0.
+The coefficient of qs-^-i-t-j^) is
+      Bi = 52^' + (j 4- 1)52^-1 + (j + t - 1)52^-2 ^ (5 + l)2^',
+
+and the coefficient of gs_t-j($) is
+
+                 ^2 = 52^' - {t +J)(S2^ + 5 2 ^- 1 ) < 0.
+
+This establishes (50) for s + 1 in place of s, for all j > 1. This completes
+the inductions on s and t.
+
+    We can now deduce a precise asymptotic formula for F^^x). In
+Lemma 11 we single out the term with t = 0 to obtain
+
+                       ^)(^)=^(^)+^))
+                             x
+where
+                                      S-1
+
+                       E(x)=^L-tQ^).
+                               t=i
+We bound E{x) with the aid of Lemma 12. When ^ > s this yields
+
+
+              iwi ^ E (^)^-^) ^ ^-^) E (^y
+               GOLDBACH NUMBERS IN SPARSE SEQUENCES                         375
+
+
+
+(note that $ ^ s is needed in Lemma 12 as well as to arrange that qs-t(^) <
+9s-i(0 for 1 < t < s - 1). If we also suppose that s2 < -L, we can sum
+the geometric series and may conclude as follows
+
+      LEMMA 13. — Let 1 < 7 < 2 and s e N. Then
+
+                       F^^)=F^l^)^E(x))
+
+where, for 7(loga;)7-1 > s and s2 < . log x, the function E(x) satisfies
+
+                                 2s2
+                      {E{X)
+                             ^ iog^-1^10^)7"1)-
+                                                      o
+      One comment might be useful. When 7 < - the condition s < ^
+implies s2 < ^(loga;)27-2 < -^\ogx for x > 2-0(7), so in this range for 7
+only the condition ^ > s is relevant in Lemma 13. Moreover, still subject
+to ^ > 5, we then find
+
+   ^)^(^-^.-,(o)^,.-^-.4).
+The factor <7s_i(^)(^ - s -h j ) is an increasing function for ^ > 5, and takes
+the value j s! at ^ = 5. This proves the following
+
+                                      0
+
+     LEMMA 14. — Let 1 < 7 < -. Then there is a constant XQ == ^0(7)
+                             ^
+such that for all s e N and a22 a- > a-o with 7(loga:)7~l ^ s one has
+
+                              F^(x) ^ F(x)
+                                 S\       ~   IXs
+
+
+
+       It would be easy to establish a complementary upper bound for F^ (x)
+from the above results. However, such a bound would be subject to ^ >_ s
+which is inappropriate for our later purposes. Although it would be possi-
+ble to provide the required estimate by a variant of the previous argument,
+it is much simpler to estimate F^(x) by Cauchy's integral formula.
+
+    LEMMA 15. — Let 7 > 1 and N ^ 10. Then, for all s e N and
+N < x <2N we have
+                         F^(x}            / 2 v
+                         —r- ^(.v)^)-
+376                            J. BRUDERN, A. PERELLI
+
+
+
+      Proof. — The function F(z) = exp((log^)7) is a holomorphic func-
+tion of z = x + iy in the half-plane x > 1, denned by analytic continuation
+of the real function. Let C be the oval in the complex plane, consisting of
+all points of exact distance j7V from the real interval [N,2N]. Then, for
+N ^ x ^ 2N, by Cauchy's formula
+                      F^\x) _       1   r      F(C)
+                                                          dC.
+                        S!
+                                —
+
+
+
+
+                                   2m
+                                   27TZ Jc
+                                        Jc (C - ^ s+l
+                                        /
+
+
+
+
+Since \(; - x\> ^N for all < € C, and the length of the oval is (TT 4- 2)N,
+we have
+                       F^(r}         / 9 \s
+                       ^i-^)'?^)!-
+It is readily confirmed that
+
+                             |F(^)|<exp(|log^)
+
+holds for all z G C. Now write z = re^. For z eC one has \(f)\ < - whence
+|log2;| < logr+ i < log(3A^). Consequently, \F(z)\ < F(3N) for z € C,
+and the lemma follows.
+
+      We now establish Theorem 2 by an appeal to Lemma 10. The follow-
+ing result will be useful.
+
+       LEMMA 16. — Let a > 0, 0 < i9 < 1 and write a = N~A.
+       (a) Let s be a natural number satisfying
+
+(53)             .(l-.)+A>( s + l ) l o g 2 +( l o g 3 A ;)\
+                                logA^              log TV
+Then
+                    aF^^x)
+                           < N-^              {N < x ^ 2AQ.
+                      s!
+       (b) Let s be a natural number satisfying s <, 7(log7V)7-l and
+
+(54)                s(l - ^ + A ^ (log AT)7-1 - ^.
+
+Then
+                    rrF^fr^
+                    — — W >7V-^             v{ N < x < 2 N )
+                                                           / .
+                      s\  ~                           ~
+
+     Proof. — For (a), use Lemma 15. Then, it suffices to verify the
+inequality
+                         2aF(3N)(^)s <^N-^
+                GOLDBACH NUMBERS IN SPARSE SEQUENCES                       377
+
+
+
+which after taking logarithms is seen to be equivalent with (53). For (b),
+use Lemma 14 and note that x~SF(x) is increasing for x > TV, since s <,
+7(logA/')7-"l. Therefore, it suffices to show that
+                               aF
+                                   ^ >^
+                                 2N8   ~
+which is equivalent with (54).
+
+        To prove Theorem 2 it will suffice to consider a > 0. Choose 0 with
+0 < 6 < , and C < 7(1 — 0), which is always possible. We now proceed to
+                                        1 3
+show that the function aF(x) is in F{6^ -0, -,<5), where
+
+
+                      ^^-^(r^-r^)-
+for all a e [F^N^^F^N^}. This will establish Theorem 2.
+                                                      3      1
+      We confirm the hypotheses of Lemma 10 with 9o = -, 9 = -6 and
+k == [9(logAO^-1] + 1. With a = N-A we have
+
+(55)                  -COog^-^A^c 0 ?^.
+                                                logYV
+
+
+Take ^ = . and s = k in Lemma 16 (a) to verify a——w < N-^, as
+required.
+        We now wish to determine the values of s for which we have N~08 <:
+ ——-U- ^ N - ^ 0 8 , for N < x < 27V. Suppose for the moment that
+       Si
+
+
+
+s < '•/(logTV)7"1. Then the required inequalities will follow from Lemma
+16 provided we have
+
+
+(^-^U™-)-. r1^)---^).
+(56)
+
+      Note that the choice for 0 implies that all s satisfying (56) will auto-
+matically satisfy s < 7(log7V)7-l < fc; this follows from (55). Therefore,
+in Lemma 10 we can take S as the set of all s satisfying (56). It is then
+readily seen from (56) and (55) that #S > 6k, at least for large N. All
+the conditions of Lemma 10 are satisfied, and the proof of Theorem 2 is
+complete.
+378                            J. BRUDERN, A.PERELLI
+
+
+
+                                BIBLIOGRAPHY
+
+[BHP] R.C. BAKER, G. HARMAN, J. PINTZ, The exceptional set for Goldbach's problem in
+    short intervals - Sieve Methods, Exp. Sums and Appl. in Number Theory, ed. by
+    G.R.H. Greaves et al., 1-54, Cambridge U. P. 1997.
+
+[BP] J. BRUDERN, A. PERELLI, Goldbach numbers and uniform distribution mod 1, Ana-
+     lytic Number Theory, ed. by Y. Motohashi, 43-51, Cambridge Univ. Press. 1997.
+
+[D]   H. DAVENPORT, Multiplicative Number Theory, 2nd ed., Springer Verlag, 1980.
+
+[G]   D.A. GOLDSTON, On Hardy and Littlewood's contribution to the Goldbach con-
+      jecture, Proc. Amalfi Conf. Analytic Number Theory, ed. by E. Bombieri et al.,
+      115-155, Universita di Salerno 1992.
+
+[HL] G.H. HARDY, J.E. LITTLEWOOD, Some problems of "Partitio Numerorum", V: A
+     further contribution to the study of Goldbach's problem, Proc. London Math. Soc.,
+     (2) 22 (1923), 46-56.
+
+[K]   A.A. KARACUBA, Estimates for trigonometric sums by Vinogradov's method, and
+      some applications, Proc. Steklov Inst. Math., 112 (1973), 251-265.
+
+[LP] A. LANGUASCO, A. PERELLI, A pair correlation hypothesis and the exceptional set in
+     Goldbach's problem, Mathematika, 43 (1996), 349-361.
+
+[MV] H.L. MONTGOMERY, R.C. VAUGHAN, The exceptional set in Goldbach's problem,
+    Acta Arith., 27 (1975), 353-370.
+
+[P]   A. PERELLI, Goldbach numbers represented by polynomials, Rev. Math. Iberoamer-
+      icana, 12 (1996), 477-490.
+
+[Va] R.C. VAUGHAN, The Hardy-Littlewood Method, Cambridge Univ. Press., 1981.
+
+[Vi] I.M. VINOGRADOV, Selected Works, Springer Verlag, 1985.
+
+
+
+
+                               Manuscrit recu Ie 23 avril 1997,
+                               accepte Ie 2 decembre 1997.
+
+
+                               J. BRUDERN,
+                               Universitat Stuttgart
+                               Mathematisches Institut A
+                               D-70550 Stuttgart (Germany).
+                               bruedern@fermat.mathematik.uni-stuttgart.de
+                               &
+                               A. PERELLI,
+                               Universita di Genova
+                               Dipartimento di Matematica
+                               Via Dodecanese 35
+                               1-16146 Genova (Italy).
+                               perelli@dima. unige. it
+

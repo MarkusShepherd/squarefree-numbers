@@ -1,0 +1,1 @@
+{"verdict":"pass","severity":"none","location":"","objection":"No gap found. Assuming P7 and P8 as supplied, the proof establishes both bounds and the stated consequence with the required ranges, uniformity, and constants. No external literature is used.","other_issues":[]}

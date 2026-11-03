@@ -1,0 +1,1993 @@
+                                                        13
+                                    Conditional estimates
+
+
+
+
+                                    13.1       Estimates for primes
+        From the explicit formula for ψ0 (x) we see that the contribution to the error
+        term ψ0 (x) − x made by a typical zero ρ = β + iγ is −x ρ /ρ. This has absolute
+        value x β /|γ |, which diminishes as |γ | increases, but it depends much more
+        sensitively on the value of β. We recall that if ρ is a zero, then so also is
+        1 − ρ. Since at least one of these has real part ≥ 1/2, we see that the Riemann
+        Hypothesis represents the best of all possible worlds, in the sense that the error
+        term in the Prime Number Theorem is smallest when the Riemann Hypothesis
+        is true. By Theorem 10.13 we ﬁnd that
+                               1           log 2n
+                                                            (log T )2 .            (13.1)
+                               ρ   |ρ|    1≤n≤T
+                                                    n
+                                  |γ |≤T
+
+        Thus by taking T = x in Theorem 12.5, we obtain
+        Theorem 13.1           Assume RH. Then for x ≥ 2,
+                                                              
+                                    ψ(x) = x + O x 1/2 (log x)2 ,                                  (13.2)
+                                                              
+                                    ϑ(x) = x + O x 1/2 (log x)2 ,                                  (13.3)
+                                                               
+                                    π(x) = li(x) + O x 1/2 log x .                                 (13.4)
+           In Chapter 15 we shall show that these estimates for the error term are within
+        a factor (log x)2 of being best possible, which is not surprising since each zero
+        individually contributes an amount of the order x 1/2 .
+        Proof The second assertion follows from the ﬁrst by Corollary 2.5. By inte-
+        gration by parts we ﬁnd that
+                         x
+                             1          ϑ(x) − x      2      x
+                                                               ϑ(u) − u
+              π(x) =             du +            +        +           2
+                                                                        du, (13.5)
+                        2 log u          log x      log 2   2 u(log u)
+        and so the third assertion follows from the second.                      
+
+                                                         419
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        420                                  Conditional estimates
+
+
+          The factor (log x)2 in (13.2) can be avoided if we take smoother weights.
+        For example, put
+                                           
+                                  ψ1 (x) =    (x − n)(n).                  (13.6)
+                                                            n≤x
+
+        Then we have the explicit formula
+                              x 2  x ρ+1      ζ     ζ              
+                  ψ1 (x) =       −            − (0)x + (−1) + O x −1/2                              (13.7)
+                              2    ρ ρ(ρ + 1)  ζ      ζ
+
+        for x ≥ 2. Assuming RH, it follows easily that
+                                          1           
+                                ψ1 (x) = x 2 + O x 3/2 .                                            (13.8)
+                                          2
+           Assuming RH, we can also describe more precisely the relationships between
+        the three standard prime-counting functions ψ(x), ϑ(x), and π (x).
+
+        Theorem 13.2           Assume RH. Then
+                                                                  
+                                      ϑ(x) = ψ(x) − x 1/2 + O x 1/3 ,                               (13.9)
+
+        and
+                                                                       1/2 
+                                                          ϑ(x) − x       x
+                               π(x) − li(x) =                      +O           .                  (13.10)
+                                                           log x       (log x)2
+        Proof       By an easy elaboration on Corollary 2.5, we see that
+                                                               
+                               ϑ(x) = ψ(x) − ψ x 1/2 + O x 1/3 .
+
+        Hence (13.9) follows immediately from (13.2). To obtain (13.10), put
+                                                       x
+                          ϑ1 (x) =  (x − p) log p =       ϑ(u) du.
+                                            p≤x                           2
+                                                                      
+        By (13.8) and (13.9) it follows that ϑ1 (x) = x 2 /2 + O x 3/2 . By integration by
+        parts we see that the ﬁnal integral in (13.5) is
+                    
+                      ϑ1 (u) − u 2 /2 x      x
+                                               ϑ1 (u) − u 2 /2
+                                        +                      (1 + 2/ log u) du
+                        u(log u)2 2        2     (u log u)2
+                                                      x
+                                  x 1/2
+                                          +               u −1/2 (log u)−2 du
+                                (log x)2          2
+                                  x 1/2
+                                         .
+                                (log x)2
+        Thus (13.10) follows from (13.5).                                                               
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           13.1 Estimates for primes                                  421
+
+
+            As for primes in short gaps, we see from (13.4) that
+                                                         x+h
+                                                                 1                    
+                         π(x + h) − π(x) =                           du + O x 1/2 log x .
+                                                     x         log u
+        Here the main term on the right is larger than the error term if h ≥ C x 1/2 (log x)2 .
+        We can do slightly better than this by counting primes between x and x + h
+        with a smoother weight.
+        Theorem 13.3 (Cramér) There is a constant C > 0 such that if the Rie-
+        mann Hypothesis is true, then for every x ≥ 2 the interval (x, x + C x 1/2 log x)
+        contains at least x 1/2 prime numbers.
+        Proof Let h be a parameter to be determined, and put w(u) = 1 − |u − x|/ h
+        when |u − x| ≤ h, and w(u) = 0 otherwise. Then by three applications of (13.7)
+        we see that
+                         1
+            (n)w(n) = (ψ1 (x + h) − 2ψ1 (x) + ψ1 (x − h))
+          n              h
+                                                                             
+                              1  (x + h)ρ+1 − 2x ρ+1 + (x − h)ρ+1              1
+                      =h−                                              +O           .
+                              h ρ               ρ(ρ + 1)                       hx
+                                                                                                   (13.11)
+        Assuming RH, we note that the summand here is obviously
+                                                           x 3/2
+                                                                 .                                 (13.12)
+                                                            γ2
+        Moreover, if γ > x/ h, then the three terms in the numerator may have quite
+        different arguments, in which case the above estimate is the best that we can
+        assert in general. On the other hand, if γ is smaller, then some cancellation
+        must occur in the numerator. To see this, note that the summand may be written
+                                     x+h
+                                           (h − |x − u|)u ρ−1 du           h 2 x −1/2              (13.13)
+                                    x−h
+
+        assuming RH. This improves on (13.12) when |γ | < x/ h. We use this estimate
+        for the size of the summand together with Theorem 10.13 to see that the sum
+        in (13.11) is    hx 1/2 log x/ h. Hence if h = C x 1/2 log x, then
+                                                          h
+                                                (n) ≥ .
+                                      x−h<n<x+h
+                                                           2
+        To complete the proof it remains to estimate the contribution made by higher
+        powers of primes on the left-hand side. The number of squares in this interval is
+           log x, so the squares of the primes contribute an amount that is     (log x)2 .
+        For each k > 2 there is at most one k power in the interval. Moreover, if p k is
+                                             th
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        422                                  Conditional estimates
+
+
+        in the interval, then k    log x. Hence the higher powers contribute an amount
+                   2
+            (log x) , and the proof is complete.                                    
+
+           Although Cramér’s theorem is highly non-trivial, and is signiﬁcantly stronger
+        than anything that we know how to prove unconditionally, it is nevertheless
+        disappointing that it falls so far short of what we conjecture to be true, namely
+        that for every ε > 0 the interval [x, x + x ε ] contains a prime, for all x > x0 (ε).
+        In order to understand the weakness in our approach, write
+                                                    (x + h)ρ − x ρ
+                     ψ(x + h) − ψ(x) − h = −                            + ···.       (13.14)
+                                                    ρ          ρ
+
+        The contribution of zeros with |γ | > x/ h can be attenuated by employing a
+        smoother weight, but no amount of smoothing will eliminate the smaller zeros.
+        However, if |γ | ≤ x/ h then the argument of (x + h)ρ is near that of x ρ , so there
+        is some signiﬁcant cancellation in the numerators above. Indeed,
+                              (x + h)ρ − x ρ                x+h
+                                             =                    u ρ−1 du    hx −1/2
+                                    ρ                   x
+
+        if 0 ≤ h ≤ x and β = 1/2. Taking this a step further, we see that the above is
+
+                                         = hx ρ−1 + O(h 2 |γ |x β−2 ).
+
+        Thus the left-hand side of (13.14) bears a passing resemblance to
+                                                
+                                     −hx −1/2         x iγ ,                                       (13.15)
+                                                            |γ |≤x/ h
+
+        if we assume RH. Here the sum has xh −1 log x/ h terms, and with sums of
+        independent random variables in mind, we might guess that the above sum is
+            (x/ h)1/2+ε , which suggests
+
+        Conjecture 13.4 If 2 ≤ h ≤ x, then
+                                                                    
+                                   ψ(x + h) − ψ(x) = h + Oε h 1/2 x ε .
+
+           Although we expect there to be considerable cancellation in (13.15), any such
+        cancellation that might occur among the contributions of the zeros is discarded
+        in the proof of Theorem 13.3. Thus it seems that if we are to argue through
+        zeta zeros to obtain an improvement of Theorem 13.3, then we need not just
+        RH but also some deeper information concerning the distribution of the γ –
+        more precisely that the numbers γ log x are approximately uniformly distributed
+        modulo 2π. Although we cannot demonstrate that the desired cancellation
+        occurs for all x, we can show that there is considerable cancellation in mean
+        square.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            13.1 Estimates for primes                                                 423
+
+
+        Theorem 13.5             Assume RH. Then for X ≥ 2,
+                                                 2X
+                                                      (ψ(x) − x)2 d x           X 2.
+                                             X
+
+           Note that if we were to use the pointwise bound of Theorem 13.1 to bound
+        the left-hand side above, then we would obtain an estimate that is larger than
+        the above by a factor (log X )4 . From the above we see that ψ(x) = x + O(x 1/2 )
+        on average.
+
+        Proof        Take T = X in the explicit formula of Theorem 12.5. Then
+                                                   xρ
+                                  ψ(x) = x −              + R(x)
+                                                 |γ |≤X
+                                                        ρ
+
+        where
+                                                                                                      ∞             
+                2X                                                                    2
+                     R(x)2 d x         X (log X )4 +                         log p k         1+             u −2 du
+              X                                           X/2< p k <3X                              1
+
+                                       X (log X )4 .
+
+        On the other hand, the sum over zeros contributes
+                            2X     xρ 2                             1         2X
+                                                 dx =                                  x 1+i(γ1 −γ2 ) d x
+                            X    |γ |≤X
+                                        ρ                   γ1 ,γ2   ρ1 ρ2     X
+                                                           |γi |≤X
+                                                                                   1
+                                                           X2                                     .
+                                                                γ1 ,γ2 |ρ  ρ
+                                                                          1 2 | |2 + i(γ1 − γ2 )|
+
+        To complete the proof it sufﬁces to show that
+                                            1
+                                                                                < ∞.                            (13.16)
+                                        γ1 ,γ2 |γ1 γ2 |(1 + |γ1 − γ2 |)
+
+        In view of the symmetry of zeros about the real axis, we may conﬁne our
+        attention to γ1 > 0. For each such zero, we consider γ2 in various ranges. By
+        Theorem 10.13, the sum over γ2 < −γ1 is
+                               1              1          log n        log γ1
+                                                                                .
+                 γ2   |γ2 |(1 + |γ1 − γ2 |)   γ2   γ22
+                                                          n>γ1 n
+                                                                 2         γ1
+                  γ2 <−γ1                                   γ2 <−γ1
+
+        Similarly, the sum over those γ2 for which |γ2 | ≤ 12 γ1 is
+                                 1              1         1  log n                     (log γ1 )2
+                                                                                                    .
+                                 γ1     γ2       γ2        γ1 1≤n≤γ1 n                      γ1
+                                      0<γ2 ≤γ1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        424                                       Conditional estimates
+
+
+        The sum over those γ2 for which 12 γ1 < γ2 < 32 γ1 is
+                      1                           1                      log γ1  1                   (log γ1 )2
+                                                                                                                  ,
+                      γ1         γ2          1 + |γ1 − γ2 |                 γ1 1≤n≤γ1 n                   γ1
+                           |γ2 −γ1 |≤γ1 /2
+
+        and ﬁnally the sum over γ2 ≥ 32 γ1 is
+                                 1            log n                                  log γ1
+                                                                                              .
+                                            γ2            γ22      n>γ1   n2             γ1
+                                         γ2 ≥ 32 γ1
+
+        We sum these estimates, multiply by 1/γ1 , and sum over γ1 to see that the
+        expression (13.16) is
+                               (log γ1 )2   ∞
+                                                 (log n)3
+                                                          < ∞.
+                              γ1 >0 γ1
+                                     2
+                                             n=1
+                                                    n2
+
+        This completes the proof.                                                                                        
+
+            The oscillations of x iγ = eiγ log x become slower as x increases, since
+         d
+         dx
+            log x = 1/x → 0 as x → ∞. However, with the change of variable x = eu
+        we have x  iγ
+                           =e
+                        iγ u
+                                   , which is a periodic function of u. Put
+                                                        
+                                                     ψ eu − eu
+                                             f (u) =             .                                                (13.17)
+                                                         eu/2
+        Assuming RH, the explicit formula of Theorem 12.5 gives
+                                           eiγ u
+                                f (u) = −          + o(1)
+                                           ρ   ρ
+
+        as u → ∞. This provides a kind of Fourier expansion of f (u). Since
+              U +1                            eU +1                                           eU +1
+                                                                 dx                  −2U
+                     | f (u)| du =
+                             2
+                                                      (ψ(x) − x)2 2              e                    (ψ(x) − x)2 d x,
+             U                               eU                  x                          eU
+
+        Theorem 13.5 is equivalent (assuming RH) to the estimate
+                                                       U +1
+                                                                | f (u)|2 du      1.                              (13.18)
+                                                      U
+
+        By averaging | f (u)|2 over a longer interval we obtain not just an upper bound,
+        but an asymptotic formula.
+
+        Theorem 13.6 Assume RH, and let f (u) be deﬁned as in (13.17). Then
+                                         1                U                                m 2ρ
+                                     lim                      | f (u)|2 du =
+                                    U →∞ U            0                        distinct γ
+                                                                                            |ρ|2
+
+        where m ρ denotes the multiplicity of the zero ρ.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                              13.1 Estimates for primes                            425
+
+
+        Proof Since the explicit formula for ψ0 (x) is uniformly convergent in intervals
+        free of prime powers, and is boundedly convergent in a neighbourhood of a
+        prime power, it follows that
+                    U
+           1
+                        | f (u)|2 du
+           U    1
+                                    1              U
+               = lim                                    ei(γ1 −γ2 )u du + o(1)
+                 T →∞ γ ,γ
+                        1 2
+                                  ρ1 ρ2 U       1
+                      |γi |≤T
+                                                                           
+                    1  1                          1                    1
+               = 1−                 + O                   min   1,                 + o(1).
+                    U γ1 ,γ2 |ρ1 |2       γ1 ,γ2 |γ1 γ2 |          U |γ1 − γ2 |
+                                  γ1 =γ2                      γ1 =γ2
+
+        Here the sum over γ1 = γ2 is ﬁnite already when U = 1, in view of (13.16).
+        Since each term in this sum tends to 0 as U → ∞, it follows that
+                                  1 U                   1
+                             lim        | f (u)|2 du =               .
+                                                       γ1 ,γ2 |ρ1 |
+                            U →∞ U 1                               2
+                                                                          γ1 =γ2
+
+        Suppose that ρ = 1/2 + iγ is a zero, and that its multiplicity is m ρ . Then the
+        equation γi = γ has m ρ solutions for i = 1 and for i = 2. Thus there are m 2ρ
+        pairs (γ1 , γ2 ) such that γ1 = γ2 = γ , so we have the result.               
+            We now return to the distribution of primes in arithmetic progressions.
+        Theorem 13.7 Let q be given, and suppose that GRH holds for all L-functions
+        modulo q. Then for x ≥ 2,
+                                                                    
+                      ψ(x, χ ) = E 0 (χ )x + O x 1/2 (log x)(log q x) ,     (13.19)
+                                                1/2                 
+                      ϑ(x, χ ) = E 0 (χ )x + O x (log x)(log q x) ,         (13.20)
+                                                   1/2        
+                      π(x, χ) = E 0 (χ )li(x) + O x log q x                 (13.21)
+        where E 0 (χ ) = 1 or 0 according as χ = χ0 or not.
+        Proof For χ0 these relations follow from Theorem 1 and (12.14). Suppose
+        that χ is non-principal, and that χ ! is a primitive character that induces χ . Thus
+        χ ! is a character modulo d for some d|q, 1 < d ≤ q. By taking T = x in the
+        explicit formula for ψ(x, χ ! ), and appealing to Theorem 10.17, we see that
+                                           ψ(x, χ ! )        x 1/2 (log q x)(log x),
+        and then by (12.14) we have (13.19). By the triangle inequality, |ψ(x, χ ) −
+        ϑ(x, χ )| ≤ ψ(x) − ϑ(x). From Corollary 2.5 we know that this latter quantity
+        is x 1/2 , so (13.20) follows from (13.19). On inserting (13.20) into the identity
+                                        ϑ(x, χ )     x
+                                                        ϑ(u, χ )
+                            π (x, χ ) =          +              2
+                                                                  du,
+                                         log x      2 u(log u)
+
+        we obtain (13.21).                                                                          
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        426                                  Conditional estimates
+
+
+        Corollary 13.8 Let q be given, and assume GRH for all L-functions modulo
+        q. Suppose that (a, q) = 1. Then for x ≥ 2,
+                                           x                    
+                            ψ(x; q, a) =       + O x 1/2 (log x)2 ,       (13.22)
+                                         ϕ(q)
+                                           x                    
+                            ϑ(x; q, a) =       + O x 1/2 (log x)2 ,       (13.23)
+                                         ϕ(q)
+                                         li(x)                
+                            π(x; q, a) =       + O x 1/2 log x .          (13.24)
+                                         ϕ(q)
+            Note that trivially,
+                                                           
+                       0 ≤ ψ(x; q, a) ≤ (log x)                     1 ≤ (log x)(1 + x/q).
+                                                          0<n≤x
+                                                          n≡a (q)
+
+        Thus we see that the bound (13.22) is worse than trivial if q > x 1/2 . However,
+        if q is smaller, say q ≤ x θ with θ < 1/2, then (13.22) provides a form of the
+        Prime Number Theorem for arithmetic progressions with a much better error
+        term than we were able to prove unconditionally (cf. Corollary 11.17).
+
+        Proof In view of the remarks above, we may assume that q ≤ x 1/2 . By (11.22)
+        we see that
+                           x     ψ(x, χ0 ) − x     1 
+             ψ(x; q, a) −      =               +             χ (a)ψ(x, χ ). (13.25)
+                          ϕ(q)        ϕ(q)       ϕ(q) χ =χ0
+
+        Thus by the triangle inequality,
+                              x      |ψ(x, χ0 ) − x|    1 
+             |ψ(x; q, a) −       |≤                  +             |ψ(x, χ )|,                     (13.26)
+                            ϕ(q)         ϕ(q)          ϕ(q) χ =χ0
+
+        and so (13.22) follows from (13.19). The other relations are proved
+        similarly.                                                        
+
+            Since L(s, χ) has log q zeros with γ         1, we expect (assuming GRH) that
+        ψ(x, χ ) is usually about (x log q)1/2 in size. Thus the estimates of Theorem 13.7
+        are close to what we presume would be best possible. On the right-hand side
+        of (13.25), we have ϕ(q) terms. With sums of independent random variables in
+        mind, we would expect therefore that the right-hand side of (13.25) is usually
+            (x(log q)/ϕ(q))1/2 . Since we are unable to prove that there is cancellation
+        in (13.25), we have no recourse but to use the triangle inequality, as in (13.26).
+        However, we conjecture that a lot has been lost at this point.
+
+        Conjecture 13.9 If (a, q) = 1 and q ≤ x, then
+                                        x                     
+                        ψ(x; q, a) =        + Oε x 1/2+ε /q 1/2 .
+                                       ϕ(q)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           13.1 Estimates for primes                                  427
+
+
+            Although we are unable to conﬁrm our speculations concerning cancellation
+        in (13.25) for any individual a, we can show that such cancellation must occur
+        on average.
+
+        Corollary 13.10           Assume GRH for all L-functions modulo q. If 2 ≤ q ≤ x,
+        then
+                                 
+                                 q
+                                          (ψ(x; q, a) − x/ϕ(q))2             x(log x)4 .
+                                  a=1
+                                (a,q)=1
+
+        Proof       We claim that
+                                  
+                                  q                          2             
+                                                 c(χ )χ (a)       = ϕ(q)         |c(χ )|2          (13.27)
+                                  a=1        χ                               χ
+                                (a,q)=1
+
+        for arbitrary complex numbers c(χ ). To understand why this holds, expand the
+        left-hand side and take the sum over a inside, to see that it is
+                                                                
+                                                                  q
+                                 =               c(χ1 )c(χ2 )             χ1 (a)χ2 (a).
+                                      χ1    χ2                    a=1
+                                                                (a,q)=1
+
+        By the basic orthogonality property of Dirichlet characters (cf (4.14)), the inner
+        sum here is ϕ(q) if χ1 = χ2 , and is 0 otherwise, and this gives (13.27). By
+        taking c(χ ) = (ψ(x, χ ) − E 0 (χ )x)/ϕ(q), it follows by (11.22) that
+                   
+                   q
+                                                               1 
+                            (ψ(x; q, a) − x/ϕ(q))2 =                 |ψ(x, χ) − E 0 (χ )x|2 ,
+                    a=1
+                                                              ϕ(q) χ
+                  (a,q)=1
+
+        The stated estimate now follows from (13.19).                                                   
+
+           For non-principal χ let n(χ ) denote the least character non-residue of χ ,
+        which is to say the least positive integer n such that χ(n) = 1 and χ (n) = 0.
+        Since
+                               ψ(x, χ0 ) = ψ(x) + O((log q)(log x))                       x
+
+        for x ≥ C(log q)(log log q), it follows by taking x = C(log q)2 (log log q)2 in
+        (13.19) that n(χ )   (log q)2 (log log q)2 . As was the case with Cramér’s the-
+        orem (Theorem 13.3), we can do slightly better by using a weighted sum of
+        primes.
+
+        Theorem 13.11 Let χ be a non-principal character modulo q, and assume
+        that L(s, χ ) = 0 for σ > 1/2. Then n(χ ) (log q)2 .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        428                                  Conditional estimates
+
+
+        Proof          By taking k = 1 in (5.17)–(5.19), we see that
+                                                    −1       σ0 +i∞
+                                                                       L           x s+1
+                             χ (n)(n)(x − n) =                           (s, χ )          ds.
+                       n≤x                           2πi     σ0 −i∞    L          s(s + 1)
+
+        On pulling the contour to the line σ = 1/4, we see that the above is
+                         x ρ+1    x 5/4         ∞
+                                                  L                        x it
+              −                  −                   (1/4 + it, χ )                      dt.
+                   ρ    ρ(ρ + 1)   2π          −∞ L                 (1/4 + it)(5/4 + it)
+
+        By Theorem 10.17, the sum over ρ is      x 3/2 log q. By Theorem 10.17 with
+                                  L
+        Lemma 12.7, we see that L (1/4 + it, χ )      log qτ . Hence the second term
+                   5/4
+        above is  x log q. Thus
+                           
+                               χ (n)(n)(x − n)       x 3/2 log q.            (13.28)
+                                    n≤x
+
+        On the other hand,
+                                  
+               χ0 (n)(n)(x − n) =   (n)(x − n) + O(x(log x)(log q))                              x2
+             n≤x                              n≤x
+                                                                                                   (13.29)
+
+        if x ≥ C(log q)(log log q). If χ (n) = χ0 (n) for all prime powers n ≤ x, then
+        the left-hand sides of (13.28) and (13.29) are equal. However, the right-
+        hand sides are inconsistent if we take x = C(log q)2 , so we obtain the stated
+        result.                                                                      
+
+           Weaker hypotheses concerning the zeros of L(s, χ ) also imply bounds for
+        n(χ ). The argument here depends on a careful selection of the kernel in the
+        inverse Mellin transform.
+
+        Theorem 13.12 Let χ be a non-principal character (mod q), and suppose
+        that δ is chosen, 1/ log q ≤ δ ≤ 1/2, so that L(s, χ ) = 0 for 1 − δ < σ < 1,
+        0 < |t| ≤ δ 2 log q. Then n(χ) < (Aδ log q)1/δ . Here A is a suitable absolute
+        constant.
+
+        Proof          First we show that if 1/ log q ≤ R ≤ 1, then
+                                                    1      log q
+                                                                  .                                (13.30)
+                                       |ρ−1|>R
+                                                 |ρ − 1| 2    R
+
+        To see this, note that
+                                           1              1                        log q
+                                                              n(2R; 0, χ )
+                              R<|ρ−1|≤2R
+                                         |ρ − 1|2          R2                         R
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                          13.1 Estimates for primes                                429
+
+
+        by Theorems 11.5 and 10.17. On replacing R by 2k R, and summing, we deduce
+        that
+                                           1        log q
+                                                           .
+                               R<|ρ−1|≤1
+                                         |ρ − 1| 2     R
+
+        As for zeros farther from 1, we note by Theorem 10.17 that
+                                     1        log 2qn
+                                               ∞
+                                                            log q,
+                           |ρ−1|>1
+                                   |ρ − 1|2   n=1
+                                                    n2
+
+        and so we have (13.30) for all R ≥ 1/ log q.
+           Let x and y be parameters to be chosen later so that 2 < y ≤ x 1/3 . For x/y 2 ≤
+        u ≤ x y 2 set w(u) = (2 log y − | log(x/u)|)x/u, and put w(u) = 0 otherwise.
+        Then
+                                                         s−1           2
+                                 −1 σ0 +i∞ L              y     − y 1−s
+             w(n)χ (n)(n) =                     (s, χ)                     x s ds (13.31)
+           n                     2πi   σ0 −i∞  L               s − 1
+        for σ0 > 1. We move the contour to the abscissa σ0 = −1/2, and ﬁnd that the
+        above is
+                           y ρ−1 − y 1−ρ 2
+                     =−                        x ρ − (1 − κ)(y − 1/y)2
+                          ρ       ρ − 1
+                                                                           (13.32)
+                                −1/2+i∞            s−1    1−s 2
+                          1             L           y    −y
+                       −                   (s, χ )                 x s ds.
+                         2πi −1/2−i∞ L                 s−1
+        Here the second term arises because L(s, χ ) has a trivial zero at s = 0 if
+        χ (−1) = 1. Suppose that χ is induced by a primitive character χ ! . Then by
+        (10.20) we see that
+                           L          L            χ ! ( p) log p
+                              (s, χ ) = (s, χ ! ) +                    .
+                           L           L            p|q
+                                                        p s − χ ! ( p)
+
+        When σ = −1/2, the summand above is                log p, and so by Lemma 12.9
+                           
+        we see that LL (−1/2 + it, χ )         log qτ . Hence the last term in (13.32) is
+             x −1/2 y 3 log q. If χ is imprimitive, then L(s, χ ) may have inﬁnitely many
+        zeros on the imaginary axis. Such zeros are to be included in the sums in (13.30)
+        and (13.32). If a zero ρ is real, then its contribution in (13.32) is negative. If ρ
+        is a zero for which β ≤ 1 − δ, then its contribution to (13.32) is
+                                                        x 1−δ y 2δ
+                                                                   .
+                                                        |ρ − 1|2
+        From (13.30) with R = δ we see that the total contribution of such zeros is
+                                                  x 1−δ y 2δ (log q)/δ.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        430                                  Conditional estimates
+
+
+        If ρ is a zero for which β > 1 − δ and ρ is not real, then by hypothesis we have
+        |γ | ≥ δ 2 log q. The summand in (13.32) is      x/|ρ − 1|, so that from (13.30)
+        with R = δ 2 log q we see that such zeros contribute an amount         x/δ 2 . On
+        combining these estimates we ﬁnd that there is an absolute constant c1 > 0
+        such that
+                                                                         
+                           w(n)χ(n)(n) ≤ c1 x 1−δ y 2δ δ −1 log q + xδ −2 .    (13.33)
+                            n
+
+        If we replace χ by χ0 in (13.31) and argue as in the proof of the Prime Number
+        Theorem, we ﬁnd that
+                                                                
+            w(n)χ0 (n)(n) = 4(log y)2 x + O x exp − c log x + O(y 2 log q).
+           n
+                                                                                                   (13.34)
+        Here the second error term reﬂects the possible contribution of zeros of L(s, χ0 )
+        on the imaginary axis. If χ (n) = χ0 (n) for all n for which w(n) = 0, then the
+        left-hand side in (13.33) is identical with that in (13.34). Thus we wish to show
+        that the right-hand sides cannot be equal, with a choice of x and y for which
+        x y 2 is as small as possible. To this end, note that if x = (C 3 δ log q)1/δ and
+        y = C 1/δ , then the right-hand side of (13.33) is (1 + 1/C)x/δ 2 , while the
+        right-hand side of (13.34) is (log C)2 x/δ 2 , uniformly for C ≥ 2. Thus if C
+        is a sufﬁciently large absolute constant, then the left-hand members of (13.33)
+        and (13.34) cannot be identical, and we have the stated result.                 
+
+
+
+                                              13.1.1         Exercises
+          1. Let  = supρ β where ρ runs over all non-trivial zeros of ζ (s). Show that
+
+                                          ψ(x) = x + O(x  (log x)2 ),
+                                          ϑ(x) = x + O(x  (log x)2 ),
+                                       π(x) = = li(x) + O(x  log x).
+
+          2. Let F(x) be as in the proof of Theorem 13.3. Suppose that 2 ≤ ≤ h ≤ x,
+             and put w(u) = 0 for u ≤ x − , w(u) = (u − x + )/ for x − ≤
+             u ≤ x, w(u) = 1 for x ≤ u ≤ x + h, w(u) = (x + h + − u)/ for x +
+             h ≤ u ≤ x + h + , w(u) = 0 for u ≥ x + h + .
+             (a) Show that
+                                 1
+                  (n)w(n) = (F(x + h + ) − F(x + h) − F(x) + F(x − ))
+                  n
+                                                                                  
+                                                    1                        1
+                                    =h+         −             S(ρ) + O
+                                                         ρ                     x
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                              13.1 Estimates for primes                                       431
+
+
+                   where
+                                 (x + h +         )ρ+1 − (x + h)ρ+1 − x ρ+1 + (x −                 )ρ+1
+                      S(ρ) =                                                                              .
+                                                            ρ(ρ + 1)
+              (b) Show that if RH holds, then S(ρ)     h x −1/2 for |γ | ≤ x/ h, that
+                  S(ρ) ≤ x /|γ | for x/ h ≤ |γ | ≤ x/ , and that S(ρ)
+                             1/2
+                                                                          x 3/2 /γ 2 for
+                  γ | ≥ x/ .
+              (c) Show that if RH holds, then
+                                                                          
+                                                                   2h
+                       ψ(x + h) − ψ(x) = h + O x 1/2 (log x) log 1/2
+                                                                x log x
+                uniformly for x 1/2 log x ≤ h ≤ x.
+          3. Assume RH. Show that
+                                        X
+                                                          dx             m 2ρ
+                                            (ψ(x) − x)2      ∼ (log X )
+                                                          x2            ρ |ρ|
+                                                                              2
+                                    2
+
+             as X → ∞.
+          4. Assume RH. Suppose that T is given, T ≥ 2, and let f (u) be deﬁned as in
+             (13.17). Show that
+                            1 U            eiγ u 2           m 2ρ
+                       lim       f (u) +             du =               .
+                      U →∞ U 1             ρ     ρ            ρ    |ρ|2
+                                                       |γ |≤T                  |γ |>T
+
+          5. Assume GRH for all L-functions modulo q. (a) Show that
+                                                                      
+                       χ (n)(n)(x − n) = E 0 (χ )x 2 /2 + O x 3/2 log q ,
+                          n≤x
+                                                                                
+                             χ ( p)(log p)(x − p) = E 0 (χ )x 2 /2 + O x 3/2 log q .
+                       p≤x
+
+
+              (b) Show that if (a, q) = 1, then
+                                                                x2                 
+                                    (n)(x − n) =                     + O x 3/2 log q ,
+                                   n≤x                          2ϕ(q)
+                                  n≡a (q)
+                                                                x2                 
+                                            (log p)(x − p) =          + O x 3/2 log q .
+                                 p≤x                            2ϕ(q)
+                                p≡a (q)
+
+             (c) Deduce that if (a, q) = 1, then the least prime p ≡ a (mod q) is
+                     ϕ(q)2 (log q)2 .
+          6. Assume Conjecture 13.9. Show that if (a, q) = 1, then there is a prime
+             number p ≡ a (mod q) such that p ε q 1+ε .
+          7. Let χ be a non-principal character, and let n(χ ) denote the least positive
+             integer n such that χ (n) = 1, χ (n) = 0. Show that n(χ ) is a prime number.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        432                                  Conditional estimates
+
+
+          8. (Montgomery 1971, p. 121) Let χ be a character modulo q, and let d denote
+             the order of χ .
+             (a) Show that
+                                                
+                          1 d                      1 if χ (n) = e(a/d),
+                                χ (n)e(−ak/d) =
+                                 k
+                          d k=1                    0 otherwise.
+
+             (b) Assume that GRH holds for the d − 1 L-functions L(s, χ k ) where
+                 0 < k < d. Show that for each d th root of unity e(a/d) there is a prime
+                 p such that χ ( p) = e(a/d), with p      d 2 (log q)2 .
+          9. (Montgomery
+                         1971, p. 122) Let P(y) denote the set of those primes p such
+             that np = 1 for all n ≤ y, and let P(y) be the product of all primes not
+             exceeding y. Suppose that 2 ≤ y ≤ x.
+             (a) Explain why                                             
+                                                                        p1
+                             log p = 2−π(y)          (log p)          1+        .
+                     x< p≤2x                 x< p≤2x          p1 ≤y       p
+                          p∈P(y)
+              (b) For each m|P(y), m > 1, let χm be the quadratic character determined
+                                                                  p1 
+                  by quadratic reciprocity so that χm ( p) = p1 |m p . Also, let χ1 (n) =
+                  1 for all n. Explain why the above is
+                                          
+                                = 2−π (y)      (ϑ(2x, χm ) − ϑ(x, χm )).
+                                                m|P(y)
+
+              (c) Assume GRH for all quadratic L-functions. Show that the above is
+                                                                  
+                           = 2−π (y) x(1 + o(1)) + O x 1/2 (log x)2 .
+            (d) Show that if y = 23 (log x)(log log x), then the above is positive, for all
+                sufﬁciently large x.
+            (e) Let n 2 ( p) denote the least quadratic non-residue
+                                                           n       of p, which is to say
+                the least positive integer n such that p = −1. Show that if GRH
+                is true for all quadratic L-functions, then there exist inﬁnitely many
+                primes p such that n 2 ( p) > 23 (log p)(log log p).
+        10. (Littlewood 1924a; cf. Goldston 1982)
+            (a) Show (unconditionally) that
+                                           (x + h)ρ+1 − x ρ+1
+                             ψ(x) ≤ x −                             + O(h)
+                                           ρ       hρ(ρ + 1)
+                  for 2 ≤ h ≤ x/2.
+              (b) Show (unconditionally) that
+                                        x ρ+1 − (x − h)ρ+1
+                            ψ(x) ≥ x −                      − O(h)
+                                         ρ    hρ(ρ + 1)
+                   for 2 ≤ h ≤ x/2.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    13.2 Estimates for the zeta function                              433
+
+
+              (c) Now, and in the following, assume RH. Show that
+                               (x + h)ρ+1 − x ρ+1
+                                                         x 1/2 log x/ h.
+                               ρ        hρ(ρ  +  1)
+                                  |γ |>x/ h
+
+              (d) Show that if |γ | ≤ x/ h, then
+                                    (x + h)ρ+1 − x ρ+1   xρ            
+                                                       =    + O x −1/2 h .
+                                        hρ(ρ + 1)        ρ
+              (e) Show that
+                      (x + h)ρ+1 − x ρ+1                                xρ                  
+                                                          =                  + O x 1/2 log x/ h .
+                          ρ           hρ(ρ + 1)                   ρ       ρ
+                      |γ |≤x/ h                               |γ |≤x/ h
+
+              (f) Show that
+                                                               xρ               
+                                  ψ(x) = x −                       + O x 1/2 log x .
+                                                      √
+                                                 |γ |≤ x/ log x
+                                                                ρ
+
+
+
+                            13.2       Estimates for the zeta function
+                                                                            
+        We now show that our estimates of ζ (s) and of ζζ (s) can be improved if we
+        assume RH. To this end, we begin with a useful explicit formula. For x ≥ 2,
+        y ≥ 2, put
+                                        ⎧
+                                        ⎪
+                                        ⎨1             if 1 ≤ u ≤ x;
+                                               log u/x
+                   w(u) = w(x, y; u) = 1 − log y       if x ≤ u ≤ x y;
+                                        ⎪
+                                        ⎩0             if u ≥ x y.
+        Then by two applications of (5.20) we ﬁnd that
+                       (n)        −1       σ0 +i∞ 
+                                                   ζ          (x y)w − x w
+                    w(n) s =                          (s + w)              dw,
+              n≤x y      n      2πi log y σ0 −i∞ ζ                 w2
+
+        and on pulling the contour to the left we see that this is
+                               ζ        (x y)1−s − x 1−s
+                         =−       (s) +
+                               ζ          (1 − s)2 log y
+                                (x y)ρ−s − x ρ−s          (x y)−2k−s − x −2k−s
+                                                           ∞
+                             −                         −                                           (13.35)
+                                 ρ    (ρ − s)2 log y      k=1
+                                                               (2k + s)2 log y
+
+        provided that s = 1 and that ζ (s) = 0. This much is true unconditionally, but
+        from now on we assume RH, and show that the sum on the left provides a useful
+                              
+        approximation to − ζζ (s) when σ > 1/2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        434                                   Conditional estimates
+
+
+        Theorem 13.13 Assume RH. Then
+                      ζ          (n)
+                         (s) ≤               σ
+                                               + O((log τ )2−2σ )                                  (13.36)
+                      ζ        n≤(log τ )2
+                                           n
+
+        uniformly for 1/2 + 1/ log log τ ≤ σ ≤ 3/2, |t| ≥ 1.
+
+        Proof If σ ≥ 1/2, then |y ρ−s − 1| ≤ 2. Hence for σ > 1/2, the sum over ρ
+        in (13.25) has absolute value not exceeding
+                                              2x 1/2−σ    1
+                                                                .
+                                               log y ρ |s − ρ|2
+
+        By (10.29) and (10.30) we see that
+                                          1
+                 (σ − 1/2)
+                            ρ (σ − 1/2) + (t − γ )
+                                          2        2
+
+                              ζ      1         
+                                                                  1            σ −1
+                        =       (s) +             (s/2 + 1) −     log π +                ,
+                              ζ       2                           2         (σ − 1)2 + t 2
+        and by Theorem C.1 this is
+                                                      ζ      1
+                                               =        (s) + log τ + O(1).
+                                                      ζ       2
+        On inserting this in (13.35), we ﬁnd that
+              ζ                   (n)        θ2x 1/2−σ   ζ
+                 (s) = −        w(n) s +                    (s)
+              ζ           n≤x y       n     (σ − 1/2) log y ζ
+                                                                                               (13.37)
+                                                                                      1−σ 
+                                         x 1/2−σ log τ                 (x y)1−σ           y
+                            +O                                +O                      +O
+                                       (σ − 1/2) log y                    τ2                τ2
+        where θ is a complex number satisfying |θ | ≤ 1. Thus
+          ζ                  (n)     x 1/2−σ log τ      (x y)1−σ  y 1−σ
+             (s)           w(n) s +                     +           + 2                            (13.38)
+          ζ          n≤x y      n     (σ − 1/2) log y         τ 2     τ
+
+        provided that
+                                              2x 1/2−σ
+                                                           ≤ c < 1.                                (13.39)
+                                           (σ − 1/2) log y
+        We take
+                                                     
+                                                 1
+                               y = exp                  ,          x = (log τ )2 /y.
+                                              σ − 1/2
+        Then the left-hand side of (13.39) is 2e(log τ )1−2σ , and so (13.39) holds with
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    13.2 Estimates for the zeta function                                     435
+
+
+        c = 2/e for σ ≥ 1/2 + 1/ log log τ . We observe that
+                                  (n)         (n)
+                               w(n) s                          log τ
+                         n≤x y      n        n≤(log τ )2
+                                                         n 1/2
+
+        uniformly for σ ≥ 1/2. On inserting this in (13.38), we ﬁnd that
+                                                  ζ
+                                                     (s)      log τ
+                                                  ζ
+        uniformly for σ ≥ 1/2 + 1/ log log τ , |t| ≥ 1. We insert this on the right-hand
+        side of (13.37) to obtain the stated estimate.                                 
+
+        Corollary 13.14            Assume RH. Then
+                                                                                               
+                          ζ                                             1
+                             (s)     ((log τ )2−2σ + 1) min                   , log log τ
+                          ζ                                           |σ − 1|
+        uniformly for 1/2 + 1/ log log τ ≤ σ ≤ 3/2, |t| ≥ 1.
+
+        Proof       By Chebyshev’s estimate (Theorem 2.4) we know that
+                                        (n)
+                                                    U 1−σ .
+                                     U ≤n<eU
+                                              nσ
+
+        On summing this over U = ek for 0 ≤ k ≤ 2 log log τ , we obtain the stated
+        bound from Theorem 13.13.                                                
+
+        Corollary 13.15            Assume RH. Then
+                                                                                             
+                                                         (n)                   (log τ )2−2σ
+                           | log ζ (s)| ≤                σ
+                                                                +O                                      (13.40)
+                                            n≤(log τ )2
+                                                        n log n                   log log τ
+
+        uniformly for 1/2 + 1/ log log τ ≤ σ ≤ 3/2, |t| ≥ 1.
+
+        Proof       Since
+                                                                           3/2
+                                                                                 ζ
+                       log ζ (σ + it) = log ζ (3/2 + it) −                          (α + it) dα,
+                                                                       σ         ζ
+        it follows by the triangle inequality that
+                                                                               3/2
+                                                                                     ζ
+                    | log ζ (σ + it)| ≤ | log ζ (3/2 + it)| +                           (α + it) dα,
+                                                                           σ         ζ
+        which by Corollary 13.13 is
+                                                                                                           
+                                                (n)  −σ                                    (log τ )2−2σ
+            ≤ | log ζ (3/2 + it)| +                   n − n −3/2 + O                                             .
+                                    n≤(log τ )2
+                                                log n                                           log log τ
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        436                                  Conditional estimates
+
+
+        But
+                                                   
+                                                   ∞
+                                                     (n)                    
+                                                                             ∞
+                                                                               (n)
+                     | log ζ (3/2 + it)| =                     n −3/2−it ≤                n −3/2 ,
+                                                   n=1
+                                                       log n                  n=1
+                                                                                  log n
+
+        so it follows that
+                                                    (n)                                  
+                                    (n) −σ                                     (log τ )2−2σ
+        | log ζ (σ + it)| ≤               n +                       n −3/2 + O                 .
+                        n≤(log τ )2
+                                    log n         n>(log τ )2
+                                                              log n               log log τ
+                                                                                       (13.41)
+        By the Chebyshev estimate ψ(x)         x we see that
+                             (n)
+                                           n −3/2     U −1/2 (log U )−1 .
+                         U <n≤2U
+                                     log n
+
+        By taking U = (log τ )2 2k , and summing over k ≥ 0, we deduce that
+                          (n)
+                                         n −3/2 (log τ )−1 (log log τ )−1 .
+                       n>(log τ )2
+                                   log n
+
+        Since this is majorized by the error term in (13.41), we have (13.40).                            
+
+        Corollary 13.16          Assume RH. If |t| ≥ 1, then
+                                                            1
+                                    | log ζ (s)| ≤ log         + O(σ − 1)                            (13.42)
+                                                          σ −1
+        for 1 + 1/ log log τ ≤ σ ≤ 3/2,
+
+                                      | log ζ (s)| ≤ log log log τ + O(1)                            (13.43)
+
+        for 1 − 1/ log log τ ≤ σ ≤ 1 + 1/ log log τ , and
+                                                                        
+                                           1             (log τ )2−2σ
+                       | log ζ (s)| ≤ log     +O                                                     (13.44)
+                                          1−σ         (1 − σ ) log log τ
+        for 1/2 + 1/ log log τ ≤ σ ≤ 1 − 1/ log log τ .
+
+        Proof       To establish (13.42), we note that if 1 < σ ≤ 3/2, then
+                                    
+                                    ∞
+                                      (n)                  
+                                                            ∞
+                                                              (n)
+                  | log ζ (s)| =                   n −s ≤  n −σ = log ζ (σ )
+                                     n=1
+                                           log n     log n  n=1
+                                                              1
+                               = log 1/(σ − 1) + O(1) = log         + O(σ − 1).
+                                                              σ −1
+        As for (13.43), we note ﬁrst that
+                                (n)
+                                                       = log log z + O(1)
+                                       n≤z n log n
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    13.2 Estimates for the zeta function                                  437
+
+
+        by Mertens’ estimates (Theorem 2.7). Also, if σ = 1 + O(1/ log z), then
+                                                      σ
+                          n −σ − n −1 =                   n −α dα log n        |σ − 1|n −1 log n
+                                                 1
+
+        for 1 ≤ n ≤ z, so that
+               (n)                                                  (n)
+                         (n −σ − n −1 )                   |σ − 1|                   |σ − 1| log z    1.
+               n≤z log n                                             n≤z   n
+
+        On combining these estimates with z = (log τ )2 , we see that the sum in (13.40)
+        is ≤ log log log τ + O(1), which gives the desired estimate.
+           Concerning (13.44), we note that
+                   (n)             z
+                                          1
+                            n −σ =      σ
+                                               dψ(u)
+                  n≤z log n         2− u log u
+                                                  z
+                                                      1            ψ(z) − z
+                                          =         σ log u
+                                                             du + σ          + 21−σ/ log 2
+                                                2 u                 z log z
+                                                                             
+                                                   z
+                                                      ψ(u) − u            1
+                                               +       σ +1 log u
+                                                                    σ+          du.        (13.45)
+                                                  2 u                   log u
+
+        By the change of variable v = u 1−σ , the ﬁrst integral immediately above is
+        li(z 1−σ ) − li(21−σ ) . But
+                                                                    z 1−σ
+                                               li(z 1−σ )
+                                                                (1 − σ ) log z
+        for σ ≤ 1 − 1/ log z, and
+                                                                     
+                                         2
+                                                dv       1       2
+                    −li 21−σ =                       =       + O(1) dv
+                                          21−σ log v
+                                                  21−σ v−1
+                                                                   1
+                                  = − log(21−σ − 1) + O(1) = log       + O(1).
+                                                                 σ −1
+        By Theorem 13.1, the second term in (13.45) is                             z 1/2−σ log z, and the ﬁnal
+        integral in (13.45) is
+                                          ∞
+                                               u −σ −1/2 log u du          (σ − 1/2)−2 .
+                                      2
+
+        On combining these estimates, we ﬁnd that
+                            (n)                                   
+                                              1           z 1−σ
+                                σ
+                                       = log     +O                    ,
+                           n≤z n log n       1−σ      (1 − σ ) log z
+
+        uniformly for 1/2 < σ ≤ 1 − 1/ log z. On taking z = (log τ )2 , the desired
+        estimate now follows from (13.40).                                        
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        438                                  Conditional estimates
+
+
+            From Corollary 13.16 we see that if RH holds, then
+                                        1
+                                                     |ζ (1 + it)|         log log τ
+                                    log log τ
+        for |t| ≥ 1. We can make this more precise by taking a little more care.
+
+        Corollary 13.17          Assume RH. Then |ζ (1 + it)| ≤ 2eC0 log log τ + O(1).
+
+        Proof We observe that
+                  (n)         (n)                                      
+                                                     ∞
+                                                         1                  1 −1
+                             =                ≤            k
+                                                             = log       1−
+                 n≤z n log n   p k ≤z
+                                      n log n   p≤z k=1 kp         p≤z      p
+                                 = C0 + log log z + O(1/ log z)
+
+        by Mertens’ estimate (Theorem 2.7). We take z = (log τ )2 , insert this in Corol-
+        lary 13.15, and exponentiate to obtain the stated bound.                       
+
+           To complete the picture, we estimate |ζ (s)| and argζ (s) when σ is near 1/2.
+        Of these estimates, the upper bound for |ζ (s)| is the most immediate.
+
+        Theorem 13.18 Assume RH. There is an absolute constant C > 0 such that
+                                                     
+                                             C log τ
+                            |ζ (s)| < exp
+                                            log log τ
+        uniformly for σ ≥ 1/2, |t| ≥ 1.
+
+            Note that this is a quantitative form of the Lindelöf Hypothesis (LH).
+
+        Proof Put σ1 = 1/2 + 1/ log log τ . For σ ≥ σ1 , the above is contained in
+        Corollary 13.14. Suppose that 1/2 ≤ σ ≤ σ1 . Since 1/(s − ρ) ≥ 0 for all
+        zeros ρ, from Lemma 12.1 it follows that there is an absolute constant A > 0
+        such that
+                                     ζ
+                                    (s) ≥ −A log τ
+                                      ζ
+        uniformly for 1/2 ≤ σ ≤ 2, |t| ≥ 1. Hence
+                                                                     σ1
+                                                                   ζ
+                          log |ζ (s)| = log |ζ (σ1 + it)| −           (α + it) dα
+                                                                          
+                                                              σ    ζ
+                                       ≤ log |ζ (σ1 + it)| + A(σ1 − σ ) log τ.
+
+        Here the ﬁrst member on the right-hand side is bounded by Corollary 13.15,
+        and 0 ≤ σ1 − σ ≤ 1/ log log τ , so we have the stated bound.            
+
+           To obtain the remaining estimates, we ﬁrst establish two lemmas, which are
+        of interest in their own right.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    13.2 Estimates for the zeta function                           439
+
+
+        Lemma 13.19 Assume RH. Then for T ≥ 4,
+                                                                             log T
+                               N (T + 1/ log log T ) − N (T )                        .
+                                                                           log log T
+                                                                           
+        Proof Take s = 1/2 + 1/ log log T + i T . Then ζζ (s)                        log T by Corollary
+        13.14. Hence by Lemma 12.1 it follows that
+                                          1
+                                                  log T.
+                                   ρ    s−ρ
+                                             |γ −T |≤1
+
+
+        Here each summand has positive real part, and for T ≤ γ ≤ T + 1/ log log T
+        the real part is ≥ 12 log log T , so we obtain the stated bound.         
+
+            By mimicking the proof of Lemma 12.1, we obtain
+        Lemma 13.20 Assume RH. If |σ − 1/2| ≤ 1/ log log τ , then
+                     ζ                    1
+                        (s) =                   + O(log τ ).
+                     ζ            ρ      s −  ρ
+                                           |γ −t|≤1/ log log τ
+
+           In applying the above, one is free to replace the condition |γ − t|
+        ≤ 1/ log log τ by a different condition, say |γ − t| ≤ δ, provided that
+        δ 1/ log log τ . To see why this is so, note that a summand in one sum that is
+        missing in the other has absolute value log log τ , and that by Lemma 13.19
+        there are    (log τ )/ log log τ such summands. Hence the total contribution
+        made by terms in one sum but not the other is        log τ , and a discrepancy of
+        this size may be absorbed in the error term.
+        Proof Put σ1 = 1/2 + 1/ log log τ , and set s1 = σ1 + it. We apply
+        Lemma 12.1 at s1 and at s, and difference, to see that
+                ζ        ζ            1               1
+                                                               
+                   (s) = (s1 ) +                    −            + O(log τ ).
+                ζ         ζ         |γ −t|≤1
+                                             s−ρ       s1 − ρ
+
+        Here the ﬁrst term on the right-hand side is       log τ , by Corollary 13.14. Let
+        k be a positive integer, and consider zeros for which k/ log log τ ≤ |γ − t| ≤
+        (k + 1)/ log log τ . By the preceding lemma, there are (log τ )/ log log τ such
+        zeros, each one of which contributes an amount         (log log τ )/k 2 to the above
+        sum. On summing over k we see that the contribution of zeros for which |γ −
+        t| > 1/ log log τ is log τ . Finally, for the zeros with |γ − t| ≤ 1, we observe
+        that |1/(s1 − ρ)| ≤ log log τ , and there are    (log τ )/ log log τ such zeros, so
+        we have the stated result.                                                        
+
+           If t is not the ordinate of a zero of the zeta function, then we deﬁne arg ζ (s)
+        by continuous variation along the ray α + it where α runs from σ to +∞,
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        440                                  Conditional estimates
+
+
+        and arg(+∞ + it) = 0. If t is the ordinate of a zero, then we put arg ζ (s) =
+        (arg ζ (σ + it + ) + arg ζ (σ + it − ))/2.
+
+        Theorem 13.21 Assume RH. Then
+                                                               log τ
+                                              arg ζ (s)
+                                                             log log τ
+        uniformly for σ ≥ 1/2, |t| ≥ 1.
+
+        Proof We may assume that t is not the ordinate of a zero. Let σ1 and s1
+        be deﬁned as in the preceding proof. If σ ≥ σ1 , then the above follows from
+        Corollary 13.16. Suppose now that 1/2 ≤ σ ≤ σ1 . Then
+                                                                  σ1
+                                                                           ζ
+                               arg ζ (s) = arg ζ (s1 ) −                     (α + it) dα.
+                                                              σ            ζ
+        Since 0 ≤ σ1 − σ ≤ 1/ log log τ , by Lemma 13.20 the right-hand side above is
+                                          σ1                                
+                                                    1                 log τ
+                =−                                        dα + O               .
+                     |γ −t|≤1/ log log τ σ
+                                                α + it − ρ          log log τ
+
+        Here the summand is
+                                             σ − 1/2          σ1 − 1/2
+                                    arctan           − arctan          .
+                                              γ −t             γ −t
+        If γ > t, then the above lies between 0 and π/2, while if γ < t, then it lies
+        between −π/2 and 0. In either case, the contribution is bounded, and there are
+            (log τ )/ log log τ summands by Lemma 13.19, so we have the result.     
+
+           Although a lower bound for |ζ (s)| at all heights is out of the question, we
+        can show, assuming RH, that there are heights for which a lower bound can be
+        established.
+
+        Theorem 13.22 Assume RH. There is an absolute constant C such that for
+        every T ≥ 4 there is a t, T ≤ t ≤ T + 1, such that
+                                                           
+                                                  −C log T
+                                  |ζ (s)| ≥ exp
+                                                  log log T
+        uniformly for −1 ≤ σ ≤ 2.
+
+        Proof By Corollary 10.5 we see that if −1 ≤ σ ≤ 1/2, then |ζ (s)|     |ζ (1 −
+        σ + it)|. Thus we may restrict our attention to 1/2 ≤ σ ≤ 2. Put σ1 = 1/2 +
+        1/ log log T . From Corollary 13.16 we have the desired lower bound for all
+        heights, for σ1 ≤ σ ≤ 2. For the remaining interval, I = [1/2, σ1 ], we show
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                        13.2 Estimates for the zeta function                                             441
+
+
+        that
+                                            T +1
+                                                             1                              log T
+                                                   log               dt                             .             (13.46)
+                                        T                min |ζ (s)|                      log log T
+                                                         σ ∈I
+
+        Put s1 = σ1 + it. Then
+                                                                             σ1
+                                                                                      ζ
+                                 log |ζ (s)| = log |ζ (s1 )| −                          (α + it) dα.
+                                                                         σ            ζ
+        By Corollary 13.16 and Lemma 13.20, this is
+                            σ1                                    
+                                         1                  log T
+                    =−                          dα + O
+                          σ     ρ   α + it − ρ            log log T
+                                            |γ −t|≤δ
+
+        where δ = 1/ log log T . The summands are non-negative, so the above is
+                           σ1                                      
+                                           1                 log T
+                   ≥−                            dα + O               .
+                          1/2    ρ     α + it − ρ          log log T
+                                            |γ −t|≤δ
+
+        Since this lower bound applies for all σ ∈ I , the above provides a lower bound
+        for log minσ ∈I |ζ (s)|. We note that
+                     σ1     γ +δ                                         δ        δ
+                                           1                                        x
+                                                 dt dα =                                dy dx
+                    1/2   γ −δ         α + it − ρ                    0       −δ x 2 + y2
+
+                                                                         π/2              2δ
+                                                                                               r cos θ
+                                                                 ≤                                     r dr dθ = 4δ.
+                                                                     −π/2             0           r2
+        Hence
+                   T +1    σ1                      1                                                       log T
+                                                          dα dt                                     δ               ,
+               T          1/2       ρ           α + it − ρ                             ρ                   log log T
+                                |γ −t|≤δ                                          T −1≤γ ≤T +2
+
+        so we have (13. 46), and the proof is complete.                                                                   
+
+          By Theorem 5.2 and Corollary 5.3 with σ0 = 1 + 1/ log x and 1 ≤ T ≤ x,
+        we see that
+                                   σ0 +i T                      
+                             1             xs            x log x
+                    M(x) =                     ds + O              .      (13.47)
+                            2πi σ0 −i T ζ (s)s              T
+        By Corollary 13.16 we see (assuming RH) that |ζ (1/2 + ε + it)| ε τ −ε .
+        Hence, by moving the contour to the abscissa 1/2 + ε, we deduce that
+        M(x) ε x 1/2+ε . This can be made more precise, by determining ε as a
+        function of x, but in order to do so we need a lower bound for |ζ (s)| when
+        1/2 < σ ≤ 1/2 + 1/ log log τ .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        442                                     Conditional estimates
+
+
+        Theorem 13.23 Assume RH. There is a constant C > 0 such that if |t| ≥ 1,
+        then
+                 ⎧
+                       C log τ
+                 ⎨exp log
+           1              log τ
+                                             for σ ≥ 1/2 + 1/ log log τ,
+               ≤
+         ζ (s)   ⎩exp C log τ log e
+                                             for 1/2 < σ ≤ 1/2 + 1/ log log τ.
+                              log log τ        (σ −1/2) log log τ
+
+        Proof The ﬁrst part follows from Corollary 13.14. Let σ1 and s1 be deﬁned
+        as in the proof of Lemma 13.20, and suppose that 1/2 < σ ≤ σ1 . Then
+                                                                          σ1
+                                                                               ζ
+                                log ζ (s) = log ζ (s1 ) −                         (α + it) dα.
+                                                                      σ        ζ
+        Here the ﬁrst term on the right is  (log τ )/ log log τ , by Corollary 13.16. By
+        Lemma 13.19 we know that the sum in Lemma 13.20 has            (log τ )/ log log τ
+        terms. Since each term has absolute value ≤ 1/(σ − 1/2), it follows that
+                                      ζ                           log τ
+                                         (α + it)
+                                      ζ                      (α − 1/2) log log τ
+        for 1/2 < α ≤ σ1 . Hence
+                                                                                
+                                                               σ1 − 1/2                log τ
+                               log ζ (s)             1 + log                                   ,
+                                                               σ − 1/2               log log τ
+        which gives the stated bound.                                                              
+
+        Theorem 13.24 Assume RH. Then there is an absolute constant C > 0 such
+        that
+                                                       
+                                               C log x
+                          M(x)    x 1/2 exp
+                                              log log x
+        for x ≥ 4.
+        Proof Put σ1 = 1/2 + 1/ log log x, and let C denote the contour that passes
+        by straight line segments from σ0 − i x to σ1 − i x to σ1 + i x to σ0 + i x. Then
+                                           σ0 +i x
+                                                          xs                   xs
+                                                               ds =                 ds,
+                                          σ0 −i x       ζ (s)s             C ζ (s)s
+
+        since the integrand is analytic in the rectangle enclosed by these contours. By
+        the ﬁrst case of Theorem 13.22 we see that
+             σ0 +i x                                                             
+                      xs               C log x                             C log x
+                           ds   exp                   σ0 x σ −1 dσ exp                ,
+            σ1 +i x ζ (s)s            log log x    σ1                     log log x
+        and the same estimate applies to the integral from σ1 − i x to σ0 − i x. Similarly,
+        by the second part of Theorem 13.22 we see that
+                  σ1 +i x                                                   
+                           xs               x
+                                                     C log τ      e log log x dt
+                                ds x σ1       exp             log                  .
+                 σ1 −i x ζ (s)s           0         log log τ      log log τ     τ
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    13.2 Estimates for the zeta function                           443
+
+
+        By logarithmic differentiation we may conﬁrm that the argument of the expo-
+        nential is an increasing function of t for 0 ≤ t ≤ x. Thus we obtain the stated
+        bound by taking T = x in (13.47).                                             
+
+
+                                              13.2.1      Exercises
+          1. (a) Show (unconditionally) that
+                                       ξ         1
+                                      (s) =   
+                                        ξ    ρ   s − ρ
+                  whenever ξ (s) = 0.
+              (b) Show (unconditionally) that
+                                          ξ
+                                         (1/2 + it) = 0
+                                           ξ
+                  for all t such that ξ (1/2 + it) = 0.
+              (c) Assume RH. Show that
+                                        ⎧
+                                          > 0 if σ > 1/2,
+                                  ξ ⎨
+                                (s) = 0 if σ = 1/2 and ξ (s) = 0,
+                                  ξ     ⎩
+                                          < 0 if σ < 1/2.
+              (d) Assume RH. Show that if ξ  (s) = 0, then s = 1/2.
+              (e) Assume RH, and let t be any ﬁxed real number. Show that |ξ (σ +
+                   it)| is a strictly increasing function of σ for 1/2 ≤ σ < ∞, and that
+                   |ξ (σ + it)| is a strictly decreasing function of σ for −∞ < σ ≤ 1/2.
+               (f) Assume RH, and suppose that t is a ﬁxed real number. Show that
+                                  
+                   (σ − 1/2) ξξ (σ + it) is an increasing function of σ for 1/2 ≤ σ < ∞.
+              (g) Assume RH. Show that if 1/2 < σ2 ≤ σ1 , then
+                                                                            ξ
+                                                          σ2 − 1/2 (σ1 −1/2) ξ (σ1 +it)
+                        |ξ (σ2 + it)| ≥ |ξ (σ1 + it)| ·                                  .
+                                                          σ1 − 1/2
+          2. (a) Show (unconditionally) that if ξ (s) = 0, then
+                                          2           
+                             ξ         ξ                        1
+                                  (s) −    (s) = −                      .
+                              ξ          ξ                ρ   (s −  ρ)2
+
+              (b) Show (unconditionally) that if t is real, then ξ  (1/2 + it) ∈ iR.
+              (c) Show (unconditionally) that if t is real, then ξ  (1/2 + it) ∈ R.
+              (d) Show (unconditionally) that if t is real, then
+                                                    1
+                                        ρ (1/2 + it − ρ)
+                                                              2
+
+
+                   is real.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        444                                  Conditional estimates
+
+
+              (e) Assume RH. Show that if ξ (1/2 + it) = 0, then
+                                                   2
+                               ξ                ξ
+                                    (1/2 + it) >        (1/2 + it).
+                               ξ                  ξ
+               (f) Assume RH. Show that if ξ (1/2 + it) = 0 and ξ  (1/2 + it) = 0, then
+                   sgn ξ  (1/2 + it) = sgn ξ (1/2 + it).
+              (g) Assume RH. Show that if ξ (1/2 + it) = 0 and ξ  (1/2 + it) = 0, then
+                                         ∂2
+                                   sgn        ξ (1/2 + it) = −sgn ξ (1/2 + it).
+                                         ∂t 2
+             (h) Assume RH. Suppose that ξ (1/2 + iγ ) = ξ (1/2 + iγ  ) = 0, and that
+                  ξ (1/2 + it) = 0 for γ < t < γ  . Show that ξ  (1/2 + it) has exactly
+                  one zero with γ < t < γ  , and that this zero is necessarily simple.
+              (i) Assume RH. In the above notation, show that the number of zeros of
+                  ξ  (1/2 + it) in the interval [γ , γ  ), counting multiplicity, is the same
+                  as the number of zeros of ξ (1/2 + it) in the same interval.
+              (j) Assume RH. Let N1 (T ) denote the number of zeros of ξ  (s) with imag-
+                  inary part in the interval [0, T ]. Show that N1 (T ) = N (T ) + O(1).
+          3. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ ) =
+             0 for σ > 1/2. Show that
+                                            (n)                              
+                           L                                     (log qτ )2−2σ
+                              (s, χ ) ≤                    +O
+                           L            n≤(log qτ )2
+                                                     nσ             log log τ
+
+             uniformly for 1/2 + 1/ log log qτ ≤ σ ≤ 3/2.
+          4. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ ) =
+             0 for σ > 1/2. Show that
+                                                                              
+                    L                                       1
+                       (s, χ)   ((log qτ )2−2σ + 1) min           , log log qτ
+                    L                                     |σ − 1|
+             uniformly for 1/2 + 1/ log log qτ ≤ σ ≤ 3/2.
+          5. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ) =
+             0 for σ > 1/2. Show that
+                                                                               
+                                                     (n)          (log qτ )2−2σ
+                    | log L(s, χ )| ≤                        + O
+                                      n≤(log qτ )2
+                                                   n σ log n         log log qτ
+
+             uniformly for 1/2 + 1/ log log qτ ≤ σ ≤ 3/2.
+          6. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ) =
+             0 for σ > 1/2.
+             (a) Show that
+                                                    1
+                                 |L(s, χ )| ≤ log       + O(σ − 1)
+                                                  σ −1
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    13.2 Estimates for the zeta function                           445
+
+
+                  uniformly for 1 + 1/ log log qτ ≤ σ ≤ 3/2.
+              (b) Show that
+                                          |L(s, χ )| ≤ log log qτ + O(1)
+                  uniformly for 1 − 1/ log log qτ ≤ σ ≤ 1 + 1/ log log qτ .
+              (c) Show that
+                                                                          
+                                             1            (log qτ )2−2σ
+                         |L(s, χ )| ≤ log        +O
+                                          1−σ          (1 − σ ) log log qτ
+                  uniformly for 1/2 + 1/ log log qτ ≤ σ ≤ 1 − 1/ log log qτ .
+          7. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ ) =
+             0 for σ > 1/2. Show that |L(1 + it, χ)| ≤ 2eC0 log log qτ .
+          8. Let χ be a primitive Dirichlet character modulo q with q > 1, and suppose
+             that L(s, χ ) = 0 for σ > 1/2. Show that there is an absolute constant C > 0
+             such that
+                                                                 
+                                                        C log qτ
+                                    |L(s, χ )| ≤ exp
+                                                       log log qτ
+            uniformly for 1/2 ≤ σ ≤ 3/2.
+         9. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ ) =
+            0 for σ > 1/2. Show that the number of zeros ρ = 1/2 + iγ of L(s, χ) with
+            T ≤ γ ≤ T + 1/ log log qτ is            (log qτ )/(log log qτ ) uniformly in T .
+        10. Let χ be a primitive character modulo q, q > 1, and suppose that L(s, χ ) =
+            0 for σ > 1/2. Show that if |σ − 1/2| ≤ 1/ log log qτ , then
+                        L                                1
+                           (s, χ) =                             + O(log qτ ).
+                        L           |γ −t|≤1/ log log qτ
+                                                         s−ρ
+
+        11. (Selberg 1946b, Section 5) Let χ be a primitive character modulo q, q > 1,
+            and suppose that L(s, χ ) = 0 for σ > 1/2. Show that
+                                                    log qτ
+                                  arg L(s, χ )
+                                                  log log qτ
+            uniformly for σ ≥ 1/2.
+        12. Let χ be a character modulo q, and suppose that χ is induced by a primitive
+            character χ ! where χ ! is a character modulo d for some d|q. Show that
+                                                                                
+             L          L                                    1
+                (s, χ ) − (s, χ ! )      (log q)1−σ + 1 min           , log log q .
+             L           L                                    |σ − 1|
+        13. (Vorhauer 2006) Let χ be a primitive character modulo q, q > 1, and
+            suppose that L(s, χ ) = 0 for σ > 1/2. Show that
+                                   1        1
+                            lim           = log q + O(log log q).
+                           T →∞
+                                 |r |≤T
+                                        ρ    2
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        446                                    Conditional estimates
+
+
+        14. (Axer 1911) Assume RH.
+            (a) Show that if c = 1/4 + ε, then
+                                         c+i T
+                                                  ζ (s)x s
+                                                           |ds|        x 1/4+ε T 1/4+ε .
+                                       c−i T      ζ (2s)s
+              (b) Let Q(x) denote the number of square-free integers not exceeding x.
+                  Show that if RH is true, then
+                                                6           
+                                     Q(x) = 2 x + O x 2/5+ε .
+                                              π
+                (A better estimate is obtained in Exercise 16 below.)
+        15. Assume RH.
+            (a) Show that if c = 1/2 + ε, then
+                                       c+i T
+                                                     ζ (s)x s
+                                                                |ds|           x 1/4+ε T ε .
+                                     c−i T       ζ (2s)s(s + 1)
+              (b) Show that if RH is true, then
+                                                   3             
+                                  µ(n)2 (1 − n/x) = 2 x + O x 1/4+ε .
+                              n≤x                  π
+
+        16. (Montgomery & Vaughan 1981)
+            (a) Show that
+                                                                 
+                                                   Q(x) =              µ(d).
+                                                               d,m
+                                                             d 2 m≤x
+
+                  Let 1 denote the sum of the above terms for which d ≤ y, and let
+                  2 denote the sum of the above terms for which d > y. Here y is a
+                  parameter to be determined later, 1 ≤ y ≤ x 1/2 .
+              (b) Put
+                                              
+                                    S(x, y) =      µ(d)B1 (x/d 2 )
+                                                           d≤y
+
+                   where B1 (u) = u − 1/2 is the ﬁrst Bernoulli polynomial. Show that
+                                                  µ(d) 2         1
+                                    1 = x                   −      M(y) − S(x, y).
+                                                 d≤y
+                                                       d          2
+
+              (c) Assume RH. Show that if σ ≥ 1/2 + 2ε, then
+                              µ(d)        1         y w−s
+                                      =                       dw
+                             d≤y
+                                 d s      2πi C0 ζ (w)(w − s)
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     13.3 Notes                                    447
+
+
+                  where C0 is a contour running from σ0 − i∞ to σ0 − i y to 1/2 + ε − i y
+                  to 1/2 + ε + i y to σ0 + i y to σ0 + i∞ and σ0 = 1 + 1/ log y. Deduce
+                  that
+                                   µ(d)          1                    
+                                             =        + O y 1/2−σ +ε τ ε .
+                                  d≤y
+                                        d s     ζ (s)
+                                            
+              (d) Put f y (s) = 1/ζ (s) − d≤y µ(d)/d s . Show that
+                                                        σ1 +i∞
+                                                1                                 xs
+                                      2 =                       ζ (s) f y (2s)      ds
+                                               2πi     σ1 −i∞                     s
+                  where σ1 = 1 + 1/ log x.
+              (e) Show (unconditionally) that
+                                                         1                             xs
+                                    2 = f y (2) +                    ζ (s) f y (2s)      ds
+                                                        2πi      C1                    s
+                   where C1 is a contour running from σ1 − i∞ to σ1 − i x to 1/2 − i x to
+                   1/2 + i x to σ1 + i x to σ1 + i∞.
+               (f) Assume RH. Show that 2         x 1/2+ε y −1/2 .
+              (g) Note that the estimate S(x, y)      y is trivial.
+              (h) Show that if RH is true, then
+                                                 6                 
+                                        Q(x) = 2 x + O x 1/3+ε .
+                                                π
+
+
+
+                                                13.3        Notes
+        Section 13.1. Theorem 13.1 is due to von Koch (1901). Theorems 13.3 and
+        13.5 are due to Cramér (1921). The order of magnitude of the estimate in
+        Theorem 13.5 is optimal, in view of Theorem 13.6, which is from Cramér
+        (1922). Wintner (1941) showed (assuming RH) that the function f (u) deﬁned
+        in (13.17) has a limiting distribution. That is, there is a weakly monotonic
+        function F(x) with limx→−∞ F(x) = 0, limx→+∞ F(x) = 1, such that
+                                  1
+                              lim   meas{u ∈ [0, U ] : f (u) ≤ x} = F(x)
+                             U →∞ U
+
+        whenever x is a point of continuity of F. The result of Exercise 13.1.4 is
+        useful in this connection. If in addition to RH, the ordinates γ > 0 are linearly
+        independent over the ﬁeld Q of rational numbers, then this distribution function
+        is the same as the distribution function of the random variable
+                                               cos 2π X γ
+                                       X =2
+                                              γ >0
+                                                      ρ
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        448                                    Conditional estimates
+
+
+        where the X γ are independent random variables, each one uniformly distributed
+        on [0, 1]. It can be shown (unconditionally) that the distribution function FX of
+        X satisﬁes the inequalities
+                              √ √                                   √ √
+                    exp −c1 xe 2π x < 1 − FX (x) < exp −c2 xe 2π x                (13.48)
+
+        for x ≥ 2 where c1 and c2 are positive absolute constants.
+           Concerning the mean square distribution of primes in short intervals, Selberg
+        (1943) showed (assuming RH) that
+                                 X
+                                                                      dx
+                                     (ψ((1 + δ)x) − ψ(x) − δx)2                δ(log X )2
+                             0                                        x2
+        uniformly for 1/ X ≤ δ ≤ 1/ log X . Theorem 13.7 and Corollary 13.8 are due
+        to Titchmarsh (1930). Corollary 13.10 is due to Turán (1937). Theorem 13.11,
+        in the case of the Legendre symbol, is due to Ankeny (1952), who used deeper
+        estimates of Selberg (1946b) found in Exercise 13.1.11. Our simpler proof, and
+        the extension to general non-principal characters, is from Montgomery (1971,
+        p. 120). Theorem 13.12 is from Montgomery (1994, p. 164). See also Lagarias,
+        Montgomery & Odlyzko (1979).
+            Section 13.2. All results here from Theorem 13.13 through Theorem 13.21
+        are due to Littlewood (1922, 1924b, 1926, 1928), although our proofs are much
+        simpler than in the original ones. Indeed, referring to Theorem 13.21, Littlewood
+        commented that, ‘The proof of this theorem is long and difﬁcult, and depends on
+        a singularly varied set of ideas.’ Precursors to Theorem 13.21 were established
+        by Bohr, Landau & Littlewood (1913), Cramér (1918), and Landau (1920).
+        See Titchmarsh (1927) for an alternative proof. Our simpler approach is that
+        of Selberg (1944). Littlewood (1928) not only established Corollary 13.17, but
+        also showed (assuming RH) that
+                                                      π2
+                           |ζ (1 + it)| ≥                         + O((log log τ )−2 ).
+                                               12eC0 log log τ
+        In the opposite direction, Titchmarsh (1928) showed (unconditionally) that
+                                                 |ζ (1 + it)|
+                                            lim sup           ≥ eC0 .
+                                            t→+∞  log log t
+        Also, Titchmarsh (1933) showed (unconditionally) that
+                                                                            π2
+                                       lim inf |ζ (1 + it)| log log t ≥         .
+                                        t→+∞                               6eC0
+        Here we see a factor of 2 between the two sets of bounds. The same factor of
+        2 arises when we consider what is known concerning large values of the zeta
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 13.4 References                                   449
+
+
+        function in the critical strip. Let α(σ ) denote the least number such that
+                                                                   
+                                 ζ (σ + it)     exp (log τ )α(σ )+ε
+        as t → ∞. From Corollary 13.16 we see that α(σ ) ≤ 2 − 2α, assuming RH.
+        In the opposite direction, Titchmarsh (1928) showed (unconditionally) that
+        α(σ ) ≥ 1 − α. More precisely, it is known that if 1/2 ≤ σ < 1, then there is a
+        c(σ ) > 0 such that
+                                                                 
+                                                  c(σ )(log τ )1−σ
+                         |ζ (σ + it)| =  exp                         .
+                                                   (log log τ )σ
+        For 1/2 < σ < 1 this is due to Montgomery (1977); the case σ = 1/2 is due
+        to Balasubramanian & Ramachandra (1977). Opinions as to where the truth
+        lies between these bounds vary widely among experts. For more on the value
+        distribution of the zeta function and L-functions, see Titchmarsh (1986), Joyner
+        (1986), and Laurinčikas (1996).
+            That the estimate M(x)         x 1/2+ε is equivalent to RH was proved by
+        Littlewood (1912). Theorems 13.22 through 13.24 are due to Titchmarsh (1927).
+        Theorem 13.24 has been improved upon by Maier & Montgomery (2006), who
+        showed (assuming RH) that
+                                                                
+                                  M(x)     x 1/2 exp (log x)39/61 .
+
+
+
+                                             13.4       References
+        Ankeny, N. C. (1952). The least quadratic non residue, Ann. of Math. 55, 65–72.
+        Axer, A. (1911). Über einige Grenzwertsätze, S.-B. Wiss. Wien IIa 120, 1253–1298.
+        Balasubramanian, R. & Ramachandra, K. (1977). On the frequency of Titchmarsh’s
+            phenomenon for ζ (s), III, Proc. Indian Acad. Sci. Sect. A 86, 341–351.
+        Bohr, H., Landau, E., & Littlewood, J. E. (1913). Sur la fonction ζ (s) dans le voisi-
+            nage de la droite σ = 1/2, Acad. Roy. Belgique Bull. Cl. Sci., 1144–1175; Bohr’s
+            Collected Works, Vol. 1. København: Dansk Mat. Forening, 1952, B.2; Landau’s
+            Collected Works, Vol. 6. Essen: Thales Verlag, 1986, pp. 61–93; Littlewood’s Col-
+            lected Papers, Vol. 2. Oxford: Oxford University Press, 1982, pp. 797–828.
+        Cramér, H. (1918). Über die Nullstellen der Zetafunktion, Math. Z. 2, 237–241;
+            Collected Works, Vol. 1. Berlin: Springer-Verlag, 1994, 92–96.
+          (1921). Some theorems concerning prime numbers, Arkiv för Mat. Astr. Fys. 15, no. 5,
+            33 pp.; Collected Works, Vol. 1. Berlin: Springer-Verlag, 1994, pp. 138–170.
+          (1922). Ein Mittelwertsatz der Primzahltheorie, Math. Z. 12, 147–153; Collected
+            Works, Vol. 1. Berlin: Springer-Verlag, 1994, pp. 229–235.
+        Goldston, D. A. (1982). On a result of Littlewood concerning prime numbers, Acta Arith.
+            40, 263–271.
+        Joyner, D. (1986). Distribution Theorems of L-functions, Pitman Research Notes in
+            Math. 142. Harlow: Longman.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        450                                  Conditional estimates
+
+
+        von Koch, H. (1901). Sur la distribution des nombres premiers, Acta Math. 24, 159–182.
+        Lagarias, J. C., Montgomery, H. L., & Odlyzko, A. M. (1979). A bound for the least
+              prime ideal in the Chebotarev density theorem, Invent. Math. 54, 271–296.
+        Landau, E. (1920). Über die Nullstellen der Zetafunktion, Math. Z. 6, 151–154;
+              Collected Works, Vol. 7. Essen: Thales Verlag, 1986, pp. 226–229.
+        Laurinčikas, A. (1996). Limit Theorems for the Riemann Zeta-function, Mathematics
+              and its Applications 352. Dordrecht: Kluwer.
+        Littlewood, J. E. (1912). Quelques conséquences de l’hypothèse que la fonction ζ (s) de
+              Riemann n’a pas de zéros dans le demi-plan R(s) > 12 , Comptes Rendus Acad. Sci.
+              Paris 154, 263–266; Collected Papers, Vol. 2. Oxford: Oxford University Press,
+              1882, pp. 793–796.
+          (1922). Researches in the theory of the Riemann ζ -function, Proc. London Math. Soc.
+              (2) 20, xxii–xxviii; Collected Papers, Vol. 2. Oxford: Oxford University Press, 1982,
+              pp. 844–850.
+          (1924a). Two notes on the Riemann Zeta-function, Proc. Cambridge Philos. Soc.
+              22, 234–242; Collected Papers, Vol. 2. Oxford: Oxford University Press, 1982,
+              pp. 851–859.
+          (1924b). On the zeros of the Riemann zeta-function, Proc. Cambridge Philos. Soc.
+              22, 295–318; Collected Papers, Vol. 2. Oxford: Oxford University Press, 1982, pp.
+              860–883.
+          (1926). On the Riemann zeta function, Proc. London Math. Soc. (2) 24, 175–201;
+              Collected Papers, Vol. 2. Oxford: Oxford University Press, 1982, pp. 844–910.
+          (1928). Mathematical Notes (5): On the function 1/ζ (1 + ti), Proc. London Math.
+              Soc. (2) 27, 349–357; Collected Papers, Vol. 2, Oxford: Oxford University Press,
+              1982, pp. 911–919.
+        Maier, H. & Montgomery, H. L. (2006). On the sum of the Möbius function, to appear,
+              16 pp.
+        Montgomery, H. L. (1971). Topics in Multiplicative Number Theory, Lecture Notes in
+              Math. 227. Berlin: Springer-Verlag.
+          (1977). Extreme values of the Riemann zeta-function, Comment. Math. Helv. 52,
+              511–518.
+          (1994). Ten lectures on the interface between analytic number theory and harmonic
+              analysis, CMBS 84. Providence: Amer. Math. Soc.
+        Montgomery, H. L. & Vaughan, R. C. (1981). The distribution of square-free numbers,
+              Recent Progress in Analytic Number Theory (Durham, 1979), Vol. 1. London:
+              Academic Press, pp. 247–256.
+        Selberg, A. (1943). On the normal density of primes in small intervals, Arch. Math.
+              Natur-vid. 47, 87–105; Collected Papers, Vol. 1, New York: Springer Verlag, 1989,
+              pp. 160–178.
+          (1944). On the Remainder in the Formula for N (T ), the Number of Zeros of ζ (s) in
+              the Strip 0 < t < T . Avhandl. Norske Vid.-Akad. Oslo I. Mat.-Naturv. Kl., no. 1;
+              Collected Papers, Vol. 1, New York: Springer Verlag, 1989, pp. 179–203.
+          (1946a). Contributions to the Theory of the Riemann zeta-function, Arch. Math.
+              Naturvid. 48, 89–155; Collected Papers, Vol. 1, New York: Springer Verlag, 1989,
+              pp. 214–280.
+          (1946b). Contributions to the Theory of Dirichlet’s L-functions, Skrifter Norske Vid.-
+              Akad. Oslo I. Mat.-Naturvid. Kl., no. 3; Collected Papers, Vol. 1, New York:
+              Springer Verlag, 1989, pp. 281–340.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 13.4 References                                   451
+
+
+        Titchmarsh, E. C. (1927). A consequence of the Riemann hypothesis, J. London Math.
+             Soc. 2, 247–254.
+           (1928). On an inequality satisﬁed by the zeta-function of Riemann, Proc. London
+             Math. Soc. (2) 28, 70–80.
+           (1930). A divisor problem, Rend. Circ. Mat. Palermo 54, 414–429.
+           (1933). On the function 1/ζ (1 + it), Quart. J. Math. Oxford 4, 64–70.
+           (1986). The Theory of the Riemann Zeta-function, Second edition. Oxford: Oxford
+             University Press.
+        Turán, P., (1937). Über die Primzahlen der Arithmetischen Progression, I, Acta Sci.
+             Szeged 8, 226–235; Collected Papers, Vol. 1. Budapest: Akadémiai Kiadó, 1990,
+             pp. 64–73.
+        Vorhauer, U. M. A. (2006). The Hadamard product formula for Dirichlet L-functions,
+             to appear.
+        Wintner, A. (1941). On the distribution function of the remainder term of the Prime
+             Number Theorem, Amer. J. Math. 63, 233–248.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.015 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

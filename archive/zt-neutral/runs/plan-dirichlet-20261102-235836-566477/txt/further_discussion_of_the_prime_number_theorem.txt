@@ -1,0 +1,2314 @@
+                                                          8
+                                 Further discussion of the
+                                 Prime Number Theorem
+
+
+
+
+            8.1     Relations equivalent to the Prime Number Theorem
+        The Prime Number Theorem asserts that
+                                                                x
+                                                  π (x) ∼                                          (8.1)
+                                                              log x
+        as x → ∞. In this section we consider a number of asymptotic relations
+        that are equivalent to the Prime Number Theorem in the sense that they can
+        be derived from, and also imply the Prime Number Theorem, by means of
+        simple elementary arguments. These relations can also be proved by using the
+        same analytic machinery that we used to prove the Prime Number Theorem, but
+        the elementary techniques that we use to derive one relationship from another
+        have permanent utility.
+                                   that π (x) = ψ(x)/ log x + O(x/(log x) ) and that
+                                                                            2
+           In Corollary 2.5 we saw
+        ψ(x) = ϑ(x) + O x     1/2
+                                   . Hence (8.1) is equivalent to
+                                                ψ(x) = x + o(x),                                   (8.2)
+        and also to
+                                                ϑ(x) = x + o(x).                                   (8.3)
+        These equivalences are fairly trivial, since the arithmetic functions involved are
+                                                                              
+        nearly the same. At a somewhat deeper level, we consider M(x) = n≤x µ(n),
+        and show that the estimate
+                                                   M(x) = o(x)                                     (8.4)
+        is equivalent to the Prime Number Theorem. As was remarked in Chapter 6,
+        the relation (8.4) can be proved analytically, by applying the truncated Perron
+        formula to the Dirichlet series 1/ζ (s) and using the zero-free region of the zeta
+        function, as in the proof of the Prime Number Theorem. To derive (8.4) from
+
+                                                         244
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                       8.1 Relations equivalent to the Prime Number Theorem                         245
+
+
+        (8.2) it would be natural to express µ(n) as the Dirichlet convolution of (n)
+        with some other function. As an aid to discovering such a function we would
+        write
+                                        1      ζ  (s)    1
+                                            =          ·  .
+                                      ζ (s)    ζ (s) ζ (s)
+                                         
+        Unfortunately, 1/ζ (s) = −1/ (log n)n −s cannot be expanded as a Dirichlet
+                            
+
+        series (because log 1 = 0), so we reach an impasse. To circumvent this difﬁculty
+        we introduce a valuable trick. Instead of treating M(x) directly, we ﬁrst consider
+                  
+        N (x) := n≤x µ(n) log n. Since
+                                                             
+                 M(x) log x − N (x) =       µ(n) log(x/n)         log(x/n)      x,
+                                                n≤x                         n≤x
+
+        it is clear that (8.4) is equivalent to the estimate
+                                               N (x) = o(x log x).                                 (8.5)
+        To derive (8.5) from (8.2) we observe that the Dirichlet series generating func-
+        tion of µ(n) log n is −(1/ζ (s)) = ζ  (s)/ζ (s)2 . Alternatively, in elementary lan-
+        guage, we recall (1.22), which asserts that
+                                                                           
+                                                    ζ                   
+                          (d) = log n           − (s) · ζ (s) = −ζ (s) .
+                      d|n
+                                                    ζ
+
+        By the Möbius inversion formula, this gives
+                                                                         
+                                                   ζ
+               (n) =        µ(d) log n/d        − (s) = −ζ  (s) · 1/ζ (s) ,                      (8.6)
+                         d|n
+                                                    ζ
+
+        as was already noted in the proof of Theorem 2.4. But
+                                                                     
+                                                   d
+                  0 = (log n)     µ(d)        0=     (ζ (s) · 1/ζ (s))
+                              d|n
+                                                  ds
+
+        for all n, and so
+                                                                                        
+                                                         ζ
+                (n) = −             µ(d) log d         − (s) = −ζ (s) · (ζ  (s)/ζ (s)2 ) .
+                               d|n
+                                                         ζ
+
+        By Möbius inversion a second time, we deduce that
+                                                                           
+                                                                        ζ
+         µ(n) log n = −      µ(d)(n/d)         ζ (s)/ζ (s) = (1/ζ (s)) · (s) .
+                                                           2
+
+                         d|n
+                                                                         ζ
+
+        Since (n/d) is 1 on average, we adjust by this amount:
+                                             
+                                                µ(n) log n (n > 1),
+                         µ(d)(1 − (n/d)) =
+                     d|n
+                                                     1      (n = 1).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        246                Further discussion of the Prime Number Theorem
+
+
+        We sum this over n ≤ x (which is to say we apply (2.7)) to see that
+                          
+                             µ(d)([x/d] − ψ(x/d)) = N (x) + 1.
+                                 d≤x
+
+        From (8.2) we know that for any ε > 0 there is a large number C = C(ε) such
+        that |ψ(y) − [y]| < εy provided that y ≥ C. That is, |ψ(x/d) − [x/d]| ≤ εx/d
+        for d ≤ x/C. Thus
+                                                                     εx
+                                µ(d) (ψ(x/d) − [x/d]) ≤                             εx log x.
+                        d≤x/C                                      d≤x/C
+                                                                            d
+
+        The remaining range we treat trivially:
+                                                                         x
+                         µ(d)(ψ(x/d) − [x/d])                                         x log 2C.
+                     x/C<d≤x                                       x/C<d≤x
+                                                                           d
+
+        Since ε can be taken arbitrarily small, we see that (8.5), and hence (8.4), follows
+        from (8.2).
+           It is worth pausing here to note that the choice of the main term above is
+        extremely delicate. If we had subtracted x/d instead of [x/d], then we would
+                                                                     
+        have had to consider the question of the size of the sum d≤x µ(d)/d, which
+                                        
+        will be considered later. Since d≤x µ(d)[x/d] = 1 for all x ≥ 1, we avoid the
+        problem by this judicious choice of the main term.
+           To complete our proof that (8.4) is equivalent to (8.2) we now assume (8.4),
+        and derive (8.2). By summing (8.6) over n, which is to say by applying (2.7),
+        we see that
+                                            
+                                    ψ(x) =       µ(d)T (x/d)
+                                                      d≤x
+                            
+        where T (x) = m≤x log m as in Section 2.2. We recall that T (x) = x log x −
+        x + O(log x) by the integral test. The main term here is approximately the same
+        as applies to the summatory function of the divisor function, since  Theorem
+                                                                            1/2        2.2
+                               
+        asserts that D(x) = m≤x d(m) = x log x + (2C0 − 1)x + O x                  . Indeed,
+        the arithmetic function d(m) − 2C0 , when summed over m, produces exactly
+        the same main terms as log m. That is, if f (m) = log m − d(m) + 2C0 and
+                                                                     
+        F(x) = m≤x f (m) then F(x)          x 1/2 . On the other hand, r |n µ(r )d(n/r ) =
+                        
+        1 for all n and d|n µ(d) = 0 for all n > 1, so that
+                                               
+                                                   (n) − 1 (n > 1),
+                                µ(d) f (n/d) =
+                            d|n
+                                                   2C0 − 1 (n = 1).
+
+        On summing this over n ≤ x we ﬁnd that
+                          
+                              µ(d)F(x/d) = ψ(x) − [x] + 2C0 .                                      (8.7)
+                                  d≤x
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                        8.1 Relations equivalent to the Prime Number Theorem                        247
+
+
+        We now use (8.4) to show that the left-hand side above is o(x), which thus gives
+        (8.2). The reasoning employed at this point is useful for other purposes, so we
+        axiomatize the argument, as follows.
+
+        Theorem 8.1 (Axer’s theorem) Suppose that ad is a sequence such that
+                                          
+        (i) d≤x ad = o(x) and that (ii) d≤x |ad |        x. Suppose also that F(x) is
+        a function deﬁned on [1, ∞) such that (iii) F(x) has bounded variation in the
+        interval [1, C] for any ﬁnite C ≥ 1, and that (iv) F(x)   x/(log x)c for some
+        constant c > 1. Then
+                                     
+                                        ad F(x/d) = o(x).
+                                              d≤x
+
+            By taking ad = µ(d) and F(x) as in (8.7), we see that (8.4) implies (8.2).
+
+        Proof Suppose that 1 ≤ U ≤ x/2. From (ii) and (iv) we see that
+                                       U                             x
+                           ad F(x/d)         c
+                                                            |ad |            .
+             x/(2U )<d≤x/U
+                                     (log U ) x/(2U )<d≤x/U        (log U )c
+
+        On taking U = 2 j and summing over j ≥ J we ﬁnd that
+                                             ∞
+                                                  1       x
+                                  ad F(x/d) x       c c   c−1
+                                                              .
+                          d≤x/2 J             j=J
+                                                  j     J
+                                                                
+        This is small compared with x if J is large. Let A(x) = d≤x ad . To treat the
+        remaining range, x/2 J < d ≤ x, we sum by parts. We do not use the Riemann–
+        Stieltjes integral here because A(y) and F(x/y) may have common disconti-
+        nuities. Let n 0 = [x/2 J ] and n 1 = [x]. Then
+                                  
+                   ad F(x/d) =          (A(d) − A(d − 1))F(x/d)
+           n 0 <d≤n 1                  n 0 <d≤n 1
+                                                                        
+                                   =                A(d)F(x/d) −                      A(d)F(x/(d + 1))
+                                       n 0 <d≤n 1                   n 0 −1<d≤n 1 −1
+
+                                   = A(n 1 )F(x/n 1 ) − A(n 0 )F(x/(n 0 + 1))
+                                          
+                                     +         A(d) (F(x/d) − F(x/(d + 1))) .
+                                          n 0 <d<n 1
+
+        Since A(n i ) = o(x) and F(x/n i ) J 1, the ﬁrst two terms are harmless. As the
+        points x/d are monotonically arranged in the interval [1, 2 J ], the sum above
+        has absolute value not exceeding
+                          
+           max |A(d)|           |F(x/d) − F(x/(d + 1))| ≤ max |A(d)| var[1,2 J ] F.
+             d≤x                                                                d≤x
+                             n 0 <d<n 1
+
+        By (i) and (iii) this is o(x) for any given J . Thus the proof is complete.                  
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        248                Further discussion of the Prime Number Theorem
+
+
+            By means of a further application of Axer’s theorem, we now show that
+                                                   
+                                                   ∞
+                                                       µ(d)
+                                                            =0                                     (8.8)
+                                                   d=1
+                                                        d
+
+        is also equivalent to the Prime Number Theorem. We take ad = µ(d) and
+        F(x) = {x} = x − [x] in Axer’s theorem. Thus from (8.4) we deduce that
+                                   
+                                      µ(d){x/d} = o(x).
+                                            d≤x
+              
+        But      d≤x µ(d)[x/d] = 1 when x ≥ 1, so the left-hand side above is
+                                                           µ(d)
+                                               −1 + x                    .
+                                                          d≤x
+                                                                     d
+
+        Since this is o(x), we obtain (8.8). To derive (8.4) from (8.8) is easier, in view
+        of the following useful principle:
+                                                      
+        Lemma 8.2 If ∞       d=1 ad /d converges, then    d≤x ad = o(x).
+                                             
+        Proof Let x be given, set r (u) = u<d≤x ad /d, and note that
+                                                              x
+                                                   ad =            r (u) du.
+                                             d≤x           0
+
+        But r (u) is bounded (independently of x), and |r (u)| < ε for u > U0 , so the
+        integral is U0 + εx. That is, the sum is o(x), as desired.                  
+
+
+                                               8.1.1      Exercises
+                                                   
+        1. As in Section 2.2, let T (x) = n≤x log n, and recall that T (x) = x log x −
+           x + O(log x).
+                                   
+           (a) Show that T (x) = d≤x (d)[x/d].
+           (b) Show that
+                       (d)                           
+                    x             = T (x) −     {x/d} −     ((d) − 1){x/d}.
+                      d≤x
+                            d               d≤x         d≤x
+
+            (c) Use (8.2) and Axer’s theorem to show that the last sum above is o(x).
+            (d) Recall Exercise 2.1.1.
+            (e) Show that (8.2) implies that
+                                  (d)
+                                             = log x − C0 + o(1),                 (8.9)
+                                 d≤x
+                                       d
+
+                  and note how this compares with Theorem 2.7(a).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                       8.1 Relations equivalent to the Prime Number Theorem                          249
+
+
+             (f) Apply Lemma 8.2 with ad = (d) − 1 to show that (8.9) implies (8.2).
+                 Hence (8.2) and (8.9) are equivalent.
+            (g) Show that
+                              
+                                  (n){x/n} = (1 − C0 )x + o(x).
+                                    n≤x
+
+        2. (a) By recalling the proof of Theorem 2.2(c), or otherwise, show that (8.2)
+               implies that
+                                         x
+                                             ψ(u)
+                                                  du = log x − 1 − C0 + o(1).                      (8.10)
+                                     1        u2
+
+           (b) Show that (8.10) implies (8.2).
+        3. Let b be deﬁned as in Theorem 2.7. (a) Imitate the proof of Theorem 2.7(d)
+           to show that (8.2) implies that
+                                   1
+                                               = log log x + b + o(1/ log x).                      (8.11)
+                                    p≤x p
+
+           (b) Show that (8.11) implies (8.1).
+        4. (a) Use (8.10) and Exercise 5.2.12 to show that
+                                          µ(d)
+                                                     log(x/d) = o(log x).                          (8.12)
+                                         d≤x
+                                                 d
+
+            (b) Show that (8.10) implies that
+                                    µ(d)
+                                             log d = o(log x).                                     (8.13)
+                                   d≤x
+                                         d
+
+           (c) By partial summation, derive (8.4) from (8.13), and thus show that (8.2),
+           (8.12) and (8.13) are all equivalent. (Note that a deeper assertion concerning
+           the sum in (8.13) was already proved in Exercise 6.2.15.)
+                        
+        5. Let F(n) = d|n f (d) for all n. The opening remarks in Chapter 2 raise the
+           possibility of a connection between the two relations
+                        
+            (i) S(x) = n≤x F(n) = cx + o(x);
+                 ∞
+           (ii)    d=1 f (d)/d = c.
+           In Exercise 6.2.19 we have seen that (i) and the hypothesis f (n)      1 imply
+           (ii). Apply Axer’s theorem with ad = f (d), F(x) = {x} to show that (ii) and
+                           
+           the hypothesis n≤x | f (n)|        x imply (i).
+        6. Let dk (n) be the k th divisor function, as deﬁned in Exercise 2.1.18. Put
+                                                                 
+           D0 (x) = 1, and for positive integral k let Dk (x) = n≤x dk (n).
+                                                          
+           (a) Show that if k is a positive integer, then d≤x µ(d)Dk (x/d) = Dk−1 (x).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        250                Further discussion of the Prime Number Theorem
+
+                                                                               
+            (b) Let g(n) be an arithmetic function, put G(x) =                    n≤x g(n), and suppose
+                that
+                                    G(x) = x P(log x) + O(x/(log x)c )
+
+            where c > 1 and P is a polynomial of degree K . Let Pk be the polynomial
+            deﬁned in Exercise 2.1.18, and explain why there exist constants ak so that
+                    K +1
+            P(z) = k=1     ak Pk (z). By applying Axer’s theorem with F(x) = G(x) −
+             K +1
+              k=1 ak Dk (x), show that
+                              
+                                   µ(d)G(x/d) = x Q(log x) + o(x)
+                                   d≤x
+
+           where Q is a polynomial of degree K − 1 with leading coefﬁcient equal to
+           K times the leading coefﬁcient of P.
+        7. Show that Axer’s theorem holds with hypothesis (iv) replaced by the weaker
+           condition that |F(x)|
+                             ∞ ≤ ω(x)x for some non-negative function ω(x) satisfy-
+           ing ω(x)  and 1 ω(x)/x d x < ∞.
+
+
+
+           8.2      An elementary proof of the Prime Number Theorem
+        As we saw in Exercise 2.1.5, a version of Möbius inversion asserts that the two
+        relationships
+                                                       
+                      B(x) =     A(x/n),        A(x) =       µ(n)B(x/n)           (8.14)
+                                     n≤x                               n≤x
+
+        are equivalent. Some familiar – and useful – examples of this pairing are
+        displayed in Table 8.1. In many instances of (8.14), the functions A(x) and
+        B(x) are summatory functions of arithmetic functions a(n) and b(n), respec-
+        tively, in which case a(n) and b(n) are linked by the more common Möbius
+        inversion
+                                                    
+                        b(n) =     a(d),     a(n) =      µ(d)b(n/d).         (8.15)
+                                         d|n                         d|n
+
+        The linear operator that takes A(x) to B(x) is continuous, but the transformation
+        is nevertheless quite unstable. For example, the choice of the functions A(x) in
+        the second and third lines of Table 8.1 are very close, and yet the corresponding
+        functions B(x) differ quite substantially.
+            When the asymptotic rate of growth of A(x) is known, it is easy to deduce that
+        of B(x), as a form of Abelian theorem. For example, if A(x) ∼ x as x → ∞,
+        then B(x) ∼ x log x. However, from the fourth line of Table 8.1 we see that
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                       8.2 An elementary proof of the Prime Number Theorem                               251
+
+
+                                                           Table 8.1
+
+                    A (x)                                               B (x)
+                      1                                    1    [x]
+                      x                              x    = x log x + C0 x + O(1)
+                                                              n
+                                                   n≤x                              
+                     [x]                        d(n) = x log x + (2C0 − 1)x + O x 1/2
+                                             n≤x 
+                    ψ(x)                            log n = x log x − x + O(log x)
+                                                    n≤x
+                                        log x/n              1
+                   x log x         x                      =     x(log x)2 + C1 x log x + C2 x + O(1)
+                                       n≤x
+                                                n             2
+
+
+
+
+        some sort of Tauberian converse would be useful, for the purpose of proving
+        the Prime Number Theorem. Unfortunately, it is difﬁcult to establish anything
+        stronger than the trivial estimate
+                                           
+                                      A(x)    |B(x/n)|.                        (8.16)
+                                                                  n≤x
+
+        From this we see that if B(x)   1, then A(x)    x. This is rather weak, since
+        the same upper bound for A(x) can be deduced from a weaker upper bound for
+        B(x): From (8.16) we see that
+
+                            B(x)       xα, 0 ≤ α < 1                    =⇒         A(x)    α x.        (8.17)
+
+        As a ﬁrst application of this, we take A(x) = ψ(x) − x + 1 + C0 . Then from
+        lines 1, 2, and 4 of Table 8.1 we see that B(x)     log x, and by (8.17) it follows
+        that A(x)     x. That is, ψ(x)     x, which is the upper bound portion of Cheby-
+        shev’s estimate. To achieve greater success we construct a prime number sum
+        in which the main term is larger than O(x).
+
+        Theorem 8.3 (Selberg) Let
+                                                                        
+                                   2 (n) = (n) log n +                       (b)(c).
+                                                                        bc=n
+
+        Then for x ≥ 1,
+                                         
+                                               2 (n) = 2x log x + O(x).
+                                         n≤x
+
+           Clearly 2 (n) > 0 only when ω(n) ≤ 2. Thus the sum on the left above is
+        analogous to ψ(x) but with prime powers replaced by products of two prime
+        powers, counted with suitable weights.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        252                Further discussion of the Prime Number Theorem
+
+
+        Proof       We begin by noting that
+                                                    
+                            2 (d) =     (d) log d +    (b)(c)
+                           d|n                d|n                   d|n bc=d
+                                                                               
+                                         =          (d) log d +          (b)           (c).
+                                              d|n                   b|n          c|n/b
+
+        Here the sum over c is log n/b, so the above is
+                                                
+                                       = log n     (d)
+                                                             d|n
+
+                                                    = (log n)2 .                                   (8.18)
+
+        Hence by Möbius inversion it follows that
+                                          
+                               2 (n) =      µ(d)(log n/d)2 .                                      (8.19)
+                                                       d|n
+
+        Take now
+                                             
+                                  A(x) =            2 (n) − 2x log x + c1 x + c2                  (8.20)
+                                             n≤x
+
+        where c1 and c2 are constants to be chosen later. Then by (8.18) and lines
+        1, 2, and 5 of Table 8.1 we see that the corresponding B(x) given by (8.14)
+        is
+                                           log x/n          1
+                 B(x) =      (log n)2 − 2x             + c1 x       + c2 [x].
+                         n≤x               n≤x    n           n≤x n
+                                            x
+        By the integral test the ﬁrst sum is 1 (log u)2 du + O((log x)2 ) = x(log x)2 −
+        2x log x + 2x + O((log x)2 ). Hence the above is
+
+                                 = −2x log x + 2x − 2C1 x log x − 2C2 x
+                                   + c1 x log x + c1 C0 x + c2 x + O((log x)2 ).
+
+        We now choose c1 and c2 so that the leading terms cancel. That is, we take
+        c1 = 2 + 2C1 and c2 = −2 + 2C2 − c1 C0 . Then B(x)    (log x)2 , and hence
+        by (8.17) it follows that A(x) x. The desired estimate then follows from
+        (8.20).                                                                 
+
+           Selberg’s identity may be modiﬁed in a variety of ways. For example, we
+        note that
+                                  x                              x
+                                                                    ψ(u)
+                   (n) log n =      log u dψ(u) = ψ(x) log x −          du.
+               n≤x               1                              1    u
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                       8.2 An elementary proof of the Prime Number Theorem                           253
+
+
+        By Chebyshev’s estimate this last integral is                  x, and hence the above is
+                                             = ψ(x) log x + O(x).                                  (8.21)
+        On inserting this in Selberg’s identity, we ﬁnd that
+                                    
+                      ψ(x) log x +       ψ(x/n)(n) = 2x log x + O(x).                             (8.22)
+                                            n≤x
+
+            Our object is to show that each term on the left above is ∼ x log x as x →
+        ∞. Suppose, to the contrary, that ψ(x) is somewhat larger than anticipated,
+                                                                            
+        say ψ(x) = ax with a > 1. By combining Mertens’ estimate n≤x (n)/n =
+        log x + O(1) with (8.22), we see that ψ(y)/y is on average approximately 2 − a
+        as y runs over the points x/ p k , counted with the appropriate weights. Note that
+        2 − a < 1. That is, if x is chosen so that ψ(x) is unusually large, then ψ(x/ p k )
+        must be unusually small for many prime powers p k . Such an argument may
+        be repeated, so that one ﬁnds that ψ(x/( p k q  )) is unusually large for many
+        prime powers q  . The points x/ p k and x/( p k q  ) are highly interlacing, so that
+        ψ(y) would have to switch rapidly back and forth between large and small
+        values. However, ψ(x) is a (weakly) increasing function, which implies that
+        if it is unusually large at one point, then it continues to be unusually large for
+                                                                                         √
+        some time after. More precisely, if ψ(x) ≥ ax with a > 1, then ψ(y) ≥ a y
+                                  √
+        uniformly
+        √           for x ≤ y ≤√ a x. Similarly, if ψ(x) ≤ bx with b < 1 then ψ(y) ≤
+           b y uniformly for b x ≤ y ≤ x. Of course an interval on which ψ(y) is
+        large cannot overlap with one on which ψ(y) is small. One expects to reach a
+        contradiction by showing that these intervals are too numerous and too long to
+        all ﬁt in the interval [1, x]. Our remaining task is to convert this intuitive line
+        of reasoning into a rigorous proof.
+            Let R(x) be deﬁned by the relation ψ(x) = x + R(x). By combining the
+        estimate of Mertens cited above with (8.22) we see that
+                                              
+                                R(x) log x +      R(x/n)(n)         x.                 (8.23)
+                                                      n≤x
+
+        Here the sum is a weighted average of values of R, but the total amount of
+                 
+        weight, n≤x (n) = ψ(x), remains in doubt. To overcome this difﬁculty, we
+        iterate the identity (8.23) as follows: By replacing x in (8.23) by x/m we ﬁnd
+        that
+                                             
+                       R(x/m) log x/m +           R(x/(mn))(n)       x/m.
+                                                    n≤x/m
+
+        We multiply this by (m) and sum over all m ≤ x, and thus ﬁnd that
+                                       
+                R(x/m)(m) log x/m +         R(x/(mn))(m)(n)        x log x.
+               m≤x                                    mn≤x
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        254                Further discussion of the Prime Number Theorem
+
+
+        We multiply both sides of (8.23) by log x and subtract the above to see that
+                                   
+                R(x)(log x)2 = −       R(x/n)(n) log n
+                                             n≤x
+                                             
+                                         +          R(x/(mn))(m)(n) + O(x log x).                (8.24)
+                                             mn≤x
+
+        This has the advantage over (8.23) that we know how much weight resides in the
+        coefﬁcients on the right-hand side, by virtue of Theorem 8.3. We now formulate
+        a Tauberian principle that is appropriate to estimate the above expression.
+
+        Lemma 8.4 Suppose that an ≥ 0 and bn ≥ 0 for all n, and that
+                          1                   3
+                            x log x ≤     an ≤ x log x,                                            (8.25)
+                          2           n≤x      2
+                          1                   3
+                            x log x ≤     bn ≤ x log x                                             (8.26)
+                          2           n≤x      2
+
+        for all large x. Suppose also that
+                                    
+                                        an + bn ∼ 2x log x                                         (8.27)
+                                             n≤x
+
+        as x → ∞. Finally, suppose that r (u) is a function such that
+                                                    |r (u)| ≤ βu                                   (8.28)
+        for all large u where 0 < β ≤ 1, and that
+
+                                            r (v) − r (u) ≥ −(v − u)                               (8.29)
+
+        when v ≥ u. Then
+                                                        
+                                                β2
+                        (an − bn )r (x/n) ≤ β −     + o(1) x(log x)2 .
+                    n≤x                         100
+
+        Proof Without loss of generality the hypotheses hold for all x ≥ 1, u ≥ 1,
+        since changes in the deﬁnitions of an , bn for small n, and r (u) for small u entail
+        additional error terms of magnitude O(x log x). It sufﬁces to show that
+                                                               
+                                                     β2
+                         (an − bn )r (x/n) ≤ β −         + o(1) x(log x)2 ,          (8.30)
+                     n≤x                             100
+        since the reverse inequality can then be derived by exchanging the roles of an
+        and bn . By applying ﬁrst (8.28) and then (8.27) we see that the left-hand side
+        above is trivially
+                                      a n + bn
+                               ≤ βx               ∼ βx(log x)2 .                 (8.31)
+                                      n≤x    n
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                       8.2 An elementary proof of the Prime Number Theorem                         255
+
+
+        We write the left-hand side of (8.30) in the form
+               an + bn   βx                          
+                                                                 βx
+                                                                             
+           βx               −      an       − r (x/n) −       bn    + r (x/n) .
+              n≤x      n       n≤x       n                n≤x    n
+        By (8.31), this is
+                                           ∼ βx(log x)2 − S A − S B ,
+        say. Note that both factors of the summands in S A are non-negative, so that
+        S A ≥ 0. Similarly, S B ≥ 0. We need to show that
+                                          2          
+                                           β
+                              S A + SB ≥       + o(1) x(log x)2 .             (8.32)
+                                           100
+        To this end we show that
+                                                      
+                          βx                  βx              1 2
+                     an      − r (x/n) + bn      + r (x/n) ≥    β x log y (8.33)
+             y<n≤16y
+                          n                   n              16
+
+        for all large y. Then (8.32) follows on summing this over y = x16−k , 1 ≤ k ≤
+        [(log x)/ log 16] . In proving (8.33) we consider three cases.
+        Case 1. r (u) ≤ 12 βu for all u ∈ [ 16y
+                                             x
+                                                , 4y
+                                                  x
+                                                     ]. Then r (x/n) ≤ 12 βx/n for all n ∈
+        [4y, 16y], and hence
+                                                               an
+                                    βx                    1
+                               an       − r (x/n) ≥ βx                     .
+                       y<n≤16y
+                                     n                    2 4y<n≤16y n
+
+        Since the denominator does not exceed 16y, the above is
+                                          βx 
+                                      ≥                 an .
+                                         32y 4y<n≤16y
+                                       
+        Here the sum is n≤16y an − n≤4y an , which by (8.25) is ≥ 8y log 16y −
+        6y log 4y > 2y log y. Thus the above is
+                                             βx
+                                          ≥      log y.
+                                              16
+        Since β ≤ 1, this gives (8.33) in this case.
+        Case 2. r (u) ≥ − 12 βu for all u ∈ [ 4y
+                                              x x
+                                                 , y ]. Then r (x/n) ≥ − 12 βx/n for n ∈
+        [y, 4y]. Arguing as in the preceding case, but using (8.26) instead of (8.25), we
+        ﬁnd that
+                                               bn
+                     βx                 1                   βx              βx log y
+                 bn      + r (x/n) ≥ βx                    ≥             bn ≥          .
+          y<n≤4y
+                      n                  2    y<n≤4y
+                                                        n    8y   y<n≤4y
+                                                                                 16
+
+        This gives (8.33) in this case.
+          If neither Case 1 nor Case 2 applies, then we have
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        256                Further discussion of the Prime Number Theorem
+
+
+        Case 3. There is a u 1 ∈ [ 16yx
+                                         , 4y
+                                           x
+                                              ] such that r (u 1 ) ≥ 12 βu 1 , and a u 2 ∈ [ 4y
+                                                                                             x x
+                                                                                                , y]
+        such that r(u 2 ) ≤ − 2 βu 2 . Let u 4 be the inf of those u ≥ u 1 such that
+                                  1
+
+        r (u) ≤ − 12 βu. We show that r (u 4 ) = − 12 βu 4 . Suppose that r (u 4 ) > − 12 βu 4 ,
+        say r (u 4 ) + 12 βu 4 = δ > 0. Suppose that
+                                                                   δ
+                                           u4 ≤ v < u4 +                 .                         (8.34)
+                                                                1 − 12 β
+
+        Then by (8.29) we see that
+                                                          1
+                         r (v) ≥ r (u 4 ) − (v − u 4 ) = − βu 4 + δ − (v − u 4 ).
+                                                          2
+        From the upper bound in (8.34) we deduce that the above expression is >
+        − 12 βv. That is, the inequality r (u) ≤ − 12 βu holds at no point of the interval
+        (8.34). Since this contradicts the deﬁnition of u 4 , it follows that r (u 4 ) ≤ − 12 βu 4 .
+        Now suppose that r (u 4 ) < − 12 βu 4 , say −r (u 4 ) − 12 βu 4 = δ > 0. Suppose also
+        that
+                                                      δ
+                                           u4 −             ≤ u ≤ u4.                              (8.35)
+                                                   1 − 12 β
+
+        Then by (8.29) we see that
+                                                         1
+                         r (u) ≤ r (u 4 ) + (u 4 − u) = − βu 4 − δ + (u 4 − u).
+                                                         2
+        From the lower bound in (8.35) we deduce that this expression is ≤ − 12 βu.
+        That is, the inequality r (u) ≤ − 12 βu holds throughout the interval (8.35).
+        Since this contradicts the deﬁnition of u 4 , we conclude that r (u 4 ) = − 12 βu 4 .
+        Put
+                                                        1 − 12 β
+                                                u3 =               u4,
+                                                        1 + 12 β
+
+        and suppose that
+
+                                                   u3 < u ≤ u4.                                    (8.36)
+
+        Then by (8.29) we see that
+                                                            1
+                            r (u) ≤ r (u 4 ) + (u 4 − u) = − βu 4 + (u 4 − u).
+                                                            2
+        From the lower bound in (8.36) we deduce that this expression is < 12 βu. That
+        is, the inequality r (u) ≥ 12 βu holds at no point of the interval (8.36), and hence
+        u1 ≤ u3.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                       8.2 An elementary proof of the Prime Number Theorem                           257
+
+
+          To summarize, we have 16y     x
+                                           ≤ u 1 ≤ u 3 ≤ u 4 ≤ xy and |r (u)| ≤ 12 βu for u 3 <
+        u ≤ u 4 . Hence
+                                                                           
+                                          βx                     βx
+                                     an      − r (x/n) + bn         + r (x/n)
+                      x/u 4 ≤n<x/u 3
+                                          n                       n
+                                1                a n + bn
+                             ≥ βx
+                                2 x/u 4 ≤n<x/u 3      n
+                                            
+                                  1                                           
+                             =       β + o(1) x (log x/u 3 )2 − (log x/u 4 )2 .         (8.37)
+                                  2
+        To estimate the last factor above we note that
+                       x           x        1 + 12 β    β 2r +1
+                                                        ∞
+                  log     − log       = log          =                  > β.
+                      u3          u4        1 − 12 β   r =0
+                                                            (2r + 1)22r
+        Also, since u 3 and u 4 do not exceed x/y, it follows that
+                                        x        x
+                                   log     + log    ≥ 2 log y.
+                                        u3       u4
+        Hence the expression (8.37) is
+                                             ≥ β 2 + o(1) x log y.
+
+         Thus we have (8.33) in this case also, and the proof of Lemma 8.4 is complete.
+                                                                                                       
+
+           To complete the proof of the Prime Number Theorem we apply Lemma 8.4
+        with
+                                                    
+                         an = (n) log n,      bn =    (b)(c).
+                                                                    bc=n
+
+        We combine Chebyshev’s estimates in the form
+                               (log 2 + o(1))x ≤ ψ(x) ≤ (2 log 2 + o(1))x
+        with (8.21) to see that
+                                                      
+                       (log 2 + o(1))x log x ≤              an ≤ (2 log 2 + o(1))x log x.          (8.38)
+                                                      n≤x
+
+        This gives (8.25), and (8.27) is Selberg’s identity as expressed in Theorem 8.3.
+        To obtain (8.26) it sufﬁces to subtract (8.38) from (8.27). We apply the lemma
+        with r (u) = R(u) = ψ(u) − u. Then
+                                      
+                     r (v) − r (u) =       (n) − (v − u) ≥ −(v − u),
+                                             u<n≤v
+
+        so we have (8.28). Let α = lim sup |r (u)|/u. Our object is to show that α = 0.
+        We know that α ≤ 1/2, by Chebyshev’s estimates. Suppose that α > 0, and
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        258                Further discussion of the Prime Number Theorem
+
+
+        choose β, 0 < β ≤ 1 so that
+                                                       β2
+                                                  β−       < α < β.
+                                                       100
+        By combining the conclusion of Lemma 8.4 with (8.24) we deduce that α ≤
+        β − β 2 /100, a contraction. Thus α = 0, and the proof of the Prime Number
+        Theorem is complete.
+
+                                                  8.2.1   Exercises
+        1. For which entries in Table 8.1 are A(x) and B(x) summatory functions of
+           arithemtic functions a(n) and b(n) related as in (8.15) ?
+                               
+        2. If A(x) = M(x) := n≤x µ(n) in (8.14), then what is the function B(x) ?
+        3. (a) Verify the Dirichlet series identity
+                                            ζ      ζ    2  ζ 
+                                               (s) +    (s) =      (s).
+                                            ζ        ζ        ζ
+           (b) Compute the Dirichlet series coefﬁcients of the three functions in the
+               above identity, and thus give a proof of (8.18) by means of formal Dirich-
+               let series.
+           (c) Compute the leading term of the Laurent expansions of the three func-
+               tions above, at the point s = 1.
+           (d) Suppose that ρ is a zero of ζ (s) of multiplicity m > 0. Compute the
+               singular portion of the Laurent expansions of the three functions above,
+               at s = ρ. Note that the pole of ζ  /ζ at s = ρ is simple if and only if ρ
+               is a simple zero of ζ (s).
+        4. Let a = lim supx→∞ ψ(x)/x and b = lim infx→∞ ψ(x)/x. Suppose that a
+           sequence xν tending to inﬁnity is chosen so that limν→∞ ψ(xν )/xν = a. Use
+           (8.22) to show that for each ν a prime pν can be selected so that xν / pν → ∞
+           and lim infν→∞ ψ(xν / pν )/(xν / pν ) ≤ 2 − a. Thus show that a + b ≤ 2. By
+           a similar argument, show that a + b ≥ 2. Hence demonstrate that the relation
+           a + b = 2 is a consequence of (8.22).
+        5. (a) Show that
+                                                
+                           log x       log p +         (log p) log q   x.
+                                         p k ≤x           p k q  ≤x
+                                         k≥2              k+≥3
+
+                Here p and q denote prime numbers.
+                                     
+            (b) As usual, let ϑ(x) = p≤x log p, and use Selberg’s identity to show
+                that
+                                   
+                      ϑ(x) log x +     ϑ(x/ p) log p = 2x log x + O(x).
+                                            p≤x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                              8.3 The Wiener–Ikehara Tauberian theorem                                    259
+
+                                                           
+        6. Show that d|n µ(d)(log n/d)2 = (n) log n + d|n (d)(n/d).
+        7. Let k be a positive integer, and put
+                                           
+                                  k (n) =      µ(d)(log n/d)k .
+                                                     d|n
+
+
+            (a) Show that
+                                                                  
+                                k+1 (n) = k (n) log n +                k (d)(n/d).
+                                                                   d|n
+
+           (b) Show that k (n) ≥ 0 for all n, and that if k (n) > 0, then ω(n) ≤ k.
+        8. Let c and M be positive constants,x   and suppose that f (x) is a function
+           deﬁned on [1, ∞) such that (i) | 1 f (u)u −2 du| ≤ M for all x ≥ 1, and also
+           (ii) | f (u) − f (v)| ≤ c|u − v| whenever u ≥ 1 and v ≥ 1. Put
+
+                                      | f (x)|                             1         x
+                                                                                         | f (u)|
+                     α = lim sup               ,      β = lim sup                                 du.
+                             x→∞          x                    x→∞       log x   1          u2
+        Show that β ≤ α(1 − α 2 /(32cM)).
+
+
+                     8.3      The Wiener–Ikehara Tauberian theorem
+        In Chapter 6 we developed some understanding of the analytic behaviour of
+        the zeta function, which allowed us to show that ζ (s) = 0 for σ ≥ 1 − c/ log τ ,
+        which in turn permitted us to establish the Prime Number Theorem with an error
+                           √
+        term x exp(−c log x). On the other hand, it is reasonable to ask what is the
+        least information concerning the zeta function that would sufﬁce to establish
+        the Prime Number Theorem in the weak form (8.1). In this section we establish
+        a general Tauberian theorem, from which the Prime Number Theorem follows
+        from the information that the functions
+                                        1                       1
+                              ζ (s) −       ,      ζ  (s) +
+                                      s−1                    (s − 1)2
+        are continuous in the closed half-plane σ ≥ 1, and that
+                                                   ζ (1 + it) = 0                                      (8.39)
+        for all real t. Conversely from (8.2) we see that
+                                                          ∞
+                             ζ        s                      ψ(x) − x          1
+                         −      (s) =     +s                           dx = o
+                             ζ        s−1             1         x s+1         σ −1
+                     +
+        as σ → 1 with t ﬁxed, t = 0. But if ζ (s) had a zero of multiplicity m at 1 + it,
+        then
+                                       ζ           m
+                                          (s) ∼
+                                       ζ          s−1
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        260                Further discussion of the Prime Number Theorem
+
+
+        when s is near 1 + it. Since this is possible only when m = 0, we have (8.39).
+        The above observations can be paraphrased as ‘the Prime Number Theorem
+        is equivalent to the assertion (8.39)’, although one needs to bear in mind the
+        continuity conditions also.
+                                  
+            Suppose that α(s) = ∞            −s
+                                     n=1 an n . In Section 5.2 we derived information
+        concerning partial sums of this series at s = 1 from the behaviour of α(σ ) as
+        σ → 1+ . We now take much stronger hypotheses that concern α(s) throughout
+        the closed half-plane σ ≥ 1, but we obtain from them much stronger conclu-
+        sions, concerning partial sums of the series at s = 0. Our proof of the Hardy–
+        Littlewood Tauberian theorem (Theorem 5.7) depended on a simple lemma con-
+        cerning one-sided polynomial approximation (Lemma 5.8). Our new approach
+        depends similarly on a corresponding lemma concerning one-sided trigonomet-
+        ric approximation, as follows.
+
+        Lemma 8.5 Let E(x) = e x for x ≤ 0, and E(x) = 0 for x > 0. For any given
+        ε > 0 there is a T and continuous functions f + (x), f − (x) with f ± ∈ L 1 (R)
+        such that
+          (i) f − (x) ≤ E(x) ≤ f + (x) for all real x;
+         (ii) f*± (t) = 0 for |t| ≥ T ;  ∞
+                 ∞
+        (iii) −∞ f + (x) d x < 1 + ε,      −∞ f − (x) d x > 1 − ε.
+
+            Before proving the above, we ﬁrst explore its consequences.
+            Since the f ± ∈ L 1 (R), it follows that the Fourier transforms f*± (t) are uni-
+        formly continuous. Thus from (ii) above it follows that f*± (±T ) = 0, so that
+        *f ± (t) = 0 for all t with |t| ≥ T . Since the f ± are also continuous, it follows
+        by the Fourier integral theorem that
+                                         τ
+                                lim          (1 − |t|/τ ) *
+                                                          f ± (t)e(t x) dt = f ± (x)
+                               τ →∞ −τ
+
+
+        for all x. But the functions *f ± are supported
+                                               T        on the ﬁxed interval [−T, T ], so
+        the limit on the left above is simply −T * f ± (t)e(t x) dt. That is,
+                                                         T
+                                          f ± (x) =             *
+                                                                f ± (t)e(t x) dt                   (8.40)
+                                                       −T
+                                                 T
+        for all x. It may be further noted that −T *  f ± (t)e2πit z dt is an entire function of
+        z. Thus f ± (x) is the restriction to the real axis of an entire function.
+
+        Theorem 8.6 (Wiener–Ikehara) Suppose that the function a(u) is non-
+        negative and increasing on [0, ∞), that
+                                                            ∞
+                                              α(s) =            e−us da(u)
+                                                        0
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 8.3 The Wiener–Ikehara Tauberian theorem                           261
+
+
+        converges for all s with σ > 1, and that r (s) := α(s) − c/(s − 1) extends to a
+        continuous function in the closed half-plane σ ≥ 1. Then
+                                                   x
+                                                           1 da(u) = ce x + o(e x )
+                                               0
+        as x → ∞.
+           By making the change of variable a(u) = A (eu ), we obtain the following
+        equivalent formulation.
+        Corollary 8.7 (Wiener–Ikehara) Suppose that A(v) is non-negative and in-
+        creasing on [1, ∞), that
+                                                                      ∞
+                                               α(s) =                     v −s d A(v)
+                                                                  1
+
+        converges for all s with σ > 1, and that r (s) := α(s) − c/(s − 1) extends to a
+        continuous function in the closed half-plane σ ≥ 1. Then
+                                                       x
+                                                           1 d A(v) = cx + o(x)
+                                               1
+        as x → ∞.
+                                        
+            By setting A(v) =              n<v an we obtain a useful Tauberian theorem for Dirich-
+        let series.
+        Corollary 8.8 (Wiener–Ikehara) Suppose that an ≥ 0 for all n, that
+                                         ∞
+                                  α(s) =     an n −s
+                                                                      n=1
+
+        converges for all s with σ > 1, and that r (s) := α(s) − c/(s − 1) extends to a
+        continuous function in the closed half-plane σ ≥ 1. Then
+                                      
+                                         an = cx + o(x)
+                                                       n≤x
+
+        as x → ∞.
+           By taking an = (n), we see that (8.39) gives the hypotheses with c = 1,
+        and hence we obtain the Prime Number Theorem in the form (8.2).
+        Proof of Theorem 8.6              Take δ > 0, and let E(u) be as in Lemma 8.5. Then
+                                 x                                   ∞
+                                     e−δu da(u) = e x                     E(u − x)e−(1+δ)u da(u),
+                             0                                   0
+
+        which by Lemma 8.5(i) is
+                                                       ∞
+                                        ≤ ex                 f + (u − x)e−(1+δ)u da(u).
+                                                   0
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        262                       Further discussion of the Prime Number Theorem
+
+
+        By (8.40) this is
+                                              ∞           T
+                                  = ex                         *
+                                                               f + (t)e(tu − t x) dt e−(1+δ)u da(u).
+                                          0        −T
+
+        By Fubini’s theorem we may interchange the order of integration. Thus the
+        above is
+                                              T                                           ∞
+                                  = ex            *
+                                                  f + (t)e(−t x)                              e−(1+δ−2πit)u da(u) dt
+                                          −T                                          0
+                                              T
+                                  = ex            *
+                                                  f + (t)e(−t x)α(1 + δ − 2πit) dt.                                              (8.41)
+                                          −T
+
+        If a(u) = eu , then α(s) = 1/(s − 1), and thus from the above calculation we
+        see in particular that
+                              ∞                                                       T
+                                                                                                               1
+                                   f + (u − x)e−δu du =                                    f*+ (t)e(−t x)            dt.
+                          0                                                       −T                        δ − 2πit
+                                                                  x
+        On multiplying both sides by ce and combining this with (8.41), we deduce
+        that
+                              x                                       T
+                                  e−δu da(u) ≤ e x                            *
+                                                                              f + (t)e(−t x)r (1 + δ − 2πit) dt
+                         0                                        −T
+                                                                                  ∞
+                                                              + ce x                      f + (u − x)e−δu du.
+                                                                              0
+
+        Since r (s) is uniformly continuous in the closed rectangle 1 ≤ σ ≤ 1 + δ,
+        |t| ≤ 2π T , each of the above three terms tends to a limit as δ → 0+ .
+        Thus
+               x                         T                                                                          ∞
+                   1 da(u) ≤ e x              *
+                                              f + (t)e(−t x) r (1 − 2πit) dt + ce x                                     f + (u − x) du.
+           0                             −T                                                                     0
+
+        We divide through by e x and let x tend to inﬁnity. The ﬁrst integral on the right
+        tends to 0 by the Riemann–Lebesgue lemma, and the second integral on the
+                        ∞
+        right tends to −∞ f + (u) du. Thus we see that
+                                                      x                                       ∞
+                          lim sup e−x                     1 da(u) ≤ c                             f + (u) du ≤ c(1 + ε)
+                              x→∞                 0                                        −∞
+
+        by Lemma 8.5(iii). By using f − similarly we may also show that
+                                                                          x
+                                          lim inf e−x                         1 da(u) ≥ c(1 − ε).
+                                              x→∞                     0
+
+        Since ε may be taken arbitrarily small, we obtain the stated result, apart from
+        the need to prove Lemma 8.5.                                                  
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                    8.3 The Wiener–Ikehara Tauberian theorem                                 263
+
+
+        Proof of Lemma 8.5             We assume, as we may, that T ≥ 1. Let
+                                                                            
+                                        sin π T x 2              3T sin π T x/2 4
+                            T (x) = T               ,  JT (x) =
+                                          πT x                    4    π T x/2
+        be the Fejér and Jackson kernels, respectively. These functions have a peak of
+        height T and width 1/T at 0, and have total mass 1. Set
+                                                              ∞
+                                   f (x) = (E ! JT )(x) =         E(u)JT (x − u) du.
+                                                            −∞
+
+        This is a weighted average of the values of E(u) with special emphasis on those
+        u near x. We show that
+
+                                         f (x) = E(x) + O(min(1, 1/(T x)2 )).                              (8.42)
+
+        To establish this we consider several cases. If |x| ≤ 1/T we simply observe
+                            ∞
+        that 0 ≤ f (x) ≤ −∞ JT (u) du = 1. If x ≥ 1/T we observe that 0 ≤ f (x)
+             
+        T −3  −∞ (x − u)−4 du
+               0
+                                  1/(T x)3 . By the calculus of residues it is easy to show
+               ∞
+        that −∞ JT (u) du = 1. Hence
+                                                    ∞
+                                  f (x) − E(x) =        (E(u) − E(x))JT (x − u) du.
+                                                   −∞
+
+        Next, suppose that −1 ≤ x ≤ −1/T . If 2x ≤ u ≤ 0, then E(u) − E(x)
+        = e x (eu−x − 1) = e x (u − x + O((u − x)2 )). Thus
+                            0                                                 −x
+                                (E(u) − E(x))JT (x − u) du = −e x                  u JT (u) du
+                        2x                                                x
+                                                                                 −x                
+                                                                  +O                   u 2 JT (u) du .
+                                                                              x
+
+        Here the ﬁrst integral on the right vanishes because the integrand is an odd
+        function, and the second integral is  1/T 2 . On the other hand,
+                        ∞                                                 ∞
+                            (E(u) − E(x))JT (x − u) du          T −3              u −4 du     1/|T x|3 ,
+                    0                                                    −x
+                                   2x
+        and similarly −∞      1/|T x|3 , so we have (8.42) in this case also. Finally,
+        suppose that x ≤ −1. Then E(u) − E(x) = e x (u − x + O((u − x)2 )) for x −
+        1 ≤ u ≤ x + 1, so that
+              x+1                                                    1
+                    (E(u) − E(x))JT (x − u) du = − e x                   u JT (u) du
+            x−1                                                     −1
+                                                                             1                   
+                                                            + O ex                u 2 JT (u) du       e x T −2 ,
+                                                                          −1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        264                Further discussion of the Prime Number Theorem
+
+
+        which is         1/(T x)2 . On the other hand,
+                  x−1                                                          ∞
+                        (E(u) − E(x))JT (x − u) du              e x T −3           u −4 du   (T x)−2 ,
+                −∞                                                         1
+
+        and
+                                 ∞
+                                     (E(u) − E(x))JT (x − u) du                T −3 x −4 ,
+                               x+1
+
+        so we again have (8.42).
+           Clearly T (x)     T min(1, 1/(T x)2 ), but there is no inequality in the reverse
+        direction because T (x) vanishes at integral multiples of 1/T . To overcome
+        this difﬁculty we consider also a translate of the Fejér kernel. Since
+
+                              T (x) +     T (x + 1/(2T ))         T min(1, 1/(T x)2 ),
+        we take
+                                            C
+                             f ± (x) = f (x) ±( T (x) + T (x + 1/(2T ))) .
+                                            T
+        By (8.42) we see that if C is taken large enough, then f − (x) ≤ E(x) ≤ f + (x)
+        for all x.
+            By Fubini’s theorem it is easy to see that if f 1 , f 2 ∈ L 1 (R) then the convo-
+                                                            
+        lution f 1 ! f 2 is also in L 1 (R), and also that f 1 ! f 2 (t) = * f 1 (t)*
+                                                                                    f 2 (t). Hence
+        in particular, f ∈ L (R) and f*(t) = *
+                                1                      *T (t). But J
+                                                   E(t) J             *T (t) = 0 for |t| ≥ T ,
+        so * f (t) = 0 for |t| ≥ T . Also, * T (t) = 0 for |t| ≥ T , and we see that the
+        functions f ± have the property (ii).
+            Finally, we note by Fubini’s theorem that
+                    ∞              ∞               ∞                
+                      f (x) d x =         E(x) d x          JT (u) du = 1 · 1 = 1,
+                   −∞                      −∞                    −∞
+                        ∞
+        and hence −∞ f ± (x) d x = 1 ± 2C/T . Thus we have (iii) if T ≥ C/ε, so the
+        proof is complete.                                                       
+
+
+                                               8.3.1      Exercises
+        1. Use the Wiener–Ikehara theorem (Theorem 8.6) to show that M(x) = o(x).
+        2. (Dressler 1970; cf. Bateman 1972) Let f (n) denote the number of positive
+           integers k such that ϕ(k) = n.
+           (a) Show that if σ > 1, then
+                                                                           
+                   ∞
+                       f (n)    ∞
+                                      1                1         1
+                             =            =     1+         +            + ··· ,
+                  n=1
+                        ns      k=1
+                                    ϕ(k)s   p       ϕ( p)s    ϕ( p 2 )s
+
+                  and explain why this is not an Euler product in the usual sense.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                              8.3 The Wiener–Ikehara Tauberian theorem                             265
+
+
+            (b) Let the above Dirichlet series be F(s). Show that F(s) = ζ (s)G(s) for
+                σ > 1, where
+                                                                 
+                                                  1         1
+                               G(s) =         1− s +                .
+                                         p        p     ( p − 1)s
+            (c) By writing
+                                                                    p
+                                           1       1
+                                                 − s =s                  u −s−1 du,
+                                       ( p − 1)s  p                p−1
+
+                show that the above is      p −σ −1 for any ﬁxed s.
+           (d) Let K be a compact set in the complex plane, and let σ0 = mins∈K σ .
+                Show that ( p − 1)−s − p −s       p −σ0 −1 uniformly for s ∈ K.
+           (e) Show the product G(s) converges locally uniformly in the half-plane
+                σ > 0, and hence represents an analytic function in this region.
+            (f) Show that G(1) = ζ (2)ζ (3)/ζ (6).
+           (g) Use the Wiener–Ikehara theorem (Theorem 8.6) to show that the number
+                of integers k such that ϕ(k) ≤ x is asymptotic to G(1)x as x → ∞.
+        3. Show that Corollary 8.8 still holds if the hypothesis an ≥ 0 is replaced by
+           the weaker hypothesis that there is a constant C such that an ≥ C for all n.
+                         
+        4. Let σs (n) = d|n d s , and let cq (n) be Ramanujan’s sum, as discussed in
+           Section 4.1.
+           (a) Show that if n is a positive integer, then
+                                  cq (n)
+                                  ∞
+                                                σ1−s (n)
+                                            =                   (σ > 1).
+                                 q=1
+                                       q s        ζ (s)
+                                                                     
+           (b) Show that if n is a ﬁxed positive integer, then q≤x cq (n) = o(x) as
+                x → ∞.
+           (c) Show that if n is a positive integer, then
+                                                   
+                                                    x
+                                           cq (n)       =        d.
+                                      q≤x           q       d|n
+                                                                     d≤x
+
+            (d) By Axer’s theorem, or otherwise, show that if n is a positive integer, then
+                                        ∞
+                                            cq (n)
+                                                   = 0.
+                                        q=1
+                                              q
+
+           (See also Exercise 4.1.8.)
+        5. (Graham & Vaaler 1981) Let f + (x) and f − (x) be as in Lemma 8.5.
+           (a) Use the Poisson summation formula to show that
+                                ∞                   
+                                                     ∞
+                                      f + (n/T ) = T      *
+                                                          f + (kT ) .
+                                      n=−∞                       k=−∞
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        266                Further discussion of the Prime Number Theorem
+
+                                                                            
+            (b) Explain why the right-hand side above is = T *   f + (0) = T R f + (x) d x.
+            (c) Explain why the left-hand side above is ≥ (1 − e−1/T )−1 .
+            (d) Deduce that
+                                                          1
+                                      f + (x) d x ≥                .
+                                    R               T (1 − e−1/T )
+            (e) Suppose that T ≥ 2. Show that the right-hand side above is = 1 +
+                 1/(2T ) + O(1/T 2 ).
+             (f) Show similarly that
+                                                                     1
+                                              f − (x) d x ≤                 ,
+                                          R                    T (e1/T − 1)
+        and that the right-hand side is = 1 − 1/(2T ) + O(1/T 2 ) when T ≥ 2.
+
+
+                       8.4      Beurling’s generalized prime numbers
+        One of the most valuable generalizations of the Prime Number Theorem is to
+        algebraic number ﬁelds. Suppose that K is an algebraic number ﬁeld of degree
+        d over the rationals, and let O K denote the ring of algebraic integers in K . For
+        some ﬁelds K the members of O K factor uniquely into primes, but in general
+        this is not the case. However, it is always true that ideals in O K factor uniquely
+        into prime ideals. For an ideal a of O K , let N (a) denote its norm, which is to
+        say the size of the quotient ring O K /a. For σ > 1 we can deﬁne the Dedekind
+        zeta function of K by the absolutely convergent series
+                                                 
+                                       ζ K (s) =     N (a)−s .
+                                                           a
+
+        This is an ordinary Dirichlet series, since the N (a) are positive integers, and
+                                                     
+        thus the above can be written in the form an n −s where an is the number of
+        ideals with norm n.
+            Counting ideals a with N (a) ≤ x is rather like counting rational integers. The
+        ideals can be parametrized by the points of a lattice in Rd , so one is counting
+        lattice points in a certain region, which is approximately the volume of that
+        region, and thus it can be shown that the number I (x) of ideals a with N (a) ≤ x is
+                                                             
+                                      I (x) = cx + O x 1−1/d                          (8.43)
+        where c = c(K ) is a certain positive constant, called the ideal density. Here
+        the implicit constant may also depend on K , which we assume is ﬁxed. By
+        Theorem 1.3 it follows that
+                           ∞                               ∞
+                                                 cs
+             ζ K (s) = s     I (x)x −s−1 d x =        +s     (I (x) − cx)x −s−1 d x.
+                         1                     s −  1    1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                               8.4 Beurling’s generalized prime numbers                              267
+
+
+        Since this latter integral is uniformly convergent for σ > 1 − 1/d + δ, we de-
+        duce that ζ K (s) is analytic in the half-plane σ > 1 − 1/d apart from a simple
+        pole at s = 1 with residue c. Moreover, we see that if δ is ﬁxed, δ > 0, then
+        ζ K (s)    |t| uniformly for σ ≥ 1 − 1/d + δ, |t| ≥ 1.
+            If a and b are two ideals in O K , then
+
+                                              N (ab) = N (a)N (b).                                 (8.44)
+
+        Hence ζ K (s) has an Euler product formula
+
+                                         ζ K (s) =        (1 − N (p)−s )−1
+                                                      p
+
+        for σ > 1. On taking logarithmic derivatives we also see that
+                                   ζ       
+                                − K (s) =       (a)N (a)−s
+                                   ζK        a
+
+        where (a) = log N (p) if a = pk , (a) = 0 otherwise. Thus, as in Lemma 6.5,
+                                                                   
+                           ζ K        ζ K           ζ K
+                    −3 (σ ) − 4 (σ + it) −                (σ + 2it) ≥ 0
+                           ζK          ζK             ζK
+        for σ > 1 and any real t. Also as in Chapter 6 we may derive a zero-free
+        region for ζ K (s), namely that ζ K (s) = 0 provided that σ > 1 − c/ log τ . Here,
+        as before, τ = |t| + 4, and c is a constant depending on K . Continuing as in
+        Chapter 6, we can derive estimates analogous to those in Theorem 6.7, but with
+        constants depending on K , and we may use our quantitative version of Perron’s
+        formula (Theorem 5.2) to establish a quantitative version of the Prime Ideal
+        Theorem:
+
+        Theorem 8.9 (Landau) Let K be an algebraic number ﬁeld of ﬁnite de-
+        gree over Q, and let O K denote the ring of algebraic integers in K . Then
+        for x ≥ 2 the number of prime ideals p in O K such that N (p) ≤ x is
+                             √
+        li(x) + O K (x exp(−c log x)) where c depends on K .
+
+           It is notable that the chain of reasoning we have just described depends only
+        on the estimate (8.43) and the identity (8.44). Thus the entire situation could
+        be abstracted as follows. Suppose we have a sequence P of real numbers pi
+        such that 1 < p1 ≤ p2 ≤ · · · and pi → ∞. We call these numbers ‘generalized
+        primes’. We form products of powers of these numbers, p1a1 p2a2 · · · pkak , and
+        call such products ‘generalized integers’. Let N (x) denote the number of such
+        products whose value does not exceed x. If
+
+                                              N (x) = cx + O(x θ )                                 (8.45)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        268                Further discussion of the Prime Number Theorem
+
+
+        for some c > 0 and θ < 1, then by the reasoning we have outlined it follows
+        that the number P(x) of generalized primes pi such that pi ≤ x is li(x) +
+                     √
+        O(x exp(−c log x)).
+           The integers Z form an additive group, a cyclic group generated by the
+        number 1. Moreover, the positive integers form a multiplicative semigroup
+        with the primes as generators. From the additive property of the integers we
+        know that [x] = x + O(1), which is a strong form of (8.45). However, it is now
+        quite clear that our proof of the Prime Number Theorem requires no further
+        knowledge of the additive nature of the integers beyond this estimate.
+           We have seen that the estimate (8.45) gives a generalization of the Prime
+        Number Theorem with the classical error term. We now consider the issue of
+        how much this hypothesis can be weakened, if the goal is only to obtain a
+        generalization of (8.1), namely that P(x) ∼ x/ log x as x → ∞.
+        Theorem 8.10 (Beurling) Let P = { pi } where 1 < p1 ≤ p2 ≤ · · · and pi →
+        ∞, and let N (x) denote the number of products p1a1 p2a2 · · · pkak ≤ x where the
+        ai are non-negative integers. Suppose that there is a positive constant c such
+        that
+                                                           
+                                                      x
+                                 N (x) = cx + O                                    (8.46)
+                                                   (log x)γ
+        for x ≥ 2. Let P(x) denote the number of members of P not exceeding x. If
+        γ > 3/2, then
+                                                x
+                                       P(x) ∼                             (8.47)
+                                              log x
+        as x → ∞.
+        Proof Let N = {n j } where 1 = n 1 < n 2 ≤ n 3 ≤ · · · are the generalized inte-
+        gers, and for σ > 1 let
+                                             
+                                    ζP (s) =     n −s .
+                                                           n∈N
+
+        Since the n ∈ N are not necessarily rational integers, the above is not necessarily
+        an ordinary Dirichlet series, but it is an example of a ‘generalized Dirichlet
+        series’. In any case it is an absolutely convergent series and by integration by
+        parts as in the proof of Theorem 1.3 we see that
+                                          ∞                            ∞
+                           ζP (s) =           u −s d N (u) = s             N (u)u −s−1 du.
+                                         1−                        1
+
+        We subtract cu from N (u) to see that
+                                              ∞
+                                  cs
+                       ζP (s) =        +s       (N (u) − cu)u −s−1 du.
+                                s−1         1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 8.4 Beurling’s generalized prime numbers                                         269
+
+                                      ∞
+        From (8.46) we know that 1 |N (u) − cu|u −2 du < ∞. Hence the integral
+        above is uniformly convergent for σ ≥ 1, and consequently it is continuous in
+        this closed half-plane. Thus we can extend the deﬁnition of ζP (s) so that ζP (s) =
+        c/(s − 1) + r0 (s) and r0 (s) is continuous for σ ≥ 1. To bound the modulus
+        of continuity of r0 (s) we differentiate. Thus ζP (s) = −c/(s − 1)2 + r1 (s) for
+        σ > 1 where
+                                     ∞                                       ∞
+        r1 (s) = r0 (s) =           (N (u) − cu)u −s−1 du − s                 (N (u) − cu)(log u)u −s−1 du.
+                                 1                                       1
+                                                   ∞
+        If (8.46) holds with γ > 2, then 1 |N (u) − cu|(log u)u −2 du < ∞ and then
+        r1 (s) is continuous in the closed half-plane σ ≥ 1. When γ is smaller, however,
+        the situation is more delicate. From now on we assume, as we may, that 3/2 <
+        γ ≤ 2. Since
+                          ∞                               ∞
+                              (log u)1−γ u −σ du =               v 1−γ e−(σ −1)v dv
+                      2                                 log 2
+                                                                              ∞
+                                                  = (σ − 1)γ −2                             u 1−γ e−u du
+                                                                             (σ −1) log 2
+
+                                                      (σ − 1)− 2 +η ,
+                                                                     1
+
+
+
+
+                                                                                               (σ − 1)− 2 +η uni-
+                                                                                                            1
+        where η = η(γ ) > 0, from (8.46) we deduce that r1 (s)
+        formly for σ > 1. Consequently, if t is ﬁxed, t = 0, then
+                                                             σ
+                                                                 ζP (α + it) dα             (σ − 1) 2 +η
+                                                                                                     1
+                    ζP (σ + it) − ζP (1 + it) =                                                                 (8.48)
+                                                         1
+
+        for σ > 1, σ near 1.
+           Next we use the above estimate to show that
+                                                  ζP (1 + it) = 0                                              (8.49)
+        when t is real, t = 0. By mimicking the proof of the usual Euler product formula
+        for ζ (s), we see that
+                                           ζP (s) =          (1 − p −s )−1
+                                                       p∈P
+
+        for σ > 1. This product is absolutely convergent, and each factor is non-zero,
+        so ζP (s) = 0 for σ > 1, and indeed we may write
+                                                  ∞
+                                                        1 −r s
+                                  log ζP (s) =            p .                   (8.50)
+                                               p∈P r =1
+                                                        r
+
+        Instead of the cosine polynomial 3 + 4 cos θ + cos 2θ used in Chapter 6, we
+                                                                    K
+        must now employ a non-negative cosine polynomial a0 + k=1           ak cos kθ for
+        which the ratio a1 /a0 is larger. As we observed in Section 6.1, it is always the
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        270                Further discussion of the Prime Number Theorem
+
+
+        case that a1 < 2a0 , but we can make a1 as close to 2a0 as we wish by using the
+        Fejér kernel K (θ ) with K large, since
+                                 
+                                  K
+                                          k
+                                                             
+                                                            1 sin π K θ 2
+                                                                          
+                  K (θ ) = 1 + 2     1−       cos 2π kθ =                   ≥ 0.
+                                 k=1
+                                         K                  K     sin π θ
+        Hence if σ > 1, then
+                                                                                                  
+              K                                 ∞  1          K
+                ζP (σ + ikt)(1−|k|/K ) = exp                         (1 − |k|/K ) p −ir kt
+                                               p∈P r =1
+                                                        r pr σ k=−K
+           k=−K
+                                                                                    
+                                                ∞  1
+                                       = exp                     K (r t(log p)/(2π )) .
+                                               p∈P r =1
+                                                        r pr σ
+
+        Now ζP (σ − it) = ζP (σ + it), so that |ζP (σ − it)| = |ζP (σ + it)|. Also,
+         K (θ ) ≥ 0 for all θ . Hence from the above we see that
+                                              K
+                                    ζP (σ )         |ζP (σ + ikt)|2(1−k/K ) ≥ 1.
+                                              k=1
+
+        Suppose that t is a ﬁxed, non-zero real number. As σ tends to 1 from above,
+        the numbers |ζP (σ + ikt)| tend to ﬁnite limits, and ζP (σ ) 1/(σ − 1). Thus
+                                                                          K
+                                         |ζP (σ + it)|        (σ − 1) 2(K −1)
+        as σ → 1+ . Here the implicit constant may depend not only on P but also on
+        t. Suppose now that ζP (1 + it) = 0. Then from (8.48) we have ζP (σ + it)
+        (σ − 1) 2 +η as σ → 1+ . This contradicts the lower bound above if K is large
+                 1
+
+
+        enough, say K > 1 + 2η  1
+                                  . Hence ζ (1 + it) = 0, as desired.
+            For n ∈ N let (n) = log p if n = pr and p ∈ P, (n) = 0 otherwise. On
+        differentiating (8.50) we see that
+                                       ζ       
+                                    − P (s) =       (n)n −s
+                                       ζP       n∈N
+
+        for σ > 1. Set
+                                                            
+                                                  S(x) =          (n).
+                                                            n∈N
+                                                            n≤x
+
+        Suppose for the moment that γ > 2. Then r0 (s) and r1 (s) are both continuous
+        in the closed half-plane σ ≥ 1, and then
+                                     ζ          1
+                                   − P (s) =       + r (s)
+                                     ζP        s−1
+        where
+                                                       r0 (s) + (s − 1)r1 (s)
+                                        r (s) = −
+                                                            (s − 1)ζP (s)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                  8.4 Beurling’s generalized prime numbers                                              271
+
+
+        is continuous in the closed half-plane σ ≥ 1. Then by the Wiener–Ikehara
+        theorem it follows that S(x) ∼ x as x → ∞. Under the weaker hypothesis that
+        3/2 < γ ≤ 2 we are no longer able to guarantee that r1 (s) is continuous, but
+        by Plancherel’s identity it is bounded in mean-square. Thus, below, we follow
+        the lines of the proof of the Wiener–Ikehara theorem, but with an appeal to
+        Plancherel’s identity where continuity had sufﬁced before.
+           Suppose that δ > 0, that T is a large positive number, and that E(u) is deﬁned
+        as in Lemma 8.5. Then
+                                         
+                           (n)n −δ = x        (n)n −1−δ E(log n − log x)
+                            n∈N                            n∈N
+                            n≤x
+
+        which by Lemma 8.5 is
+                           
+                      ≤x      (n)n −1−δ f + (log n − log x)
+                                        n∈N
+                                                                     T
+                                                                             x       −2πit
+                               ≤x             (n)n −1−δ             f*+ (t)                    dt
+                                        n∈N                       −T         n
+                                                                          
+                                              T
+                                                              ζ
+                               = −x             f*+ (t)x −2πit P (1 + δ − 2πit) dt.                                (8.51)
+                                             −T               ζP
+        As for the main term, we note that similarly
+                 ∞                                                    ∞             T                   −2πit
+                                                                                      *       x
+                     u −1−δ f + (log u − log x) du =                      u −1−δ      f + (t)                   du dt
+             1                                                    1                −T         u
+                                                                      T                         ∞
+                                                              =           f*+ (t)x −2πit            u −1−δ+2πit du dt
+                                                                  −T                        1
+                                                                   T
+                                                                                              1
+                                                              =           f*+ (t)x −2πit            dt.
+                                                                  −T                       δ − 2πit
+        We multiply both sides of this by x and combine with (8.51) to see that
+                           ∞
+           (n)n −δ ≤ x        u −1−δ f + (log u − log x) du
+         n∈N                        1
+         n≤x
+                                                                                                                   (8.52)
+                                                                                                                   
+                                         T
+                                                                       ζ                     1
+                               +x             f*+ (t)x −2πit          − P (1 + δ − 2πit) −                            dt.
+                                        −T                             ζP                  δ − 2πit
+        By using our formulæ for ri (s) in terms of integrals we see that we may write
+                                                         r0 (s) − c
+                           r1 (s) = r0 (s) = −s J (s) +
+                                                              s
+        where
+                                                      ∞
+                                  J (s) =                 (N (u) − cu) (log u)u −s−1 du,
+                                                  1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        272                   Further discussion of the Prime Number Theorem
+
+
+        and
+                                                         c       r0 (s) − c
+                                    −ζP (s) =                 −            + s J (s).
+                                                      (s − 1)2        s
+        Thus
+                          ζP        1    c(s − 1) + (1 − 2s)r0 (s)     s
+                      −       (s) −     =                           +        J (s)
+                          ζP        s−1        s(s − 1)ζP (s)         ζP (s)
+        and by splitting the integral at X , where X is a large parameter we have
+                                              ζP        1
+                                         −        (s) −     = C(s) + R(s)
+                                              ζP        s−1
+        where
+                                                   ∞
+                                     R(s) =            (N (u) − cu) (log u)u −s−1 du
+                                                  X
+
+        and C(s) is continuous for σ ≥ 1. We consider ﬁrst the contribution of the
+        remainder R(s) to (8.52). By the Cauchy–Schwartz inequality we see that
+             T                                                 2
+                 *
+                 f + (t)x −2πit R(1 + δ − 2πit) dt
+            −T
+                                                                                                   (8.53)
+                                                                         ∞
+                  T
+                      *         1 + δ − 2πit 2                     T
+                                                                             (N (u) − cu)(log u)   2
+           ≤          f + (t)                   dt                                               du dt.
+                 −T           ζP (1 + δ − 2πit)                    −T   X         u 2+δ−2πit
+        In Theorem 5.4 we take σ = 1 + δ and w(u) = (N (u) − cu) log u for u ≥ X ,
+        w(u) = 0 otherwise. Thus we see that
+                                    ∞        ∞                                           2
+                                                 (N (u) − cu)(log u)u −2−δ+2πit du           dt
+                                   −∞    X
+                                         ∞
+                                    =         (N (u) − cu)2 (log u)2 u −3−2δ du,
+                                         X
+
+        which by (8.46) is
+                                          ∞
+                                              u −1 (log u)2−2γ du        γ (log X )
+                                                                                   3−2γ
+                                         X
+
+        uniformly for δ > 0. The ﬁrst integral on the right-hand side of (8.53) is also
+        uniformly bounded as δ tends to 0, since ζP (1 + it) = 0. Thus the contribution
+        of R(s) to (8.52) is γ (log X )3/2−γ , uniformly for δ > 0. Hence if we let δ
+        tend to 0 from above in (8.52), and divide through by x, we ﬁnd that
+                              ∞                                         T
+            S(x)
+                 ≤                u −1 f + (log u − log x) du +          f*+ (t)x −2πit C(1 − 2πit) dt
+             x            1                                             −T
+                                                                                       
+                                                                   + Oγ (log X )3/2−γ .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                               8.4 Beurling’s generalized prime numbers                            273
+
+                                                                      ∞
+        As x tends to inﬁnity, the ﬁrst integral on the right tends to −∞ f + (v) dv. Since
+         *
+         f + (t)C(1 − 2πit) is a continuous function of t, by the Riemann–Lebesgue
+        lemma the second integral on the right tends to 0 as x tends to inﬁnity. Hence
+                                          ∞                               
+                              S(x)
+                      lim sup       ≤         f + (v) dv + Oγ (log X )3/2−γ .
+                        x→∞     x        −∞
+
+        By Lemma 8.5 we know that the integral on the right is < 1 + ε if T is sufﬁ-
+        ciently large. Since X may also be taken arbitrarily large, we conclude that the
+        limsup above is ≤ 1. By a similar argument with f + replaced by f − , we ﬁnd
+        that the corresponding liminf is ≥ 1, so we have the generalized Prime Number
+        Theorem in the form S(x) ∼ x. By integrating by parts we obtain the desired
+        relation (8.47).                                                              
+
+            We now show that the exponent 3/2 is critical in Beurling’s theorem.
+        Theorem 8.11 The primes P can be chosen in such a way that (8.46) holds
+        with γ = 3/2 but (8.47) fails.
+          The general idea is that if ζP (s) has a simple pole at s = 1 and zeros of
+        multiplicity 1/2 at 1 ± ia, say
+                                   (s − 1 − ia)1/2 (s − 1 + ia)1/2
+                              ζP (s) =                             H (s)           (8.54)
+                                                 s−1
+        where H (s) is analytic for σ > θ , θ < 1, then we can express N (x) by Perron’s
+        formula applied to ζP (s). After moving the contour to the left, we would ﬁnd
+        that the residue at s = 1 gives rise to the main term cx, and the loop of contour
+        around the branch points at 1 ± ia give oscillatory terms of size x/(log x)3/2 .
+        On the other hand,
+                    ζ          1             1                1           H
+                 − P (s) =          −                 −                 −     (s),
+                    ζP        s − 1 2(s − 1 − ia) 2(s − 1 + ia)            H
+        which suggests that S is approximately
+                                                 x 1+ia    x 1−ia
+                                         x−             −          .
+                                               2(1 + ia) 2(1 − ia)
+        This is of the order of magnitude x but not asymptotic to x. It is of course essen-
+        tial that the above main term should be increasing; we note that its derivative is
+        1 − cos(a log x) ≥ 0. For a rigorous construction we begin by deﬁning primes
+        so that S(x) approximates this main term, and then we show that the resulting
+        ζP (s) satisﬁes (8.54).
+        Proof      Let a be a ﬁxed positive real number, and set
+                                             x
+                                               1 − cos(a log u)
+                                  f (x) =                       du.
+                                           1        log u
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        274                Further discussion of the Prime Number Theorem
+
+
+        We note that this function is increasing and tends to inﬁnity with x. Hence for
+        each positive integer j there is a unique real number p j such that f ( p j ) = j. If
+        p j ≤ x < p j+1 , then P(x) = j and j ≤ f (x) < j + 1; hence P(x) = [ f (x)].
+        By integration by parts we see that
+                          x                                            
+                             u iα             x 1+iα               x
+                                  du =                   +O               .
+                         2 log u         (1 + iα) log x       (log x)2
+        By taking α = −a, 0, a, and combining, we see that
+                                                                      
+                                x ia       x −ia       x           x
+               f (x) = 1 −            −                    +O              ,
+                            2(1 + ia) 2(1 − ia) log x           (log x)2
+        and consequently
+                  P(x)          1                                                    P(x)            1
+          lim inf        =1− √       ,                                    lim sup            =1+ √        .
+           x→∞ x/ log x       1 + a2                                       x→∞      x/ log x       1 + a2
+        Clearly
+                                  x
+                   log p =             log u d[ f (u)]
+             p∈P               1
+             p≤x
+                                   x                               x
+                          =            log u d f (u) −                 log u d{ f (u)}
+                               1                               1
+                                   x                                      x                       x
+                                                                                                       { f (u)}
+                          =            1 − cos(a log u) du − { f (u)} log u +                                   du
+                               1                                                          1    1           u
+                                x 1+ia    x 1−ia
+                          =x−          −          + O(log x),
+                              2(1 + ia) 2(1 − ia)
+        and hence
+                                                     x 1+ia    x 1−ia          
+                            S(x) = x −                      −          + O x 1/2 .
+                                                   2(1 + ia) 2(1 − ia)
+        Let r (x) denote this last error term. Then for σ > 1,
+                                             ∞
+                        ζP
+                    −       (s) =                u −s d S(u)
+                        ζP               1
+                                          1         1             1
+                                =            −             −              + g(s)
+                                        s − 1 2(s − 1 − ia) 2(s − 1 + ia)
+        where g(s) is analytic for σ > 1/2. Hence
+                                      1               1
+         log ζP (s) = − log(s − 1) + log(s − 1 − ia) + log(s − 1 + ia) + G(s)
+                                      2               2
+        where G  (s) = −g(s), and so we have (8.54) with H (s) = e G(s) .
+           To complete the proof we need not only (8.54) but also an estimate of the
+        size of ζP (s) when σ < 1. To this end we mimic the approach used to estimate
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                8.4 Beurling’s generalized prime numbers                               275
+
+
+        1/ζ (s) in Theorem 6.7. Since P(x)     x/ log x it follows that log ζP (1 + δ +
+        it)    log 1/δ uniformly for 0 < δ ≤ 1/2. If t ≥ 4 + a and 1 − 1/ log t ≤ σ ≤
+        1 + 1/ log t, then
+                            ζ                          ∞
+                          − P (s) =       (n)n −s +       u −s d S(u).
+                            ζP          2              t2
+                                                 n≤t
+                                                 n∈N
+
+        Here the sum is
+                                                       (n)
+                                                                    log t,
+                                                              n
+                                                      n≤t 2
+                                                      n∈N
+
+        and the integral is
+                                                                                  ∞
+         t 2(1−s)     t 2(1+ia−s)   t 2(1−ia−s)  r (t 2 )
+                  −               −             − 2s + s                              r (u)u −s−1 du    1,
+         s−1        2(s − 1 − ia) 2(s − 1 + ia)   t                             t2
+
+        so that
+                                         1+1/ log t
+                                                      ζP
+               log ζP (s) = −                             (α + it)dα + log ζP (1 + 1/ log t + it)
+                                     σ                ζP
+                                1 + log log t
+
+        for σ ≥ 1 − 1/ log t. Hence there is a constant A such that ζP (s)   (log t) A for
+        σ ≥ 1 − 1/ log t, t ≥ 4 + a.
+           We now estimate N (x) by taking an inverse Mellin transform of ζP (s).
+        However, the truncated Perron formula (Corollary 5.3) is not so useful since
+        we lack information concerning the number of generalized integers in a short
+        interval. To avoid this difﬁculty we use Cesàro weights as discussed in Section
+        5.1, by means of which we see that if b > 1 and h > 0, then
+                         1         b+i∞
+                                                      (x + h)s+1 − x s+1      
+                                            ζP (s)                       ds =     w+ (n)
+                        2πi h    b−i∞                      s(s + 1)           n∈N
+
+        where
+                                    ⎧
+                                    ⎨1                            (u ≤ x),
+                            w+ (u) = (x + h − u)/ h               (x < u ≤ x + h),
+                                    ⎩
+                                     0                            (u > x + h).
+        We now pull the contour to the left. In view of (8.54), at s = 1 we encounter a
+        simple pole with residue c(x + h/2) where c = a H (1). Because of the branch
+        points at 1 ± ia, we slit the plane by the segments σ ± ia for −∞ < σ ≤ 1.
+        Our contour follows theupper and lower sides of these segments; the integral
+                                   1         σ
+                                  −∞ (x + h) (1 − σ )
+                                                      1/2
+        along these loops is                              dσ     x/(log x)3/2 . By taking
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        276                Further discussion of the Prime Number Theorem
+
+
+        more care, and using Theorem C.3, we could obtain oscillatory main terms of
+        this order of magnitude. On the rest of the contour we estimate the integral as
+        in the proof of the Prime Number Theorem, and thus we see that
+                                                                      
+                                                 1               x
+                     N (x) ≤      w+ (n) = cx + ch + O
+                                                 2           (log x)3/2
+                              n∈N                2                       
+                                                  x                   
+                                           +O        exp − C log x .
+                                                   h
+        On taking h = x/(log x)2 we obtain an upper bound of the desired type. To
+        obtain a corresponding lower bound we argue similarly from the formula
+                      1     b+i∞
+                                        x s+1 − (x − h)s+1      
+                                 ζP (s)                    ds =     w− (n)
+                    2πi h b−i∞                s(s + 1)          n∈N
+        where
+                                       ⎧
+                                       ⎨1                      (u ≤ x − h),
+                               w− (u) = (x − u)/ h             (x − h < u ≤ x),
+                                       ⎩
+                                         0                     (u ≥ x).
+                                                                                                   
+
+                                                  8.5      Notes
+        Section 8.1. Historical accounts of the development of prime number theory
+        and of the various proofs of the Prime Number Theorem have been given
+        by Bateman & Diamond (1996), Narkiewicz (2000), and by Schwarz (1994).
+        Axer’s theorem originates in Axer (1911). The deﬁnitive account of Axer’s
+        theorem is that of Landau (1912).
+           Section 8.2. In former times, an argument was considered to be ‘non-
+        elementary’ if it involved Cauchy’s theorem or Fourier inversion. Prior to Sel-
+        berg’s elementary proof of the Prime Number Theorem, a distinction was drawn
+        between those results that could be obtained by elementary arguments, and those
+        that could not. Selberg’s elementary proof rendered the terminology nugatory.
+           Theorem 8.3 and a deduction of the Prime Number Theorem occur in Selberg
+        (1949). There are a number of variants of the less than straightforward Tauberian
+        process used in the deduction; see, for example, Erdős (1949), Wright (1952),
+        and Levinson (1969). For a historical review of elementary proofs of the Prime
+        Number Theorem see Goldfeld (2004).
+           Quantitative estimates of the form
+                                       π (x) = li(x)(1 + O((log x)−a ))
+
+        have been derived by elementary methods. van der Corput (1956) obtained
+        a = 1/200, Kuhn (1955) obtained a = 1/10, Breusch a = 1/6 − ε, and
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     8.5 Notes                                     277
+
+
+        Wirsing (1962) a = 3/4. Then Bombieri (1962a,b) and Wirsing (1964) showed
+        that the above is true for any ﬁxed positive a. Subsequently, elementary tech-
+        niques have been used to show that
+                                  π (x) = li(x) + O(x exp(−c(log x)−b ))
+        for various values of b. Diamond & Steinig (1970) obtained b = 1/7 − ε, Lavrik
+        & Sobirov (1973) b = 1/6 − ε, and Srinivasan & Sampath (1988) b = 1/6.
+        Although the estimates obtained by elementary methods have thus far been
+        weaker than those derived by analytic means, we have no reason to believe that
+        this will always be the case.
+           Section 8.3. The theorem of Ikehara (1931) represented a major advance,
+        because it gave for the ﬁrst time a Tauberian theorem that could be used to
+        prove the Prime Number Theorem without imposing growth conditions on the
+        Dirichlet series generating function. Ikehara assumed that α(s) − c/(s − 1) is
+        analytic in the closed half-plane σ ≥ 1. Wiener (1932) showed that mere conti-
+        nuity is enough, but this is of lesser signiﬁcance, since still weaker hypotheses
+        are sufﬁcient – see Korevaar (2006).
+           The heart of the Wiener–Ikehara proof of the Prime Number Theorem is
+        Lemma 8.5, which has the effect of enabling one to reduce directly to a use
+        of the Riemann–Lebesgue lemma on a ﬁnite section of the line s = 1. In the
+        proof of Lemma 8.5 we see that it sufﬁces to take T = C/ε, and from Exercise
+        8.3.5 we see that it is necessary to take T ≥ 1/(2ε) + O(1). Graham & Vaaler
+        (1981) have shown that f + and f − can be constructed so that equality is achieved
+        in Exercise 8.3.5(e),(g).
+           Lemma 8.5, with T small and ε large, is also useful for proving interesting
+        theorems of Fatou and Riesz. Fatou (1906) showed that if an = o(1), then the
+                       
+        series f (z) = an z n converges at any point of the circle |z| = 1 at which f is
+                                                                         
+        analytic. Landau (1910, Section 10) gives Riesz’s proof that if n≤x an = o(x),
+                                           
+        then the Dirichlet series α(s) = an n −s converges at every point of the line
+        σ = 1 at which α(s) is analytic. Riesz (1916) extended this to generalized
+        Dirichlet series.
+           For detailed discussion of Wiener’s Tauberian theorem, the Ikehara theorem,
+        and Tauberian theorems associated with the elementary proof of the Prime
+        Number Theorem see Pitt (1958).
+           Section 8.4. The concept of generalized primes are introduced in Beurling
+        (1937). The hypothesis of Theorem 8.10 can be weakened: Kahane (1997) has
+        shown that if
+                                       ∞
+                                           (N (x) − cx)2 x −3 (log x)2 d x < ∞,
+                                   1
+        then (8.47) still follows.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        278                Further discussion of the Prime Number Theorem
+
+
+           Theorem 8.11 is due to Diamond (1970b). Diamond (1973) also showed
+        that if (8.46) holds with γ > 1, then one has an estimate P(x) x/ log x of
+        the Chebyshev kind. Zhang (1993) showed that the hypothesis here can be
+        weakened to
+                                            ∞
+                                                    |N (y) − cy| d x
+                                                sup                  < ∞.
+                                        1       y≤x       y       x
+
+        In the negative direction, Hall (1973) showed that if γ < 1, then the hypothesis
+        (8.46) is not sufﬁcient to imply a Chebyshev estimate. Also, Kahane (1998) has
+        shown that the hypothesis
+                                                ∞
+                                                    |N (x) − cx|
+                                                                 dx < ∞
+                                            1            x2
+        does not imply a Chebyshev estimate. Zhang (1987b) has shown that if (8.46)
+        holds with γ > 1, then
+                                    
+                                        µ(n) = o(x) .
+                                                    n≤x
+                                                    n∈N
+
+        In the classical context, the above is equivalent – by Axer’s theorem – to the
+        Prime Number Theorem. However, in the Beurling situation, if 1 < γ ≤ 3/2,
+        the above holds but PNT may fail.
+            Nyman (1949) showed that if (8.46) holds for all γ (with the implicit con-
+        stant depending on γ ), then P(x) = li(x) + Oc (x/(log x)c ) for all c. Malliavin
+        (1961) showed that if N (x) = cx + O(x exp(−(log x)a )) where 0 < a < 1,
+        then π(x) = li(x) + O(x exp(−(log x)b )) with b = a/10. Both these authors
+        proved converse theorems in which an estimate for P(x) is used to estab-
+        lish a corresponding estimate for N (x), but those results have since been
+        sharpened by Diamond (1970a). It is now known that the method of Lan-
+        dau, in which one starts from (8.45) to derive the indicated error term, is
+        sharp: Diamond, Montgomery & Vorhauer (2006) have shown that if θ is given,
+        1/2 < θ < 1, then there exists a Beurling system for which (8.45) holds, but
+                                       √
+        P(x) − li(x) = ± (x exp(−c log x)).
+            Some of the ideas and themes developed in connection with the Prime Num-
+        ber Theorem have had ramiﬁcations in surprisingly diverse areas. See, for exam-
+        ple, Hejhal’s expositions (1976, 1983) of Selberg’s trace formula for P S L(2, R),
+        and the monograph of Parry & Pollicott (1990) on the periodic orbit structure
+        of hyperbolic dynamics.
+            Some writers avoid the term ‘Beurling’, and instead discuss ‘arithmetic
+        semigroups’. The mathematics is the same in either case. For more on this topic
+        see Bateman & Diamond (1969), and Knopfmacher (1990).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 8.6 References                                    279
+
+
+                                              8.6      References
+        Axer, A. (1911). Über einige Grenzwertsätze, Sitz. Kais. Akad. Wiss. Wien. math-natur.
+             Klasse 120, 1253–1298.
+        Balanzario, E. P. (2000). On Chebyshev’s inequalities for Beurling’s generalized primes,
+             Math. Slovaca 50, No.4, 415–436.
+        Bateman, P. T. (1972). The distribution of values of the Euler function, Acta Arith. 21,
+             329–345.
+        Bateman, P. T. & Diamond, H. G. (1969). Asymptotic distribution of Beurling’s
+             generalized prime numbers, Studies in Number Theory, W. J. LeVeque, Ed.,
+             MAA Studies in math. 6. Washington: Mathematical Association of America,
+             pp. 152–210.
+          (1996). A hundred years of prime numbers, Amer. Math. Monthly 103, 729–741.
+        Beurling, A. (1937). Analyse de la loi asymptotique de la distribution des nombres
+             premiers généralisés, I, Acta Math. 68, 255–291.
+        Bombieri, E. (1962a). Maggiorazione del resto nel “Primzahlsatz” col metodo di Erdős–
+             Selberg, Ist. Lombardo Accad. Sci. Lett. Rend. A 96, 343–350.
+          (1962b). Sulle formule di A. Selberg generalizzate per classi di funzioni aritmetiche
+             e le applicazioni al problema del resto nel “Primzahlsatz”, Riv. Mat. Univ. Parma
+             (2) 3, 393–440.
+        Borel, J.-P. (1980/81). Quelques résultats d’équirépartition liés aux nombres généralisés
+             de Beurling, Acta Arith. 38, 255–272.
+          (1984). Sur le prolongement des fonctions ζ associées à un système des nombres
+             premiers généralisés de Beurling, Acta Arith. 43, 273–282.
+        Breusch, R. (1960). An elementary proof of the prime number theorem with remainder
+             term, Paciﬁc J. Math. 10, 487–497.
+        van der Corput, J. G. (1956). Sur le reste dans la démonstration élémentaire du theorème
+             des nombres premiers, Colloque sur la Théorie des Nombres (Bruxelles, 1955).
+             Paris: Masson & Cie, pp. 163–182.
+        Diamond, H. G. (1969). The prime number theorem for Beurling’s generalized numbers,
+             J. Number Theory 1, 200–207.
+          (1970a). Asymptotic distribution of Beurling’s generalized integers, Illinois J. Math.
+             14, 12–28.
+          (1970b). A set of generalized numbers showing Beurling’s theorem to be sharp, Illinois
+             J. Math. 14, 29–34.
+          (1973). Chebyshev estimates for Beurling generalized prime numbers, Proc. Amer.
+             Math. Soc. 39, 503–508.
+          (1977). When do Beurling generalized integers have a density?, J. Reine Angew. Math.
+             295, 22–39.
+        Diamond, H. G., Montgomery, H. L., & Vorhauer, U. M. A. (2006). Beurling primes
+             with large oscillation, Math. Ann., 334, 1–36.
+        Diamond, H. G. & Steinig, J. (1970). An elementary proof of the prime number theorem
+             with a remainder term, Invent. Math. 11, 199–258.
+        Dressler, R. E. (1970). A density which counts multiplicity, Paciﬁc Math. J. 34, 371–378.
+        Erdős, P. (1949). On a new method in elementary number theory which leads to an
+             elementary proof of the prime number theorem, Proc. Natl. Acad. Sci. USA 35,
+             374–384.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        280                Further discussion of the Prime Number Theorem
+
+
+        Fatou, P. (1906). Séries trigonométriques et séries de Taylor, Acta Math. 30, 335–400.
+        Goldfeld, D. (2004). The elementary proof of the prime number theorem: an histori-
+             cal perspective, Number Theory (New York, 2003). New York: Springer-Verlag,
+             pp. 179–192.
+        Graham, S. W. & Vaaler, J. D. (1981). A class of extremal functions for the Fourier
+             transform, Trans. Amer. Math. Soc. 265, 283–302.
+        Hall, R. S. (1972). The prime number theorem for generalized primes, J. Number Theory
+             4, 313–320.
+          (1973). Beurling generalized prime number systems in which the Chebyshev inequal-
+             ities fail, Proc. Amer. Math. Soc. 40, 79–82.
+        Hejhal, D. A. (1976). The Selberg Trace Formula for P S L(2, R). Vol. I, Lecture Notes
+             Math. 548. Berlin: Springer-Verlag.
+          (1983). The Selberg Trace Formula for P S L(2, R). Vol. 2, Lecture Notes Math. 1001.
+             Berlin: Springer-Verlag.
+        Ikehara, S. (1931). An extension of Landau’s theorem in the analytic theory of numbers,
+             J. Math. Phys. 10, 1–12.
+        Ingham, A. E. (1945). Some Tauberian theorems connected with the prime number
+             theorem, J. London Math. Soc. 20, 171–180.
+        Kahane, J.-P. (1995). Sur travaux de Beurling et Malliavin, Séminaire Bourbaki Vol. 7
+             Exp. 225, Paris: Soc. Math. France, 27–39.
+          (1996). Une formula de Fourier pour les nombres premiers. Application aux nombres
+             premiers généralisés de Beurling, Harmonic analysis from the Pichorides viewpoint
+             (Anogia, 1995) Publ. Math. Orsay, 96–01, Orsay: Univ. Paris XI, 41–49.
+          (1997). Sur les nombres premiers généralisés de Beurling. Preuve d’une conjecture
+             de Bateman et Diamond, J. Théor. Nombres Bordeaux 9, 251–266.
+          (1998). Le rôle des algèbres A de Wiener, A∞ de Beurling et H 1 de Sobolev
+             dans la théorie des nombres premiers généralisés de Beurling, Ann. Inst. Fourier
+             (Grenoble) 48, 611–648.
+          (1999). Un théorème de Littlewood pour les nombres premiers de Beurling Bull.
+             London Math. Soc. 31, 424–430.
+        Knopfmacher, J. (1990). Abstract Analytic Number Theory, Second Edition. New York:
+             Dover.
+        Korevaar, J. (2006). The Wiener–Ikehara theorem by complex analysis, Proc. Amer.
+             Math. Soc. 134, 1107–1116.
+        Kuhn, P. (1955). Eine Verbesserung des Restgliedes beim elementaren Beweis des
+             Primzahlsatzes, Math. Scand. 3, 75–89.
+        Landau, E. (1910). Über die Bedeutung einiger neuen Grenswertsätze der Herren Hardy
+             und Axer, Prace mat.-ﬁz. 21, 97–177; Collected Works, Vol. 4. Essen: Thales Verlag,
+             1986, pp. 267–347.
+          (1912). Über einige neuere Grenzwertsätze, Rend. Circ. Mat. Palermo 34, 121–131;
+             Collected Works, Vol. 5. Essen: Thales Verlag, 1986, pp. 145–155.
+        Lavrik, A. F. & Sobirov, A. Š. (1973). The remainder term in the elementary proof of
+             the Prime Number Theorem, Dokl. Akad. Nauk SSSR 211, 534–536.
+        Levinson, N. (1969). A motivated account of an elementary proof of the Prime Number
+             Theorem, Amer. Math. Monthly 76, 225–245.
+        Malliavin, P. (1961). Sur le reste de la loi asymptotique de répartition des nombres
+             premiers généralisés de Beurling, Acta Math. 106, 281–298.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 8.6 References                                    281
+
+
+        Narkiewicz, W. (2000). The Development of Prime Number Theory. Berlin: Springer-
+              Verlag.
+        Nyman, B. (1949). A general Prime Number Theorem, Acta Math. 81, 299–307.
+        Parry, W. & Pollicott, M. (1990). Zeta functions and the periodic orbit structure of
+              hyperbolic dynamics, Astérisque No. 268, pp. 187–188.
+        Pitt, H. R. (1958). Tauberian Theorems. Oxford: Oxford University Press.
+        Riesz, M. (1916). Ein Konvergenzsatz für Dirichletsche Reihen, Acta Math. 40, 349–361.
+        Schwarz, W. (1994). Some remarks on the history of the Prime Number Theorem
+              from 1896 to 1960, Development of mathematics 1900–1950 (Luxembourg, 1992).
+              Basel: Birkhäuser, pp. 565–616.
+        Selberg, A. (1949). An elementary proof of the prime-number theorem, Ann. Math. (2)
+              50, 305–313.
+        Srinivasan, B. R. & Sampath, A. (1988). An elementary proof of the Prime Number
+              Theorem with a remainder term, J. Indian, Math. Soc., New Ser. 53, No.1-4, 1-50.
+        Widder, D. V. (1971). An Introduction to Transform Theory. New York: Academic Press.
+        Wiener, N. (1932). Tauberian theorems, Ann. of Math. (2) 33, 1–100; Collected Works,
+              Vol. 2. Cambridge: MIT, 1979, pp. 519–619.
+        Wirsing, E. (1962). Elementare Beweise des Primzahlsatzes mit Restglied, I, J. Reine
+              Angew. Math. 211, 205–214.
+           (1964). Elementare Beweise des Primzahlsatzes mit Restglied, II, Reine Angew., J.
+              Math. 214/215, 1–18.
+        Wright, E. M. (1952). The elementary proof of the Prime Number Theorem, Proc. Roy.
+              Soc. Edinbugh A 63, 257–267.
+        Zhang, W. B. (1987a). Chebyshev type estimates for Beurling generalized prime num-
+              bers, Proc. Amer. Math. Soc. 101, 205–212.
+           (1987b). A generalization of Halász’s theorem to Beurling’s generalized integers and
+              its application, Illinois J. Math. 31, 645–664.
+           (1988). Density and O-density of Beurling generalized integers, J. Number Theory
+              30, 120–139.
+           (1993). Chebyshev type estimates for Beurling generalized prime numbers, II, Trans.
+              Amer. Math. Soc. 337, 651–675.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.010 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

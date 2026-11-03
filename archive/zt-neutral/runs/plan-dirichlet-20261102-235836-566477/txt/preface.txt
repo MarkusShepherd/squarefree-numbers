@@ -1,0 +1,66 @@
+                                                    Preface
+
+
+
+
+        Our object is to introduce the interested student to the techniques, results, and
+        terminology of multiplicative number theory. It is not intended that our discus-
+        sion will always reach the research frontier. Rather, it is hoped that the material
+        here will prepare the student for intelligent reading of the more advanced re-
+        search literature.
+           Analytic number theorists are not very uniformly distributed around the
+        world and it possible that a student may be working without the guidance of an
+        experienced mentor in the area. With this in mind, we have tried to make this
+        volume as self-contained as possible.
+           We assume that the reader has some acquaintance with the fundamentals of
+        elementary number theory, abstract algebra, measure theory, complex analysis,
+        and classical harmonic analysis. More specialized or advanced background
+        material in analysis is provided in the appendices.
+           The relationship of exercises to the material developed in a given section
+        varies widely. Some exercises are designed to illustrate the theory directly
+        whilst others are intended to give some idea of the ways in which the theory can
+        be extended, or developed, or paralleled in other areas. The reader is cautioned
+        that papers cited in exercises do not necessarily contain a solution.
+           This volume is the ﬁrst instalment of a larger project. We are preparing a
+        second volume, which will cover such topics as uniform distribution, bounds for
+        exponential sums, a wider zero-free region for the Riemann zeta function, mean
+        and large values of Dirichlet polynomials, approximate functional equations,
+        moments of the zeta function and L functions on the line σ = 1/2, the large
+        sieve, Vinogradov’s method of prime number sums, zero density estimates,
+        primes in arithmetic progressions on average, sums of primes, sieve methods,
+        the distribution of additive functions and mean values of multiplicative func-
+        tions, and the least prime in an arithmetic progression. The present volume was
+
+                                                          xi
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.001 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        xii                                           Preface
+
+
+        twenty-ﬁve years in preparation—we hope to be a little quicker with the second
+        volume.
+           Many people have assisted us in this work—including P. T. Bateman, E.
+        Bombieri, T. Chan, J. B. Conrey, H. G. Diamond, T. Estermann, J. B. Friedlan-
+        der, S. W. Graham, S. M. Gonek, A. Granville, D. R. Heath-Brown, H. Iwaniec,
+        H. Maier, G. G. Martin, D. W. Masser, A. M. Odlyzko, G. Peng, C. Pomerance,
+        H.–E. Richert, K. Soundararajan, and U. M. A. Vorhauer. In particular, our
+        doctoral students, and their students also, have been most helpful in detecting
+        errors of all types. We are grateful to them all. We would be most happy to hear
+        from any reader who detects a misprint, or might suggest improvements.
+           Finally we thank our loved ones and friends for their long term support
+        and the long–suffering David Tranah at Cambridge University Press for his
+        forbearance.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.001 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

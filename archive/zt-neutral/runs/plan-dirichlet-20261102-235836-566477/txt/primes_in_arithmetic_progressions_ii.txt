@@ -1,0 +1,2298 @@
+                                                         11
+                      Primes in arithmetic progressions: II
+
+
+
+
+                                       11.1       A zero-free region
+         For a given integer q, the primes not dividing q are distributed in the reduced
+         residue classes modulo q. As there are no other obvious restrictions on the
+         primes modulo q, we expect the primes to be uniformly distributed amongst
+         the reduced residue classes. Let π(x; q, a) denote the number of primes p ≤ x
+         such that p ≡ a (mod q). We anticipate that if (a, q) = 1, then
+                                                     x
+                               π (x; q, a) ∼                          as x −→ ∞ .
+                                                 ϕ(q) log x
+         This asymptotic estimate is the Prime Number Theorem for arithmetic pro-
+         gressions; it can readily be established by adapting the methods of Chapters
+         4 and 6. For many purposes, however, it is important to have a quantitative
+         form of this, from which one can tell how large x should be, as a function of
+         q, to ensure that π (x; q, a) is near li(x)/ϕ(q). To obtain such an estimate we
+         must ﬁrst derive a zero-free region for the Dirichlet L-functions L(s, χ ) that is
+         explicit in its dependence on both q and t. For the most part our arguments are
+         natural generalizations of the analysis in Chapter 6, but we shall encounter a
+         new difﬁculty in connection with the possible existence of a real zero β near 1
+         of L(s, χ ) when χ is a quadratic character.
+                                                                  
+            The approximate partial fraction expansion of ζζ (s) (cf. Lemma 6.4) de-
+         pends on the upper bound for |ζ (s)| provided by Corollary 1.17. By using
+         Lemma 10.15 in a similar manner, we now derive a corresponding approximate
+                                          
+         partial fraction formula for LL (s, χ ) . In order to formulate a uniﬁed result for
+         both the principal and non-principal characters, it is convenient to employ the
+         notation
+                                                
+                                                   1 if χ = χ0 ,
+                                     E 0 (χ ) =                                      (11.1)
+                                                   0 otherwise.
+
+                                                         358
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.1 A zero-free region                                        359
+
+
+        Lemma 11.1 If χ is a character (mod q) and 5/6 ≤ σ ≤ 2, then
+                      L          E 0 (χ )  1
+                   − (s, χ ) =            −          + O(log qτ )
+                      L           s−1       ρ s −ρ
+                                                                                      3           
+        where the sum is over all zeros ρ of L(s, χ ) for which ρ −                     2
+                                                                                            + it       ≤ 5/6.
+
+        Proof When χ is non-principal we apply Lemma 6.3 to the function
+                                                  
+                                             3
+                            f (z) = L z +      + it , χ
+                                             2
+        with R = 5/6 and r = 2/3. By Lemma 10.15 we may take M = Cqτ for a
+        suitable absolute constant C, and by the Euler product for L(s, χ ) we see that
+                                                          −1                −1
+                                       1 − χ ( p) p − 2 −it         1 + p −3/2
+                                                      3
+        | f (0)| = L 32 + it, χ =                              ≥                     1.
+                                             p                                   p
+
+        Now suppose that χ = χ0 . The zeros of the function 1 − p −s form an arithmetic
+        progression on the imaginary axis. Hence by (4.22), the zeros of L(s, χ0 ) are
+        the zeros of ζ (s) together with the union of several arithmetic progressions on
+        the imaginary axis. Since these latter zeros all lie at a distance ≥ 3/2 from the
+        point 32 + it, none of them is included in the sum over ρ. Moreover, by taking
+        logarithmic derivatives of both sides of (4.22) we see that
+                                 L           ζ       log p
+                                    (s, χ0 ) = (s) +               .
+                                 L            ζ       p|q
+                                                           ps − 1
+
+        But (log p)/( p s − 1) 1 for σ ≥ 5/6, so the sum over p is        ω(q)
+        log q by Theorem 2.10. Hence we obtain the stated identity by appealing to
+        Lemma 6.4.                                                              
+
+            The generalization of Lemma 6.5 is straightforward.
+
+        Lemma 11.2 If σ > 1, then
+                                                            
+                   L            L          L
+              −3 (σ, χ0 ) − 4 (σ + it, χ ) − (σ + 2it, χ 2 ) ≥ 0.
+                    L             L          L
+                                                                                
+        Proof By the Dirichlet series expansion (4.25) for LL (s, χ ) we see that the
+        left-hand side above is
+                             (n)
+                             ∞
+                                 σ
+                                     (3 + 4χ (n)n −it + χ (n)2 n −2it ).
+                            n=1
+                                n
+                                 (n,q)=1
+
+        The quantity χ(n)n −it is unimodular when (n, q) = 1, so for such n there is a
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        360                        Primes in Arithmetic Progressions: II
+
+
+        real number θn such that χ (n)n −it = eiθn . Thus the above is
+                                     ∞
+                                         (n)
+                                              (3 + 4 cos θn + cos 2θn ).
+                                     n=1
+                                          nσ
+                                    (n,q)=1
+
+        This is non-negative because 3 + 4 cos θ + cos 2θ = 2(1 + cos θ)2 ≥ 0 for
+        all θ.                                                                 
+
+           The groundwork laid above enables us to establish a variant of Theorem 6.6
+        for Dirichlet L-functions.
+
+        Theorem 11.3 There is an absolute constant c > 0 such that if χ is a Dirichlet
+        character modulo q, then the region
+
+                                        Rq = {s : σ > 1 − c/ log qτ }
+
+        contains no zero of L(s, χ ) unless χ is a quadratic character, in which case
+        L(s, χ ) has at most one, necessarily real, zero β < 1 in Rq .
+
+           A zero lying in Rq , as described above, is called exceptional. No exceptional
+        zero is known, and indeed it may be conjectured that if χ is quadratic, then
+        L(σ, χ ) > 0 for all σ > 0. We give further study to exceptional zeros in the
+        next section.
+
+        Proof The case χ = χ0 is immediate from (4.22) and Theorem 6.6, so we
+        may assume that χ is non-principal. Also, the Euler product (4.21) for L(s, χ )
+        is absolutely convergent when σ > 1, and hence L(s, χ) = 0 for such s. Thus
+        it sufﬁces to consider a zero ρ0 = β0 + iγ0 of L(s, χ ) with 12/13 ≤ β0 ≤ 1.
+        We consider several cases, the ﬁrst of which parallels the proof of Theorem 6.6
+        most closely.                                                                
+
+        Case 1. Complex χ . If σ > 1 and ρ is a zero of an L-function, then (s − ρ) > 0
+        and hence (1/(s − ρ)) > 0. Thus by Lemma 11.1, if 0 < δ ≤ 1, then
+                                  L                1
+                                     (1 + δ, χ0 ) ≤ + c1 log q,
+                                     −
+                                  L                 δ
+                       L                         −1
+                     − (1 + δ + iγ0 , χ ) ≤            + c1 log q(|γ0 | + 4),                     (11.2)
+                       L                     1 + δ − β0
+                            L
+                         − (1 + δ + 2iγ0 , χ 2 ) ≤ c1 log q(2|γ0 | + 4)
+                            L
+        for some absolute constant c1 . The hypothesis that χ is complex is needed for
+        this last inequality, to ensure that χ 2 = χ0 in the appeal to Lemma 11.1. We
+        multiply both sides of the ﬁrst inequality by 3, the second by 4, and sum all
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.1 A zero-free region                                361
+
+
+        three. By Lemma 11.2, the resulting left-hand side is non-negative. That is,
+                        3          4
+                           −              + c2 log q(|γ0 | + 4) ≥ 0
+                         δ    1 + δ − β0
+        for some constant c2 . If β0 = 1, then letting δ → 0+ gives an immediate con-
+        tradiction, so it may be assumed that β0 < 1. Then, on taking δ = 6(1 − β0 ), it
+        follows that
+                                                     1
+                                 1 − β0 ≥                        .
+                                           14c2 log q(|γ0 | + 4)
+        Hence ρ0 ∈/ Rq if c is chosen sufﬁciently small.
+           This argument also applies with only small changes when χ is quadratic,
+        provided that |γ0 | is large. We can even allow |γ0 | to be small, as long as it is
+        large compared with 1 − β0 . We now consider such a case.
+        Case 2. Quadratic χ , |γ0 | ≥ 6(1 − β0 ). By Theorem 4.9, L(1, χ ) = 0, so γ0 =
+        0. Hence we can proceed as above, except that as χ 2 = χ0 the third inequality
+        in (11.2) must be replaced by the weaker inequality
+                     L                            δ
+                 − (1 + δ + 2iγ0 , χ 2 ) ≤ 2           + c1 log q(2|γ0 | + 4).
+                     L                       δ + 4γ02
+        Again if β0 = 1, then taking δ → 0+ gives a contradiction. Thus it can be
+        supposed that β0 < 1. Since |γ0 | ≥ 6(1 − β0 ), this implies that
+                L                               δ
+            − (1 + δ + 2iγ0 , χ 2 ) ≤ 2                      + c1 log q(2|γ0 | + 4).
+                L                         δ + 144(1 − β0 )2
+        We combine this inequality with the ﬁrst two inequalities in (11.2) and apply
+        Lemma 11.2 with σ = 1 + δ = 1 + 6(1 − β0 ) to see that
+                                           
+                       1      3 4        6
+                                − +           + c2 log q(|γ0 | + 4) ≥ 0.
+                    1 − β0 6 7 180
+        The factor in large parentheses above is −4/105 < −1/27, so
+                                                   1
+                                1 − β0 ≥                        .
+                                          27c2 log q(|γ0 | + 4)
+        Case 3. Quadratic χ , 0 < |γ0 | ≤ 6(1 − β0 ). Since L(s, χ) is real when s is
+        real, it follows by the Schwarz reﬂection principle that L(β0 − iγ0 , χ ) = 0.
+        Hence by Lemma 11.1 we see that if 1 < σ ≤ 2, then
+                         L               1            1
+                      − (σ, χ ) ≤ −           −           + c1 log 4q
+                         L             σ − ρ0        σ − ρ0
+                                      −2(σ − β0 )
+                                  =                  + c1 log 4q
+                                    (σ − β0 )2 + γ02
+                                          −2(σ − β0 )
+                                  ≤                           + c1 log 4q.      (11.3)
+                                    (σ − β0 )2 + 36(1 − β0 )2
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        362                        Primes in Arithmetic Progressions: II
+
+
+        Rather than apply Lemma 11.2 we simply observe that if σ > 1, then
+                     L         L           (n)
+                                             ∞
+                   − (σ, χ0 ) − (σ, χ) =               (1 + χ (n)) ≥ 0.                            (11.4)
+                      L         L           n=1
+                                                   nσ
+                                                           (n,q)=1
+
+        We put σ = 1 + δ = 1 + a(1 − β0 ) and combine the ﬁrst inequality in (11.2)
+        and (11.3) in the above to deduce that
+                                                   
+                           1     1       2(a + 1)
+                                    −                 + c2 log 4q ≥ 0.
+                        1 − β0 a      (a + 1)2 + 36
+        The factor in large parentheses is ∼ −1/a as a → ∞, so it is certainly possible
+        to choose a value of a so that this factor is negative. Indeed, when a = 13 this
+        factor is −33/754 < −1/27, and hence
+                                                      1
+                                    1 − β0 ≥                 .
+                                                27c2 log 4q
+        (We note that our supposition that β0 ≥ 12/13 implies that σ = 1 + 13(1 −
+        β0 ) ≤ 2, so that Lemma 11.1 is applicable.)
+        Case 4. Quadratic χ , real zeros. If β0 is a real zero of L(s, χ ), then β0 < 1
+        by Theorem 4.9. Suppose that β0 ≤ β1 < 1 are two such zeros. Then by Lemma
+        11.1,
+                                 L              1          1
+                           −       (σ, χ) ≤ −        −          + c1 log 4q
+                                 L             σ − β0   σ − β1
+                                                 2
+                                           ≤−         + c1 log 4q.
+                                               σ − β0
+        On combining the ﬁrst part of (11.2) and the above in (11.4) with σ = 1 + δ =
+        1 + a(1 − β0 ), we ﬁnd that
+                                               
+                              1      1      2
+                                       −           + c2 log 4q ≥ 0.
+                            1 − β0 a      a+1
+        On taking a = 2 we deduce that
+                                                                1
+                                             1 − β0 ≥                 .
+                                                           6c2 log 4q
+        This completes the proof.                                                                      
+
+           In the same way that Theorem 6.7 was derived from Theorem 6.6, we now
+                               
+        derive estimates for LL (s, χ ) and log L(s, χ ) in a portion of the critical strip.
+
+        Theorem 11.4 Let χ be a non-principal character modulo q, let c be the
+        constant in Theorem 3, and suppose that σ ≥ 1 − c/(2 log qτ ). If L(s, χ ) has
+        no exceptional zero, or if β1 is an exceptional zero of L(s, χ ) but |s − β1 | ≥
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             11.1 A zero-free region                                     363
+
+
+        1/ log q, then
+                                             L
+                                                (s, χ )   log qτ,                                      (11.5)
+                                             L
+                                    | log L(s, χ )| ≤ log log qτ + O(1),                               (11.6)
+
+        and
+                                                  1
+                                                               log qτ.                                 (11.7)
+                                                L(s, χ)
+        Alternatively, if β1 is an exceptional zero of L(s, χ ) and |s − β1 | ≤ 1/ log q,
+        then
+                                L              1
+                                   (s, χ ) =         + O(log q) (s = β1 ),                            (11.8)
+                                L            s − β1
+                              | arg L(s, χ )| ≤ log log q + O(1) (s = β1 ),                           (11.9)
+
+        and
+
+                                 |s − β1 |      |L(s, χ )|       |s − β1 |(log q)2 .                  (11.10)
+
+        Proof      If σ > 1, then by Corollary 1.11 we see that
+                             L           ∞
+                                                          ζ                        1
+                                (s, χ ) ≤     (n)n −σ = − (σ )                        .
+                             L            n=1
+                                                          ζ                       σ −1
+
+        Hence (11.5) is obvious if σ ≥ 1 + 1/ log qτ . Let s1 = 1 + 1/ log qτ + it.
+        Then
+                                   L
+                                      (s1 , χ ) log qτ.
+                                   L
+        From this and Lemma 11.1 it follows that
+                                   1
+                                                                 log qτ                               (11.11)
+                                               ρ   s1 − ρ
+
+        where the sum is over those zeros of L(s, χ) for which |ρ − (3/2 + it)| ≤ 5/6.
+        Hence
+                     1              1              1
+                                                          
+                                =               −            + O(log qτ ).     (11.12)
+                     ρ s −ρ          ρ    s−ρ      s1 − ρ
+
+        Suppose that 1 − c/(2 log qτ ) ≤ σ ≤ 1 + 1/ log qτ and that |s − β1 | ≥
+        1/ log q if L(s, χ ) has an exceptional zero β1 . Since |s − ρ| |s1 − ρ| for
+        all zeros ρ, it follows that
+             1       1     1 + 1/ log qτ − σ                               1                          1
+                −        =                                                                               .
+            s−ρ   s1 − ρ    (s − ρ)(s1 − ρ)                         |s1 − ρ|2 log qτ               s1 − ρ
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        364                        Primes in Arithmetic Progressions: II
+
+
+        On summing this over ρ and appealing to (11.11) we ﬁnd that
+                                   1
+                                                log qτ,                                            (11.13)
+                                   ρ s −ρ
+
+        and (11.5) follows by Lemma 11.1.
+           To derive (11.6) we ﬁrst note that if σ > 1, then
+                                                     
+                                                     ∞
+                                                       (n)
+                                | log L(s, χ )| ≤                n −σ = log ζ (σ ).
+                                                     n=2
+                                                         log n
+
+        Since ζ (σ ) ≤ σ/(σ − 1) by Corollary 1.14, we see that (11.6) holds when σ ≥
+        1 + 1/ log qτ . In particular, (11.6) holds at the point s1 = 1 + 1/ log qτ + it.
+        To treat the remaining s it sufﬁces to note that
+                                                       s
+                                                         L
+              log L(s, χ ) − log L(s1 , χ ) =               (w, χ) dw          |s1 − s| log qτ      1
+                                                      s1 L
+
+        by (11.5). The estimate (11.6) trivially implies (11.7) since log 1/|L(s, χ )| =
+        − log L(s, χ ).
+           Now suppose that L(s, χ ) has an exceptional zero β1 such that |s − β1 | ≤
+        1/ log q. Then 1 − c/(2 log 4q) ≤ σ ≤ 1 + 1/ log q, so by Lemma 11.1,
+                         L              1       1
+                            (s, χ ) =        +             + O(log q)
+                         L            s − β1      ρ s −ρ
+               
+        where ρ denotes a sum over all zeros ρ such that |ρ − (3/2 + it)| ≤ 5/6
+                                                                            
+        except for the exceptional zero β1 . The proof of (11.13) applies to ρ , so we
+        have (11.8). Proceeding as in the proof of (11.6), we ﬁnd that
+                                                   s − β1
+                           log L(s, χ ) = log               + log L(s1 , χ ) + O(1),
+                                                   s1 − β 1
+        which implies that
+                                    s − β1
+             log L(s, χ ) − log             ≤ | log L(s1 , χ )| + O(1) ≤ log log q + O(1).
+                                    s1 − β1
+        But arg(s − β1 )   1, arg(s1 − β1 )                  1, and log |s1 − β1 | = − log log q +
+        O(1), so we have (11.9) and (11.10).                                                            
+
+           Our methods yield not only a zero-free region, but also enable us to bound
+        the number of zeros ρ of L(s, χ ) that might lie near 1 + it.
+
+        Theorem 11.5 Let n(r ; t, χ ) denote the number of zeros ρ of L(s, χ ) in the
+        disc |ρ − (1 + it)| ≤ r . Then n(r ; t, χ ) r log qτ uniformly for 1/ log qτ ≤
+        r ≤ 3/4.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.1 A zero-free region                                365
+
+
+           Here the constraint r ≥ 1/ log qτ is needed because L(s, χ ) might have
+        an exceptional zero. If L(s, χ ) has no exceptional zero, then the bound holds
+        uniformly for 0 ≤ r ≤ 3/4, in view of the zero-free region of Theorem 11.3.
+
+        Proof In view of Theorem 6.8, we may suppose that χ is non-principal. Sup-
+        pose ﬁrst that 1/ log qτ ≤ r ≤ 1/3. Take s1 = 1 + r + it. Then (s1 − ρ)−1 ≥
+        0 for all zeros ρ, and (s1 − ρ)−1       1/r if ρ is counted by n(r ; t, χ ). Hence
+                                  1                   1
+                                    n(r ; t, χ )   
+                                  r                    ρ s1 − ρ
+
+        where the sum is over all zeros ρ such that |ρ − (3/2 + it)| ≤ 5/6. By
+        Lemma 11.1 we see that the above is log qτ , since
+                                   L          ζ                       1
+                                      (s1 ) ≤ − (1 + r )                     log qτ.
+                                   L           ζ                        r
+        If 1/3 ≤ r ≤ 3/4, then it sufﬁces to apply Jensen’s inequality to L(s, χ) on a
+        disc with centre 3/2 + it, with R = 4/3 and r = 5/4, in view of the estimates
+        provided by Lemma 10.15.                                                    
+
+
+                                              11.1.1      Exercises
+        1. Let S(x; q) denote the number of integers n, 0 < n ≤ x, such that (n, q) = 1,
+           and put R(x; q) = S(x; q) − (ϕ(q)/q)x.
+           (a) Show that if σ > 0, x > 0, and s = 1, then
+                                       ϕ(q) x 1−s      R(x; q)       ∞
+           L(s, χ0 ) =     χ0 (n)n −s +     ·       −           +s     R(u; q)u −s−1 du.
+                       n≤x               q    s − 1       x s
+                                                                    x
+
+                Show that this includes Theorem 1.12 as a special case.
+            (b) Let δ > 0 be ﬁxed. Show that if σ ≥ δ, then
+                                ϕ(q) x 1−s     
+                    L(s, χ0 ) =      ·      +     χ0 (n)n −s + O(d(q)|s|x −σ ).
+                                 q     s − 1 n≤x
+
+        2. Suppose that δ is ﬁxed, 0 < δ < 1. Show that
+                                    log p
+                                         s −1
+                                                 (log q)1−δ
+                                   p|q
+                                       p
+
+           uniformly for σ ≥ δ. (This improves on the estimate used in the latter part
+           of the proof of Lemma 11.1.)
+        3. (a) Show that if σ > 0, then
+                                                                 ∞
+                                         1  1
+                             ζ (s) =       + −s                      ({x} − 1/2)x −s−1 d x.
+                                        s−1 2                1
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        366                          Primes in Arithmetic Progressions: II
+
+
+            (b) Show that if f (x) is a monotonically decreasing function, then
+                                                  1
+                                                      (x − 1/2) f (x) d x ≤ 0.
+                                              0
+
+            (c) Show that
+                                                                     1   1
+                                                      ζ (σ ) >         +
+                                                                   σ −1 2
+                for σ > 0.
+            (d) Show that
+                                                             ∞
+                                         1
+                      − ζ  (s) =              +                 ({x} − 1/2)(1 − s log x)x −s−1 d x
+                                      (s − 1)2           1
+
+                for σ > 0.
+            (e) Show that if σ > 0, then
+                                                                 ∞
+                                        1        1                                                 1
+                        ζ  (σ ) +             <                     |1 − σ log x|x −σ −1 d x =      .
+                                     (σ − 1) 2   2           1                                    eσ
+             (f) Justify the following chain of inequalities for σ > 1:
+                                         1
+                                              + eσ1                  −1)              2
+                            ζ        (σ −1)2           1     1 + (σ eσ      1
+                        −      (σ ) <               =       ·      σ −1
+                                                                         <       .
+                            ζ             1
+                                        σ −1
+                                              + 1
+                                                2
+                                                      σ − 1    1 +    2
+                                                                           σ − 1
+
+            (g) Show that if χ0 is the principal character (mod q), then
+                                                       L              1
+                                                  −       (σ, χ0 ) <
+                                                       L             σ −1
+               for σ > 1. (This improves on the ﬁrst inequality in (11.2), in the proof
+               of Theorem 11.3.)
+        4. Let χ be a character (mod q), and suppose that the order d of χ is odd.
+           (a) Show that χ (n) ≥ − cos π/d for all integers n.
+           (b) Show that if σ > 1, then log |L(σ, χ)| ≥ −(cos π/d) log ζ (σ ).
+           (c) Show that L(1, χ ) L(1 + 1/ log q, χ ).
+           (d) Show that |L(1, χ )|       (log q)− cos π/d .
+           (e) Deduce in particular that if χ is a cubic character (mod q), then
+                                √
+               |L(1, χ )|     1/ log q.
+                                         √
+        5. Grössencharaktere for Q( −1), continued from Exercise 10.1.28. For an
+           ideal a = (a + ib) in the ring O{a + ib : a, b ∈ Z} of Gaussian integers, put
+           χm (a) = e4mi arg(a+ib) . The ideal a is the set of (Gaussian integer) multiples of
+           the number a + ib, but it can equally well be expressed as the set of Gaussian
+           integer multiples of (a + ib)i k for k = 0, 1, 2, 3. Note that the stated value
+           of χm (a) is independent of the choice of k.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.2 Exceptional zeros                                 367
+
+
+            (a) Show that
+                                                                        
+                                                                  χm (p) −1
+                                         L(s, χm ) =           1−
+                                                          p       N (p)s
+
+                for σ > 1, where the product is over all prime ideals p in the ring.
+            (b) Let (a) = log(a 2 + b2 ) if a = (a + ib)k for some positive integer
+                k and a + ib is a Gaussian prime, and (a) = 0 otherwise. Show
+                that
+                                  L               (a)χm (a)
+                                     (s, χm ) = −
+                                  L               a      N (a)s
+
+                for σ > 1.
+            (c) Show that there is an absolute constant c > 0 such that L(s, χm ) = 0 for
+                σ > 1 − c/ log mτ for every positive integer m.
+
+
+
+                                       11.2       Exceptional zeros
+        Although there is no known quadratic character χ for which L(s, χ ) has an
+        exceptional real zero, the possible existence of such zeros is a recurring issue in
+        the theory in its current stage of development. The techniques of the preceding
+        section do not seem to offer a means of eliminating exceptional zeros entirely,
+        but nevertheless they may be used to show that such zeros occur at most rarely.
+        To this end we introduce a variant of Lemma 11.5 that allows us to consider
+        two different quadratic characters.
+
+        Lemma 11.6 (Landau) Suppose that χ1 and χ2 are quadratic characters. If
+        σ > 1, then
+                           ζ       L         L         L
+                       −      (σ ) − (σ, χ1 ) − (σ, χ2 ) − (σ, χ1 χ2 ) ≥ 0.
+                           ζ        L          L          L
+        Proof      It sufﬁces to express the left-hand side as a Dirichlet series and to note
+        that
+                     1 + χ1 (n) + χ2 (n) + χ1 χ2 (n) = (1 + χ1 (n))(1 + χ2 (n)) ≥ 0
+
+        for all n.                                                                                  
+
+        Theorem 11.7 (Landau) There is a constant c > 0 such that if χ1 and χ2
+        are quadratic characters modulo q1 and q2 , respectively, and if χ1 χ2 is non-
+        principal, then L(s, χ1 )L(s, χ2 ) has at most one real zero β such that 1 −
+        c/ log q1 q2 < β < 1.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        368                        Primes in Arithmetic Progressions: II
+
+
+        Proof Since any given L-function can have at most one such zero, if there
+        are two zeros, then one of them, say β1 , is a zero of L(s, χ1 ), and the other,
+        β2 , is a zero of L(s, χ2 ). We may assume that c is so small that 5/6 ≤ βi < 1.
+        Also, we note that χ1 χ2 is a non-principal character (mod q1 q2 ). Hence by four
+        applications of Lemma 11.1 we see that if 0 < δ ≤ 1, then
+                                              ζ          1
+                                          −      (1 + δ) ≤ + c1 log 4,
+                                              ζ           δ
+                                   L                   −1
+                               −      (1 + δ, χi ) ≤            + c1 log qi ,
+                                   L                 1 + δ − βi
+                                L
+                                   (1 + δ, χ1 χ2 ) ≤ c1 log q1 q2 .
+                                      −
+                                 L
+        We sum these inequalities and apply Lemma 11.4 to see that
+                           1        1            1
+                             −            −            + c2 log q1 q2 ≥ 0.
+                           δ   1 + δ − β1   1 + δ − β2
+        Without loss of generality we may suppose that β1 ≤ β2 . Then
+                                     1        2
+                                       −            + c2 log q1 q2 ≥ 0,
+                                     δ   1 + δ − β1
+        and by taking δ = 2(1 − β1 ) we deduce that
+                                                                1
+                                              1 − β1 ≥                  .
+                                                          6c2 log q1 q2                            
+
+            The following corollaries are immediate.
+
+        Corollary 11.8 (Landau) There is a positive constant c > 0 such that
+        
+          χ L(s, χ ) has at most one zero in the region σ > 1 − c/ log qτ . Here
+        the product is over all Dirichlet characters χ (mod q). If such a zero
+        exists then it is necessarily real and the associated character χ is
+        quadratic.
+
+        Corollary 11.9 (Landau) For each positive number A there is a c(A) > 0
+        such that if {qi } is a strictly increasing sequence of natural numbers with the
+        property that for each qi there is a primitive quadratic character χi (mod qi )
+        for which L(s, χi ) has a zero βi satisfying
+                                                      c(A)
+                                           βi > 1 −         ,
+                                                     log qi
+        then
+                                                    qi+1 > qiA .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.2 Exceptional zeros                                    369
+
+
+        Corollary 11.10 (Page) There is a constant c > 0 such that for every Q ≥ 1
+        the region σ ≥ 1 − c/ log Qτ contains at most one zero of the function
+                                                           ∗
+                                                               L(s, χ )
+                                                 q≤Q χ
+              
+        where ∗χ denotes a product over all primitive characters χ (mod q). If such
+        a zero exists, then it is necessarily real and the associated character χ is
+        quadratic.
+
+           We now turn to the problem of showing that even an exceptional zero cannot
+        be too close to 1. By taking s = 1 in (11.10) we see that this is equivalent
+        to showing that L(1, χ ) cannot be too small. Suppose that χ is a primitive
+                                                        
+        quadratic character modulo q, and let r (n) = d|n χ (d). Then r (n) ≥ 0 for all
+                                                           
+        n and r (n) ≥ 1 when n is a perfect square. Since ∞   n=1 r (n)n
+                                                                         −s
+                                                                            = ζ (s)L(s, χ )
+        for σ > 1, we ﬁnd that
+                                  L(1, χ )x 1−s
+                       r (n)n −s =               + ζ (s)L(s, χ ) + error terms. (11.14)
+                   n≤x                1−s
+
+        Here the error terms are small if x is sufﬁciently large in terms of q. Estimates of
+        this kind can be derived from Corollary 1.15 by the method of the hyperbola, or
+        else by employing an inverse Mellin transform. Suppose that 0 ≤ s < 1 in the
+        above. We can give a lower bound for the left-hand side, which yields a lower
+        bound for L(1, χ ) if the second term on the right-hand side does not interfere.
+        Since ζ (s) < 0 for 0 < s < 1 (cf. Corollary 1.14), this term is harmless if
+        L(s, χ ) ≥ 0. If this cannot be arranged, we may alternatively eliminate this
+        term by taking two values of x and differencing. Since the method of the
+        hyperbola leads to tedious details, we use an inverse Mellin transform to derive
+        a more precise version of (11.14). To make the estimates easier we introduce
+        an Abelian weighting of the sum. By (5.23) with x replaced by 1/x we see that
+                       ∞
+                                         1      2+i∞
+                           r (n)en/x =               ζ (s)L(s, χ ) (s)x s ds.
+                       n=1
+                                       2πi     2−i∞
+
+        We move the contour of integration to the line s = −1/2, which gives rise to
+        residues at the poles at s = 1 and s = 0. Thus the above is
+                                                                 −1/2+i∞
+                                                        1
+               = L(1, χ )x + ζ (0)L(0, χ ) +                               ζ (s)L(s, χ ) (s)x s ds.
+                                                       2πi      −1/2−i∞
+
+        By Corollary 10.5 we know that ζ (−1/2 + it)          τ , by Corollary 10.10 we
+        know that L(−1/2 + it, χ )        qτ , and by (C.19) we know that (−1/2 +
+        it)     τ −1 e−π τ/2 . Hence the integral is   q x −1/2 . By (10.11) we know
+        that ζ (0) = −1/2, and by Corollary 10.9 we know that L(0, χ ) ≥ 0. (More
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        370                        Primes in Arithmetic Progressions: II
+
+
+        precisely, L(0, χ ) = 0 if χ(−1) = 1, and L(0, χ ) q 1/2 L(1, χ ) if χ(−1) =
+        −1.) Since the perfect squares on the left-hand side contribute an amount
+           x 1/2 , we deduce that
+
+                                         x 1/2      x L(1, χ ) + q x −1/2 .
+
+        On taking x = Cq with C a large constant we deduce that L(1, χ )         q −1/2 .
+        Now consider the possibility that χ is an imprimitive quadratic character. Then
+        there is a primitive quadratic character χ ! modulo d, with d|q, that induces
+                                       
+        χ. Thus L(1, χ ) = L(1, χ ! ) p|q/d (1 − χ ! ( p)/ p) ≥ L(1, χ ! )ϕ(q/d)d/q
+        d −1/2 (log log 3q/d)−1   q −1/2 , by Theorem 2.9, so we have
+
+        Theorem 11.11 If χ is a quadratic character modulo q, then L(1, χ )
+        q −1/2 .
+
+            By (11.10) the following corollary is immediate.
+
+        Corollary 11.12 There is an absolute constant c > 0 such that if χ is a
+        quadratic character modulo q and L(s, χ ) has an exceptional zero β1 , then
+                                                  c
+                                 β1 ≤ 1 − 1/2           .
+                                           q (log q)2
+           By elaborating on the above argument we can obtain better lower bounds for
+        1 − β1 . To facilitate this we ﬁrst establish a convenient inequality that depends
+        only on the analyticity and size of the relevant Dirichlet series in the immediate
+        vicinity of the real axis.
+
+        Lemma 11.13 (Estermann) Suppose that f (s) is analytic for |s − 2| ≤ 3/2,
+        and that | f (s)| ≤ M for s in this disc. Suppose also that
+                                                                 
+                                                                 ∞
+                                       F(s) = ζ (s) f (s) =            r (n)n −s
+                                                                 n=1
+
+        for σ > 1, that r (1) = 1, and that r (n) ≥ 0 for all n. If there is a σ ∈ [19/20, 1)
+        such that f (σ ) ≥ 0, then
+                                                    1
+                                          f (1) ≥     (1 − σ )M −3(1−σ ) .
+                                                    4
+           To put this in perspective, we recall that our proof in Chapter 4 that
+        L(1, χ ) = 0 depended on Landau’s theorem (Theorem 1.7). The above amounts
+        to a quantitative elaboration of Landau’s theorem, for if f (1) were 0, then F(s)
+        would be analytic for s > 1/2, so by Landau’s theorem the Dirichlet series
+        would converge when σ > 1/2. This would imply that F(σ ) > 0 for σ > 1/2.
+        But ζ (σ ) < 0 for 1/2 < σ < 1 (cf. Corollary 1.14), so it would follow that
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.2 Exceptional zeros                                    371
+
+
+         f (σ ) < 0 in this interval. Thus the hypothesis above that f (σ ) ≥ 0 implies –
+        by Landau’s theorem – that f (1) > 0. In the above we obtain not just this
+        qualitative information but a quantitative lower bound for f (1) in terms of the
+        size of σ and the size of f (s) in a surrounding disc.
+
+        Proof As in the proof of Landau’s theorem we begin by expanding F(s) in
+        powers of 2 − s,
+                                                       
+                                                       ∞
+                                             F(s) =           bk (2 − s)k                          (11.15)
+                                                        k=0
+
+        for |s − 2| < 1. By Cauchy’s coefﬁcient formula we know that
+                             (−1)k (k)         1  ∞
+                              bk =  F (2) =           r (n)n −2 (log n)k .
+                                k!            k! n=1
+                                         
+        Thus bk ≥ 0 for all k, and b0 = ∞  n=1 r (n)n
+                                                      −2
+                                                         ≥ 1. For |s − 2| < 1 we may
+        write
+                               1           1          ∞
+                                   =               =      (2 − s)k .
+                            s−1       1 − (2 − s)     k=0
+
+        On multiplying this by f (1) and subtracting from (11.15) we deduce that
+                                             f (1)   ∞
+                                 F(s) −            =     (bk − f (1))(2 − s)k                      (11.16)
+                                            s−1      k=0
+
+        for |s − 2| < 1. But the left-hand side is analytic for |s − 2| ≤ 3/2, so the series
+        converges in this larger disc. In order to estimate the coefﬁcients on the right-
+        hand side we bound the left-hand side when s lies on the circle |s − 2| = 3/2.
+        To this end, we note by (1.24) that
+                                                            ∞
+                                                1             [u] − u
+                                |ζ (s)| = 1 +        +s               du
+                                              s−1         1    u s+1
+                                                1      |s|
+                                        ≤ 1+         + .
+                                             |s − 1|    σ
+        The relation |s − 2| = 3/2 implies that |s − 1| ≥ 1/2, that |s| ≤ 7/2, and that
+        σ ≥ 1/2. Hence |ζ (s)| ≤ 10 for the s under consideration. Since | f (1)/(s −
+        1)| ≤ 2M, it follows that the left-hand side of (11.16) has modulus ≤ 12M
+        for |s − 2| ≤ 3/2. By the Cauchy coefﬁcient inequalities we deduce that |bk −
+         f (1)| ≤ 12M(2/3)k . We apply this bound for all k > K where K is a parameter
+        to be chosen later. Thus from (11.16) we see that if 1/2 < σ ≤ 2, then
+                               f (1)   K                                          k
+            ζ (σ ) f (σ ) −          ≥     (bk − f (1))(2 − σ )k − 12M     2
+                                                                             (2 − σ ) .
+                              σ −1     k=0                             k>K
+                                                                           3
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        372                        Primes in Arithmetic Progressions: II
+
+
+        We observe that if 19/20 ≤ σ < 1, then 23 (2 − σ ) ≤ 7/10. We also recall that
+        b0 ≥ 1 and that bk ≥ 0 for all k. Hence the above is
+                                            1 − (2 − σ ) K +1
+                             ≥ 1 − f (1)                      − 40M(7/10) K +1 .
+                                              1 − (2 − σ )
+        On cancelling the common term f (1)/(1 − σ ) from both sides, and rearranging,
+        we ﬁnd that
+                          f (1)(2 − σ ) K +1
+                    1≤                       + ζ (σ ) f (σ ) + 40M(7/10) K +1 ,
+                                1−σ
+        a relation comparable to (11.14). To ensure that the last term on the right does
+        not overwhelm the left-hand side, we take K = [(log 80M)/ log 10/7]. Then
+        the last term on the right is ≤ 1/2. Since ζ (σ ) < 0 by Corollary 1.14, and
+         f (σ ) ≥ 0 by hypothesis, it follows that
+                            1                        10
+                     f (1) ≥ (1 − σ )(2 − σ )−K −1 ≥    (1 − σ )(2 − σ )−K .     (11.17)
+                            2                        21
+        But
+
+                    (2 − σ ) K ≤ (2 − σ )(log 80M)/ log 10/7 = (80M)(log(2−σ ))/ log 10/7
+                                 ≤ 80(log 21/20)/ log 10/7 M (log(2−σ ))/ log 10/7 .
+
+        Here the ﬁrst factor is < 13/7. Since log(1 + δ) ≤ δ for any δ ≥ 0, on taking
+        δ = 1 − σ we see that log(2 − σ ) ≤ 1 − σ . Also, log 10/7 > 1/3 and it can
+        certainly be supposed that M ≥ 1, so the expression above is < (13/7)M 3(1−σ ) .
+        This with (11.17) gives the desired lower bound for f (1).                  
+
+            We are now prepared to prove an important strengthening of Theorem 11.11.
+
+        Theorem 11.14 (Siegel) For each positive number ε there is a positive con-
+        stant C(ε) such that if χ is a quadratic character modulo q, then
+
+                                              L(1, χ ) > C(ε)q −ε .
+
+        Proof We assume, as we may, that ε ≤ 1/5. For the present we restrict our
+        attention to primitive characters. We consider two cases, according to whether
+        there exists a primitive quadratic character χ1 such that L(s, χ1 ) has a real zero
+        β1 in the interval [1 − ε/4, 1), or not. Suppose ﬁrst that there is no such zero.
+        We take f (s) = L(s, χ), σ = 1 − ε/4. Then f (σ ) > 0 and by Lemma 10.15
+        we may take M        q 1/2 . Hence by Lemma 11.13, f (1)     εq −3ε/8 . Thus there
+                                                              −ε
+        is a constant C1 (ε) > 0 such that L(1, χ ) ≥ C1 (ε)q .
+            Now consider the contrary case, in which there is a primitive quadratic char-
+        acter χ1 modulo q1 such that L(s, χ1 ) has a real zero β1 ≥ 1 − ε/4. Since
+        L(1, χ1 ) > 0 there is a constant C2 (ε) > 0 such that L(1, χ1 ) ≥ C2 (ε)q1−ε .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.2 Exceptional zeros                                    373
+
+
+        Now suppose that χ is a primitive quadratic character, χ = χ1 . We apply
+        Lemma 11.13 with f (s) = L(s, χ )L(s, χ1 )L(s, χχ1 ). To see that the Dirichlet
+        series coefﬁcients of ζ (s) f (s) are non-negative, we note ﬁrst that if g(s) is a
+        Dirichlet series with non-negative coefﬁcients, then exp g(s) is also a Dirichlet
+        series with non-negative coefﬁcients, since the power series coefﬁcients of the
+        exponential function are non-negative. Then it sufﬁces to apply this observation
+        with
+                                            ∞
+                                                (n)
+                  g(s) = log ζ (s) f (s) =            (1 + χ (n))(1 + χ1 (n))n −s .
+                                            n=1
+                                                log n
+        In view of Lemma 10.15 we may take M = C3 qq1 . On taking σ = β1 , we ﬁnd
+        that
+                          1                    1
+                   f (1) ≥ (C3 qq1 )−3(1−β1 ) ≥ (C3 qq1 )−3ε/4 ≥ C4 (ε)q −ε .
+                          4                    4
+        Now
+                        f (1) = L(1, χ )L(1, χ1 )L(1, χχ1 )              L(1, χ )(log qq1 )2
+        by Lemma 10.15, and hence we deduce that
+                                             L(1, χ ) ≥ C5 (ε)q −2ε .                              (11.18)
+        We may assume that C5 ≤ C1 , so that (11.18) holds in either case.
+           We now extend to imprimitive characters. Suppose that χ is induced by a
+        primitive character χ ∗ (mod d), so that q = dr for some r . Then
+                                                
+                                        χ ∗ ( p)                ϕ(r )               ϕ(r )
+         L(1, χ ) = L(1, χ ∗ )       1−            ≥ L(1, χ ∗ )       ≥ C5 (ε)d −2ε       .
+                               p|r
+                                           p                     r                   r
+
+        By Theorem 2.9 the above is
+
+                                        ≥ C6 (ε)(dr )−2ε = C6 (ε)q −2ε ,
+        and hence the proof is complete.                                                                
+
+           We are unable to compute the value of the constant C(ε) in Siegel’s theorem
+        when ε < 1/2, because we have no way of estimating the size of the small-
+        est possible q1 when the second case arises in the proof. Such a constant is
+        called ‘non-effective.’ This is our ﬁrst encounter with a non-effective constant,
+        so the distinction between effectively computable constants and non-effective
+        constants arises here for the ﬁrst time.
+        Corollary 11.15 For any ε > 0 there is a positive number C(ε) such that
+        if χ is a quadratic character modulo q and β is a real zero of L(s, χ ), then
+        β < 1 − C(ε)q −ε .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        374                        Primes in Arithmetic Progressions: II
+
+
+        Proof We may certainly suppose that β > 1 − c/ log 4q > 1 − log1 q , where
+        c is the number appearing in Theorem 11.3, so that β is an exceptional zero by
+        the criterion following that theorem. By taking s = 1 in (10) we see that
+
+                                           L(1, χ )      (1 − β)(log q)2
+
+        and the corollary follows easily from the theorem.                                         
+
+
+                                              11.2.1      Exercises
+        1. Call a modulus q ‘exceptional’ if there is a primitive quadratic character
+           χ (mod q) such that L(s, χ ) has a real zero β such that β > 1 − c/ log q.
+           Show that if c is sufﬁciently small, then the number of exceptional q not
+           exceeding Q is        log log Q.
+        2. Use the last part of Theorem 4 to show that if L(s, χ ) has an exceptional
+           zero β1 , then L  (β1 , χ )  1.
+        3. (cf. Mahler 1934, Davenport 1966, Haneke 1973, Goldfeld & Schinzel 1975)
+                                                                       
+           Suppose that χ is a quadratic character, and put r (n) = d|n χ (d).
+           (a) Show that
+                                χ (n)                                 
+                                         = L(1, χ ) + O q 1/2 y −1 log q .
+                               n≤y    n
+
+            (b) Show that
+                      χ (n) log n                                                 
+                                              = −L  1, χ ) + O(q 1/2 y −1 (log qy)2 .
+                          n≤y         n
+
+            (c) Verify that
+                        r (n)              χ (d)  1         1  χ (d)
+                                       =                   +
+                          n≤x     n        d≤y
+                                                 d m≤x/d m m≤x/y m d≤x/m d
+                                                               
+                                                χ (d)      1
+                                           −
+                                               d≤y
+                                                   d      m≤x/y
+                                                                m
+                                       = 1 + 2 − 3 ,
+
+                say.
+            (d) Show that
+                                                                             
+             1 = (log x + C0 )L(1, χ ) + L  (1, χ ) + O q 1/2 y −1 (log qy)2 + O(yx −1 ).
+
+            (e) Show that
+                                                                                  
+                 2 = (log x/y + C0 )L(1, χ ) + O(yx −1 log q) + O q 1/2 y −1 log q .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            11.2 Exceptional zeros                                 375
+
+
+             (f) Show that
+                                                                                     
+               3 = (log x/y + C0 )L(1, χ ) + O(yx −1 log q) + O q 1/2 y −1 (log q x)2 .
+            (g) Show that
+               r (n)                                                                   
+                      = (log x + C0 )L(1, χ ) + L  (1, χ ) + O q 1/4 x −1/2 (log q x)3/2 .
+              n≤x n
+
+            (h) Show that for each c < 1/2 there is a constant q0 (c) such that if q ≥ q0 (c)
+                and L(1, χ ) < c/ log q, then
+                                                     r (n)
+                                       L  (1, χ )           .
+                                                    n≤q n
+
+             (i) Show that L  (σ, χ )   (log q)3 for σ ≥ 1 − 1/ log q.
+             (j) Show that there is an absolute constant c > 0 such that if L(s, χ ) has an
+                 exceptional zero β1 for which β1 ≥ 1 − c/(log q)3 , then
+                                                           r (n)
+                                      L(1, χ ) (1 − β1 )          .
+                                                          n≤q n
+
+        4. Use Estermann’s lemma (Lemma 11.13) to give a second proof that if L(s, χ )
+           has an exceptional zero β1 , then L(1, χ )       1 − β1 (cf. (11.10) of Theorem
+           11.4).
+        5. Use Estermann’s lemma (Lemma 11.13) to give a second proof that if χ is a
+           cubic character (mod q), then L(1, χ )       (log q)−1/2 (cf. Exercise 11.1.4(e)).
+        6. (Tatuzawa 1951) Let χ1 and χ2 be distinct primitive quadratic characters,
+           modulo q1 and q2 , respectively, and suppose that L(1, χi ) < Cεqi−ε for i =
+           1, 2 where 0 < ε ≤ 1 and C > 0.
+           (a) Show that minx>1 logx x = e. By a change of variables, deduce
+               that if ε > 0, then minx>1 x ε / log x = eε. Use this to show that
+               minx>1 x ε /(log x)2 = e2 ε 2 /4.
+           (b) Explain why there exists a constant c1 > 0 such that L(1, χ ) ≥ c1 / log q
+               whenever L(s, χ ) has no exceptional zero. Let C1 = ec1 . Show that if
+               C < C1 , then L(s, χ1 ) and L(s, χ2 ) have exceptional zeros, say β1 and
+               β2 . (From now on, suppose that C < C1 .)
+           (c) Explain why there is a positive constant c2 such that L(1, χ ) ≥ c2 (1 − β)
+               whenever β is an exceptional zero of L(s, χ ). Let C2 = c2 /6. Show that
+               if C < C2 , then β > 1 − ε/6. Let C3 = c2 /20. Show that if C < C3 ,
+               then β > 19/20. (From now on, suppose that C < Ci for i = 1, 2, 3.)
+           (d) Explain why there is a constant c3 > 0 such that at most one of L(s, χ1 ),
+                L(s, χ2 ) has a zero in the interval [1 − c3 / log q1 q2 , 1].
+           (e) Show that L(s, χ1 )L(s, χ2 ) has a zero β that satisﬁes the three inequal-
+               ities β ≥ 19/20, β ≥ 1 − ε/6, β ≤ 1 − c3 / log q1 q2 .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        376                        Primes in Arithmetic Progressions: II
+
+
+            (f) Let f (s) = L(s, χ1 )L(s, χ2 )L(s, χ1 χ2 ). Show that there is an absolute
+                constant c4 > 0 such that f (1) ≥ c4 (log q1 q2 )−1 (q1 q2 )−ε/2 .
+           (g) Explain why there is a constant c5 > 0 such that L(1, χ1 χ2 ) ≤
+                c5 log q1 q2 .
+                                  1/2 −1/2
+           (h) Show that C ≥ c4 c5 e/4.
+            (i) Conclude that there is a positive effectively computable absolute C such
+                that if 0 < ε ≤ 1, then the inequality L(1, χ ) > Cεq −ε holds for all
+                primitive quadratic characters, with at most one exception.
+        7. (Fekete & Pólya 1912, Pólya & Szegö 1925, p. 44, Heilbronn 1937) Let
+                        
+           S1 (x, χ ) = 1≤n≤x χ (n).
+           (a) Show that if χ is a quadratic character such that S1 (x, χ ) ≥ 0 for all
+                x ≥ 1, then L(σ,
+                                χ) > 0 for all σ > 0.
+           (b) Let χd (n) = dn . Show that the hypothesis above holds for d =
+                −3, −4, −7, −8, but not for d = 5, 8.
+                                           N
+           (c) For k > 1 let Sk (N , χ ) = n=1     Sk−1 (n, χ ). Show that
+
+                                                    
+                                                    N
+                                                               N −n+k−1
+                                                                        
+                                   Sk (N , χ ) =                          χ (n).
+                                                     n=1
+                                                                  k−1
+
+            (d) Let      f (x) = f (x + 1) − f (x) and k f (x) = ( k−1 f (x)). Show that
+                               
+                    k f (x) = rk=0 (−1)r rk f (x + k − r ), and that if f (k) (x) is continu-
+                  ous then
+
+                                         x+1    u 1 +1          u k−1 +1
+                       k f (x) =                         ···               f (k) (u k ) du k du k−1 · · · du 1 .
+                                     x         u1              u k−1
+
+
+            (e) Show that if σ > 0, then (−1)k k (x −σ ) > 0 for all x > 0.
+                                                 
+             (f) Show that L(s, χ ) = (−1)k ∞                         −s
+                                                   n=1 Sk (n, χ ) k (n ) for σ > 0.
+            (g) Show that if χ is a quadratic character and k is an integer such that
+                 Sk (N , χ ) ≥ 0 for
+                                    all integers N ≥ 1, then L(σ, χ ) > 0 for all σ > 0.
+            (h) For χ5 (n) = n5 and χ8 (n) = n8 ﬁnd the least k such that the hypothesis
+                 above is satisﬁed.
+                                   
+             (i) Let P(z, χ ) = ∞     n=1 χ (n)z for |z| < 1. Show that P(z, χ )(1 − z)
+                                                n                                       −k
+                                                                                            =
+                 ∞
+                    n=1 Sk (n, χ)z for |z| < 1.
+                                    n
+
+             (j) Show that if χ is a quadratic character for which Sk (N , χ ) ≥ 0 for all
+                                           P(z,nχ ) > 0 for 0 < z < 1. ∞
+                 positive integers N , then
+                              
+            (k) Show that 12     n=1 163 (7/10) = −0.0483, and that
+                                        n
+                                                                              n=13 (7/10) =
+                                                                                         n
+
+                 0.0323. Deduce that P(0.7, χ−163 ) < 0, and hence that for any k there
+                 is an N for which Sk (N , χ−163 ) < 0.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                11.3 The Prime Number Theorem for APs                                    377
+
+
+        8. S. Chowla (1972) conjectured that for any primitive quadratic character χ ∗
+           there is a character χ induced by χ ∗ such that S1 (x, χ ) ≥ 0 for all x ≥ 1
+           (in the notation of the preceding exercise). Show that Chowla’s conjecture
+           implies that L(σ, χ) > 0 when χ is a quadratic character and σ > 0. See
+           also Rosser (1950).
+        9. (Bateman & Chowla 1953) Suppose that k is a positive integer such that
+                                     λ(n)          n k
+                                               1−        ≥0                     (11.19)
+                                   1≤n≤x
+                                           n        x
+            for all x ≥ 1. (It is not known whether there is such a k.) (a) Show that if χ
+            is a quadratic character, then
+                            χ (n)          n k      λ(n)           n k
+                                         1−     ≥               1−
+                          1≤n≤x
+                                    n       x     1≤n≤x
+                                                           n         x
+            for all x ≥ 1.
+            (b) Show that if there is a k such that (11.19) holds for all x ≥ 1, then
+                 L(σ, χ ) > 0 when χ is a quadratic character and σ > 0.
+
+
+                           11.3      The Prime Number Theorem for
+                                      arithmetic progressions
+        The various inequalities for zeros of Dirichlet L-functions established above
+        are motivated by a desire to imitate for primes in arithmetic progressions the
+        quantitative form of the Prime Number Theorem achieved in Theorem 6.9. For
+        (a, q) = 1 we set
+                                                                          
+        π (x; q, a) =       1, ϑ(x; q, a) =         log p, ψ(x; q, a) =         (n),
+                           p≤x                               p≤x                                n≤x
+                          p≡a (q)                           p≡a (q)                            n≡a (q)
+                                                                           (11.20)
+        and correspondingly for any Dirichlet character χ we put
+                                                                    
+        π(x, χ ) =    χ ( p), ϑ(x, χ ) =      χ ( p) log p, ψ(x, χ) =   χ (n)(n).
+                       p≤x                            p≤x                                   n≤x
+                                                                                                    (11.21)
+        By multiplying both sides of (4.27) by (n), and summing over n ≤ x, we see
+        that
+                                            1 
+                            ψ(x; q, a) =           χ (a)ψ(x, χ ),           (11.22)
+                                          ϕ(q) χ
+        and similarly for π(x; q, a) and ϑ(x; q, a). We deal with ψ(x, χ ) in much the
+        same way that we dealt with ψ(x) in Chapter 6.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        378                        Primes in Arithmetic Progressions: II
+
+                                                                         √
+        Theorem 11.16 There is a constant c1 > 0 such that if q ≤ exp(2c1 log x),
+        then
+                                                              
+                     ψ(x, χ ) = E 0 (χ )x + O x exp − c1 log x            (11.23)
+        when L(s, χ ) has no exceptional zero, but
+                                      x β1                   
+                        ψ(x, χ ) = −       + O x exp − c1 log x                                    (11.24)
+                                      β1
+        when L(s, χ) has an exceptional zero β1 . Here E 0 (χ ) = 1 if χ = χ0 , and
+        E 0 (χ ) = 0 otherwise.
+        Proof By Theorems 4.8 and 5.2 we see that
+                                                       σ0 +i T
+                                              −1                 L        xs
+                               ψ(x, χ ) =                           (s, χ ) ds + R
+                                              2πi     σ0 −i T    L         s
+        where σ0 > 1 and
+                                                                     
+                                                             x               (4x)σ0 
+                                                                                     ∞
+                                                                                       (n)
+                 R                     (n) min 1,                        +
+                            x/2<n<2x
+                                                          T |x − n|             T n=1 n σ0
+
+        by Corollary 5.3. As in the proof of Theorem 6.9 we suppose that 2 ≤ T ≤ x
+        and set σ0 = 1 + 1/ log x. Thus
+                                              x
+                                        R        (log x)2 ,
+                                              T
+        as before. As in the proof of Theorem 6.9, we let C denote a closed contour
+        that consists of line segments joining the points σ0 − i T , σ0 + i T , σ1 + i T ,
+        σ1 − i T , but now the choice of σ1 is a little more complicated, since we want
+        to ensure that C does not pass too closely to an exceptional zero.
+        Case 1. There is no exceptional zero. In this case we take σ1 = 1 − c/(5 log qT )
+        where c is the constant in Theorem 11.3. If χ is non-principal, then the integrand
+        is analytic on and inside C, but if χ = χ0 , then it has a pole at s = 1 with residue
+        x. Hence
+                                −1       L       xs
+                                            (s, χ) ds = E 0 (χ )x.                    (11.25)
+                                2πi C L           s
+        We estimate the integrals from σ0 + i T to σ1 + i T , from σ1 + i T to σ1 − i T ,
+        and from σ1 − i T to σ0 − i T as in the proof of Theorem 6.9, using the estimate
+        (11.5) of Theorem 11.4. Thus we ﬁnd that
+                                                                        
+                                                      1          −c log x
+                  ψ(x, χ ) − E 0 (χ )x    x(log x)2
+                                                         + exp                . (11.26)
+                                                      T          5 log qT
+        Case 2. There is an exceptional zero β1 , and it satisﬁes β1 ≥ 1 − c/(4 log qT ).
+        In this case we take σ1 = 1 − c/(3 log qT ). The integrand in (11.25) now has
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                11.3 The Prime Number Theorem for APs                              379
+
+
+        a pole inside C at β1 , so the left-hand side of (11.25) has the value −x β1/β1 .
+        Otherwise, the estimates proceed as before, and we ﬁnd that
+                                                                      
+                            x β1                     1          −c log x
+              ψ(x, χ ) = −        + O x(log x)2        + exp                  . (11.27)
+                             β1                      T          5 log qT
+        Case 3. There is an exceptional zero β1 , but it satisﬁes β1 < 1 − c/(4 log qT ).
+        We proceed exactly as in Case 1, and so we obtain (11.26). To pass to (11.27)
+        it sufﬁces to note that
+                                                            
+                                  x β1             −c log x
+                                          x exp
+                                   β1              5 log qT
+        in the current case.
+            We have established (11.26) if there is no exceptional zero, and (11.27)
+        if there is one. To complete our argument, we need only observe that if
+              √                     √                          √
+        c1 = c/20, if q ≤ exp(2c1 log x), and if T = exp(2c1 log x), then (11.26)
+        gives (11.23) and (11.27) gives (11.24).                                  
+
+            We are now in a position to prove
+
+        Corollary 11.17 (Page) Let c1 be the same constant as in Theorem 11.16. If
+        (a, q) = 1, then
+                                      x                       
+                        ψ(x; q, a) =      + O x exp − c1 log x            (11.28)
+                                     ϕ(q)
+        when there is no exceptional character modulo q, and
+                                        x     χ1 (a)x β1                   
+                     ψ(x; q, a) =           −            + O x exp − c1 log x    (11.29)
+                                       ϕ(q)    ϕ(q)β1
+        when there is an exceptional character χ1 modulo q and β1 is the concomitant
+        zero.
+                             √         
+        Proof If q ≤ exp 2c1 log x , then we have only to insert the estimates of
+        Theorem 11.16 into (11.22). If q is larger, then the stated estimates are still
+        valid, but are worse than trivial. To see this, note ﬁrst that the largest term in
+        ψ(x; q, a) is ≤ log x, and the number of terms is ≤ x/q + 1, so it is immediate
+        that
+                                                                   
+                      ψ(x; q, a) ≤ (x/q + 1) log x       x exp(−c1 log x)
+                           √
+        when q ≥ exp(2c1 log x).                                                        
+
+           Presumably, exceptional zeros do not exist. However, if such a zero does
+        exist, then we have a second main term in (11.29) that is bigger than the error
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        380                        Primes in Arithmetic Progressions: II
+
+
+        term when x < exp(c12 /(1 − β1 )2 ). If β1 is extremely close to 1, then one might
+        have β1 ≥ 1 − 1/ log x, and in such a situation the second main term is of the
+        same order of magnitude as the ﬁrst main term, since
+                  x β1                              1
+            x−         = (β1 − 1)x β1/β1 + (log x)    x σ dσ                 (1 − β1 )x log x. (11.30)
+                  β1                               β1
+
+        Thus if 1 − β1 is small compared with 1/ log x, then the main term is nearly
+        doubled if χ1 (a) = −1, and it is nearly annihilated if χ1 (a) = 1. Unfortunately,
+        the upper bound provided by the Brun–Titchmarsh theorem (Theorem 3.9) is
+        not quite strong enough to refute such a possibility.
+           The constants c and c1 in Theorems 11.3, 11.4, 11.16 and Corollary 11.17
+        are effectively computable. However, if we are willing to accept non-effective
+        constants, then by Siegel’s theorem (Theorem 11.14), or more precisely by its
+        corollary (Corollary 11.15), we can eliminate the second main term, provided
+        that q is more sharply limited.
+
+        Corollary 11.18 Let c1 be the same constant as in Theorem 11.16. For any
+        positive A there is an x0 (A) such that if q ≤ (log x) A , then
+                                                                     
+                        ψ(x, χ ) = E 0 (χ )x + O x exp − c1 log x          (11.31)
+
+        for x ≥ x0 (A).
+
+        Proof Suppose that χ is quadratic and that L(s, χ ) has an exceptional zero
+        β1 . Then
+
+                       x β1 = x exp(−(1 − β1 ) log x) ≤ x exp(−C(ε)q −ε log x)
+
+        by Siegel’s theorem (Corollary 11.15). Since q ≤ (log x) A , the above is
+
+                                         ≤ x exp(−C(ε)(log x)1−Aε ).
+
+        In order to reach (11.31) we need to take ε a little smaller than 1/(2A), say
+        ε = 1/(3A). Then the above is
+                                                       
+                                   ≤ x exp − c1 log x
+
+        provided that x ≥ x0 = exp((c1 /C(ε))6 ).                                                   
+
+           The constraint q ≤ (log x) A can be rewritten as x ≥ exp(q 1/A ). This implies
+        the constraint x ≥ x0 (A) if q is sufﬁciently large, say q ≥ q0 (A). We note also
+        that the implicit constant in (11.31) is absolute. If we were to allow the implicit
+        constant to depend on A, e.g. to be as large as exp((c1 /C(ε))3 ), then we would
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                 11.3 The Prime Number Theorem for APs                                381
+
+
+        obtain an estimate
+                                                               
+                                     ψ(x, χ) x exp − c1 log x
+                                                    A
+                                                      
+        that is valid for all q and all x ≥ exp q 1/A , though of course the implicit
+        constant is so large that the bound is worse than the trivial ψ(x, χ ) x when
+        x < x0 . By applying (11.22) and (11.28), we obtain
+
+        Corollary 11.19 (The Siegel–Walﬁsz theorem) Let c1 be the constant in The-
+        orem 11.16, and suppose that A is given, A > 0. If q ≤ (log x) A and (a, q) = 1,
+        then
+                                      x                           
+                      ψ(x; q, a) =         + OA x exp − c1 log x .
+                                    ϕ(q)
+          Pertaining to ϑ(x; q, a) and π (x; q, a) we have estimates similar to those of
+        Corollary 11.17.
+
+        Corollary 11.20 Let c1 be the constant in Theorem 11.16. If (a, q) = 1, then
+                                     x                        
+                      ϑ(x; q, a) =      + O x exp − c1 log x                (11.32)
+                                   ϕ(q)
+        and
+                                               li(x)                   
+                             π(x; q, a) =            + O x exp − c1 log x                          (11.33)
+                                               ϕ(q)
+        when there is no exceptional character modulo q, but
+                                        x     χ1 (a)x β1                   
+                     ϑ(x; q, a) =           −            + O x exp − c1 log x    (11.34)
+                                       ϕ(q)    ϕ(q)β1
+        and
+                                                 
+                                  li(x) χ1 (a)li x β1                   
+                 π(x; q, a) =          −              + O x exp − c1 log x    (11.35)
+                                  ϕ(q)       ϕ(q)
+        when there is an exceptional character χ1 modulo q and β1 is the concomitant
+        zero.
+
+        Proof Since
+
+                         0 ≤ ψ(x; q, a) − ϑ(x; q, a) ≤ ψ(x) − ϑ(x)                     x 1/2 ,
+
+        the assertions concerning ϑ(x; q, a) follow immediately from Corollary 11.17.
+        As for π (x; q, a), we write
+                             x                              x
+                                1                 li(x)         1
+         π (x; q, a) =              dϑ(u; q, a) =       +           d(ϑ(u; q, a) − u/ϕ(q)).
+                           2− log u               ϕ(q)    2−  log u
+        This last integral we integrate by parts (as in the proof of Theorem 6.9), and
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        382                        Primes in Arithmetic Progressions: II
+
+
+        ﬁnd that it is
+                     ϑ(u; q, a) − u/ϕ(q) x                      x
+                                                                     ϑ(u; q, a) − u/ϕ(q)
+                                            −                                            du.
+                             log u       2−                 2             u(log u)2
+        If there is no exceptional zero, then the numerator in the integrand is
+                     √                        √
+           u exp(−c1 log u)       x exp(−c1 log x), so we obtain (11.33). If there is
+        an exceptional character χ1 , then the main term is reduced by χ1 (a)/ϕ(q) times
+        the amount
+                                                                     x β1
+                     x
+                           1    u β1         x
+                                                 u β1 −1                      1
+                              d      =                   du =                     dv = li(x β1 ) + O(1).
+                 2       log u β1        2       log u              2β1     log v
+        The error term is still treated in the same way, so we obtain (11.35).                             
+
+            By arguing in the same manner from Corollary 11.19, we obtain
+
+        Corollary 11.21 Let c1 be the constant in Theorem 11.16, and suppose that
+        A is given, A > 0. If q ≤ (log x) A and (a, q) = 1, then
+                                       x                      
+                       ϑ(x; q, a) =        + OA x exp − c1 log x          (11.36)
+                                     ϕ(q)
+        and
+                                                 li(x)                   
+                              π(x; q, a) =             + OA x exp − c1 log x .                       (11.37)
+                                                 ϕ(q)
+
+
+                                                 11.3.1    Exercises
+          1. Suppose that χ is a character modulo q. Explain why
+                                                        
+                                                        q
+                                     ψ(x, χ ) =                 χ (a)ψ(x; q, a).
+                                                        a=1
+                                                      (a,q)=1
+                                          √
+          2. Suppose that exp(2c1                log x) ≤ q ≤ x. Show that there is a positive con-
+             stant c2 such that
+                                                                       
+                                                               −c2 log x
+                              ψ(x, χ ) = E 0 (χ )x + O x exp
+                                                                log q
+              if L(s, χ ) has no exceptional zero, and that
+                                                                    
+                                          x β1              −c2 log x
+                             ψ(x, χ ) = −      + x exp
+                                           β1                log q
+             if L(s, χ ) has the exceptional zero β1 .
+                                        √
+          3. Show that if q ≤ exp(2c1 log x), then
+                                                                 
+                          ϑ(x, χ ) = E 0 (χ )x + O x exp − c1 log x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                11.3 The Prime Number Theorem for APs                                    383
+
+
+              when L(s, χ ) has no exceptional zero, and that
+                                                x β1                   
+                              ϑ(x, χ ) = −           + O x exp − c1 log x
+                                                β1
+             when L(s, χ ) has an exceptional zero β1 .             q 2 
+                                      √
+          4. Suppose that q ≤ exp(c1 log x), and put x0 = exp log     2c1
+                                                                             .
+             (a) Explain why π(x0 ; χ )      x0 ≤ x 1/4 .
+             (b) Treat π(x, χ ) − π (x0 , χ ) as in the proof of Corollary 11.20 to show
+                 that
+                                                                 
+                                  π (x, χ)      x exp − c1 log x
+
+                   if L(s, χ ) has no exceptional zero, and that
+                                                                      
+                             π(x, χ ) = − li(x β1 ) + O x exp − c1 log x
+
+                if L(s, χ ) has the exceptional zero β1 .
+          5. Suppose that A is given, A > 0. Show that if q ≤ (log x) A , then
+                                                                 
+                        ϑ(x, χ) = E 0 (x)x + O x exp − c1 log x ,
+
+              and that
+                                                                     
+                           π (x, χ) = E 0 (χ )li(x) + O x exp − c1 log x .
+
+            By analogy with (11.20) we set
+                                                                                
+                    (x; q, a) =       λ(n),                 M(x; q, a) =               µ(n).      (11.38)
+                                            n≤x                                 n≤x
+                                           n≡a(q)                              n≡a(q)
+
+        Here it is no longer natural to restrict to (a, q) = 1. Correspondingly, if χ is a
+        character modulo q, we put
+                                                                
+                    (x, χ ) =     χ (n)λ(n),        M(x, χ ) =     χ (n)µ(n). (11.39)
+                                     n≤x                                      n≤x
+                                                                                                   √
+          6. Let c1 be the constant of Theorem 11.16, suppose that q ≤ exp(2c1                         log x)
+             and that χ is a character modulo q. Show that
+                                                             
+                                 (x, χ )   x exp − c1 log x
+
+              when L(s, χ ) has no exceptional zero, and that
+                                        L(2β1 , χ0 )x β1                   
+                        (x, χ ) =        
+                                                         + O x exp − c1 log x
+                                         L (β1 , χ )β1
+              when L(s, χ ) has an exceptional zero β1 . (Note that in this latter case, the
+              result of Exercise 11.1.2 is useful.)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        384                        Primes in Arithmetic Progressions: II
+
+                                                                                                   √
+          7. Let c1 be the constant of Theorem 11.16, suppose that q ≤ exp(2c1                         log x)
+             and that χ is a character modulo q. Show that
+                                                              
+                                 M(x, χ )    x exp − c1 log x
+
+              when L(s, χ ) has no exceptional zero, and that
+                                             x β1                        
+                          M(x, χ ) =      
+                                                       + O x exp − c1 log x
+                                         L (β1 , χ )β1
+             when L(s, χ ) has an exceptional zero β1 .
+          8. Let c1 be the constant in Theorem 11.16, and suppose that A is given,
+             A > 0. Show that if q ≤ (log x) A and χ is a character modulo q, then
+                                                             
+                               (x, χ ) A exp − c1 log x ,
+
+              and that
+                                                                      
+                                     M(x, χ )       A
+                                                        x exp − c1 log x .
+
+          9. Show that if (a, q) = 1, then
+                                                         1 
+                                   (x; q, a) =                χ (a)(x, χ ),
+                                                        ϕ(q) χ
+
+              and that
+                                                         1 
+                                   M(x; q, a) =                χ (a)M(x, χ).
+                                                        ϕ(q) χ
+
+        10. Let c1 be the constant in Theorem 11.16. Show that if (a, q) = 1, then
+                                                           
+                              (x; q, a)    x exp − c1 log x
+
+              if there is no exceptional χ modulo q, and that
+                                     χ1 (a)L(2β1 , χ0 )x β1                   
+                   (x; q, a) =             
+                                                            + O x exp − c1 log x
+                                      ϕ(q)L (β1 , χ1 )β1
+            if there is an exceptional character χ1 modulo q with associated zero β1 .
+        11. Suppose that (a, q) = d, and write a = db, q = dr .
+            (a) Show that (x; q, a) = λ(d)(x/d; r, b).
+            (c) Show that
+                                              x                  
+                               (x; q, a)       exp − c1 log x/d
+                                              d
+                   if no L-function modulo r has an exceptional zero, and that
+                                λ(d)χ1 (b)L(2β1 , χ0 )(x/d)β1     x                    
+              (x; q, a) =                                    + O   exp   − c1   log x/d
+                                     ϕ(r )L  (β1 , χ1 )β1        d
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                11.3 The Prime Number Theorem for APs                              385
+
+
+                  if there is an exceptional character χ1 modulo r with associated zero
+                  β1 . Here χ0 is the principal character modulo r .
+              (d) Show that if q ≤ (log x) A , then
+                                                                   
+                                  (x; q, a) A x exp − c1 log x
+
+               for all a.
+        12. Suppose that (a, q) = 1. Show that
+                                                                       
+                                     M(x; q, a)         x exp − c1 log x
+
+              if there is no exceptional character χ modulo q, and that
+                                          χ1 (a)x β1                                 
+                     M(x; q, a) =                           + O   x exp   − c 1   log x
+                                       ϕ(q)L  (β1 , χ1 )β1
+            if there is an exceptional character χ1 modulo q with associated
+            zero β1 .
+        13. Suppose that d = (a, q), and write q = dr , a = bd.
+            (a) Show that if d is not square-free, then M(x; q, a) = 0.
+            (b) Explain why one does not expect that M(x; q, a) = µ(d)M(x/d; r, b)
+                is true in general.
+            (c) Show instead that
+                                               
+                           M(x; q, a) = µ(d)         µ(k)M(x/(dk); r, bk)
+                                                           k|d
+                                                         (k,r )=1
+
+
+                  where kk ≡ 1 (mod r ).
+              (d) Show that M(x; q, a)          x/q in any case.
+                                                           √
+              (e) Deduce that M(x; q, a)         x exp(−c log x) if there is no exceptional
+                  character modulo r , and that
+                                                                 
+                           µ(d)χ1 (b)(x/d)β1               χ1 ( p)                         
+              M(x; q, a) =                             1 −          + O   x exp   − c   log x
+                            ϕ(r )L  (β1 , χ1 )β1 p|d        p β1
+                                                        pr
+
+                if there is an exceptional character χ1 with associated zero β1 .
+                                                                            √
+            (f) Show that if q ≤ (log x) A , then M(x; q, a) A x exp(−c log x) for
+                all a.                  √
+        14. Grössencharaktere for Q( −1), continued from Exercise 11.1.5. Put
+                                                                             √
+            ψ(x, χm ) = N (a)≤x (a)χm (a). Show that if 1 ≤ m ≤ exp( log x),
+                                         √
+            then ψ(x, χm )      x exp(−c log x) where c > 0 is a suitable absolute
+            constant.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        386                        Primes in Arithmetic Progressions: II
+
+
+                                           11.4       Applications
+        The fundamental estimates of the preceding section can be applied to a
+        wide variety of counting problems, of which the following are representative
+        examples.
+
+        Theorem 11.22 (Walﬁsz) Let A > 0 be ﬁxed, and let R(n) denote the number
+        of ways of writing n as a sum of a prime and a square-free number. Then
+                                                              
+                              R(n) = c(n)li(n) + O n/(log n) A
+
+        where
+                                                                      
+                                    1                1                  1
+         c(n) =            1−             =     1+ 2             1−             .
+                    pn
+                                p( p − 1)   p|n
+                                                  p − p−1     p     p( p − 1)
+
+        Proof Clearly
+                                                      
+                                           R(n) =           µ(n − p)2
+                                                      p<n
+                                                             
+                                                  =                     µ(d)
+                                                      p<n d 2 |(n− p)
+
+        by (2.4). Here the divisibility relation is equivalent to asserting that p ≡
+        n (mod d 2 ). Hence on inverting the order of summations we see that the above
+        is
+                                     
+                                  =       µ(d)π (n − 1; d 2 , n).
+                                               √
+                                             d≤ n
+                                                                         √
+        If (d, n) > 1, then the summand is O(1), and hence such d ≤ n contribute
+                              √
+        an amount that is O( n). We now restrict our attention to those d for which
+        (d, n) = 1. For small d, say d ≤ y = (log x) A we can apply the Siegel–Walﬁsz
+        theorem (Corollary 11.19). Thus we see that
+                                              µ(d)                           
+                µ(d)π(n − 1; d 2 , n) = li(x)             + O x y exp − c log x .
+           d≤y                                d≤y
+                                                   ϕ(d )2
+          (d,n)=1                                       (d,n)=1
+
+        Since ϕ(d 2 ) = dϕ(d), we see that the sum in the main term is
+                                                                   
+              ∞
+                      µ(d)         1                           1
+                           +O                   =       1−              + O(1/y)
+              d=1
+                     dϕ(d)        d>y
+                                      dϕ(d)       pn
+                                                            p( p − 1)
+               (d,n)=1
+
+        by (1.31). To treat d > y we could appeal to the Brun–Titchmarsh theorem
+        (Theorem 3.9), but the moduli d 2 are increasing so rapidly that the trivial
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                               11.4 Applications                                   387
+
+
+        estimate π (x; q, a)  1 + x/q is enough:
+                                                                       n           n
+                                π(n − 1; d 2 , n)                                      .
+                                   √                                  √ d2           y
+                               y<d< n                             y<d< n
+
+        On combining our estimates we obtain the stated result.                                     
+
+          In some situations, as below, we ﬁnd it fruitful to use the Prime Number
+        Theorem for arithmetic progressions in conjunction with sieve estimates.
+
+        Theorem 11.23 Let N (x) denote the number of integers n ≤ x for which
+        (n, ϕ(n)) = 1. Then
+                                                            e−C0 x
+                                              N (x) ∼
+                                                         log log log x
+        as x → ∞.
+
+        Proof We note that (n, ϕ(n)) = 1 if and only if n has the following two prop-
+        erties: (i) n is square-free, and (ii) there do not exist prime factors p, p  of n
+        such that p  ≡ 1 (mod p). Let p(n) denote the least prime factor of n. We shall
+        show that if p(n) is small compared with log log x then n is unlikely to have the
+        property (ii). We also show that n is likely to have both properties (i) and (ii) if
+        p(n) is large compared with log log x. Thus N (x) is approximately the number
+        of integers n ≤ x for which p(n) > log log x.
+            Let A p (x) denote the number of n ≤ x that satisfy (i) and (ii) and for which
+        p(n) = p. Thus
+                                                  
+                                        N (x) =       A p (x).
+                                                          p≤x
+
+        We begin by estimating A p (x) when p ≤ log log x. Let p be given, and suppose
+        that n is an integer such that p(n) = p and for which (ii) holds. Write n = pm;
+        then m is relatively prime to all prime numbers < p and also to all primes
+        ≡ 1 (mod p). Thus by the sieve estimate (3.20) we see that
+                                                                    
+                                   x             1                     1
+                        A p (x)               1−                   1−  .
+                                   p p < p      p      p  ≤x/ p
+                                                                      p
+                                                                    p  ≡1( p)
+
+        Here the ﬁrst product is 1/ log p by Mertens’ estimate (Theorem 2.7(e)).
+        By Theorem 4.12(d) we know that the second product is (log x)−1/( p−1) for
+        any ﬁxed prime p. To derive a bound that is uniform in p we appeal to the
+        Siegel–Walﬁsz theorem (Corollary 11.19), by which we see that π (u; p, 1)
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        388                          Primes in Arithmetic Progressions: II
+
+
+        u/( p log u) uniformly for u ≥ e p . Hence by integrating by parts we deduce
+        that
+                                     1   1                        log log x
+                                        
+                                            (log log x/ p − log p)
+                      e p ≤ p  ≤x/ p
+                                      p   p                            p
+                            p  ≡1( p)
+
+        uniformly for p ≤ log log x. Hence there is a constant c > 0 such that in this
+        range,
+                                        x
+                          A p (x)            exp(−c(log log x)/ p).
+                                     p log p
+        Now it is not hard to show that the number of integers n ≤ x such that p(n) = p
+        is x/( p log p) uniformly for p ≤ x/2. Hence the exponential above reﬂects
+        the relative improbability that n satisﬁes condition (ii). On summing, we ﬁnd
+        that
+                                             x
+                                A p (x)             exp(−c(log log x)/U ).
+                                          (log U )2
+                           2 U < p≤U
+                       1
+
+
+
+        We take U = 2−k log log x and sum over k to see that
+                                                      x
+                                        A p (x)                  .
+                            p≤log log x
+                                                (log log log x)2
+
+           We now consider n for which p(n) is large, say p(n) ≥ y where y, to be
+        chosen later, is somewhat larger than log log x. Let (x, y) denote the number
+        of integers n ≤ x composed entirely of prime numbers > y. By the sieve of
+        Eratosthenes (Theorem 3.1) and Mertens’ estimate (Theorem 2.7(e)) we see
+        that
+                                                               
+                                          e−C0 x           x                    
+                     A p (x) ≤ (x, y) =         +O            2
+                                                                   + O e y/ log y .
+              y< p≤x                      log y         (log y)
+
+        To derive a corresponding lower bound for the left-hand side we start with the
+        numbers counted by (x, y) and then delete those that do not satisfy (i) or (ii).
+        If n does not satisfy (i), then there is a prime number p such that p2 |n. The
+        number of such n ≤ x is not more than [x/ p 2 ] ≤ x/ p 2 . Hence the total number
+                                                                            
+        of n counted in (x, y) for which (i) fails is not more than x p>y p −2
+        x/(y log y). Similarly, if n does not satisfy (ii), then there exist primes p, p
+        with pp  |n such that p  ≡ 1 (mod p). If p and p  are given, then the number
+        of n ≤ x for which pp  |n is ≤ x/( pp  ). Hence the total number of n counted in
+        (x, y) for which (ii) fails is not more than
+                                           1  1
+                                      x                         .                  (11.40)
+                                             √ p 
+                                        y≤ p≤ x      p ≤x/ p
+                                                             p
+                                                             p  ≡1( p)
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                11.4 Applications                                  389
+
+
+        By the Brun–Titchmarsh inequality (Theorem 3.9) we see that
+                                   1               1
+                                           p  p log 2U/ p
+                               U < p  ≤2U
+                                           p  ≡1( p)
+
+        uniformly for U ≥ p. We take U = 2k p and sum over k to see that the inner
+        sum in (11.40) is  (log log 4x/ p 2 )/ p. Hence the expression (11.40) is
+                                             1        x log log x
+                              x(log log x)          2
+                                                                   .
+                                            p>y   p       y log y
+
+        On combining our estimates we see that
+                                                         
+                                   eC0 x             x                     
+                         A p (x) ≥        −O             2
+                                                             − O e y/ log y
+                  y≤ p≤x           log y          (log y)
+                                                                      
+                                              x              x log log x
+                                   −O                −O                    .
+                                           y log y             y log y
+            In order that the last error term above is of a smaller order of magnitude than
+        the main term, it is necessary to choose y so that y/ log log x → ∞. Thus there
+        is necessarily a remaining range log log x < p ≤ y to be treated. By using the
+        sieve (i.e., (3.20)) as in our treatment of small p we see that the number of
+                                                                                       √
+        integers n ≤ x for which p(n) = p is          x/( p log p), uniformly for p ≤ x.
+        Hence A p (x)       x/( p log p), and consequently
+                                                            x
+                                              A p (x)              .
+                                     U ≤ p≤2U
+                                                        (log  U )2
+
+        We put U = 2k log log x and sum over 1 ≤ k ≤ K where K                     y
+                                                                           log log log x
+                                                                                         to
+        see that
+                                                x                 y
+                                  A p (x)                2
+                                                           log           .
+                   log log x≤ p≤y
+                                          (log log log x)      log log x
+
+        In order that this is a smaller order of magnitude than the main term, it is
+        necessary to take y ≤ (log log x)(1+ε) with ε → 0 as x → ∞. By taking y to
+        be of this form with ε tending to 0 slowly, we obtain the stated result.  
+
+
+                                              11.4.1      Exercises
+        1. Let R(n) be deﬁned as in Theorem 11.22.
+           (a) Show that if there is a primitive quadratic character χ1 (mod q1 ), q1 ≤
+                    √
+               exp( log x), for which L(s, χ1 ) has a real zero β1 > 1 − c(log x)−1/2 ,
+               then
+                                                                           
+                 R(n) = c(n)li(n) − χ1 (n)c1 (n)li(n β1 ) + O n exp − c log n
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        390                        Primes in Arithmetic Progressions: II
+
+
+                  where
+                                                              
+                                                              ∞
+                                                                        µ(d)
+                                              c1 (n) =                        .
+                                                               d=1
+                                                                        dϕ(d)
+                                                             (d,n)=1
+                                                              q1 |d 2
+
+            (b) Show that c1 (n) = 0 if 8|q1 .
+            (c) Show that if q1 is odd, then
+                                                             µ(q1 )c(q1 n)
+                                                  c1 (n) =                 .
+                                                               q1 ϕ(q1 )
+            (d) Show that if 4q1 , then
+                                                          4µ(q1 /2)c(q1 n)
+                                             c1 (n) =
+                                                             q1 ϕ(q1 )
+        2. In the proof of Theorem 11.23, specify ε as an explicit function of x to show
+           that
+                                                                       
+                                  x                    log log log log x
+                    N (x) =                 e−C0 + O                         .
+                            log log log x                log log log x
+        3. Let a be a ﬁxed non-zero integer. Show that the number of primes p ≤ x
+           such that p + a is square-free is c(a)li(x) + OA (x(log x)−A ) where c(a) is
+           deﬁned as in Theorem 11.22.
+        4. Show that the appeal to the Siegel–Walﬁsz theorem in the proof of Theorem
+           11.23 can be replaced by an appeal to Page’s theorem in conjunction with
+           Corollary 11.12.
+        5. (Vaughan 1973) Let A and B be positive numbers. Show that
+                        ϕ( p − 1) B
+                                          = C li(x) + OA,B (x/(log x) A )
+                       p≤x    p −  1
+            where
+                                                                                 
+                                                          1 − (1 − 1/ p) B
+                                     C=              1−                               .
+                                              p                p−1
+        6. (Erdős 1951)
+           (a) Let r (n) denote the number of solutions of p + 2k = n with p prime
+                                          √
+               and k ≥ 1, and let y = c log x where c is a sufﬁciently small positive
+                                         
+               constant. Deﬁne q  = 2< p≤y p. If there is a primitive character χ ∗
+               modulo q ∗ with q ∗ |q  for which L(s, χ ∗ ) has an exceptional zero, then
+               let p be any prime divisor of q ∗ and deﬁne q = q  / p. Otherwise let
+               q = q  . Prove that
+                                                                        
+                                                x                  x
+                                 r (qm) =              +O                   .
+                           m≤x/q
+                                            ϕ(q) log 2         ϕ(q) log x
+
+            (b) Show that r (n) = (log log n).
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                    11.5 Notes                                     391
+
+
+                                                11.5        Notes
+        Section 11.1. Theorem 11.3 is a combination of work by Gronwall (1913) and
+        Titchmarsh (1930).
+            Section 11.2. Lemma 11.6, Theorem 11.7, and Corollaries 11.8, 11.9 origi-
+        nate in Landau (1918a, b), while Corollary 11.10 is from Page (1935). Theorem
+        11.11 can also be proved by appealing to the Dirichlet class number   formula,
+        which asserts that if d is a quadratic discriminant and χd (n) = dn K is the
+        associated quadratic character, then
+                                            ⎧
+                                            ⎪   2π h
+                                            ⎪
+                                            ⎨ √          (d < 0),
+                                              w −d
+                                L(1, χd ) =
+                                            ⎪
+                                            ⎪  h log ε
+                                            ⎩ √          (d > 0);
+                                                   d
+                                                                               √
+        see Davenport (2000, Section 6). If d < 0, then χd (−1) = −1, Q( d) is an
+        imaginary quadratic ﬁeld with class number h, and w denotes the number of
+        roots of unity in the ﬁeld (which is to say that w = 6 if d = −3,   √ w = 4 if
+        d = −4, and w = 2 otherwise). If d > 0, then χd (−1) = 1, Q( d) is a √        real
+        quadratic ﬁeld with class number h and fundamental unit ε. Since ε              d,
+        it follows that if χ is a quadratic character with χ (−1) = 1, then L(1, χ )
+        (log q)/q 1/2 .
+            Corollary 11.12 has been sharpened by Davenport (1966), Haneke (1973),
+        and by Goldfeld & Schinzel (1975).
+            Section 11.3. Let h(d) denote the number of equivalence classes of primitive
+        binary quadratic forms of discriminant d. Gauss (1801, Section 303) conjec-
+        tured that h(d) → ∞ as d → −∞. (The behaviour for d > 0 is quite different –
+        the heuristics of Cohen & Lenstra (1984a, b) predict that h( p) = 1 for a positive
+        proportion of primes p ≡ 1 (mod 4).) For Gauss, the generic binary quadratic
+        form was written ax 2 + 2bx y + cy 2 , which is to say that the middle coefﬁcient
+        is even. Put = b2 − ac. In Gauss’s notation, Landau (1903) found that if
+            < 0, then the class number is 1 precisely when = −1, −2, −3, −4, −7.
+        Binary quadratic forms ax 2 + bx y + cy 2 with d = b2 − 4ac correspond, when
+                                                 √ to ideals in the ring O K of integers
+        d is a fundamental quadratic discriminant,
+        in the quadratic number ﬁeld K = Q( d). In this notation, h(d) = 1 if and
+        only if O K is a unique factorization domain. The problem of determining all
+        d < 0 for which h(d) = 1 is now solved, but historically it was enormously
+        more difﬁcult than the class number 1 problem settled by Landau. Landau
+        (1918b) recorded Hecke’s observation that if d < 0 is a quadratic discriminant
+        and L(s, χd ) > 0 for 1 − c/ log |d| < s < 1, then h(d) c |d|1/2 / log |d|. In
+        view of Dirichlet’s class number formula (4.36), we have obtained Hecke’s
+        result – by a different method – in Theorem 11.4. Thus we have a good lower
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        392                        Primes in Arithmetic Progressions: II
+
+
+        bound for h(d) when d < 0, except for those d for which L(s, χd ) has an ex-
+        ceptional real zero. Deuring (1933) showed that if h(d) = 1 has inﬁnitely many
+        solutions with d < 0, then the Riemann Hypothesis is true. Mordell (1934)
+        showed that the same conclusion can be derived from the weaker hypothe-
+        sis that h(d) does not tend to inﬁnity as d → −∞. Heilbronn (1934) found
+        that instead of arguing from a hypothetical zero ρ of the zeta function with
+        β > 1/2 one could just as well argue from an exceptional zero of a quadratic
+        L-function, and thus proved Gauss’s conjecture that h(d) → ∞ as d → −∞.
+        Landau (1935) put Heilbronn’s theorem in a quantitative form: h(d) > |d|3/8−ε
+        as d → −∞. Through a different arrangement of the technical details, Siegel
+        (1935) sharpened Landau’s argument to show that h(d) > |d|1/2−ε , which by
+        (4.36) is the case d < 0 of Theorem 11.14. To achieve his result, Siegel ﬁrst gen-
+        eralized to algebraic number ﬁelds the formula (found in Exercise 10.1.10) that
+        Riemann used to prove the functional equation for ζ (s). Then Siegel applied this
+                                                √ √
+        to the quartic number ﬁeld K = Q( d1 , d2 ) whose Dedekind zeta function
+        is ζ K (s) = ζ (s)L(s, χd1 )L(s, χd2 )L(s, χd1 d2 ). It is now recognized that Siegel’s
+        formula arises through the choice of the kernel in a Mellin transform, and that
+        many other choices work just as well; see Goldfeld(1974). Our exposition is
+        based on that of Estermann (1948).
+            It is easy to show that the complex quadratic ﬁeld of discriminant d < 0
+        has unique factorization in the nine cases d = −3, −4, −7, −8, −11, −19,
+        −43, −67, −163. Heilbronn & Linfoot (1934) showed that there could ex-
+        ist at most one more such discriminant. The ‘problem of the tenth discrimi-
+        nant’ was solved ﬁrst by Heegner (1952). However, Heegner’s paper contained
+        many assertions for which proofs were not provided, and Heegner also used
+        results from Weber’s Algebra which were known not to be trustworthy. Con-
+        sequently, for many years Heegner’s paper was thought to be incorrect. Baker
+        (1966) proved a fundamental lower bound for linear forms in logarithms of
+        algebraic numbers, which by means of a result of Gel’fond & Linnik (1948)
+        reduced the class number 1 problem to a ﬁnite calculation. Meanwhile, Stark
+        (1967) showed that there is no tenth discriminant by translating Heegner’s
+        argument into parallel language where it could be checked. After a reexami-
+        nation of Heegner’s work, Deuring (1968), Birch (1969), and Stark (1969) all
+        concluded that Heegner’s paper was after all correct. Gel’fond & Linnik re-
+        duced the class number problem to a question concerning linear forms in three
+        logarithms, which Baker treated successfully. However, with a small modiﬁ-
+        cation of their argument, Gel’fond & Linnik could have reduced the problem
+        to linear forms in two logarithms, which Gel’fond had already treated. Thus
+        one could say that Gel’fond & Linnik ‘should’ have solved the problem in
+        1948.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 11.6 References                                   393
+
+
+            Baker (1971) and Stark (1971b, 1972) reduced the complete determination
+        of complex quadratic ﬁelds with h(d) = 2 to a ﬁnite calculation which was
+        provided by Bundschuh & Hock (1969), Ellison et al. (1971), Montgomery &
+        Weinberger (1973), and by Stark (1975).
+            The effective determination of all quadratic discriminants d < 0 for which
+        h(d) takes speciﬁc larger values became possible only with the addition of
+        further ideas. Goldfeld (1976) showed that a zero at s = 1/2 of the L-function
+        of an elliptic curve would be useful if it is of sufﬁciently high multiplicity.
+        In particular, if (i) the Birch–Swinnerton-Dyer conjectures are true, and if (ii)
+        there exist elliptic curves of arbitrarily high rank, then h(d) A (log |d|)A for
+        arbitrarily large A, with an effectively computable implicit constant. Although
+        these conjectures remain unproved, Gross & Zagier (1986) were able to establish
+        enough to give an effective lower bound for h(d) tending to inﬁnity. For accounts
+        of this, see Zagier (1984), Goldfeld (1985), Coates (1986), and ﬁnally Oesterlé
+        (1988), who developed the Goldfeld and Gross–Zagier work to show that
+                                                               √ 
+                                       1                     [2 p]
+                              h(d) ≥     (log |d|)       1−           .
+                                      55           p|d
+                                                              p+1
+                                                           p<|d|
+
+        By means of this inequality, Arno (1992), Wagner (1996), and Arno, Robinson &
+        Wheeler (1998) treated progressively larger collections of class numbers. Most
+        recently, Watkins (2004) settled the complete determination of all discriminants
+        d < 0 for which h(d) ≤ 100.
+           With regard to Corollary 11.17, Page (1935) states the ﬁnal conclusion in
+        a less precise form in which the term corresponding to the exceptional zero is
+        replaced by O(x β1 /φ(q)).
+           The deduction of Corollaries 11.18 and 11.19 from Siegel’s theorem was
+        ﬁrst recorded by Walﬁsz (1936).
+           Section 11.4. Theorem 11.22 is due to Walﬁsz (1936). In a weaker form it
+        occurs ﬁrst in Estermann (1931), and is given in a somewhat reﬁned form but
+        without the beneﬁt of Siegel’s theorem in Page (1935). For similar theorems
+        see see Mirsky (1949).
+           Theorem 11.23 is due to Erdős (1948).
+
+
+
+                                             11.6       References
+        Arno, S. (1992). The imaginary quadratic ﬁelds of class number 4, Acta Arith. 60,
+            321–334.
+        Arno, S., Robinson, M. L., & Wheeler, F. S. (1998). Imaginary quadratic ﬁelds with
+            small class number, Acta Arith. 83, 295–330.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        394                        Primes in Arithmetic Progressions: II
+
+
+        Baker, A. (1966). Linear forms in the logarithms of algebraic numbers, I, Mathematika
+             13, 204–216.
+          (1971). Imaginary quadratic ﬁelds with class number 2, Ann. of Math. (2) 94, 139–152.
+        Bateman, P. T. & Chowla, S. (1953).The equivalence of two conjectures in the theory
+             of numbers, J. Indian Math. Soc. (N.S.) 17, 177–181.
+        Birch, B. J. (1969). Weber’s class invariants, Mathematika 16, 283–294.
+        Buell, D. A. (1999). The last exhaustive computation of class groups of complex
+             quadratic number ﬁelds, Number Theory (Ottawa, 1996), CRM Proc. Lecture Notes
+             19, Providence: Amer. Math. Soc., pp. 35–53.
+        Bundschuh, P. & Hock, A. (1969). Bestimmung aller imaginär-quadratischen Zahlkörper
+             der Klassenzahl Eins mit Hilfe eines Satzes von Baker, Math. Z. 111, 191–204.
+        Coates, J. (1986). The work of Gross and Zagier on Heegner points and the derivatives
+             of L-series, Seminar Bourbaki, Vol. 1984/1985, Astérisque No. 133–134, 55–72.
+        Chowla, S. (1972). On L-series and related topics, Proc. Number Theory Conf. (Boulder,
+             1972), Boulder: University of Colorado, pp. 41–42.
+        Cohen, H. & Lenstra, H. (1984a). Heuristics on class groups, Number Theory (New
+             York, 1982). Lecture Notes in Math. 1052. Berlin: Springer-Verlag, pp. 26–36.
+          (1984b). Heuristics on class groups of number ﬁelds, Number Theory (Noordwijker-
+             hout, 1983). Lecture Notes in Math. 1068. Berlin: Springer-Verlag, pp. 33–62.
+        Davenport, H. (1966). Eine Bemerkung über Dirichlets L-Funktionen, Nachr. Akad.
+             Wiss. Göttingen Math.-Phys. Kl. II, 203–212; Collected Works, Vol. 4. London:
+             Academic Press, 1977, pp. 1816–1825.
+          (2000). Multiplicative Number Theory, Third edition, Graduate Texts in Math. 74.
+             New York: Springer-Verlag.
+        Deuring, M. (1933). Imaginäre quadratische Zahlkörper mit der Klassenzahl 1, Math.
+             Z. 37, 405–415.
+          (1968). Imaginäre quadratische Zahlkörper mit der Klassenzahl Eins, Invent.
+             Math. 5, 169–179.
+        Ellison, W. J., Pesek, J., Stall, D. S. & Lunnon, W. F. (1971). A postscript to a paper of
+             A. Baker, Bull. London Math. Soc. 3, 75–78.
+        Erdős, P. (1948). Some asymptotic formulas in number theory, J. Indian Math. Soc.
+             (N. S.) 12, 75–78.
+          (1951). On some problems of Bellman and a theorem of Romanoff, J. Chinese Math.
+             Soc. (N. S.) 1, 409–421.
+        Estermann, T. (1931). On the representations of a number as the sum of a prime and a
+             quadratfrei number, J. London Math. Soc. 6, 219–221.
+          (1948). On Dirichlet’s L functions, J. London Math. Soc. 23, 275–279.
+        Fekete, M. & Pólya, G. (1912). Über ein Problem von Laguerre, Rend. Circ. Mat.
+             Palermo 34, 1–32.
+        Gauss, C. F. (1801). Disquisitiones Arithmeticae, Leipzig: Fleischer.
+        Gel’fond, A. O. & Linnik, Yu. V. (1948). On Thue’s method in the problem of effective-
+             ness in quadratic ﬁelds, Dokl. Akad. Nauk SSSR 61,773–776.
+        Goldfeld, D. M. (1974). A simple proof of Siegel’s theorem, Proc. Nat. Acad. Sci. U.S.A.
+             71, 1055.
+          (1975). On Siegel’s zero, Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4) 2, 571–583.
+          (1976). The class number of quadratic ﬁelds and the conjectures of Birch and
+             Swinnerton-Dyer, Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4) 3, 624–663.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 11.6 References                                   395
+
+
+           (1985). Gauss’ class number problems for imaginary quadratic ﬁelds, Bull. Amer.
+             Math. Soc. 13, 23–37.
+           (2004). The Gauss class number problem for imaginary quadratic ﬁelds, Heegner
+             Points and Rankin L-series, Math. Sci. Res. Inst. Publ. 49. Cambridge: Cambridge
+             University Press, 25–36.
+        Goldfeld, D. M. & Schinzel, A. (1975). On Siegel’s zero, Ann. Scuola Norm. Sup. Pisa
+             Cl. Sci. (4) 2, 571–583.
+        Gronwall, T. H. (1913). Sur les séries de Dirichlet correspondant à des caractères com-
+             plexes, Rend. Circ. Mat. Palermo 35, 145–159.
+        Gross, B. H. & Zagier, D. B. (1986). Heegner points and derivatives of L-series, Invent.
+             Math. 84, 225–320.
+        Haneke, W. (1973). Über die reellen Nullstellen der Dirichletschen L-Reihen, Acta Arith.
+             22, 391–421; Corrigendum, 31 (1976), 99–100.
+        Heegner, K. (1952). Diophantische Analysis und Modulfunktionen, Math. Z. 56, 227–
+             253.
+        Heilbronn, H. (1934). On the class-number in imaginary quadratic ﬁelds, Quart. J. Math.
+             Oxford Ser. 5, 150–160.
+           (1937). On real characters, Acta Arith. 2, 212–213.
+        Heilbronn, H. & Linfoot, E. (1934). On the imaginary quadratic corpora of class-number
+             one, Quart. J. Math. Oxford Ser. 5, 293–301.
+        Landau, E. (1903). Über die Klassenzahl der binären quadratischen Formen von neg-
+             ativer Discriminante, Math. Ann. 56, 671–676; Collected Works, Vol. 1. Essen:
+             Thales Verlag, 1985, pp. 354–359.
+           (1918a). Über imaginär-quadratische Zahlkörper mit gleicher Klassenzahl, Nachr.
+             Akad. Wiss. Göttingen, 277–284; Collected Works, Vol. 7. Essen: Thales Verlag,
+             1986, pp. 142–160.
+           (1918b). Über die Klassenzahl imaginär-quadratischer Zahlkörper, Nachr. Akad.
+             Wiss. Göttingen, 285–295; Collected Works, Vol. 7. Essen: Thales Verlag,
+             pp. 150–160.
+           (1935). Bemerkungen zum Heilbronnschen Satz, Acta Arith. 1, 1–18; Collected Works,
+             Vol. 9. Essen: Thales Verlag, 1987, pp. 265–282.
+        Mahler, K. (1934). On Hecke’s theorem on the real zeros of the L-functions and the
+             class number of quadratic ﬁelds, J. London Math. Soc. 9, 298–302.
+        Mirsky, L. (1949). The number of representations of an integer as the sum of a prime
+             and a k-free integer, Amer. Math. Monthly 56, 17–19.
+        Montgomery, H. L. & Weinberger, P. J. (1973). Notes on small class numbers, Acta
+             Arith. 24, 529–542.
+        Mordell, L. J. (1934). On the Riemann Hypothesis and imaginary quadratic ﬁelds with
+             given class number, J. London Math. Soc. 9, 405–415.
+        Oesterlé, J. (1988). Le problème de Gauss sur le nombre de classes, Enseignement Math.
+             (2) 34, 43–67.
+        Page, A. (1935). On the number of primes in an arithmetic progression, Proc. London
+             Math. Soc. (2) 39, 116–141.
+        Pólya, G. & Szegö, G. (1925). Aufgaben und Lehrsätze aus der Analysis, Vol. 2, Grundl.
+             Math. Wiss. 20. Berlin: Springer.
+        Rosser, J. B. (1950). Real roots of real Dirichlet L-series, J. Research Nat. Bur. Standards
+             45, 505–514.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        396                        Primes in Arithmetic Progressions: II
+
+
+        Siegel, C. L. (1935). Über die Classenzahl quadratischer Zahlkörper, Acta Arith. 1,
+             83–86.
+           (1968). Zum Beweis des Starkschen Satzes, Invent. Math. 5, 180–191.
+        Stark, H. M. (1967). A complete determination of the complex quadratic ﬁelds of class-
+             number one, Michigan Math. J. 14, 1–27.
+           (1969). On the “gap” in a theorem of Heegner, J. Number Theory 1, 16–27.
+           (1971a). Recent advances in determining all complex quadratic ﬁelds of a given class-
+             number, Number Theory Institute (Stony Brook, 1969), Proc. Sympos. Pure Math.
+             20. Providence: Amer. Math. Soc., pp. 401–414.
+           (1971b). A transcendence theorem for class-number problems, Ann. of Math. (2) 94,
+             153–173.
+           (1972). A transcendence theorem for class-number problems, II, Ann. of Math. (2)
+             96, 174–209.
+           (1973). Class-numbers of complex quadratic ﬁelds, Modular Functions of One Vari-
+             able, I (Proc. Internat. Summer School, Univ. Antwerp, Antwerp, 1972), Lecture
+             Notes in Math. 320. Berlin: Springer-Verlag, pp. 153–174.
+           (1975). On complex quadratic ﬁelds with class-number two, Math. Comp. 29, 289–
+             302.
+        Tatuzawa, T. (1951). On a theorem of Siegel, Japan. J. Math. 21, 163–178.
+        Titchmarsh, E. C. (1930). A divisor problem, Rend. Circ. Mat. Palermo 54, 414–429;
+             Correction, 57 (1933), 478–479.
+        Vaughan, R. C. (1973). Some applications of Montgomery’s sieve, J. Number Theory 5,
+             64–79.
+        Wagner, C. (1996). Class number 5, 6 and 7, Math. Comp. 65, 785–800.
+        Walﬁsz, A. (1936). Zur additiven Zahlentheorie. II, Math. Z. 40, 592-607.
+        Watkins, M. (2004). Class numbers of imaginary quadratic ﬁelds, Math. Comp. 73,
+             907–938.
+        Zagier, D. (1984). L-series of elliptic curves, the Birch–Swinnerton-Dyer conjecture,
+             and the class number problem of Gauss, Notices Amer. Math. Soc. 31, 739–743.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.013 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

@@ -1,0 +1,70 @@
+{
+  "summary": "Plan: retain Vaughan\u2019s variance decomposition and Bernoulli kernel, but replace the circle method by a uniform elementary squarefree-pair correlation estimate and explicit averaging over polynomial residue classes modulo squares. Five propositions give both a transition profile for f(y) comparable to x and a constant main term when f(y)/x tends to zero. No restriction on f beyond problem.md is proposed. The predicted constants agree with the numerical extrapolation uncertainties; retaining the discrete polynomial sum also explains the larger cubic finite-size discrepancy. Sources used: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), https://doi.org/10.1112/S0024611505015352; the averaging strategy is informed by J. Br\u00fcdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011, supplied exception), https://doi.org/10.1093/qmath/hap029. An incidental search result containing later publications was not opened or used. No excluded source was accessed or used.",
+  "main_theorem": "Proposed theorem. Let f and d satisfy problem.md, let x\u22652 and y\u22651 be real, and put Y=f(y)\u2264x. Write \u03b6 for the Riemann zeta function, \u03bc for the M\u00f6bius function, and let all products indexed by p run over primes. Define C=\u220fp(1\u22122/p\u00b2), b(m)=\u03bc\u00b2(m)\u220fp|m(p\u00b2\u22122)\u207b\u00b9, B(u)={u}(1\u2212{u}), and J(z)=\u222bz^\u221e B(u)u\u207b\u00b3 du for z>0, where {u}=u\u2212\u230au\u230b. For squarefree m and a|m\u00b2 define \u03b2_f(m,a)=m\u207b\u00b2 #{t mod m\u00b2: m\u00b2/gcd(m\u00b2,f(t))=a}. Define \u03a8_f(r)=C\u2211m squarefree b(m)\u2211a|m\u00b2 \u03b2_f(m,a)a\u207b\u00b9J(1/(ar)) for 0<r\u22641. These series converge absolutely. For every 0<\u03b5<1/4 there exists A(f,\u03b5)>0 such that, uniformly in the stated x,y range, |V_f(x,y)\u2212x\u00b2\u03a8_f(Y/x)|\u2264A(f,\u03b5)[x^(5/3+\u03b5)+xY^(1\u22121/(2d))log(2x)]. For j=0,1,2 put \u03b1\u2080(p)=1\u2212\u03c1(p)/p, \u03b1\u2081(p)=\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2, and \u03b1\u2082(p)=\u03c1(p\u00b2)/p\u00b2. The positive constant c_f is \u2212(8/3)\u03b6(\u22121/2)\u220fp(1\u22121/p)[1\u22122/p\u00b2+(p\u03b1\u2080(p)+\u221ap \u03b1\u2081(p)+\u03b1\u2082(p))/p\u00b2]. The product converges absolutely. There exists A\u2032(f,\u03b5)>0 such that |V_f(x,y)\u2212c_f x^(1/2)Y^(3/2)|\u2264A\u2032(f,\u03b5)[x^(5/3+\u03b5)+xY^(1\u22121/(2d))log(2x)+x^(1/4+\u03b5)Y^(7/4\u2212\u03b5)] throughout the same range. In particular, set \u03b8_d=max(7/9,d/(d+1)). For every 0<\u03b4<(1\u2212\u03b8_d)/2 there exist A\u2033(f,\u03b4)>0 and x\u2080(f,\u03b4)\u22652 such that |V_f(x,y)/(c_f x^(1/2)Y^(3/2))\u22121|\u2264A\u2033(f,\u03b4)x^(\u2212\u03b4/8) uniformly for x\u2265x\u2080(f,\u03b4) and x^(\u03b8_d+\u03b4)\u2264Y\u2264x^(1\u2212\u03b4).",
+  "predicted_main_term": "In the small-ratio regime the main term is c_f x^(1/2)f(y)^(3/2). Euler products truncated at primes p\u226410^6 give c_(t\u00b2+1)\u22480.138083, c_(t\u00b3+2)\u22480.135608, and c_(2t+1)\u22480.142613. For comparison, averaging over consecutive moduli gives approximately 0.128479. At fixed r=f(y)/x, the prediction is instead x\u00b2\u03a8_f(r); its normalization \u03a8_f(r)/r^(3/2) need not equal c_f.",
+  "agrees_with_numerics": "Yes, within the reported extrapolation uncertainties. results.json gives intercepts 0.134475\u00b10.007285, 0.136321\u00b10.002404, and 0.141686\u00b10.008218, respectively. The transition profile reproduces the persistent ratio dependence, including the uneven behavior for odd linear moduli. At x=256000000 and the smallest requested ratio, the quadratic profile gives approximately 0.140745 versus 0.140858 observed; the odd-linear profile gives 0.144568 versus 0.144598 observed. The cubic continuous profile gives approximately 0.138722 versus 0.139990 observed. Keeping the original discrete cubic k-sum in the Bernoulli kernel changes the prediction to approximately 0.139996. At the cubic ratios near 0.1 and 1, the discrete-kernel discrepancies are approximately 6.3\u00d710\u207b\u2077 and 2.5\u00d710\u207b\u2078. These calculations support polynomial sampling effects as the main cubic discrepancy and provide no indication that the numerical variance implementation is wrong. The extrapolation uncertainties remain heuristic.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Exact densities and uniform control of the centering term",
+      "statement": "Let \u03bc be the M\u00f6bius function and \u03b6 the Riemann zeta function. For every integer q\u22651 and 1\u2264l\u2264q, define a_p=min(2,v_p(q)) for p|q, where v_p(q) is the exponent of p in q. Then the density in problem.md is g(q,l)=[q\u03b6(2)]\u207b\u00b9\u220fp|q [1\u2212p^(a_p\u22122)1_{p^(a_p)|l}]/(1\u2212p\u207b\u00b2), where 1_A denotes the indicator of A. In particular, 0\u2264g(q,l)\u22641/q and \u2211l=1^q g(q,l)=\u03b6(2)\u207b\u00b9. Put C=\u220fp(1\u22122/p\u00b2), b(m)=\u03bc\u00b2(m)\u220fp|m(p\u00b2\u22122)\u207b\u00b9, and G(q)=\u2211l=1^q g(q,l)\u00b2. Then G(q)=(C/q)\u2211m\u22651 b(m)gcd(m\u00b2,q)/m\u00b2, with absolute convergence. For every 0<\u03b5<1 there exists A_\u03b5>0 such that, uniformly for real x\u22652 and integers 1\u2264q\u2264x, |\u2211n\u2264x \u03bc\u00b2(n)g(q,n)\u2212xG(q)|\u2264A_\u03b5 x^(1/2)q^(\u22121+\u03b5), with g(q,n) interpreted periodically modulo q. Also |\u2211n\u2264x \u03bc\u00b2(n)\u2212x/\u03b6(2)|\u22643\u221ax for every real x\u22652. Empty products equal 1.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.2(ii), specialized to k=2; https://doi.org/10.1112/S0024611505015352",
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.3, specialized to k=2; https://doi.org/10.1112/S0024611505015352",
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.4, specialized to k=2; https://doi.org/10.1112/S0024611505015352",
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.15, specialized to k=2; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The factor q\u207b\u00b9 in the centering error must survive the divisor decomposition. A bound uniform only for coprime residue classes is insufficient."
+    },
+    {
+      "id": "P2",
+      "title": "Squarefree pair correlation uniformly in the shift",
+      "statement": "Let C=\u220fp(1\u22122/p\u00b2), with p ranging over primes. For each integer h\u22651 define S(h)=C\u220fp\u00b2|h (p\u00b2\u22121)/(p\u00b2\u22122). For every 0<\u03b5<1 there exists A_\u03b5>0 such that, uniformly for real X\u22652 and integers 1\u2264h\u2264X, |\u22111\u2264n\u2264X\u2212h \u03bc\u00b2(n)\u03bc\u00b2(n+h)\u2212(X\u2212h)S(h)|\u2264A_\u03b5 X^(2/3+\u03b5). A sum with no admissible positive integer n is zero. The constant is independent of h and of X\u2212h, including when X\u2212h is bounded.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.15, specialized to k=2, for the singular-series identity only; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The correlation bound is a new elementary lemma in this plan, not a quoted consequence of Vaughan\u2019s lemma. Its proof must keep shift dependence within X^\u03b5 and must cover shifts approaching X."
+    },
+    {
+      "id": "P3",
+      "title": "Reduction of the weighted variance to a positive Bernoulli kernel",
+      "statement": "Let f,d be as in problem.md. Define C=\u220fp(1\u22122/p\u00b2), b(m)=\u03bc\u00b2(m)\u220fp|m(p\u00b2\u22122)\u207b\u00b9, B(u)={u}(1\u2212{u}), and L(m,q)=lcm(m\u00b2,q)=m\u00b2q/gcd(m\u00b2,q). Here \u03bc is the M\u00f6bius function and {u}=u\u2212\u230au\u230b. For real x\u22652,y\u22651 with Y=f(y)\u2264x, define K_f(x,y)=C\u2211m\u22651 b(m)\u22111\u2264k\u2264y f\u2032(k)L(m,f(k))B(x/L(m,f(k))). This series converges absolutely and has nonnegative terms. For every 0<\u03b5<1/4 there exists A(f,\u03b5)>0 such that |V_f(x,y)\u2212K_f(x,y)|\u2264A(f,\u03b5)x^(5/3+\u03b5), uniformly throughout the stated range.",
+      "depends_on": [
+        "P1",
+        "P2"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.16; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": false,
+      "risk": "The diagonal, quadratic density term, and linear centering term must cancel before estimating the kernel. An incorrect Bernoulli sign or a missing factor of two changes the main constant."
+    },
+    {
+      "id": "P4",
+      "title": "Polynomial residue averaging with an explicit square-divisor cutoff",
+      "statement": "Let f,d be as in problem.md. Let C=\u220fp(1\u22122/p\u00b2), b(m)=\u03bc\u00b2(m)\u220fp|m(p\u00b2\u22122)\u207b\u00b9, B(u)={u}(1\u2212{u}), J(z)=\u222bz^\u221e B(u)u\u207b\u00b3 du for z>0, and L(m,q)=lcm(m\u00b2,q). For squarefree m and a|m\u00b2 put \u03b2_f(m,a)=m\u207b\u00b2 #{t mod m\u00b2: m\u00b2/gcd(m\u00b2,f(t))=a}. Define \u03b1\u2080(p)=1\u2212\u03c1(p)/p, \u03b1\u2081(p)=\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2, and \u03b1\u2082(p)=\u03c1(p\u00b2)/p\u00b2. Then \u03b2_f(m,a)=\u220fp|m \u03b1_(2\u2212v_p(a))(p); for m=a=1 this product is 1. For every real M\u22651 define K_(f,M)(x,y)=C\u22111\u2264m\u2264M b(m)\u22111\u2264k\u2264y f\u2032(k)L(m,f(k))B(x/L(m,f(k))) and \u03a8_(f,M)(r)=C\u2211m\u2264M, m squarefree b(m)\u2211a|m\u00b2 \u03b2_f(m,a)a\u207b\u00b9J(1/(ar)). Write K_(f,\u221e) and \u03a8_(f,\u221e) for their limits. These limits converge absolutely. There exists A_f>0 such that, uniformly for real x\u22652,y\u22651,Y=f(y)\u2264x and every real cutoff M\u22651, |K_(f,M)(x,y)\u2212x\u00b2\u03a8_(f,M)(Y/x)|\u2264A_f xY(M/y)log(2x), 0\u2264K_(f,\u221e)(x,y)\u2212K_(f,M)(x,y)\u2264A_f xY/M, and 0\u2264x\u00b2[\u03a8_(f,\u221e)(Y/x)\u2212\u03a8_(f,M)(Y/x)]\u2264A_f xY/M. Consequently, |K_(f,\u221e)(x,y)\u2212x\u00b2\u03a8_(f,\u221e)(Y/x)|\u2264A\u2032_f xY^(1\u22121/(2d))log(2x) for a constant A\u2032_f depending only on f.",
+      "depends_on": [],
+      "cites": [],
+      "crux": true,
+      "risk": "The averaging must retain both \u03c1(p) and \u03c1(p\u00b2), including primes dividing the polynomial\u2019s content or discriminant. Summing errors over m\u00b2 residue classes must cost only M after weighting by b(m). The Bernoulli kernel has many oscillations, so its total variation requires a uniform logarithmic bound."
+    },
+    {
+      "id": "P5",
+      "title": "Mellin evaluation of the transition profile and its leading constant",
+      "statement": "Let f,d be as in problem.md, \u03b6 the Riemann zeta function, and \u03bc the M\u00f6bius function. Define C=\u220fp(1\u22122/p\u00b2), b(m)=\u03bc\u00b2(m)\u220fp|m(p\u00b2\u22122)\u207b\u00b9, B(u)={u}(1\u2212{u}), J(z)=\u222bz^\u221e B(u)u\u207b\u00b3 du, and \u03b2_f(m,a)=m\u207b\u00b2 #{t mod m\u00b2: m\u00b2/gcd(m\u00b2,f(t))=a} for squarefree m and a|m\u00b2. Put \u03a8_f(r)=C\u2211m squarefree b(m)\u2211a|m\u00b2 \u03b2_f(m,a)a\u207b\u00b9J(1/(ar)) for 0<r\u22641. Set \u03b1\u2080(p)=1\u2212\u03c1(p)/p, \u03b1\u2081(p)=\u03c1(p)/p\u2212\u03c1(p\u00b2)/p\u00b2, and \u03b1\u2082(p)=\u03c1(p\u00b2)/p\u00b2. For complex s with Re(s)<\u22121/2 define D_f(s)=\u2211m squarefree b(m)\u2211a|m\u00b2 \u03b2_f(m,a)a^(1+s). Its absolutely convergent Euler product is \u220fp[1+(\u03b1\u2080(p)p^(2+2s)+\u03b1\u2081(p)p^(1+s)+\u03b1\u2082(p))/(p\u00b2\u22122)]. The product H_f(s)=\u220fp(1\u2212p^(2s))[1+(\u03b1\u2080(p)p^(2+2s)+\u03b1\u2081(p)p^(1+s)+\u03b1\u2082(p))/(p\u00b2\u22122)] converges absolutely and locally uniformly for Re(s)<\u22121/4, and D_f(s)=\u03b6(\u22122s)H_f(s) initially for Re(s)<\u22121/2 and then by meromorphic continuation. For every fixed real c with \u22121<c<\u22121/2, \u03a8_f(r)=C/(2\u03c0i)\u222b_(c\u2212i\u221e)^(c+i\u221e) [2\u03b6(\u2212s\u22121)D_f(s)r^(s+2)]/[s(s+1)(s+2)] ds, with absolute convergence. Define c_f=\u2212(8/3)\u03b6(\u22121/2)C H_f(\u22121/2). This number is positive and equals \u2212(8/3)\u03b6(\u22121/2)\u220fp(1\u22121/p)[1\u22122/p\u00b2+(p\u03b1\u2080(p)+\u221ap \u03b1\u2081(p)+\u03b1\u2082(p))/p\u00b2], an absolutely convergent product. For every 0<\u03b5<1/4 there exists A(f,\u03b5)>0 such that |\u03a8_f(r)\u2212c_f r^(3/2)|\u2264A(f,\u03b5)r^(7/4\u2212\u03b5) uniformly for 0<r\u22641.",
+      "depends_on": [
+        "P4"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.18, with B=\u22122B\u2082* and a change of Mellin variable; https://doi.org/10.1112/S0024611505015352"
+      ],
+      "crux": true,
+      "risk": "The generalized Euler product and contour shift must be established for the polynomial residue probabilities, rather than assumed from the consecutive-modulus case. The residue at s=\u22121/2 has a negative orientation factor; mishandling it changes the sign or doubles the constant. Absolute convergence of the integrated Mellin kernel is essential."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

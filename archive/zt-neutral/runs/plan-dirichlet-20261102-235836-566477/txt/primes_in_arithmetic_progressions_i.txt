@@ -1,0 +1,1844 @@
+                                                          4
+                      Primes in arithmetic progressions: I
+
+
+
+
+                                      4.1      Additive characters
+                      ∞
+        If f (z) = n=0 cn z n is a power series, we can restrict our attention to terms
+        for which n has prescribed parity by considering
+                                       1        1         ∞
+                                         f (z) + f (−z) =     cn z n
+                                       2        2         n=0
+                                                                  n≡ 0 (2)
+
+        or
+                                      1        1         ∞
+                                        f (z) − f (−z) =     cn z n .
+                                      2        2         n=0
+                                                                  n≡1 (2)
+
+        That is, we can express the characteristic function of an arithmetic progression
+        (mod 2) as a linear combination 12 1n ± 12 (−1)n of 1n and (−1)n . Here 1 and
+        −1 are the square-roots of 1, and we can similarly express the characteristic
+        function of an arithmetic progression (mod q) as a linear combination of the
+        sequences ζ n where ζ runs over the q different q th roots of unity. We write
+        e(θ ) = e2πiθ , and then the q th roots of unity are the numbers ζ = e(a/q) for
+        1 ≤ a ≤ q. If (a, q) = 1 then the least integer n such that ζ n = 1 is q, and we
+        say that ζ is a primitive q th root of unity. From the formula
+                                                
+                                                q−1
+                                                              1 − ζq
+                                                      ζk =
+                                                k=0
+                                                              1−ζ
+
+        for the sum of a geometric progression, we see that if ζ is a q th root of unity
+        then
+                                        q
+                                            ζk = 0
+                                                    k=1
+
+                                                          108
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            4.1 Additive characters                                 109
+
+
+        unless ζ = 1. Hence
+                                                               
+                          1
+                              q
+                                                                   1 if n ≡ a (mod q),
+                                e(−ka/q)e(kn/q) =                                                  (4.1)
+                          q k=1                                    0 otherwise,
+
+        and thus the characteristic function of an arithmetic progression (mod q) can be
+        expressed as a linear combination of the sequences e(kn/q). These functions
+        are called the additive characters (mod q) because they are the homomorphisms
+        from the additive group (Z/qZ)+ of integers (mod q) to the multiplicative group
+        C× of non-zero complex numbers.
+           In the language of linear algebra we see that the arithmetic functions of
+        period q form a vector space of dimension q. For any k, 1 ≤ k ≤ q, the se-
+        quence {e(kn/q)}∞  n=−∞ has period q, and these q sequences form a basis
+        for the space of q-periodic arithmetic functions. Indeed, the formula (4.1)
+        expresses the a th elementary vector as a linear combination of the vectors
+        [e(n/q), e(2n/q), . . . , e((q − 1)n/q), 1].
+           If f (n) is an arithmetic function with period q then we deﬁne the ﬁnite
+        Fourier transform of f to be the function
+                                            1
+                                               q
+                                    f*(k) =       f (n)e(−kn/q).                   (4.2)
+                                            q n=1
+        To obtain a Fourier representation of f we multiply both sides of (4.1) by f (n)
+        and sum over n to see that
+                                            
+                                            q
+                                              f (n) 
+                                                    q
+                                  f (a) =                     e(−ka/q)e(kn/q)
+                                            n=1
+                                                   q    k=1
+                                            q
+                                                               1
+                                                                    q
+                                        =         e(−ka/q)           f (n)e(kn/q)
+                                            k=1
+                                                               q n=1
+                                            
+                                            q
+                                        =         e(−ka/q) f*(−k).
+                                            k=1
+
+        Here the exact values that k runs through are immaterial, as long as the set of
+        these values forms a complete residue system modulo q. Hence we may replace
+        k by −k in the above, and so we see that
+                                                       
+                                                       q
+                                            f (n) =          f*(k)e(kn/q).                         (4.3)
+                                                       k=1
+
+        This includes (4.1) as a special case, for if we take f to be the characteris-
+        tic function of the arithmetic progression a (mod q) then by (4.2) we have
+        *f (k) = e(−ka/q)/q, and then (4.3) coincides with (4.1). The pair (4.2), (4.3)
+        of inversion formulæ are analogous to the formula for the Fourier coefﬁcients
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        110                         Primes in arithmetic progressions: I
+
+
+        and Fourier expansion of a function f ∈ L 1 (T), but the situation here is simpler
+        because our sums have only ﬁnitely many terms.
+            Let v(h) be the vector v(h) = [e(h/q), e(2h/q), . . . , e((q − 1)h/q), 1].
+        From (4.1) we see that two such vectors v(h 1 ) and v(h 2 ) are orthogonal un-
+        less h 1 ≡ h 2 (mod q). These vectors are not normalized, but they all have the
+                      √
+        same length q, so apart from some rescaling, the transformation from f to *      f
+        is an isometry. More precisely, if f has period q and f* is given by (4.2), then
+        by (4.3),
+                                  
+                                  q                    
+                                                       q 
+                                                         q                        2
+                                        | f (n)|2 =                 f*(k)e(kn/q) .
+                                  n=1                  n=1    k=1
+
+        By expanding and taking the sum over n inside, we see that this is
+                           q q                
+                                                q
+                       =           f*( j) f*(k)   e( jn/q)e(−kn/q).
+                                   j=1 k=1                   n=1
+
+        By (4.1) the innermost sum is q if j = k and is 0 otherwise. Hence
+                                 
+                                 q                
+                                                  q
+                                    | f (n)|2 = q    | f*(k)|2 .                                   (4.4)
+                                          n=1                      k=1
+
+        This is analogous to Parseval’s identity for functions f ∈ L 2 (T), or to
+        Plancherel’s identity for functions f ∈ L 2 (R).
+           Among the exponential sums that we shall have occasion to consider is
+        Ramanujan’s sum
+                                              q
+                                    cq (n) =        e(an/q).                 (4.5)
+                                                          a=1
+                                                        (a,q)=1
+
+        We now establish some of the interesting properties of this quantity.
+        Theorem 4.1 As a function of n, cq (n) has period q. For any given n, cq (n)
+        is a multiplicative function of q. Also,
+                                              
+                                                 q if q|n,
+                                      cd (n) =                                (4.6)
+                                  d|q
+                                                 0 otherwise.
+
+        Finally,
+                                                                    µ(q/(q, n))
+                               cq (n) =             dµ(q/d) =                    ϕ(q).             (4.7)
+                                          d|(q,n)
+                                                                     ϕ(q/(q, n))
+
+            The case n = 1 of this last formula is especially memorable:
+                                       q
+                                            e(a/q) = µ(q).
+                                               a=1
+                                             (a,q)=1
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                              4.1 Additive characters                                   111
+
+
+        Proof The ﬁrst assertion is evident, as each term in the sum (4.5) has period
+        q. As for the second, suppose that q = q1 q2 where (q1 , q2 ) = 1. By the Chinese
+        Remainder Theorem, for each a (mod q) there is a unique pair a1 , a2 with ai
+        determined (mod qi ), so that a ≡ a1 q2 + a2 q1 (mod q). Moreover, under this
+        correspondence we see that (a, q) = 1 if and only if (ai , qi ) = 1 for i = 1, 2.
+        Then
+
+                                        
+                                        q1            
+                                                      q2
+                        cq (n) =                                e((a1 q2 + a2 q1 )n/(q1 q2 ))
+                                      a1 =1       a2 =1
+                                    (a1 ,q1 )=1 (a2 ,q2 )=1
+                                    ⎛                                ⎞⎛                           ⎞
+                                 ⎜        
+                                          q 1
+                                                                 ⎟⎜            
+                                                                               q 2
+                                                                                                    ⎟
+                                =⎝                    e(a1 n/q1 )⎠ ⎝                     e(a2 n/q2 )⎠
+                                          a1 =1                              a2 =1
+                                        (a1 ,q1 )=1                        (a2 ,q2 )=1
+
+                                = cq1 (n)cq2 (n).
+
+           To establish (4.6), suppose that d|q, and consider those a, 1 ≤ a ≤ q, such
+        that (a, q) = d. Put b = a/d. Then the numbers a are in one-to-one correspon-
+        dence with those b, 1 ≤ b ≤ q/d, for which (b, q/d) = 1. Hence
+
+                                 
+                                 q                         q
+                                                            
+                                       e(na/q) =                           e(na/q)
+                                 a=1                      d|q      a=1
+                                                                 (a,q)=d
+
+                                                                    
+                                                                     q/d
+                                                      =                      e(nb/(q/d))
+                                                          d|q       b=1
+                                                                 (b,q/d)=1
+                                                          
+                                                      =         cq/d (n).
+                                                          d|q
+
+
+        By (4.1), the left-hand side above is q when q|n, and is 0 otherwise. Thus we
+        have (4.6).
+           The ﬁrst formula in (4.7) is merely the Möbius inverse of (4.6). To obtain
+        the second formula in (4.7), we begin by considering the special case in which
+        q is a prime power, q = p k .
+
+                                              
+                                                 k
+                                              p
+                                c pk (n) =            e(na/ p k )
+                                               a=1
+                                               pa
+
+                                                                      
+                                                k                        k−1
+                                              p                        p
+                                          =           e(na/ p ) −k
+                                                                               e(na/ p k−1 ).
+                                              a=1                      a=1
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        112                         Primes in arithmetic progressions: I
+
+
+          Here the ﬁrst sum is p k if p k |n, and is 0 otherwise. Similarly, the second
+        sum is p k−1 if p k−1 |n, and is 0 otherwise. Hence the above is
+                                      ⎧
+                                      ⎨0               if p k−1  n,
+                                   = −p     k−1
+                                                       if p k−1 n,
+                                      ⎩ k
+                                         p − p k−1 if p k |n
+                                         k          
+                                      µ p /(n, p k )
+                                   =  k              ϕ( p k ).
+                                      ϕ p /(n, p k )
+        The general case of (4.7) now follows because cq (n) is a multiplicative function
+        of q.                                                                           
+
+
+                                               4.1.1      Exercises
+                                                                            √
+        1. Let U = [u kn ] be the q × q matrix with elements u kn = e(kn/q)/ q. Show
+           that UU ∗ = U ∗ U = I , i.e., that U is unitary.
+        2. (Friedman 1957; cf. Reznick 1995)
+           (a) Show that
+                              1                              
+                                                     2r        2r
+                                 ue(θ/2) + ve(−θ/2) dθ =             u r vr
+                            0                                    r
+                for any non-negative integer r and arbitrary complex numbers u, v.
+            (b) Show that if u = (x − i y)/2, v = (x + i y)/2, then
+                                 x cos π θ + y sin π θ = ue(θ/2) + ve(−θ/2)
+                for all θ .
+            (c) Show that
+                          1                                        
+                                                         2r
+                                                          2r
+                          x cos π θ + y sin π θ dθ =           2−2r (x 2 + y 2 )r
+                       0                                  r
+                for any non-negative integer r and arbitrary real or complex numbers
+                x, y.
+            (d) Show that
+                                                           
+                             q
+                                    πia/q
+                                                     
+                                               −πia/q 2r      2r
+                                 ue       + ve           =q        u r vr
+                            a=1
+                                                               r
+                if r is an integer, 0 ≤ r < q.
+            (e) Show that
+                      q                                  
+                                                          2r
+                         (x cos πa/q + y sin πa/q)2r = q     2−2r (x 2 + y 2 )r
+                     a=1
+                                                          r
+                  if r is an integer, 0 ≤ r < q.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            4.1 Additive characters                                         113
+
+
+        3. Show that |cq (n)| ≤ (q, n).
+        4. (Carmichael 1932)
+           (a) Show that if q > 1, then
+                                                    
+                                                    q
+                                                             cq (n) = 0.
+                                                       n=1
+
+            (b) Show that if q1 = q2 and [q1 , q2 ]|N , then
+                                                
+                                                N
+                                                       cq1 (n)cq2 (n) = 0.
+                                                 n=1
+
+            (c) Show that if q|N , then
+                                                
+                                                N
+                                                       cq (n)2 = N ϕ(q).
+                                                 n=1
+
+        5. (Grytczuk 1981; cf. Redmond 1983) Show that
+                                
+                                  |cd (n)| = 2ω(q/(q,n)) (q, n).
+                                         d|q
+
+        6. (Ramanujan 1918) Show that
+                        ϕ(n)    µ(d) 
+                                ∞                  ∞
+                             =        2
+                                          cq (n) =     aq cq (n)
+                         n     d=1
+                                    d q|d          q=1
+
+            where
+                                                                          −1
+                                           6µ(q)                      1
+                                       aq = 2 2                    1− 2          .
+                                           π q p|q                   p
+
+        7. (Wintner 1943, Sections 33–35) The orthogonality relations of Exercise 4
+           give us hope that it might be possible to represent an arithmetic function
+           F(n) in the form
+                                            ∞
+                                     F(n) =      aq cq (n)                      (4.8)
+                                                             q=1
+
+            by taking
+                                                1        1
+                                     aq =            lim      F(n)cq (n) .                                 (4.9)
+                                               ϕ(q) x→∞ x n≤x
+                                                                                            
+            In the following, suppose that f (r ) is chosen so that F(n) =                         r |n f (r ) for
+            all n.
+            (a) Suppose that
+                                       ∞
+                                            | f (r )|
+                                                      < ∞.                                               (4.10)
+                                       r =1
+                                                r
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        114                         Primes in arithmetic progressions: I
+
+
+            Let d be a ﬁxed positive integer. Show that
+                                          x  ∞
+                                                   f (r )
+                                  F(n) =                  (d, r ) + o(x)
+                             n≤x           d  r =1
+                                                     r
+                                    d|n
+
+
+                as x → ∞.
+            (b) Suppose that (4.10) holds. Show that
+                                  1                       ∞
+                                                                f (r )
+                              lim        F(n)cq (n) = ϕ(q)             .
+                             x→∞ x                                r
+                                     n≤x                   r =1
+                                                                              q|r
+
+            (c) Put
+                                                             
+                                                             ∞
+                                                               f (r )
+                                                   aq =                  .
+                                                             r =1
+                                                                     r
+                                                              q|r
+
+                  Show that if
+                                                
+                                                ∞
+                                                  | f (r )|d(r )
+                                                                         <∞                        (4.11)
+                                                r =1
+                                                             r
+                                                              ∞
+               then (4.8) and (4.9) hold, and moreover that q=1      |aq cq (n)| < ∞.
+                                                          ∞
+        8. (Ramanujan 1918) Show that if q > 1, then n=1 cq (n)/n = −(q). (See
+           also Exercise 8.3.4.)
+        9. Let q (z) denote the q th cyclotomic polynomial, i.e., the monic polynomial
+           whose roots are precisely the primitive q th roots of unity, so that
+                                                         q
+                                          q (z) =               (z − e(n/q)).
+                                                         n=1
+                                                       (n,q)=1
+
+
+            (a) Show that
+                                            q (z) =             (z d − 1)µ(q/d)
+                                                          d|q
+
+                and that (z d − 1)µ(q/d) has a power series expansion, valid when |z| < 1,
+                with integer coefﬁcients. Deduce that q (z) ∈ Z[z].
+            (b) Suppose that z ∈ Z and p | q (z) and let e denote the order of z modulo
+                p. Show that e | q and that if p | (z d − 1) then e | d.
+            (c) Choose t so that pt (z e − 1). Show that for m ∈ N with p  m one has
+                p t (z me − 1).
+                                                                  
+            (d) Show that if p  q, then p ht q (z) where h =       µ(q/d). Deduce that
+                                                                                    e|d|q
+                e = q and that q | ( p − 1).
+            (e) By taking z to be a suitable multiple of q, or otherwise, show that there
+                are inﬁnitely many primes p with p ≡ 1 (mod q).
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            4.2 Dirichlet characters                                 115
+
+
+                                      4.2      Dirichlet characters
+        In the preceding section we expressed the characteristic function of an arithmetic
+        progression as a linear combination of additive characters. For purposes of
+        multiplicative number theory we shall similarly represent the characteristic
+        function of a reduced residue class (mod q) as a linear combination of totally
+        multiplicative functions χ (n) each one supported on the reduced residue classes
+        and having period q. These are the Dirichlet characters. Since χ (n) has period
+        q we may think of it as mapping from residue classes, and since χ(n) = 0 if and
+        only if (n, q) = 1, we may think of χ as mapping from the multiplicative group
+        of reduced residue classes to the multiplicative group C× of non-zero complex
+        numbers. As χ is totally multiplicative, χ (mn) = χ (m)χ (n) for all m, n, we see
+        that the map χ : (Z/qZ)× −→ C× is a homomorphism. The method we use to
+        describe these characters applies when (Z/qZ)× is replaced by an arbitrary ﬁnite
+        abelian group G, so we consider the slightly more general problem of ﬁnding
+        all homomorphisms χ : G → C× from such a group G to C× . We call these
+        homomorphisms the characters of G, and let G       * denote the set of all characters
+        of G. We let χ0 denote the principal character, whose value is identically 1.
+        We note that if χ ∈ G,   * then χ (e) = 1 where e denotes the identity in G. Let n
+        denote the order of G. If g ∈ G and χ ∈ G,    * then g n = e, and hence χ (g n ) = 1.
+        Consequently χ(g) = 1, and so we see that all values taken by characters are
+                               n
+
+                                                              * is ﬁnite, since there can be at
+        n th roots of unity. In particular, this implies that G
+        most n such maps. If χ1 and χ2 are two characters of G, then we can deﬁne
+                n
+
+        a product character χ1 χ2 by χ1 χ2 (g) = χ1 (g)χ2 (g). For χ ∈ G,     * let χ be the
+        character χ (g). Then χ · χ = χ0 , and we see that G      * is a ﬁnite abelian group
+        with identity χ0 . The following lemmas prepare for a full description of G       * in
+        Theorem 4.4.
+
+        Lemma 4.2 Suppose that G is cyclic of order n, say G = (a). Then there are
+        exactly n characters of G, namely χk (a m ) = e(km/n) for 1 ≤ k ≤ n. Moreover,
+                                             
+                                                n if χ = χ0 ,
+                                     χ (g) =                                    (4.12)
+                                 g∈G
+                                                0    otherwise,
+
+        and
+                                                        
+                                                             n   if g = e,
+                                               χ (g) =                                             (4.13)
+                                           *
+                                                             0   otherwise.
+                                        χ ∈G
+
+                               * is cyclic, G
+            In this situation, G            * = (χ1 ).
+
+        Proof Suppose that χ ∈ G. * As we have observed, χ (a) is an n th root of unity,
+        say χ (a) = e(k/n) for some k, 1 ≤ k ≤ n. Hence χ (a m ) = χ (a)m = e(km/n).
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        116                          Primes in arithmetic progressions: I
+
+
+        Since the characters are now known explicitly, the remaining assertions are
+        easily veriﬁed.                                                          
+
+           Next we describe the characters of the direct product of two groups in terms
+        of the characters of the factors.
+        Lemma 4.3 Suppose that G 1 and G 2 are ﬁnite abelian groups, and that G =
+        G 1 ⊗ G 2 . If χi is a character of G i , i = 1, 2, and g ∈ G is written g = (g1 , g2 ),
+        gi ∈ G i , then χ (g) = χ1 (g1 )χ2 (g2 ) is a character of G. Conversely, if χ ∈ *  G,
+        then there exist unique χi ∈ G i such that χ (g) = χ1 (g1 )χ2 (g2 ). The identities
+        (4.12) and (4.13) hold for G if they hold for both G 1 and G 2 .
+                                                                          *1 × G
+                                     * corresponds to a pair (χ1 , χ2 ) ∈ G
+           We see here that each χ ∈ G                                         * 2 . Thus
+           ∼ *     *
+         G = G1 ⊗ G 2.
+        Proof The ﬁrst assertion is clear. As for the second, put χ1 (g1 ) = χ ((g1 , e2 )),
+                                             *i for i = 1, 2, and χ1 (g1 )χ2 (g2 ) = χ (g). The
+        χ2 (g2 ) = χ ((e1 , g2 )). Then χi ∈ G
+        χi are unique, for if g = (g1 , e2 ), then
+                              χ (g) = χ ((g1 , e2 )) = χ1 (g1 )χ2 (e2 ) = χ1 (g1 ),
+        and similarly for χ2 . If χ (g) = χ1 (g1 )χ2 (g2 ), then
+                                                                      
+                                                            
+                               χ (g) =         χ1 (g1 )          χ2 (g2 ) ,
+                               g∈G               g1 ∈G 1             g2 ∈G 2
+
+        so that (4.12) holds for G if it holds for G 1 and for G 2 . Similarly, if g = (g1 , g2 ),
+        then
+                                        ⎛               ⎞⎛                 ⎞
+                                                           
+                              χ (g) = ⎝         χ1 (g1 )⎠ ⎝        χ2 (g2 )⎠ ,
+                                 *
+                              χ ∈G                  *1
+                                                χ1 ∈G                     *2
+                                                                     χ1 ∈ G
+
+        so that (4.13) holds for G if it holds for G 1 and G 2 .                                   
+                                                         * is isomorphic to G,
+        Theorem 4.4 Let G be a ﬁnite abelian group. Then G
+        and (4.12) and (4.13) both hold.
+        Proof Any ﬁnite abelian group is isomorphic to a direct product of cyclic
+        groups, say
+                                         G∼
+                                          = C n 1 ⊗ Cn 2 ⊗ · · · ⊗ Cnr .
+        The result then follows immediately from the lemmas.                                       
+
+           Though G and G  * are isomorphic, the isomorphism is not canonical. That is,
+        no particular one-to-one correspondence between the elements of G and those
+           * is naturally distinguished.
+        of G
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            4.2 Dirichlet characters                                 117
+
+
+        Corollary 4.5 The multiplicative group (Z/qZ)× of reduced residue classes
+        (mod q) has ϕ(q) Dirichlet characters. If χ is such a character, then
+                              q            
+                                              ϕ(q) if χ = χ0 ,
+                                    χ (n) =                                   (4.14)
+                              n=1
+                                              0       otherwise.
+                                       (n,q)=1
+
+        If (n, q) = 1, then
+                                                 
+                                                      ϕ(q)    if n ≡ 1 (mod q),
+                                        χ (n) =                                                    (4.15)
+                                   χ
+                                                      0       otherwise,
+
+        where the sum is extended over the ϕ(q) Dirichlet characters χ (mod q).
+
+           As we remarked at the outset, for our purposes it is convenient to deﬁne the
+        Dirichlet characters (mod q) on all integers; we do this by setting χ (n) = 0
+        when (n, q) > 1. Thus χ is a totally multiplicative function with period q that
+        vanishes whenever (n, q) > 1, and any such function is a Dirichlet character
+        (mod q). In this book a character is understood to be a Dirichlet character unless
+        the contrary is indicated.
+
+        Corollary 4.6 If χi is a character (mod qi ) for i = 1, 2, then χ1 (n)χ2 (n)
+        is a character (mod [q1 , q2 ]). If q = q1 q2 , (q1 , q2 ) = 1, and χ is a character
+        (mod q), then there exist unique characters χi (mod q), i = 1, 2, such that
+        χ (n) = χ1 (n)χ2 (n) for all n.
+
+        Proof The ﬁrst assertion follows immediately from the observations that
+        χ1 (n)χ2 (n) is totally multiplicative, that it vanishes if (n, [q1 , q2 ]) > 1, and
+        that it has period [q1 , q2 ]. As for the second assertion, we may suppose that
+        (n, q) = 1. By the Chinese Remainder Theorem we see that
+
+                                    (Z/qZ)× ∼
+                                            = (Z/q1 Z)× ⊗ (Z/q2 Z)×
+
+        if (q1 , q2 ) = 1. Thus the result follows from Lemma 4.2.                                     
+
+           Our proof of Theorem 4.4 depends on Abel’s theorem that any ﬁnite abelian
+        group is isomorphic to the direct product of cyclic groups, but we can prove
+        Corollary 4.5 without appealing to this result, as follows. By the Chinese Re-
+        mainder Theorem we see that
+                                             +
+                                 (Z/qZ)× ∼ =      (Z/ p α Z)× .
+                                                          p α q
+
+        If p is odd, then the reduced residue classes (mod p α ) form a cyclic group; in
+        classical language we say there is a primitive root g. Thus if (n, p) = 1, then
+        there is a unique ν (mod ϕ( p α )) such that g ν ≡ n (mod p α ). The number ν is
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        118                         Primes in arithmetic progressions: I
+
+
+        called the index of n, and is denoted ν = indg n. From Lemma 4.2 it follows
+        that the characters (mod p α ), p > 2, are given by
+                                                           
+                                                  k indg n
+                                     χk (n) = e                              (4.16)
+                                                   ϕ( p α )
+        for (n, p) = 1. We obtain ϕ( pα ) different characters by allowing k to assume
+        integral values in the range 1 ≤ k ≤ ϕ( p α ). By Lemma 4.3 it follows that if q
+        is odd, then the general character (mod q) is given by
+                                                              
+                                                k indg n
+                                   χ (n) = e                                     (4.17)
+                                               p α q
+                                                      ϕ( p α )
+
+        for (n, q) = 1, where it is understood that k = k( pα ) is determined (mod ϕ( p α ))
+        and that g = g( p α ) is a primitive root (mod p α ).
+           The multiplicative structure of the reduced residues (mod 2α ) is more com-
+        plicated. For α = 1 or α = 2 the group is cyclic (of order 1 or 2, respectively),
+        and (4.16) holds as before. For α ≥ 3 the group is not cyclic, but if n is odd, then
+        there exist unique µ (mod 2) and ν (mod 2α−2 ) such that n ≡ (−1)µ 5ν (mod 2α ).
+        In group-theoretic terms this means that
+                                      
+                                        Z/2α Z)× ∼
+                                                 = C2 ⊗ C2α−2
+        when α ≥ 3. By Lemma 4.3 the characters in this case take the form
+                                                       
+                                          jµ       kν
+                              χ (n) = e       + α−2                                                (4.18)
+                                           2      2
+        for odd n where j = 0 or 1 and 1 ≤ k ≤ 2α−2 . Thus (4.17) holds if 8  q, but if
+        8|q, then the general character takes the form
+                                    ⎛                                 ⎞
+                                    ⎜ jµ       kν           indg n ⎟
+                          χ (n) = e ⎝      + α−2 +                    ⎠          (4.19)
+                                        2     2         α
+                                                       p q
+                                                             ϕ( p α )
+                                                                    p>2
+
+
+        when (n, q) = 1.
+           By deﬁnition, if f (n) is totally multiplicative, f (n) = 0 whenever (n, q) > 1,
+        and f (n) has period q, then f is a Dirichlet character (mod q). It is useful to
+        note that the ﬁrst condition can be relaxed.
+        Theorem 4.7 If f is multiplicative, f (n) = 0 whenever (n, q) > 1, and f has
+        period q, then f is a Dirichlet character modulo q.
+        Proof It sufﬁces to show that f is totally multiplicative. If (mn, q) > 1, then
+         f (mn) = f (m) f (n) since 0 = 0. Suppose that (mn, q) = 1. Hence in partic-
+        ular (m, q) = 1, so that the map k → n + kq (mod m) permutes the residue
+        classes (mod m). Thus there is a k for which n + kq ≡ 1 (mod m), and
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                            4.2 Dirichlet characters                               119
+
+
+        consequently (m, n + kq) = 1. Then
+                            f (mn) = f (m(n + kq))                    (by periodicity)
+                                     = f (m) f (n + kq)               (by multiplicativity)
+                                     = f (m) f (n)                    (by periodicity),
+        and the proof is complete.                                                                  
+
+            We shall discuss further properties of Dirichlet characters in Chapter 9.
+
+                                                 4.2.1      Exercises
+        1. Let G be a ﬁnite abelian group of order n. Let g1 , g2 , . . . , gn denote the
+           elements of G, and let χ1 (g), χ2 (g), . . . , χn (g) denote the characters of G.
+                                                                                 √
+           Let U = [u i j ] be the n × n matrix with elements u i j = χi (g j )/ n. Show
+           that UU ∗ = U ∗ U = I , i.e., that U is unitary.
+        2. Show that for arbitrary real or complex numbers c1 , . . . , cq ,
+                                    
+                                     q                      2                
+                                                                             q
+                                                 cn χ (n)       = ϕ(q)             |cn |2
+                                    χ      n=1                             n=1
+                                                                         (n,q)=1
+
+           where the sum on the left-hand side runs over all Dirichlet characters
+           χ (mod q).
+        3. Show that for arbitrary real or complex numbers cχ ,
+                                    
+                                    q                          2            
+                                                  cχ χ (n)          = ϕ(q)       |cχ |2
+                                     n=1     χ                               χ
+
+           where the sum over χ is extended over all Dirichlet characters (mod q).
+        4. Let (a, q) = 1, and suppose that k is the order of a in the multiplicative group
+           of reduced residue classes (mod q).
+           (a) Show that if χ is a Dirichlet character (mod q), then χ (a) is a k th root
+               of unity.
+           (b) Show that if z is a k th root of unity, then
+                                                        
+                                                          k if z = 1,
+                             1 + z + ··· + z    k−1
+                                                    =
+                                                          0 otherwise.
+
+           (c) Let ζ be a k th root of unity. By taking z = χ (a)/ζ , show that each k th
+               root of unity occurs precisely ϕ(q)/k times among the numbers χ (a) as
+               χ runs over the ϕ(q) Dirichlet characters (mod q).
+        5. Let χ be a Dirichlet character (mod q), and let k denote the order of χ in the
+           character group.
+           (a) Show that if (a, q) = 1, then χ (a) is a k th root of unity.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        120                         Primes in arithmetic progressions: I
+
+
+           (b) Show that each k th root of unity occurs precisely ϕ(q)/k times among the
+               numbers χ (a) as a runs over the ϕ(q) reduced residue classes (mod q).
+        6. Let χ be a character (mod q) such that χ (a) = ±1 whenever (a, q) = 1, and
+                       q
+           put S(χ ) = n=1 nχ (n). Thus S(χ) is an integer.
+           (a) Show that if (a, q) = 1 then aχ (a)S(χ ) ≡ S(χ ) (mod q).
+           (b) Show that there is an a such that (a, q) = 1 and (aχ (a) − 1, q)|12.
+           (c) Deduce that 12S(χ ) ≡ 0 (mod q).
+           In algebraic number ﬁelds we encounter not only Dirichlet characters, but
+        also characters of ideal class groups and of Galois groups. In addition, algebraic
+        number ﬁelds possessing one or more complex embeddings also have a further
+        kind of character, Hecke’s Grössencharaktere. In a sequence of exercises, be-
+        ginning with the one below, we develop the basic properties of these characters
+                                   √
+        for the Gaussian ﬁeld Q( −1).
+        7. Let K be the Gaussian ﬁeld,
+                                   √
+                          K =Q       −1 = {a + bi : a, b ∈ Q},
+
+            and let O K be the ring of algebraic integers in K ,
+
+                                          O K = {a + bi : a, b ∈ Z}.
+            Elements α = a + bi ∈ K have a norm, N (α) = a 2 + b2 , and we observe
+            that N (αβ) = N (α)N (β). An element α of a ring is a unit if α has an inverse
+            in the ring. The ring O K has precisely four units, namely i k for k = 0, 1, 2, 3.
+            Two elements α, β ∈ O K are associates if α = uβ for some unit u. For each
+            integer m we deﬁne the Hecke Grössencharakter
+                                             4mi arg α
+                                              e          if α = 0,
+                                  χm (α) =
+                                              0          if α = 0.
+
+            (a) Show that if α and β are associates then χm (α) = χm (β).
+            (b) Show that χm (αβ) = χm (α)χm (β) for all α and β in O K .
+
+
+                                     4.3      Dirichlet L-functions
+        Let χ be a character (mod q). For σ > 1 we put
+                                             
+                                             ∞
+                                  L(s, χ ) =    χ (n)n −s .                                        (4.20)
+                                                           n=1
+
+        Since χ is totally multiplicative, by Theorem 1.9 we have
+                                       L(s, χ ) =          (1 − χ ( p) p −s )−1                    (4.21)
+                                                       p
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           4.3 Dirichlet L-functions                                 121
+
+
+        for σ > 1. Thus we see that
+                                                
+                                                ∞
+                                                                                         
+                               L(s, χ0 ) =               n −s = ζ (s)          1 − p −s            (4.22)
+                                                n=1                     p|q
+                                              (n,q)=1
+
+        for σ > 1. By (4.14) we see that if χ = χ0 , then
+                                        
+                                               χ (n) = 0
+                                                 1≤n≤kq
+
+        for k = 1, 2, 3, . . . . Hence
+                                                   
+                                                         χ (n) ≤ q                                 (4.23)
+                                                   n≤x
+
+        for any x, so that by Theorem 1.3, the series (4.20) converges for σ > 0. This
+        result is best possible since the terms in (4.20) do not tend to 0 when σ = 0. On
+        the other hand, we shall show in Chapter 10 that the function L(s, χ ) is entire
+        if χ = χ0 . For σ > 1 we can take logarithms in (4.21), and differentiate, as in
+        Corollary 1.11, and thus we obtain
+
+        Theorem 4.8 If χ = χ0 , then L(s, χ) is analytic for σ > 0. On the other
+        hand, the function L(s, χ0 ) is analytic in this half-plane except for a simple
+        pole at s = 1 with residue ϕ(q)/q. In either case,
+                                                          
+                                                          ∞
+                                                              (n)
+                                       log L(s, χ) =                χ (n)n −s                      (4.24)
+                                                          n=2
+                                                              log n
+
+        for σ > 1, and
+                                           L           ∞
+                                       −      (s, χ ) =     (n)χ (n)n −s .                        (4.25)
+                                           L            n=1
+
+           In these last formulæ we see how relations for L-functions parallel those
+        for the zeta functions. Indeed, when manipulating Dirichlet series formally, the
+        only property of n −s that is used is that it is totally multiplicative. Hence all
+        such calculations can be made with n −s replaced by χ (n)n −s . For example, we
+                   
+        know that µ(n)2 n −s = ζ (s)/ζ (2s) for σ > 1. Hence formally
+                                 
+                                 ∞
+                                       µ(n)2 χ (n)n −s = L(s, χ )/L(2s, χ 2 ).                     (4.26)
+                                 n=1
+
+        Since |χ (n)n −s | ≤ n −σ , this latter series is absolutely convergent whenever the
+        former one is, and by (4.21) we see that (4.26) holds for σ > 1. In fact, by a
+        theorem of Stieltjes (see Exercise 1.3.2), the identity (4.26) holds for σ > 1/2
+        if χ = χ0 .
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        122                         Primes in arithmetic progressions: I
+
+
+           We now use the identity (4.15) to capture a prescribed residue class. If
+        (a, q) = 1, then
+                                             
+                          1                   1 if n ≡ a (mod q),
+                                χ (a)χ (n) =                                (4.27)
+                         ϕ(q) χ                0 otherwise
+
+        where the sum is extended over all characters χ (mod q). This is the multiplica-
+        tive analogue of (4.1). Hence if (a, q) = 1 then
+                            
+                            ∞
+                                                       1   ∞           
+                                    (n)n −s =                 (n)n −s   χ (a)χ (n)
+                           n=1
+                                                      ϕ(q) n=1          χ
+                          n≡a (q)
+                                                      −1         L
+                                                  =          χ (a) (s, χ)                          (4.28)
+                                                      ϕ(q) χ      L
+
+                                                                                              
+        for σ > 1. As L(s, χ0 ) has a simple pole at s = 1, the function LL (s, χ) has a
+        simple pole at 1 with residue −1. Thus the term arising from χ0 on the right-hand
+        side above is
+                                                   1
+                                                          + Oq (1)                                 (4.29)
+                                              ϕ(q)(s − 1)
+
+        as s → 1+ . This enables us to prove that there are inﬁnitely many primes
+        p ≡ a (mod q), provided that we can show that the terms from χ = χ0 on the
+        right-hand side of (4.28) do not interfere with the main term (4.29). But L(s, χ )
+                                          
+        is analytic for σ > 0, so that LL (s, χ ) is analytic except at zeros of L(s, χ ).
+        Hence
+                                                   L          L
+                                            lim+      (s, χ ) = (1, χ )                            (4.30)
+                                            s→1    L           L
+        for χ = χ0 , provided that L(1, χ ) = 0. Thus the following result lies at the
+        heart of the matter.
+
+        Theorem 4.9 (Dirichlet) If χ is a character (mod q) with χ = χ0 , then
+        L(1, χ ) = 0.
+
+           Suppose that (a, q) = 1. Then the above, with (4.28), (4.29), and (4.30) give
+        the estimate
+                                    
+                                    ∞
+                                                                1
+                                            (n)n −s =                 + Oq (1)
+                                   n=1
+                                                           ϕ(q)(s − 1)
+                                  n≡a (q)
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           4.3 Dirichlet L-functions                                 123
+
+
+        as s → 1+ . Consequently
+                                                 ∞
+                                                     (n)
+                                                          = ∞.
+                                                 n=1
+                                                      n
+                                               n≡a (q)
+
+        Here the contribution of the proper prime powers is
+                     log p                 ∞          log p
+                                ≤      log p     p −k =             < ∞,                           (4.31)
+                                                        p p( p − 1)
+                            p k
+                   k
+                      p ≡a (q)       p       k=2
+                        k≥2
+
+        and thus we have
+
+        Corollary 4.10 (Dirichlet’s theorem) If (a, q) = 1, then there are inﬁnitely
+        many primes p ≡ a (mod q), and indeed
+                                      log p
+                                                = ∞.
+                                   p≡a (q)
+                                           p
+
+           We call a character real if all its values are real (i.e., χ (n) = 0 or ±1 for all
+        n). Otherwise a character is complex. A character is quadratic if it has order
+        2 in the character group: χ 2 = χ0 but χ = χ0 . Thus a quadratic character is
+        real, and a real character is either principal or quadratic. In Chapter
+                                                                               9 we shall
+        express quadratic characters in terms of the Kronecker symbol dn .
+
+        Proof of Theorem 4.9 We treat quadratic and complex characters separately.
+          Case 1: Complex χ . From (4.24) we have
+                                                                  
+                                              ∞
+                                                   (n)         −s
+                            L(s, χ ) = exp               χ (n)n
+                         χ                   χ n=2 log n
+
+        for σ > 1. By (4.15) this is
+                                               ⎛              ⎞
+                                            ⎜     ∞
+                                                      (n) −s ⎟
+                                      = exp ⎝ϕ(q)           n ⎠.
+                                                  n=2
+                                                      log n
+                                                         n≡1 (q)
+
+        If we take s = σ > 1, then the sum above is a non-negative real number, and
+        hence we see that
+
+                                                       L(σ, χ) ≥ 1                                 (4.32)
+                                                   χ
+
+        for σ > 1. Now L(s, χ0 ) has a simple pole at s = 1, but the other L(s, χ )
+        are analytic at s = 1. Thus L(1, χ ) = 0 can hold for at most one χ, since
+        otherwise the product in (4.32) would tend to 0 as σ → 1+ . If χ is a character
+        (mod q), then χ is a character (mod q), and χ = χ if χ is complex. Moreover
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        124                         Primes in arithmetic progressions: I
+
+
+        L(s, χ ) = L(s, χ ) by the Schwarz reﬂection principle, so that L(1, χ ) = 0 if
+        L(1, χ ) = 0. Consequently L(1, χ ) = 0 for complex χ .
+                                                                         ∞          −s
+            Case 2: Quadratic χ. Let r (n) = d|n χ (d). Thus               n=1 r (n)n    =
+        ζ (s)L(s, χ ) for σ > 1, r (n) is multiplicative, and
+                                      ⎧
+                                      ⎪
+                                      ⎪ 1       if p | q,
+                                      ⎨
+                                        α + 1   if χ ( p) = 1,
+                           r ( pα ) =
+                                      ⎪
+                                      ⎪ 1       if χ ( p) = −1 and 2 | α,
+                                      ⎩
+                                        0       if χ ( p) = −1 and 2  α.
+
+        Hence r (n) ≥ 0 for all n, and r (n 2 ) ≥ 1 for all n. Suppose that L(1, χ ) = 0.
+        Then ζ (s)L(s, χ) is analytic for σ > 0, and by Landau’s theorem (Theorem
+                       
+        1.7) the series r (n)n −s converges for σ > 0. But this is false, since
+                           
+                           ∞                     
+                                                 ∞                      
+                                                                        ∞
+                                 r (n)n −1/2 ≥         r (n 2 )n −1 ≥         n −1 = +∞.
+                           n=1                   n=1                    n=1
+
+        Hence L(1, χ ) = 0. Since L(σ, χ) > 0 for σ > 1 when χ is quadratic, we see
+        in fact that L(1, χ ) > 0 in this case.                                   
+
+           By using the techniques of Chapter 2 we can prove more than the mere
+        divergence of the series in Corollary 4.10.
+
+        Theorem 4.11 Suppose that χ is a non-principal Dirichlet character. Then
+        for x ≥ 2,
+                                   χ (n)(n)
+        (a)                                         χ 1,
+                                   n≤x     n
+                                  χ ( p) log p
+        (b)                                         χ 1,
+                                  p≤x      p
+                             χ ( p)                       
+                                                         1
+        (c)                            = b(χ ) + Oχ            ,
+                            p≤x   p                   log x
+                                                                 
+                                χ ( p) −1                        1
+        (d)                 1−            = L(1, χ ) + Oχ
+                      p≤x         p                           log x
+        where
+                                                                    χ ( pk )
+                                     b(χ ) = log L(1, χ ) −                        .
+                                                                          kp k
+                                                                    pk
+                                                                   k>1
+
+        Proof We show ﬁrst that
+                      χ (n) log n                                                       
+                                                                                 log x
+                                                  = −L (1, χ ) + Oq                           .    (4.33)
+                              n≤x        n                                          x
+                                          
+        To this end we put S(x) =             n≤x χ (n). Then from (4.23) we see that S(x)           χ 1.
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                             4.3 Dirichlet L-functions                                125
+
+
+        Thus the error term above is
+                 χ (n) log n         ∞
+                                         log u
+                               =               d S(u)
+                n>x      n          x      u
+                                                        ∞
+                                      S(x) log x
+                               =−                 −       S(u)(1 − log u)u −2 du
+                                           x          x
+                                     log x
+                                 χ         .
+                                       x
+                    
+        As log n = d|n (d), the left-hand side of (4.33) is
+                         (d)χ (md)  (d)χ(d)  χ (m)
+                                           =                             .       (4.34)
+                       md≤x
+                                md            d≤x
+                                                       d     m≤x/d
+                                                                     m
+
+        Here the inner sum is of the form
+                              χ (m)                  χ (m)
+                                        = L(1, χ ) −         ,
+                             m≤y m                   m>y m
+
+        and this last sum is
+                             ∞                                     ∞
+                                                   S(y)
+                                 u −1 d S(u) = −        +              S(u)u −2 du     χ y
+                                                                                             −1
+                                                                                                  .
+                         y                          y          y
+
+        Hence the right-hand side of (4.34) is
+                                                                                    
+                                             (d)χ (d)                    1
+                                 L(1, χ )                   + Oχ                 (d) .
+                                            d≤x
+                                                   d                       x d≤x
+
+        This last error term is χ 1, and then (a) follows from (4.33) and the fact that
+        L(1, χ ) = 0. The derivation of (b) from (a), and of (c) from (b) proceeds as in
+        the proof of Theorem 2.7. Continuing as in that proof, we see from (c) that
+                              (n)χ (n)                            
+                                                                 1
+                                              = c(χ ) + Oχ
+                            1<n≤x
+                                    n log n                    log x
+
+        where
+                                                               χ ( pk )
+                                            c(χ ) = b(χ ) +                    .
+                                                                        kp k
+                                                               pk
+                                                              k>1
+
+        We let s → 1+ in (4.24), and deduce by Theorem 1.1 that c(χ ) = log L(1, χ ).
+        To complete the derivation of (d) it sufﬁces to argue as in the proof of
+        Theorem 2.7.                                                              
+
+            By forming a linear combination of these estimates as in (4.27) we obtain
+        Corollary 4.12 If (a, q) = 1 and x ≥ 2, then
+                                (n)        1
+        (a)                              =        log x + Oq (1),
+                               n≤x    n     ϕ(q)
+                                        n≡a (q)
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        126                          Primes in arithmetic progressions: I
+
+
+                                     log p          1
+        (b)                                     =       log x + Oq (1),
+                                    p≤x     p      ϕ(q)
+                              1
+                                   n≡a (q)
+                                                                             
+                                          1                               1
+         (c)                        =       log log x + b(q, a) + Oq            ,
+                             p≤x p     ϕ(q)                             log x
+                           n≡a (q)
+                                             −1                                       
+                                          1                                           1
+        (d)                         1−              = c(q, a)(log x)1/ϕ(q) 1 + Oq
+                       p≤x                p                                         log x
+                      n≡a (q)
+        where
+                                                                  
+                   1                    1                                  1
+        b(q, a) =       C0 +     log 1 −    +        χ (a) log L(1, χ ) −
+                  ϕ(q)                   p    χ =χ0
+                                                                             kp k
+                             p|q                                          k
+                                                                                                   p ≡a (q)
+                                                                                                     k>1
+
+        and
+                                                                                         1/ϕ(q)
+                          C0 ϕ(q)                         χ (a)         1 −χ ( p)      χ ( p)
+         c(q, a) = e                           L(1, χ )              1−             1−                  .
+                                q    χ =χ0                       p     p                p
+        Proof      To derive (a) from Theorem 4.11(a) we use (4.27) and the estimate
+                                   (n)χ0 (n)
+                                               = log x + Oq (1),
+                                  n≤x    n
+        which follows from Theorem 2.7(a) since
+                               log p  log p
+                                       =                                     q 1.
+                               k
+                                  pk       p|q
+                                               p−1
+                                          p
+                                          p|q
+
+        We derive (b) and (c) similarly from the corresponding parts of Theorem 4.11.
+        In the latter case we use the estimate
+                          χ0 ( p)                                   
+                                                                  1
+                                    = log log x + b(χ0 ) + Oq
+                          p≤x   p                               log x
+        where
+                                                                 
+                                                                1      χ0 ( p k )
+                            b(χ0 ) = C0 +               log 1 −    −              .
+                                                    p|q
+                                                                p    k
+                                                                        kp k
+                                                                              p
+                                                                             k>1
+        To derive (d) we observe ﬁrst that
+                                                            
+                             χ0 ( p) −1             1          1 −1
+                         1−             =        1−         1−      ,
+                   p≤x         p           p≤x      p p≤x      p
+                                                            p|q
+        which by Theorem 2.7(e) is
+                       ⎛               ⎞−1
+                                                             
+                  ϕ(q) ⎜           1 ⎟ −C0                   1
+               =       ⎝       1−      ⎠ e (log x) 1 + O            .
+                   q     p|q
+                                   p                       log x
+                                    p>x
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           4.3 Dirichlet L-functions                               127
+
+
+        Here each term in the product is 1 + O(1/x), and the number of factors is
+        ≤ ω(q), so the product is 1 + Oq (1/x), and hence the above is
+                                                            
+                                  ϕ(q)                    1
+                           = eC0       (log x) 1 + Oq            .
+                                   q                    log x
+        To complete the proof it sufﬁces to combine this with Theorem 4.11(d)
+        in (4.27).                                                         
+
+
+                                               4.3.1      Exercises
+          1. Let χ be a Dirichlet character (mod q). Show that if σ > 1, then
+                             
+                             ∞
+             (a)                (−1)n−1 χ (n)n −s = (1 − χ (2)21−s )L(s, χ );
+                                   n=1
+                                            
+                                            ∞
+                                                            L(s, χ )4
+              (b)                        d(n)2 χ (n)n −s =              .
+                                                            L(2s, χ 2 )
+                                     n=1     
+          2. (Mertens 1895a,b) Let r (n) = d|n χ (d).
+             (a) Show that if χ is a non-principal character (mod q), then
+                                          χ (n)          1
+                                              √        χ √ .
+                                         n>x     n         x
+              (b) Show that if χ is a non-principal character (mod q), then
+                                  r (n)
+                                        1/2
+                                            = 2x 1/2 L(1, χ ) + Oχ (1).
+                                  n≤x n
+
+             (c) Recall that if χ is quadratic then r (n) ≥ 0 for all n, and that r (n 2 ) ≥ 1.
+                 Deduce that if χ is a quadratic character, then the left-hand side above
+                 is    log x.
+             (d) Conclude that if χ is a quadratic character, then L(1, χ ) > 0.
+                                                                 
+          3. (Mertens 1897, 1899) For u ≥ 0, put f (u) = m≤u (1 − m/u).
+             (a) Show that f (u) ≥ 0, that f (u) is continuous, and that if u is not an
+                 integer, then
+                                                    [u]([u] + 1)
+                                          f  (u) =               ;
+                                                         2u 2
+                 deduce that f is increasing.
+             (b) Show also that
+                                    u     1 u                u     1
+                            f (u) = −             {v} dv = − + O(1/u) .
+                                     2 u 0                   2 2
+                               
+             (c) Let r (n) = d|n χ (d), and assume that χ is non-principal. Show that
+                                                        
+                                    r (n)(1 − n/x) =          χ (d) f (x/d) .
+                                     n≤x                         d≤x
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        128                         Primes in arithmetic progressions: I
+
+                                            
+              (d) Write       d≤x =     d≤y +    y<d≤x = S1 + S2 where 1 ≤ y ≤ x. Use
+                   part (b) to show that S1 = 2 x L(1, χ ) + Oχ (x/y) + O(y 2 /x).
+                                               1
+
+              (e) Use the results of part (a) to show that S2 χ f (x/y).
+               (f) By making an appropriate choice of y, deduce that if χ is a non-principal
+                   character, then
+                                                    x                   
+                                   r (n)(1 − n/x) = L(1, χ ) + Oχ x 1/3 .
+                               n≤x                   2
+             (g) Argue that if χ is a quadratic character, then the left-hand side above
+                 is   x 1/2 ; deduce that L(1, χ ) > 0.
+          4. (Ingham 1929) Let f 1 (n) and f 2 (n) be totally multiplicative functions, and
+             suppose that | f i (n)| ≤ 1 for all n.
+             (a) Show that if σ > 1, then
+                                             
+               ∞                   
+                         f 1 (d)         f 2 (d) n −s
+                n=1     d|n                d|n
+                                                                                                              
+                                    ∞                        
+                                                              ∞                            
+                                                                                           ∞
+                           ζ (s)          f 1 (n)n −s                f 2 (n)n −s                 f 1 (n) f 2 (n)n −s
+                                    n=1                       n=1                          n=1
+                       =
+                                                        
+                                                        ∞
+                                                               f 1 (n) f 2 (n)n −2s
+                                                        n=1
+                                                        
+                                                   f 1 ( p) f 2 ( p)
+                                                                      
+                                              1−
+                                       p                  p 2s
+                       =                                                               .
+                               1        f 1 ( p)             f 2 ( p)        f 1 ( p) f 2 ( p)
+                            1− s    1−              1   −                1 −
+                         p    p            ps                   ps                  ps
+              (b) By considering
+                                                    
+                                                    ∞                                 2
+                                           F(s) =                     χ (d)d −iu n −s ,
+                                                        n=1    d|n
+
+                 show that L(1 + iu, χ ) = 0.
+          5. Let π(x; q, a) denote the number of primes p ≡ a (mod q) with p not
+             exceeding x. Similarly, let
+                                                            
+                   ϑ(x; q, a) =         log p,  ψ(x; q, a) =     (n).
+                                           p≤x                                                n≤x
+                                          p≡a (q)                                            n≡a (q)
+
+              (a) Show that
+                                                                       
+                                       ϑ(x; q, a) = ψ(x; q, a) + O x 1/2 .
+              (b) Show that
+                                                                                                  
+                                                        ϑ(x; q, a)                        x
+                                   π(x; q, a) =                    +O                                  .
+                                                          log x                        (log x)2
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           4.3 Dirichlet L-functions                               129
+
+
+              (c) Show that if x ≥ C, C ≥ 2, and (a, q) = 1, then
+                                     log p        log C
+                                                =        + Oq (1).
+                                  x/C< p≤x
+                                           p        ϕ(q)
+                                          p≡a (q)
+
+              (d) Show that for any positive integer q there is a small number cq and a
+                  large number Cq such that if x ≥ 2Cq and (a, q) = 1, then
+                                            log p
+                                                        > cq .
+                                       x/Cq < p≤x
+                                                    p
+                                                    p≡a (q)
+
+              (e) Show that for any positive integer q there is a Cq such that if (a, q) = 1,
+                  then
+                                                            x
+                                         π (x; q, a) q
+                                                          log x
+                  uniformly for x ≥ Cq .
+              (f) Show that if (a, q) = 1, then
+                            π(x; q, a)    1                                 π (x; q, a)    1
+                       lim inf         ≤      ,                  lim sup                ≥      .
+                        x→∞  x/ log x    ϕ(q)                       x→∞      x/ log x     ϕ(q)
+          6. (a) Show that
+                                                                                         
+                                                                                    x
+                                   ϑ(x) ≤ π (x) log x ≤ ϑ(x) + O
+                                                                                  log x
+                  for x ≥ 2.
+              (b) Let P denote a set of prime numbers, and put
+                                                           
+                             πP (x) =       1,    ϑP (x) =     log p.
+                                                p≤x                           p≤x
+                                                p∈P                           p∈P
+
+                   Show that
+                                                                                     
+                                                                                x
+                                       ϑP (x) = πP (x) log x + O
+                                                                              log x
+                  for x ≥ 2, where the implicit constant is absolute.
+              (c) Let
+
+                                                       n=           p.
+                                                              p≤y
+                                                              p∈P
+
+                  Show that log n = ω(n) log y + O(y/ log y) for y ≥ 2.
+              (d) From now on, assume that ϑP (x)    x for all sufﬁciently large x, where
+                  the implicit constant may depend on P. Show that log log n = log y +
+                  OP (1).
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        130                         Primes in arithmetic progressions: I
+
+
+              (e) Deduce that
+
+                                              d(n) = n (log 2+o(1))/ log log n
+
+                 as y → ∞.
+          7. Let R(n) denote the number of ordered pairs a, b such that a 2 + b2 = n
+             with a ≥ 0 and b > 0. Also, let r (n) denote
+                                                          the number of such pairs for
+                                                      −4
+             which (a, b) = 1. Finally, let χ−4 = n be the non-principal character
+             (mod 4). We recall that if the prime factorization of n is written in the form
+
+                                         n = 2α               pβ              qγ ,
+                                                                     γ
+                                                      β
+                                                     p n           q n
+                                                    p≡1 (4)        q≡3 (4)
+
+              then r (n) > 0 if and only if γ = 0 for all primes q and α ≤ 1. We also
+              recall that
+                                                       
+                                                            p (β + 1) if 2|γ for all q,
+               R(n) =         r (n/d 2 ) =     χ−4 (d) =
+                       d 2 |n              d|n
+                                                          0           otherwise.
+
+                            
+              (a) Show that ∞      R(n)n −s = ζ (s)L(s, χ−4 ) for σ > 1.
+                            n=1
+                               ∞
+              (b) Show that n=1 r (n)n −s = ζ (s)L(s, χ−4 )/ζ (2s) for σ > 1.
+              (c) Show that if x ≥ 0 and y ≥ 2, then
+                                                                     y
+                            card{n ∈ (x, x + y] : r (n) > 0}      √       .
+                                                                    log y
+              (d) Show that
+                                                                                  x
+                                       card{n ≤ x : R(n) > 0}                   √
+                                                                                 log x
+                  for x ≥ 2.
+              (e) Suppose that n is of the form
+
+                                                     n=                  p.
+                                                               p≤y
+                                                              p≡1 (4)
+
+                   Thus log n = ϑ(y; , 4, 1) y for y ≥ 5, and hence log y = log log n +
+                   O(1). Show that for such n,
+
+                                             R(n) = n (log 2+o(1))/ log log n .
+
+                      In the above it is noteworthy that although R(n) ≤ d(n) for all n, that
+                   R(n) is usually 0 and has a smaller average value (cf. Exercise 2.1.9)
+                   than d(n) (cf. Theorem 2.3), the maximum order of magnitude of R(n)
+                   is the same as for d(n).
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                           4.3 Dirichlet L-functions                               131
+
+                          √
+          8. Let K = Q( −1) be the Gaussian ﬁeld, O K = {a + ib : a, b ∈ Z} the ring
+             of integers in K . Ideals a in O K are principal, a = (a + ib), and have norm
+             N (a) = a 2 + b2 .
+             (a) Explain why the number of ideals a with N (a) ≤ x is π4 x + O(x 1/2 ).
+                                            
+             (b) For σ > 1, let ζ K (s) = a N (a)−s be the Dedekind zeta function of
+                  K . Show that ζ K (s) = ζ (s)L s, χ−4 .
+             (c) For the Gaussian ﬁeld K , show that N (ab) = N (a)N (b). (This is true
+                  in any algebraic number ﬁeld.)
+             (d) Assume that ideals in K factor uniquely into prime ideals. (This is true
+                  in any algebraic number ﬁeld, and is particularly easy to establish for
+                  the Gaussian ﬁeld since it has a division algorithm.) Deduce that if
+                  σ > 1, then
+                                                                
+                                                            1 −1
+                                      ζ K (s) =       1−
+                                                 p         N (p)
+
+                  where the product runs over all prime ideals p in O K .
+              (e) Deﬁne a function µ(a) = µ K (a) in such a way that
+                                           1       µ(a)
+                                                =
+                                        ζ K (s)     a N (a)
+                                                            s
+
+
+                  for σ > 1.
+              (f) Let a and b be given ideals. Show that
+                                             
+                                                1 if gcd(a, b) = 1,
+                                      µ(d) =
+                                  d|a
+                                                0 otherwise.
+                                        d|b
+
+              (g) Among pairs a, b of ideals with N (a) ≤ x, N (b) ≤ x, show that the
+                  probability that gcd(a, b) = 1 is
+                              1                     6                
+                                   + O x −1/2 = 2            + O x 1/2 .
+                           ζ K (2)                π L 2, χ−4
+          9. (Erdős 1946, 1949, 1957, Vaughan 1974, Saffari, unpublished, but see
+             Bateman, Pomerance & Vaughan 1981; cf. Exercise 2.3.7) Let q (z) =
+                          µ(q/d)
+               d|q (z − 1)
+                     d
+                                  denote the q th cyclotomic polynomial. Suppose that
+
+                                                  q=                p
+                                                           p≤y
+                                                         p≡±2 (5)
+
+              where y is chosen so that ω(q) is odd.
+              (a) Show that if d|q and ω(d) is even, then |e(d/5) − 1| = |e(1/5) − 1|.
+              (b) Show that if d|q and ω(d) is odd, then |e(d/5) − 1| = |e(2/5) − 1|.
+              (c) Deduce that |q (e(1/5))| = |e(1/5) + 1|d(q)/2 .
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        132                            Primes in arithmetic progressions: I
+
+
+              (d) Deduce that q (z) has a coefﬁcient whose absolute value is at least
+                                                                  
+                                        exp q (log 2−ε)/ log log q
+                if y > y0 (ε).        √
+        10. Grössencharaktere for Q( −1), continued from Exercise 4.2.7.
+            (a) For σ > 1 put
+                                              1 
+              L(s, χm ) =       χm (α)N (α)−s =          χm (a + bi)(a 2 + b2 )−s
+                           α∈O
+                                                4  a,b∈Z
+                                        K
+                                                                      (a,b)=(0,0)
+                            
+                  where α denotes a sum over unassociated members of O K . Show
+                  that the above sum is absolutely convergent in this half-plane.
+              (b) We recall that members of O K factor uniquely into Gaussian primes.
+                  Also, the Gaussian primes are obtained by factoring the rational primes:
+                  The prime 2 ramiﬁes, 2 = i 3 (1 + i)2 , the rational primes p ≡ 1 (mod 4)
+                  split into two distinct Gaussian primes, p = (a + bi)(a − bi), and the
+                  rational primes q ≡ 3 (mod 4) are inert. Show that
+                                            L(s, χm ) =          (1 − χm (p)N (p)−s )−1
+                                                             p
+
+                  for σ > 1 where the product is over an unassociated family of Gaussian
+                  primes p.
+              (c) By grouping associates together, show that if 4  m, then the sum
+                                     
+                                           emi arg(a+bi) (a 2 + b2 )−s
+                                                 a,b∈Z
+                                              (a,b)=(0,0)
+
+                  vanishes identically for σ > 1.
+              (d) For 0 ≤ θ ≤ 2π , put N (x; θ) = card{(a, b) ∈ Z2 : a 2 + b2 ≤ x, 0 <
+                  arg(a + bi) ≤ θ }. Show that for x ≥ 1,
+                                                   θ             
+                                       N (x; θ ) = x + O x 1/2
+                                                   2
+                  uniformly in θ .
+              (e) Show that if m = 0, then
+                                                 π/2
+                               χm (a + bi) =          e4miθ d N (x; θ ) |m|x 1/2 .
+                          a 2 +b2 ≤x                             0
+                          a>0,b≥0
+
+               (f) Show that if m = 0, then the Dirichlet series L(s, χm ) is convergent for
+                   σ > 1/2.
+              (g) Show that L(s, χm ) and L(s, χ−m ) are identically equal, and hence that
+                   L(σ, χm ) ∈ R for σ > 1/2.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                     4.4 Notes                                     133
+
+
+                                                  4.4      Notes
+        Section 4.1. Ramanujan’s sum was introduced by Ramanujan (1918). Incredi-
+        bly, both Hardy and Ramanujan missed the fact that cq (n) be written in closed
+        form: The formula on the extreme right of (4.7) is due to Hölder (1936). Nor-
+        mally one would say that a function f is even if f (x) = f (−x). However, in
+        the present context, an arithmetic function f with period q is said to be even
+        if f (n) is a function only of (n, q). Thus cq (n) is an even function. The space
+        of almost-even functions is rather small, but includes several arithmetic func-
+        tions of interest. For such functions one may hope for a representation in the
+                        ∞
+        form f (n) = q=1      aq cq (n), called a Ramanujan expansion. For a survey of the
+        theory of such expansions, see Schwarz (1988). Hildebrand (1984) established
+        deﬁnitive results concerning the pointwise convergence of Ramanujan expan-
+        sions. An appropriate Parseval identity has been established for mean-square
+        summable almost-even functions; see Hildebrand, Schwarz & Spilker (1988).
+            Section 4.2. The ﬁrst instance of characters of a non-cyclic group occurs in
+        Gauss’s analysis of the genus structure of the class group of binary quadratic
+        forms. The quotient of the class group by the principal genus is isomorphic to
+        C2 ⊗ C2 ⊗ · · · ⊗ C2 , and the associated characters are given by Kronecker’s
+        symbol. Dirichlet (1839) deﬁned the Dirichlet characters for the multiplicative
+        group (Z/qZ)× of reduced residues modulo q, and the same technique sufﬁces
+        to construct the characters for any ﬁnite Abelian group. More generally, if
+        G is a group, then a homomorphism h : G −→ G L(n, C) is called a group
+        representation, and the trace of h(g) is a group character. Note that if a and
+        b are conjugate elements of G, say a = gbg −1 , then h(a) and h(b) are similar
+        matrices. Hence they have the same eigenvalues, and in particular tr h(a) =
+        tr h(b). Thus a group character is constant on conjugacy classes. In the case of a
+        ﬁnite Abelian group it sufﬁces to take n = 1, and in this case the representation
+        and its trace are essentially the same. For an introduction to characters in a
+        wider setting, see Serre (1977).
+            Section 4.3. Dirichlet (1837a,b,c) ﬁrst proved Corollary 4.10 in the case that
+        q is prime. The deﬁnition of the Dirichlet characters is not difﬁcult in that case,
+        since the multiplicative group (Z/ pZ)× of reduced residues is cyclic. The most
+        challenging part of the proof is to show that L(1, χ ) when χ is the Legendre
+        symbol (mod p). If p ≡ 3 (mod 4), then
+                         p−1  
+                                         p−1
+                                  a                 p( p − 1)
+                             a         ≡       a=             ≡ 1 (mod 2),
+                         a=1
+                                  p       a=1
+                                                        2
+
+        and hence the sum on the left is non-zero. It follows by (9.9) that L(1, χ p ) = 0
+        in this case. If p ≡ 1 (mod 4), then one has the identity of Exercise 9.3.7(c),
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        134                         Primes in arithmetic progressions: I
+
+
+        and thus to show that L(1, χ p ) = 0 it sufﬁces to show that Q = 1. Dirichlet
+        established this by means of Gauss’s theory of cyclotomy. Accounts of this are
+        found in Davenport (2000, Sections 1–3), and in Narkiewicz (2000, pp. 64–
+        65). An alternative proof that Q = 1 was given more recently by Chowla &
+         Mordell (1961) (cf. Exercise 9.3.8). In order to prove that L(1, χ ) = 0 when χ
+         is quadratic, Dirichlet related L(1, χ ) to the class number of binary quadratic
+              Suppose that d is a fundamental quadratic discriminant, and put χd (n) =
+        forms.
+           d
+           n
+              , the Kronecker symbol (as discussed in Section 9.3). Suppose ﬁrst that
+        d > 0. Among the solutions of Pell’s equation x 2 − dy 2 = 4, let (x0 , y0√) be
+        the solution with x0 > 0, y0 > 0, and y0 minimal, and put η = 12 (x0 + y0 d).
+        Dirichlet showed that
+                                                               h log η
+                                               L(1, χd ) =       √                                 (4.35)
+                                                                   d
+        where h is the number of equivalence classes of binary quadratic forms with
+                                                                                  √
+        discriminant d. Since h ≥ 1 and y0 ≥ 1, it follows that L(1, χd ) (log d)/ d
+        in this case. Now suppose that d < 0 and that w denotes the number of auto-
+        morphs of the positive deﬁnite binary quadratic forms of discriminant d (i.e.,
+        w = 6 if d = −3, w = 4 if d = −4, and w = 2 if d < −4). Dirichlet showed
+        that
+                                                              2π h
+                                              L(1, χd ) =     √    .                               (4.36)
+                                                             w −d
+                           √
+        Thus L(1, χd ) ≥ π/ −d when d < −4.
+           Our treatment of quadratic characters in the proof of Theorem 4.9 is due
+        to Landau (1906). Mertens (1895a,b, 1897, 1899) gave two elementary proofs
+        that L(1, χ ) > 0 when χ is quadratic; cf. Exercises 2.4.2 and 2.4.3. For a
+        deﬁnitive account of Mertens’ methods, see Bateman (1959). Other proofs
+        have been given by Teege (1901), Gel’fond & Linnik (1962, Chapter 3 Section
+        2), Bateman (1966, 1997), Pintz (1971), and Monsky (1993). See also Baker,
+        Birch & Wirsing (1973).
+
+
+
+                                              4.5      References
+        Baker, A., Birch, B. J., & Wirsing, E. A. (1973). On a problem of Chowla, J. Number
+            Theory 5, 224–236.                                          
+        Bateman, P. T. (1959). Theorems implying the non-vanishing of χ(m)m −1 for real
+            residue-characters, J. Indian
+                                       Math. Soc. 23, 101–115.
+          (1966). Lower bounds for        h(m)/m for arithmetical function h similar to real
+            residue characters, J. Math. Anal. Appl. 15, 2–20.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+                                                 4.5 References                                    135
+
+
+          (1997). A theorem of Ingham implying that Dirichlet’s L-functions have no zeros
+             with real part one, Enseignement Math. (2) 43, 281–284.
+        Bateman, P. T., Pomerance, C., & Vaughan, R. C. (1981). On the size of the coefﬁcients
+             of the cyclotomic polynomial, Coll. Math. Soc. J. Bolyai, pp. 171–202.
+        Carmichael, R. (1932). Expansions of arithmetical functions in inﬁnite series, Proc.
+             London Math. Soc. (2) 34, 1–26.
+        Chowla, S. & Mordell, L. J. (1961). Note on the nonvanishing of L(1), Proc. Amer.
+             Math. Soc. 12, 283–284.
+        Davenport, H. (2000). Multiplicative Number Theory, Graduate Texts Math. 74. New
+             York: Springer-Verlag.
+        Delange, H. (1976). On Ramanujan expansions of certain arithmetical functions, Acta
+             Arith. 31, 259–270.
+        Dirichlet, P. G. L. (1839a). Sur l’usage des intétrales déﬁnies dans la sommation des
+             séries ﬁnies ou inﬁnies, J. Reine Angew. Math. 17, 57–67; Werke, Vol. 1, Berlin:
+             Reimer, 1889, pp. 237–256.
+          (1837b). Beweis eines Satzes ueber die arithmetische Progression, Ber Verhandl. Kgl.
+             Preuss. Akad. Wiss., 108–110; Werke, Vol. 1, Berlin: Reimer, 1889, pp. 307–312.
+          (1837c). Beweis des Satzes, dass jede unbegrenzte arithmetische Progression, deren
+             erstes Glied und Differenz ganze Zahlen ohne gemeinschaftlichen Factor sind, un-
+             endlich viele Primzahlen enthält, Abhandl. Kgl. Preuss. Akad. Wiss. 45–81; Werke,
+             Vol. 1, Berlin: Reimer, 1889, pp. 313–342.
+          (1839). Recherches sur diverses applications de l’analyse inﬁnitésimale a la théorie
+             des nombres, J. Reine Angew. Math. 19, 324–369; Werke, Vol. 1, Berlin: Reimer,
+             1889, pp. 411–496.
+        Erdős, P. (1946). On the coefﬁcients of the cyclotomic polynomial, Bull. Amer. Math.
+             Soc. 52, 179–184.
+          (1949). On the coefﬁcients of the cyclotomic polynomial, Portugal. Math. 8, 63–71.
+          (1957). On the growth of the cyclotomic polynomial in the interval (O, 1). Proc.
+             Glasgow Math. Assoc. 3, 102–104.
+        Friedman, A. (1957). Mean-values and polyharmonic polynomials, Michigan Math. J.
+             4, 67–74.
+        Gel’fond, A. O. & Linnik, Ju. V. (1962). Elementary Methods in Analytic Number
+             Theory. Moscow: Gosudarstv. Izdat. Fiz.-Mat. Lit.; English translation, Chicago:
+             Rand McNally, 1965; English translation, Cambridge: M. I. T. Press, 1966.
+        Grytczuk, A. (1981). An identity involving Ramanujan’s sum, Elem. Math. 36, 16–17.
+        Hildebrand, A. (1984). Über die punkweise Konvergenz von Ramanujan-Entwicklungen
+             zahlentheoretischer Funktionen, Acta Arith. 44, 108–140.
+        Hildebrand, A., Schwarz, W., & Spilker, J. (1988). Still another proof of Parseval’s
+             equation for almost-even arithmetical functions, Aequationes Math. 35, 132–139.
+        Hölder, O. (1936). Zur Theorie der Kreisteilungsgleichung, Prace Mat.–Fiz. 43, 13–23.
+        Ingham, A. E. (1929). Note on Riemann’s ζ -function and Dirichlet’s L-functions,
+             J. London Math. Soc. 5, 107–112.
+        Landau, E. (1906). Über das Nichtverschwinden einer Dirichletschen Reihe, Sitzungsber.
+             Akad. Wiss. Berlin 11, 314–320; Collected Works, Vol. 2. Essen: Thales, 1986, pp.
+             230–236.
+        Mertens, F. (1895a). Über Dirichletsche Reihen, Sitzungsber. Kais. Akad. Wiss. Wien
+             104, 2a, 1093–1153.
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+        136                         Primes in arithmetic progressions: I
+
+
+          (1895b). Über das Nichtverschwinden Dirichletscher Reihen mit reelen Gliedern,
+             Sitzber. Kais. Akad. Wiss. Wien 104, 2a, 1158–1166.
+          (1897). Über Multiplikation und Nichtverschwinden Dirichlet’scher Reihen, J. Reine
+             Angew. Math. 117, 169–184.
+          (1899). Eine asymptotische Aufgabe, Sitzber. Kais. Akad. Wiss. Wien 108, 2a, 32–37.
+        Monsky, P. (1993). Simplifying the proof of Dirichlet’s theorem, Amer. Math. Monthly
+             100, 861–862.
+        Narkiewicz, W. (2000). The Development of Prime Number Theory, Berlin: Springer-
+             Verlag.
+        Pintz, J. (1971). On a certain point in the theory of Dirichlet’s L-functions, I,II, Mat.
+             Lapok 22, 143–148; 331–335.
+        Ramanujan, S. (1918). On certain trigonometrical sums and their applications in the
+             theory of numbers, Trans. Cambridge Philos. Soc. 22, 259–276; Collected papers.
+             Cambridge: Cambridge University Press, 1927, pp. 179–199.
+        Redmond, D. (1983). A remark on a paper: “An identity involving Ramanujan’s sum”
+             by A. Grytczuk, Elem. Math. 38, 17–20.
+        Reznick, B. (1995). Some constructions of spherical 5-designs, Linear Algebra Appl.,
+             226/228, 163–196.
+        Schwarz, W. (1988). Ramanujan expansions of arithmetical functions, Ramanujan revis-
+             ited, Proc. Centenary Conference (Urbana, June 1987). Boston: Academic Press,
+             pp. 187–214.
+        Serre, J.–P. (1977). Linear representation of ﬁnite groups, Graduate Texts Math. 42.
+             New York: Springer-Verlag.
+                                                              
+        Teege, H. (1901). Beweis, daß die unendliche Reihe n=∞   n=1
+                                                                        p 1
+                                                                        n n
+                                                                             einen positiven von
+             Null verschiedenen Wert hat, Mitt. Math. Ges. Hamburg 4, 1–11.
+        Vaughan, R. C. (1974). Bounds for the coefﬁcients of cyclotomic polynomials, Michigan
+             Math. J. 21, 289–295.
+        Wintner, A. (1943). Eratosthenian averages. Baltimore: Waverly Press.
+
+
+
+
+                         Cambridge Books Online
+https://doi.org/10.1017/CBO9780511618314.006 Published©online by
+                                                        Cambridge     University
+                                                                 Cambridge         Press,
+                                                                           University Press 2010
+

@@ -1,0 +1,128 @@
+{
+  "summary": "Plan: follow Vaughan (2005) step by step with the moduli restricted to f(k), weighted by f'(k).\n(1) Open the square (Vaughan \u00a73) and write the off-diagonal pairs as S_f = \u222b|F|\u00b2K_f with K_f(\u03b1)=\u03a3_k f'(k)\u03a3_{h\u2264x/f(k)} e(\u03b1hf(k)), i.e. the Br\u00fcdern\u2013Wooley ternary set-up.\n(2) Circle method with T=x^{2/5}. Only the trivial bound |K_f| \u226a x log x is used. The minor-arc L\u00b2 bound of BGPVW Thm 2 (x^{4/5+\u03b5} at Q=x^{2/5}) and the major-arc bounds BGPVW Lemmas 3.2/4.2 for \u0394 make every error O(x^{9/5+\u03b5}). Orthogonality turns the major arcs into \u03a3_k f'(k)\u03a3_h S(hf(k))(x\u2212hf(k)), with S(n)=\u03a3_q|\u03c8(q)|\u00b2c_q(n)=C\u220f_{p\u00b2|n}(p\u00b2\u22121)/(p\u00b2\u22122).\n(3) An exact per-modulus identity (Vaughan Lemma 2.16) cancels the x\u00b2 and x terms. This leaves V_f = \ud835\udd10_f + O(x^{9/5+\u03b5}) with \ud835\udd10_f = \u22122C \u03a3_k f'(k) \u03a3_m \u03b3(m) f(k) r_m B\u0303\u2082(x/(f(k) r_m)).\n(4) Crux A: replace the k-sum by an integral. Inclusion\u2013exclusion on the gcd (m\u00b2,f(k)) reduces it to sums over k with D | f(k), which Euler summation handles at cost O(x^{1+\u03b5}f(y)^{1\u22121/d}).\n(5) Crux B: the Mellin evaluation of Vaughan \u00a76. The Dirichlet series \ud835\udc9f_f(s)=\u03b6(2s+4)H_f(s) has its pole at s=\u22123/2, which gives c_f x^{1/2}f(y)^{3/2}. The line Re s=\u22127/4+\u03b5 gives O(x^{1/4+\u03b5}f(y)^{7/4\u2212\u03b5}).\n\nPredicted constant: c_f = (2\u03b6(3/2)/(3\u03c0)) \u220f_p (1\u22121/p)(1+1/p\u2212(\u03c1(p)+2)/p\u00b2+\u03c1(p)p^{\u22125/2}\u2212\u03c1(p\u00b2)p^{\u22127/2}+\u03c1(p\u00b2)p^{\u22124}). For f(k)=k it reproduces Vaughan's c\u2082=0.128479.\n\nNumerical checks (scripts in ./scripts):\n(i) At x=250000 for k\u00b2+1, \u03a3_k f'(k)\u00b7[Q(x)\u2212x/\u03b6(2)+(per-modulus major-arc term)] reproduces the exact V_f to 0.01\u20130.4% across all eight rows (relative error 1e-4 at the larger y). This supports P2\u2013P6.\n(ii) The smooth main term x\u00b2F_f(x/f(y)) of P8, evaluated by numerical Mellin inversion, matches the x=2.56e8 data:\n- k\u00b2+1 and 2k+1: to about 1e-4 or better at every ratio (e.g. k\u00b2+1, r=0.01: 0.14074 vs data 0.14086; r=1: 0.17108 vs 0.17110).\n- k\u00b3+2: to 0.3\u20131.2%, with the gap shrinking as x grows. The gap matches the size of a k-sum endpoint effect, about d/y with y\u2264634, which lies inside P7's error term.\n\nNo discrepancy with results.json beyond its stated uncertainty. The ratio drift of the normalised values (0.14\u21920.17) is genuine lower-order structure: x\u00b2F_f(x/Y) has (Y/x)^{1/4}-type and oscillatory corrections. The fit ansatz C+a\u221ar+br is therefore mis-specified and biases the extrapolated intercept low for k\u00b2+1 (0.1345 vs predicted 0.1381; still within \u00b10.0073).\n\nNo web search was done. Nothing by the excluded author and not the excluded Dehnert paper was consulted. Sources:\n- the papers in papers/: Vaughan 2005 (doi:10.1112/S0024611505015352); BGPVW 1998 (Phil. Trans. R. Soc. A 356, 739\u2013761); Br\u00fcdern\u2013Wooley 2011 (Quart. J. Math. 62, 289\u2013305);\n- E. C. Titchmarsh, The Theory of the Riemann Zeta-Function, 2nd ed. rev. D. R. Heath-Brown, OUP 1986, for standard convexity bounds on \u03b6.\n\nThe theorem is weaker than Vaughan's full-moduli result in two places:\n- the circle-method error is x^{9/5+\u03b5}, not x^{3/2}, because K_f is bounded trivially;\n- the k-sum\u2192integral step costs x^{1+\u03b5}f(y)^{1\u22121/d}.\n\nSo the pure-power asymptotic is only proved for x^{\u03b8_d+\u03b7} \u2264 f(y) \u2264 x^{1\u2212\u03b7}, with \u03b8_d = max(13/15, d/(d+2)).",
+  "main_theorem": "Let f be as in problem.md (f\u2208\u2124[t], deg f = d \u2265 1, f(t) \u2265 2 and f'(t) \u2265 1 for t \u2265 1), \u03c1(m) = #{a mod m : f(a) \u2261 0 mod m}, and write Y = f(y).\n\nDefine the following.\n- c_f = (2\u03b6(3/2)/(3\u03c0)) \u00b7 \u220f_p (1 \u2212 1/p)(1 + 1/p \u2212 (\u03c1(p)+2)/p\u00b2 + \u03c1(p)p^{\u22125/2} \u2212 \u03c1(p\u00b2)p^{\u22127/2} + \u03c1(p\u00b2)p^{\u22124}). The product converges absolutely and c_f > 0; equivalently c_f = (16/3)\u00b7C\u00b7(\u2212\u03b6(\u22121/2))\u00b7Res_{s=\u22123/2} \ud835\udc9f_f(s) as in P8.\n- F_f(w) for w \u2265 1 is the explicit Mellin integral of P8.\n\nThen for every \u03b5 > 0, uniformly for real x \u2265 2 and y \u2265 1 with f(y) \u2264 x (V_f sums over integers 1 \u2264 k \u2264 y):\n\n(i) V_f(x,y) = x\u00b2 F_f(x/f(y)) + O_{f,\u03b5}( x^{1+\u03b5} f(y)^{1\u22121/d} + x^{9/5+\u03b5} );\n\n(ii) V_f(x,y) = c_f x^{1/2} f(y)^{3/2} + O_{f,\u03b5}( x^{1/4+\u03b5} f(y)^{7/4\u2212\u03b5} + x^{1+\u03b5} f(y)^{1\u22121/d} + x^{9/5+\u03b5} ).\n\nIn particular, with \u03b8_d := max{13/15, d/(d+2)}: for any fixed \u03b7 > 0, uniformly for x^{\u03b8_d+\u03b7} \u2264 f(y) \u2264 x^{1\u2212\u03b7},\n\nV_f(x,y) = c_f x^{1/2} f(y)^{3/2} (1 + O_{f,\u03b7}(x^{\u2212\u03b7/5})).\n\nThe weight f'(k) and the class of f are those of problem.md. No restriction is needed: f need not be squarefree or primitive.\n\nExamples: c_k = 0.128479 (equals Vaughan's c\u2082), c_{k\u00b2+1} = 0.13808, c_{k\u00b3+2} = 0.13561, c_{2k+1} = 0.14261.",
+  "predicted_main_term": "V_f(x,y) ~ c_f x^{1/2} f(y)^{3/2}, i.e. exponents \u03b1 = 1/2 in x and \u03b2 = 3/2 in f(y), with\n\nc_f = (2\u03b6(3/2)/(3\u03c0)) \u220f_p (1\u22121/p)(1 + 1/p \u2212 (\u03c1(p)+2)/p\u00b2 + \u03c1(p)/p^{5/2} \u2212 \u03c1(p\u00b2)/p^{7/2} + \u03c1(p\u00b2)/p\u2074).\n\nEquivalently c_f = (8/3)(\u2212\u03b6(\u22121/2)) \u220f_p (1\u22122/p\u00b2)(1\u22121/p)(1 + [p\u00b2 \u2212 p\u03c1(p) + (p\u03c1(p)\u2212\u03c1(p\u00b2))p^{\u22121/2} + \u03c1(p\u00b2)p^{\u22121}]/(p(p\u00b2\u22122))).\n\nNumerical values (primes < 1e5):\n\n| f | c_f |\n|---|---|\n| k (check) | 0.128479, = Vaughan c\u2082 = 8C\u2081(\u2212\u03b6(\u22121/2))/(3\u03b6(2)\u00b2) |\n| k\u00b2+1 | 0.138083 |\n| k\u00b3+2 | 0.135608 |\n| 2k+1 | 0.142614 |\n\nFor f(y) \u224d x the correct shape is x\u00b2 F_f(x/f(y)), with F_f(w) = c_f w^{\u22123/2} + O(w^{\u22127/4+\u03b5}).",
+  "agrees_with_numerics": "Yes.\n\nExponents: results.json gives a fixed-ratio slope \u03b1+\u03b2 = 2.0008 \u00b1 0.0006 (k\u00b2+1) and 1.998 \u00b1 0.002 (k\u00b3+2), against the predicted 2. Fixed-x slopes \u03b2 \u2248 1.53\u20131.55 against the predicted 3/2; these are biased upward by the ratio dependence, as the notes in results.json themselves point out.\n\nConstants, extrapolated (results.json) vs predicted:\n\n| f | extrapolated | predicted |\n|---|---|---|\n| k\u00b2+1 | 0.1345 \u00b1 0.0073 | 0.13808 |\n| k\u00b3+2 | 0.1363 \u00b1 0.0024 | 0.13561 |\n| 2k+1 | 0.1417 \u00b1 0.0082 | 0.14261 |\n\nAll agree within the stated uncertainty.\n\nStronger check: I evaluated the P8 main term x\u00b2F_f(x/Y)/(x^{1/2}Y^{3/2}) by numerical Mellin inversion (Euler product to 2e5, contour Re s = \u22125/4).\n- k\u00b2+1, ratios 0.01 \u2192 1: 0.14074, 0.14281, 0.14440, 0.15094, 0.15651, 0.16275, 0.16990, 0.17108. Data at x = 2.56e8: 0.14086, 0.14292, 0.14446, 0.15098, 0.15655, 0.16278, 0.16993, 0.17110.\n- 2k+1: agreement to about 1e-5.\n- k\u00b3+2 (at the actual ratios): F lies 0.3\u20131.2% below the data. The gap shrinks with x (e.g. r\u22480.01: data 0.14127 \u2192 0.13999 as x doubles, while F = 0.13875). It fits a finite-y effect of the k-sum versus the integral, about d/y with y \u2264 634, which lies inside P7's error term.\n- As r \u2192 0, F_f\u00b7w^{3/2} tends to c_f: 0.13876 at r = 0.001 for k\u00b2+1, approaching 0.13808.\n\nSeparately, the reduction V_f \u2248 \u03a3_k f'(k)[Q(x) \u2212 x/\u03b6(2) \u2212 2C \u03a3_m \u03b3(m) f(k) r_m B\u0303\u2082(x/(f(k) r_m))] reproduces the exact V for k\u00b2+1 at x = 250000 to within 0.4% on every row (1e-4 for y \u2265 223).\n\nConclusion: the extrapolation ansatz C + a\u221ar + br in results.json is mis-specified, since the true correction is (Y/x)^{1/4}-type and oscillatory. That bias explains the slightly low intercept for k\u00b2+1. It is not a conflict with the theorem.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Arithmetic of the local densities and the singular series",
+      "statement": "Notation: \u03bc\u00b2 and g(q,l) are as in problem.md. Let:\n- e(\u03b8) = exp(2\u03c0i\u03b8);\n- \u03c6 = Euler's function, \u03c4 = divisor function;\n- c_q(n) = \u03a3_{1\u2264a\u2264q,(a,q)=1} e(an/q), Ramanujan's sum;\n- \u03b3(m) = \u03bc\u00b2(m) \u220f_{p|m} (p\u00b2\u22122)^{\u22121};\n- C = \u220f_p (1 \u2212 2/p\u00b2);\n- \ud835\udd30(q) = \u03a3_{l=1}^{q} g(q,l)\u00b2;\n- \u03c8(q) = \u03a3_{b=1}^{q} g(q,b) e(b/q).\n\nThen for all q, n \u2208 \u2115:\n\n(a) g(q,l) = g(q,(q,l)) and 0 \u2264 g(q,l) \u2264 1/q.\n\n(b) \u03c8(q) = \u03b6(2)^{\u22121} G(q), where G is multiplicative with G(p) = G(p\u00b2) = \u22121/(p\u00b2\u22121) and G(p^t) = 0 for t \u2265 3. Hence \u03c8(q) = 0 unless q is cube-free, and |\u03c8(q)|\u00b2 \u2264 A q^{\u22122} with an absolute constant A.\n\n(c) \u03a3_{q\u22651} \u03c6(q)|\u03c8(q)|\u00b2 = 1/\u03b6(2), and \u03a3_{q\u2264T} q\u00b2|\u03c8(q)|\u00b2 \u2264 A T^{1/2} log\u00b2(2T) for every real T \u2265 1.\n\n(d) S(n) := \u03a3_{q\u22651} |\u03c8(q)|\u00b2 c_q(n) converges absolutely, and S(n) = C \u03a3_{m\u22651, m\u00b2|n} \u03b3(m) = C \u220f_{p\u00b2|n} (p\u00b2\u22121)/(p\u00b2\u22122).\n\n(e) C \u03a3_{m\u22651} \u03b3(m) = 1/\u03b6(2).\n\n(f) q\u00b7\ud835\udd30(q) = C \u03a3_{m\u22651} \u03b3(m)(m\u00b2,q)/m\u00b2.\n\n(g) For every real T \u2265 1: \u03a3_{q>T} |\u03c8(q)|\u00b2 |c_q(n)| \u2264 A \u03c4(n)/T.\n\nThe constant A is absolute.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.3",
+        "Vaughan 2005, Lemma 2.4",
+        "Vaughan 2005, Lemma 2.5",
+        "Vaughan 2005, Lemma 2.14",
+        "Vaughan 2005, Lemma 2.15",
+        "Vaughan 2005, Lemma 2.17",
+        "Vaughan 2005, equation (6.8)",
+        "BGPVW 1998, Lemma 3.1"
+      ],
+      "crux": false,
+      "risk": "Low; these are Vaughan's k=2 formulas.\n- Sign of G: the PDF text extraction drops the minus sign. Direct computation gives \u03c8(p) = \u03c8(p\u00b2) = \u2212\u03b6(2)^{\u22121}/(p\u00b2\u22121); only |\u03c8|\u00b2 matters downstream.\n- Normalisation: Vaughan's f(q,a) equals problem.md's g(q,a), and BGPVW's \u03b6(k)^{\u22121}g_k(q,(q,a)) equals the density. The prover should check this when citing.\n- (f) combines Lemma 2.4, Lemma 2.17 and (6.8) with (u,m\u00b2) = \u03a3_{l|(u,m\u00b2)} \u03c6(l).\n- (g): use |c_q(n)| \u2264 \u03a3_{d|(q,n)} d and \u03a3_{q>T, d|q} q^{\u22122} \u226a 1/(dT)."
+    },
+    {
+      "id": "P2",
+      "title": "Opening the square",
+      "statement": "Let f, d, V_f, Q(x;q,l), g(q,l) be as in problem.md. Let:\n- Q(x) = #{n \u2264 x : \u03bc\u00b2(n) = 1};\n- \ud835\udd30(q) = \u03a3_{l=1}^{q} g(q,l)\u00b2;\n- S_f(x,y) = \u03a3_{1\u2264k\u2264y} f'(k) \u00b7 #{(m,n) \u2208 \u2115\u00b2 : m < n \u2264 x, \u03bc\u00b2(m) = \u03bc\u00b2(n) = 1, n \u2261 m (mod f(k))}.\nAll sums over k run over integers 1 \u2264 k \u2264 y.\n\n(a) For every \u03b5 > 0, uniformly for real x \u2265 2 and integers 1 \u2264 q \u2264 x:\n\u03a3_{n\u2264x} \u03bc\u00b2(n) g(q,n) = x\ud835\udd30(q) + O_\u03b5(x^{1/2} q^{\u22121+\u03b5}).\n\n(b) For every \u03b5 > 0, uniformly for real x \u2265 2 and y \u2265 1 with f(y) \u2264 x:\nV_f(x,y) = \u03a3_{1\u2264k\u2264y} f'(k)(Q(x) \u2212 x\u00b2\ud835\udd30(f(k))) + 2S_f(x,y) + O_{f,\u03b5}(x^{3/2+\u03b5}).",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "Vaughan 2005, Lemma 2.2(ii)",
+        "Vaughan 2005, Lemma 2.3",
+        "Vaughan 2005, Lemma 2.4",
+        "Vaughan 2005, equations (3.1)-(3.8)"
+      ],
+      "crux": false,
+      "risk": "Low.\n- (a) is Vaughan's (3.5)\u2013(3.7) for one modulus, using Lemma 2.2(ii) (valid for every q \u2264 x, error \u03c4(rt)(x/rt)^{1/2}) and g(q,r) \u2264 1/q. The divisor sums give q^{\u03b5}.\n- In (b), \u03a3_l Q(x;q,l)\u00b2 = Q(x) + 2\u00b7#{off-diagonal pairs} and \u03a3_l Q(x;q,l)g(q,l) = \u03a3_{n\u2264x} \u03bc\u00b2(n)g(q,n). Summing the error of (a) against f'(k) gives x\u00b7x^{1/2}\u00b7\u03a3_k f'(k)f(k)^{\u22121+\u03b5} \u226a x^{3/2+\u03b5}.\n- Check that every modulus satisfies f(k) \u2264 f(y) \u2264 x, which holds because f is increasing on [1,\u221e)."
+    },
+    {
+      "id": "P3",
+      "title": "Circle method: minor arcs and the \u0394-terms",
+      "statement": "Let f be as in problem.md and let x \u2265 2, y \u2265 1 be real with f(y) \u2264 x. Let e(\u03b8) = exp(2\u03c0i\u03b8), and define:\n- F(\u03b1) = \u03a3_{1\u2264n\u2264x} \u03bc\u00b2(n) e(n\u03b1);\n- I(\u03b2) = \u03a3_{1\u2264n\u2264x} e(n\u03b2);\n- K_f(\u03b1) = \u03a3_{1\u2264k\u2264y} f'(k) \u03a3_{1\u2264h\u2264x/f(k)} e(\u03b1hf(k)), with k, h integers;\n- \u03c8(q) = \u03a3_{b=1}^{q} g(q,b)e(b/q), with g as in problem.md;\n- S_f(x,y) = \u03a3_{1\u2264k\u2264y} f'(k)\u00b7#{(m,n) \u2208 \u2115\u00b2 : m < n \u2264 x, \u03bc\u00b2(m) = \u03bc\u00b2(n) = 1, f(k) | n\u2212m}.\n\nPut T = x^{2/5}. For q \u2208 \u2115 and a \u2208 \u2124 let \ud835\udd10(q,a) = {\u03b1 \u2208 [0,1) : |q\u03b1 \u2212 a| \u2264 T/x}. Let \ud835\udd10 be the union of the \ud835\udd10(q,a) with 1 \u2264 q \u2264 T, 0 \u2264 a \u2264 q, (a,q) = 1; these arcs are pairwise disjoint for x \u2265 2^{10}. Define F*(\u03b1) = \u03c8(q)I(\u03b1 \u2212 a/q) for \u03b1 \u2208 \ud835\udd10(q,a), and F*(\u03b1) = 0 for \u03b1 \u2208 [0,1)\u2216\ud835\udd10.\n\nClaims:\n(a) S_f(x,y) = \u222b_0^1 |F(\u03b1)|\u00b2 K_f(\u03b1) d\u03b1.\n(b) sup_{\u03b1\u2208\u211d} |K_f(\u03b1)| \u2264 B_f x log(2x), with B_f depending only on f.\n(c) For every \u03b5 > 0, S_f(x,y) = \u222b_\ud835\udd10 |F*(\u03b1)|\u00b2 K_f(\u03b1) d\u03b1 + O_{f,\u03b5}(x^{9/5+\u03b5}), uniformly in x \u2265 2, y \u2265 1 with f(y) \u2264 x.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "BGPVW 1998, Theorem 2",
+        "BGPVW 1998, Lemma 3.2",
+        "BGPVW 1998, Lemma 4.2",
+        "Vaughan 2005, equations (4.1)-(4.8)"
+      ],
+      "crux": false,
+      "risk": "Medium, mostly about matching definitions.\n- BGPVW's major arcs with their Q = T = x^{2/5} \u2264 x^{1/2}/2 (true for x \u2265 2^{10}; smaller x is trivial) are exactly \ud835\udd10, and their f* equals F*, because \u03b6(2)^{\u22121}G_BGPVW(q) = \u03c8(q).\n- Minor arcs: Theorem 2 gives \u222b_{[0,1)\u2216\ud835\udd10} |F|\u00b2 \u226a x^{1+\u03b5}T^{\u22121/2} + x^{\u03b5}T\u00b2 = x^{4/5+\u03b5}; times (b) this is x^{9/5+\u03b5}.\n- On \ud835\udd10, |F|\u00b2 \u2212 |F*|\u00b2 \u2264 2|F*\u0394| + |\u0394|\u00b2. Lemma 4.2 (x^{1/2+\u03b5}T^{3/4}) and Lemma 3.2 (x^{\u03b5}T\u00b2), each multiplied by (b), give x^{9/5+\u03b5}.\n- (b) follows from |K_f| \u2264 \u03a3_k f'(k)x/f(k) \u226a_f x log(2x).\n- K_f is complex, but only absolute bounds are used."
+    },
+    {
+      "id": "P4",
+      "title": "Major arcs to the singular-series sum",
+      "statement": "Notation as in P3: x \u2265 2, y \u2265 1 real, f(y) \u2264 x, T = x^{2/5}, \ud835\udd10, F*, K_f, \u03c8. Let c_q(n) be Ramanujan's sum and S(n) = \u03a3_{q\u22651} |\u03c8(q)|\u00b2 c_q(n). Then for every \u03b5 > 0, uniformly in this range,\n\n\u222b_\ud835\udd10 |F*(\u03b1)|\u00b2 K_f(\u03b1) d\u03b1 = \u03a3_{1\u2264k\u2264y} f'(k) \u03a3_{1\u2264h\u2264x/f(k)} S(hf(k))\u00b7(x \u2212 hf(k)) + O_{f,\u03b5}(x^{9/5+\u03b5}),\n\nwith k, h integers.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "BGPVW 1998, Lemma 3.1",
+        "Vaughan 2005, \u00a75 (equations (5.2)-(5.7))",
+        "Br\u00fcdern-Wooley 2011, \u00a74 (derivation of (19)-(20))"
+      ],
+      "crux": false,
+      "risk": "Low to medium. Three steps:\n1. Complete each \u03b2-integral from |\u03b2| \u2264 T/(qx) to |\u03b2| \u2264 1/2. Using |I(\u03b2)| \u2264 1/(2\u2016\u03b2\u2016), the bound of P3(b) and P1(c), the error is \u226a x log x \u00b7 \u03a3_{q\u2264T} \u03c6(q)|\u03c8(q)|\u00b2 \u00b7 qx/T \u226a x^{2+\u03b5}T^{\u22121/2} = x^{9/5+\u03b5}.\n2. Apply orthogonality: \u222b_{\u22121/2}^{1/2} |I(\u03b2)|\u00b2 K_f(a/q+\u03b2) d\u03b2 = \u03a3_k f'(k) \u03a3_h e(ahf(k)/q)(\u230ax\u230b \u2212 hf(k)). Replacing \u230ax\u230b by x costs O(x log x). Summing over a gives c_q(hf(k)).\n3. Extend the q-sum to all q. By P1(g) the error is \u226a \u03a3_k f'(k) \u03a3_h x\u00b7\u03c4(hf(k))/T \u226a x^{8/5+\u03b5}.\nNo splitting of small k is needed, provided the tail bound is applied per n (P1(g)) and not by first summing over divisors of q."
+    },
+    {
+      "id": "P5",
+      "title": "Exact per-modulus identity",
+      "statement": "Let:\n- B\u0303\u2082(\u03b8) = ({\u03b8}\u00b2 \u2212 {\u03b8})/2, where {\u03b8} is the fractional part; so \u22121/8 \u2264 B\u0303\u2082 \u2264 0, B\u0303\u2082(\u03b8) = (\u03b8\u00b2\u2212\u03b8)/2 for 0 \u2264 \u03b8 < 1, and |B\u0303\u2082(\u03b8)| \u2264 min(1/8, \u03b8/2) for \u03b8 \u2265 0;\n- \u03b3(m) = \u03bc\u00b2(m) \u220f_{p|m} (p\u00b2\u22122)^{\u22121};\n- C = \u220f_p (1 \u2212 2/p\u00b2);\n- r_m(q) = m\u00b2/(m\u00b2,q);\n- \ud835\udd30(q) = \u03a3_{l=1}^{q} g(q,l)\u00b2, with g as in problem.md;\n- S(n) = \u03a3_q |\u03c8(q)|\u00b2 c_q(n), with \u03c8(q) = \u03a3_{b=1}^{q} g(q,b)e(b/q).\n\nThen for every q \u2208 \u2115 and every real x \u2265 1,\n\n\u03a3_{1\u2264h\u2264x/q} S(hq)(x \u2212 hq) = (x\u00b2/2)\ud835\udd30(q) \u2212 x/(2\u03b6(2)) \u2212 C \u03a3_{m\u22651} \u03b3(m) q r_m(q) B\u0303\u2082( x/(q r_m(q)) ).\n\nThe m-series converges absolutely, each term being at most \u03b3(m)x/2 in modulus.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "Vaughan 2005, Lemma 2.16",
+        "Vaughan 2005, Lemma 2.15",
+        "Vaughan 2005, equations (6.2)-(6.10)"
+      ],
+      "crux": false,
+      "risk": "Low; this is exact algebra. Insert S(n) = C \u03a3_{m\u00b2|n} \u03b3(m) from P1(d). The condition m\u00b2 | hq is equivalent to r_m(q) | h. Then use \u03a3_{1\u2264w\u2264X}(X \u2212 w) = X\u00b2/2 \u2212 X/2 \u2212 B\u0303\u2082(X) (Vaughan Lemma 2.16) with X = x/(q r_m(q)), and finally P1(e),(f).\nThe identity was checked numerically: together with P2\u2013P4 it reproduces exact V_f to 1e-4 relative."
+    },
+    {
+      "id": "P6",
+      "title": "Reduction of V_f to the arithmetic sum \ud835\udd10_f",
+      "statement": "Let f, d, V_f be as in problem.md, and \u03b3, C, r_m, B\u0303\u2082 as in P5. Define\n\n\ud835\udd10_f(x,y) = \u22122C \u03a3_{1\u2264k\u2264y} f'(k) \u03a3_{m\u22651} \u03b3(m) f(k) r_m(f(k)) B\u0303\u2082( x/(f(k) r_m(f(k))) )\n\n(k an integer; the m-series converges absolutely; \ud835\udd10_f \u2265 0). Then for every \u03b5 > 0, uniformly for real x \u2265 2 and y \u2265 1 with f(y) \u2264 x,\n\nV_f(x,y) = \ud835\udd10_f(x,y) + O_{f,\u03b5}(x^{9/5+\u03b5}).",
+      "depends_on": [
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "Low; this is assembly.\n- Substitute P5 with q = f(k) into P4 and P3(c), then into P2(b). The x\u00b2\ud835\udd30 terms cancel exactly.\n- What remains besides \ud835\udd10_f is \u03a3_k f'(k)(Q(x) \u2212 6x/\u03c0\u00b2) \u226a x^{1/2}\u00b7\u03a3_k f'(k) \u226a_f x^{1/2}f(y), using Q(x) = 6x/\u03c0\u00b2 + O(x^{1/2}).\n- All other errors are O(x^{3/2+\u03b5}) or O(x^{9/5+\u03b5})."
+    },
+    {
+      "id": "P7",
+      "title": "Replacing the sum over k by an integral",
+      "statement": "Let f, d, \u03c1 be as in problem.md, and \u03b3, C, r_m, B\u0303\u2082 as in P5. Let N_f(m\u00b2,e) = #{a mod m\u00b2 : (f(a), m\u00b2) = e} for e | m\u00b2, and define for real 1 \u2264 Y \u2264 x\n\n\ud835\udd10_f^{int}(x,Y) = \u22122C \u03a3_{m\u22651} \u03b3(m) \u03a3_{e|m\u00b2} (N_f(m\u00b2,e)/m\u00b2) \u222b_0^Y u\u00b7(m\u00b2/e)\u00b7B\u0303\u2082( xe/(u m\u00b2) ) du,\n\nwhich converges absolutely. Let \ud835\udd10_f(x,y) be as in P6. Then for every \u03b5 > 0, uniformly for real x \u2265 2 and y \u2265 1 with f(y) \u2264 x,\n\n\ud835\udd10_f(x,y) = \ud835\udd10_f^{int}(x, f(y)) + O_{f,\u03b5}( x^{1+\u03b5} f(y)^{1\u22121/d} ).",
+      "depends_on": [],
+      "cites": [
+        "Br\u00fcdern-Wooley 2011, equation (22) (Euler summation in residue classes)"
+      ],
+      "crux": true,
+      "risk": "Main technical risk.\n\nSuggested route:\n1. For m > \u221ax, f(k)\u00b7r_m(f(k)) \u2265 m\u00b2 > x, so B\u0303\u2082 is the polynomial (\u03b8\u00b2\u2212\u03b8)/2. The terms reduce to x\u00b2(m\u00b2,f(k))/(2f(k)m\u00b2) \u2212 x/2. Both the sum and the integral version of these are O(x^{1/2}f(y)^{1/2+\u03b5} + x^{1/2}y^{d\u22121}).\n2. For m \u2264 \u221ax, write m = abc, where p | a means p \u2224 f(k), p | b means p \u2016 f(k), and p | c means p\u00b2 | f(k). Then r_m = a\u00b2b. Use inclusion\u2013exclusion 1 = \u03a3_{l1|a, l2|b} \u03bc(l1)\u03bc(l2)\u00b71[l1\u00b7b\u00b7l2\u00b7c\u00b2 | f(k)] to reduce to sums over k with D | f(k), where D | m\u00b2.\n3. Euler summation over each of the \u03c1(D) root classes: \u03a3_{1\u2264k\u2264y, D|f(k)} G(k) = (\u03c1(D)/D)\u222b_1^y G + O(\u03c1(D)(sup|G| + TV_{[1,y]}G)), with G(t) = f'(t)\u03a6_R(f(t)) and \u03a6_R(u) = uR\u00b7B\u0303\u2082(x/(uR)).\n\nKey bounds and pitfalls:\n- |\u03a6_R| \u2264 min(uR/8, x/2), and TV_{[f(1),f(y)]}\u03a6_R \u226a x log(2x).\n- TV on [0,\u00b7] is infinite (logarithmic divergence as u \u2192 0). So start at u = f(1) and bound the piece u \u2208 [0, f(1)] separately by O_f(x).\n- \u03a3_{m\u2264\u221ax} \u03b3(m) \u03a3 \u03c1(D) \u226a x^{\u03b5} even when \u03c1(p\u00b2) \u224d p (f with repeated factors).\n- D may exceed y. The Euler bound still holds, since each class then has at most one element.\n\nThe error x^{1+\u03b5}Y^{1\u22121/d} is crude, probably far from the truth (\u2248 x^{1/2}Y^{3/2\u22121/d}). Improving it would need exponential sums in k."
+    },
+    {
+      "id": "P8",
+      "title": "Mellin evaluation of the smooth main term",
+      "statement": "Notation as in P7: \u03b3, C, N_f, \ud835\udd10_f^{int}; \u03c1 as in problem.md. Define for Re s > \u22123/2\n\n\ud835\udc9f_f(s) = \u03a3_{m\u22651} \u03b3(m) m^{\u22124\u22122s} \u03a3_{e|m\u00b2} N_f(m\u00b2,e) e^{1+s},\n\nwhich converges absolutely there, and for real w \u2265 1\n\nF_f(w) = \u22122C \u00b7 (1/(2\u03c0i)) \u222b_{Re s = \u22125/4} \u03b6(s+1) \ud835\udc9f_f(s) w^s / (s(s+1)(s+2)) ds.\n\nClaims:\n\n(a) \ud835\udd10_f^{int}(x,Y) = x\u00b2 F_f(x/Y) for all real 1 \u2264 Y \u2264 x.\n\n(b) \ud835\udc9f_f(s) = \u03b6(2s+4) H_f(s), where\nH_f(s) = \u220f_p (1 \u2212 p^{\u22124\u22122s}) (1 + p^{\u22124\u22122s}(p\u00b2\u22122)^{\u22121}[p\u00b2 \u2212 p\u03c1(p) + (p\u03c1(p) \u2212 \u03c1(p\u00b2))p^{1+s} + \u03c1(p\u00b2)p^{2+2s}]).\nH_f converges absolutely and is holomorphic in Re s > \u22127/4, and is bounded by a constant B(f,\u03b5) on \u22127/4+\u03b5 \u2264 Re s \u2264 \u22121.\n\n(c) For every \u03b5 \u2208 (0, 1/8) and w \u2265 1: F_f(w) = c_f w^{\u22123/2} + O_{f,\u03b5}(w^{\u22127/4+\u03b5}), where c_f = (16/3) C (\u2212\u03b6(\u22121/2)) \u00b7 H_f(\u22123/2)/2. This equals\nc_f = (2\u03b6(3/2)/(3\u03c0)) \u220f_p (1\u22121/p)(1 + 1/p \u2212 (\u03c1(p)+2)/p\u00b2 + \u03c1(p)p^{\u22125/2} \u2212 \u03c1(p\u00b2)p^{\u22127/2} + \u03c1(p\u00b2)p^{\u22124}) > 0.\n\nConsequently \ud835\udd10_f^{int}(x,Y) = c_f x^{1/2}Y^{3/2} + O_{f,\u03b5}(x^{1/4+\u03b5}Y^{7/4\u2212\u03b5}) for 1 \u2264 Y \u2264 x.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.18",
+        "Vaughan 2005, Lemma 2.19",
+        "Vaughan 2005, \u00a76 (equation (6.12) and the final contour shift)",
+        "Titchmarsh, The Theory of the Riemann Zeta-Function (2nd ed., 1986), \u00a75.1 (convexity bounds)"
+      ],
+      "crux": true,
+      "risk": "Second crux.\n\n(a) Substitute \u03b8 = xe/(um\u00b2) to get \u222b_0^Y uR\u00b7B\u0303\u2082(x/(uR)) du = (x\u00b2/R) \u222b_{x/(YR)}^\u221e B\u0303\u2082(\u03b8)\u03b8^{\u22123} d\u03b8. Then apply Vaughan Lemma 2.18 (valid for \u22122 < \u03c3 < \u22121) on \u03c3 = \u22125/4. Interchanging the sum and the integral needs absolute convergence of \ud835\udc9f_f at \u03c3 = \u22125/4 (fine: terms \u226a \u03b3(m)m^{\u22124\u22122\u03c3}\u03c4(m\u00b2)\u00b7\u03a3_e N_f/m\u00b2) and |\u03b6(s+1)|/|s|\u00b3 integrable.\n\n(b) The Euler factor of H_f is 1 + O(\u03c1(p)p^{\u22125\u22122\u03c3} + \u03c1(p)p^{\u22124\u2212\u03c3} + \u03c1(p\u00b2)p^{\u22124} + p^{\u22128\u22124\u03c3}). Use \u03c1(p) \u2264 d for p \u2224 content(f), and \u03c1(p\u00b2) \u2264 dp otherwise; only finitely many primes are exceptional.\n\n(c) Shift the contour to Re s = \u22127/4+\u03b5, crossing only the simple pole of \u03b6(2s+4) at s = \u22123/2, whose residue is 1/2. Bounds on the new line: \u03b6(s+1) \u226a |t|^{5/4}, \u03b6(2s+4) \u226a |t|^{1/4}, |s(s+1)(s+2)| \u224d |t|\u00b3, so the integral converges absolutely. No zero-free region is needed on this line.\n\nThe closed form was checked numerically against Vaughan's c\u2082 for f(k) = k (0.128479). Mellin inversion of F_f reproduces the exact data to 1e-4."
+    }
+  ],
+  "model": "claude-opus-5-5"
+}

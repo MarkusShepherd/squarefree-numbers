@@ -1,0 +1,508 @@
+                                         Appendix A
+                         The Riemann–Stieltjes integral
+
+
+
+
+                                                 b
+        We generalize the Riemann integral a f (x) d x by deﬁning an integral
+        b                                          
+         a f (x) dg(x) as a limit of Riemann sums    n f (ξn ) g(x n ). More precisely,
+        for a < b suppose that we have a partition
+
+                                     a = x0 ≤ x1 ≤ · · · ≤ x N = b.                        (A.1)
+
+        For ξn in the interval xn−1 ≤ ξn ≤ xn we form the sum
+                                               
+                                               N
+                               S(xn , ξn ) =         f (ξn )(g(xn ) − g(xn−1 )).
+                                               n=1
+                                                      b
+        We say that the Riemann–Stieltjes integral a f (x) dg(x) exists and has the
+        value I if for every ε > 0 there is a δ > 0 such that
+
+                                           |S(xn , ξn ) − I | < ε
+
+        whenever the xn and the ξn are as above and
+
+                                 mesh{xn } = max (xn − xn−1 ) ≤ δ.
+                                                 1≤n≤N
+
+        The values taken on by f and g may be either real or complex. We do not
+        determine precisely the pairs ( f, g) for which the Riemann–Stieltjes integral
+        exists. For our purposes it is enough to prove
+                                                          b
+        Theorem A.1 The Riemann–Stieltjes integral a f (x) dg(x) exists if f is
+        continuous on [a, b] and g is of bounded variation on [a, b].
+
+        Proof     We recall that by deﬁnition
+                                                      
+                                                      N
+                               Var[a,b] (g) = sup           |g(xn ) − g(xn−1 )|
+                                                      n=1
+
+
+                                                      486
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                       The Riemann–Stieltjes integral                                     487
+
+
+        where the supremum is taken over all {xn } satisfying (A.1). Since f is uniformly
+        continuous on [a, b], there is a δ > 0 such that | f (ξ ) − f (ξ  )| < ε whenever
+        |ξ − ξ  | ≤ δ. We show that
+
+                                  |S(xn , ξn ) − S(xn , ξn )| ≤ 2εVar[a,b] (g)                       (A.2)
+
+        provided that mesh{xn } ≤ δ and that mesh{xn } ≤ δ. This clearly sufﬁces.
+           Suppose ﬁrst that the partition {xn } is a subsequence of a second partition-
+        ing {xn }. Let M(n) = {m : xn−1 < xm ≤ xn }. The sets M(n) partition the set
+        {1, 2, . . . , M}, so we may write
+
+             S(xn , ξn ) − S(xm , ξm )
+                   
+                    N                                                                                  
+               =          f (ξn )(g(xn ) − g(xn−1 )) −                   f (ξm )(g(xm ) − g(xm−1
+                                                                                                 
+                                                                                                     ))   .
+                    n=1                                         m∈M(n)
+
+        Since the sequence {xn } is an increasing subsequence of the increasing sequence
+        {xm }, it follows that
+                                                 
+                             g(xn ) − g(xn−1 ) =      g(xm ) − g(xm−1
+                                                                    
+                                                                        ).
+                                                       m∈M(n)
+
+        On inserting this in the former expression, we ﬁnd that it is
+                            
+                            N       
+                                          ( f (ξn ) − f (ξm ))(g(xm ) − g(xm−1
+                                                                               
+                                                                                   )).
+                             n=1 m∈M(n)
+
+        Since |ξn − ξm | ≤ δ, it follows that
+                                                            
+                     |S(xn , ξn ) − S(xm , ξm )| ≤ ε                  |g(xm ) − g(xm−1
+                                                                                         
+                                                                                             )|
+                                                            n    m∈M(n)
+
+                                                           
+                                                           M
+                                                    =ε           |g(xm ) − g(xm−1
+                                                                                
+                                                                                    )|
+                                                           m=1
+                                                    ≤ εVar[a,b] g.                                     (A.3)
+
+        We now take {xm } to be the union of {xn } and {xn }, so that both {xn } and {xn }
+        are subsequences of {xm }. Since
+
+          |S(xn , ξn ) − S(xn , ξn )| = |S(xn , ξn ) − S(xm , ξm ) + S(xm , ξm ) − S(xn , ξn )|
+                                        ≤ |S(xn , ξn ) − S(xm , ξm )| + |S(xm , ξm ) − S(xn , ξn )|
+
+        by the triangle inequality, the desired bound (A.2) follows by applying (A.3)
+        twice.                                                                      
+                                                                              b
+           The main negative feature of the Riemann–Stieltjes integral is that a f dg
+        does not exist if f and g have a common discontinuity in (a, b). However,
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        488                                The Riemann–Stieltjes integral
+
+
+        if f is continuous, the Riemann–Stieltjes integral enables us to express the
+             N                                                           
+        sum n=1    an f (n) in terms of the unweighted partial sums A(x) = 1≤n≤x an .
+        Indeed,
+                                           
+                                           N                         N
+                                                    an f (n) =           f (x) d A(x).                     (A.4)
+                                           n=1                   0
+
+        There is some freedom in the interval of integration, since the left endpoint
+        can be any number in [0, 1), and the right endpoint can be any number in
+        [N , N + 1) without affecting the value of the integral.
+                                                               N Frequently it is useful
+                           −
+        to integrate from 1 to N , i.e. to consider limε→0+ 1−ε . Some care must be
+        exercised in choosing the endpoints of integration, since for example
+                                                N                        
+                                                                         N
+                                                     f (x) d A(x) =            an f (n).
+                                            1                            n=2
+                                  b                             b
+        Theorem A.2 If                a   f dg exists, then          a g d f also exists, and
+                                  b                                                            b
+                                      g d f = f (b)g(b) − f (a)g(a) −                              f dg.
+                              a                                                            a
+                                                                     b
+           As we see in the above, we lose no information by writing a f dg instead
+                     b
+        of the longer a f (x) dg(x). On combining Theorems A.1 and A.2 we see that
+        b
+         a f dg exists if f is of bounded variation on [a, b] and g is continuous on
+        [a, b].
+
+        Proof     Put ξ0 = a and ξ N +1 = b. Then
+                   
+                   N
+                          g(ξn )( f (xn ) − f (xn−1 ))
+                    n=1
+                                                                 
+                                                                 N +1
+                      = f (b)g(b) − f (a)g(a) −                           f (xn−1 )(g(ξn ) − g(ξn−1 )).
+                                                                 n=1
+
+        Here the sum on the b right-hand side is a Riemann–Stieltjes sum S(ξn , xn−1 )
+        approximating to a f dg, since xn−1 ∈ [ξn−1 , ξn ]. Moreover, mesh{ξn } ≤
+                                                          b
+        2mesh{xn }, so that the sum on the right tends to a f dg as mesh{xn } tends
+        to 0.                                                                       
+
+           This proof displays the close relation between partial summation and inte-
+                                                    
+        gration by parts. Rather than sum the series an f (n) by parts, we can integrate
+        by parts in (A.4) to see that
+                             
+                             N                                                     N
+                                      an f (n) = A(N ) f (N ) −                        A(x) d f (x).       (A.5)
+                             n=1                                               0
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                          The Riemann–Stieltjes integral                                       489
+
+
+                                                                                        b
+        It is to be expected that if g is differentiable, then                                f dg should resemble
+        b                                                                               a
+
+         a f g d x. In this direction we establish
+
+        Theorem A.3 If g  is continuous on [a, b], then
+                                                                  b
+                                              Var[a,b] g =            |g  (x)| d x.
+                                                              a
+        If in addition f is Riemann integrable, then
+                                          b                           b
+                                              f (x) dg(x) =               f (x)g  (x) d x.
+                                      a                           a
+        Proof     By the mean value theorem there is a ζn ∈ [xn−1 , xn ] such that
+                                 g(xn ) − g(xn−1 ) = g  (ζn )(xn − xn−1 ).
+        Hence
+                         
+                         N                                    
+                                                              N
+                                |g(xn ) − g(xn−1 )| =                     |g  (ζn )|(xn − xn−1 ),
+                          n=1                                  n=1
+                           b
+        which tends to a |g | d x as mesh{xn } tends to 0. Since g  (x) is uniformly
+                                  
+
+        continuous on [a, b], there is a δ > 0 such that |g  (ξ ) − g  (ζ )| < ε whenever
+        |ξ − ζ | < δ. Clearly
+            
+            N                                           
+                                                        N
+                  f (ξn )(g(xn ) − g(xn−1 )) =                f (ξn )g  (ζn )(xn − xn−1 )
+            n=1                                         n=1
+                                                        
+                                                        N
+                                                    =         f (ξn )g  (ξn )(xn − xn−1 )
+                                                        n=1
+                                                            
+                                                            N
+                                                        +             f (ξn )(g  (ζn ) − g  (ξn ))(xn − xn−1 )
+                                                            n=1
+                                                    = 1 + 2 ,
+                                                                            b
+        say. The function f g  is Riemann integrable, and hence 1 tends to a f g  d x
+        as mesh{xn } tends to 0. Suppose that M is chosen so that |f (x)| ≤ M for all
+                                                                      b
+        x ∈ [a, b]. If mesh{x n } < δ, then |2 | ≤ Mε(b − a). Hence a f dg exists and
+                       b 
+        has the value a f g d x.                                                      
+
+           Continuing from (A.4), we see that if f  is continuous, then
+                          
+                          N                                                     N
+                                an f (n) = A(N ) f (N ) −                           A(x) f  (x) d x.        (A.6)
+                          n=1                                               0
+
+        This useful identity can be veriﬁed without mention of Riemann–Stieltjes in-
+        tegration, but its formulation and derivation is most natural through (A.4) and
+        (A.5).
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        490                             The Riemann–Stieltjes integral
+
+
+           Suppose that f is Riemann
+                                   b integrable. A version of the triangle inequal-
+                            b
+        ity asserts that | a f | ≤ a | f |. We now derive an analogue of this for the
+        Riemann–Stieltjes integral.
+
+        Theorem A.4 Suppose that g has bounded variation, and put g ∗ (x) =
+        Var[a,x] g. Then
+                                        b                                   b
+                                             f (x) dg(x) ≤                      | f (x)| dg ∗ (x).
+                                    a                                   a
+
+        provided that both integrals exist.
+
+        Proof     Clearly
+                                                         
+                                                         N
+                            |S(xn , ξn )| ≤                    | f (ξn )||g(xn ) − g(xn−1 )|
+                                                         n=1
+                                                         
+                                                         N
+                                                    ≤          | f (ξn )|(g ∗ (xn ) − g ∗ (xn−1 )),
+                                                         n=1
+
+        which gives the result.                                                                          
+
+           The differential dg ∗ is sometimes abbreviated |dg|. From Theorem A.4
+        we see that if | f (x)| ≤ M for a ≤ x ≤ b and g is of bounded variation,
+        then
+                                                    b
+                                                        f (x) dg(x) ≤ MVar[a,b] g                     (A.7)
+                                                a
+                                                                            a
+        provided that the integral exists. As with Riemann integrals, we set a f dg =
+                             b             a              c b b
+        0. If a > b we set a f dg = − b f dg, so that a + c = a for any real
+        numbers a, b, c. Finally, improper Riemann–Stieltjes integrals are deﬁned as
+        limits of proper integrals, e.g.
+                                    ∞                                             b
+                                            f (x) dg(x) = lim                         f (x) dg(x).
+                                a                                   b→∞ a
+
+
+
+                                                               Exercises
+        1. Suppose that ϕ(t) is continuous and strictly increasing for α ≤ t ≤ β, and
+           that ϕ(α) = a, ϕ(β) = b. Put F(t) = f (ϕ(t)), G(t) = g(ϕ(t)). Show that
+                                            b                                β
+                                                    f (x) dg(x) =                F(t) dG(t)
+                                        a                                α
+
+           provided that either integral exists.
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                             The Riemann–Stieltjes integral                                               491
+
+
+        2. Let f and g be continuous, and h have bounded variation. Put I (x) =
+              x
+             a g dh. Show that
+                                         b                                                b
+                                             f (x)g(x) dh(x) =                                f (x) d I (x).
+                                     a                                                a
+
+        3. The proof of Theorem A.2 depends on summation by parts. We now
+           show that, conversely, summation by parts can be recovered from Theorem
+           A.2. Suppose that the numbers a1 , . . . , a N and b1 , . . . , b N are given. Put
+           An = a1 + · · · + an for 1 ≤ n ≤ N . For 1 ≤ x < N + 1 put A(x) = A[x] ;
+           set A(x) = 0 for x < 1. For 1/2 ≤ x ≤ N + 1/2 let B(x) = b[x+1/2] . (The
+           discontinuities of B(x) are displaced in order to ensure that A(x) and B(x)
+           do not have a common discontinuity.)
+           (a) Show that
+                                               
+                                               N                              N
+                                                     an bn =                       B(x) d A(x).
+                                               n=1                           1−
+
+           (b) Show that
+                                    
+                                    N −1                                                      N
+                                             An (bn − bn+1 ) = −                                  A(x) d B(x).
+                                    n=1                                                   1−
+
+           (c) Use Theorem 2 to derive Abel’s lemma:
+                                    
+                                    N                                             
+                                                                                  N −1
+                                             an bn = A N b N +                            An (bn − bn+1 ).
+                                    n=1                                           n=1
+
+        4. Show that
+                                b              2                b                                   b              
+                                    f g dh         ≤                 | f | |dh|
+                                                                             2
+                                                                                                           |g| |dh|
+                                                                                                             2
+                            a                                a                                     a
+
+           provided that these integrals exist.
+        5. Suppose that f is non-negative and decreasing, that g(a) = h(a), and that
+           g(x) ≤ h(x) for a ≤ x ≤ b. Show that
+                                                         b                            b
+                                                             f dg ≤                       f dh
+                                                     a                            a
+
+           provided that these integrals exist.
+        6. (First mean value theorem) Suppose that f and g are real-valued functions
+           with f continuous on [a, b], and g weakly increasing on this interval. Put
+           m = minx∈[a,b] f (x), M = maxx∈[a,b] f (x).
+           (a) Show that
+                                                                         b
+                           m(g(b) − g(a)) ≤                                  f dg ≤ M(g(b) − g(a)) .
+                                                                     a
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        492                                   The Riemann–Stieltjes integral
+
+
+           (b) Show that there is an x0 ∈ [a, b] such that
+                                                    b
+                                                        f dg = f (x0 )(g(b) − g(a)) .
+                                                a
+
+        7. (Second mean value theorem) Suppose that f and g are real-valued functions
+           with f weakly increasing on [a, b], and g continuous on this interval. Show
+           that there is an x0 ∈ [a, b] such that
+                              b
+                                  f dg = f (a)(g(x0 ) − g(a)) + f (b)(g(b) − g(x 0 )) .
+                          a
+
+        8. (Darst & Pollard 1970) Suppose that f and g are real-valued functions with
+            f of bounded variation on [a, b], and g continuous on this interval. (a) Show
+           that if ξ ∈ [a, b] and f (ξ ) = 0, then
+                                        b
+                                            f dg ≤ Var[ξ,b] ( f ) max (g(b) − g(x)),
+                                    ξ                              ξ ≤x≤b
+                                        ξ
+                                            f dg ≤ Var[a,ξ ] ( f ) max (g(x) − g(a)).
+                                    a                              ξ ≤x≤b
+
+
+           (b) Show that if infa≤x≤b f (x) = 0, then
+                                        b
+                                            f dg ≤ Var[a,b] ( f ) max (g(β) − g(α)).
+                                    a                               a≤α≤β≤b
+
+           (c) Show that in general,
+                  b
+                      f dg ≤ (g(b) − g(a)) inf f (x) + Var[a,b] ( f ) max (g(β) − g(α)).
+              a                                          a≤x≤b                    a≤α≤β≤b
+
+        9. Suppose that
+                                                         
+                        1 if 0 < x ≤ 1,                     1 if 0 ≤ x ≤ 1
+              f (x) =                            g(x) =
+                        0 otherwise;                        0 otherwise.
+                      0          1                        1
+           Show that −1 f dg and 0 f dg both exist, but that −1 f dg does not exist.
+
+
+
+                                                          A.1     Notes
+        Our treatment follows that of Ingham in his lectures at Cambridge University.
+        Several variants of the Riemann–Stieltjes (R-S) integral have been proposed.
+        The integral as we have deﬁned it is known as the uniform Riemann–Stieltjes
+        integral. A slightly more powerful variant is the reﬁnement Riemann–Stieltjes
+                              b
+        integral, in which a f dg is said to have the value I if for every ε > 0 there is a
+        partition {xn } such that if {xm } is a reﬁnement of {xn }, then |S(xm , ξm ) − I | < ε
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+                                                A.2 References                                      493
+
+
+                                   
+        for all choices of ξm ∈ [xm−1 , xm ]. The reﬁnement Riemann–Stieltjes integral is
+        developed in considerable detail by Apostol (1974, Chapter 9) and Bartle (1964,
+                                                                            b
+        Section 22), and is used by Bateman & Diamond (2004). If a f dg exists in
+        the sense of uniform R–S integration, then it also exists in the reﬁnement R–S
+        sense, and has the same value. The reﬁnementc    integral has the attractive
+                                                                              c       prop-
+                                            b
+        erty that if a < b < c, and if a f dg, b f dg both exist, then a f dg exists
+        and
+                                        c                   b                          c
+                                            f dg =              f dg +                     f dg .
+                                    a                   a                          b
+
+           This is not true for the uniform R–S integral, as we see by the example in
+        Exercise A.9.
+           We mention without proof two more advanced properties of the Riemann–
+        Stieltjes integral: If f is continuous on [a, b], and if g is absolutely continuous
+        on the same interval, then
+                                                   b                         b
+                                                       f dg =                    f g
+                                               a                         a
+
+        where the integral on the right is a Lebesgue integral. Secondly, the Riesz
+        representation theorem, which is fundamental to functional analysis, asserts that
+        if G is a positive bounded linear functional on the space C[a, b] of continuous
+        functions on [a, b], then there exists a weakly increasing function g on [a, b]
+        such that
+                                                                     b
+                                               G( f ) =                  f dg
+                                                                 a
+
+        for all f ∈ C[a, b]. An account of this is given in Kestelman (1960, pp. 265–
+        269).
+           For more extensive accounts of Riemann–Stieltjes integration, see Apostol
+        (1974, Chapter 9), Hildebrandt (1938), Kestelman (1960, Chapter 11), Rankin
+        (1963, Section 29), or Widder (1946, Chapter 1).
+
+
+
+                                             A.2        References
+        Apostol, T. M. (1974). Mathematical Analysis, Second edition. Menlo Park: Addison–
+             Wesley.
+        Bartle, R. G. (1964). The Elements of Real Analysis. New York: Wiley.
+        Bateman, P. T. & Diamond, H. G. (2004). Analytic number theory. An introductory
+             course, Hackensack: World Scientiﬁc.
+        Darst, R. & Pollard, H. (1970). An inequality for the Riemann–Stieltjes integral, Proc.
+             Amer. Math. Soc. 25, 912–913.
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+        494                         The Riemann–Stieltjes integral
+
+
+        Hildebrandt, T. H. (1938). Stieltjes integrals of the Riemann type, Amer. Math. Monthly
+             45, 265–277.
+        Kestelman, H. (1960). Modern Theories of Integration. New York: Dover.
+        Rankin, R. A. (1963). An Introduction to Mathematical Analysis. Oxford: Pergamon.
+        Widder, D. V. (1946). The Laplace Transform, Princeton: Princeton University
+            Press.
+
+
+
+
+                        Cambridge
+Published online by Cambridge          Books
+                              University Press Online © Cambridge University Press, 2010
+

@@ -1,0 +1,1753 @@
+                      Vinogradov's methods
+
+
+                     5.1 Vinogradov's mean value theorem
+                     When k is small, i.e. less than 11 or 12 or so, Lemmas 2.4 and 2.5, the
+                     essential ingredients for the estimation of the minor arcs in Chapter 2,
+                     have only been strengthened to the extent described in the remarks
+                     after those lemmas. However, for larger /c, significant improvements
+                     can be obtained via Vinogradov's mean value theorem. This theorem
+                     is also of importance in the theory of the Riemann zeta function.
+                        In order to describe the theorem it is necessary to introduce some
+                     notation. Let <JUk denote the fc-dimensional unit hypercube (0, l ] k and
+                     write
+
+                                      f(a) =            X        e(<xlX + OL2X2 + • •' + oikxk).    (5.1)
+                                                Y<x^Y       +X
+
+                     For each /c-tuple h = (h^..., hk) of integers \ip let Jf\X, Y, h) denote
+                     the number of solutions of the k simultaneous equations
+
+                               t      (4 ~ it) = hj (1 < j < k) with Y < x r ,y r < Y + X.         (5.2)
+                              r = 1
+
+                     Then
+
+                                                        , Y9 h) =ff \f(a) | 2se(a.h)da             (5.3)
+
+                     where a.h denotes the scalar product a 1 /i 1 H- • • • + oikhk. Trivially
+                                                  J{J\X9 Y9 h) < Jf\X,             F, 0).           (5.4)
+                       By writing xr = M + ur,yr = M + vr and applying the binomial
+                     theorem, it is easily seen that
+                                                                                   ,0).            (5.5)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     58                                                                    Vinogradov's methods
+
+                     For brevity write
+                                                                              ,0).                        (5.6)
+                     By (5.2), JS(X) is the number of solutions of
+
+                                   t     (4 - y{) = 0(1 ^j^k)              with 0 < xr,yr ^ X.            (5.7)
+                                  r= 1
+
+
+                     A non-trivial estimate for JS(X) is known as 'Vinogradov's mean
+                     value theorem'.
+                       All known methods for estimating JS(X) when k is large depend on
+                     a reduction which relates JS(X) to Js _ k(X/p) where p is a suitable
+                     prime number. The method adopted here is a refinement of an
+                     argument of Karatsuba. Later, in §5.5, an improved treatment due to
+                     Wooley (1993a) is presented. At this point only the case d = 0, due to
+                     Linnik (1943c), of the following lemma is required, but the general
+                     case is required later in §5.5 and the proof is essentially identical to
+                     that in the case d = 0.
+
+
+                     Lemma 5.1 Suppose that d ^ 0 and p is a prime number with p > k. Let
+                     A(p, h) denote the number of solutions of the k simultaneous congruences
+
+                                              £ n{ = hj (modp>+                      d
+                                                                                         )(l^j^k)
+                                             r = 1
+
+
+                     with nr ^ pk + d and the nr distinct modulo p . Then
+
+
+                     Proof Let B(g) denote the number of solutions of
+
+                                                           k            +d
+                                              £ i                            )(l^j^k)                    (5.8)
+
+                     with nr^pk + d and the nr distinct modulo p. Then A(p, h) is the sum of
+                     all the B(g) with gj = hj (mod pj + d) and 1 < g. ^ pk + d (1 ^ j ^ k).
+                     The total number of possible choices for g is pk(k ~ 1)/2 . Thus it now
+                     suffices to show that
+                                                               B{g) ^ k\
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Vinogradov's mean value theorem                                                      59
+
+                     and this will follow on showing that every solution of (5.8) is a
+                     permutation of any given solution.
+                        For a given g, suppose that n1,... ,nk is a solution of (5.8) with
+                     nr^pk + d and the nr distinct modulo p. Suppose that mx,..., mk is
+                     another such solution and let
+
+                                                       P(x) = n (x - nr).                              (5.9)
+                                                                  r= 1
+
+                     Then, by Newton's formulae connecting the sums of the powers of the
+                     roots of a polynomial with its coefficients, and the fact that p > k, it
+                     follows that
+
+                                              P(x) = fl (x-mr)(modpk                  +d
+                                                                                          ).
+                                                         r= 1
+
+                     Thus
+                                             P(mr) = 0 (modpk + d) (1 ^ r ^ k).                       (5.10)
+                     Hence, for each r there is an s such that ns = mr (mod p). Also, since
+                     the ns are distinct modulo p it follows that ns is unique. Hence, by (5.9)
+                     and (5.10), ns = mr (modpfc + d ), whence ns = mr. Thus the mr are a
+                     permutation of the nr as required.
+                        It is convenient to state here a lemma which is required only later,
+                     in §5.5, but whose proof uses a similar idea.
+
+                     Lemma 5.2 Suppose that 0 < k ^ s and p is a prime number with p > k.
+                     Let B(p,h) denote the number of solutions of the k simultaneous
+                     congruences
+                                                  s
+                                                                             l^j^k)                   (5.11)
+                                               r = 1
+
+                     with nr ^ p. Then
+                                                                           i - k
+
+
+
+                     Proof It clearly suffices to treat the case s = k. Let m l 5 . . . ,mk be
+                     another solution of (5.11), so that
+
+                                            Z ni = Z m r (modp) (1 ^ 7 ^                       fe).   (5.12)
+                                           r= 1         r= 1
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     60                                                                 Vinogradov's methods
+
+                     As in the proof of Lemma 5.1, with the notation (5.9), P(mk) = 0
+                     (mod p). Thus there is an / such that nt = mk (mod p). Now delete nt
+                     and mk from (5.12) and repeat the argument. Thus once more one
+                     finds that the m are a permutation of the n.
+                        Let R^h) denote the number of solutions of the simultaneous
+                     equations
+
+                                                      t     xi = hj(l^j^k)                            (5.13)
+                                                     r= 1
+
+                     with 0 < xr ^ X and xl9... ,xk distinct, and let R2{h) denote the
+                     corresponding number with at most k — 1 of the xl9... ,xk distinct.
+                     Then
+
+                                                         2            2
+                                JS(X) = £(Ki(A) + R2(h))2 ^ 2£(K
+                                                            2£(K(A)      R(h)2).
+                                                                 1 (A) + R2
+                                            h                                h
+
+                     Hence
+                                                          JM(X) < 211 + 212                           (5.14)
+
+                     where 7, = X»*»(*)2-
+                       First of all consider I2. By (5.1)
+
+
+
+
+                     and by Holder's inequality the integral here does not exceed
+                                                                                              .-2/s
+
+
+
+
+                     Thus, if I2 ^ Il9 then JS(X) ^ 4s(^)2s and so in any case
+
+                                                                             + 4/ 1 .                 (5.15)
+
+                        It remains to treat Ix. Let 9 denote the set of /c2(/c - 1) smallest
+                     primes p with p > X1/k and p >fe,and let coo(n) denote the number of
+                     different primes p > X1/k dividing n. Given x l 5 . . . , xk all distinct and
+                     not exceeding AT, put P(x) = H*=iTlkjsli + 1 (xt - Xj). Then
+                     COO(P(JC)) < (/clog| P(x)| )/(logZ) < ^/c2(fc - 1). Now I, is the num-
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Vinogradov's mean value theorem                                                                 61
+
+                     ber of solutions of (5.7) with xl9...9xk  distinct and yu...9yk     distinct.
+                     Thus, for any solution JC,y counted by / x there is a prime pe£P such
+                     that x!,...,xk   are distinct m o d u l o p a n d yl9...9yk     are distinct
+                     modulo p . Therefore
+
+                                                           h < I *I(P)                                           (5-16)
+
+                     where ^(p) denotes the number of solutions of this kind.
+                       Let
+
+
+
+                                                 x = y (mod p)
+
+                     and let s/ denote the set of /c-tuples a = (al9...9ak)                        with 0 < ar < p
+                     and the a, distinct. Then
+                                                                                                      2s-2fc
+
+                             W(P) = f                                                                          da.
+
+                     By Holder's inequality
+                                                   2s-2k
+                                                                 D2s-2k-l         y     if/    v ) | 2 s - ;
+                                     E/(«.*)                                      x<p
+
+                     Hence
+
+                                                                                                                 (5.17)
+
+                     where / 3 (x) is the number of solutions of the simultaneous equations
+
+
+                               t (mi - n{) = X ((PJV + ^y " (^r + ^y) (1 <7 < fc)
+                              r= 1                  r= 1
+
+                     with 0 < mr, nr ^ X, with — x/p < yr,zr ^ (X — x)/p9 with
+                     ml9...9mk distinct modulo p and with nl9...9nk distinct modulo p. A
+                     simple application of the binomial theorem shows that / 3 (x) is the
+                     number of solutions of the simultaneous equations
+                                                                            s-k
+
+                                          - xy - K -                                  { - 4)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     62                                                               Vinogradov's methods
+
+                     with the variables satisfying the same conditions as before. Note that
+                     since nr ^ X < p \ nr is uniquely determined by its residue class
+                     modulo pk. Then, by Lemma 5.1,
+
+                                     I3(x) ^ Xkklpkik ~ 1)/2 max Jfl k{X/p, - x/p, h)
+                                                                     h
+
+                     and so by (5.4), (5.5), (5.6), (5.15) and (5.17)
+
+                     JS(X) ^ 4s(k)         + 4k\k2(k - 1 )Xfcmax (p2s + k{k ~ 5)/2Js _ ,(1 + X/p)).
+                                                                                                            (5.18)
+
+                     Theorem 5.1 (Vinogradov's mean value theorem) For each pair of
+                     natural numbersfc,/ there exists a positive number C(/c, /) such that for
+                     every X > 0
+                                                                    X2lk-«k+1)/2       +
+                                                                                           *
+
+                     where rj = \k2(l — 1/k)1.
+                       It should be observed that for applications in multiplicative
+                     number theory it is necessary to know something of the behaviour of
+                     C(/c, /) as / and k grow. Here, however, it is of lesser importance. Note
+                     that the theorem is trivial when k = 1.
+
+                     Proof This is by induction on /. By a similar argument to that used to
+                     estimate B(g) in the proof of Lemma 5.1, it can be shown that when
+                     5 = k all the solution of (5.7) are obtained with the yr as permutations
+                     of the xr. Thus
+                                                            Jk(X) ^ k\Xk
+                     which gives the case / = 1 at once.
+                       Now suppose that / > 1 and the theorem holds with / replaced by
+                     / — 1. When X ^ kk the desired conclusion is trivial. Thus it may be
+                     supposed that X > kk. Then, by Bertrand's postulate, when
+                     pe&,p ^ 2kHk~ l)Xx/k. By (5.14) and the inductive hypothesis there is
+                     a prime p e & such that
+                                               2kl
+                                                                                               l-k(k+   l ) / 2 +*/'
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     The transition from the mean                                                         63
+
+                     where r\' = ^/c2(l — 1/kf ~ *. The exponent of p here is k2 — rj\ so that
+
+                                        Jkl ^ 4kl (kTl + C 2 (/c, l)X2kl ~kik + 1)/2 +"'
+
+                     which gives the desired conclusion.
+
+                     5.2 The transition from the mean
+                     Let
+                                                           (fc)        2           k
+                                                  v (x) = v (x) = (x, x , . . . , x )                  (5.19)
+                                       k
+                     and for cteU write
+
+                                                            /(«)= X e(v{x)'*)                          (5.20)
+                                                                      x= 1
+                     where as usual for two elements a, ft of (R\ a/f denotes the scalar
+                     product aj/?! + . . . + akj8fc. Suppose that ^ is a non-empty set of
+                     integers with
+                                                  ^Tc:[l,N],               M = card(UfT).              (5.21)
+                     Then, for meM,
+
+                                             Z" e(v(x-m)-a)
+                                           x = 1 +m
+                                                  2N
+                                                         «(v(x-!»)•«•+x)
+                                            O \\ X = 1                              / y= I +m
+
+                     Therefore, on summingg over the elements of Ji,
+
+                                  /(a) < M
+                                                       J0     \B16j
+                     where
+                                                                      2N
+                                                                      X            - m ) - a + x/?).   (5.22)
+
+                      Thus
+
+                                           /()M-1(l2N)                       sup
+
+                      and an estimate for / can be deduced from a suitable mean value
+                      theorem.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     64                                                                 Vinogradov's methods
+
+                      The following lemma embodies a relationship between discrete
+                     mean values and corresponding continuous mean values. Note that
+
+                                                   X |a(n)|2 = f \S(P)\2dp.
+                     A number of alternative methods have been devised for obtaining
+                     such relationships, but all are based on similar ideas. The method
+                     given here is suggested by the large sieve inequality, and is a
+                     generalization of that inequality to / dimensions which has been
+                     useful in algebraic number theory. See Huxley (1968) and Wilson
+                     (1969).
+
+                     Lemma 5.3 Suppose that Sj>0 ( / = 1,...,/) and that T is a non-
+                     empty set of points y in Ul such that the open sets
+
+
+                     are pairwise disjoint. Let N v . . . , Nt denote I natural numbers and Jf
+                     denote the set of integer l-tuples n = (nl,...,nl)   with 1 ^ n } ^ N y Then
+                     the sum
+
+                                                      S(fi)= X
+                     where the a(n) are complex numbers, satisfies
+
+                                             IlS(y)| 2 « X |a(n)|2n Wj + 5;1).
+                                             yeT           tie V            j = l
+
+
+                     Proof Without loss of generality it can be supposed that 0 < djf ^ \.
+                     It suffices to bound the dual form
+
+                                                               I \T(n)\2
+                                                             neJ/'
+
+                     where
+                                                       T{n)=Ytb(y)e(ny).
+                                                                   yer
+
+                     Since 1 - \h\/(2N) > \ whenever \h\ < N it follows that
+
+                                  2 " ' £ \T(n)\2 ^          X           \T(h)\2 n (1 - \hj\/(2Nj)).
+                                      neJf                   h                  j = i
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     The transition from the mean                                                65
+
+                     On squaring out and interchanging the order of summation this
+                     becomes
+                                                                       1
+                                       I E Hv)Hy') n                       E e(n{y'j-yj))
+
+                     The innermost sum here is
+                                      < min(Np \\y'j - 7j\\ ~ l) < JV/1 + Nj\\y'j - yj\\).
+                     Therefore
+
+                                Y |T(n)|2 <^ Y \b(y)\2 Y FT (^/(l + ^/lly) ~ V/ID" 2)- ( 5 - 24 )
+                               neJT              yer          y'er j = 1
+
+                       Let F(jS,N,5) = N when || 0 || < <5 and iV(l 4- N || p \\)~ 2 other-
+                     wise, and put
+
+
+                     and Fj(p) = F(p, Np Sj). It suffices to prove that
+
+                                           F(a, N, S) 4 S ' 1                  F(P,N, S)dp,   (5.25)
+
+                     for then by (5.24)
+
+
+
+
+                     Hence, by a change of variables the product here becomes
+
+                                                       f       '
+                                                                   F
+                                                              n       j(Pj -     y^fi
+                                                       Jmy')j=i
+
+
+                                               !...a,)-1 ri
+                     and so, on the hypothesis concerning ^(y'), the sum over / ' is at most
+                                                         ri  j=i\Jo
+
+                     The 7*th integral here is
+                               Cdj              f00
+                           <          Njdp +    Nj(l + Af/)"-
+                               Jo           J^.
+                     and the lemma would follow. It remains, therefore, to establish (5.25).
+                       Suppose that || a || ^ d. Then /?e/(a,<5) implies that 1 +
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     66                                                                 Vinogradov's methods
+
+                      N\\P\\^\+N(\\oL\\+8)<t2(\+N\\oi\\)                and so F{fi9N98)>
+                      N{\ + N\\p\\y2^       %F(OL9N98) which gives (5.25) when || a || ^ 8.
+                        Suppose that || a || < 8. Then F(OL9N98) = N. Choose he I so that
+                      h — 8 <(x<h + 8. When h ^ a < h + 8 and 0 < P < 8 one has
+                            1,8) = N,Pe /(a, 8) and 8 " x J / ( M ) F(j?,N, £)d£ ^ N. When
+                        — 8 < oc ^ /i the same conclusion follows by considering P with
+
+
+                          The technique adopted here for estimating /(a) is to compare
+
+
+                                                           meM
+                      with JS(2N) by means of Lemma 5.3 and a suitable choice of M.
+                        Let y(m) = (y j (m),..., yk _ l (m)) where
+
+                                                            fh\
+                                                         a J . )(-m)h-j            (1^7^/c-l).         (5.26)
+
+                      Then, by (5.19),
+
+                                                                                        j= i
+                      Thus, in order to apply the lemma to the sum g, given by (5.22), it is
+                      necessary to discuss the spacing of the yj(m) modulo 1.
+                        Suppose that l < x , y^N, xj=y and define
+
+
+                           h+l\          j    )               y-x                                     (5.28)
+                     a»; = 0                                                            (l^h<j<k).
+                      Note that ahj is an integer and a^ = k\. Further define
+                                                                                   x)                 (5.29)
+                     and tj = k\(yj(x) - yj(y)). Then, by (5.28),
+
+                                                  xj = k!(yj(x) - 7j(y)) = X ' ^ « .                  (5.30)
+                                                                              h= 1
+                      The next objective is to invert this linear transformation. Write
+                                                          A — (n    \* - 1 * - 1
+
+                     and B = A-k\I    where / denotes the unit (/c - 1) x (k - 1) matrix.
+                     The matrix A is lower triangular, and B = (bhj) where bhj = 0 when
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     The transition from the mean                                                                                    67
+
+                     l*^h^j <k and bhj = ahj when l^j<h<k.                                                   Hence (5.30) can be
+                     written in the form
+                                                                           r = pA.                                               (5.31)
+                     The tth power of B satisfies
+                                                                          B' = (b<$)
+                     where
+
+
+
+                     Therefore b%j is an integer and 6j,rj = 0 when h < j + t. Moreover, by
+                     (5.28), ahj <^Nh~j when h > j . Hence, for h>j +t9
+                                b
+                                    h}<                 £••• Z                          Nh-hNjl~J2                  ...Nj<-i~j
+                                                j < j t - ! < • • • < J2 < J l < fc
+
+                     So that
+                                                                       b^<Nh-{                                                   (5.32)
+                                          x
+                     Clearly £*~ is the null matrix. Thus, on writing J = k\I and
+                                              D = J k " 2 - J* ^ 3 B + . . . + ( - 1 )k ~ 2Bk ~ 2
+                     one obtains
+                                AD = (B + J)D = Jk~ ' + ( - lf~                                       2 k
+                                                                                                      B ~ ' = (k\)k~ H.
+                     Hence, by (5.31),
+                                                                     TD = ( / c ! ) f c " 1 ^
+                     so that
+                                                                                                               k-   1
+
+
+                                                                           t = i                              h= j + t
+
+                     Thus, by (5.32),
+                                                                                   k-       1
+                                                                                                IITJIN*" j
+
+                     Therefore, by (5. 29) and (5.30),
+
+                      \\(k\)%(x-y)\\ < Y                          llv*(*)-yh(y ) || 7V*-J                                £fe). (5.33)
+                                                      h= j - l
+                        Suppose that for some j with 2                                                      there are a, ^f with
+                                                j                                       2
+                     (a, g) = 1, q < N and |a7 - a/q\ **q~ . Let
+                                                                                                 ).                              (5.34)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                      68                                                                Vinogradov's methods
+
+                      Then for each x e [ l , L] the number of y e [ l , L] for which
+                                                       \\{k\foij{x-y)\\^N1^
+                      is bounded by the number of y e [ l , L] for which
+
+
+                      and this is at most R where
+                                     K = ((k\)kLq- x + l)(2^N r " j + 2(/c!)fcL^f" * + 1).                       (5.35)
+                      Hence there is a set Jt of integers x e [ l , L] such that M = cdx&Jt
+                      satisfies M ^ L/(R + 1) and such that for each pair x, y with xeJt,
+
+
+
+                       By (5.33), for every such pair x, y there exists an h for which
+                      j - 1 ^ h ^ k - 1 and
+                                              lly*(x)-y*(y)ll>N-*.
+                      Now Lemma 5.3 can be applied with / replaced by k — 1, with
+                      Nj = sNJ, with <5; > N " J , with r = {y(m):me^} and with
+
+                                  a(n) =          X' ^((xi + • • •
+                                           xlt...,xs
+
+                      where the sum is restricted to the solutions x 1 ? . . . , x s of the
+                      simultaneous equations
+                                              x\ + . . . + xj = nh           (l^h<k-l)
+                      with 1 ^ xr ^ IN. Therefore, by (5.22), (5.27) and (5.6),
+
+                                           X \g(m, p)\2s 4 Jf - l)(2N)Nk{k ~1)/2.
+                                          meM
+                      Hence, by (5.23) and Holder's inequality,
+                                     /(<x)2s < (^/L)(log 2N)2sJik ~ 1) (2N)N k(fc " 1)/2 .
+                      This with (5.34) and (5.35) gives the following theorem.
+
+                     Theorem 5.2 Suppose that there exist j , a, q                                 with      2^j^k,
+                     \*j - a/q\ ^q-2Aa,q)=lq< Nj. Then
+
+                           /(a) < (J<*" l)(2N)Nk(k~ l)/2(qN-J + N'^q"                         l 1/2s
+                                                                                              ))       log 2N.
+
+                        Combining this with Theorem 5.1 gives
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                      The minor arcs in Waring's problem                                          69
+
+                     Theorem 5.3 On the hypothesis of Theorem 5.2,
+                                 /(a) < N(N«(qN-j +                N~l+q
+                     where
+
+
+
+                     In particular, if N <^q<Nj               \ then
+                                                       f(*)<Nl-°log2N
+                     where
+
+                                                                                               5.36)
+
+                     Moreover 4<x/c2log/c ~ 1 asfe—•oo.
+
+                       All but the last part follow at once. To prove the last part observe
+                     that when k ^ 3 the maximum is attained for a value of / satisfying
+                               k—
+                                           < 1 where k is the larger root of the trans-
+                     cendental equation
+                                                      e — -*-^i»- _ 1 \2 ( 2 _i_ 1 ^
+                                                        — 2 V'*'    •*•/ V. *^ /
+
+                     Now it is readily seen that k ~ 2 log k and
+                                                              1         /          (\
+
+                       A little calculation shows that Theorem 5.3 gives stronger results
+                     than Lemma 2.4 when k ^ 12.
+
+                     5.3 The minor arcs in Waring's problem
+                     Let /(a) be given by (1.6). Then
+
+                                                            P |/(a)|2Ma
+                                                            Jo
+                     is the number of solutions of
+                                                 x\ + . . . + xks = y\ + . . . + yks
+                     with 1 ^ xp yj < JV. Hence
+
+                                                P l/(«)l :sdoi<ZNk{k-1)/2Js(N).               (5.37)
+                                                Jo
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     70                                                                    Vinogradov's methods
+
+                     Let N, P, $TC, * be as in § 4.4 and let m = ^ \ $R. Let a em. Choose a, q
+                     so that (a, q)=l,q^ n/P and \<*-a/q\ < Pg~ x n" * (Lemma 2.1). Then
+                     l^a^q,      and since a lies in no major arc9W(g, a) it follows that q > P.
+                     Hence, by Lemma 2.4 and Theorem 5.3
+
+
+                     where a0 = max(<r, 2 1 ~k) and a is given by (5.36). Thus, by
+                     Theorem 5.1 and (5.37) with s replaced by kl, there is a positive
+                     number S such that whenever
+
+                                                        s>             1--        + 2/c/
+                                                              2cr0 \         k)
+
+                     one has
+
+                                                    I        \f(0L)\2sdOL<N2s-k-3.
+
+                     Combined with (4.33) and Theorems 4.4 and 4.6 this yields
+                     Theorem 5.4 Let a0 = max (a, 2 1 " k) and let s0 denote the least integer
+                     such that
+                                                   >                   1          +2W                  (538)
+                                                * T(£( 4)'                                 )-            -
+                     Then the asymptotic formula (2.27) holds whenever s ^ s0. Also
+                     s0 ~ 4/c2log /c as /c —> oo.
+                        Again, a modicum of computation shows that s0 < 2* + 1 when
+
+
+
+
+                     5.4 An upper bound for G(k)
+
+                     The investigation here of Waring's problem has so far concentrated
+                     on an asymptotic formula for the number of solutions of
+                                                             x i + . . . 4- xks = n.
+                      However, Hardy and Littlewood (1925) observed that the required
+                      size of 5 could be reduced by restricting the range of some of the
+                      variables Xj. This technique was later greatly exploited by
+                      Vinogradov and Davenport.
+                         Vinogradov has shown that G(/c)<fc(logfc)(C+ o(l)) as fc->oo,
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     An upper bound for G(k)                                                            71
+
+                     and over a period of nearly thirty years has reduced the permissible
+                     value of C to 2. There is a fairly simple argument that shows that C
+                     can be taken to be 3 and which motivates many of the underlying
+                     ideas. For the reduction from 3 to 2, see Chapter 7, and for Wooley's
+                     further reduction to 1 see Chapter 12.
+                        Let Z be large and write
+
+                                                     1 — 6    '   / •+• 1 """" 2    i       '
+
+                     and let Qz(m) denote the number of solutions of
+                                                         x* 4 - . . . 4- xk = m
+                     with Zj < Xj ^ 2Zj. Then Em<2z(m)2 is the number of solutions of
+                                 x\ 4-. .. 4- xk = y\ 4 - . . . 4- yk with Zj < x^ y} < 2Z,..        (5.39)
+                     Since
+
+
+                     and
+                                \x\ 4 - . . . 4- xk — y\ — ... — j ^ | < 2fcZ2 4- O(Z3) < kZ\~ l
+                     it follows that (5.39) can only have a solution with x1 =yv By
+                     repeating this argument it follows that x 2 = y2, x 3 = y3, and so on.
+                     Thus
+
+                                   X Qz(m)2 <Zx...Zt^h                      6z(m)Y(Z1 . . . Zt)~ \
+                                   m                                \m                  /
+
+
+                     Moreover Z x . . . Z, > Zk ~fc(1" 1/k)t and Qz(m) = 0 when
+
+
+                     Thus                 Z                                                     ^    (5.40)
+
+                     and
+                                                 <2z(m) = 0       when             m > |Z k .        (5.41)
+                     The above argument also shows that Qz(m) is 0 or 1, and gives a s e t ^
+                     of natural numbers m not exceeding Zk for which m is the sum of t kth
+                     powers and
+
+
+                     Thus, for a comparatively small value of r, say Ck log /c, the cardinality
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     72                                                                     Vinogradov's methods
+
+                     of Ji can be made relatively close to Zk. This construction, a slight
+                     modification of that due to Hardy and Littlewood, is used in two
+                     different ways on the minor arcs. Firstly, in an analogous manner to
+                     Hua's lemma (Lemma 2.5) in order to save almost N\ and secondly
+                     (and this is Vinogradov's contribution) to save a further small amount
+                     on the minor arcs in a similar, but more efficient, way to Weyl's
+                     inequality (Lemma 2.4).
+                        Let
+                                                                                       (5.42)
+
+                     Then, by Parseval's identity and (5.40),
+
+
+                                      Jo   f    | H ( a ) | 2 d a < H(0)2N~k
+                                                                        .      + kil
+
+
+
+                        The following Jois due essentially to Vinogradov (1947).
+                                                                                    ~        i/kY
+                                                                                                         (5.43)
+
+
+
+
+                     Lemma 5.4 Let
+                                                                 I         I bye((xpky)
+
+                     where the by are arbitrary complex numbers. Suppose that a = a/q + P
+                     with \p\ < \q~ iX~k,q^    2X\ (a, q) = 1, that Y $> X\ and that when
+                     q^X one has \p\ > q~ lXl ~kY~ l. Then
+                                                                                       v l / 2
+
+
+
+
+                       Note that the argument described below can be modified readily so
+                     that the interval of summation (0, y] for y can be replaced by an
+                     arbitrary interval of length Y.
+
+                     Proof By Cauchy's inequality
+                                                                                                    2
+                                            V(a)2                              bye(apky)                  (5.44)
+
+                     When (ft, q) = 1, the number J of solutions of the congruence
+                                                            xk = ft(modg)
+                     satisfies J <^ qE. Hence there is an L < q£ such that the primes p with
+                     \X < p ^ X can be divided into L classes ^ , . . . , 0>L SO that for two
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                      An upper bound for G(k)                                                                 73
+
+                     distinct primes pu p2 in a given class ^pp\ = p* (modg) if and only if
+                     Pj = p 2 (modq).
+                        Consider two such primes px, p2. By the hypothesis
+
+                                             i ~p\)\\ > \Hp\ -pk2)/q\\ -\q~               l
+                                                                                              X~kXk
+
+
+                     provided that px # p 2 (modg). When q > X, the elements of ^ are
+                     distinct modulo q. Hence, for p e ^ , , the <xpk are spaced at least \q~ l
+                     apart modulo 1. Therefore, by the one dimensional case of Lemma 5.3
+                     (the large sieve inequality),
+
+                                                                bye(apky)                     \by\2        (5.45)
+
+                     and the lemma follows easily from (5.44).
+                        When q < X the argument may be refined as follows. Suppose that
+                     px = p 2 (modg) but p1j=p2- Then, by the hypothesis,
+                                         \HP\ - pk2)\\ = W(P\ - P\)\\ = \p\ \P\ - P\\
+
+                     Now \px — p2\ ^ q, and so, combined with the argument above, this
+                     shows that the <xpfc are spaced > Y~ l apart modulo 1. Hence, by
+                     Lemma 5.3, one obtains (5.45) once more.
+
+                         Let X =
+
+                                                                      y
+
+
+                     Adopt the notation of §5.3 and suppose that aem. Choose a, q so that
+                     (a,q)=Uq^2Xk,\oi-a/q\^^q~iX~k. Then l^a^q                and since
+                     a is not in a major arc, when q^N                        one has
+                                                        1
+                     la-a/gl^g-ijVi-fcxj-ij^-T- .             Hence, by Lemma 5.4,
+                     (5.40) and (5.41),
+                                              W(OL) < W{0)(Nk{1 " llk)t ~ l + £ ) 1 / 4 .
+                     Therefore, by (5.43) and (1.6),
+
+                                       f((x)4kH((x)2W((x)e(-       (xn)d(x < H{0)2W(0)n3              +E
+
+                                  Jm
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     74                                                                Vinogradov's methods
+
+                     where
+
+
+
+                     Thus if t is chosen so that
+
+                                                r>(log5*)/f-logfl-j^\                                      (5.46)
+                     then it follows that there is a positive number S such that
+
+                                        f(a)4kH(a)2W(oc)e(-(xn)d(x<H(O)2W(O)n3-s.                          (5.47)
+                                   Jm
+                     Now
+                                                                                                           (5.48)
+                                                                     m
+
+                     where
+
+                                    Q*(m) = £ £              £            ^jQN(mi)QN(m2)Qx(y)-
+                                                mi ro2 XJ2<kP<X       V
+
+                      By (5.41), <2*(m) = 0 when m > \n. Hence, by Theorems 4.4 and 4.6,
+
+
+                                                L    /(a) 4fc if (<x)2W(a)e{- an)da
+
+                                                                    I /(a) 4 *e(-(n- m)a)da
+                                                                    J9W
+
+
+
+
+                     Therefore, by (5.47) and (5.48),
+
+
+                            Jo    i     f(a)4kH((x)2W(<x)e(-        ocn)d(x > n3H(0)2W(0)
+
+                     On the other hand, the left side is the number of solutions of
+                                                                                                    > 0.
+
+
+
+
+                                             + zkt+ pk(w\ + . . . + wk) = n
+                     with the Xp yp zj9 wj9 p restricted in various ways. Hence
+                                                           G(k) ^4k + 3r.
+                     The optimal choice of t in (5.46) occurs with t ~ k log /c. Thus
+                                                                      o(l))     as            fc->oo.      (5.49)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                      Wooley's refinement of Vinogradov's mean value theorem                                75
+
+                      5.5 Wooley's refinement of Vinogradov's mean value theorem
+                      It is evident that the proof of Theorem 5.1 makes use of differences of
+                      the form xk — yk in which x — y (modp). A number of significant
+                      advances have been made in recent years in which efficient differences
+                      of the form (xk — yk)/pk with x = y (modpfc) have played a crucial
+                      role. Thus the objective here is to introduce differences of this and
+                      related kinds. Especially important will be the modified forward
+                      difference operator A* given by
+                                        Af(f(x);h,m)         = m-\f{x        + hmk)           -f(x)).
+
+
+                      Definition 5.1 Let d and k be integers with 0 ^ d ^ k. Let A and X be
+                      positive real numbers. Then it is said that the k-tuple of polynomials
+                                                1?           =(V1(x),...,Vk(x))eZ[xf
+                      is of type (d,A,X) when
+                         (a) 4^ has degree i — dfor i ^ d and is identically zero for i < d, and
+                         (b) the coefficient ci ofx1" d in ^-(x) is non-zero and bounded by AXd
+                     for       d^i^k.
+                         There are three useful consequences immediate from the definition,
+                         (i) Let kijeZ (1 ^ 7 < i ^ k) and put
+
+                                                              i - 1
+
+
+                                                              j= 1
+
+                     Then <I> is also of type (d, A, X).
+                         (ii) Let J(*P, z) denote the Jacobian det ( —-L-^- )                           . Then
+
+
+
+
+                                                                 \i =d + 1
+                                                                             ) ri (zs-Zr).
+                                                                              / r =d + l s = r + l
+
+                       (iii) Let h and m be integers with 1 ^ hmk ^ BX and define the
+                     polynomials &t by
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     76                                                                     Vinogradov's methods
+
+                     Then the system 0 is of type (d +                          l,kAB,X).
+                          A generalization is required of Lemma 5.1.
+
+                     Lemma 5.5 Suppose that the system *¥ is of type (d,A,X) and let
+                     A(p, /*,¥) denote the number of solutions in n e (Z/pkZ)k of the system of
+                     congruences
+
+                                          X * ; ( « , ) = hj ( m o d p > )                  (d+l^j^k)
+                                         i = 1
+
+
+                     with (J(^,/i),p) = 1. Then
+
+
+                     where /i(k,d) = ^k(k - 1) + \d(d + 1).
+
+                     Proof Write the congruence as
+
+                                            X        Vjinjzzhj-          X ¥,(*,) (mod p>).
+                                         i = d + 1                       i= 1
+
+                     Thus the number in question does not exceed
+
+                                                                 pkdTMLXB(g)
+                                                                     g
+
+                     where B(g) denotes the number of solutions of
+
+
+                                                     i = d + 1
+
+                     with nd + 1 ? . . . , nk e (Z/pkZ)k ~ d. The condition on the Jacobian im-
+                     plies that (cd + x . . . ck,p) = 1. Thus, by elementary row operations on
+                     the matrix
+
+
+                     it follows that there is a w such that B(g) = C(M>) where C(w) is the
+                     number of solutions of
+
+                                                        £        nrd^wj(modpj)
+                                                     i = d+ 1
+
+                     with nd + l 9 . . . , nk as before. Referring again to the condition on the
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooleys refinement of Vinogradovs mean value theorem                                    11
+
+                     Jacobian one sees that the nd + l 9 . . . , nk are distinct modulo p and
+                     p > k — d. Thus one can appeal to Lemma 5.1 with k replaced by
+                     k — d and j by j — d and deduce that
+
+                               A ( p , w , ¥ ) ^ p k d m a x C ( w ) < (fc - d)\pkd   +
+                                                                                          *(k"d)(k~d~l)
+                                                       w
+
+                     and this completes the proof of the lemma.
+                        Of course, the underlying theme in the proofs of Lemmas 5.1, 5.2
+                     and 5.5 is that one is counting the number of non-singular solutions.
+                     Also, there are various occasions in the proofs of Theorem 5.1, and
+                     Theorem 5.5 below when the starting point of an argument or process
+                     is a separation of singular from non-singular solutions.
+                        The process of bounding JS(X) in terms of Js _ k(X/p) is now much
+                     more complicated than in §5.1 and involves a number of intermediate
+                     steps which relate the system
+
+                                    X P¥j(zq) - Vjitq)) + Z (4 ~ yi) = 0 (1 < j < fe) (5.50)
+                                q=       1                        r= 1
+
+                     to the system
+
+
+                               q=    1                             r=    1
+
+                     Take KS(X, Y,*¥) to be the number of solutions of (5.50) subject to
+                                                      zq9tq^X(l          ^q^k)                            (5.52)
+                     and
+                                                      xr9yr^     Y(l^r^s)                                 (5.53)
+                     and LS(X, F, 0, p,*¥) to be the number of solutions of (5.51) subject to
+                     (5.52),
+                                                 zq = tq (modpfc) (1 ^ q ^ k)                             (5.54)
+                     and
+                                          ur,vr^   YX~e (l^r^s)                        (5.55)
+                                             1
+                       Suppose that ? is of type (d, A, X). Then there is a positive number
+                     C0(k,A) such that
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     78                                                                Vinogradov's methods
+
+                                                      log | J(f,z) |
+                                                                     <C0(k,A)
+                                                         log*
+                     uniformly for all X ^ 2 and all z with zr^X and J ( ¥ , z) / 0. Thus
+                     there is a positive number C^/c, A,6) such that the number
+                     coiJCV, z), X0) of different prime factors p of J ( ¥ , z) with p > Xe does
+                     not exceed Cx(/c, A, 6) uniformly for all X > 0 and all z with zr ^ X
+                     and J ( ¥ , z ) ^ 0 . Let ^ ( Z ) denote the set of [IC^A.O)]          +1
+                     smallest primes greater than Z. It is now possible to state the
+                     relationship between Ks and Ls. Such relationships are sometimes
+                     described as a. fundamental lemma.
+
+
+                     Lemma 5.6 Suppose that 0 ^ d ^ s, Xe < Y ^ X and ¥ / s o /
+                     (d, X, X). Then there is a positive number C2(k, A, 6), a prime p in ^(X
+                     and a system <& of type (d,A,X) such that
+
+
+
+
+                     where \x is as in Lemma 5.5.
+
+                     Proof In the proof of this lemma implicit constants may depend on /c,
+                     A and 0 and K s ( P , g , ^ ) is abbreviated to K. Let R^h) denote the
+                     number of solutions of the simultaneous equations
+                                              k                 s
+
+
+                                           q = 1              r =1
+
+                     with ^ a n d JC satisfying (5.52), (5.53) and zl9...,zk distinct, a n d let
+                     R2(h) denote the corresponding number with zl9...,zk              not all
+                     distinct. Thus K = Y,h(Ri(h) + Ri(h))2 and so
+
+                                                          K ^ 21 x + 212
+                                                  2
+                     where It = Y^h^iW -
+                        As in §5.1 the treatment of I2 is straightforward. Let
+
+                                                        F(*)= Z
+                                                                    z ^X
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                                            79
+
+                     and
+
+
+
+
+                     Then
+
+                                                    )               \F(a)2k-*F(2a)2f(a)2s\da.
+
+                     By Holder's inequality, the integral here does not exceed
+                                                              \ i -iik / r                                 \2/k
+                                     \F{*)2kf{z)2s\d<x)                    M      \F(2a)kf(a)2s\da)               .
+
+                     By estimating trivially the function F in the second integrand one
+                     obtains
+                                                                    /       f                  \2/fc
+                                                        Kl-2/k(Xk\               |/ (flf )|2. dflr )   m
+
+                                                    \ Jvk              J
+                     Therefore, when I2 ^ Ix one has K ^ 2k(k)kXkJs(X)9  a n d in any case
+
+                                                                          rs(AT) + 4 / 1 .                            (5.56)
+
+                       Clearly Ix counts the number of solutions of (5.50) with the
+                     variables subject to (5.52) a n d (5.53) a n d with the zl9...,zk distinct
+                     and the tl9...9tk   distinct. By the definition of &9 for each such
+                     solution there is at least one member p of 0>(Xe) such that
+
+                                                        (J(9,z)J(?9t)9p)=l.                                           (5.57)
+
+
+                     Therefore Ix ^Yjpe^(xe)h(p) where I^p) denotes the number of
+                     solutions of (5.50) subject to (5.52), (5.53) and (5.57). Again by the
+                     definition of 0>9 it follows that card(^) <^ 1 and thus there is a prime
+                     p G 9 such that
+
+
+                         Let
+
+                                          f(a;y)=            £           e^x + ••• + cckxk),
+                                                         x = y (mod p)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     80                                                                  Vinogradov's methods
+
+                     and
+
+                                                  G(a) =                  I          e{a.e)
+                                                                  ([J(T,'i),'rt="i
+
+                     where
+
+
+                     Then, since !P is of type (d,,4,AT),
+
+                                     M p K f |G(a)| 2 £ ••• t
+                                                 J®k                /ii = i      /id=i
+
+                     where
+
+                                                H(a,h) = I /(or, fll ).../(*,*,
+
+                     and @(h) is the set of solutions n of (5.11) with k = d. By Cauchy's
+                     inequality and the arithmetic mean-geometric mean inequality one
+                     has, in the notation of Lemma 5.2 and by Lemma 5.2,
+
+                                     \H(a9k)\2^B{p,k)                  X        \f(*,a1)...f(a,as)\2
+
+                                                                    ae^(h)
+
+
+
+                                                                ae^(fc) i = 1
+
+                      Hence lx < p2s ~d'          x
+                                                      Yfa = i h(a)       where
+
+
+
+                                                 7 3 (a)= [             \G(a)2f(a,a)2s\da.
+
+                     Therefore, there is an a such that
+
+                        The quantity I3(a) is the number of solutions of the simultaneous
+                      equations
+
+
+                                                         q= 1
+
+
+                                          t     ((pur + ay - (pvr + flV) = 0 (1 < ; < k),              (5.58)
+                                        r = 1
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                      81
+
+                     with z,t satisfying (5.52) and (5.57) and u and v satisfying
+                                                   -a/p<ur9vr^(Y-a)/p.                        (5.59)
+                     By the binomial theorem
+
+
+
+
+                     and it follows that each solution of (5.58) satisfies
+
+                                   £ (*,(*,) - <t>t(tq)) + p* t (K - K) (1 < ^ fc). (5.60)
+                                  q=   1                             r= 1
+
+                     where
+
+
+                                                           i= ov/
+                     Conversely each solution of (5.60) satisfies (5.58). Thus I3(a) is the
+                     number of solutions of the system (5.60) with z, t satisfying (5.52) and
+                     (5.57) and u and v satisfying (5.59). Moreover, the system <& is of type
+                     (d,A,X) and by using row operations on J£¥,z) one finds that
+
+                         Let
+                                           g(a) =       X e^iPu          + • • • + akpkuk).    (5.61)
+
+                     and
+
+                                                  E(a) =
+                                                              (J(«l»,z),p)= 1
+
+                     where
+
+
+                     Then
+
+                                           /1«p2s-df               \E(a)2(l+g(a))2s\da.
+
+                     Also
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     82                                                                         Vinogradov's methods
+
+                     and by considering those solutions of the underlying diophantine
+                     equation with ur = vr one has
+                                               s                   2
+                                    (YX ~ ef || |\E(a)
+                                                  E(a)2 | da <I | | E{«)2g{a)2s \ da.
+                                                       \da<
+                                             Jwk              J^k
+                     Hence
+
+
+                                                                 1          \E(a)2g(a)2s |da.
+
+                       The integral in (5.62) is equal to the number of solutions of the
+                                                                                                             (5.62)
+
+
+                     equation (5.60) with the variables satisfying (5.52), (5.55) and
+
+
+                     The function O£(z) is independent of z when i ^ d. Thus Tt(z) is
+                     independent of z when i ^ d. Moreover for each solution counted one
+                     has
+                                           h(z) = Tt(t) (mod//) (d + 1 ^ i ^ k).
+                     Now classify these solutions according to the common residue classes
+                     modulo pl of the Tt(z) and Tt(t).
+                       Let stf{h) denote the set of z in Z/pkZ with
+                                                        it (modpk) (a1+ 1< i < k)
+                     and            •),p)= 1, let
+
+                                       E(a,n) =                                                    e(a.
+                                                        = Mi ( m o d p l c ) , . . . ,   (modpk)
+
+                     and let
+
+                                         DM-'                                                 E(a,m)
+                                                                                         h)
+
+                     Then
+
+
+                     where
+
+
+                                                     -I                D(a)\g(a)2°\da.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                                           83
+
+                     By Cauchy's inequality and the notation of Lemma 5.5,
+                                          Pd+i            p k                             *
+
+                          D(a)<:           I        •• Z A(p9h,Q) X                              \E{^n)2g{a)2s\d<x.
+                                     h         =1         =l
+                                         d+i          K                            nest(h)Jqtk
+
+                     therefore, by Lemma 5.5,
+
+                               Ix 4 p*' +«*-<-»                  I ••• Z f                       \E(a,n)2g(a)2s\dz.
+                                                                ni = 1      nk = 1 J<%k
+
+                     The lemma now follows easily from this and (5.56).
+                        The system of equations (5.51) is now transformed using efficient
+                     differences.
+
+                     Lemma 5.7 Suppose that 1 < X0 < Y ^ X and that the system O is of
+                     type (d,A,X). Let H = Yl~kd and pe&(9). Then there is an h with
+                     1 ^ h ^ H such that the system 0 given by
+                                               ej(z;h,p) =                   AJ(^j(z);h9p)(l^i^k)
+                     satisfies
+                                                L,(X, r , 0 , p , * ) <           2kkkXkJs(YX-e)
+
+
+                     Moreover, there is a positive number B depending at most onk,A,6 such
+                     that the system 0 is of type (d + 1,B,X).
+                        It can be observed that provided that X > X0(k,A99), so that
+                     p ^ 2X\ the system 0 will be of type (d + l9k2kA9X).
+
+                     Proof The final part of the theorem is immediate from the definition
+                     of 0>(6) and (iii) above. Thus one can concentrate on the main
+                     inequality.
+                       For brevity write L for LS(X, Y, 0, p,4>), and it will be useful to put
+
+                                                    F{*)= Z
+                                                                X = 1
+                                                                         z = x (mod p)
+
+
+                        Let lx denote the number of solutions of (5.51) subject to (5.52),
+                     (5.54), (5.55) and zq # tq (1 ^ q ^ k), and let I2 denote the number
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     84                                                                Vinogradov's methods
+
+                     with zq = tq for some q with 1 < q < K. Then by the definition of L,
+
+
+                     By (5.61),
+
+
+
+
+                     and by Holder's inequality the integral here does not exceed
+
+                                                                                          2s 2s
+                                               F(a)k\g(a)\2°da)                     g(a)\
+                                                                                     (\\g(  ad)\ da
+
+
+
+
+                     Hence, if I2 ^ Il9 then L ^ (2k)kXkJs(YX                    ~% and in any case
+                                                    L ^ (2k)kXkJs(YX~0)         + 21 x.               (5.63)
+                     For each solution of (5.51) counted by Ix and each q with 1 ^ q ^ n
+                     one has zq = tq (modpk) and zq ^ tq. Therefore, for some hq with
+                     1 < I hq | ^ H one has
+
+
+                     Let I3(tf) denote the number of solutions of the system of equations
+                                       k                           s
+                                    X tiq@j(zq;hq,p) + X 04 ~ vl) = 0 (1 s£ j ^ k)                    (5.64)
+                                  q=       1                      r= 1
+
+                     in z,u,v9h and satisfying (5.52), (5.55) and
+                                                         l^hq^H(l^q^k)
+
+                     Then
+
+
+
+
+                          Let g(a) be as in (5.61) but with p = 1, and let
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                          85
+
+                     Then
+
+                                       ' i ^ E f ( FI Z G(rjqa,h))\g(a)\2sda
+                                               if J®k\q=     lh^H                    J
+
+                     where the summation is over 17G { — 1, + 1}*. By Holder's inequality
+
+
+                                           = 1 /t < H                     \/i < if
+
+
+
+
+                     Hence, by Schwarz's inequality,
+
+
+                                                                     ^ ( [ I G(«, h) \ 2k \ g(a) \
+
+                     Thus, for a suitable choice of h, one has
+                                          I, ^ 2kHkJs(YX-e)±Ks(X,                        YX~\®f
+                     and the desired conclusion follows from (5.63).
+                        Some useful information is now extracted from Lemmas 5.6 and
+                     5.7.
+                        Suppose that X is any positive number such that X ^ 2s and
+                                                             JS(X) < Xk                           (5.65)
+                     uniformly for all X ^ 1. Such numbers X certainly exist and k = 2s is
+                     an example.
+                       Let j satisfy 1 ^ j<^ k and choose 0j90j_l9...901    iteratively by
+                     putting
+                                                               0j = 1/fc                          (5.66)
+                     and for i = j — \J — 2 , . . . , 1
+
+                                     9, = m i n ^
+
+
+                     Consider the inequality
+                                                                                                  (5.68)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     86                                                               Vinogradov's methods
+
+                     where
+                                         X = m - 0X) + k + (2s + \k{k - 1))^.                         (5.69)
+                     This is established by showing, more generally, that for all systems *P
+                     of type (0, l,X) one has
+                                                  KS(X, X,V) <^ Xk + A + Xk'                          (5.70)
+                      Clearly (z, z 2 , . . . , zk) is of type (0,1,X).
+                         Put ¥ ( 0 ) = ¥ . Then, given «P<° take 9 in Lemma 5.6 to be 9t + x and
+                      choose pt and4>(0 to be any p andO which satisfy Lemma 5.6. Then in
+                      Lemma 5.7 put 9 = 0t + 1 and ^ = O (i) and define ^ ( I + X) to be the 0
+                      of that lemma.
+                         As a first step it is shown inductively for i = j — l j — 2 , . . . , 0 that
+
+
+                      where
+
+                                                                                                      (5.72)
+
+                        The bound (5.71) is immediate from Lemma 5.7 when 9i + 1 = l//c,
+                      and this is certainly so when i = j — 1 and provides the first step in the
+                      inductive proof of (5.71). Moreover, in view of this observation, one
+                      may always suppose in the inductive step that 9i+ 1 < 1/fc, that is, by
+                      (5.67), that
+                                2k29( + x = k + (2s + ii(K 0 - Wi + 2 (0 ^ *' ^ 7 - 2). (5.73)
+                        Suppose now that (5.71) holds with i replaced by i + 1 for some i
+                      with 0 ^ i ^j - 2. Then, by Lemma 5.6,
+
+
+
+                      Since k ^ 2s it follows that
+
+
+                      Hence, by Lemma 5.7,
+                                        La(X9Xi96i+l9pi99^)             < XkXf+1(l            + X*)
+                      where 2v = k + (2s + n(k9 i) - A)0f + 2 - 2/c2^. + x. By (5.73) v = 0
+                      which gives (5.71) as required.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                           87
+
+                       Now take i = 0 in (5.71) and combine with the bound in Lemma
+                     5.6. It follows that when ¥ is of type (0,19X) we have (5.70) with
+                     (5.69), and so (5.68) is established.
+                        The next task is to establish good choices for the above parameters.
+                     Given s, suppose that (5.65) holds for
+
+
+                     with
+
+
+                     Then
+                                                    0^^i/c(/c+lK/c 2 .                              (5.74)
+
+
+                     First of all take ; = 1, so that 0l=j.                            Then X = 2s + 2k -
+                     ±k(k + 1) + rj(\ - £) and k + A = 2s + 2/c - \k(k + 1) + rj - k. By
+                     (5.74), k + X ^ k'. Hence
+                                                                           X»                       (5.75)
+                     with X* = 2s + 2/c - \k(k + 1) + rj* and */* = f/(l - i).
+                       Since J k (X) ^ /c!Xfc, it follows that rjk = \k(k - 1) is permissible.
+                     Now a simple inductive argument establishes that
+
+
+
+
+                     is permissible, which recovers Theorem 5.1.
+                         Now consider j = 2. Then 62 = £ and 6X = min(£,£ —
+                      t - a f r . Hence X = 2s + 2/c - ifc(ifc + 1) + rj(l - ^ + fc) and
+                     k + I = 2s + 2/c - \k(k + 1) + rj - k. By (5.74), % ^ (rj - f/c2)2, so
+                     that /c + A ^ A'. Thus (5.75) holds with
+
+                                                                                                    (5 77)
+                                                                                   )                 -
+                                              2
+                     By (5.76), rjlk<jk . Therefore the choice rj(l + l)k = rjlk(l — ^ ) is
+                     permissible and so, generally one may take
+
+                                                                                                    (5.78)
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     88                                                                    Vinogradov's methods
+
+                       Finally, consider the general situation. Suppose that j(j — 1) ^ 2r\
+                     and i ^j — 1. Then r\3 = l/k and it easily follows by induction on
+                     i=j-    1 J - 2 . . . . . 1 that
+
+
+
+
+                     and
+
+                                               6i        =
+                                                                      2        1       ?      •
+                     Suppose further that 6 is a parameter at our disposal with
+                                                                  0<(5< 1
+                     and that
+
+
+                     Then 9 ^ ^ + T6t + t where T = k2~{2\^d)n.                Hence 0t - \i ^
+                     T
+                       (^i + i — A*) where /i = fc2 + ({ _ a)iy. N o w either 6t ^ /i or 0t > fx in
+                     which case 0r> fi for all r with f ^ r ^ 7. Thus 6t — fi ^rj~ '(£ — //)
+                     and this holds trivially in the former case. Therefore
+
+
+                                           1
+                                               ^^        fc(fc2           + (l-<
+                     where a = 2 " rjk " . Hence one may take */* = (k2 — f7)0x + rj — k
+                                       1   j        2
+
+                     and then
+
+
+                                                                  fe2 + (i
+                                                        2-2S\             2k
+                                                                  )
+                     Hence 1/* ^ i/(l - ^ ^ ) provided that rj ^ ^ / c 2 and a ^ jSrjk ~ 2 ,
+                     i.e., by the definition of a, one has rj ^ ^(5fc2 and 46 ~ 1 ^ 2j. In order
+                     for a suitable^' to exist it suffices that log(4/<5)/log 2 H- 1 ^ yj2r\- Thus,
+                     whenever
+
+
+                                                        2\log2y                    4
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                               89
+
+                     one has
+                                                                             2 2S
+                                                                (             ~
+
+                        Choose lx so that
+
+                            1             /        5Y1"1            1         1               /   5Y1"2
+
+
+                     and let l2 be the smallest I2^h                    such that
+
+
+
+
+                     Now define >//k by (5.78) when / < lt and by
+                                                                                    Y~ Zl
+
+                     when /x < / ^ /2. To see that this is permissible one argues as follows.
+                     Firstly the case 12 = h is immediate since there are no / with
+                     /x < / ^ /2. Secondly, if l2 > ll9 then when 1 = ^ + 1 one has
+
+
+
+
+                     and r]{l_ 1)k < ^5/c2 = ?/ say. Thus rj* ^ ^(1 — 2~fc2<?) = rjlk and one
+                     may proceed by induction on /.
+                       When / > l2 one is allowed to take, by (5.77),
+
+
+                                                             >(^                    |^}              (5.82)
+                     One shows in this case that
+
+                                                                    (0               '2              (5-83)
+                     where y is the smallest (positive) root of the equation
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     90                                                                Vinogradov's methods
+
+                     It is shown first by induction on / that for / > l2 one has
+
+
+
+
+                     Clearly, when / > /2,
+
+
+
+
+                     One has y ^ 1. Thus the case Z = Z2 + 1 is immediate. On the
+                     inductive hypothesis, by performing the summation in the exponen-
+                     tial term, when / > l2 + 1, it follows that
+
+
+
+                                                                       - i - /
+
+
+
+
+                     Thus for / > l2 + 1 one has
+
+
+                                                                                 k2(2k-3)
+                     and so on the inductive hypothesis once more
+
+                                                11            eXP
+                                                       2k))    eXP
+                                                                     {{           k2(2k-3)
+                     as required. The desired conclusion (5.83) now follows easily by
+                     summing the series in the exponential. A modicum of computation
+                     shows that for k ^ 2 one has y ^ y0 < 7/5 where y0 = exp (yo/3), and
+                     so
+                                                     y=l+O(/c- 2 log 2 (8/(5)).
+                          The following theorem has now been established.
+
+                     Theorem 5.5 For each pair of natural numbers k, I there exists a
+                     positive number C(kJ) such that for every X > 0
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Wooley's refinement of Vinogradov's mean value theorem                        91
+
+                     where
+
+                                                                                       \      ( 5 . 8 5)
+
+
+                     Furthermore, suppose that k ^ 3, <5 = I/log /c and /x and l2 are given by
+                     (5.79) and (5.80). Then the above holds with rj = rjlk = rjff where r]lk
+                     satisfies (5.85) when I ^ ll9
+
+
+                                            4^{k                    ki&j{ll<l*la)             i5M)
+                     and
+
+
+
+                     Finally,
+                                               4/c                     1
+                                        I, - j log(2log(:) - jlog(logt) + 0(1)
+                     and
+
+
+
+
+                                = k(\ogk — \ log log k — log log log k) + O(k).
+                        The following two theorems can now be deduced from the above by
+                     arguments concomitant to those used to establish Theorems 5.3 and
+                     5.4.
+
+                     Theorem 5.6 Theorem 5.3 holds with
+                                                                1
+
+
+                     so that 2ok2 log k ~ 1 as k -• oc.
+
+                     Theorem 5.7 L^r a 0 = max(<r, 2 1 " k ) and let s0 denote the least integer
+                     such that
+
+                                                  s0 >min(<70~1f/{k) + 2k/).
+
+
+
+
+                                Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     92                                                                Vinogradov's methods
+
+                     Then the asymptotic formula (2.27) holds whenever s ^ s 0 . Also
+                     s0 ~ 2k2 log k as k-+ co.
+
+                     5.6 Exercises
+                        1 Show that if i f is a sequence of natural numbers lk such that
+                     Yj?= i l//fc diverges, then for every e and k0 there exists a k1 such that if
+                     /4(X) is the number of natural numbers n with n ^ X which can be
+                     written in the form
+
+                                                                          x
+                                                          n=        2l        k
+
+                     with the xk non-negative integers, then A(x) > X1 ~* (X > X0(s, k0)).
+                       2 (Freiman's hypothesis, 1949; Scourfield, 1960). Let <£ denote a
+                     sequence of natural numbers lk. Then show that it has the property
+                     that to every k0 there corresponds a k1 such that every natural
+                     number n can be written in the form
+
+                                                          n=        £ x[k
+                     with the xk non-negative integers if and only if ^ ^ = x l/lk diverges.
+                       3 Let 50 be as in Theorem 5.4. Show that for 2s > s0 one has
+                                                                   2s
+
+
+                                             a     *
+
+                        4 Show that \i X ^ \ and either /c = 2 and h # 0 or h =
+                      (0,...,0,fe k ) withfckT^O, then
+
+
+                          5 Suppose that 0 < B < 1 < A,
+                                                              1
+                                            /:[l,oo)^R:/(x) = - - - e - f l * ,
+                                                              x x
+
+                                                            a = max/(/),
+
+                     and let x 0 denote the positive root of the transcendental equation
+                                                       eBx° = A{\ + Bx0).
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+                     Exercises                                                                                93
+
+                     Show that
+
+                                                         B        |       1(/          )2r{Xi)
+
+
+
+                     where | / — x 0 | ^ 1 and x1 lies between x0 and /. Deduce that when
+
+
+                                                             B        /         / B2
+
+                        6 (Wooley, 1995a). Show that                            Theorem          5.3 holds   with
+                     fcrfc2 log k ~ 1 as k -> oo.
+
+
+
+
+                               Cambridge Books Online © Cambridge University Press, 2009
+https://doi.org/10.1017/CBO9780511470929.008 Published online by Cambridge University Press
+
