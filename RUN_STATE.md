@@ -42,3 +42,22 @@ acceptance. No agent-visible mathematical files were changed and no new agent
 stage was invoked. The leak scan remains at 21 hits with the previously logged
 tool-path/compliance-note contexts. Await Markus's judgment; do not archive or
 change mathematical statements on the basis of this audit alone.
+
+## Write-up decisions (3 Nov 2026)
+
+- Markus chose a harness writer agent for the archived-run write-up.
+- All write-up work belongs in a dedicated worktree inside this repository,
+  never the main checkout. Current worktree: `.worktrees/writeup`, branch
+  `writeup/policy`. The main checkout's tracked files have been restored.
+- The write-up belongs in this repository. Previous write-ups are excluded
+  from later independent runs; this is now explicit in AGENTS.md and
+  prompts/_rules.md. A write-up task may access its designated archive and
+  manuscript only, not manuscripts from other runs.
+- Scope: present the proof work recorded in the archive; no new literature
+  search. Existing wishlist entries and references cited by available works
+  are allowed, subject to the 2010 cutoff plus Brüdern–Wooley 2011.
+  papers/ records available PDFs, not an exhaustive permitted bibliography.
+- These are write-up policy changes, not a new agent stage or a modification
+  of the accepted mathematical artifacts.
+- Validation: tests/dry_run.sh passed all 37 tests (37 seconds);
+  git diff --check passed.

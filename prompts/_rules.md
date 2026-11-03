@@ -14,6 +14,14 @@
    not search for, open or use it, or anything you remember of it.
 2. Work only with the files in your current directory and with the published
    literature. Do not read or list files outside your current directory.
+   **Previous write-ups are excluded.** Do not search for, open, fetch, read
+   or use manuscripts produced from other runs of this project, including
+   their LaTeX sources, compiled PDFs, extracts and drafts, whether in this
+   repository (such as `thesis/`), published online or remembered. Do not use
+   them indirectly as hints. If encountered, stop reading, use nothing from
+   them and report the exposure. A write-up task may use only the archived
+   run and manuscript explicitly supplied for that task; this does not permit
+   access to write-ups of other runs.
 3. Cite every external source you use: authors, title, year, and URL or arXiv
    id.
 4. **Literature up to 2010.** Use only literature published, or posted as a

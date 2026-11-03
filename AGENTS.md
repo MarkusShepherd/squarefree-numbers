@@ -48,6 +48,15 @@ the thesis:
   entries only.
 - `archive/` holds earlier runs. Don't copy anything from there into a new
   run's agent-visible files.
+- Write-ups belong in this repository. Manuscripts from previous runs,
+  including LaTeX sources, PDFs, extracts and drafts, are taboo for later
+  independent runs: do not read them or pass their content to agents, even
+  indirectly as hints. This applies to local, published and remembered
+  versions. Report accidental exposure. A write-up task may use its explicitly
+  designated archive and manuscript, but not write-ups of other runs.
+- Do all write-up work, including harness development and manuscript output,
+  in a dedicated Git worktree under this repository's `.worktrees/`, never
+  in the main checkout. Keep worktree run state and external RUNS_DIR separate.
 
 ## Current state
 
