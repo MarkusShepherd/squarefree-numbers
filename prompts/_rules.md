@@ -8,6 +8,10 @@
    other source by him. If a search result or a source turns out to be his,
    stop, use nothing from it, and say so explicitly in your output. The same
    applies to anything you may remember about his work: do not use it.
+   **GitLab is excluded.** Do not search for, open, fetch or use GitLab
+   repositories, issues/work items, merge requests, comments, snippets or
+   raw files, including mirrors or cached copies of this project's content.
+   If encountered in search results, use nothing from them and report it.
    **Excluded paper.** The same rules apply to Fabian Dehnert, *Sparse variance
    for k-free numbers in arithmetic progressions*, Monatsh. Math. 177 (2015),
    373–396 (doi:10.1007/s00605-014-0691-6), which solves this problem too: do
@@ -22,6 +26,16 @@
    them and report the exposure. A write-up task may use only the archived
    run and manuscript explicitly supplied for that task; this does not permit
    access to write-ups of other runs.
+   **Previous proof attempts are excluded too.** Do not search for, open,
+   fetch, read or use other runs' plans, proposition statements, proofs,
+   reviews, integration reports or transcripts, locally (including
+   `archive/` and sibling run folders), online, or from memory. Use only the
+   proof-attempt artifacts explicitly supplied for your current task. If
+   encountered, stop reading, use nothing from them and report the exposure.
+   An explicitly supplied numerical snapshot or the approved paper corpus
+   may be reused across runs; this does not permit consulting the rest of
+   the originating run. An archive write-up task may use the proof artifacts
+   explicitly supplied from its designated archive.
 3. Cite every external source you use: authors, title, year, and URL or arXiv
    id.
 4. **Literature up to 2010.** Use only literature published, or posted as a

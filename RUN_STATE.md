@@ -116,3 +116,39 @@ change mathematical statements on the basis of this audit alone.
   Added a full main-checkout regression with stub providers.
   tests/dry_run.sh passed all 52 tests in 100.813 seconds; git diff --check
   passed. No real write-up agents started; no commit or push.
+
+## Thesis-plan preparation (3 Nov 2026)
+
+These notes apply to the `thesis-plan-setup` worktree. Earlier run and write-up
+notes above are historical; no proof run is active in this worktree.
+
+- Markus authorised this operator to read the thesis and write a light hint
+  encouraging the agents to combine Vaughan (2005) and Brüdern–Wooley (2011).
+  The hint is in `hints/thesis.md`; it does not supply the methodology, range,
+  constant or known error. `thesis-plan` is registered as a single-hint variant,
+  separate from `thesis-informed`. The active config remains `neutral` until
+  the new experiment is set up; no planner has been invoked.
+- Markus approved publication of the hint alongside the other hints, host
+  mode, reuse of the existing accepted numerics and literature search, and
+  subjective comparison. He will judge/select after seeing both plans.
+- Numerical acceptance is bound to the problem and full snapshot, not the
+  hint or variant, so reuse requires no harness change or fresh acceptance.
+  Reuse only the existing accepted snapshot and literature/corpus, not the
+  neutral run's proof-attempt outputs.
+- Shared agent rules now explicitly exclude other runs' plans, statements,
+  proofs, reviews, integration reports and transcripts, as well as all GitLab
+  content. `gitlab.com` was already blocked in config. Host mode continues
+  to use prompt rules and transcript auditing rather than filesystem isolation.
+- This operator has deliberately read the thesis with Markus's permission;
+  do not use this session to operate a later neutral run. The downloaded PDF,
+  extraction and inspection image are outside the repository in `/private/tmp`.
+- All repository changes are in `.worktrees/thesis-plan-setup` on branch
+  `thesis-plan-setup`. No real agents, commit, push or MR have been started.
+- Markus requires worktrees inside the repository. Moved this worktree from
+  `/private/tmp` into the repository's `.worktrees/` directory and repaired
+  Git's worktree registration; changes and local intervention log preserved.
+- Validation: `tests/dry_run.sh` passed all 52 tests in 95.240 seconds;
+  `git diff --check` passed. The existing numerical acceptance verified all
+  24 artifacts against the unchanged problem. Read-only planning preflight
+  resolved the shared hint for Opus and Sol without creating a run directory.
+  Additional harness-agent usage/cost: zero.

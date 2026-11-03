@@ -16,6 +16,11 @@
         "dirichlet",
         "none"
       ]
+    },
+    "thesis-plan": {
+      "hints": [
+        "thesis"
+      ]
     }
   },
   "runs_dir": "~/sqf-runs/squarefree-numbers",
