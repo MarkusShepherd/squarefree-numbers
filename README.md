@@ -367,7 +367,9 @@ The writer produces LaTeX, a source/correction map and `reproduce.py`. The drive
 runs the reproduction code and compiles with `latexmk` and shell escape disabled
 before two independent offline reviewers inspect mathematics, citations,
 numerical reproduction and PDF layout. Both host and Docker modes need TeX;
-rebuild the Docker image after the TeX-package change. The host needs `latexmk`
+rebuild the Docker image after the TeX-package change.
+The writer and write-up reviewers have their own time and USD limits in
+`role_limits` in config.json; other roles keep the global limits. The host needs `latexmk`
 and `pdflatex` on PATH; no packages are installed automatically.
 
 Outputs live under `writeups/<label>/round-<n>/manuscript/`; reviews, build feedback,

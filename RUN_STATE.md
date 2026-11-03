@@ -84,12 +84,16 @@ change mathematical statements on the basis of this audit alone.
   no default briefing is generated. The writer chooses structure, ordering and
   exposition unless explicitly directed in a supplied briefing; shared prompts
   set the scope and standards.
-- Archive packaging repair: four numerical `.log` files had been omitted from
-  Git by the general ignore rule. Recovered them from the same zt-neutral
-  archive in the main checkout, verified their recorded acceptance hashes, and
-  added an ignore exception. No mathematical artifact was edited.
-- The real zt-neutral archive, original approval hashes, integration inputs,
-  numerical snapshot and original supplied corpus pass `writeup --check`.
+- Archive packaging gap: the general `*.log` ignore rule kept 14 `.log` files
+  of archive/zt-neutral out of Git, four of them in the accepted numerical
+  snapshot and bound by its acceptance hashes. They were copied into this
+  worktree from the main checkout and match the recorded hashes, but remain
+  untracked; the ignore exception was removed during review. No mathematical
+  artifact was edited.
+- With those local copies, the real zt-neutral archive, original approval
+  hashes, integration inputs, numerical snapshot and original supplied corpus
+  pass `writeup --check`. A clean checkout of dc3dfe5 fails it ("archived
+  accepted numerical snapshot changed") until the logs are committed on main.
 - Validation: tests/dry_run.sh passed 42 tests in 76.623 seconds; real host
   latexmk compilation of a tiny fixture passed. All 7 write-up tests also
   passed in 31.687 seconds, including the two added retry/corpus tests.
@@ -97,3 +101,6 @@ change mathematical statements on the basis of this audit alone.
   and cost for this implementation stage are zero. Next operational step is
   the first write-up invocation using a fresh external RUNS_DIR, after this
   implementation is reported and reviewed.
+- Review (3 Nov 2026): tests/dry_run.sh passed all 48 tests in 81 seconds.
+  Added per-role time and USD limits (`role_limits`): writer 6 h / $60,
+  write-up reviewers 3 h / $25; other roles unchanged.

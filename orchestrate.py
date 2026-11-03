@@ -100,7 +100,7 @@ def build_prompt(role, task="", rules=True):
     return prompt
 
 
-def build_cmd(prompt, tools, model, schema=None):
+def build_cmd(prompt, tools, model, schema=None, budget=None):
     """The `claude -p` invocation. Restrictions, all tested on Claude Code:
 
     --tools               the agent sees only these built-in tools (--allowedTools
@@ -126,7 +126,7 @@ def build_cmd(prompt, tools, model, schema=None):
         "--settings", json.dumps({"disableAllHooks": True}),   # no user hooks in agents
         "--permission-mode", "dontAsk",
         "--output-format", "stream-json", "--verbose",   # full transcript, for auditing
-        "--max-budget-usd", str(CFG["max_budget_usd"]),
+        "--max-budget-usd", str(budget or CFG["max_budget_usd"]),
     ]
     if schema:
         cmd += ["--json-schema", json.dumps(SCHEMAS[schema])]
@@ -135,6 +135,11 @@ def build_cmd(prompt, tools, model, schema=None):
 
 def role_capabilities(role):
     return CFG["capabilities"][role]
+
+
+def role_limit(role, key):
+    """Per-role override from config "role_limits", else the global limit."""
+    return CFG.get("role_limits", {}).get(role, {}).get(key, CFG[key])
 
 
 def claude_tools(caps):
@@ -237,7 +242,7 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
         cmd = build_codex_cmd(prompt, caps, name, effort, agent_dir, schema)
         env = dict(os.environ)
     else:
-        cmd = build_cmd(prompt, claude_tools(caps), name, schema)
+        cmd = build_cmd(prompt, claude_tools(caps), name, schema, role_limit(role, "max_budget_usd"))
         env = dict(os.environ, CLAUDE_CODE_EFFORT_LEVEL=effort,
                    ENABLE_CLAUDEAI_MCP_SERVERS="false")
     if mode == "host":
@@ -275,14 +280,15 @@ def _run_agent(role, workdir, model, effort, task, schema, rules):
             p = subprocess.Popen(cmd, cwd=workdir, env=env, stdin=subprocess.DEVNULL,
                                  stdout=stdout, stderr=stderr, text=True, start_new_session=True)
             # Agents have their own session, so a terminal Ctrl-C reaches them only via STOPPING.
-            deadline = time.monotonic() + CFG["timeout_s"]
+            timeout = role_limit(role, "timeout_s")
+            deadline = time.monotonic() + timeout
             while p.poll() is None and not STOPPING.is_set() and time.monotonic() < deadline:
                 try:
                     p.wait(timeout=0.2)
                 except subprocess.TimeoutExpired:
                     pass
             if p.poll() is None:
-                failure = "interrupted" if STOPPING.is_set() else f"timed out after {CFG['timeout_s']}s"
+                failure = "interrupted" if STOPPING.is_set() else f"timed out after {timeout}s"
                 stop_process_group(p)
             elif p.returncode != 0:
                 failure = f"exited {p.returncode}"
