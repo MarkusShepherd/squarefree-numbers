@@ -23,7 +23,7 @@ class HarnessTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix='sqf-test-')
         self.root = Path(self.temp.name) / 'repo'
         self.root.mkdir()
-        for name in ('orchestrate.py', 'harness_support.py', 'config.json', 'problem.md', 'prompts', 'hints', 'tests', 'isolation', 'agent-env'):
+        for name in ('orchestrate.py', 'harness_support.py', 'writeup_support.py', 'config.json', 'problem.md', 'prompts', 'hints', 'tests', 'isolation', 'agent-env'):
             src, target = SOURCE / name, self.root / name
             if src.is_dir():
                 shutil.copytree(src, target, ignore=shutil.ignore_patterns('__pycache__'))
@@ -79,6 +79,124 @@ class HarnessTest(unittest.TestCase):
         plan['propositions'] = plan['propositions'][:2]
         (self.root / 'plan.json').write_text(json.dumps(plan))
         self.run_step('prove')
+
+    def ready_writeup(self):
+        self.ready()
+        self.finish_two_props()
+        self.run_step('integrate')
+        # This fixture deliberately shortened the plan; give it one matching source.
+        plan = self.root / 'plan.json'
+        (self.root / 'plans/vaughan.json').write_bytes(plan.read_bytes())
+        (self.root / 'logs/interventions.md').write_text('Fixture acceptance.\n')
+        self.run_step('archive', 'test')
+        def git(*args):
+            result = subprocess.run(['git', '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=/dev/null',
+                                     '-C', str(self.root), *args],
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+        git('init', '-q')
+        git('add', 'archive', 'orchestrate.py', 'harness_support.py',
+            'writeup_support.py', 'config.json', 'problem.md', 'prompts', 'hints',
+            'tests', 'isolation', 'agent-env')
+        git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
+            'commit', '-qm', 'Fixture archived run')
+        worktree = Path(self.temp.name) / 'writeup-worktree'
+        git('worktree', 'add', '-qb', 'writeup', str(worktree))
+        self.root = worktree
+        self.env.update(RUNS_DIR=str(Path(self.temp.name) / 'writeup-runs'),
+                        CLAUDE_BIN=str(self.root / 'tests/fake_claude.py'),
+                        CODEX_BIN=str(self.root / 'tests/fake_codex.py'))
+        # TeX stubs are on PATH, not tied to a particular machine's TeX installation.
+        binaries = Path(self.env['AGENT_VENV']) / 'bin'
+        tex = self.root / 'tests/fake_latexmk.py'
+        tex.chmod(0o755)
+        (binaries / 'latexmk').symlink_to(tex)
+        (binaries / 'pdflatex').symlink_to(tex)
+        self.env['PATH'] = str(binaries) + os.pathsep + self.env['PATH']
+
+    def test_writeup_end_to_end_and_cache_integrity(self):
+        self.ready_writeup()
+        self.env['WRITEUP_REVISE'] = '1'
+        self.run_step('writeup', 'test', '--check')
+        self.assertFalse((self.root / 'writeups').exists())
+        self.run_step('writeup', 'test')
+        dest = self.root / 'writeups/test'
+        state = json.loads((dest / 'state.json').read_text())
+        self.assertEqual((state['stage'], state['round']), ('passed', 2))
+        self.assertFalse((dest / 'STALE').exists())
+        self.assertTrue((dest / 'round-2/manuscript/main.pdf').is_file())
+        costs = self.root / 'logs/costs.jsonl'
+        before = costs.read_bytes()
+        self.run_step('writeup', 'test')
+        self.assertEqual(before, costs.read_bytes())
+        (dest / 'round-2/manuscript/main.tex').write_text('tampered')
+        self.assertIn('approved write-up changed', self.run_step('writeup', 'test', success=False).stderr)
+        self.assertTrue((dest / 'STALE').exists())
+
+    def test_writeup_rejects_archive_tampering_and_unsafe_labels(self):
+        self.ready_writeup()
+        self.run_step('writeup', '../test', '--check', success=False)
+        (self.root / 'archive/test/props/P1/proof-v2.md').write_text('tampered')
+        self.assertIn('integration inputs changed', self.run_step('writeup', 'test', '--check', success=False).stderr)
+        self.assertFalse((self.root / 'writeups').exists())
+
+    def test_writeup_source_gap_requires_human_decision(self):
+        self.ready_writeup()
+        self.env['WRITEUP_SOURCE_GAP'] = 'reviewer'
+        self.run_step('writeup', 'test', success=False)
+        dest = self.root / 'writeups/test'
+        self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'source-gap')
+        self.env.pop('WRITEUP_SOURCE_GAP')
+        self.assertIn('awaits Markus', self.run_step('writeup', 'test', success=False).stderr)
+
+    def test_writeup_rejects_input_changes_by_writer_and_reviewers(self):
+        self.ready_writeup()
+        self.env['WRITEUP_MODIFY_INPUT'] = 'writer'
+        self.assertIn('modified review inputs', self.run_step('writeup', 'test', success=False).stderr)
+        self.env['WRITEUP_MODIFY_INPUT'] = 'reviewer'
+        self.run_step('writeup', 'test', success=False)
+        state = json.loads((self.root / 'writeups/test/state.json').read_text())
+        self.assertEqual(state['stage'], 'reviewing')
+        self.env.pop('WRITEUP_MODIFY_INPUT')
+        self.run_step('writeup', 'test')
+        self.assertEqual(json.loads((self.root / 'writeups/test/state.json').read_text())['stage'], 'passed')
+
+    def test_writeup_failed_build_never_reaches_review(self):
+        self.ready_writeup()
+        self.env['WRITEUP_UNDEFINED'] = '1'
+        self.run_step('writeup', 'test', success=False)
+        dest = self.root / 'writeups/test'
+        self.assertTrue((dest / 'STALE').exists())
+        self.assertFalse(list(dest.glob('round-*/reviews/*.json')))
+        self.env.pop('WRITEUP_UNDEFINED')
+        self.run_step('writeup', 'test')
+        self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'passed')
+
+    def test_writeup_retains_completed_review_after_provider_failure(self):
+        self.ready_writeup()
+        self.env['WRITEUP_FAIL_REVIEW'] = 'codex'
+        self.run_step('writeup', 'test', success=False)
+        dest = self.root / 'writeups/test'
+        self.assertTrue((dest / 'round-1/reviews/0.json').exists())
+        self.assertFalse((dest / 'round-1/reviews/1.json').exists())
+        completed = (dest / 'round-1/reviews/0.json').read_bytes()
+        self.env.pop('WRITEUP_FAIL_REVIEW')
+        self.run_step('writeup', 'test')
+        self.assertEqual(completed, (dest / 'round-1/reviews/0.json').read_bytes())
+        self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'passed')
+        rows = [json.loads(line) for line in (self.root / 'logs/costs.jsonl').read_text().splitlines()]
+        self.assertEqual(sum(r['role'] == 'writer' for r in rows), 1)
+        self.assertEqual(sum(r['role'] == 'writeup_referee' and r['backend'] == 'claude' for r in rows), 1)
+
+    def test_writeup_requires_original_hash_matched_corpus(self):
+        (self.root / 'papers').mkdir()
+        paper = self.root / 'papers/fixture.pdf'
+        paper.write_bytes(b'%PDF-1.4\nfixture corpus\n')
+        self.ready_writeup()
+        self.assertIn('original corpus', self.run_step('writeup', 'test', '--check', success=False).stderr)
+        self.run_step('writeup', 'test', '--check', '--papers-dir', str(paper.parent))
+        paper.write_bytes(b'%PDF-1.4\nchanged\n')
+        self.run_step('writeup', 'test', '--check', '--papers-dir', str(paper.parent), success=False)
 
     def test_end_to_end_all_backend_modes(self):
         for backend in ('claude,codex', 'codex', 'claude'):

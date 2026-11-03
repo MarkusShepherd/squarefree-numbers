@@ -17,7 +17,7 @@
    **Previous write-ups are excluded.** Do not search for, open, fetch, read
    or use manuscripts produced from other runs of this project, including
    their LaTeX sources, compiled PDFs, extracts and drafts, whether in this
-   repository (such as `thesis/`), published online or remembered. Do not use
+   repository (such as `writeups/`), published online or remembered. Do not use
    them indirectly as hints. If encountered, stop reading, use nothing from
    them and report the exposure. A write-up task may use only the archived
    run and manuscript explicitly supplied for that task; this does not permit

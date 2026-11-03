@@ -119,5 +119,12 @@ elif role == "librarian":
 elif role == "integrator":
     (cwd / "assembly.md").write_text("stub assembly\n")
     finish({"composes": True, "final_theorem": "T"})
+elif role == "writer":
+    from writeup_fixture import draft
+    draft(cwd)
+    finish()
+elif role == "writeup_referee":
+    from writeup_fixture import review
+    finish(review(cwd, 'claude'))
 else:
     sys.exit(f"unknown role {role!r}")

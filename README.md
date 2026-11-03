@@ -318,3 +318,66 @@ Failed agents retain streams, stderr, provenance and usage records. A failed
 batch exits nonzero after keeping successful artifacts; rerun after addressing
 the failure or the usage window resets. No automatic mathematical replanning,
 usage-limit retries, formal proof checking or automatic publication is provided.
+
+## Writing up an archived run
+
+`writeup` presents an accepted archived proof; it does not start a new proof
+attempt or authorize new mathematical research. Do all write-up development and
+manuscript generation in a dedicated Git worktree under `.worktrees/`, never in
+the main checkout. Give it a fresh external `RUNS_DIR`, as for any worktree.
+
+The document should be accessible and self-contained for mathematically trained
+readers who are not specialists in this problem. Explain the definitions,
+methods and intermediate reasoning; do not assume the audience of a specialized
+research article. Completeness and readability determine its length.
+
+From that worktree, validate sources without launching agents:
+
+```sh
+python3 orchestrate.py writeup zt-neutral --check --papers-dir /path/to/original/papers
+```
+
+Then run the writer/reviewer stage:
+
+```sh
+RUNS_DIR=~/sqf-runs/squarefree-writeup python3 orchestrate.py writeup zt-neutral --papers-dir /path/to/original/papers
+```
+
+The driver verifies archived approval hashes using the original referee policy,
+dependency contracts, proof and review hashes, and invocation input-integrity
+records. It checks integration inputs and the complete accepted numerical
+snapshot. It does not invalidate the archive using today's referee prompts.
+Archives omit PDFs; `--papers-dir` supplies the original corpus, and every file
+must match the recorded hash. No current experiment outputs are substituted.
+The selected plan, proofs, reviews and independent assemblies are the writer's
+mathematical sources; invocation transcripts and other plans are not supplied.
+Only eligible existing wishlist/downloaded bibliography entries are supplied.
+
+Shared prompts define the scope and standards; the writer chooses the
+structure, ordering and exposition. No per-run brief is required.
+Use `--brief path/to/briefing.md` when specific instructions are needed for a
+write-up. The file is supplied unchanged to the writer and both reviewers;
+its hash is recorded with the other inputs. No default briefing is generated.
+No new literature search is allowed. Existing wishlist entries and
+references cited by available works are eligible through 2010, plus BW2011.
+The write-up records models, available versions and repository/commit provenance
+without claiming human authorship. Versions missing from the records stay unknown.
+
+The writer produces LaTeX, a source/correction map and `reproduce.py`. The driver
+runs the reproduction code and compiles with `latexmk` and shell escape disabled
+before two independent offline reviewers inspect mathematics, citations,
+numerical reproduction and PDF layout. Both host and Docker modes need TeX;
+rebuild the Docker image after the TeX-package change. The host needs `latexmk`
+and `pdflatex` on PATH; no packages are installed automatically.
+
+Outputs live under `writeups/<label>/round-<n>/manuscript/`; reviews, build feedback,
+input bindings and resumable state live alongside them. Failed invocations are
+retained; rerunning resumes completed work, including a successful independent
+review when the other provider fails. `max_rounds` bounds additional manuscript
+rounds per invocation. `STALE` remains until the exact manuscript has two passing
+reviews. Changed source inputs or policy require preserving the attempt and
+moving it aside before a fresh run. A source-proof gap stops for Markus's
+decision. Two passing reviews still require human acceptance.
+
+Prior write-ups, including their sources, drafts and PDFs, remain excluded from
+later independent runs. Prompt rules are not filesystem isolation in host mode.

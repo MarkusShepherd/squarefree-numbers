@@ -57,7 +57,43 @@ change mathematical statements on the basis of this audit alone.
   search. Existing wishlist entries and references cited by available works
   are allowed, subject to the 2010 cutoff plus Brüdern–Wooley 2011.
   papers/ records available PDFs, not an exhaustive permitted bibliography.
+- Include provenance for open science and reproducibility: the models used,
+  their recorded versions, and a repository link identifying the source commit.
+  This is a provenance account, not a separate AI authorship disclosure.
+  Do not claim human authorship. Do not invent model version details absent
+  from the records.
 - These are write-up policy changes, not a new agent stage or a modification
   of the accepted mathematical artifacts.
 - Validation: tests/dry_run.sh passed all 37 tests (37 seconds);
   git diff --check passed.
+
+## Write-up implementation (3 Nov 2026)
+
+- Review correction: Markus approved `writeups/` as the output directory.
+  The document is an accessible, self-contained write-up of the archived proof
+  work for readers beyond the specialist audience; no degree-submission
+  framing or fixed page target. Internal revision folders use `manuscript/`.
+  Removed the added Git ignore overrides during review.
+
+- Implemented `writeup <archive-label>` in the dedicated worktree, including
+  archive-only proof inputs, original approval/input-integrity verification,
+  an offline writer and two independent offline reviewers, resumable revision
+  rounds, numerical reproduction, LaTeX compilation and source-gap stops.
+- Review correction: removed the per-run brief and its mandatory pipeline
+  requirement. Optional per-write-up briefings remain supported via `--brief`;
+  no default briefing is generated. The writer chooses structure, ordering and
+  exposition unless explicitly directed in a supplied briefing; shared prompts
+  set the scope and standards.
+- Archive packaging repair: four numerical `.log` files had been omitted from
+  Git by the general ignore rule. Recovered them from the same zt-neutral
+  archive in the main checkout, verified their recorded acceptance hashes, and
+  added an ignore exception. No mathematical artifact was edited.
+- The real zt-neutral archive, original approval hashes, integration inputs,
+  numerical snapshot and original supplied corpus pass `writeup --check`.
+- Validation: tests/dry_run.sh passed 42 tests in 76.623 seconds; real host
+  latexmk compilation of a tiny fixture passed. All 7 write-up tests also
+  passed in 31.687 seconds, including the two added retry/corpus tests.
+- No real writer/reviewer invocation has started; additional provider usage
+  and cost for this implementation stage are zero. Next operational step is
+  the first write-up invocation using a fresh external RUNS_DIR, after this
+  implementation is reported and reviewed.

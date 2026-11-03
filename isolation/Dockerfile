@@ -3,7 +3,7 @@ FROM node:22-bookworm-slim
 ARG CODEX_VERSION=0.166.0
 ARG CLAUDE_VERSION=2.1.309
 COPY --from=uv /uv /usr/local/bin/uv
-RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev poppler-utils ca-certificates git ripgrep \
+RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev poppler-utils ca-certificates git ripgrep latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-science \
     && rm -rf /var/lib/apt/lists/* \
     && npm install -g @openai/codex@${CODEX_VERSION} @anthropic-ai/claude-code@${CLAUDE_VERSION}
 COPY agent-env/ /opt/agent-env/
