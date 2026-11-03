@@ -1,0 +1,14 @@
+x=257 NTT length=1024 squarefree=158
+x=257 correlations and squarefree-divisibility counts ready
+x=257 completed exact coefficient stream
+x=250000 completed in 0.26s
+x=500000 completed in 0.52s
+x=1000000 completed in 1.08s
+x=2000000 completed in 2.25s
+x=4000000 completed in 4.64s
+x=8000000 completed in 10.00s
+x=16000000 completed in 25.51s
+x=32000000 completed in 54.19s
+x=64000000 completed in 106.77s
+x=128000000 completed in 194.21s
+x=256000000 completed in 353.58s

@@ -1356,6 +1356,12 @@ def cmd_archive(args):
             shutil.copy(src, dest / name)
     log(f"archived {n} sandboxes and the run's outputs to archive/{label}/; "
         "review, then git add it")
+    ignored = subprocess.run(["git", "-C", str(ROOT), "ls-files", "--others", "--ignored",
+                              "--exclude-standard", "--", f"archive/{label}"],
+                             capture_output=True, text=True).stdout.splitlines()
+    if ignored:
+        log(f"WARNING: git ignores {len(ignored)} archived files, e.g. {', '.join(ignored[:5])}; "
+            "git add will leave them out")
 
 
 def cmd_writeup(args):
