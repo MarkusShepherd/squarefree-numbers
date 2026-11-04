@@ -22,6 +22,9 @@ Steps (run in order; you read the output between steps):
     ./orchestrate.py check-leaks       scan all transcripts for excluded sources
     ./orchestrate.py archive [label]   copy the finished run into archive/<label>/
     ./orchestrate.py writeup <label>   write and review an archived run -> writeups/<label>/
+    ./orchestrate.py writeup <label> --finalize   verify acceptance and preserve audit records
+    ./orchestrate.py writeup <label> --verify     verify the preserved accepted write-up
+    ./orchestrate.py writeup <label> --accept-round N --accepted-by NAME   record human acceptance
 """
 import argparse
 import concurrent.futures as cf
@@ -195,7 +198,7 @@ def cli_version(binary):
 
 def source_snapshot():
     # Include exact harness sources, not just HEAD (which may have local changes).
-    names = ["orchestrate.py", "harness_support.py", "writeup_support.py", "config.json", "problem.md", "prompts/schemas.json", "prompts/_writeup_rules.md"]
+    names = ["orchestrate.py", "harness_support.py", "writeup_support.py", "writeup_finalize.py", "config.json", "problem.md", "prompts/schemas.json", "prompts/_writeup_rules.md"]
     names += [f"prompts/{r}.md" for r in CFG["capabilities"]] + ["prompts/_rules.md"]
     names += ["isolation/docker_runner.py", "isolation/Dockerfile",
               "agent-env/pyproject.toml", "agent-env/uv.lock"]
@@ -1415,9 +1418,34 @@ def main():
     s = sub.add_parser("integrate"); s.add_argument("--model"); s.set_defaults(fn=cmd_integrate)
     sub.add_parser("status").set_defaults(fn=cmd_status)
     s = sub.add_parser("archive"); s.add_argument("label", nargs="?"); s.set_defaults(fn=cmd_archive)
-    s = sub.add_parser("writeup"); s.add_argument("label"); s.add_argument("--papers-dir", type=Path); s.add_argument("--brief", type=Path, help="optional briefing supplied to the writer and reviewers"); s.add_argument("--check", action="store_true", help="validate archived approvals and sources without starting agents"); s.set_defaults(fn=cmd_writeup)
+    s = sub.add_parser("writeup")
+    s.add_argument("label")
+    s.add_argument("--papers-dir", type=Path)
+    s.add_argument("--brief", type=Path, help="optional briefing supplied to the writer and reviewers")
+    modes = s.add_mutually_exclusive_group()
+    modes.add_argument("--accept-round", type=int, metavar="N", help="accept an exact completed revision by explicit human decision")
+    modes.add_argument("--check", action="store_true", help="validate archived approvals and sources without starting agents")
+    modes.add_argument("--finalize", action="store_true", help="verify human acceptance and preserve write-up audit records")
+    modes.add_argument("--verify", action="store_true", help="verify the accepted package and preserved audit without external runs")
+    s.add_argument("--accepted-by", metavar="NAME", help="owner making the --accept-round decision")
+    s.add_argument("--reason", help="optional explanation of the human acceptance or override")
+    s.set_defaults(fn=cmd_writeup)
     args = ap.parse_args()
+    if args.cmd == "writeup":
+        if args.accept_round is not None:
+            if args.accept_round < 1 or not (args.accepted_by or '').strip():
+                ap.error('--accept-round requires a positive round number and --accepted-by NAME')
+        elif args.accepted_by is not None or args.reason is not None:
+            ap.error('--accepted-by and --reason require --accept-round')
     try:
+        if args.cmd == "writeup":
+            from writeup_finalize import writeup_root
+            accepted = (writeup_root(ROOT, args.label) / 'acceptance.json').exists()
+            if args.accept_round is not None or args.check or args.finalize or args.verify or accepted:
+                # Offline checks/finalization must not claim a runs_dir, change the
+                # runs symlink, require credentials/TeX, or launch providers.
+                args.fn(args)
+                return
         for d in ("logs", "plans", "papers"):
             (ROOT / d).mkdir(exist_ok=True)
         install_stop_handlers()

@@ -23,7 +23,7 @@ class HarnessTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix='sqf-test-')
         self.root = Path(self.temp.name) / 'repo'
         self.root.mkdir()
-        for name in ('orchestrate.py', 'harness_support.py', 'writeup_support.py', 'config.json', 'problem.md', 'prompts', 'hints', 'tests', 'isolation', 'agent-env'):
+        for name in ('orchestrate.py', 'harness_support.py', 'writeup_support.py', 'writeup_finalize.py', 'config.json', 'problem.md', 'prompts', 'hints', 'tests', 'isolation', 'agent-env'):
             src, target = SOURCE / name, self.root / name
             if src.is_dir():
                 shutil.copytree(src, target, ignore=shutil.ignore_patterns('__pycache__'))
@@ -96,7 +96,7 @@ class HarnessTest(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
         git('init', '-q')
         git('add', 'archive', 'orchestrate.py', 'harness_support.py',
-            'writeup_support.py', 'config.json', 'problem.md', 'prompts', 'hints',
+            'writeup_support.py', 'writeup_finalize.py', 'config.json', 'problem.md', 'prompts', 'hints',
             'tests', 'isolation', 'agent-env')
         git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
             'commit', '-qm', 'Fixture archived run')
@@ -247,6 +247,31 @@ class HarnessTest(unittest.TestCase):
         self.run_step('writeup', 'test', '--check', '--papers-dir', str(paper.parent))
         paper.write_bytes(b'%PDF-1.4\nchanged\n')
         self.run_step('writeup', 'test', '--check', '--papers-dir', str(paper.parent), success=False)
+
+    def test_human_acceptance_during_revision_prevents_further_review_or_rounds(self):
+        self.ready_writeup()
+        self.env['WRITEUP_REVISE'] = '1'
+        driver = self.load_driver()
+        from writeup_support import writeup
+        from writeup_finalize import accept_round, verify_acceptance
+        original = driver.run_agent
+
+        def invoke(role, workdir, *args, **kwargs):
+            value = original(role, workdir, *args, **kwargs)
+            if role == 'writer' and '-r2-' in workdir.name:
+                accept_round(driver, 'test', 1, 'Fixture owner', 'Accept the completed first revision.')
+            return value
+
+        args = argparse.Namespace(label='test', check=False, papers_dir=None, brief=None)
+        with patch.dict(os.environ, self.env), patch.object(driver, 'run_agent', side_effect=invoke):
+            writeup(driver, args)
+        _, record, _ = verify_acceptance(self.root, 'test')
+        self.assertEqual(record['accepted_round'], 1)
+        rows = [json.loads(line) for line in (self.root / 'logs/costs.jsonl').read_text().splitlines()]
+        self.assertEqual(sum(r['role'] == 'writer' for r in rows), 2)
+        self.assertEqual(sum(r['role'] == 'writeup_referee' for r in rows), 2)
+        self.assertFalse((self.root / 'writeups/test/round-2/reviews').exists())
+        self.assertFalse((self.root / 'writeups/test/round-3').exists())
 
     def test_end_to_end_all_backend_modes(self):
         for backend in ('claude,codex', 'codex', 'claude'):
