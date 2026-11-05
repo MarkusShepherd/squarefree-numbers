@@ -433,3 +433,27 @@ notes above are historical; no proof run is active in this worktree.
   compatible harness solution, not manually rewriting its bindings.
 - Validation: tests/dry_run.sh passed all 78 tests in 71.142 seconds;
   RUN_STATE.md whitespace check passed. Merge remains uncommitted; no push.
+
+## Write-up resume compatibility fix (5 Nov 2026)
+
+- Markus requested resolving the pipeline-hash blocker without restarting the
+  write-up. Implementation file hashes now record provenance only; source
+  archive, papers, briefing, writer/reviewer models, prompts, schema, effort,
+  capabilities, isolation and repository settings still must match.
+- Existing inputs.json is preserved byte-for-byte on compatible resumption.
+  Current implementation sources remain recorded per invocation. Manuscript
+  hashes and cached-review checks are unchanged.
+- Read-only validation of this real round-2 checkpoint confirms compatibility:
+  only the pipeline hash differs, the source archive is unchanged, and the
+  manuscript hash matches both state and the cached Codex review. No live
+  checkpoint, manuscript, review or binding was modified.
+- Regression covers a pipeline edit after an interrupted review, preserving
+  the completed review and original binding and avoiding a second writer.
+  Additional checks reject changed review prompts, reviewer models and briefings
+  without launching providers or replacing completed work.
+- Validation: all 79 dry-run tests passed in 73.782 seconds; git diff --check
+  passed. No real agents, extra provider usage, commit or push.
+- Resume using the existing ~/sqf-runs/squarefree-numbers-thesis records and
+  the same writeup zt-thesis-plan command once Claude quota is available.
+  It reuses the saved Codex review and retries the missing Claude review;
+  reviewer-requested revision may then advance to the next manuscript round.

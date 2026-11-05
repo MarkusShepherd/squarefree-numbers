@@ -56,6 +56,15 @@ def briefing_input(path):
     return {'brief.md': path}
 
 
+def writeup_inputs_match(recorded, current):
+    """Implementation hashes record provenance, not review compatibility."""
+    def review_inputs(binding):
+        policy = {key: value for key, value in binding['policy'].items()
+                  if key != 'pipeline'}
+        return dict(binding, policy=policy)
+    return review_inputs(recorded) == review_inputs(current)
+
+
 def archive_sources(root, label, papers_dir=None):
     """Verify archived approvals using their original policy and corpus hashes.
 
@@ -433,10 +442,16 @@ def writeup(driver, args):
               'pipeline': digest(driver.ROOT / 'writeup_support.py')}
     binding = {'sources': source_hashes, 'policy': policy}
     binding_path = destination / 'inputs.json'
-    if binding_path.exists() and read_json(binding_path) != binding:
-        (destination / 'STALE').write_text('Inputs or policy changed; preserve this attempt and choose a fresh output directory.\n')
-        raise ValueError('write-up inputs/policy changed; move the existing manuscript attempt aside before rerunning')
-    save(binding_path, binding)
+    if binding_path.exists():
+        recorded = read_json(binding_path)
+        if not writeup_inputs_match(recorded, binding):
+            (destination / 'STALE').write_text('Inputs or policy changed; preserve this attempt and choose a fresh output directory.\n')
+            raise ValueError('write-up inputs/policy changed; move the existing manuscript attempt aside before rerunning')
+        if recorded['policy'].get('pipeline') != policy['pipeline']:
+            driver.log(f'{label}: implementation changed; source inputs and review policy match; resuming saved work')
+        # Preserve the original binding, including its implementation provenance.
+    else:
+        save(binding_path, binding)
     (destination / 'STALE').write_text('Write-up in progress or incomplete.\n')
     state_path = destination / 'state.json'
     state = read_json(state_path) if state_path.exists() else {'round': 0, 'stage': 'new'}

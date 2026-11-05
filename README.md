@@ -384,6 +384,12 @@ reviews. Changed source inputs or policy require preserving the attempt and
 moving it aside before a fresh run. A source-proof gap stops for Markus's
 decision. Two passing reviews still require human acceptance.
 
+Implementation-only changes do not invalidate a paused write-up. Resumption
+checks the source archive, corpus, briefing and writer/reviewer policy; the
+pipeline file hash is provenance, not a compatibility requirement. Existing
+input bindings and completed reviews are preserved, while each new invocation
+records the current harness sources.
+
 To accept a specific completed revision, record the owner's decision with:
 
 ```sh

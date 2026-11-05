@@ -206,13 +206,50 @@ class HarnessTest(unittest.TestCase):
         self.assertTrue((dest / 'round-1/reviews/0.json').exists())
         self.assertFalse((dest / 'round-1/reviews/1.json').exists())
         completed = (dest / 'round-1/reviews/0.json').read_bytes()
+        binding = (dest / 'inputs.json').read_bytes()
+        pipeline = self.root / 'writeup_support.py'
+        pipeline.write_text(pipeline.read_text() + '\n# Unrelated implementation change.\n')
         self.env.pop('WRITEUP_FAIL_REVIEW')
-        self.run_step('writeup', 'test')
+        self.assertIn('resuming saved work', self.run_step('writeup', 'test').stdout)
+        self.assertEqual(binding, (dest / 'inputs.json').read_bytes())
         self.assertEqual(completed, (dest / 'round-1/reviews/0.json').read_bytes())
         self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'passed')
         rows = [json.loads(line) for line in (self.root / 'logs/costs.jsonl').read_text().splitlines()]
         self.assertEqual(sum(r['role'] == 'writer' for r in rows), 1)
         self.assertEqual(sum(r['role'] == 'writeup_referee' and r['backend'] == 'claude' for r in rows), 1)
+
+    def test_writeup_resume_still_rejects_changed_sources_and_review_policy(self):
+        self.ready_writeup()
+        self.env['WRITEUP_FAIL_REVIEW'] = 'claude'
+        self.run_step('writeup', 'test', success=False)
+        self.env.pop('WRITEUP_FAIL_REVIEW')
+        dest = self.root / 'writeups/test'
+        binding = (dest / 'inputs.json').read_bytes()
+        completed = (dest / 'round-1/reviews/1.json').read_bytes()
+        costs = (self.root / 'logs/costs.jsonl').read_bytes()
+
+        prompt = self.root / 'prompts/writeup_referee.md'
+        original = prompt.read_text()
+        prompt.write_text(original + '\nRequire an additional review check.\n')
+        self.assertIn('inputs/policy changed', self.run_step('writeup', 'test', success=False).stderr)
+        prompt.write_text(original)
+
+        config_path = self.root / 'config.json'
+        original = config_path.read_text()
+        config = json.loads(original)
+        config['models']['writeup_referees'][0] = 'claude-sonnet-5-5'
+        config_path.write_text(json.dumps(config))
+        self.assertIn('inputs/policy changed', self.run_step('writeup', 'test', success=False).stderr)
+        config_path.write_text(original)
+
+        brief = self.root / 'new-brief.md'
+        brief.write_text('Change the scope of this manuscript.\n')
+        self.assertIn('inputs/policy changed', self.run_step(
+            'writeup', 'test', '--brief', str(brief), success=False).stderr)
+        self.assertEqual(binding, (dest / 'inputs.json').read_bytes())
+        self.assertEqual(completed, (dest / 'round-1/reviews/1.json').read_bytes())
+        self.assertEqual(costs, (self.root / 'logs/costs.jsonl').read_bytes())
+        self.assertEqual(json.loads((dest / 'state.json').read_text())['stage'], 'reviewing')
 
     def test_writeup_preserves_declared_outputs_with_auxiliary_extensions(self):
         self.ready_writeup()
