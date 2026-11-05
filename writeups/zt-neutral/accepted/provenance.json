@@ -1,0 +1,140 @@
+{
+  "models": [
+    {
+      "role": "integrator",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "integrator",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "numerics",
+      "model": "claude-sonnet-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "numerics",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "planner",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "planner",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "probe",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "probe",
+      "model": "claude-sonnet-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "probe",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "prover",
+      "model": "claude-sonnet-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "referee",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.309 (Claude Code)",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    },
+    {
+      "role": "referee",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "8dfc53d01e56c9949c42061fdbe907a98a12a5d7"
+    }
+  ],
+  "approvals": {
+    "P1": {
+      "approval_hash": "c7713c62a387f9be789ce9f2b1c2f9f3c9c9165c20f2465af8f1cd97fce9a7f1",
+      "contract_hash": "43f4de16061bcf80389f4de76c377b1458f021fe88a84eb22fb8305953d0cd00",
+      "proof_hash": "8b56b5199a84cfc517ff396bbb5b1e20319bb92078a3f92986a4be297470203b"
+    },
+    "P2": {
+      "approval_hash": "d639a472645dcebcbe74823bb81752df6e3f40908f1d82b6f19440b7ec8448fb",
+      "contract_hash": "13cce0bfcb16e404fc9b838784724ba450a1875ca1aec56d0337282820578fb0",
+      "proof_hash": "55c57b330210b0e1b81495f77daef71d35020e46a80f8c1ba1f48e4ffbce49c4"
+    },
+    "P3": {
+      "approval_hash": "8b77ffd3263f83735727472482560e277d37db5185cc94936119dcd36715baee",
+      "contract_hash": "6ffc2407935b2c515e98aa188ebdc41cdf476f79fc544dc4958d85e9b4a706f0",
+      "proof_hash": "e0d5b9f3dc2f5ff3090f45c680cafd6cd44148bb8b853c37dd1c19c58db9ce84"
+    },
+    "P4": {
+      "approval_hash": "2219b842c8664e2e50326902f1860870a2102030bc8a9b916d6a48b0704b46ed",
+      "contract_hash": "2c61af1f939f4d1d8db441a47317de7215e80818a7efab966a3c3455041c0024",
+      "proof_hash": "00168b7dc541c96c7ab5e586ae956db56a78712da305686d919ab8b273447bf9"
+    },
+    "P5": {
+      "approval_hash": "fe4be1fb5df632ffb70a4e1d542a0c221c6d1419f4b75271179241a8ddc541df",
+      "contract_hash": "dbd3546a44823efee949d9586639c26916ddafb8dd37399e7ef1246a9acbb056",
+      "proof_hash": "6d149497e329bf93a9236552ba3459d19277f96304d4775829b6d8c9dbdd2eba"
+    },
+    "P6": {
+      "approval_hash": "333706cdf6099242eb775db393ef55fd0a6c2d3ecdba0c9f54eedaf72857ae45",
+      "contract_hash": "c08562b74cdae90420c2252f1b407fcc17c43fa0d0d4879529fca5d3143ab2e8",
+      "proof_hash": "ca92d8be8a673500d865e3ff78fc692b6ad8e9e5c14e119b2d56478d48ad85d0"
+    },
+    "P7": {
+      "approval_hash": "3c981dd172297057ea0e027d85d770568b9f845998eb1ff208b31b3014785d46",
+      "contract_hash": "68eb36fb38052563478c7130d328031e63202d9b935e61ba1bffa4abbbd1a8a4",
+      "proof_hash": "87edcd6a9956cf6f9f07363280aaece866a493275a4fa522cfdf0d96fa735da3"
+    },
+    "P8": {
+      "approval_hash": "ee176f66a38aed56fd867a4a6ef1ddc79699bb5973363c5f211e571d7f5302b3",
+      "contract_hash": "9109f19e700a8c1916a7bbac11a8ab2c7ee6ded918b6ad7866065b033252afd5",
+      "proof_hash": "7b6091e0a493aeac167ada30d99b7a67050ab629ba8e82fcb11b45e8bef0a510"
+    },
+    "P9": {
+      "approval_hash": "d1066ab27550ed07f3edf619a7ee40fe59e8132099a98b330be07d4fc3fee710",
+      "contract_hash": "0bb76da8ec69f63bed1f7eafe37a8dd9803b8721688e261f532ee865ba3055a7",
+      "proof_hash": "557a0c25440dc004a56b1ee498882a25f02562f57d60704c8b00901fe9bdcbb5"
+    }
+  },
+  "selected_plan": "simplest@claude-opus-5-5",
+  "repository_url": "https://gitlab.com/mshepherd/squarefree-numbers",
+  "archive_commit": "ed0aebaf461b602601856bf1b693fd76893d9aba",
+  "archive_label": "zt-neutral",
+  "harness_commit": "33aadc609359221ba5d81664438bce5f658f561c",
+  "writer_models": [
+    "claude-opus-5-5"
+  ],
+  "reviewer_models": [
+    "claude-opus-5-5",
+    "codex:gpt-6.1-sol"
+  ],
+  "writer_cli_versions": {
+    "claude-opus-5-5": "2.1.311 (Claude Code)",
+    "codex:gpt-6.1-sol": "codex-cli 0.166.0"
+  },
+  "version_note": "Model IDs are recorded model identifiers; CLI versions are not model weight versions. Unavailable model versions remain unknown."
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "cosmetic",
+  "location": "proof.md:132: \u201capproximates $\\rho(p^2)\\approx\\rho(p)/p$, which is exact for these squarefree $f$ at large $p$.\u201d",
+  "objection": "This numerical-check claim is false: for f(t)=t+1, rho(p\u00b2)=rho(p)=1 for every prime, whereas rho(p)/p=1/p. It is unused in the proof. No substantive gap was found in claims (0), (a), (b), or (c). The functional equation agrees with H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I. Classical Theory (2007), Corollary 10.4, https://doi.org/10.1017/CBO9780511618314.012.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "9109f19e700a8c1916a7bbac11a8ab2c7ee6ded918b6ad7866065b033252afd5",
+  "proof_hash": "7b6091e0a493aeac167ada30d99b7a67050ab629ba8e82fcb11b45e8bef0a510"
+}

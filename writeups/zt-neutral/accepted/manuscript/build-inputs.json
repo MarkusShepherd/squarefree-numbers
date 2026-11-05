@@ -1,0 +1,33 @@
+{
+  "accepted_snapshot": "a5a325174de9779c6d8d1ddcd4159a709fd398e347d9cf81f538ca460fa56793",
+  "artifacts": {
+    "generated/tab_constants.tex": "6daaf13a64b1c03afe12533b4bcc0b4b4d5f8f73325eb1920bd9558f701965b8",
+    "generated/tab_largest.tex": "95bdcf1a85f52320da20d2c2a453d515c6fcb5a0c57d9921399bbb236972ada5",
+    "generated/tab_fits.tex": "7e50cfce10c0bd7671d81b39ff35fb1cf122caaec55a56d3d2b0e83445a15889",
+    "generated/tab_sensitivity.tex": "3b3f62940ea3f5bea1260c9bf1175d89e8aa64cfd44de60b305fccc8121d7169",
+    "generated/tab_shape.tex": "dbaedf8f53fb5510a58d64e5b56a65bec36b206ebe45e214390fb812c9fe28bc",
+    "generated/tab_full_0.tex": "5de8911c966e26b23f83fe838c3a06f672ccdb457d5c45a3c25cb63a2388c8a9",
+    "generated/tab_full_1.tex": "753e76a133bc696f55dc7416c37b4f9b6d0b949044b93302cc0603c4d69835a1",
+    "generated/tab_full_2.tex": "a631f1285ce878fcc363caa0110c16522751a51038d698cfc5b80551c80f2329",
+    "generated/fig_ratio_0.dat": "a42240b9d2d19940b66bed9724d5421ebe58c50838be6f3be30d42ff071b497c",
+    "generated/fig_fit_0.dat": "ae6c6fe361d75ce545956223dc73db751ccda5b217e7c6cf34cf6d31ff0a9245",
+    "generated/fig_cf_0.dat": "d6e5acda8f0502c2b38ebd8e62571c044dcb5fd32b8d53a390d9bec598d626b5",
+    "generated/fig_x_0a.dat": "d18063d2656bb30084b96ca089b210ed00a3652c0a50654a047474320f80b9ce",
+    "generated/fig_x_0b.dat": "f17463fee1449b291f64da713c04fada6ed2c8fd58d1ab79e8d21c8949f77d66",
+    "generated/fig_ratio_1.dat": "e273728bd7b5d1838619c0409be3f5280e446d38a7949dfaf5d6daedb2074e62",
+    "generated/fig_fit_1.dat": "669ab96461353d5a3dbe7f78f4e8c5b7fd70865ace3eaf99d6085641181e71bb",
+    "generated/fig_cf_1.dat": "edc69a82c546c1a56c934a01ae99c8d47ac264c9029d401455058b557dc9e908",
+    "generated/fig_x_1a.dat": "a492a05de7d15a89ad359fca7a85cd743770d44096641db625f49b1872426476",
+    "generated/fig_x_1b.dat": "ebabd4ad7b58e0734b98599b3477de05a7bb996d28f1fc425ea10b7cbd52d273",
+    "generated/fig_ratio_2.dat": "f56a170cbeaf9b616b19d33064ce4609ae642518403ac84f144fd0f53ce7a746",
+    "generated/fig_fit_2.dat": "9860f2efbbd63e99bc802f3fe138c8160a9b989a3690f769fbfcbac0c5ee5c20",
+    "generated/fig_cf_2.dat": "ffb2a13c7b02a70e8fe23ddf234cacf794a9952895cb8f5f0c51a128e78eb9e3",
+    "generated/fig_x_2a.dat": "9a9f3741eb1bcaa0fb286b627e13301b56e01f2dd1bde16d89789e69615b02d6",
+    "generated/fig_x_2b.dat": "b7f8440b9f87202b9f74f8718b39fa3de985e06cb3f4097d1c86969843dbb39e",
+    "generated/fig_shape_0.dat": "e105fd08c6eca236e7e659fef7fa95f97bf8a91f923bb700c0d2648c4b90cd17",
+    "generated/fig_shape_1.dat": "d2257e7bc5698a9cedf3e6baf10d7d9b40ae9755b419e8a9ab7db92c8a4117aa",
+    "generated/macros.tex": "7e44349d4cf7e879b6373b8804ef7614dac4eb567555baac233dab657cf60fe6",
+    "generated/snapshot_rerun_results.json": "3f3e994d2ea1002cd6f757de48c7caa317535a6fc3db331265a51018a0f5283d"
+  },
+  "pdf": "0d555b50b3adc0128399c2c08041d6d8a544a98978cf38bbfdaf8bbf2f3fcb55"
+}

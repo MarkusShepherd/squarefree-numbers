@@ -1,0 +1,58 @@
+\section{An exact decomposition of the single-modulus variance}\label{sec:identity}
+
+For real $x\ge1$ and an integer $m\ge1$ let
+\begin{gather}\label{eq:pairs-def}
+C_x(m)=\#\{n\ge1:\ n+m\le x,\ \mu^2(n)=\mu^2(n+m)=1\},\\
+A(m)=A_0\sum_{t^2\mid m}\eta(t),\qquad D_x(m)=C_x(m)-A(m)(x-m).\notag
+\end{gather}
+Here $A(m)$ is the density of integers $n$ with $n$ and $n+m$ both squarefree (\cref{prop:pairs}), so $A(m)(x-m)$ is the expected value of $C_x(m)$ and $D_x(m)$ is its error.
+
+\begin{proposition}[Exact decomposition]\label{prop:identity}
+For every real $x\ge1$ and every $q\in\N$,
+\[
+V(x;q)=\MT(x;q)+2\sum_{1\le h\le x/q}D_x(hq)+\Bigl(Q(x)-\frac{6x}{\pi^2}\Bigr)-2x\sum_{l=1}^qg(q,l)E(x;q,l).
+\]
+The sum over $h$ is empty if $q>x$.
+\end{proposition}
+
+All four terms have a transparent meaning. The second term collects the errors in the counts of pairs, and the last two are of size $O(\sqrt x)$ and $O(x^{3/2}/q)$ by \cref{prop:trivial}. The main term $\MT(x;q)$ is what remains of the \emph{expected} pair counts after an exact cancellation of the terms of order $x^2/q$ and $x$.
+
+\begin{proof}
+Write $Q_l=Q(x;q,l)$, $g_l=g(q,l)$ and $E_l=Q_l-g_lx$. Expanding the square and using $\sum_lg_lQ_l=\sum_lg_lE_l+xS_2(q)$,
+\begin{equation}\label{eq:id1}
+V(x;q)=\sum_lQ_l^2-2x\sum_lg_lQ_l+x^2S_2(q)=\sum_{l=1}^qQ_l^2-x^2S_2(q)-2x\sum_{l=1}^qg_lE_l .
+\end{equation}
+
+\emph{Counting pairs.} The sum $\sum_lQ_l^2$ counts ordered pairs $(n,n')$ of squarefree integers in $[1,x]$ with $n\equiv n'\pmod q$. The diagonal contributes $Q(x)$. The pairs with $n<n'$ are the pairs $(n,n+hq)$ with $h\ge1$ and $n+hq\le x$, and the pairs with $n>n'$ are their mirror images. If $hq\ge x$ there is no $n\ge1$ with $n+hq\le x$. Hence
+\begin{equation}\label{eq:id2}
+\sum_lQ_l^2=Q(x)+2\sum_{1\le h\le x/q}C_x(hq)=Q(x)+2\sum_{1\le h\le x/q}D_x(hq)+2\Sigma_A,
+\end{equation}
+where $\Sigma_A=\sum_{1\le h\le x/q}A(hq)(x-hq)$.
+
+\emph{The expected pair counts.} Only squarefree $t$ contribute to $A(hq)$, because $\eta$ vanishes elsewhere. For squarefree $t$ and $h\in\N$ we have
+\begin{equation}\label{eq:divlemma}
+t^2\mid hq\iff m_t(q)\mid h .
+\end{equation}
+Indeed, with $\gamma=\gcd(t^2,q)$, $t^2\mid hq$ holds if and only if $(t^2/\gamma)\mid h(q/\gamma)$, and since $(t^2/\gamma,q/\gamma)=1$ this holds if and only if $t^2/\gamma=m_t(q)$ divides $h$. Both sums in $\Sigma_A$ are finite ($h\le x/q$ and $t^2\le hq\le x$), so they may be interchanged:
+\[
+\Sigma_A=A_0\sum_{t\ge1}\eta(t)\sum_{\substack{1\le h\le x/q\\ m_t(q)\mid h}}(x-hq).
+\]
+Fix $t$ and write $m=m_t(q)$, $M=qm$ and $X=x/M$. Put $h=jm$; then $x-hq=M(X-j)$ and $1\le j\le\lfloor X\rfloor$. With $N=\lfloor X\rfloor$ and $\vartheta=\fr X$,
+\[
+\sum_{j=1}^{N}(X-j)=NX-\frac{N(N+1)}2=\frac12(X-\vartheta)(X+\vartheta-1)=\frac12\bigl(X^2-X+B(X)\bigr).
+\]
+This also holds when $N=0$: then $X<1$, $B(X)=X-X^2$, and both sides vanish. Therefore
+\begin{equation}\label{eq:id3}
+2\Sigma_A=A_0\sum_{t\ge1}\eta(t)\Bigl[\frac{x^2}{q\,m_t(q)}-x+q\,m_t(q)\,B\Bigl(\frac{x}{q\,m_t(q)}\Bigr)\Bigr].
+\end{equation}
+The bracket vanishes whenever $q\,m_t(q)>x$, since it is twice an empty sum. We now split the bracket into its three terms. Each of the three resulting series converges absolutely: $\eta\ge0$ and $\sum_t\eta(t)<\infty$ by \cref{lem:eta}, $m_t(q)\ge1$, and $0\le q\,m\,B(x/(qm))\le x$. So the splitting is legitimate. By \cref{prop:densities}(iv) and (v), and the definition~\eqref{eq:MT} of $\MT$,
+\begin{equation}\label{eq:id4}
+2\Sigma_A=x^2S_2(q)-\frac{6x}{\pi^2}+\MT(x;q).
+\end{equation}
+
+\emph{Conclusion.} Inserting~\eqref{eq:id4} into~\eqref{eq:id2}, and then~\eqref{eq:id2} into~\eqref{eq:id1}, the terms $x^2S_2(q)$ cancel. This leaves exactly the stated identity. No estimate has been used.
+\end{proof}
+
+\begin{remark}
+\Cref{prop:identity} says that the size of $V(x;q)$, about $\sqrt{xq}$, comes from the lattice-point discrepancy $B(X)$ in $\sum_{j\le X}(X-j)=\frac12(X^2-X)+\frac12B(X)$. It does not come from any irregularity in the distribution of squarefree numbers. Heuristically, for $t$ coprime to $q$ the term of $\MT(x;q)$ is $A_0q\kappa(t)B\bigl(x/(qt^2)\bigr)$, and the sum of $B\bigl(x/(qt^2)\bigr)$ over $t$ is of order $\sqrt{x/q}$, so $\MT(x;q)$ has order $q\sqrt{x/q}=\sqrt{xq}$; see \cref{sec:sawtooth}. In the computations of \cref{sec:numerics} the identity was also checked numerically: with every other term computed by brute force, it holds at $x=3000$ for all $q\le40$ to a relative accuracy of $\SelfTest$ (\texttt{reproduce.py}, function \texttt{identity\_selftest}).
+\end{remark}

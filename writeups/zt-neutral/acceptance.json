@@ -1,0 +1,59 @@
+{
+  "decision": "accepted_by_human",
+  "accepted_by": "Markus",
+  "recorded_at_utc": "2026-11-04T15:32:49+00:00",
+  "user_instruction": "Yes, do that. Round 4 is now accepted.",
+  "archive_label": "zt-neutral",
+  "accepted_round": 4,
+  "source_revision": "round-4",
+  "source_revision_hash": "344d8a530332c8117d13dae46fd382b16c24be9dea9e60aae16300253a2dd8ad",
+  "accepted_bundle": "accepted",
+  "accepted_bundle_hash": "f61eaccb4036345690cc195d8d1a64e11e19a2cb2ae7b082a84dba9ebdbcfa81",
+  "manifest": "accepted/manifest.json",
+  "manifest_sha256": "b0488e2b660314738dd49bb8a3b852b296178c776a6a1ab7d970df0704dd2144",
+  "manuscript_hash": "adba672e29768bec2ea0cd51e4d3dd60a40bbd74d8775cc9feec0b46d0bb48a9",
+  "pdf": "accepted/manuscript/main.pdf",
+  "pdf_sha256": "0d555b50b3adc0128399c2c08041d6d8a544a98978cf38bbfdaf8bbf2f3fcb55",
+  "input_bindings_sha256": "b0d8e27cd8d176d773007f91ca4c81dff1f9b7c760085d5ac016c7f30a0daa69",
+  "authorized_auxiliary_statement_change": {
+    "location": "manuscript/sections/02-preliminaries.tex, Lemma 2.6; changes.md item 19",
+    "decision": "The exact round-4 presentation is approved as part of acceptance of round 4.",
+    "description": "Infinite-interval Euler–Maclaurin is stated as a limit of sum minus integral, with the separate identity conditional on convergence."
+  },
+  "referee_records": [
+    {
+      "file": "round-4/reviews/0.json",
+      "sha256": "f22f3508dc3df81dcc9d075c1cfed44b30b6c978fffe326197d5cee4f68dfdcb",
+      "model": "claude-opus-5-5",
+      "verdict": "revise",
+      "issues": [
+        "Abstract (main.tex, abstract): the statement 'for each fixed δ∈(0,1/9), V_f(x,y)=C_f x^{1/2}f(y)^{3/2}(1+O(x^{-η})) uniformly for x^{7/9+δ}≤f(y)≤x^{1−δ}' does not state y≥1. Read on its own it is false: for f=t^2+1 and y=−x^{0.45}, f(y) lies in the range but V_f(x,y)=0 because the k-sum is empty. In the body this is covered by the convention after (1.2) ('y≥1 is real') and by the quantifier of Theorem 1.1, which mirrors archived P9. Fix: add 'real y≥1' to the abstract. Optionally repeat 'x≥2, y≥1' in Theorem 1.1(iii).",
+        "manuscript/changes.md, 'Feedback files' paragraph (and §4 item 19, §9): the text says the round-3 review files 'feedback/0.json' and 'feedback/1.json' are 'in this workspace'. No feedback/ directory exists in the supplied package, so the round-4 responses in §9 cannot be checked against those files. Fix: either include the files or say they were in the writer's workspace and are not part of this package, as is already done for rounds 1–2.",
+        "Remark 1.2 (sections/01-introduction.tex): 'It is smaller than x^{1/2}Y^{3/2} only when Y ≥ x^{7/9+δ}' uses δ before it is defined in this context, and the threshold is imprecise. x^{5/3+ε} < x^{1/2}Y^{3/2} holds exactly when Y > x^{7/9+2ε/3}. Suggest 'only when Y is larger than x^{7/9+2ε/3}, i.e. essentially Y > x^{7/9}'. Cosmetic.",
+        "For Markus's attention, not blocking: Lemma 2.6 states the infinite-interval Euler–Maclaurin clause of the archived P5 proof precisely: the limit of partial-sum minus partial-integral exists, and the series converges iff the integral does. The archived hypotheses are kept. I checked that this is true and that both applications have absolutely convergent series and integrals. changes.md §10 correctly lists it as awaiting Markus's acknowledgement. No mathematical change and no source gap."
+      ],
+      "owner_disposition": "Overridden by Markus’s acceptance of round 4 as it stands."
+    },
+    {
+      "file": "round-4/reviews/1.json",
+      "sha256": "8b8226ff9d891477d385133e27f687326a562579e973c9ce9111d6fe86346f01",
+      "model": "codex:gpt-6.1-sol",
+      "verdict": "revise",
+      "issues": [
+        "manuscript/sections/02-preliminaries.tex:87–91, changes.md §4 item 19 and §10, and sections/B-provenance.tex:25: Lemma 2.6 replaces the archived infinite-interval identity by convergence of the sum–integral difference, with the identity conditional on separate convergence. This formulation is correct, but retaining the hypotheses does not preserve the original conclusion’s strength. No supplied intervention authorizes this change. Obtain and record Markus’s decision on the presentation before treating it as accepted. Both archived applications converge absolutely, so this is not a load-bearing gap in P5 or the main theorem."
+      ],
+      "owner_disposition": "Overridden by Markus’s acceptance of round 4 as it stands."
+    }
+  ],
+  "revision_loop": "closed_by_owner_acceptance",
+  "verification": {
+    "pdf_matches_build_record": true,
+    "numerical_artifact_hashes_verified": 27,
+    "both_reviewed_manuscript_hashes_match": true,
+    "archived_approvals_integration_snapshot_and_corpus_verified": true,
+    "referee_verdicts_unchanged": true,
+    "leak_scan_hits_inspected": 149,
+    "leak_scan_contexts": "Supplied repository provenance, archived paths and compliance statements; no excluded-source content identified in flagged contexts."
+  },
+  "scope": "Round 4 accepted unchanged by human override. No model pass verdict is asserted; no further revision is requested."
+}

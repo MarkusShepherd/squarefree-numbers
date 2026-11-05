@@ -1,0 +1,118 @@
+\section{Densities of squarefree numbers in progressions}\label{sec:densities}
+
+We first determine $g(q,l)$ and its first two moments over $l$. We then show that two of the four terms in the decomposition of \cref{sec:identity} are small. Throughout this section $q\in\N$ is fixed, and for $d\in\N$ we write
+\[
+g_d=\gcd(d^2,q).
+\]
+
+\begin{proposition}[Closed form and moments of $g$]\label{prop:densities}
+For every $q\in\N$ and $l\in\Z$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The limit $g(q,l)=\lim_{x\to\infty}Q(x;q,l)/x$ exists, and
+\begin{equation}\label{eq:g-series}
+g(q,l)=\sum_{d\ge1}\mu(d)\,\frac{g_d}{d^2q}\,\one[g_d\mid l],
+\end{equation}
+where the series converges absolutely. Moreover $0\le g(q,l)\le1/q$, and $g(q,l)$ depends only on $l\bmod q$.
+\item $\sum_{l=1}^qg(q,l)=6/\pi^2$.
+\item For every squarefree $n\in\N$,
+\[
+g(q,n)=\frac{6}{\pi^2}\,\frac1q\prod_{p\mid q}\Bigl(1-\frac1{p^2}\Bigr)^{-1}\prod_{\substack{p\mid(n,q)\\ p\,\|\,q}}\Bigl(1-\frac1p\Bigr).
+\]
+\item $S_2(q)=\sum_{l=1}^qg(q,l)^2=\dfrac{A_0}{q}\displaystyle\sum_{t\ge1}\eta(t)\frac{\gcd(t^2,q)}{t^2}=\frac{A_0}{q}\sum_{t\ge1}\frac{\eta(t)}{m_t(q)}$.
+\item $\sum_{t\ge1}\eta(t)=6/(\pi^2A_0)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) We use $\mu^2(n)=\sum_{d^2\mid n}\mu(d)$. For $d>\sqrt x$ no $n\le x$ is divisible by $d^2$, so
+\[
+Q(x;q,l)=\sum_{d\le\sqrt x}\mu(d)N_d(x),\qquad N_d(x)=\#\{n\le x:\ n\equiv l\ (q),\ d^2\mid n\}.
+\]
+Write $n=d^2m$ with $1\le m\le x/d^2$. The congruence $d^2m\equiv l\pmod q$ is solvable in $m$ if and only if $g_d\mid l$. If $g_d\nmid l$, then $N_d(x)=0$. If $g_d\mid l$, the congruence is equivalent to $(d^2/g_d)m\equiv l/g_d\pmod{q/g_d}$. As $(d^2/g_d,q/g_d)=1$, this is a single residue class modulo $q/g_d$, and \cref{lem:class} gives $N_d(x)=\frac{g_d}{d^2q}x+\theta_d$. Hence
+\[
+Q(x;q,l)=x\sum_{d\le\sqrt x}\mu(d)\frac{g_d}{d^2q}\one[g_d\mid l]+\theta\sqrt x .
+\]
+Since $g_d\le q$, the $d$-th term of~\eqref{eq:g-series} has modulus at most $d^{-2}$. So the series converges absolutely, and by \cref{lem:tail} its tail beyond $\sqrt x$ is at most $2/\sqrt x$ for $x\ge1$. Therefore
+\begin{equation}\label{eq:Q-g}
+|Q(x;q,l)-x\,g(q,l)|\le3\sqrt x\qquad(x\ge1),
+\end{equation}
+with $g(q,l)$ defined by~\eqref{eq:g-series}, and $Q(x;q,l)/x\to g(q,l)$. From $0\le Q(x;q,l)\le x/q+1$ we get $0\le g(q,l)\le1/q$. Since $g_d\mid q$, the condition $g_d\mid l$ depends only on $l\bmod q$.
+
+(ii) For each $d$, exactly $q/g_d$ of the integers $1\le l\le q$ are divisible by $g_d$. Summing the absolutely convergent series~\eqref{eq:g-series} over the $q$ values of $l$ and interchanging the sums gives $\sum_l g(q,l)=\sum_d\mu(d)d^{-2}=6/\pi^2$.
+
+(iii) Let $n$ be squarefree. Only squarefree $d$ contribute to~\eqref{eq:g-series}. For squarefree $d$, $g_d=\prod_{p\mid d}\gcd(p^2,q)$ is a product of coprime prime powers, so $g_d\mid n$ if and only if $\gcd(p^2,q)\mid n$ for every $p\mid d$. Hence, for squarefree $d$,
+\[
+\mu(d)\frac{g_d}{d^2}\one[g_d\mid n]=\prod_{p\mid d}u(p),\qquad u(p)=-\frac{\gcd(p^2,q)}{p^2}\one[\gcd(p^2,q)\mid n],
+\]
+and $q\,g(q,n)=\sum_{d}\mu^2(d)\prod_{p\mid d}u(p)$. We have $|u(p)|=p^{-2}$ for $p\nmid q$, and $|u(p)|\le1$ for the finitely many $p\mid q$. So $\sum_p|u(p)|<\infty$ and, by~\eqref{eq:euler}, $q\,g(q,n)=\prod_p(1+u(p))$. Now
+\begin{itemize}
+\item if $p\nmid q$, then $\gcd(p^2,q)=1$ and $1+u(p)=1-p^{-2}$;
+\item if $p\,\|\,q$, then $\gcd(p^2,q)=p$ and $1+u(p)=1-p^{-1}\one[p\mid n]$;
+\item if $p^2\mid q$, then $\gcd(p^2,q)=p^2\nmid n$, since $n$ is squarefree, and $1+u(p)=1$.
+\end{itemize}
+Hence $q\,g(q,n)=\prod_{p\nmid q}(1-p^{-2})\prod_{p\|q,\ p\mid n}(1-p^{-1})$. The claim follows from $\prod_{p\nmid q}(1-p^{-2})=\frac6{\pi^2}\prod_{p\mid q}(1-p^{-2})^{-1}$.
+
+(iv) Squaring~\eqref{eq:g-series} (a product of two absolutely convergent series) and summing over $1\le l\le q$ gives
+\[
+S_2(q)=\frac1{q^2}\sum_{d,e\ge1}\mu(d)\mu(e)\frac{g_dg_e}{d^2e^2}\,\#\{1\le l\le q:\ g_d\mid l,\ g_e\mid l\}.
+\]
+Both $g_d$ and $g_e$ divide $q$, so the count is $q/[g_d,g_e]$, and $g_dg_e/[g_d,g_e]=(g_d,g_e)=\gcd\bigl((d,e)^2,q\bigr)$. Thus, with $G(t)=\gcd(t^2,q)\le q$,
+\[
+S_2(q)=\frac1q\sum_{d,e\ \mathrm{squarefree}}\mu(d)\mu(e)\frac{G((d,e))}{d^2e^2},
+\]
+which converges absolutely. Write $t=(d,e)$, $d=td'$ and $e=te'$. This is a bijection from pairs of squarefree $d,e$ onto triples $(t,d',e')$ with $t$ squarefree, $d'e'$ squarefree and $(d'e',t)=1$, and $\mu(d)\mu(e)=\mu(d')\mu(e')$. Summing over $t$ last and using \cref{lem:pairs-euler} with $e=t$,
+\[
+S_2(q)=\frac1q\sum_{t\ \mathrm{squarefree}}\frac{G(t)}{t^4}A_0\prod_{p\mid t}\frac{p^2}{p^2-2}=\frac{A_0}{q}\sum_{t\ge1}\eta(t)\frac{\gcd(t^2,q)}{t^2},
+\]
+because $t^{-4}\prod_{p\mid t}p^2/(p^2-2)=t^{-2}\eta(t)$ for squarefree $t$. Finally $\gcd(t^2,q)/t^2=1/m_t(q)$.
+
+(v) This is~\eqref{eq:sum-eta}.
+\end{proof}
+
+For $q=1$, (iv) reads $A_0\sum_t\eta(t)t^{-2}=\prod_p(1-p^{-2})^2=36/\pi^4=g(1,1)^2$, as it should.
+
+The second ingredient is an elementary count of squarefree numbers coprime to a given squarefree number.
+
+\begin{lemma}\label{lem:Tr}
+Let $r$ be squarefree and put $T_r(y)=\#\{1\le m\le y:\ \mu^2(m)=1,\ (m,r)=1\}$ for real $y>0$. Then
+\[
+|T_r(y)-\nu_ry|\le3\cdot2^{\omega(r)}\sqrt y,\qquad \nu_r=\sum_{d\ge1}\sum_{e\mid r}\frac{\mu(d)\mu(e)}{[d^2,e]},
+\]
+where the double series converges absolutely and $|\nu_r|\le2\cdot2^{\omega(r)}$. In particular $\nu_1=6/\pi^2$, so $|Q(y)-6y/\pi^2|\le3\sqrt y$ for all $y>0$.
+\end{lemma}
+
+\begin{proof}
+Insert $\mu^2(m)=\sum_{d^2\mid m}\mu(d)$ and $\one[(m,r)=1]=\sum_{e\mid(m,r)}\mu(e)$. This gives $T_r(y)=\sum_{d\ge1}\sum_{e\mid r}\mu(d)\mu(e)\lfloor y/[d^2,e]\rfloor$, where only $d\le\sqrt y$ contribute because $[d^2,e]\ge d^2$. The same inequality gives $|\nu_r|\le2^{\omega(r)}\zeta(2)\le2\cdot2^{\omega(r)}$. If $y\ge1$, there are at most $2^{\omega(r)}\sqrt y$ pairs $(d,e)$ with $d\le\sqrt y$, $e\mid r$. Replacing each floor by $y/[d^2,e]$ costs at most $1$ per pair. Completing the $d$-sum costs at most $y\,2^{\omega(r)}\sum_{d>\sqrt y}d^{-2}\le2\cdot2^{\omega(r)}\sqrt y$, by \cref{lem:tail}. If $0<y<1$, then $T_r(y)=0$ and $|\nu_ry|\le2\cdot2^{\omega(r)}y\le2\cdot2^{\omega(r)}\sqrt y$. For $r=1$ only $e=1$ occurs, and $\nu_1=\sum_d\mu(d)d^{-2}=6/\pi^2$.
+\end{proof}
+
+\begin{proposition}[Two small terms]\label{prop:trivial}
+Let $c_0=3e^{2\zeta(3/2)}$. For all real $x\ge1$ and all integers $1\le q\le x$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $|Q(x)-6x/\pi^2|\le c_0\sqrt x$;
+\item $\Bigl|\sum_{l=1}^qg(q,l)E(x;q,l)\Bigr|\le c_0\sqrt x/q$.
+\end{enumerate}
+\end{proposition}
+
+The hypothesis $q\le x$ is not used in the proof of (ii).
+
+\begin{proof}
+(i) This is the case $r=1$ of \cref{lem:Tr}, since $3\le c_0$.
+
+(ii) Let $q_1=\prod_{p\|q}p$. Since $g(q,\cdot)$ is $q$-periodic,
+\begin{equation}\label{eq:gE}
+S(x):=\sum_{l=1}^qg(q,l)Q(x;q,l)=\sum_{n\le x}\mu^2(n)g(q,n),\qquad \sum_{l=1}^qg(q,l)E(x;q,l)=S(x)-x\,S_2(q).
+\end{equation}
+For squarefree $n$ the last product in \cref{prop:densities}(iii) runs over $p\mid(n,q_1)$, and $\prod_{p\mid(n,q_1)}(1-1/p)=\sum_{r\mid(n,q_1)}\mu(r)/r$. Put $c_q=\frac6{\pi^2}\prod_{p\mid q}(1-p^{-2})^{-1}$; then $0<c_q\le\frac6{\pi^2}\zeta(2)=1$ and $g(q,n)=\frac{c_q}{q}\sum_{r\mid q_1,\ r\mid n}\mu(r)/r$. Interchanging the finite sum over $r$ with the sum over $n$,
+\[
+S(x)=\frac{c_q}{q}\sum_{r\mid q_1}\frac{\mu(r)}{r}N_r(x),\qquad N_r(x)=\#\{n\le x:\ r\mid n,\ \mu^2(n)=1\}.
+\]
+For squarefree $r$, $n=rm$ is squarefree if and only if $m$ is squarefree and $(m,r)=1$, so $N_r(x)=T_r(x/r)$. By \cref{lem:Tr},
+\[
+S(x)=M_q\,x+R_q(x),\qquad M_q=\frac{c_q}{q}\sum_{r\mid q_1}\frac{\mu(r)\nu_r}{r^2},
+\qquad
+|R_q(x)|\le\frac{3\sqrt x}{q}\sum_{r\ \mathrm{squarefree}}\frac{2^{\omega(r)}}{r^{3/2}}.
+\]
+The last sum equals $\prod_p(1+2p^{-3/2})\le\exp\bigl(2\sum_pp^{-3/2}\bigr)\le e^{2\zeta(3/2)}$, so $|R_q(x)|\le c_0\sqrt x/q$ for all $x>0$.
+
+It remains to show $M_q=S_2(q)$. As $x\to\infty$, $Q(x;q,l)/x\to g(q,l)$ for each of the finitely many $l$, so $S(x)/x\to S_2(q)$. On the other hand $S(x)/x=M_q+O(x^{-1/2})$. Hence $M_q=S_2(q)$, and by~\eqref{eq:gE} the sum $\sum_lg(q,l)E(x;q,l)$ equals $R_q(x)$.
+\end{proof}

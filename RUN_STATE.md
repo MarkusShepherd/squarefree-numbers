@@ -168,3 +168,115 @@ change mathematical statements on the basis of this audit alone.
   `git diff --check` passed.
 - Implementation remains uncommitted. No live staging, model calls, commits,
   pushes or MR; main remains untouched.
+
+## First write-up invocation (3 Nov 2026)
+
+- Markus started `writeup zt-neutral` from main, using the original papers and
+  fresh external RUNS_DIR `~/sqf-runs/writeup-zt-neutral`, without a briefing.
+- Round 1 produced a 31-page PDF, sources and numerical reproduction artifacts
+  under `writeups/zt-neutral/round-1/manuscript/`. The build succeeded. Opus and
+  Sol both returned `revise`; both report that the main theorem and dependency
+  chain match the archive and find no substantive source-proof gap.
+- Requested revisions include a convergence qualification in an auxiliary
+  lemma, a displayed arithmetic bound, outward rounding of numerical intervals,
+  the finite-row range description, duplicate PDF destinations, unrecorded
+  local statement changes, citation locators and minor wording/code references.
+  These are reviewer findings, not operator-approved mathematical edits.
+- Round 2's writer exited 1 on Claude's five-hour usage limit. The CLI reports
+  reset at 2026-11-04 03:30 Europe/Helsinki. State remains round 2 / writing;
+  STALE remains, and no accepted final manuscript has been produced.
+- Wall clock approximately 22:30:57–23:42:10 (71m13s). Four provider invocations:
+  Claude recorded $19.91 total; Codex reported 13,655 output tokens. Writer 1
+  took 2,907 s; the full numerical reproduction about 718 s; reviews 487 s and
+  385 s in parallel; writer 2 failed after 158 s.
+- Inspected all 44 leak-scan hits: authorized repository provenance URLs,
+  archived run paths and an archived compliance note naming the excluded paper.
+  No excluded-source content identified in those contexts. No rerun, source
+  correction, acceptance, commit or push performed by the operator.
+
+## Resumed write-up (4 Nov 2026)
+
+- The resumed round-2 writer and build completed; a 32-page draft and both
+  reviews are in `writeups/zt-neutral/round-2/`. Both reviewers returned revise,
+  while reporting that the main theorem, dependencies and numerical
+  reproduction check out, with no substantive archived source-proof gap.
+- Sol's sole remaining issue is an explicit `1 <= q <= x` restriction on the
+  added Remark 6.3's relative-error formula. Opus requests clearer provenance
+  for the write-up reviewer roles and review-originated corrections, and a
+  checkable explanation of references to prior feedback files not supplied to
+  reviewers. It asks Markus to acknowledge the convergence qualification
+  narrowing an over-general auxiliary lemma from P5; all actual applications
+  satisfy that qualification. Other Opus comments concern runtime wording and
+  precise quotation of the owner's recorded acceptance wording.
+- The harness advanced to round 3, but that writer exited 1 on Claude's usage
+  limit. The CLI reports reset at 12:20 Europe/Helsinki on 4 Nov. State remains
+  round 3 / writing, STALE remains, and no final write-up has passed review.
+- Resumed invocation approximately 07:22:45–08:46:47 (84m02s). Cumulative
+  write-up usage: eight invocations, Claude $34.66, Codex 26,260 output tokens.
+  Inspected the 39 new leak hits: supplied provenance URLs, archived paths and
+  archived compliance notes, with no excluded-source content identified in
+  those contexts. No operator rerun, mathematical edit or acceptance performed.
+
+## Round-4 review inspection (4 Nov 2026)
+
+- Both reviewers returned revise. Sol's sole issue remains the absence of
+  Markus's authorization for the changed presentation of the archived P5
+  auxiliary Euler–Maclaurin lemma. The writer reformulated it using the
+  original hypotheses and a sum-minus-integral limit; both reviewers find
+  this correct and applicable, but Sol notes that the conclusion still differs
+  from the archived statement. No main-theorem/source-proof gap is reported.
+- Opus requests `y >= 1` in the standalone abstract, precise epsilon wording
+  in Remark 1.2, and correction of the repeated claim that prior feedback
+  files are present in the reviewers' package. It treats the lemma item as
+  requiring Markus's attention but not as a mathematical blocker.
+- The harness advanced to round 5; the writer exited 1 on Claude's usage
+  limit. The CLI reports reset at 19:10 Helsinki. State remains round 5 /
+  writing. No operator rerun, approval or manuscript/harness edit performed.
+
+## Human acceptance: round 4 (4 Nov 2026)
+
+- Markus: "Yes, do that. Round 4 is now accepted." This accepts the exact
+  round-4 manuscript, including the revised presentation of Lemma 2.6, and
+  overrides the remaining referee objections. No manuscript changes were made.
+- The final human decision is recorded in `writeups/zt-neutral/acceptance.json`,
+  bound to the original round hash, manuscript hash and exact PDF SHA-256.
+  The accepted copy is `writeups/zt-neutral/accepted/manuscript/main.pdf`.
+- `accepted/` preserves the unchanged manuscript, sources, numerical outputs,
+  build/reproduction logs, both reviews, exact supplied archived source inputs,
+  provenance, bibliography candidates, harness input bindings and recorded usage.
+  Its manifest hashes all 128 bundled files; the acceptance record binds that
+  manifest and the entire bundle.
+- Verified the PDF and all 27 numerical artifact hashes against the build
+  record, both reviewers' manuscript hashes, archived approval/integration
+  bindings, numerical snapshot and original corpus hashes. The preserved
+  manuscript and reviews are byte-identical to round 4.
+- PDF SHA-256:
+  `0d555b50b3adc0128399c2c08041d6d8a544a98978cf38bbfdaf8bbf2f3fcb55`.
+- Both model verdicts remain `revise`. The original `state.json` and `STALE`
+  retain the historical failed round-5 machine checkpoint; human acceptance is
+  separate and closes the revision loop. No further agent round was launched.
+- Inspected all 149 write-up leak-scan hits: authorized provenance URLs,
+  archived paths and compliance statements. No excluded-source content found
+  in those contexts. Cumulative recorded usage remains 15 invocations,
+  Claude $51.80 and Codex 50,647 output tokens. No commit or push performed.
+
+## Accepted write-up finalized (5 Nov 2026)
+
+- Updated local main to merged MR !22 (60b6c9b), preserving staged write-up
+  files and both staged and unstaged local run notes. Backup of the original
+  run-note versions: `/private/tmp/sqf-main-update-4gsuqfbd/`.
+- Finalization initially found the configured proof-run directory, which has
+  no write-up records. Repeated with the original write-up RUNS_DIR explicitly:
+  `RUNS_DIR=~/sqf-runs/writeup-zt-neutral ./orchestrate.py writeup zt-neutral --finalize`.
+- Accepted round 4 and its numerical artifacts verified; all 15 invocation
+  records and transcripts preserved in `writeups/zt-neutral/run-records/`,
+  with audit bindings in `finalization.json`. Offline `--verify` passed.
+- Steps completed at 09:43 Helsinki; total wall time under two seconds for
+  finalization and verification. No new agents or provider usage/cost, no
+  manuscript or referee edits, and no new commit or push.
+
+- 5 Nov 2026, 11:15 Helsinki: local main updated to merged MR !23 at cda24df.
+  Preserved staged and unstaged run notes; original note versions backed up at
+  `/private/tmp/sqf-main-ignore-update-2fzqzrmi/`. Accepted round 4 and all
+  15 preserved invocation records passed offline verification. Write-up data
+  untouched; no write-up staging, commit, push or agent invocation.

@@ -1,0 +1,54 @@
+\section{Pairs of squarefree numbers with a given difference}\label{sec:pairs}
+
+The following estimate counts pairs of squarefree numbers with a given difference $m$, uniformly in $m\le x$. It is the bottleneck for the lower end of the range in \cref{thm:main}. The exponent $\frac23$ is the one familiar from the closely related additive problem: as reported in~\cite[§1]{BGPVW1998}, an elementary argument of Evelyn and Linfoot gives the number of representations of $n$ as a sum of two $k$-free numbers with an error $O_{\eps,k}(n^{2/(k+1)+\eps})$, which is $O_\eps(n^{2/3+\eps})$ for squarefree numbers. We give a complete proof of the version needed here.
+
+\begin{proposition}[Uniform pair count]\label{prop:pairs}
+For every $\eps>0$ there is a constant $c_3(\eps)$ such that
+\[
+|D_x(m)|\le c_3(\eps)\,x^{2/3+\eps}
+\]
+for all real $x\ge2$ and all integers $1\le m\le x$, where $D_x(m)$ is defined in~\eqref{eq:pairs-def}.
+\end{proposition}
+
+\begin{proof}
+Fix $x\ge2$ and $1\le m\le x$, and put $N=x-m\ge0$ and $z=x^{1/3}\ge1$. Then $C_x(m)=\sum_{1\le n\le N}\mu^2(n)\mu^2(n+m)$, with $n$ running over positive integers. Put $\tau^*=\max_{k\le x}\tau(k)$. By \cref{lem:divisor}, $\tau^*\le C(\eps)x^\eps$, and $\tau^*$ also bounds $\tau(m)$.
+
+\emph{Step 1: truncation.} For $k\in\N$ let
+\[
+S(k)=\sum_{d\le z,\ d^2\mid k}\mu(d),\qquad R(k)=\mu^2(k)-S(k)=\sum_{d>z,\ d^2\mid k}\mu(d).
+\]
+Then $|S(k)|\le\tau(k)$ and $|R(k)|\le\#\{d>z:\ d^2\mid k\}$. With $\alpha=\mu^2(n)$ and $\beta=\mu^2(n+m)$ we have $\alpha\beta-S(n)S(n+m)=R(n)\beta+S(n)R(n+m)$, and $|\beta|\le1$. Hence
+\[
+C_x(m)=\sum_{n\le N}S(n)S(n+m)+\mathcal E_1,\qquad|\mathcal E_1|\le\sum_{n\le N}|R(n)|+\tau^*\sum_{n\le N}|R(n+m)|.
+\]
+For each $d>z$ the number of $n\le N$ with $d^2\mid n$ is at most $N/d^2\le x/d^2$. The number of $n\le N$ with $d^2\mid n+m$ is at most the number of multiples of $d^2$ up to $x$, that is, at most $x/d^2$. By \cref{lem:tail}, both sums are at most $x\sum_{d>z}d^{-2}\le2x/z=2x^{2/3}$. So $|\mathcal E_1|\le2(1+\tau^*)x^{2/3}$.
+
+\emph{Step 2: congruences.} Expanding $S$,
+\[
+\sum_{n\le N}S(n)S(n+m)=\sum_{d_1,d_2\le z}\mu(d_1)\mu(d_2)\,\#\{1\le n\le N:\ d_1^2\mid n,\ d_2^2\mid n+m\}.
+\]
+The system $n\equiv0\ (d_1^2)$, $n\equiv-m\ (d_2^2)$ is solvable if and only if $(d_1^2,d_2^2)=(d_1,d_2)^2$ divides $m$. In that case its solutions form one residue class modulo $L=[d_1^2,d_2^2]$, and \cref{lem:class} gives the count $N/L+\theta$. There are at most $\lfloor z\rfloor^2\le x^{2/3}$ pairs $(d_1,d_2)$. So
+\[
+\sum_{n\le N}S(n)S(n+m)=N\sum_{\substack{d_1,d_2\le z\\(d_1,d_2)^2\mid m}}\frac{\mu(d_1)\mu(d_2)}{[d_1^2,d_2^2]}+\mathcal E_2,\qquad|\mathcal E_2|\le x^{2/3}.
+\]
+
+\emph{Step 3: completion.} Let $\Sigma$ be the same sum over all $d_1,d_2\ge1$ with $(d_1,d_2)^2\mid m$. Write $d_1=ea$, $d_2=eb$ with $e=(d_1,d_2)$ and $(a,b)=1$; then $[d_1^2,d_2^2]=e^2a^2b^2$, and the condition reads $e^2\mid m$. By symmetry, the pairs with $\max(d_1,d_2)>z$ contribute in absolute value at most twice the contribution of the pairs with $d_1>z$, that is, at most
+\[
+2\sum_{e^2\mid m}\frac1{e^2}\sum_{a>z/e}\frac1{a^2}\sum_{b\ge1}\frac1{b^2}\le2\cdot\frac{\pi^2}6\sum_{e^2\mid m}\frac1{e^2}\cdot\frac{2e}{z}=\frac{2\pi^2}{3z}\sum_{e^2\mid m}\frac1e\le\frac{7\,\tau(m)}{z},
+\]
+by \cref{lem:tail} with $w=z/e$. This also shows that $\Sigma$ converges absolutely. Hence
+\[
+N\sum_{\substack{d_1,d_2\le z\\(d_1,d_2)^2\mid m}}\frac{\mu(d_1)\mu(d_2)}{[d_1^2,d_2^2]}=N\Sigma+\mathcal E_3,\qquad|\mathcal E_3|\le\frac{7x\tau^*}{z}=7\tau^*x^{2/3}.
+\]
+
+\emph{Step 4: evaluation of $\Sigma$.} A nonzero term needs $d_1=ea$ and $d_2=eb$ squarefree. Then $e$, $a$, $b$ are squarefree and pairwise coprime, and $\mu(ea)\mu(eb)=\mu(a)\mu(b)$. By absolute convergence and \cref{lem:pairs-euler},
+\[
+\Sigma=\sum_{\substack{e\ \mathrm{squarefree}\\ e^2\mid m}}\frac1{e^2}\sum_{\substack{\mu^2(ab)=1\\(ab,e)=1}}\frac{\mu(a)\mu(b)}{a^2b^2}
+=A_0\sum_{\substack{e\ \mathrm{squarefree}\\ e^2\mid m}}\frac1{e^2}\prod_{p\mid e}\frac{p^2}{p^2-2}=A_0\sum_{t^2\mid m}\eta(t)=A(m).
+\]
+
+\emph{Conclusion.} Since $N=x-m$, we get $C_x(m)=A(m)(x-m)+\mathcal E_1+\mathcal E_2+\mathcal E_3$, so
+\[
+|D_x(m)|\le\bigl(2(1+\tau^*)+1+7\tau^*\bigr)x^{2/3}\le(3+9C(\eps))\,x^{2/3+\eps}.\qedhere
+\]
+\end{proof}

@@ -1,0 +1,119 @@
+\section{Introduction}\label{sec:intro}
+
+\subsection{The problem}
+
+Let $\mu^2(n)$ denote the indicator function of the squarefree positive integers. For real $x\ge1$, $q\in\N$ and $l\in\Z$ put
+\[
+Q(x;q,l)=\#\{1\le n\le x:\ n\equiv l\ (\mathrm{mod}\ q),\ \mu^2(n)=1\},\qquad Q(x)=Q(x;1,0).
+\]
+The limit $g(q,l)=\lim_{x\to\infty}Q(x;q,l)/x$ exists (\cref{prop:densities}) and is the density of squarefree numbers in the class $l$ modulo $q$. Its error term and the variance with respect to one modulus are
+\[
+E(x;q,l)=Q(x;q,l)-g(q,l)\,x,\qquad V(x;q)=\sum_{l=1}^{q}E(x;q,l)^2 .
+\]
+The Montgomery--Hooley-type variance $V(x,Y)=\sum_{q\le Y}V(x;q)$ over all moduli $q\le Y$ was evaluated asymptotically by Vaughan~\cite{Vaughan2005}; we recall his result below.
+
+This paper treats a \emph{sparse} version, in which the moduli are restricted to the values of a polynomial. Throughout, $f\in\Z[t]$ is a polynomial of degree $d\ge1$ such that
+\begin{equation}\label{eq:f-hyp}
+f(t)\ge2\quad\text{and}\quad f'(t)\ge1\qquad\text{for all real }t\ge1 .
+\end{equation}
+In particular $f$ has positive leading coefficient and is strictly increasing on $[1,\infty)$. We study
+\begin{equation}\label{eq:Vf}
+V_f(x,y)=\sum_{1\le k\le y}f'(k)\,V(x;f(k))=\sum_{1\le k\le y}f'(k)\sum_{l=1}^{f(k)}E(x;f(k),l)^2,\qquad Y:=f(y)\le x,
+\end{equation}
+where $k$ runs over integers and $y\ge1$ is real. The weight $f'(k)$ compensates for the sparseness of the moduli: by the mean value theorem, the number of integers in an interval $(f(k),f(k+1)]$ is about $f'(k)$, so $\sum_{k\le y}f'(k)G(f(k))$ is a Riemann-sum approximation to $\int_{f(1)}^{Y}G(u)\,du$, and $V_f(x,y)$ is directly comparable with the full variance $V(x,Y)$.
+
+The question is to determine the asymptotic behaviour of $V_f(x,y)$, with an explicit main term depending on $f$, in as large a range of $f(y)\le x$ as possible.
+
+\subsection{Background}
+
+For the full variance, Vaughan~\cite[Theorem, (1.12)--(1.15)]{Vaughan2005} proved, for $k$-free numbers in general and in the case $k=2$ of squarefree numbers in particular, that whenever $Y\le x$,
+\[
+V(x,Y)=c_2\,x^{1/2}Y^{3/2}+O\Bigl(x^{1/4}Y^{7/4}\exp\Bigl(-c^*\tfrac{(\log 2x/Y)^{3/5}}{(\log\log 3x/Y)^{1/5}}\Bigr)\Bigr)+O\Bigl(x^{3/2}\exp\Bigl(-\tilde c\tfrac{(\log x)^{3/5}}{(\log\log x)^{1/5}}\Bigr)\Bigr),
+\]
+with
+\begin{equation}\label{eq:vaughan-c2}
+c_2=\frac{8C_1\,(-\zeta(-1/2))}{3\,\zeta(2)^2},\qquad
+C_1=\prod_p\Bigl(1+\frac{(p-1)^2p^{3/2}-2p^4+3p^3-p}{p^2(p^2-1)^2}\Bigr).
+\end{equation}
+(This is (1.14)--(1.15) of~\cite{Vaughan2005} with $k=2$, written with $Y$ in place of Vaughan's modulus bound $Q$, to avoid a clash with the counting function $Q(x)$; there $x$ is assumed sufficiently large.) Vaughan's main term dominates when $x/Y$ is large and $Y$ is large compared with $x^{2/3}\exp\bigl(-\tfrac23\tilde c(\log x)^{3/5}(\log\log x)^{-1/5}\bigr)$, a quantity slightly smaller than $x^{2/3}$~\cite[(1.16)]{Vaughan2005}. His proof uses the circle method, with major-arc information on the exponential sum over $k$-free numbers from~\cite{BGPVW1998}. Earlier results, quoted in~\cite[(1.6)--(1.11)]{Vaughan2005}, have the shape $V(x,Y)=x^2\mathcal F(x/Y)+O(\cdots)$, with an error term of size at least about $x^{3/2}$.
+
+For primes, Brüdern and Wooley~\cite{BruedernWooley2011} proved an analogue of the Montgomery--Hooley formula in which the moduli are restricted to the values $f(k)$ of a polynomial of degree at least $2$, with the same weight $f'(k)$. They adapted the circle-method approach to the Montgomery--Hooley formula that they attribute to Goldston and Vaughan~\cite{GoldstonVaughan1997} and to Vaughan~\cite{Vaughan1998I}. The problem considered here is the squarefree analogue of their result.
+
+The argument presented below uses no circle method. It is completely elementary, and the price is a narrower range of validity of the asymptotic formula, namely $x^{7/9+\delta}\le f(y)\le x^{1-\delta}$; see \cref{rem:range}.
+
+\subsection{The main result}
+
+We need some notation. For a prime $p$ let
+\begin{equation}\label{eq:abc}
+a_p=1-\frac3{p^2}+\frac2{p^3}=\frac{(p-1)^2(p+2)}{p^3},\qquad
+b_p=\frac{(p-1)(p^2-2+\sqrt p)}{p^3},\qquad
+c_p=\frac{(p-1)^2(p+1)}{p^3}.
+\end{equation}
+Let $\rho(m)=\#\{a\bmod m:\ f(a)\equiv0\ (\mathrm{mod}\ m)\}$, and put
+\begin{equation}\label{eq:sigma}
+\sigma_p=a_p\Bigl(1-\frac{\rho(p)}p\Bigr)+b_p\Bigl(\frac{\rho(p)}p-\frac{\rho(p^2)}{p^2}\Bigr)+c_p\,\frac{\rho(p^2)}{p^2},
+\qquad
+C_f=\frac23\,I\prod_p\sigma_p,
+\end{equation}
+where
+\begin{equation}\label{eq:I}
+I=\int_0^\infty B(u^{-2})\,du=-4\zeta(-\tfrac12)=\frac{\zeta(3/2)}{\pi}=\IConst\ldots,\qquad B(u)=\fr{u}(1-\fr{u}),
+\end{equation}
+and $\fr u$ is the fractional part of $u$.
+The three weights in $\sigma_p$ are the proportions of residues $k$ modulo $p^2$ with $p\nmid f(k)$, with $p\,\|\,f(k)$ and with $p^2\mid f(k)$, respectively.
+We also need the explicit single-modulus main term
+\begin{equation}\label{eq:MT}
+\MT(x;q)=A_0\,q\sum_{t\ge1}\eta(t)\,m_t(q)\,B\Bigl(\frac{x}{q\,m_t(q)}\Bigr),
+\end{equation}
+where
+\begin{equation}\label{eq:A0-eta}
+A_0=\prod_p\Bigl(1-\frac2{p^2}\Bigr),\qquad \eta(t)=\mu^2(t)\prod_{p\mid t}\frac1{p^2-2},\qquad m_t(q)=\frac{t^2}{\gcd(t^2,q)}.
+\end{equation}
+The series~\eqref{eq:MT} converges absolutely, since $0\le B(u)\le u$ (\cref{lem:eta}).
+
+\begin{theorem}\label{thm:main}
+Let $f\in\Z[t]$ have degree $d\ge1$ and satisfy~\eqref{eq:f-hyp}. The product $\prod_p\sigma_p$ converges absolutely, and $0<C_f<\infty$. For every $\eps>0$ there is a constant $c(f,\eps)$, depending only on $f$ and $\eps$, such that for all real $x\ge2$ and $y\ge1$ with $Y=f(y)\le x$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\displaystyle\bigl|V_f(x,y)-C_f\,x^{1/2}Y^{3/2}\bigr|\le c(f,\eps)\Bigl(x^{1/3+\eps}Y^{5/3}+x^{5/3+\eps}+x^{1/2+\eps}Y^{3/2-1/(2d)}\Bigr);$
+\item $\displaystyle\Bigl|V_f(x,y)-\sum_{1\le k\le y}f'(k)\,\MT(x;f(k))\Bigr|\le c(f,\eps)\bigl(x^{5/3+\eps}+x^{1/2}Y\bigr).$
+\end{enumerate}
+\begin{enumerate}[label=\textup{(\roman*)},resume]
+\item Consequently, for each fixed $\delta\in(0,1/9)$, uniformly for $x^{7/9+\delta}\le f(y)\le x^{1-\delta}$,
+\[
+V_f(x,y)=C_f\,x^{1/2}f(y)^{3/2}\bigl(1+O_{f,\delta}(x^{-\eta})\bigr),\qquad \eta=\min\Bigl(\frac{\delta}{12},\frac1{6d}\Bigr).
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[The range]\label{rem:range}
+Each error term in (i) comes from one step of the proof. The term $x^{5/3+\eps}$ comes from the pointwise bound $x^{2/3+\eps}$ for the error in the count of pairs of squarefree numbers with a given difference (\cref{prop:pairs}), summed trivially over about $x/q$ differences. It is smaller than $x^{1/2}Y^{3/2}$ only when $Y\ge x^{7/9+\delta}$. The term $x^{1/3+\eps}Y^{5/3}$ comes from the Euler--Maclaurin error $Z^{1/3}$ in the sawtooth sums of \cref{prop:sawtooth}. It has relative size $x^\eps(Y/x)^{1/6}$, which forces $Y\le x^{1-\delta}$. The term $x^{1/2+\eps}Y^{3/2-1/(2d)}$ comes from averaging over the polynomial values (\cref{prop:poly}). Statement~(ii) avoids the sawtooth asymptotics altogether: its error term is of smaller order than $x^{1/2}Y^{3/2}$ throughout $x^{7/9+\delta}\le Y\le x$, including $Y\asymp x$, where the arithmetic main term $\sum_kf'(k)\MT(x;f(k))$ is kept as it is.
+\end{remark}
+
+\begin{remark}[Consistency with the full variance]\label{rem:vaughan}
+Formally taking $f(t)=t$ in~\eqref{eq:sigma}, so that $\rho\equiv1$, gives $\sigma_p=C_{1,p}(1-p^{-2})^2$ identically in $p$, where $C_{1,p}$ is the factor of $C_1$ in~\eqref{eq:vaughan-c2}. Since $\prod_p(1-p^{-2})^2=\zeta(2)^{-2}$, the constant $\frac23I\prod_p\sigma_p$ equals Vaughan's $c_2$ exactly. The identity of local factors was checked with computer algebra, and both products are evaluated numerically in \cref{tab:constants}. The polynomial $f(t)=t$ violates $f(1)\ge2$, so this is a consistency check and not a case of \cref{thm:main}.
+\end{remark}
+
+\subsection{Strategy}
+
+The proof has four parts.
+
+\emph{An exact identity for one modulus} (\cref{sec:identity}). Expanding the square, $\sum_lQ(x;q,l)^2$ counts pairs $n\equiv n'\pmod q$ of squarefree numbers up to $x$, that is, the diagonal together with pairs $(n,n+hq)$. Replace the number of pairs with difference $m$ by its expected value $A(m)(x-m)$, where $A(m)$ is the density of pairs of squarefree numbers with difference $m$. Summing $A(hq)(x-hq)$ over $h$ is an arithmetic-progression sum. The terms of order $x^2/q$ and $x$ in this sum cancel \emph{exactly} against $x^2\sum_lg(q,l)^2$ and the diagonal. The remainder is the lattice-point discrepancy $\MT(x;q)$, which arises from the identity $2\sum_{1\le j\le T}(T-j)=T^2-T+B(T)$. What is left is controlled by three explicit error terms.
+
+\emph{Error terms} (\cref{sec:densities,sec:pairs}). The pair counts are evaluated with a uniform error $O(x^{2/3+\eps})$ by a Möbius truncation at $x^{1/3}$ (\cref{prop:pairs}). The remaining terms are of size $O(x^{1/2})$ and $O(x^{3/2}/q)$ (\cref{prop:trivial}).
+
+\emph{The main term} (\cref{sec:sawtooth}). After a factorisation of $t$ according to $q$, $\MT(x;q)$ is a weighted sum of sawtooth sums $\sum_sB(Z/s^2)$. By Euler--Maclaurin summation such a sum equals $I\sqrt Z+O(Z^{1/3})$, which gives $\MT(x;q)=h(q)\sqrt{xq}+O_\eps(x^{1/3}q^{2/3+\eps})$ with an explicit multiplicative-type function $h$ (\cref{prop:MT}). This is the source of the order $x^{1/2}q^{1/2}$ of $V(x;q)$.
+
+\emph{Averaging over polynomial values} (\cref{sec:poly}). Finally, $\sum_{k\le y}f'(k)f(k)^{1/2}h(f(k))$ is evaluated by expanding $h$ as a divisor sum and counting $k$ in the $\rho(e)$ residue classes modulo $e$ on which $e\mid f(k)$. This gives $C_fY^{3/2}$, where $\tfrac23Y^{3/2}$ comes from $\int f'f^{1/2}=\tfrac23f^{3/2}$.
+
+\Cref{sec:assembly} combines these steps and composes the error terms explicitly. \Cref{sec:numerics} compares \cref{thm:main} with exact computations of $V_f(x,y)$ for three polynomials.
+
+\subsection{Notation and conventions}\label{sec:notation}
+
+The letter $p$ always denotes a prime. We write $p^j\,\|\,q$ if $p^j\mid q$ and $p^{j+1}\nmid q$, $v_p(q)$ for the exponent of $p$ in $q$, $\omega(n)$ for the number of distinct prime factors of $n$, $\tau(n)$ for the number of divisors of $n$, and $\rad(n)=\prod_{p\mid n}p$. Further, $\one[\cdot]$ is the indicator of a statement, $(a,b)=\gcd(a,b)$ and $[a,b]=\lcm(a,b)$, and $\fr u=u-\lfloor u\rfloor$. A quantity written $\theta$ (possibly with an index) is a real number with $|\theta|\le1$, which may differ at each occurrence. Implied constants in $O$, $\ll$ and $\gg$ and constants $c(\cdot)$ depend only on the parameters shown. The symbols $B$, $I$, $A_0$, $\eta$, $m_t(q)$, $\MT$, $a_p$, $b_p$, $c_p$, $\rho$, $\sigma_p$ and $C_f$ have the fixed meanings given above. In addition,
+\begin{equation}\label{eq:kappa-S2}
+\kappa(t)=t^2\eta(t)=\mu^2(t)\prod_{p\mid t}\frac{p^2}{p^2-2},\qquad S_2(q)=\sum_{l=1}^qg(q,l)^2,\qquad F(t)=f'(t)f(t)^{1/2},
+\end{equation}
+and the multiplicative-type function
+\begin{equation}\label{eq:h}
+h(q)=I\prod_{p\nmid q}a_p\prod_{p\,\|\,q}b_p\prod_{p^2\mid q}c_p .
+\end{equation}

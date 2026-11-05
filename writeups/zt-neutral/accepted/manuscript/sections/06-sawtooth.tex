@@ -1,0 +1,151 @@
+\section{Sawtooth sums and the main term for one modulus}\label{sec:sawtooth}
+
+\subsection{Sawtooth sums}
+
+The function $B(u)=\fr u(1-\fr u)$ is continuous, $1$-periodic, takes values in $[0,\frac14]$, and satisfies $B(u)=u-u^2$ for $0\le u\le1$. The sums we need are $\sum_{s\ge1}B(Z/s^2)$ and weighted versions of them. Their size $\asymp\sqrt Z$ has two sources: the terms with $s>\sqrt Z$, where $B(Z/s^2)=Z/s^2-Z^2/s^4$, and the terms with $s\le\sqrt Z$, where $B$ oscillates. The natural approximation is the integral $\int_0^\infty B(Z/u^2)\,du=I\sqrt Z$ (substitute $u=\sqrt Z\,w$). For $q\in\N$ put
+\[
+\kappa_q(t)=\kappa(t)\one[(t,q)=1],\qquad \Delta_q=\prod_p\Bigl(1-\frac1p\Bigr)\Bigl(1+\one[p\nmid q]\frac{p}{p^2-2}\Bigr).
+\]
+For $p\nmid q$ the factor of $\Delta_q$ is $(p-1)^2(p+2)/(p(p^2-2))=1+O(p^{-2})$; there are finitely many other factors, so the product converges absolutely.
+
+\begin{proposition}[Sawtooth sums]\label{prop:sawtooth}
+\leavevmode
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $I=\int_0^\infty B(u^{-2})\,du=\frac12\int_0^\infty B(v)v^{-3/2}\,dv=-4\zeta(-\tfrac12)$.
+\item For every real $Z>0$, $\bigl|\sum_{s\ge1}B(Z/s^2)-I\sqrt Z\bigr|\le c_1Z^{1/3}$ with $c_1=60$.
+\item For every $\eps>0$ there is $c_5(\eps)$ such that for all $q\in\N$ and real $Z>0$,
+\[
+\Bigl|\sum_{t\ge1}\kappa_q(t)B(Z/t^2)-\Delta_q\,I\sqrt Z\Bigr|\le c_5(\eps)\,q^\eps Z^{1/3}.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) The substitution $v=u^{-2}$ gives the second expression. The integral converges, because $B(v)\le v$ near $0$ and $B(v)\le\frac14$. Since $B$ is continuous and piecewise $C^1$ with $B'(v)=1-2\fr v$, integration by parts on $[0,X]$ gives
+\[
+\int_0^XB(v)v^{-3/2}\,dv=\bigl[-2B(v)v^{-1/2}\bigr]_0^X+2\int_0^XB'(v)v^{-1/2}\,dv .
+\]
+The boundary term tends to $0$, because $B(v)v^{-1/2}\le v^{1/2}$ near $0$ and $B(X)X^{-1/2}\le\frac14X^{-1/2}$. Hence $\int_0^\infty Bv^{-3/2}\,dv=2\lim_{N\to\infty}\int_0^NB'v^{-1/2}\,dv$ along integers $N$. On $(n,n+1)$ we have $B'(n^+)=1$, $B'((n+1)^-)=-1$ and $B''=-2$, so integrating by parts with the antiderivative $2v^{1/2}$ of $v^{-1/2}$,
+\[
+\int_n^{n+1}B'(v)v^{-1/2}\,dv=-2(n+1)^{1/2}-2n^{1/2}+4\int_n^{n+1}v^{1/2}\,dv,
+\]
+and summing over $0\le n<N$,
+\begin{equation}\label{eq:Bprime}
+\int_0^NB'(v)v^{-1/2}\,dv=-4\sum_{m=1}^Nm^{1/2}+2N^{1/2}+\tfrac83N^{3/2}.
+\end{equation}
+Now apply \cref{lem:EM} on $(N,\infty)$ to $G(u)=u^{-s}$ with $\Re s>1$, for which $\sum_{n>N}n^{-s}$ and $\int_N^\infty u^{-s}\,du=N^{1-s}/(s-1)$ converge absolutely, using $\psi(N)=-\frac12$ and $\psi_2(N)=\frac1{12}$:
+\[
+\sum_{n>N}n^{-s}=\frac{N^{1-s}}{s-1}-\frac{N^{-s}}2+\frac s{12}N^{-s-1}-s(s+1)\int_N^\infty\psi_2(u)u^{-s-2}\,du .
+\]
+The right-hand side is analytic in $\Re s>-1$, $s\ne1$, because the integral converges locally uniformly there. By uniqueness of analytic continuation, $\zeta(s)=\sum_{n\le N}n^{-s}$ plus the right-hand side in that region. At $s=-\frac12$ we have $s(s+1)=-\frac14$ and $|\int_N^\infty\psi_2u^{-3/2}\,du|\le\frac16N^{-1/2}$, so
+\[
+\sum_{m\le N}m^{1/2}=\zeta(-\tfrac12)+\tfrac23N^{3/2}+\tfrac12N^{1/2}+O(N^{-1/2}).
+\]
+Inserting this into~\eqref{eq:Bprime} shows that $\int_0^NB'v^{-1/2}\,dv\to-4\zeta(-\frac12)$. Hence $\int_0^\infty Bv^{-3/2}\,dv=-8\zeta(-\frac12)$ and $I=-4\zeta(-\frac12)$. By the functional equation~\cite[Corollary~10.4]{MV2007} at $s=-\frac12$, $\zeta(-\frac12)=2^{-1/2}\pi^{-3/2}\Gamma(\frac32)\sin(-\frac\pi4)\zeta(\frac32)=-\zeta(\frac32)/(4\pi)$. So $I=\zeta(3/2)/\pi>0$, the value stated in~\eqref{eq:I}.
+
+(b) \emph{The case $Z<1$.} Here $0\le B(Z/s^2)\le Z/s^2$, so $0\le\sum_sB(Z/s^2)\le\zeta(2)Z<2Z^{1/3}$. Also $0<I\sqrt Z<Z^{1/3}$, since $I<1$. The difference of two numbers in $[0,2Z^{1/3}]$ is at most $2Z^{1/3}$.
+
+\emph{The case $Z\ge1$.} Put $\Lambda=Z^{1/3}\ge1$ and $T=\lfloor\Lambda\rfloor\ge1$. Then $\Lambda/2<T\le\Lambda$, hence
+\begin{equation}\label{eq:b1}
+\frac Z{T^3}<8,\qquad K_0:=\frac Z{T^2}<4\Lambda,\qquad \frac{Z^2}{T^5}<32\Lambda .
+\end{equation}
+\emph{Small $s$.} Both $\sum_{s\le T}B(Z/s^2)$ and $\int_0^TB(Z/u^2)\,du$ lie in $[0,T/4]\subset[0,\Lambda/4]$, so their difference is at most $\Lambda/4$. It therefore suffices to show
+\begin{equation}\label{eq:b2}
+\Bigl|\sum_{s>T}B(Z/s^2)-\int_T^\infty B(Z/u^2)\,du\Bigr|\le57\Lambda ,
+\end{equation}
+which gives the claim with $57+\frac14<60$.
+
+\emph{A decomposition of $B$.} For real $w\ge0$ with $j=\lfloor w\rfloor$ we have $B(w)=(w-j)(1-w+j)=w-w^2+2jw-j-j^2$, and $\sum_{k=1}^j2(w-k)=2jw-j^2-j$. Hence
+\[
+B(w)=w-w^2+2\sum_{k\ge1}(w-k)_+,\qquad(v)_+=\max(v,0).
+\]
+Put $\Phi(u)=Z/u^2-Z^2/u^4$ and $G_k(u)=(Z/u^2-k)_+$, so that $B(Z/u^2)=\Phi(u)+2\sum_{k\ge1}G_k(u)$. For $u\ge T$ only the $k<K_0$ contribute, and there are fewer than $K_0<4\Lambda$ of them. For such $k$, $G_k(u)=Z/u^2-k$ on $[T,R_k]$ with $R_k=\sqrt{Z/k}>T$, and $G_k=0$ on $[R_k,\infty)$.
+
+\emph{Euler--Maclaurin.} Apply \cref{lem:EM} to $\Phi$ on $(T,\infty)$ (where $\sum_{s>T}\Phi(s)$ and $\int_T^\infty\Phi$ converge absolutely, since $\Phi(u)=O(u^{-2})$), and to $Z/u^2-k$ on $(T,R_k]$ for each $k<K_0$. Use $\psi(T)=-\frac12$, $\psi_2(T)=\frac1{12}$ and $G_k(R_k)=0$, and add. Since $\int_T^\infty\Phi+2\sum_k\int_T^{R_k}G_k=\int_T^\infty B(Z/u^2)\,du$ (all integrals converge absolutely), this gives
+\[
+\sum_{s>T}B(Z/s^2)=\int_T^\infty B(Z/u^2)\,du+R_1+R_2+R_3+R_4+R_5,
+\]
+where, writing $G_k'$ and $G_k''$ for the derivatives of $Z/u^2-k$:
+\begin{itemize}
+\item $R_1=\psi(T)\bigl[\Phi(T)+2\sum_{k<K_0}G_k(T)\bigr]=\psi(T)B(Z/T^2)$. The individual terms here have size about $Z^2/T^4\asymp Z^{2/3}$, but their sum is $B(Z/T^2)\le\frac14$. So $|R_1|\le\frac18$. This is the one place where cancellation is essential.
+\item $R_2=-\frac1{12}\bigl[\Phi'(T)+2\sum_{k<K_0}G_k'(T)\bigr]$, with $\Phi'(T)=-2Z/T^3+4Z^2/T^5$ and $G_k'(T)=-2Z/T^3$. By~\eqref{eq:b1}, $|\Phi'(T)|<16+128\Lambda$ and $|2\sum_kG_k'(T)|\le4K_0Z/T^3<128\Lambda$. So $|R_2|\le\frac1{12}(16+256\Lambda)\le\frac{272}{12}\Lambda$.
+\item $R_3=-\int_T^\infty\psi_2\Phi''\,du$ with $\Phi''=6Z/u^4-20Z^2/u^6$. So $|R_3|\le\frac1{12}(2Z/T^3+4Z^2/T^5)<\frac1{12}(16+128\Lambda)\le12\Lambda$.
+\item $R_4=-2\sum_{k<K_0}\int_T^{R_k}\psi_2G_k''\,du$ with $G_k''=6Z/u^4$ and $\int_T^\infty6Zu^{-4}\,du=2Z/T^3<16$. So $|R_4|\le\frac2{12}K_0\cdot16<\frac{32}3\Lambda$.
+\item $R_5=2\sum_{k<K_0}\psi_2(R_k)G_k'(R_k)$ with $G_k'(R_k)=-2Z/R_k^3=-2k^{3/2}/\sqrt Z$. Since $k<4\Lambda$, $\sum_{k<K_0}k^{3/2}<4\Lambda\cdot8\Lambda^{3/2}$, and with $\sqrt Z=\Lambda^{3/2}$ we get $|R_5|\le\frac2{12}\cdot2\cdot32\Lambda=\frac{32}3\Lambda$. These are the kinks of the $G_k$ at the points $R_k$. Summing over the $K_0\asymp Z^{1/3}$ values of $k$ is what produces the exponent $\frac13$.
+\end{itemize}
+Using $\Lambda\ge1$, the total is at most $(\frac18+\frac{272}{12}+12+\frac{32}3+\frac{32}3)\Lambda=\frac{449}8\Lambda<57\Lambda$, which proves~\eqref{eq:b2}.
+
+(c) Fix $q$. The function $\kappa_q$ is multiplicative with $\kappa_q(p)=p^2/(p^2-2)$ for $p\nmid q$, $\kappa_q(p)=0$ for $p\mid q$ and $\kappa_q(p^j)=0$ for $j\ge2$. Let $\beta=\mu*\kappa_q$, so that $\kappa_q=1*\beta$. Then $\beta$ is multiplicative, with $\beta(p^j)=\kappa_q(p^j)-\kappa_q(p^{j-1})$:
+\begin{itemize}
+\item for $p\mid q$: $\beta(p)=-1$ and $\beta(p^j)=0$ for $j\ge2$;
+\item for $p\nmid q$: $\beta(p)=\frac2{p^2-2}$, $\beta(p^2)=-\frac{p^2}{p^2-2}$ and $\beta(p^j)=0$ for $j\ge3$.
+\end{itemize}
+\emph{Absolute convergence.} For $p\nmid q$, $\sum_j|\beta(p^j)|p^{-2j/3}\le\frac{2p^{-2/3}}{p^2-2}+2p^{-4/3}$, because $p^2/(p^2-2)\le2$. Hence
+\[
+\Sigma_{2/3}:=\sum_{n\ge1}\frac{|\beta(n)|}{n^{2/3}}\le\prod_{p\mid q}\bigl(1+p^{-2/3}\bigr)\prod_p\Bigl(1+\frac{2p^{-2/3}}{p^2-2}+2p^{-4/3}\Bigr)\le C_\beta\,2^{\omega(q)}\le C_\beta C(\eps)q^\eps,
+\]
+with an absolute constant $C_\beta$, by \cref{lem:divisor}. Similarly $\sum_n|\beta(n)|/n<\infty$ for each fixed $q$.
+
+\emph{Rearrangement.} For $W>0$, $\sum_mB(W/m^2)\le\sum_m\min(\frac14,W/m^2)\le3\sqrt W$. Indeed, for $W<1$ the sum is at most $\zeta(2)W\le2\sqrt W$, and for $W\ge1$ it is at most $\frac14\sqrt W+W\cdot2/\sqrt W$ by \cref{lem:tail}. Hence $\sum_{n,m}|\beta(n)|B(Z/(nm)^2)\le3\sqrt Z\sum_n|\beta(n)|/n<\infty$, and we may rearrange:
+\[
+\sum_{t\ge1}\kappa_q(t)B(Z/t^2)=\sum_{n,m\ge1}\beta(n)B\Bigl(\frac{Z/n^2}{m^2}\Bigr)=\sum_{n\ge1}\beta(n)\sum_{m\ge1}B\Bigl(\frac{Z/n^2}{m^2}\Bigr).
+\]
+\emph{Main term.} Part (b) holds for every positive argument. Applying it with $Z/n^2$ in place of $Z$, and using $I\sqrt{Z/n^2}=I\sqrt Z/n$,
+\[
+\Bigl|\sum_t\kappa_q(t)B(Z/t^2)-I\sqrt Z\sum_n\frac{\beta(n)}n\Bigr|\le c_1\sum_n|\beta(n)|\Bigl(\frac Z{n^2}\Bigr)^{1/3}=c_1\Sigma_{2/3}Z^{1/3}.
+\]
+\emph{The constant.} By~\eqref{eq:euler}, $\sum_n\beta(n)/n=\prod_p\bigl(1+\beta(p)/p+\beta(p^2)/p^2\bigr)$. For $p\mid q$ the factor is $1-1/p$. For $p\nmid q$ it is
+\[
+1+\frac2{p(p^2-2)}-\frac1{p^2-2}=\frac{p^3-3p+2}{p(p^2-2)}=\frac{(p-1)^2(p+2)}{p(p^2-2)}=\Bigl(1-\frac1p\Bigr)\Bigl(1+\frac p{p^2-2}\Bigr).
+\]
+Hence $\sum_n\beta(n)/n=\Delta_q$, and (c) holds with $c_5(\eps)=c_1C_\beta C(\eps)$.
+\end{proof}
+
+\subsection{The main term for one modulus}
+
+\begin{proposition}[Asymptotics of $\MT$]\label{prop:MT}
+For every $\eps>0$ there is $c_6(\eps)$ such that for all real $x>0$ and all $q\in\N$,
+\[
+\bigl|\MT(x;q)-h(q)\sqrt{xq}\bigr|\le c_6(\eps)\,x^{1/3}q^{2/3+\eps},
+\]
+with $h$ as in~\eqref{eq:h}. In particular this holds for $x\ge1$ and $1\le q\le x$.
+\end{proposition}
+
+\begin{proof}
+\emph{Factorising $t$.} Fix $q$. Every squarefree $t$ factors uniquely as $t=t_0t_1t_2$, where $t_0$ is composed of primes $p\nmid q$, $t_1$ of primes $p\,\|\,q$, and $t_2$ of primes $p$ with $p^2\mid q$. Conversely, every such triple of squarefree numbers gives a squarefree $t$. Let $\mathcal S_1$ and $\mathcal S_2$ be the finite sets of admissible $t_1$ and $t_2$ (all of them divide $q$). For squarefree $t$, $\gcd(t^2,q)=\prod_{p\mid t}p^{\min(2,v_p(q))}=t_1t_2^2$, so
+\[
+m_t(q)=t_0^2t_1,\qquad\frac x{q\,m_t(q)}=\frac{Z_1}{t_0^2}\quad\text{with}\quad Z_1=\frac{x}{q\,t_1},\qquad \eta(t)m_t(q)=\eta(t_1)\eta(t_2)\,t_1\,\kappa(t_0).
+\]
+By the absolute convergence in \cref{lem:eta} we may regroup:
+\[
+\MT(x;q)=A_0\,q\sum_{t_1\in\mathcal S_1}\sum_{t_2\in\mathcal S_2}\eta(t_1)\eta(t_2)\,t_1\,\Sigma(t_1),\qquad\Sigma(t_1)=\sum_{t_0\ge1}\kappa_q(t_0)B\Bigl(\frac{Z_1}{t_0^2}\Bigr).
+\]
+\emph{Applying \cref{prop:sawtooth}(c).} With $Z=Z_1>0$ we get $\Sigma(t_1)=\Delta_qI\sqrt{Z_1}+\theta\,c_5(\eps)q^\eps Z_1^{1/3}$. Since $t_1\sqrt{Z_1}=\sqrt{x/q}\,t_1^{1/2}$ and $t_1Z_1^{1/3}=(x/q)^{1/3}t_1^{2/3}$,
+\[
+\MT(x;q)=A_0\Delta_qI\sqrt{xq}\sum_{t_1\in\mathcal S_1}\eta(t_1)t_1^{1/2}\sum_{t_2\in\mathcal S_2}\eta(t_2)+R,
+\]
+\[
+|R|\le c_5(\eps)\,q^{1+\eps}\Bigl(\frac xq\Bigr)^{1/3}\sum_{t_1\in\mathcal S_1}\eta(t_1)t_1^{2/3}\sum_{t_2\in\mathcal S_2}\eta(t_2),
+\]
+where we used $A_0\le1$. By~\eqref{eq:eta-bound}, $\sum_{t_1}\eta(t_1)t_1^{2/3}\le\prod_p(1+2p^{-4/3})$ and $\sum_{t_2}\eta(t_2)\le\prod_p(1+2p^{-2})$, both absolute constants. So $|R|\le c_6(\eps)x^{1/3}q^{2/3+\eps}$.
+
+\emph{The constant is $h(q)$.} The two finite sums are Euler products over the primes dividing $q$:
+\[
+\sum_{t_1\in\mathcal S_1}\eta(t_1)t_1^{1/2}=\prod_{p\|q}\Bigl(1+\frac{\sqrt p}{p^2-2}\Bigr),\qquad\sum_{t_2\in\mathcal S_2}\eta(t_2)=\prod_{p^2\mid q}\Bigl(1+\frac1{p^2-2}\Bigr).
+\]
+Multiplying the absolutely convergent products $A_0$ and $\Delta_q$ factor by factor, the local factor at $p$ of the main coefficient is
+\begin{align*}
+p\nmid q:&\quad\Bigl(1-\tfrac2{p^2}\Bigr)\Bigl(1-\tfrac1p\Bigr)\Bigl(1+\tfrac p{p^2-2}\Bigr)=\frac{(p-1)(p^2+p-2)}{p^3}=\frac{(p-1)^2(p+2)}{p^3}=a_p,\\
+p\,\|\,q:&\quad\Bigl(1-\tfrac2{p^2}\Bigr)\Bigl(1-\tfrac1p\Bigr)\Bigl(1+\tfrac{\sqrt p}{p^2-2}\Bigr)=\frac{(p-1)(p^2-2+\sqrt p)}{p^3}=b_p,\\
+p^2\mid q:&\quad\Bigl(1-\tfrac2{p^2}\Bigr)\Bigl(1-\tfrac1p\Bigr)\Bigl(1+\tfrac1{p^2-2}\Bigr)=\frac{(p-1)(p^2-1)}{p^3}=c_p .
+\end{align*}
+Together with the factor $I$, this is exactly $h(q)$.
+\end{proof}
+
+\begin{remark}
+Since $b_p/a_p\ge1-1/p$ and $c_p/a_p=(p+1)/(p+2)\ge1-1/p$, we have $h(q)\ge IA_h\,\varphi(q)/q\gg_\eps q^{-\eps}$, where $A_h=\prod_pa_p>0$ (\cref{prop:poly}(0)). So \cref{prop:MT} gives, for $x\ge1$ and $1\le q\le x$,
+\[
+\MT(x;q)=h(q)\sqrt{xq}\,\bigl(1+O_\eps(x^{2\eps}(q/x)^{1/6})\bigr),
+\]
+because the relative error is $\ll_\eps q^{2\eps}(q/x)^{1/6}$ and $q^{2\eps}\le x^{2\eps}$ for $q\le x$. (Without the restriction $q\le x$ the display can fail. Since $0\le q\,m\,B(x/(qm))\le x$ and $\sum_t\eta(t)<\infty$ (\cref{lem:eta}), \eqref{eq:MT} gives $0\le\MT(x;q)\ll x$ for all $x>0$. Hence $\MT(x;1)/(h(1)\sqrt x)\to0$ as $x\to0$, whereas for $\eps>1/12$ the displayed error term $x^{2\eps}x^{-1/6}$ tends to $0$.) The relative error is not small when $q\asymp x$. This is why the asymptotic formula of \cref{thm:main}(iii) requires $Y\le x^{1-\delta}$, whereas the error term in~(ii), which keeps $\MT$ unexpanded, has no such restriction. The numerical data in \cref{sec:numerics} suggest that, after summation over the moduli, the secondary term has relative size roughly proportional to $\sqrt{Y/x}$. That is consistent with, but sharper than, the proved bound.
+\end{remark}
