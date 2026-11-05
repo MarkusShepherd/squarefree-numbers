@@ -1,0 +1,1 @@
+Wrote [proof.md](/Users/markus/sqf-runs/squarefree-numbers-thesis/prove-P3-r1-20261104-204428-107477/proof.md). It proves the stronger uniform bound \(O(x^{4/5})\), with explicit constants, including when \(x-m\) is bounded or zero. No external sources were used.

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "verdict": {
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "none",
+        "cosmetic",
+        "gap",
+        "fatal",
+        "defect-confirmed"
+      ],
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "objection": {
+      "type": "string"
+    },
+    "other_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "verdict",
+    "severity",
+    "location",
+    "objection",
+    "other_issues"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,99 @@
+{
+  "summary": "Plan for the original class of polynomials and original weight. First obtain a uniform squarefree correlation estimate from the supplied exponential-sum paper; then average its singular series over polynomial moduli. This avoids requiring a new sparse-moduli variance theorem. The result retains an explicit profile when f(y)/x is fixed and yields a constant main term when f(y)/x tends to zero. The predicted constants agree with the numerical extrapolation bands. Methodological starting points: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), https://doi.org/10.1112/S0024611505015352; J. Br\u00fcdern and T. D. Wooley, Sparse variance for primes in arithmetic progression (2011, supplied exception), https://doi.org/10.1093/qmath/hap029. Exposure report: a literature search returned metadata for an unrelated 2015 Journal of Number Theory article; it was not opened or used. No excluded-author source, GitLab content, or previous proof attempt was consulted. These are proposed proof contracts, not proved results.",
+  "main_theorem": "Let f and V_f be as in problem.md, let d=deg f, put Y=f(y), and define \u03b7_d=min{1/5,1/(4d\u22121)}. Let the explicit function F_f and positive constant K_f be defined in P5\u2013P6. For every \u03b5 with 0<\u03b5<\u03b7_d/2, there are constants C(f,\u03b5)>0 and x_0(f,\u03b5) such that, uniformly for real x\u2265x_0 and y\u22651 with Y\u2264x, |V_f(x,y)\u2212x\u00b2F_f(x/Y)|\u2264C(f,\u03b5)x^(2\u2212\u03b7_d+\u03b5), and |V_f(x,y)\u2212K_f x^(1/2)Y^(3/2)|\u2264C(f,\u03b5)[x^(3/8)Y^(13/8)+x^(2\u2212\u03b7_d+\u03b5)]. In particular, for every fixed \u03b4 with 0<\u03b4<\u03b7_d/3, uniformly in x^(1\u22122\u03b7_d/3+\u03b4)\u2264Y\u2264x^(1\u2212\u03b4), |V_f(x,y)/(K_f x^(1/2)Y^(3/2))\u22121|\u2264C(f,\u03b4)x^(\u2212\u03b4/8). No irreducibility or squarefreeness assumption on f is imposed.",
+  "predicted_main_term": "K_f x^(1/2)f(y)^(3/2), where K_f=\u2212(8/3)\u03b6(\u22121/2)H_f(\u22121/2)>0 and H_f is the absolutely convergent Euler product in P5. Products through primes at most 10^6 give K_(t\u00b2+1)\u22480.138083, K_(t\u00b3+2)\u22480.135608, and K_(2t+1)\u22480.142613. For a fixed positive ratio f(y)/x, the predicted leading term is instead x\u00b2F_f(x/f(y)).",
+  "agrees_with_numerics": "Yes, with the distinction between the profile and its small-ratio limit. The snapshot extrapolates constants 0.134475\u00b10.007285, 0.136321\u00b10.002404, and 0.141686\u00b10.008218, respectively; all three proposed constants lie within these heuristic bands. At the largest x, evaluating the explicit profile at each actual recorded ratio gives maximum relative differences across the eight requested ratios of approximately 0.071%, 0.90%, and 0.00075%, respectively. The larger cubic discrepancy is compatible with slower convergence of the polynomial sampling, but is not established as such. Persistent ratio dependence explains why unrestricted power-law regression does not recover exponents 1/2 and 3/2 exactly. The snapshot reports exact-integer count validation and high-precision density evaluation; its implementation was not independently inspected, and its extrapolation uncertainty is not treated as a rigorous error bound.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Local densities and summable spectral coefficients",
+      "statement": "Let \u03bc be the M\u00f6bius function, \u03c6 Euler's totient, \u03b6 the Riemann zeta function, and c=\u03b6(2)^(\u22121). All products below are over primes. For every integer q\u22651 and integer l, the density g(q,l) from problem.md equals q^(\u22121)\u03a3_{m\u22651, gcd(m\u00b2,q)|l} \u03bc(m)gcd(m\u00b2,q)/m\u00b2. Equivalently, it is zero if some p\u00b2 divides both q and l; otherwise it equals (c/q)\u220f_{p|q}(1\u2212p^(\u22122))^(\u22121)\u220f_{p||q, p|l}(1\u2212p^(\u22121)). In particular 0\u2264g(q,l)\u22641/q. Define the multiplicative function G by G(1)=1, G(p)=G(p\u00b2)=\u22121/(p\u00b2\u22121), and G(p^a)=0 for a\u22653. Put \u03b3(r)=cG(r), \u03bb(r)=\u03c6(r)\u03b3(r)\u00b2, and c_r(n)=\u03a3_{1\u2264a\u2264r, gcd(a,r)=1} exp(2\u03c0ian/r). Then q\u03a3_{l=1}^q g(q,l)\u00b2=\u03a3_{r|q}\u03bb(r), \u03a3_{r\u22651}\u03bb(r)=c, and, for every integer n\u22651, the absolutely convergent series \u03a3_{r\u22651}\u03b3(r)\u00b2c_r(n) equals \ud835\udd16(n)=\u220f_p(1\u22122/p\u00b2)\u220f_{p\u00b2|n}(p\u00b2\u22121)/(p\u00b2\u22122). There is an absolute constant C such that, uniformly for real R\u22652, \u03a3_{r>R}\u03bb(r)\u2264CR^(\u22121/2)(log(2R))\u00b2 and \u03a3_{r\u2264R}r\u03bb(r)\u2264CR^(1/2)(log(2R))\u00b2.",
+      "depends_on": [],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemmas 2.5, 2.14, 2.15 and 2.17, specialized to k=2; https://doi.org/10.1112/S0024611505015352.",
+        "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 3.1, specialized to k=2; https://research-information.bris.ac.uk/en/publications/on-the-exponential-sum-over-k-free-numbers/."
+      ],
+      "crux": false,
+      "risk": "The Fourier coefficient includes \u03b6(2)^(\u22121); omitting it changes both the density cancellation and the final constant. Residue classes not coprime to q must remain included."
+    },
+    {
+      "id": "P2",
+      "title": "Variance reduction and disposal of initial moduli",
+      "statement": "Let f be as in problem.md, d=deg f, and c=\u03b6(2)^(\u22121), where \u03b6 is the Riemann zeta function. For real x\u22652 and integers 1\u2264m\u2264x define C_x(m)=\u03a3_{1\u2264n\u2264x\u2212m}\u03bc\u00b2(n)\u03bc\u00b2(n+m). For real 1\u2264z\u2264y with Z=f(z)\u2264Y=f(y)\u2264x, define V_f(x;z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{l=1}^{f(k)}E(x;f(k),l)\u00b2, T_f(z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{l=1}^{f(k)}g(f(k),l)\u00b2, and S_f(x;z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{1\u2264h\u2264x/f(k)}C_x(hf(k)); all sums over k and h are over positive integers. For every \u03b5>0 there is C(f,\u03b5)>0 such that, uniformly throughout these ranges, |V_f(x;z,y)\u2212[cx(Y\u2212Z)+2S_f(x;z,y)\u2212x\u00b2T_f(z,y)]|\u2264C(f,\u03b5)[x^(3/2+\u03b5)+xY^(1\u22121/d)]. In addition, uniformly for x\u22652 and real z\u22651 with f(z)\u2264x, 0\u2264V_f(x,z)\u2264C(f,\u03b5)x^(1+\u03b5)f(z)^(2\u22121/d).",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemmas 2.2(ii), 2.3 and 2.4, specialized to k=2; https://doi.org/10.1112/S0024611505015352.",
+        "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 2.2, specialized to k=2 and 1\u2264Q\u2264x; https://research-information.bris.ac.uk/en/publications/on-the-exponential-sum-over-k-free-numbers/."
+      ],
+      "crux": false,
+      "risk": "The initial-modulus bound must use positivity before multiplying the full-modulus variance bound by the maximum polynomial weight. The mixed term requires divisibility counts, rather than a pointwise progression error multiplied by every residue class."
+    },
+    {
+      "id": "P3",
+      "title": "Uniform correlation estimate for squarefree numbers",
+      "statement": "For real x\u22652 and every integer 1\u2264m\u2264x, define C_x(m)=\u03a3_{1\u2264n\u2264x\u2212m}\u03bc\u00b2(n)\u03bc\u00b2(n+m) and \ud835\udd16(m)=\u220f_p(1\u22122/p\u00b2)\u220f_{p\u00b2|m}(p\u00b2\u22121)/(p\u00b2\u22122), with products over primes. For every \u03b5>0 there is C(\u03b5)>0 such that |C_x(m)\u2212(x\u2212m)\ud835\udd16(m)|\u2264C(\u03b5)x^(4/5+\u03b5), uniformly for all such x and m. A permitted circle-method cutoff is Q=x^(2/5), for x sufficiently large that Q\u2264x^(1/2)/2; the major arcs are the subsets of R/Z with |\u03b1\u2212a/q|\u2264Q/(qx), 1\u2264q\u2264Q and gcd(a,q)=1. The bound is uniform even when x\u2212m is bounded.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [
+        "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Theorem 2 and Lemmas 3.1, 3.2 and 4.2, specialized to k=2; https://research-information.bris.ac.uk/en/publications/on-the-exponential-sum-over-k-free-numbers/."
+      ],
+      "crux": false,
+      "risk": "This is a difference-correlation adaptation of the supplied mean-square estimates, not a direct quotation of the paper's additive-representation corollary. Uniformity must come from an L\u00b9 bound for the Fourier approximation, with x retained as the ambient length."
+    },
+    {
+      "id": "P4",
+      "title": "Polynomial averaging with a common density coefficient",
+      "statement": "Let f and \u03c1 be as in problem.md, d=deg f, and put \u03c1(1)=1. Write \u03b6 for the Riemann zeta function, c=\u03b6(2)^(\u22121), and \u03c6 for Euler's totient. Define \u03bb(r)=c\u00b2\u03c6(r)\u220f_{p|r}(p\u00b2\u22121)^(\u22122) when no prime cube divides r, and \u03bb(r)=0 otherwise; the product for r=1 is empty. Define R_f=\u03a3_{r\u22651}\u03bb(r)\u03c1(r)/r and \ud835\udd16(n)=\u220f_p(1\u22122/p\u00b2)\u220f_{p\u00b2|n}(p\u00b2\u22121)/(p\u00b2\u22122). For h\u22651 let v_p(h) be the exponent of p in h, j_p(h)=max{2\u2212v_p(h),0}, and W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{j_p(h)})/(p^{j_p(h)}(p\u00b2\u22122))]. These series and products converge absolutely. For real x\u22652, 1\u2264z\u2264y, Z=f(z)\u2264Y=f(y)\u2264x, and 2\u2264R\u2264x, put A=Z^(\u22121/d)R^(1/2)(log(2R))\u00b2+R^(\u22121/2)(log(2R))\u00b2log(2x). There is C(f)>0, uniform throughout these ranges, such that |\u03a3_{z<k\u2264y}f'(k)\u03a3_{l=1}^{f(k)}g(f(k),l)\u00b2\u2212R_f log(Y/Z)|\u2264C(f)A, and |\u03a3_{z<k\u2264y}f'(k)\u03a3_{1\u2264h\u2264x/f(k)}(x\u2212hf(k))\ud835\udd16(hf(k))\u2212\u222b_Z^Y \u03a3_{1\u2264h\u2264x/t}(x\u2212ht)W_f(h)dt|\u2264C(f)x\u00b2A. All discrete summation variables are positive integers. No condition on the discriminant, content, or factorization of f is imposed.",
+      "depends_on": [
+        "P1"
+      ],
+      "cites": [],
+      "crux": true,
+      "risk": "The same R_f must occur in the density average and the off-diagonal expansion. The Euler-summation error must be summed using the h-dependent endpoint f(k)\u2264x/h; using y for every h would lose the claimed range. Fixed prime divisors and repeated polynomial factors must be retained."
+    },
+    {
+      "id": "P5",
+      "title": "Dirichlet series, residues, and the explicit constant",
+      "statement": "Let f and \u03c1 be as in problem.md, set \u03c1(1)=1, and write \u03b6 for the Riemann zeta function. For each prime p define a_p=1+\u03c1(p\u00b2)/(p\u00b2(p\u00b2\u22122)), b_p=1+\u03c1(p)/(p(p\u00b2\u22122)), c_p=1+1/(p\u00b2\u22122), and B_p(s)=a_p+(b_p\u2212a_p)p^(\u2212s)+(c_p\u2212b_p)p^(\u22122s). Define W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{max{2\u2212v_p(h),0}})/(p^{max{2\u2212v_p(h),0}}(p\u00b2\u22122))] for positive integers h, where v_p(h) is the exponent of p in h. Put D_f(s)=\u03a3_{h\u22651}W_f(h)h^(\u2212s), P_f(s)=\u220f_p(1\u22122/p\u00b2)B_p(s), and H_f(s)=\u220f_p(1\u22122/p\u00b2)(1\u2212p^(\u22122s\u22122))B_p(s). The series for D_f converges absolutely for Re(s)>1; the products for P_f and H_f converge absolutely and locally uniformly for Re(s)>\u22121/2 and Re(s)>\u22123/4, respectively. For Re(s)>1, D_f(s)=\u03b6(s)P_f(s)=\u03b6(s)\u03b6(2s+2)H_f(s), and the latter identity continues D_f meromorphically to Re(s)>\u22123/4. For every fixed \u03c3>\u22123/4 there is C(f,\u03c3)>0 with |H_f(\u03c3+it)|\u2264C(f,\u03c3) for all real t. Define R_f=P_f(1), B_f=(\u03b3_E\u22123/2)R_f+P_f'(1), where \u03b3_E is Euler's constant, and K_f=\u2212(8/3)\u03b6(\u22121/2)H_f(\u22121/2). Then D_f(0)=\u22121/(2\u03b6(2)), K_f>0, and R_f=\u03b6(2)^(\u22122)\u220f_p[1+(1\u22121/p)(\u03c1(p)+\u03c1(p\u00b2))/(p\u00b2\u22121)\u00b2]. This R_f equals \u03a3_{r\u22651}\u03bb(r)\u03c1(r)/r, where \u03bb(r)=\u03b6(2)^(\u22122)\u03c6(r)\u220f_{p|r}(p\u00b2\u22121)^(\u22122) for integers r with no prime-cube divisor and is zero otherwise; \u03c6 is Euler's totient. Every displayed Euler product specifying R_f or K_f is absolutely convergent.",
+      "depends_on": [
+        "P4"
+      ],
+      "cites": [],
+      "crux": true,
+      "risk": "The pole at s=\u22121/2 determines the constant. Missing either \u03c1(p\u00b2) or the factor 1/2 in the residue of \u03b6(2s+2) changes the answer. The identity D_f(0)=\u22121/(2\u03b6(2)) is essential for cancellation of the diagonal term."
+    },
+    {
+      "id": "P6",
+      "title": "Smoothed singular-series sum and the ratio profile",
+      "statement": "Let f and \u03c1 be as in problem.md and put \u03c1(1)=1. For each integer h\u22651 define W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{max{2\u2212v_p(h),0}})/(p^{max{2\u2212v_p(h),0}}(p\u00b2\u22122))], where products are over primes and v_p(h) is the exponent of p in h. Let D_f(s)=\u03a3_{h\u22651}W_f(h)h^(\u2212s), initially for Re(s)>1 and then by meromorphic continuation. Define R_f=Res_{s=1}D_f(s), B_f=lim_{s\u21921}[D_f(s)\u2212R_f/(s\u22121)]\u22123R_f/2, K_f=\u2212(16/3)Res_{s=\u22121/2}D_f(s), and c=\u03b6(2)^(\u22121), with \u03b6 the Riemann zeta function. For real H\u22651 put \u0398_f(H)=\u03a3_{1\u2264h\u2264H}W_f(h)(H\u2212h)\u00b2/h and F_f(H)=R_f log H+B_f+c/H\u2212\u0398_f(H)/H\u00b2. There is C(f)>0 such that, uniformly for all real H\u22651, |\u0398_f(H)\u2212[R_fH\u00b2log H+B_fH\u00b2+cH\u2212K_fH^(1/2)]|\u2264C(f)H^(3/8), and consequently |F_f(H)\u2212K_fH^(\u22123/2)|\u2264C(f)H^(\u221213/8). Moreover, uniformly for real x\u22652 and 2\u2264Z\u2264Y\u2264x, 2\u222b_Z^Y \u03a3_{1\u2264h\u2264x/t}(x\u2212ht)W_f(h)dt=Z\u00b2\u0398_f(x/Z)\u2212Y\u00b2\u0398_f(x/Y).",
+      "depends_on": [
+        "P5"
+      ],
+      "cites": [
+        "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.18, for the Mellin-transform framework; https://doi.org/10.1112/S0024611505015352.",
+        "H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I: Classical Theory (2007), Corollary 10.4, the zeta functional equation; https://doi.org/10.1017/CBO9780511618314."
+      ],
+      "crux": false,
+      "risk": "The Mellin kernel is 2/[s(s+1)(s+2)] applied to D_f(s+1). The residue at s=\u22121 has a negative kernel residue, producing +cH. A sign error there prevents diagonal cancellation. The contour shift to Re(s)=\u221213/8 must include an explicit integrable vertical bound."
+    },
+    {
+      "id": "P7",
+      "title": "Assembly and uniform error budget",
+      "statement": "Let f and V_f be as in problem.md, d=deg f, Y=f(y), and \u03b7_d=min{1/5,1/(4d\u22121)}. Define W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{max{2\u2212v_p(h),0}})/(p^{max{2\u2212v_p(h),0}}(p\u00b2\u22122))], with \u03c1(1)=1 and v_p(h) the exponent of p in h. Let D_f(s)=\u03a3_{h\u22651}W_f(h)h^(\u2212s), continued meromorphically; put R_f=Res_{s=1}D_f(s), B_f=lim_{s\u21921}[D_f(s)\u2212R_f/(s\u22121)]\u22123R_f/2, K_f=\u2212(16/3)Res_{s=\u22121/2}D_f(s), \u0398_f(H)=\u03a3_{1\u2264h\u2264H}W_f(h)(H\u2212h)\u00b2/h, and F_f(H)=R_f log H+B_f+1/(\u03b6(2)H)\u2212\u0398_f(H)/H\u00b2. For every 0<\u03b5<\u03b7_d/2 there are C(f,\u03b5)>0 and x_0(f,\u03b5) such that, uniformly for real x\u2265x_0 and y\u22651 with Y\u2264x, |V_f(x,y)\u2212x\u00b2F_f(x/Y)|\u2264C(f,\u03b5)x^(2\u2212\u03b7_d+\u03b5) and |V_f(x,y)\u2212K_f x^(1/2)Y^(3/2)|\u2264C(f,\u03b5)[x^(3/8)Y^(13/8)+x^(2\u2212\u03b7_d+\u03b5)]. Permitted auxiliary choices for Y\u2265x^\u03b8 are \u03b8=2d/(4d\u22121), Z=x^\u03b8, the real z\u22651 satisfying f(z)=Z, and R=Z^(1/d) in P4; for Y<Z the initial-modulus bound applies directly. All constants may depend only on the indicated f and \u03b5.",
+      "depends_on": [
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "All logarithmic losses must be absorbed using portions of \u03b5 fixed in advance. The correlation error summed over h contributes x^(9/5+\u03b5), explaining the cap \u03b7_d\u22641/5. The theorem must cover real y, including the gap between y and its integer part."
+    }
+  ],
+  "model": "codex:gpt-6.1-sol"
+}

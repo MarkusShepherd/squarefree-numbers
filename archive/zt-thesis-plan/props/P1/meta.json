@@ -1,0 +1,12 @@
+{
+  "id": "P1",
+  "title": "Local densities and summable spectral coefficients",
+  "statement": "Let \u03bc be the M\u00f6bius function, \u03c6 Euler's totient, \u03b6 the Riemann zeta function, and c=\u03b6(2)^(\u22121). All products below are over primes. For every integer q\u22651 and integer l, the density g(q,l) from problem.md equals q^(\u22121)\u03a3_{m\u22651, gcd(m\u00b2,q)|l} \u03bc(m)gcd(m\u00b2,q)/m\u00b2. Equivalently, it is zero if some p\u00b2 divides both q and l; otherwise it equals (c/q)\u220f_{p|q}(1\u2212p^(\u22122))^(\u22121)\u220f_{p||q, p|l}(1\u2212p^(\u22121)). In particular 0\u2264g(q,l)\u22641/q. Define the multiplicative function G by G(1)=1, G(p)=G(p\u00b2)=\u22121/(p\u00b2\u22121), and G(p^a)=0 for a\u22653. Put \u03b3(r)=cG(r), \u03bb(r)=\u03c6(r)\u03b3(r)\u00b2, and c_r(n)=\u03a3_{1\u2264a\u2264r, gcd(a,r)=1} exp(2\u03c0ian/r). Then q\u03a3_{l=1}^q g(q,l)\u00b2=\u03a3_{r|q}\u03bb(r), \u03a3_{r\u22651}\u03bb(r)=c, and, for every integer n\u22651, the absolutely convergent series \u03a3_{r\u22651}\u03b3(r)\u00b2c_r(n) equals \ud835\udd16(n)=\u220f_p(1\u22122/p\u00b2)\u220f_{p\u00b2|n}(p\u00b2\u22121)/(p\u00b2\u22122). There is an absolute constant C such that, uniformly for real R\u22652, \u03a3_{r>R}\u03bb(r)\u2264CR^(\u22121/2)(log(2R))\u00b2 and \u03a3_{r\u2264R}r\u03bb(r)\u2264CR^(1/2)(log(2R))\u00b2.",
+  "depends_on": [],
+  "cites": [
+    "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemmas 2.5, 2.14, 2.15 and 2.17, specialized to k=2; https://doi.org/10.1112/S0024611505015352.",
+    "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 3.1, specialized to k=2; https://research-information.bris.ac.uk/en/publications/on-the-exponential-sum-over-k-free-numbers/."
+  ],
+  "crux": false,
+  "risk": "The Fourier coefficient includes \u03b6(2)^(\u22121); omitting it changes both the density cancellation and the final constant. Residue classes not coprime to q must remain included."
+}

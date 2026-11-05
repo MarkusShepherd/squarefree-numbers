@@ -1,0 +1,1 @@
+Wrote [proof.md](proof.md), proving both inequalities over the full stated ranges using only P1. The proof tracks all errors and exponents and includes the numerical sanity checks.

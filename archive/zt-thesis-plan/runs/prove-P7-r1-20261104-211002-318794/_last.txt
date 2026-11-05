@@ -1,0 +1,1 @@
+Wrote [proof.md](proof.md), proving both uniform bounds from P2–P6 with explicit summation lengths, error terms, and exponent comparisons. No external sources were used.

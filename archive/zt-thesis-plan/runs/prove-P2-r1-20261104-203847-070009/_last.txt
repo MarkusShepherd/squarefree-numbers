@@ -1,0 +1,1 @@
+Created [proof.md](/Users/markus/sqf-runs/squarefree-numbers-thesis/prove-P2-r1-20261104-203847-070009/proof.md), proving both assertions with explicit error bounds, checked citation hypotheses, and numerical verification notes.

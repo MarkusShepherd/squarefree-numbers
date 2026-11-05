@@ -1,0 +1,14 @@
+{
+  "id": "P6",
+  "title": "Smoothed singular-series sum and the ratio profile",
+  "statement": "Let f and \u03c1 be as in problem.md and put \u03c1(1)=1. For each integer h\u22651 define W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{max{2\u2212v_p(h),0}})/(p^{max{2\u2212v_p(h),0}}(p\u00b2\u22122))], where products are over primes and v_p(h) is the exponent of p in h. Let D_f(s)=\u03a3_{h\u22651}W_f(h)h^(\u2212s), initially for Re(s)>1 and then by meromorphic continuation. Define R_f=Res_{s=1}D_f(s), B_f=lim_{s\u21921}[D_f(s)\u2212R_f/(s\u22121)]\u22123R_f/2, K_f=\u2212(16/3)Res_{s=\u22121/2}D_f(s), and c=\u03b6(2)^(\u22121), with \u03b6 the Riemann zeta function. For real H\u22651 put \u0398_f(H)=\u03a3_{1\u2264h\u2264H}W_f(h)(H\u2212h)\u00b2/h and F_f(H)=R_f log H+B_f+c/H\u2212\u0398_f(H)/H\u00b2. There is C(f)>0 such that, uniformly for all real H\u22651, |\u0398_f(H)\u2212[R_fH\u00b2log H+B_fH\u00b2+cH\u2212K_fH^(1/2)]|\u2264C(f)H^(3/8), and consequently |F_f(H)\u2212K_fH^(\u22123/2)|\u2264C(f)H^(\u221213/8). Moreover, uniformly for real x\u22652 and 2\u2264Z\u2264Y\u2264x, 2\u222b_Z^Y \u03a3_{1\u2264h\u2264x/t}(x\u2212ht)W_f(h)dt=Z\u00b2\u0398_f(x/Z)\u2212Y\u00b2\u0398_f(x/Y).",
+  "depends_on": [
+    "P5"
+  ],
+  "cites": [
+    "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemma 2.18, for the Mellin-transform framework; https://doi.org/10.1112/S0024611505015352.",
+    "H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I: Classical Theory (2007), Corollary 10.4, the zeta functional equation; https://doi.org/10.1017/CBO9780511618314."
+  ],
+  "crux": false,
+  "risk": "The Mellin kernel is 2/[s(s+1)(s+2)] applied to D_f(s+1). The residue at s=\u22121 has a negative kernel residue, producing +cH. A sign error there prevents diagonal cancellation. The contour shift to Re(s)=\u221213/8 must include an explicit integrable vertical bound."
+}

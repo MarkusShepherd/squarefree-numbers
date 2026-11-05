@@ -1,0 +1,7 @@
+{
+  "composes": true,
+  "final_theorem": "For the original polynomial class and weight, put Y=f(y) and η=min{1/5,1/(4d−1)}. For every 0<ε<η/2, uniformly for sufficiently large real x and y≥1 with Y≤x, V_f(x,y)=x²F_f(x/Y)+O_{f,ε}(x^{2−η+ε})=K_f x^{1/2}Y^{3/2}+O_{f,ε}(x^{3/8}Y^{13/8}+x^{2−η+ε}). For 0<δ<η/3 and x^{1−2η/3+δ}≤Y≤x^{1−δ}, the relative error is O_{f,δ}(x^{−δ/8}). The complete composition is recorded in assembly.md.",
+  "interface_mismatches": [],
+  "numerics_comparison": "K_(k²+1)≈0.138083 versus extrapolated 0.134474705492: +2.683%. K_(k³+2)≈0.135608 versus 0.136321256839: −0.524%. Both lie within the supplied heuristic uncertainty bands; neither shows a clean-factor discrepancy. Independently reproduced both primary extrapolation fits and checked one variance row per polynomial using direct counts and exact rational density coefficients.",
+  "loss_vs_plan": "None. Every stated error and the plan’s relative-error consequence follow. The saving is limited by the summed P3 correlation error and the balance between P2’s initial-modulus bound and P4’s averaging error."
+}

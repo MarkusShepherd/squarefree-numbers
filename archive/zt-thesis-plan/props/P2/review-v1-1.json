@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "",
+  "objection": "No nontrivial gap found. Both assertions hold with the stated ranges, errors, and uniformity. Lemma 2.2 and its normalization match the supplied paper: Br\u00fcdern, Granville, Perelli, Vaughan and Wooley, \u201cOn the exponential sum over k-free numbers\u201d (1998), https://doi.org/10.1098/rsta.1998.0183.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "44368bbad81bab54386f5f5b4f18b85f569795132a989e53fe07187a93c0cee1",
+  "proof_hash": "93772052d9c0072a144ab8e028bab0c42f1a25a56f482cf6acb98562034c18c3"
+}

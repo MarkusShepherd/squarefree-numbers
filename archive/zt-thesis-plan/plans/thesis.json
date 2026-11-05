@@ -1,0 +1,124 @@
+{
+  "summary": "STRATEGY. Combine Vaughan (2005) with Br\u00fcdern\u2013Wooley (2011).\n(i) Open the square in each modulus q=f(k). The cross term and the square term are evaluated exactly with Vaughan's identities (Lemmas 2.2(ii), 2.3, 2.4, 2.17). This leaves the correlation sum S_f = \u03a3_k f'(k) \u03a3_h \u03a3_n \u03bc\u00b2(n)\u03bc\u00b2(n+hf(k)) = \u222b|F|\u00b2T_f, where T_f(\u03b1) = \u03a3_k f'(k) \u03a3_{h\u2264x/f(k)} e(\u03b1hf(k)) is the Br\u00fcdern\u2013Wooley generating function.\n(ii) Apply Vaughan's circle-method dissection with R=x^{3/5} and major arcs q\u2264P=x^{2/5}. Use Vaughan's Lemmas 2.6\u20132.8 (squarefree exponential-sum bounds from BGPVW) and only the trivial bound |T_f|\u2264x log x. The three error terms (minor arcs, |\u0394|\u00b2, f*\u0394) balance exactly at x^{9/5+\u03b5}.\n(iii) On the major arcs, the singular series turns the main term into \u03a3_k f'(k)\u03a3_h \ud835\udd16(hf(k))(x\u2212hf(k)). Vaughan's B\u0303_2 computation, done one modulus at a time, gives an exact identity. Its x\u00b2 part cancels the square term and its x part cancels the diagonal Q(x). Hence V_f = A_f + O(x^{9/5+\u03b5}), where A_f = \u03a3_k f'(k)\u03a8(x;f(k)) and \u03a8(x;u) = C_0 \u03a3_m \u03b3(m) lcm(u,m\u00b2) \u03c8(x/lcm(u,m\u00b2)) with \u03c8(\u03b8) = {\u03b8}(1\u2212{\u03b8}).\n(iv) Arithmetic part, the new ingredient compared with Vaughan:\n- Average \u03a8 over the sparse moduli. For m \u2264 M=\u221ay, use residue classes mod m\u00b2 and Euler\u2013Maclaurin as in Br\u00fcdern\u2013Wooley (22).\n- For m > M, use the exact form x \u2212 x\u00b2/L of \u039b when L \u2265 x, plus a gcd/\u03c1 bound. Small k are cut off with an a priori bound.\n- Evaluate the averaged main term by Mellin inversion, using Vaughan's Lemma 2.18 with a generalised Euler product. The constant enters through the local distribution of (f(k),p\u00b2), i.e. through \u03c1(p) and \u03c1(p\u00b2).\n\nRANGE. The circle-method error x^{9/5+\u03b5} forces f(y) \u2265 x^{13/15+\u03b5}. The arithmetic error forces yf(y) \u2265 x^{1+\u03b5}, i.e. f(y) \u2265 x^{d/(d+1)+\u03b5}, which only binds for d \u2265 7. The secondary term x^{1/4+\u03b7}f(y)^{7/4\u2212\u03b7} requires f(y)=o(x), as in Vaughan's theorem. The 13/15 comes entirely from the trivial sup bound for T_f. A Weyl-type minor-arc bound for T_f, or a q-dependent bound on the major arcs, would enlarge the range; I did not plan this because it is messy and risky. Restriction (H), that f has no repeated factor, is used only in P7 to get \u03c1(e) \u226a e^\u03b5 for e | m\u00b2 with m squarefree. All three test polynomials satisfy it.\n\nCONSISTENCY CHECKS.\n- For f(t)=t the Euler product reduces symbolically to Vaughan's c_2, using \u22128\u03b6(\u22121/2) = \u222b_0^\u221e\u03c8(\u03b8)\u03b8^{\u22125/2}d\u03b8, which I checked numerically to 1e-6.\n- I computed A_f(x,y) directly (scripts/check_A.py) at x=10^6 and compared it with the exact V in results.json, for y \u2264 20000 only. That covers every listed f(y)/x from 0.01 to 1 for k\u00b2+1 and k\u00b3+2, but only 0.01 and 0.02 for 2k+1. In every checked row the relative difference is at most 1.4e-3. This supports the reduction V_f \u2248 A_f (P1\u2013P5) numerically.\n- In the checked rows, the rise of V/(x^{1/2}f(y)^{3/2}) with f(y)/x is already present in A_f. So it is the arithmetic secondary term of P8/P9, not a defect.\n- A first run that also included the large-y rows for 2k+1 was too slow and was stopped at its time limit; it produced no results and nothing relies on it.\n\nSOURCES. Only files in papers/ were used: Vaughan, PLMS 91 (2005) 573\u2013597; Br\u00fcdern\u2013Wooley, QJM 62 (2011) 289\u2013305; BGPVW 1998 through Vaughan's Lemmas 2.6\u20132.8. No web searches were made. No excluded author, excluded paper, GitLab, prior write-up or prior run was encountered or used.",
+  "main_theorem": "Let f \u2208 Z[t] be as in problem.md: degree d \u2265 1, f(t) \u2265 2 and f'(t) \u2265 1 for real t \u2265 1. Assume in addition:\n\n(H) f has no repeated irreducible factor in Q[t].\n\nNotation:\n- \u03c1(m) = #{a mod m : f(a) \u2261 0 (mod m)}.\n- For each prime p, e_p = 1 \u2212 \u03c1(p)/p + (\u03c1(p)/p \u2212 \u03c1(p\u00b2)/p\u00b2)p^{\u22121/2} + \u03c1(p\u00b2)p^{\u22123}.\n- C_f = \u2212(8/3)\u03b6(\u22121/2) \u03a0_p (1 \u2212 1/p)(1 \u2212 2/p\u00b2 + e_p/p).\n\nThe product converges absolutely and C_f > 0.\n\nThen for every \u03b5 > 0 and every \u03b7 \u2208 (0,1/8], uniformly for real x \u2265 2 and real y \u2265 1 with f(y) \u2264 x (the sum runs over integers 1 \u2264 k \u2264 y):\n\nV_f(x,y) = C_f x^{1/2} f(y)^{3/2} + O_{f,\u03b5,\u03b7}( x^{9/5+\u03b5} + x^{1+\u03b5} f(y) y^{\u22121/2} + x^{1/4+\u03b7} f(y)^{7/4\u2212\u03b7} ).\n\nHence V_f(x,y) ~ C_f x^{1/2} f(y)^{3/2} as x \u2192 \u221e whenever f(y)/x \u2192 0 and f(y) \u2265 x^{max(13/15, d/(d+1))+\u03b4} for some fixed \u03b4 > 0.",
+  "predicted_main_term": "Predicted main term: V_f(x,y) \u2248 C_f x^{1/2} f(y)^{3/2}, i.e. exponent 1/2 in x and 3/2 in f(y). The constant is\n\nC_f = \u2212(8/3)\u03b6(\u22121/2) \u03a0_p (1\u22121/p)(1 \u2212 2/p\u00b2 + e_p/p),\ne_p = 1 \u2212 \u03c1(p)/p + (\u03c1(p)/p \u2212 \u03c1(p\u00b2)/p\u00b2)p^{\u22121/2} + \u03c1(p\u00b2)p^{\u22123}.\n\nNumerical values:\n\n| f | C_f |\n|---|---|\n| k\u00b2+1 | 0.13810 |\n| k\u00b3+2 | 0.13562 |\n| 2k+1 | 0.14263 |\n| t (formal; equals Vaughan's c_2) | 0.12849 |",
+  "agrees_with_numerics": "Yes.\n\nExponents: the fixed-ratio fits give \u03b1+\u03b2 \u2248 2.000 for all three polynomials, as predicted.\n\nConstant: the operator's extrapolations to f(y)/x \u2192 0 compare with the predicted C_f as follows.\n\n| f | extrapolated | predicted C_f |\n|---|---|---|\n| k\u00b2+1 | 0.1345 \u00b1 0.0073 | 0.1381 |\n| k\u00b3+2 | 0.1363 \u00b1 0.0024 | 0.1356 |\n| 2k+1 | 0.1417 \u00b1 0.0082 | 0.1426 |\n\nAll three agree within the stated uncertainty.\n\nIndependent check: I computed A_f directly at x = 10^6 for y \u2264 20000. This covers every listed f(y)/x from 0.01 to 1 for k\u00b2+1 and k\u00b3+2, but only 0.01 and 0.02 for 2k+1. In every checked row A_f matches the exact V in results.json to relative error at most 1.4e-3. In the checked rows the roughly 20% rise of V/(x^{1/2}f(y)^{3/2}) with f(y)/x is reproduced by A_f, so it is the arithmetic secondary term, not a failure. The fixed-x estimate \u03b2 \u2248 1.545 is biased by that same term. No discrepancy was found.",
+  "propositions": [
+    {
+      "id": "P1",
+      "title": "Opening the square",
+      "statement": "Notation:\n- f is as in problem.md.\n- Q(x) := #{n\u2264x squarefree}.\n- \u03c32(q) := \u03a3_{l=1}^q g(q,l)\u00b2.\n- S_f(x,y) := \u03a3_{1\u2264k\u2264y} f'(k) \u03a3_{h\u22651} \u03a3_{1\u2264n\u2264x\u2212hf(k)} \u03bc\u00b2(n)\u03bc\u00b2(n+hf(k)).\n\nClaim. For every \u03b5>0, uniformly for x\u22652 and y\u22651 with f(y)\u2264x:\nV_f(x,y) = 2S_f(x,y) + \u03a3_{k\u2264y} f'(k)[Q(x) \u2212 x\u00b2\u03c32(f(k))] + O_{f,\u03b5}(x^{3/2+\u03b5}).\n\nKey step: for every integer 1\u2264q\u2264x, \u03a3_l Q(x;q,l)g(q,l) = x\u03c32(q) + O_\u03b5(x^{1/2+\u03b5}/q).\n\nUseful facts: g(q,l) = \u03a3_{m\u22651, (m\u00b2,q)|l} \u03bc(m)(m\u00b2,q)/(m\u00b2q), and 0 \u2264 g(q,l) \u2264 1/q.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.2",
+        "Vaughan 2005, Lemma 2.3",
+        "Vaughan 2005, Lemma 2.4"
+      ],
+      "crux": false,
+      "risk": "Low. Follow Vaughan's (3.5)\u2013(3.7) for a single q, using Lemma 2.2(ii) (needs q \u2264 x)."
+    },
+    {
+      "id": "P2",
+      "title": "Circle method: minor arcs and \u0394-terms",
+      "statement": "Notation:\n- F(\u03b1) = \u03a3_{n\u2264x} \u03bc\u00b2(n)e(\u03b1n) and I(\u03b2) = \u03a3_{1\u2264n\u2264x} e(\u03b2n).\n- T_f(\u03b1) = \u03a3_{k\u2264y} f'(k) \u03a3_{1\u2264h\u2264x/f(k)} e(\u03b1hf(k)).\n- G is multiplicative with G(p) = G(p\u00b2) = \u22121/(p\u00b2\u22121) and G(p^t) = 0 for t\u22653; \u03bd(q) = G(q)/\u03b6(2).\n- R = x^{3/5} and P = x^{2/5}.\n\nClaim. S_f = \u222b_0^1 |F|\u00b2T_f, and uniformly for x\u22652 and y\u22651 with f(y)\u2264x:\nS_f = \u03a3_{q\u2264P} \u03bd(q)\u00b2 \u03a3_{(a,q)=1} \u222b_{|\u03b2|\u22641/(qR)} |I(\u03b2)|\u00b2 T_f(a/q+\u03b2) d\u03b2 + O_{f,\u03b5}(x^{9/5+\u03b5}).\n\nUse only |T_f| \u2264 T_f(0) \u226a x log x, together with Vaughan's Lemmas 2.6 (k=2), 2.7 and 2.8 (T=P).",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.5",
+        "Vaughan 2005, Lemma 2.6",
+        "Vaughan 2005, Lemma 2.7",
+        "Vaughan 2005, Lemma 2.8"
+      ],
+      "crux": false,
+      "risk": "Low to moderate. Check the lemma hypotheses (2\u221ax \u2264 R \u2264 x and T \u2264 \u221ax/2) and that the minor arcs are contained in Lemma 2.6's set. The three error terms balance exactly at x^{9/5}."
+    },
+    {
+      "id": "P3",
+      "title": "Major arcs: completion to the singular series",
+      "statement": "Notation:\n- \u03b3(m) = \u03bc\u00b2(m)\u03a0_{p|m}(p\u00b2\u22122)^{\u22121} and C_0 = \u03a0_p(1\u22122/p\u00b2).\n- \ud835\udd16(n) = \u03a3_q \u03bd(q)\u00b2c_q(n) = C_0 \u03a3_{m\u00b2|n} \u03b3(m).\n- M_f = \u03a3_{k\u2264y} f'(k) \u03a3_{h\u2264x/f(k)} \ud835\udd16(hf(k))(x\u2212hf(k)).\n\nClaim. The major-arc sum of P2 equals M_f + O_f(x^{9/5}(log 2x)\u00b3), uniformly for f(y) \u2264 x.\n\nSteps: extend \u03b2 to [\u22121/2,1/2]; extend q to all q\u22651 using \u03a3_{y<q\u22642y} q\u03bd(q)\u00b2 \u226a y^{\u22121/2}log\u00b2(2y); then apply orthogonality.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.14",
+        "Vaughan 2005, Lemma 2.15",
+        "Vaughan 2005, (6.1)"
+      ],
+      "crux": false,
+      "risk": "Low."
+    },
+    {
+      "id": "P4",
+      "title": "Per-modulus identity",
+      "statement": "Notation:\n- \u03c8(\u03b8) = {\u03b8}(1\u2212{\u03b8}) and \u039b_x(L) = L\u03c8(x/L).\n- \u03a8(x;u) = C_0 \u03a3_m \u03b3(m) \u039b_x(lcm(u,m\u00b2)).\n- \ud835\udd16, \u03b3 and C_0 are as in P3; \u03c32 is as in P1.\n\nClaim. For every integer u\u22651 and real x>0, exactly:\n\u03a3_{1\u2264h\u2264x/u} \ud835\udd16(hu)(x\u2212hu) = x\u00b2\u03c32(u)/2 \u2212 x/(2\u03b6(2)) + \u03a8(x;u)/2.\n\nUses: C_0\u03a3\u03b3 = 1/\u03b6(2); C_0 \u03a3_m \u03b3(m)/lcm(u,m\u00b2) = \u03c32(u); and Vaughan's Lemma 2.16.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.16",
+        "Vaughan 2005, Lemma 2.17",
+        "Vaughan 2005, (6.8)"
+      ],
+      "crux": false,
+      "risk": "Low. Sign convention: B\u03032 = \u2212\u03c8/2. Checked numerically."
+    },
+    {
+      "id": "P5",
+      "title": "Reduction V_f = A_f + O(x^{9/5+\u03b5})",
+      "statement": "With A_f(x,y) = \u03a3_{k\u2264y} f'(k)\u03a8(x;f(k)) (\u03a8 as in P4): uniformly for x\u22652 and y\u22651 with f(y)\u2264x,\nV_f(x,y) = A_f(x,y) + O_{f,\u03b5}(x^{9/5+\u03b5}).",
+      "depends_on": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "cites": [
+        "Montgomery\u2013Vaughan 2007, Ch. 2"
+      ],
+      "crux": false,
+      "risk": "Low: bookkeeping only."
+    },
+    {
+      "id": "P6",
+      "title": "A priori bound",
+      "statement": "For x\u22651 and integers u\u22651: 0 \u2264 \u03a8(x;u) \u2264 c_0(xu)^{1/2}, with c_0 absolute.\n\nHence \u03a3_{k\u2264y'} f'(k)\u03a8(x;f(k)) \u2264 c_f x^{1/2}f(y')^{3/2}.",
+      "depends_on": [],
+      "cites": [],
+      "crux": false,
+      "risk": "Very low."
+    },
+    {
+      "id": "P7",
+      "title": "Transfer from sparse moduli to the averaged local distribution",
+      "statement": "Assume (H): f has no repeated irreducible factor.\n\nDefinition. \ud835\udcdc_f(x,T) = C_0 \u03a3_m \u03b3(m) m^{\u22122} \u03a3_{r mod m\u00b2} \u222b_0^T \u039b_x(\u03c4m\u00b2/(f(r),m\u00b2)) d\u03c4.\n\nClaim. Uniformly for f(y) \u2264 x, 1 \u2264 y_1 \u2264 y and 1 \u2264 M \u2264 x:\n\u03a3_{y_1<k\u2264y} f'(k)\u03a8(x;f(k)) = \ud835\udcdc_f(x,f(y)) \u2212 \ud835\udcdc_f(x,f(y_1)) + O_{f,\u03b5}(M x y^{d\u22121} log 2x + x\u00b2M^\u03b5[(y/y_1)M^{\u22123} + (y_1M)^{\u22121}]).\n\nMethod: for m \u2264 M, residue classes mod m\u00b2 plus Euler summation; for m > M, \u039b_x(L) = x \u2212 x\u00b2/L when L \u2265 x, plus a gcd/\u03c1 bound.",
+      "depends_on": [],
+      "cites": [
+        "Br\u00fcdern\u2013Wooley 2011, Lemma 2",
+        "Br\u00fcdern\u2013Wooley 2011, (22)"
+      ],
+      "crux": true,
+      "risk": "Bookkeeping for m > M where (f(k),m\u00b2) is large. Needs \u03c1(e) \u226a e^\u03b5, which uses (H). Euler summation must handle a piecewise-C\u00b9 function."
+    },
+    {
+      "id": "P8",
+      "title": "Mellin evaluation",
+      "statement": "Assume (H); C_f is as in the main theorem.\n\nClaim. For \u03b7 \u2208 (0,1/8], uniformly for x\u22651 and 0 < T \u2264 x:\n\ud835\udcdc_f(x,T) = C_f x^{1/2}T^{3/2} + O_{f,\u03b7}(x^{1/4+\u03b7}T^{7/4\u2212\u03b7}).\n\nMethod: Vaughan's Lemma 2.18 for \u039e(z) = \u222b_z^\u221e \u03c8\u03b8^{\u22123}; factor the Dirichlet series as \u03b6(4+2s)\u00b7\ud835\udca2\u0303_f(s); shift the contour to \u03c3 = \u22127/4+\u03b7.",
+      "depends_on": [],
+      "cites": [
+        "Vaughan 2005, Lemma 2.18",
+        "Vaughan 2005, Lemma 2.19"
+      ],
+      "crux": true,
+      "risk": "Signs and normalisation; analytic continuation of the Euler product; vertical growth of \u03b6."
+    },
+    {
+      "id": "P9",
+      "title": "Asymptotic for A_f",
+      "statement": "Claim. Uniformly for x\u22652 and y\u22651 with f(y)\u2264x:\nA_f = C_f x^{1/2}f(y)^{3/2} + O_{f,\u03b5,\u03b7}(x^{1+\u03b5}f(y)y^{\u22121/2} + x^{1/4+\u03b7}f(y)^{7/4\u2212\u03b7}).\n\nParameter choice: w = yf(y)/x, M = \u221ay, and f(y_1) = f(y)w^{\u22121/3}. The case w < 1 is trivial.",
+      "depends_on": [
+        "P6",
+        "P7",
+        "P8"
+      ],
+      "cites": [],
+      "crux": false,
+      "risk": "Low: parameter bookkeeping."
+    }
+  ],
+  "model": "claude-opus-5-5"
+}

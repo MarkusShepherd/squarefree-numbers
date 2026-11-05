@@ -1,0 +1,11 @@
+{
+  "id": "P5",
+  "title": "Dirichlet series, residues, and the explicit constant",
+  "statement": "Let f and \u03c1 be as in problem.md, set \u03c1(1)=1, and write \u03b6 for the Riemann zeta function. For each prime p define a_p=1+\u03c1(p\u00b2)/(p\u00b2(p\u00b2\u22122)), b_p=1+\u03c1(p)/(p(p\u00b2\u22122)), c_p=1+1/(p\u00b2\u22122), and B_p(s)=a_p+(b_p\u2212a_p)p^(\u2212s)+(c_p\u2212b_p)p^(\u22122s). Define W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{max{2\u2212v_p(h),0}})/(p^{max{2\u2212v_p(h),0}}(p\u00b2\u22122))] for positive integers h, where v_p(h) is the exponent of p in h. Put D_f(s)=\u03a3_{h\u22651}W_f(h)h^(\u2212s), P_f(s)=\u220f_p(1\u22122/p\u00b2)B_p(s), and H_f(s)=\u220f_p(1\u22122/p\u00b2)(1\u2212p^(\u22122s\u22122))B_p(s). The series for D_f converges absolutely for Re(s)>1; the products for P_f and H_f converge absolutely and locally uniformly for Re(s)>\u22121/2 and Re(s)>\u22123/4, respectively. For Re(s)>1, D_f(s)=\u03b6(s)P_f(s)=\u03b6(s)\u03b6(2s+2)H_f(s), and the latter identity continues D_f meromorphically to Re(s)>\u22123/4. For every fixed \u03c3>\u22123/4 there is C(f,\u03c3)>0 with |H_f(\u03c3+it)|\u2264C(f,\u03c3) for all real t. Define R_f=P_f(1), B_f=(\u03b3_E\u22123/2)R_f+P_f'(1), where \u03b3_E is Euler's constant, and K_f=\u2212(8/3)\u03b6(\u22121/2)H_f(\u22121/2). Then D_f(0)=\u22121/(2\u03b6(2)), K_f>0, and R_f=\u03b6(2)^(\u22122)\u220f_p[1+(1\u22121/p)(\u03c1(p)+\u03c1(p\u00b2))/(p\u00b2\u22121)\u00b2]. This R_f equals \u03a3_{r\u22651}\u03bb(r)\u03c1(r)/r, where \u03bb(r)=\u03b6(2)^(\u22122)\u03c6(r)\u220f_{p|r}(p\u00b2\u22121)^(\u22122) for integers r with no prime-cube divisor and is zero otherwise; \u03c6 is Euler's totient. Every displayed Euler product specifying R_f or K_f is absolutely convergent.",
+  "depends_on": [
+    "P4"
+  ],
+  "cites": [],
+  "crux": true,
+  "risk": "The pole at s=\u22121/2 determines the constant. Missing either \u03c1(p\u00b2) or the factor 1/2 in the residue of \u03b6(2s+2) changes the answer. The identity D_f(0)=\u22121/(2\u03b6(2)) is essential for cancellation of the diagonal term."
+}

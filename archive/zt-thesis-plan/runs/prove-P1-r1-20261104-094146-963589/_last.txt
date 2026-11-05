@@ -1,0 +1,1 @@
+Created [proof.md](/Users/markus/sqf-runs/squarefree-numbers-thesis/prove-P1-r1-20261104-094146-963589/proof.md) with a complete elementary proof of every assertion, including stronger bounds without logarithmic factors. No external sources or numerical checks were used.

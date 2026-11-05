@@ -1,0 +1,3 @@
+# P2: Variance reduction and disposal of initial moduli
+
+Let f be as in problem.md, d=deg f, and c=ζ(2)^(−1), where ζ is the Riemann zeta function. For real x≥2 and integers 1≤m≤x define C_x(m)=Σ_{1≤n≤x−m}μ²(n)μ²(n+m). For real 1≤z≤y with Z=f(z)≤Y=f(y)≤x, define V_f(x;z,y)=Σ_{z<k≤y}f'(k)Σ_{l=1}^{f(k)}E(x;f(k),l)², T_f(z,y)=Σ_{z<k≤y}f'(k)Σ_{l=1}^{f(k)}g(f(k),l)², and S_f(x;z,y)=Σ_{z<k≤y}f'(k)Σ_{1≤h≤x/f(k)}C_x(hf(k)); all sums over k and h are over positive integers. For every ε>0 there is C(f,ε)>0 such that, uniformly throughout these ranges, |V_f(x;z,y)−[cx(Y−Z)+2S_f(x;z,y)−x²T_f(z,y)]|≤C(f,ε)[x^(3/2+ε)+xY^(1−1/d)]. In addition, uniformly for x≥2 and real z≥1 with f(z)≤x, 0≤V_f(x,z)≤C(f,ε)x^(1+ε)f(z)^(2−1/d).

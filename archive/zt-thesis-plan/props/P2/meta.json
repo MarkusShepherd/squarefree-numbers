@@ -1,0 +1,14 @@
+{
+  "id": "P2",
+  "title": "Variance reduction and disposal of initial moduli",
+  "statement": "Let f be as in problem.md, d=deg f, and c=\u03b6(2)^(\u22121), where \u03b6 is the Riemann zeta function. For real x\u22652 and integers 1\u2264m\u2264x define C_x(m)=\u03a3_{1\u2264n\u2264x\u2212m}\u03bc\u00b2(n)\u03bc\u00b2(n+m). For real 1\u2264z\u2264y with Z=f(z)\u2264Y=f(y)\u2264x, define V_f(x;z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{l=1}^{f(k)}E(x;f(k),l)\u00b2, T_f(z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{l=1}^{f(k)}g(f(k),l)\u00b2, and S_f(x;z,y)=\u03a3_{z<k\u2264y}f'(k)\u03a3_{1\u2264h\u2264x/f(k)}C_x(hf(k)); all sums over k and h are over positive integers. For every \u03b5>0 there is C(f,\u03b5)>0 such that, uniformly throughout these ranges, |V_f(x;z,y)\u2212[cx(Y\u2212Z)+2S_f(x;z,y)\u2212x\u00b2T_f(z,y)]|\u2264C(f,\u03b5)[x^(3/2+\u03b5)+xY^(1\u22121/d)]. In addition, uniformly for x\u22652 and real z\u22651 with f(z)\u2264x, 0\u2264V_f(x,z)\u2264C(f,\u03b5)x^(1+\u03b5)f(z)^(2\u22121/d).",
+  "depends_on": [
+    "P1"
+  ],
+  "cites": [
+    "R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), Lemmas 2.2(ii), 2.3 and 2.4, specialized to k=2; https://doi.org/10.1112/S0024611505015352.",
+    "J. Br\u00fcdern, A. Granville, A. Perelli, R. C. Vaughan and T. D. Wooley, On the exponential sum over k-free numbers (1998), Lemma 2.2, specialized to k=2 and 1\u2264Q\u2264x; https://research-information.bris.ac.uk/en/publications/on-the-exponential-sum-over-k-free-numbers/."
+  ],
+  "crux": false,
+  "risk": "The initial-modulus bound must use positivity before multiplying the full-modulus variance bound by the maximum polynomial weight. The mixed term requires divisibility counts, rather than a pointwise progression error multiplied by every residue class."
+}

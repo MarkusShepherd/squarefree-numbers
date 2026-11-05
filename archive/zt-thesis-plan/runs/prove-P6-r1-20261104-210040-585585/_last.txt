@@ -1,0 +1,1 @@
+Wrote [proof.md](proof.md) with a complete proof of both estimates and the integral identity, explicit error bounds, and verbatim source quotations with hypothesis checks. Exact symbolic checks passed.

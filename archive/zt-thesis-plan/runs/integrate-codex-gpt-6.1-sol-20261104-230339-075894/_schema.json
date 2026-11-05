@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "composes": {
+      "type": "boolean"
+    },
+    "final_theorem": {
+      "type": "string"
+    },
+    "interface_mismatches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "numerics_comparison": {
+      "type": "string"
+    },
+    "loss_vs_plan": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "composes",
+    "final_theorem",
+    "interface_mismatches",
+    "numerics_comparison",
+    "loss_vs_plan"
+  ],
+  "additionalProperties": false
+}

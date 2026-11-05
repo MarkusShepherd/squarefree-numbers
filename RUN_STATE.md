@@ -255,3 +255,22 @@ notes above are historical; no proof run is active in this worktree.
 - Validation: all 76 dry-run tests passed in 84.081 seconds; both
   complete state histories preserved in order; no unresolved conflict paths;
   staged and unstaged diff whitespace checks passed.
+
+## Thesis-plan archive verification (5 Nov 2026)
+
+- Markus created and staged archive/zt-thesis-plan and authorised committing
+  after operator verification. All 629 archived files exactly match the live
+  run under the documented paper/PDF exclusions. All 628 substantive files
+  are staged with matching Git blob hashes; the sole omitted file is Finder
+  metadata (.DS_Store). All hash-bound numerical log files are included.
+- writeup --check verifies all seven archived approvals, original referee
+  input integrity, both successful integrations, numerical acceptance and the
+  exact supplied corpus. A separate export of the Git index passed the same
+  verification, so the check does not rely on unstaged archive files.
+- Preserved all 44 invocation records. Original archive whitespace was kept
+  unchanged rather than editing historical artifacts to satisfy formatting
+  checks. No new agents or additional provider usage/cost.
+- The write-up implementation works in this worktree with a fresh external
+  RUNS_DIR; merging into main is an operator-guide workflow instruction,
+  not a runtime prerequisite. No write-up has been started and no push was
+  authorised for this archive commit.
