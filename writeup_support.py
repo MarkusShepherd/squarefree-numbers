@@ -383,6 +383,26 @@ def build_manuscript(driver, wd):
 
 def writeup(driver, args):
     label = safe_label(args.label)
+    from writeup_finalize import accept_round, finalize, verify_acceptance, verify_finalization, writeup_root
+    if getattr(args, 'accept_round', None) is not None:
+        accept_round(driver, label, args.accept_round, args.accepted_by, args.reason)
+        return
+    if getattr(args, 'finalize', False):
+        finalize(driver, label)
+        return
+    if getattr(args, 'verify', False):
+        _, record, final = verify_finalization(driver.ROOT, label)
+        driver.log(f'{label}: accepted round {record["accepted_round"]} and {len(final["runs"])} preserved invocation records verified')
+        return
+    def accepted():
+        if not (writeup_root(driver.ROOT, label) / 'acceptance.json').exists():
+            return False
+        _, record, _ = verify_acceptance(driver.ROOT, label)
+        driver.log(f'{label}: round {record["accepted_round"]} is accepted by {record["accepted_by"]}; revision loop closed; use --finalize to preserve the audit')
+        return True
+
+    if not args.check and accepted():
+        return
     archive, files, provenance = archive_sources(driver.ROOT, label, args.papers_dir)
     files.update(briefing_input(args.brief))
     if args.check:
@@ -446,6 +466,8 @@ def writeup(driver, args):
     problem = provenance.pop('problem')
     start_round = state['round'] if state['stage'] in ('writing', 'draft', 'built', 'reviewing') else state['round'] + 1
     for rnd in range(start_round, start_round + driver.CFG['max_rounds']):
+        if accepted():
+            return
         folder = destination / f'round-{rnd}'
         folder.mkdir(exist_ok=True)
         if state['round'] != rnd:
@@ -472,6 +494,8 @@ def writeup(driver, args):
             save(state_path, state)
             driver.run_agent('writer', wd, writers[(rnd-1) % len(writers)], driver.CFG['effort']['writer'])
             verify_inputs(wd, expected)
+            if accepted():
+                return
             if (wd / 'manuscript/SOURCE_GAP.md').is_file():
                 shutil.copy(wd / 'manuscript/SOURCE_GAP.md', folder / 'SOURCE_GAP.md')
                 state['stage'] = 'source-gap'
@@ -509,6 +533,8 @@ def writeup(driver, args):
             state.update(stage='built', manuscript_hash=digest(manuscript))
             save(state_path, state)
         if state['stage'] in ('built', 'reviewing'):
+            if accepted():
+                return
             if digest(manuscript) != state['manuscript_hash']:
                 raise ValueError('manuscript changed during review; preserve attempt before retrying')
             reviews_dir = folder / 'reviews'
@@ -557,6 +583,8 @@ def writeup(driver, args):
                 raise
             if digest(archive) != source_hashes['archive'] or digest(manuscript) != state['manuscript_hash']:
                 raise ValueError('source archive or manuscript changed during write-up')
+            if accepted():
+                return
             values = list(results.values())
             if any(r['verdict'] == 'source-gap' for r in values):
                 state['stage'] = 'source-gap'

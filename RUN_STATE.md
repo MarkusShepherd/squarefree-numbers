@@ -209,3 +209,49 @@ notes above are historical; no proof run is active in this worktree.
 - Integration claude-opus-5-5: 384 seconds; failure: none.
 - Markus authorised committing the current worktree state before archiving.
   Archive label proposed: `zt-thesis-plan`. No archive or push performed.
+
+## Write-up finalization development (4 Nov 2026)
+
+- Fresh worktree `.worktrees/writeup-finalize`, branch `writeup/finalize`,
+  based on main at 33aadc6. Main's staged write-up outputs and acceptance
+  remain untouched; no real experiment was started in this worktree.
+- Added `writeup <label> --finalize` to verify recorded human acceptance and
+  preserve the associated invocation manifests, outcomes, full transcripts,
+  provider outputs and available operator intervention log. Audit hashes bind
+  the preserved files to acceptance without modifying the accepted bundle,
+  referee verdicts or historical machine checkpoint.
+- Added offline `--verify`; verification and repeated finalization work after
+  external runs are removed. Normal execution stops at verified human
+  acceptance instead of continuing revision rounds. No provider credentials,
+  scientific environment, TeX, original PDFs or runs-directory claiming are
+  required for these offline paths.
+- Validation: all 66 tests passed in 92.290 seconds; 14 new regressions cover
+  preservation, idempotency, missing/running records, changed artifacts and
+  transcripts, conflicting destinations, symlinks/path traversal, offline CLI
+  operation and run-directory discovery. The real accepted round 4 and all
+  15 external invocation records also passed read-only verification with the
+  new code. `git diff --check` passed.
+- Implementation remains uncommitted. No push, MR, live finalization, agent
+  invocation, mathematical edit or additional provider usage/cost.
+- Added explicit human acceptance through `--accept-round N --accepted-by NAME`
+  with optional `--reason`. It validates the completed revision and original
+  supplied inputs, preserves the accepted package and both unchanged reports,
+  records the decision, and closes the revision loop at stage boundaries.
+- Final validation: all 76 tests passed in 100.417 seconds, including acceptance,
+  finalization, offline verification and acceptance during a later revision.
+  No live acceptance/finalization was performed; main's results are untouched.
+
+## Main merge into thesis-plan worktree (5 Nov 2026)
+
+- Resolved the RUN_STATE.md append conflict by preserving both the thesis-plan
+  run history and main's separate write-up-finalization development notes above.
+  The active experiment remains thesis-plan in host mode with its own external
+  runs directory. No mathematical artifacts or experiment settings changed.
+- Main's harness changes merged automatically. Merge commit and push have not
+  been performed by the operator.
+- Initial dry run exposed test fixtures inheriting the active thesis-plan
+  variant while selecting neutral plan names. Pinned the temporary fixture
+  config to neutral; the real experiment config is unchanged.
+- Validation: all 76 dry-run tests passed in 84.081 seconds; both
+  complete state histories preserved in order; no unresolved conflict paths;
+  staged and unstaged diff whitespace checks passed.

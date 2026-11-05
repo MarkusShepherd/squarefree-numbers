@@ -37,6 +37,7 @@ runs/                symlink to external working directories and _records/
 logs/                costs/tokens, probes, exclusions and interventions
 report/              independent integration reports; STALE if outdated
 archive/<label>/     permanent run record, excluding paper PDFs
+writeups/<label>/    manuscript revisions, acceptance and preserved write-up audit
 tests/               stub CLIs and temporary-checkout regression tests
 ```
 
@@ -382,6 +383,76 @@ rounds per invocation. `STALE` remains until the exact manuscript has two passin
 reviews. Changed source inputs or policy require preserving the attempt and
 moving it aside before a fresh run. A source-proof gap stops for Markus's
 decision. Two passing reviews still require human acceptance.
+
+To accept a specific completed revision, record the owner's decision with:
+
+```sh
+./orchestrate.py writeup zt-neutral --accept-round 4 --accepted-by Markus \
+  --reason 'Accept round 4 as presented and overrule the remaining referee comments.'
+```
+
+`--accepted-by` is required; `--reason` is optional. The round must have a
+compiled PDF, matching numerical artifacts and both completed reviewer reports.
+The owner may accept it even if the reports request revision. The command
+preserves the exact selected revision, original reports, supplied proof and
+numerical inputs, provenance and available usage data under `accepted/`, writes
+its file manifest, and creates `acceptance.json` with the owner's decision and
+exact hashes. It also appends the decision to the operator intervention log.
+It does not edit the manuscript, change model verdicts or relabel the historical
+machine checkpoint. Repeating the same round/owner verifies the existing
+decision; it never silently replaces another acceptance.
+An in-progress write-up checks for acceptance between stages, allowing an
+already running provider invocation to finish before closing the revision loop.
+
+Keep the external run directory until acceptance and finalization are complete:
+acceptance verifies the completed review records and copies their original
+supplied context. Like finalization, it discovers them through `RUNS_DIR`, the
+existing `runs` link, or the configured runs directory. No hand-written JSON
+or external-copy script is required.
+
+Then finalize the write-up with one command:
+
+```sh
+./orchestrate.py writeup zt-neutral --finalize
+```
+
+This verifies the accepted package manifest, exact PDF and numerical artifact
+hashes, original revision, input bindings and both unchanged referee records.
+It preserves the associated invocation manifests, outcomes, complete provider
+transcripts and provider-output files, including failed attempts, under
+`writeups/<label>/run-records/`. The current operator intervention log is copied
+to `operator-interventions.md` when available. `finalization.json` binds these
+audit files to the acceptance record without changing the frozen `accepted/`
+package, model verdicts, or historical machine checkpoint.
+
+The command finds external records through `RUNS_DIR`, otherwise the existing
+`runs` link, otherwise the configured runs directory. To select them explicitly:
+
+```sh
+RUNS_DIR=~/sqf-runs/writeup-zt-neutral ./orchestrate.py writeup zt-neutral --finalize
+```
+
+Re-running finalization verifies the existing copy; it never overwrites a
+conflicting audit. Missing, still-running or tampered invocation records stop
+finalization. A matching manual copy can be verified and finalized too.
+Afterwards, verification works from a clean checkout without external runs:
+
+```sh
+./orchestrate.py writeup zt-neutral --verify
+```
+
+These operations do not launch agents or require provider credentials, TeX,
+the scientific Python environment or the paper PDFs. They do not claim a
+runs directory, change `runs`, stage files, commit or push. A normal `writeup`
+invocation also stops at a verified existing human acceptance rather than
+starting more revision rounds.
+
+The acceptance record names the owner, accepted round and unchanged source
+revision, and binds the accepted directory/manifest, manuscript, PDF, input
+bindings and two referee records by SHA-256. Human overrides preserve the
+referees' actual verdicts. `--accept-round` records the explicit owner decision;
+`--finalize` verifies it and preserves the audit; `--verify` checks the completed
+record without external runs.
 
 Prior write-ups, including their sources, drafts and PDFs, remain excluded from
 later independent runs. Prompt rules are not filesystem isolation in host mode.
