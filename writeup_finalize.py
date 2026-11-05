@@ -41,18 +41,19 @@ def writeup_root(root, label):
     return within(root, f'writeups/{label}')
 
 
-def verify_acceptance(root, label):
-    """Check the existing acceptance format, including unchanged revise verdicts."""
+def verify_acceptance(root, label, *, original=True):
+    """Check preserved acceptance, optionally against the original working round."""
     try:
-        return _verify_acceptance(root, label)
+        return _verify_acceptance(root, label, original=original)
     except (KeyError, TypeError, IndexError) as exc:
         raise ValueError(f'invalid acceptance record for {label}: {exc}') from exc
 
 
-def _verify_acceptance(root, label):
+def _verify_acceptance(root, label, *, original):
     base = writeup_root(root, label)
-    validate_artifact_tree(base)
-    record = load(base / 'acceptance.json')
+    if original:
+        validate_artifact_tree(base)
+    record = load(within(base, 'acceptance.json'))
     if record['decision'] != 'accepted_by_human' or not record['accepted_by'].strip():
         raise ValueError('finalization requires a recorded human acceptance')
     if record['archive_label'] != label:
@@ -65,7 +66,9 @@ def _verify_acceptance(root, label):
     manifest_path = within(base, record['manifest'])
     if manifest_path != bundle / 'manifest.json':
         raise ValueError('acceptance manifest must belong to the accepted bundle')
-    match(revision, record['source_revision_hash'])
+    validate_artifact_tree(bundle)
+    if original:
+        match(revision, record['source_revision_hash'])
     match(bundle, record['accepted_bundle_hash'])
     match(manifest_path, record['manifest_sha256'])
     manifest = load(manifest_path)
@@ -80,12 +83,14 @@ def _verify_acceptance(root, label):
     if input_hashes(bundle) != expected:
         raise ValueError('accepted bundle file inventory differs from its manifest')
     match(bundle / 'manuscript', record['manuscript_hash'])
-    match(revision / 'manuscript', record['manuscript_hash'])
+    if original:
+        match(revision / 'manuscript', record['manuscript_hash'])
     pdf = within(base, record['pdf'])
     if pdf != bundle / 'manuscript/main.pdf':
         raise ValueError('accepted PDF must belong to the accepted manuscript')
     match(pdf, record['pdf_sha256'])
-    match(base / 'inputs.json', record['input_bindings_sha256'])
+    if original:
+        match(base / 'inputs.json', record['input_bindings_sha256'])
     match(bundle / 'inputs.json', record['input_bindings_sha256'])
     build = load(bundle / 'manuscript/build-inputs.json')
     match(pdf, build['pdf'])
@@ -102,9 +107,10 @@ def _verify_acceptance(root, label):
         if path.parent != revision / 'reviews' or path.name in names:
             raise ValueError('acceptance names invalid referee records')
         names.add(path.name)
-        match(path, referee['sha256'])
+        if original:
+            match(path, referee['sha256'])
         match(bundle / 'reviews' / path.name, referee['sha256'])
-        review = load(path)
+        review = load(bundle / 'reviews' / path.name)
         if review['run'] in review_runs:
             raise ValueError('acceptance must preserve two independent review invocations')
         review_runs.add(review['run'])
@@ -115,8 +121,8 @@ def _verify_acceptance(root, label):
 
 
 def verify_finalization(root, label, require_audit=True):
-    base, record, bundle = verify_acceptance(root, label)
-    path = base / 'finalization.json'
+    base, record, bundle = verify_acceptance(root, label, original=False)
+    path = within(base, 'finalization.json')
     if not path.exists():
         if require_audit:
             raise ValueError(f'{label}: accepted bundle verified, but audit is not finalized; use --finalize')
@@ -210,7 +216,10 @@ def accept_round(driver, label, rnd, owner, reason=None):
     base = writeup_root(driver.ROOT, label)
     validate_artifact_tree(base)
     if (base / 'acceptance.json').exists():
-        _, record, _ = verify_acceptance(driver.ROOT, label)
+        if (base / 'finalization.json').exists():
+            _, record, _ = verify_finalization(driver.ROOT, label)
+        else:
+            _, record, _ = verify_acceptance(driver.ROOT, label)
         if record['accepted_round'] != rnd or record['accepted_by'] != owner:
             raise ValueError('an existing acceptance names a different round or owner; refusing to replace it')
         driver.log(f'{label}: existing acceptance of round {rnd} by {owner} verified; unchanged')
@@ -349,11 +358,12 @@ def _accept_round(driver, label, rnd, owner, reason, base):
 
 
 def finalize(driver, label):
-    base, record, bundle = verify_acceptance(driver.ROOT, label)
+    base = writeup_root(driver.ROOT, label)
     if (base / 'finalization.json').exists():
         _, _, final = verify_finalization(driver.ROOT, label)
         driver.log(f'{label}: finalization verified; {len(final["runs"])} invocation records already preserved')
         return
+    base, record, bundle = verify_acceptance(driver.ROOT, label)
     runs = runs_directory(driver)
     records = runs / '_records'
     if not records.is_dir():

@@ -397,7 +397,10 @@ def writeup(driver, args):
     def accepted():
         if not (writeup_root(driver.ROOT, label) / 'acceptance.json').exists():
             return False
-        _, record, _ = verify_acceptance(driver.ROOT, label)
+        if (writeup_root(driver.ROOT, label) / 'finalization.json').exists():
+            _, record, _ = verify_finalization(driver.ROOT, label)
+        else:
+            _, record, _ = verify_acceptance(driver.ROOT, label)
         driver.log(f'{label}: round {record["accepted_round"]} is accepted by {record["accepted_by"]}; revision loop closed; use --finalize to preserve the audit')
         return True
 

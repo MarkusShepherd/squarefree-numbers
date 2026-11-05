@@ -441,6 +441,22 @@ Afterwards, verification works from a clean checkout without external runs:
 ./orchestrate.py writeup zt-neutral --verify
 ```
 
+The static `writeups/.gitignore` keeps the accepted package, acceptance and
+finalization records, preserved invocation records and operator log. Working
+rounds, scratch files and machine checkpoints stay local. The finalized package
+contains its own inputs and referee reports; verification needs no original
+round directory or root-level working inputs.
+
+To stage a finalized write-up for review, use ordinary Git:
+
+```sh
+git add writeups/zt-neutral/
+git diff --cached --stat
+```
+
+Ignore rules do not unstage files already in Git's index. Previously staged
+working files remain staged until explicitly unstaged.
+
 These operations do not launch agents or require provider credentials, TeX,
 the scientific Python environment or the paper PDFs. They do not claim a
 runs directory, change `runs`, stage files, commit or push. A normal `writeup`

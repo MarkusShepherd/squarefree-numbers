@@ -1,0 +1,9 @@
+# Keep finalized packages and their audit trails; leave working rounds local.
+/*/*
+!/*/acceptance.json
+!/*/finalization.json
+!/*/accepted/
+!/*/accepted/**
+!/*/run-records/
+!/*/run-records/**
+!/*/operator-interventions.md
