@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "",
+  "objection": "No gap found. P2\u2013P4 and P6 are used exactly as stated, with all range hypotheses satisfied. The shift sum has at most x/q terms, the exponents and constants are valid, and both conclusions retain the required uniformity. No external citations or interchanges require verification.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "68eb36fb38052563478c7130d328031e63202d9b935e61ba1bffa4abbbd1a8a4",
+  "proof_hash": "87edcd6a9956cf6f9f07363280aaece866a493275a4fa522cfdf0d96fa735da3"
+}

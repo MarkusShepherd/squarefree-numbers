@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "cosmetic",
+  "location": "proof.md, numerical sanity check: \u201cdiscards a tail of size about A_0 x/(q\u00b73000)\u201d",
+  "objection": "The numerical tail estimate incorrectly includes a factor 1/q: the outer q in MT cancels it. For T>sqrt(x), the tail is A_0 x sum_{t>T} eta(t)(1-x/(q m_t(q))), whose leading contribution has no 1/q factor. This appendix is unused in the proof. The main argument correctly applies P5(c), sums its errors uniformly, and obtains exactly the stated Euler factors and error bound.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "c08562b74cdae90420c2252f1b407fcc17c43fa0d0d4879529fca5d3143ab2e8",
+  "proof_hash": "ca92d8be8a673500d865e3ff78fc692b6ad8e9e5c14e119b2d56478d48ad85d0"
+}

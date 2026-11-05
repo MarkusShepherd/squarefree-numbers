@@ -1,4 +1,4 @@
-"""Offline finalization regressions: no providers, real manuscripts or Git mutations."""
+"""Offline write-up regressions; Git mutations use isolated temporary repos."""
 import json
 import os
 from pathlib import Path
@@ -287,6 +287,43 @@ class FinalizationTest(unittest.TestCase):
         finalize(self.driver, 'test')
         self.assertEqual((self.root / 'runs').resolve(), self.runs.resolve())
 
+    def git(self, *args):
+        return subprocess.check_output(['git', *args], cwd=self.root, stderr=subprocess.PIPE)
+
+    def test_static_ignore_and_plain_git_add_make_a_self_contained_package(self):
+        finalize(self.driver, 'test')
+        shutil.copy2(SOURCE / '.gitignore', self.root / '.gitignore')
+        shutil.copy2(SOURCE / 'writeups/.gitignore', self.root / 'writeups/.gitignore')
+        (self.base / 'round-1').mkdir()
+        (self.base / 'round-1/scratch.txt').write_text('Unaccepted draft\n')
+        (self.base / 'scratch.txt').write_text('Working output\n')
+        self.git('init', '-q')
+        self.git('add', 'writeups/')
+        names = set(self.git('ls-files', '-z').decode().split('\0')) - {''}
+        expected = {'writeups/.gitignore', 'writeups/test/acceptance.json',
+                    'writeups/test/finalization.json', 'writeups/test/operator-interventions.md'}
+        for directory in ('accepted', 'run-records'):
+            expected.update(f'writeups/test/{directory}/{name}'
+                            for name in input_hashes(self.base / directory))
+        self.assertEqual(names, expected)
+        clean = Path(self.temp.name) / 'clean'
+        clean.mkdir()
+        self.git('checkout-index', '--all', f'--prefix={clean}/')
+        shutil.rmtree(self.runs)
+        verify_finalization(clean, 'test')
+        # Repeated finalization also works without round directories, root
+        # inputs/state, archive, paper PDFs or external provider workspaces.
+        finalize(SimpleNamespace(ROOT=clean, log=lambda _: None), 'test')
+
+    def test_finalized_verification_still_rejects_corrupt_packaged_inputs(self):
+        finalize(self.driver, 'test')
+        shutil.rmtree(self.round)
+        (self.base / 'inputs.json').unlink()
+        verify_finalization(self.root, 'test')
+        (self.bundle / 'inputs.json').write_text('{}')
+        with self.assertRaisesRegex(ValueError, 'integrity check failed'):
+            verify_finalization(self.root, 'test')
+
     def prepare_cli(self):
         for name in ('orchestrate.py', 'harness_support.py', 'writeup_support.py', 'writeup_finalize.py', 'config.json'):
             shutil.copy2(SOURCE / name, self.root / name)
@@ -310,6 +347,14 @@ class FinalizationTest(unittest.TestCase):
         result = self.cli(env, '--verify')
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn('3 preserved invocation records verified', result.stdout)
+        shutil.rmtree(self.round)
+        (self.base / 'inputs.json').unlink()
+        result = self.cli(env, '--accept-round', '4', '--accepted-by', 'Markus')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('verified; unchanged', result.stdout)
+        result = self.cli(env)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('revision loop closed', result.stdout)
         for name in ('runs', 'plans', 'papers'):
             self.assertFalse((self.root / name).exists())
 

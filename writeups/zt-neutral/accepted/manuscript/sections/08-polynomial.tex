@@ -1,0 +1,150 @@
+\section{Averages over polynomial moduli}\label{sec:poly}
+
+In this section $f$ is fixed and satisfies~\eqref{eq:f-hyp}. All constants may depend on $f$, and on $\eps$ where indicated. Write $f(t)=\alpha t^d+\dots$, with leading coefficient $\alpha\ge1$, and let $P_0$ be the finite set of primes dividing the content of $f$ (the gcd of its coefficients). Put $x_p=\rho(p)/p$ and $z_p=\rho(p^2)/p^2$.
+
+\begin{proposition}[Polynomial averages]\label{prop:poly}
+\leavevmode
+\begin{enumerate}[label=\textup{(\arabic*)},start=0]
+\item $\sigma_p>0$ for every $p$, and $\prod_p\sigma_p$ converges absolutely. Hence $0<C_f<\infty$.
+\end{enumerate}
+Moreover, for every $\eps>0$ there are constants $c_8(f)$ and $c_8(f,\eps)$ such that for all real $y\ge1$, with $Y=f(y)$:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $\displaystyle\Bigl|\sum_{1\le k\le y}F(k)\,h(f(k))-C_fY^{3/2}\Bigr|\le c_8(f,\eps)\,Y^{3/2+\eps}y^{-1/2}$;
+\item $\displaystyle\sum_{1\le k\le y}\frac{f'(k)}{f(k)}\le c_8(f)\,(1+\log Y)$;
+\item $\displaystyle\sum_{1\le k\le y}f'(k)\le c_8(f)\,Y$.
+\end{enumerate}
+\end{proposition}
+
+The main difficulty in~(a) is that $f$ may have repeated factors or a nontrivial content. Then $\rho(p^2)$ may be as large as $p\rho(p)$, and $\rho(p)=p$ is possible for $p\in P_0$. The proof uses only the bounds of \cref{lem:rho} and never assumes $\rho(p^2)=\rho(p)$.
+
+\subsection{Preliminaries}
+
+\begin{lemma}[Local factors]\label{lem:local}
+For every prime $p$, $a_p,b_p,c_p>0$, and
+\[
+b_p-a_p=-\frac1p+p^{-3/2}+p^{-2}-p^{-5/2},\qquad c_p-b_p=-p^{-3/2}\bigl(1-p^{-1/2}\bigr)\bigl(1-p^{-1}\bigr).
+\]
+Consequently $a_p\ge\frac12$, $0<1-a_p\le3/p^2$, $|b_p-a_p|<1/p$ and $-p^{-3/2}<c_p-b_p<0$.
+\end{lemma}
+
+\begin{proof}
+Positivity is clear from~\eqref{eq:abc}. Expanding~\eqref{eq:abc} gives $b_p=1-\frac1p-\frac2{p^2}+\frac2{p^3}+p^{-3/2}-p^{-5/2}$ and $c_p=1-\frac1p-\frac1{p^2}+\frac1{p^3}$, from which the two identities follow by subtraction. (They were also confirmed with computer algebra; see \cref{sec:numerics}.) Next, $a_2=\frac12$, and $a_p\ge1-3/p^2\ge\frac23$ for $p\ge3$. The difference $1-a_p=3/p^2-2/p^3$ lies in $(0,3/p^2]$. In the first identity $-1/p+p^{-3/2}\in(-1/p,0)$ and $p^{-2}-p^{-5/2}\in[0,p^{-2})$, so $|b_p-a_p|<1/p$. In the second, $(1-p^{-1/2})(1-p^{-1})\in(0,1)$.
+\end{proof}
+
+\begin{lemma}[Root counts]\label{lem:rho}
+The function $\rho$ is multiplicative. For every prime $p$, $\rho(p^2)\le p\,\rho(p)$ and $\rho(p^j)\le p^j$. For $p\notin P_0$, $\rho(p)\le d$. Hence $0\le z_p\le x_p\le1$ for every $p$, and $x_p,z_p\le d/p$ for $p\notin P_0$.
+\end{lemma}
+
+\begin{proof}
+Multiplicativity follows from the Chinese remainder theorem. Every root of $f$ modulo $p^2$ reduces to a root modulo $p$, and each residue modulo $p$ has exactly $p$ lifts modulo $p^2$, so $\rho(p^2)\le p\rho(p)$. For $p\notin P_0$ the reduction of $f$ modulo $p$ is a nonzero polynomial of degree at most $d$ over the field $\Z/p\Z$, so it has at most $d$ roots.
+\end{proof}
+
+\begin{lemma}[Shape of $F$]\label{lem:shape}
+There are constants $0<\gamma_1\le1\le\gamma_2$, depending only on $f$, such that for all real $t\ge1$
+\begin{equation}\label{eq:shape}
+\gamma_1t^d\le f(t)\le\gamma_2t^d,\qquad\gamma_1t^{d-1}\le f'(t)\le\gamma_2t^{d-1},\qquad\gamma_1t^{3d/2-1}\le F(t)\le\gamma_2t^{3d/2-1}.
+\end{equation}
+Consequently, for $y\ge1$ and $Y=f(y)$: $\sup_{[1,y]}F\le\gamma_3F(y)$ with $\gamma_3=\gamma_2/\gamma_1$; $F(y)\le\gamma_4Y^{3/2}/y$ with $\gamma_4=\gamma_2\gamma_1^{-3/2}$; $y\le Y/\gamma_1$; and $\int_1^yF(t)\,dt=\frac23\bigl(Y^{3/2}-f(1)^{3/2}\bigr)$. Finally, $[1,\infty)$ is the union of at most $2d-1$ closed intervals, on each of which $F$ is monotone.
+\end{lemma}
+
+\begin{proof}
+On $[1,\infty)$ the functions $f(t)/t^d$, $f'(t)/t^{d-1}$ and $F(t)/t^{3d/2-1}$ are continuous and positive, by~\eqref{eq:f-hyp}. They have the positive limits $\alpha$, $\alpha d$ and $\alpha^{3/2}d$ as $t\to\infty$, so they are bounded above and below by positive constants. Since $3d/2-1>0$, $\sup_{[1,y]}F\le\gamma_2y^{3d/2-1}\le\gamma_3F(y)$. Also $Y^{3/2}/y\ge\gamma_1^{3/2}y^{3d/2-1}\ge\gamma_1^{3/2}\gamma_2^{-1}F(y)$, and $Y\ge\gamma_1y^d\ge\gamma_1y$. The integral follows from $(f^{3/2})'=\frac32f'f^{1/2}$. Finally $F'=P/(2\sqrt f)$ with $P=2ff''+f'^2$. This is a polynomial of degree $2d-2$ with leading coefficient $\alpha^2d(3d-2)>0$ (for $d=1$, $P=\alpha^2$), so it has at most $2d-2$ real zeros, and between consecutive zeros $F'$ has constant sign.
+\end{proof}
+
+\begin{lemma}[Monotone weights in a residue class]\label{lem:monotone}
+Let $J\subset\R$ be a bounded interval (open, closed or half-open) and $G\ge0$ monotone on $J$. Let $e\in\N$ and $r\in\Z$, and let $k_1<\dots<k_n$ be the integers $k\in J$ with $k\equiv r\pmod e$. Then
+\[
+\Bigl|\sum_{j=1}^nG(k_j)-\frac1e\int_JG(t)\,dt\Bigr|\le3\sup_JG .
+\]
+\end{lemma}
+
+\begin{proof}
+If $n=0$, then $J$ has length at most $e$ and $\frac1e\int_JG\le\sup_JG$. Let $n\ge1$ and suppose $G$ is nonincreasing. Then $G(k_{j+1})\le\frac1e\int_{k_j}^{k_{j+1}}G\le G(k_j)$ for $j<n$. Summing over $j$, $\sum_{j\ge2}G(k_j)\le\frac1e\int_{k_1}^{k_n}G\le\sum_{j<n}G(k_j)$, so $\bigl|\sum_jG(k_j)-\frac1e\int_{k_1}^{k_n}G\bigr|\le\sup_JG$. Since $k_1-e\notin J$ and $k_n+e\notin J$, the parts of $J$ to the left of $k_1$ and to the right of $k_n$ have length at most $e$. Each contributes at most $\sup_JG$ to $\frac1e\int_JG$. The nondecreasing case is symmetric.
+\end{proof}
+
+The lemma has content only when $\sup_JG<\infty$. In its application below, $G=F$ is continuous on the compact interval $[1,y]$, so this holds.
+
+\subsection{Proof of \texorpdfstring{\cref{prop:poly}}{Proposition 8.1}(0), (b) and (c)}
+
+(0) By \cref{lem:rho} the weights $1-x_p$, $x_p-z_p$ and $z_p$ in~\eqref{eq:sigma} are nonnegative and sum to $1$. So $\sigma_p$ is a convex combination of $a_p,b_p,c_p>0$, and $\sigma_p\ge\min(a_p,b_p,c_p)>0$. Also $\sigma_p=a_p+(b_p-a_p)x_p+(c_p-b_p)z_p$. For $p\notin P_0$, \cref{lem:local,lem:rho} give
+\begin{equation}\label{eq:sigma-close}
+|\sigma_p-1|\le(1-a_p)+\frac1p\cdot\frac dp+p^{-3/2}\cdot\frac dp\le\frac{3+2d}{p^2}.
+\end{equation}
+Hence $\sum_p|\sigma_p-1|<\infty$. Since every $\sigma_p>0$, the product $\prod_p\sigma_p$ converges absolutely to a positive finite number. As $I>0$ (\cref{prop:sawtooth}(a)), $0<C_f<\infty$. In the same way $A_h:=\prod_pa_p$ converges absolutely, and $0<A_h<1$.
+
+(b), (c) By~\eqref{eq:shape}, for $1\le k\le y$ we have $f'(k)/f(k)\le\gamma_3/k$ and $f'(k)\le\gamma_2k^{d-1}$. Hence
+\[
+\sum_{k\le y}\frac{f'(k)}{f(k)}\le\gamma_3(1+\log y)\le\gamma_3\bigl(1+\log Y+\log(1/\gamma_1)\bigr)\le c_8(f)(1+\log Y),
+\]
+using $y\le Y/\gamma_1$. Also $\sum_{k\le y}f'(k)\le\gamma_2y\cdot y^{d-1}\le\gamma_3Y$.
+
+\subsection{Proof of \texorpdfstring{\cref{prop:poly}}{Proposition 8.1}(a)}
+
+\emph{A divisor-sum expansion of $h$.} By~\eqref{eq:h}, and since $\prod_pa_p$ converges absolutely,
+\[
+h(q)=I\,A_h\,\hnat(q),\qquad\hnat(q)=\prod_{p\|q}\frac{b_p}{a_p}\prod_{p^2\mid q}\frac{c_p}{a_p}.
+\]
+The function $\hnat$ is multiplicative, with $\hnat(p)=b_p/a_p$ and $\hnat(p^j)=c_p/a_p$ for $j\ge2$. Let $w=\mu*\hnat$, so that $\hnat(q)=\sum_{e\mid q}w(e)$. Then $w$ is multiplicative with
+\[
+w(p)=\frac{b_p-a_p}{a_p},\qquad w(p^2)=\frac{c_p-b_p}{a_p},\qquad w(p^j)=0\quad(j\ge3).
+\]
+By \cref{lem:local} and $a_p\ge\frac12$,
+\begin{equation}\label{eq:w-local}
+|w(p)|\le\frac2p,\qquad|w(p^2)|\le2p^{-3/2}.
+\end{equation}
+Thus $w(e)=0$ unless $e$ is cube-free, and every cube-free $e$ is uniquely $e=ab^2$ with $a,b$ squarefree and coprime. Since $2/p\le4p^{-3/4}$ and $2p^{-3/2}=2(p^2)^{-3/4}$,
+\begin{equation}\label{eq:w-bounds}
+|w(e)|\le4^{\omega(e)}e^{-3/4},\qquad |w(ab^2)|\le2^{\omega(ab)}a^{-1}b^{-3/2}.
+\end{equation}
+For cube-free $e=ab^2$, \cref{lem:rho} gives $\rho(p)\le d$ for $p\mid a$, $p\notin P_0$; $\rho(p^2)\le pd$ for $p\mid b$, $p\notin P_0$; and $\rho(p^{v_p(e)})\le p^2$ for $p\in P_0$. Hence $\rho(e)\le C_Pd^{\omega(e)}b$ with $C_P=\prod_{p\in P_0}p^2$, and
+\begin{equation}\label{eq:w-rho}
+|w(e)|\rho(e)\le C_P(2d)^{\omega(e)}a^{-1}b^{-1/2},\qquad\frac{|w(e)|\rho(e)}e\le C_P(2d)^{\omega(e)}a^{-2}b^{-5/2}.
+\end{equation}
+
+\emph{Three estimates.} Let $W\ge1$.
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Tail.} For $e>W$ we have $1\le(e/W)^{1/2}$ and $e^{1/2}=a^{1/2}b$. By~\eqref{eq:w-rho},
+\begin{equation}\label{eq:w-tail}
+\sum_{e>W}\frac{|w(e)|\rho(e)}e\le W^{-1/2}C_P\sum_{a,b\ \mathrm{squarefree}}\frac{(2d)^{\omega(a)+\omega(b)}}{a^{3/2}b^{3/2}}=c_4W^{-1/2},
+\end{equation}
+with $c_4=C_P\prod_p\bigl(1+2dp^{-3/2}\bigr)^2$.
+In particular $\sum_e|w(e)|\rho(e)/e<\infty$.
+\item \emph{Short sum.} We have $(2d)^{\omega(n)}\le\tau(n)^{\log_2(2d)}\le C(f,\eps)n^\eps$ by \cref{lem:divisor}, where the constant depends on $d$ and $\eps$. By~\eqref{eq:w-rho}, using $\sum_{b\le B}b^{-1/2}\le2\sqrt B$,
+\begin{equation}\label{eq:w-short}
+\sum_{e\le W}|w(e)|\rho(e)\le C_PC(f,\eps)W^\eps\sum_{a\le W}\frac1a\sum_{b\le\sqrt W}b^{-1/2}\le2C_PC(f,\eps)W^{1/4+\eps}(1+\log W).
+\end{equation}
+\item \emph{Euler product.} The function $e\mapsto w(e)\rho(e)/e$ is multiplicative, and its series converges absolutely by~(i). By~\eqref{eq:euler} and the second expression for $\sigma_p$ in the proof of~(0),
+\begin{equation}\label{eq:w-euler}
+\sum_{e\ge1}\frac{w(e)\rho(e)}e=\prod_p\bigl(1+w(p)x_p+w(p^2)z_p\bigr)=\prod_p\frac{a_p+(b_p-a_p)x_p+(c_p-b_p)z_p}{a_p}=\frac1{A_h}\prod_p\sigma_p .
+\end{equation}
+\end{enumerate}
+
+\emph{Truncation.} Let $y\ge1$ and $S=\sum_{k\le y}F(k)\hnat(f(k))$. For $1\le k\le y$ write $\hnat(f(k))=\sum_{e\mid f(k),\,e\le y}w(e)+T_k$ with $T_k=\sum_{e\mid f(k),\,e>y}w(e)$. By~\eqref{eq:w-bounds} and \cref{lem:divisor}, and since $2\le f(k)\le Y$ (as $f$ is increasing on $[1,\infty)$),
+\[
+|T_k|\le y^{-3/4}\sum_{e\mid f(k)}4^{\omega(e)}\le y^{-3/4}\tau(f(k))^3\le C(\eps)\,y^{-3/4}Y^\eps .
+\]
+By \cref{lem:shape}, $\sum_{k\le y}F(k)\le y\gamma_3F(y)\le\gamma_3\gamma_4Y^{3/2}$, so
+\begin{equation}\label{eq:trunc}
+\Bigl|\sum_{k\le y}F(k)T_k\Bigr|\le C(\eps)\gamma_3\gamma_4\,Y^{3/2+\eps}y^{-3/4}.
+\end{equation}
+
+\emph{Counting in residue classes.} For $e\in\N$ let $N(e)=\sum_{1\le k\le y,\ e\mid f(k)}F(k)$. This is a sum over the $\rho(e)$ residue classes $r\bmod e$ with $f(r)\equiv0\pmod e$. Intersect the at most $2d-1$ closed intervals of \cref{lem:shape} with $[1,y]$, and make them disjoint by removing from each its left endpoint whenever that point already belongs to the previous interval. This gives at most $2d-1$ disjoint intervals, closed or half-open, which cover $[1,y]$ and on each of which $F$ is monotone. Applying \cref{lem:monotone} on each of them, and summing,
+\[
+\Bigl|\sum_{\substack{1\le k\le y\\k\equiv r\,(e)}}F(k)-\frac1e\int_1^yF(t)\,dt\Bigr|\le3(2d-1)\sup_{[1,y]}F\le6d\gamma_3F(y).
+\]
+(Stating \cref{lem:monotone} for arbitrary intervals covers the closed first interval $[1,\beta]$ directly; no value of $F$ to the left of $1$ is needed.) Summing over the $\rho(e)$ classes,
+\begin{equation}\label{eq:Ne}
+N(e)=\frac{\rho(e)}e\cdot\frac23\bigl(Y^{3/2}-f(1)^{3/2}\bigr)+\theta_e\,6d\gamma_3\,\rho(e)F(y).
+\end{equation}
+
+\emph{Assembly.} By the truncation, $S=\sum_{e\le y}w(e)N(e)+\sum_{k\le y}F(k)T_k$. By~\eqref{eq:w-tail} and~\eqref{eq:w-euler} with $W=y$, $\sum_{e\le y}w(e)\rho(e)/e=A_h^{-1}\prod_p\sigma_p+\theta c_4y^{-1/2}$. Inserting~\eqref{eq:Ne} and using~\eqref{eq:w-short},~\eqref{eq:trunc} and $F(y)\le\gamma_4Y^{3/2}/y$,
+\begin{align*}
+S&=\frac23\bigl(Y^{3/2}-f(1)^{3/2}\bigr)\Bigl(\frac1{A_h}\prod_p\sigma_p+\theta c_4y^{-1/2}\Bigr)\\
+&\qquad+\theta\,6d\gamma_3F(y)\sum_{e\le y}|w(e)|\rho(e)+\theta C(\eps)\gamma_3\gamma_4Y^{3/2+\eps}y^{-3/4}\\
+&=\frac2{3A_h}\Bigl(\prod_p\sigma_p\Bigr)Y^{3/2}+O_{f,\eps}\Bigl(1+Y^{3/2}y^{-1/2}+Y^{3/2}y^{-3/4+\eps}(1+\log y)+Y^{3/2+\eps}y^{-3/4}\Bigr).
+\end{align*}
+The term $O_f(1)$ collects the contributions of $f(1)^{3/2}$. It is $\ll_fY^{3/2}y^{-1/2}$, because $Y^{3/2}y^{-1/2}\ge\gamma_1^{3/2}y^{(3d-1)/2}\ge\gamma_1^{3/2}$. For $\eps\le\frac18$ we have $y^{-3/4+\eps}(1+\log y)\ll_\eps y^{-1/2}$, and since $Y\ge2$ every error term is then $\ll_{f,\eps}Y^{3/2+\eps}y^{-1/2}$. For $\eps>\frac18$ the claim follows from the case $\eps=\frac18$. Multiplying by $IA_h$ gives
+\[
+\sum_{k\le y}F(k)h(f(k))=IA_h\,S=\frac23I\Bigl(\prod_p\sigma_p\Bigr)Y^{3/2}+O_{f,\eps}\bigl(Y^{3/2+\eps}y^{-1/2}\bigr)=C_fY^{3/2}+O_{f,\eps}\bigl(Y^{3/2+\eps}y^{-1/2}\bigr).
+\]
+This proves~(a). All implied constants depend only on $f$ and $\eps$, through $d$, $\gamma_1,\dots,\gamma_4$, $C_P$, $f(1)$ and the divisor-bound constants. \qed

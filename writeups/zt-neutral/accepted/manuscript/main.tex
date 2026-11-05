@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,nameinlink]{cleveref}
+\usepackage{thmtools}
+
+\input{generated/macros}
+
+\numberwithin{equation}{section}
+\declaretheorem[style=plain,numberwithin=section]{theorem}
+\declaretheorem[style=plain,sibling=theorem]{proposition}
+\declaretheorem[style=plain,sibling=theorem]{lemma}
+\declaretheorem[style=remark,sibling=theorem]{remark}
+% Section-qualified hyperref anchors, so that equal numbers in different
+% sections (and appendices) get distinct link targets.
+\renewcommand{\theHequation}{\theHsection.\arabic{equation}}
+\renewcommand{\theHtheorem}{\theHsection.\arabic{theorem}}
+\providecommand{\theHproposition}{}\renewcommand{\theHproposition}{\theHsection.\arabic{theorem}}
+\providecommand{\theHlemma}{}\renewcommand{\theHlemma}{\theHsection.\arabic{theorem}}
+\providecommand{\theHremark}{}\renewcommand{\theHremark}{\theHsection.\arabic{theorem}}
+\makeatletter
+\providecommand*{\toclevel@theorem}{0}
+\providecommand*{\toclevel@proposition}{0}
+\providecommand*{\toclevel@lemma}{0}
+\providecommand*{\toclevel@remark}{0}
+\makeatother
+
+% Notation
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\MT}{\mathrm{MT}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\fr}[1]{\{#1\}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\hnat}{h^{\natural}}
+
+\title{The sparse variance of squarefree numbers in arithmetic progressions to polynomial moduli: an elementary asymptotic formula}
+\author{Write-up of an archived machine-generated proof run\\(provenance in Appendix~\ref{app:provenance})}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a polynomial $f\in\Z[t]$ of degree $d\ge1$ with $f(t)\ge2$ and $f'(t)\ge1$ for $t\ge1$, consider
+\[
+V_f(x,y)=\sum_{1\le k\le y}f'(k)\sum_{l=1}^{f(k)}\bigl(Q(x;f(k),l)-g(f(k),l)\,x\bigr)^2,
+\]
+where $Q(x;q,l)$ counts squarefree $n\le x$ with $n\equiv l\pmod q$ and $g(q,l)$ is the corresponding density.
+We show by elementary means that
+for each fixed $\delta\in(0,1/9)$, $V_f(x,y)=C_f\,x^{1/2}f(y)^{3/2}\bigl(1+O(x^{-\eta})\bigr)$ uniformly for $x^{7/9+\delta}\le f(y)\le x^{1-\delta}$, with an explicit Euler product $C_f>0$ and $\eta=\min(\delta/12,1/(6d))$; the implied constant depends only on $f$ and $\delta$.
+We also give explicit error terms valid throughout $f(y)\le x$, and a version with an exact arithmetic main term.
+The proof rests on an exact identity for the variance with respect to a single modulus, a uniform count of pairs of squarefree numbers with a given difference, an Euler--Maclaurin analysis of sawtooth sums $\sum_s B(Z/s^2)$, and an average of a multiplicative function over polynomial values.
+We compare the result with exact numerical computations of $V_f$ for $f=k^2+1$, $k^3+2$ and $2k+1$ up to $x=2.56\cdot10^8$.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/01-introduction}
+\input{sections/02-preliminaries}
+\input{sections/03-densities}
+\input{sections/04-identity}
+\input{sections/05-pairs}
+\input{sections/06-sawtooth}
+\input{sections/07-single}
+\input{sections/08-polynomial}
+\input{sections/09-assembly}
+\input{sections/10-numerics}
+
+\clearpage
+\bibliographystyle{plainurl}
+\bibliography{references}
+
+\appendix
+\input{sections/A-tables}
+\input{sections/B-provenance}
+
+\end{document}

@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "",
+  "objection": "No nontrivial gap found. The endpoint terms, summed errors, absolute convergence, and uniform q^eps bound are valid. Citation checked: H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I: Classical Theory (2007), \u00a71.3, https://doi.org/10.1017/CBO9780511618314. The Euler\u2013Maclaurin formula is proved directly.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "dbd3546a44823efee949d9586639c26916ddafb8dd37399e7ef1246a9acbb056",
+  "proof_hash": "6d149497e329bf93a9236552ba3459d19277f96304d4775829b6d8c9dbdd2eba"
+}

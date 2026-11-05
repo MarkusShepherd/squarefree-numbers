@@ -1,0 +1,102 @@
+\section{Preliminaries}\label{sec:prelim}
+
+This section collects the elementary tools used repeatedly later. The only external inputs are standard facts from Montgomery and Vaughan~\cite{MV2007}, cited precisely where they are used.
+
+\subsection{Counting}
+
+\begin{lemma}[A tail bound]\label{lem:tail}
+For every real $w>0$, $\displaystyle\sum_{a>w}a^{-2}\le\frac2w$.
+\end{lemma}
+
+\begin{proof}
+If $w\ge1$, let $k=\lfloor w\rfloor+1>w$. Then $\sum_{a\ge k}a^{-2}\le k^{-2}+\int_k^\infty u^{-2}\,du\le 2/k<2/w$. If $0<w<1$, the sum is at most $\zeta(2)<2<2/w$.
+\end{proof}
+
+\begin{lemma}[Integers in a residue class]\label{lem:class}
+Let $N\ge0$ be real, $L\in\N$ and $c\in\Z$. Then $\#\{1\le n\le N:\ n\equiv c\ (\mathrm{mod}\ L)\}=N/L+\theta$ with $|\theta|<1$.
+\end{lemma}
+
+\begin{proof}
+Let $n_0\in\{1,\dots,L\}$ be the least positive element of the class. If $n_0>N$, the count is $0$, and $0\le N/L<n_0/L\le1$. Otherwise the count is $\lfloor(N-n_0)/L\rfloor+1$, which lies in $\bigl((N-n_0)/L,(N-n_0)/L+1\bigr]$. This interval is contained in $(N/L-1,N/L+1)$, because $1\le n_0\le L$.
+\end{proof}
+
+\begin{lemma}[Divisor bounds]\label{lem:divisor}
+For every $\eps>0$ there is $C(\eps)$ with $\tau(n)\le C(\eps)n^\eps$ for all $n\in\N$~\cite[(2.20)]{MV2007}. Moreover $2^{\omega(n)}\le\tau(n)$ and $\sum_{e\mid n}4^{\omega(e)}\le\tau(n)^3$.
+\end{lemma}
+
+\begin{proof}
+The first statement is~\cite[(2.20)]{MV2007}. Each subset of the prime divisors of $n$ gives a divisor, so $2^{\omega(n)}\le\tau(n)$. For $e\mid n$ we have $4^{\omega(e)}=(2^{\omega(e)})^2\le\tau(e)^2\le\tau(n)^2$, and there are $\tau(n)$ divisors $e$.
+\end{proof}
+
+\subsection{Euler products}
+
+We use the following standard fact in the form given by Montgomery and Vaughan~\cite[Theorem~1.9]{MV2007} (with $s=0$): \emph{if $G$ is multiplicative and $\sum_{n\ge1}|G(n)|<\infty$, then}
+\begin{equation}\label{eq:euler}
+\sum_{n\ge1}G(n)=\prod_p\Bigl(1+\sum_{j\ge1}G(p^j)\Bigr).
+\end{equation}
+We also use that if $\sum_p|u_p|<\infty$ and $1+u_p\ne0$ for all $p$, then $\prod_p(1+u_p)$ converges absolutely to a nonzero limit, and such products may be multiplied and divided factor by factor. Absolute convergence of $\sum|G(n)|$ for a multiplicative $G$ follows from $\prod_p\bigl(1+\sum_j|G(p^j)|\bigr)<\infty$, because every partial sum of $\sum|G(n)|$ is bounded by a finite subproduct.
+
+\begin{lemma}[The functions $\eta$ and $\kappa$]\label{lem:eta}
+The functions $\eta$ and $\kappa$ of~\eqref{eq:A0-eta} and~\eqref{eq:kappa-S2} are multiplicative, nonnegative, and supported on squarefree integers. For all $t$,
+\begin{equation}\label{eq:eta-bound}
+0\le\eta(t)\le2^{\omega(t)}t^{-2},\qquad 0\le\kappa(t)\le2^{\omega(t)}.
+\end{equation}
+Further, $0<A_0\le1$ and
+\begin{equation}\label{eq:sum-eta}
+\sum_{t\ge1}\eta(t)=\prod_p\Bigl(1+\frac1{p^2-2}\Bigr)=\frac{6}{\pi^2A_0}.
+\end{equation}
+For all real $x>0$ and $q\in\N$, the terms of the series~\eqref{eq:MT} satisfy $0\le\eta(t)m_t(q)B\bigl(x/(qm_t(q))\bigr)\le\eta(t)\,x/q$. Hence $\MT(x;q)$ converges absolutely and $0\le\MT(x;q)\le 6x/\pi^2$.
+\end{lemma}
+
+\begin{proof}
+Multiplicativity and the support are clear from the definitions. Since $p^2-2\ge p^2/2$ for every prime, $\eta(p)\le2/p^2$ and $\kappa(p)\le2$, which gives~\eqref{eq:eta-bound}. Each factor $1-2/p^2$ lies in $[\tfrac12,1)$ and $\sum_p2/p^2<\infty$, so $0<A_0\le1$. By~\eqref{eq:euler}, applied to $\eta$ (whose series converges since $\sum_t2^{\omega(t)}t^{-2}\le\sum_t\tau(t)t^{-2}=\zeta(2)^2$ by~\cite[Theorem~1.8]{MV2007}),
+\[
+\sum_t\eta(t)=\prod_p\Bigl(1+\frac1{p^2-2}\Bigr)=\prod_p\frac{1-p^{-2}}{1-2p^{-2}}=\frac{\prod_p(1-p^{-2})}{A_0}=\frac{6}{\pi^2A_0},
+\]
+using $\prod_p(1-p^{-2})=1/\zeta(2)=6/\pi^2$. Finally $0\le B(u)\le\min(u,\frac14)$ for $u\ge0$, so $m\,B(x/(qm))\le x/q$, and $\MT(x;q)\le A_0q\cdot(x/q)\sum_t\eta(t)=6x/\pi^2$.
+\end{proof}
+
+The next evaluation occurs twice, in the second moment of $g$ (\cref{prop:densities}(iv)) and in the density of pairs of squarefree numbers (\cref{prop:pairs}).
+
+\begin{lemma}[Coprime pairs of squarefree numbers]\label{lem:pairs-euler}
+For every $e\in\N$,
+\[
+\sum_{\substack{a,b\ge1,\ \mu^2(ab)=1\\ (ab,e)=1}}\frac{\mu(a)\mu(b)}{a^2b^2}
+=\prod_{p\nmid e}\Bigl(1-\frac2{p^2}\Bigr)=A_0\prod_{p\mid e}\frac{p^2}{p^2-2},
+\]
+and the series converges absolutely. Here $\mu^2(ab)=1$ means exactly that $a$ and $b$ are squarefree and coprime.
+\end{lemma}
+
+\begin{proof}
+Group the pairs according to $n=ab$. For a squarefree $n$ there are $2^{\omega(n)}$ pairs $(a,b)$ with $ab=n$, each with $\mu(a)\mu(b)=\mu(n)$. The sum is therefore $\sum_{n}G(n)$ with $G(n)=\mu(n)2^{\omega(n)}n^{-2}\one[(n,e)=1]$, which is multiplicative with $\sum|G(n)|\le\zeta(2)^2$. By~\eqref{eq:euler} the sum equals $\prod_{p\nmid e}(1-2/p^2)$. The last expression follows by dividing $A_0$ by the finitely many factors $1-2/p^2=(p^2-2)/p^2\ne0$ with $p\mid e$.
+\end{proof}
+
+\subsection{Euler--Maclaurin summation}
+
+Put $\psi(u)=\fr u-\frac12$ and
+\begin{equation}\label{eq:psi2}
+\psi_2(u)=\tfrac12\bigl(\fr u^2-\fr u\bigr)+\tfrac1{12}=\tfrac1{12}-\tfrac12B(u).
+\end{equation}
+Then $\psi_2$ is continuous and $1$-periodic, $\psi_2'=\psi$ off the integers, $|\psi_2|\le\frac1{12}$ and $|\psi|\le\frac12$, and $\psi_2(n)=\frac1{12}$, $\psi(n)=-\frac12$ for $n\in\Z$.
+
+\begin{lemma}[Euler--Maclaurin]\label{lem:EM}
+Let $a<b$ be real and let $G\in C^2[a,b]$ be real- or complex-valued. Then
+\[
+\sum_{a<n\le b}G(n)=\int_a^bG(u)\,du+\psi(a)G(a)-\psi(b)G(b)-\psi_2(a)G'(a)+\psi_2(b)G'(b)-\int_a^b\psi_2(u)G''(u)\,du .
+\]
+Suppose now that $G$ is $C^2$ on $[a,\infty)$, that $G(u)\to0$ and $G'(u)\to0$ as $u\to\infty$, and that $G''\in L^1[a,\infty)$. Then
+\[
+\lim_{b\to\infty}\Bigl(\sum_{a<n\le b}G(n)-\int_a^bG(u)\,du\Bigr)=\psi(a)G(a)-\psi_2(a)G'(a)-\int_a^\infty\psi_2(u)G''(u)\,du .
+\]
+In particular, if one of $\sum_{n>a}G(n)$ and $\int_a^\infty G(u)\,du$ converges, then so does the other, and the formula holds with $b=\infty$ and the terms at $b$ omitted.
+\end{lemma}
+
+\begin{proof}
+Since $\lfloor u\rfloor=u-\frac12-\psi(u)$, we have $\sum_{a<n\le b}G(n)=\int_{(a,b]}G\,d\lfloor u\rfloor=\int_a^bG\,du-\int_{(a,b]}G\,d\psi$. As $\psi$ is right-continuous and of bounded variation and $G$ is continuous, integration by parts for Riemann--Stieltjes integrals gives $\int_{(a,b]}G\,d\psi=G(b)\psi(b)-G(a)\psi(a)-\int_a^b\psi G'\,du$. Finally $\int_a^b\psi G'\,du=[\psi_2G']_a^b-\int_a^b\psi_2G''\,du$. (As a check, $G\equiv1$ gives $\lfloor b\rfloor-\lfloor a\rfloor$.) For complex-valued $G$, apply this to the real and imaginary parts.
+
+For $b\to\infty$, move $\int_a^bG\,du$ to the left-hand side of the finite formula. On the right, the terms at $b$ tend to $0$, because $\psi$ and $\psi_2$ are bounded and $G(b),G'(b)\to0$. The last integral converges to $\int_a^\infty\psi_2G''\,du$, because $\psi_2$ is bounded and $G''\in L^1$. This proves the limit formula. The partial sums $\sum_{a<n\le b}G(n)$, for real $b$, are those of the series $\sum_{n>a}G(n)$. So if the series converges, then $\int_a^bG\,du$ converges as $b\to\infty$, and conversely; in either case the limit formula becomes the stated formula with $b=\infty$. (The series and the integral need not converge separately: $G(u)=\cos(\log u)/u$ on $[1,\infty)$ satisfies the hypotheses, but $\int_1^XG\,du=\sin(\log X)$ has no limit as $X\to\infty$, and hence neither have the partial sums of $\sum_{n\ge2}G(n)$.)
+\end{proof}
+
+In the applications below (\cref{prop:sawtooth}), $G$ is $u^{-s}$ with $\Re s>1$ or a linear combination of $u^{-2}$ and $u^{-4}$. In both cases the series and the integral converge absolutely, so the last statement of the lemma applies.
+
+\Cref{lem:EM} is the Euler--Maclaurin formula of the first and second order; compare~\cite[§1.3]{MV2007}, where the continuation of $\zeta(s)$ to $\Re s>0$ is obtained in the same way~\cite[Theorem~1.12]{MV2007}.

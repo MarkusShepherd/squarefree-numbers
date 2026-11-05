@@ -1,0 +1,59 @@
+{"command": ["/Users/markus/sqf-runs/agent-venv/bin/python3", "manuscript/reproduce.py"]}
+x=257 NTT length=1024 squarefree=158
+x=257 correlations and squarefree-divisibility counts ready
+x=257 completed exact coefficient stream
+x=250000 NTT length=524288 squarefree=151979
+x=250000 correlations and squarefree-divisibility counts ready
+x=250000 completed exact coefficient stream
+x=250000 completed in 0.21s
+x=500000 NTT length=1048576 squarefree=303958
+x=500000 correlations and squarefree-divisibility counts ready
+x=500000 completed exact coefficient stream
+x=500000 completed in 0.42s
+x=1000000 NTT length=2097152 squarefree=607926
+x=1000000 correlations and squarefree-divisibility counts ready
+x=1000000 completed exact coefficient stream
+x=1000000 completed in 0.87s
+x=2000000 NTT length=4194304 squarefree=1215877
+x=2000000 correlations and squarefree-divisibility counts ready
+x=2000000 completed exact coefficient stream
+x=2000000 completed in 1.80s
+x=4000000 NTT length=8388608 squarefree=2431736
+x=4000000 correlations and squarefree-divisibility counts ready
+x=4000000 completed exact coefficient stream
+x=4000000 completed in 3.76s
+x=8000000 NTT length=16777216 squarefree=4863403
+x=8000000 correlations and squarefree-divisibility counts ready
+x=8000000 completed exact coefficient stream
+x=8000000 completed in 7.64s
+x=16000000 NTT length=33554432 squarefree=9726796
+x=16000000 correlations and squarefree-divisibility counts ready
+x=16000000 completed exact coefficient stream
+x=16000000 completed in 15.65s
+x=32000000 NTT length=67108864 squarefree=19453669
+x=32000000 correlations and squarefree-divisibility counts ready
+x=32000000 completed exact coefficient stream
+x=32000000 completed in 32.45s
+x=64000000 NTT length=134217728 squarefree=38907350
+x=64000000 correlations and squarefree-divisibility counts ready
+x=64000000 completed exact coefficient stream
+x=64000000 completed in 65.40s
+x=128000000 NTT length=268435456 squarefree=77814652
+x=128000000 correlations and squarefree-divisibility counts ready
+x=128000000 completed exact coefficient stream
+x=128000000 completed in 134.71s
+x=256000000 NTT length=536870912 squarefree=155629326
+x=256000000 correlations and squarefree-divisibility counts ready
+x=256000000 completed exact coefficient stream
+x=256000000 completed in 279.08s
+x=128000000 NTT length=268435456 squarefree=77814652
+x=128000000 correlations and squarefree-divisibility counts ready
+x=128000000 completed exact coefficient stream
+x=256000000 NTT length=536870912 squarefree=155629326
+x=256000000 correlations and squarefree-divisibility counts ready
+x=256000000 completed exact coefficient stream
+snapshot results ready (664.4040902920096)
+comparison with archived results: {"k^2+1": {"rows": 90, "integer_counts_identical": true, "max_relative_difference_V": 0.0, "extrapolated_constant_difference": 0.0, "envelope_difference": 0.0, "fixed_ratio_slope_difference": 0.0}, "k^3+2": {"rows": 90, "integer_counts_identical": true, "max_relative_difference_V": 0.0, "extrapolated_constant_difference": 0.0, "envelope_difference": 0.0, "fixed_ratio_slope_difference": 0.0}, "2k+1": {"rows": 90, "integer_counts_identical": true, "max_relative_difference_V": 0.0, "extrapolated_constant_difference": 0.0, "envelope_difference": 0.0, "fixed_ratio_slope_difference": 0.0}}
+identity self-test: max relative discrepancy 4.78e-10
+float check of the Euler products: {'k^2+1': 8.803203319377886e-17, 'k^3+2': 2.2120404308736136e-16, '2k+1': 1.0872504112437465e-16, 't': 1.8810203664032935e-16}
+done in 714.1s; wrote /Users/markus/sqf-runs/writeup-zt-neutral/writeup-build-zt-neutral-r4-20261104-151657-315027/manuscript/reproduction.json

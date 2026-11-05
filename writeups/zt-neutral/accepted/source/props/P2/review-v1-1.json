@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "proof.md, equations (1)\u2013(4)",
+  "objection": "No nontrivial gap found. The identity holds over the stated ranges, including q>x and integer endpoints. P1(iv)\u2013(v) are used exactly as stated, and absolute convergence justifies splitting the series. The arithmetic kernel passed 59,400 exact rational checks. No external results are invoked.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "13cce0bfcb16e404fc9b838784724ba450a1875ca1aec56d0337282820578fb0",
+  "proof_hash": "55c57b330210b0e1b81495f77daef71d35020e46a80f8c1ba1f48e4ffbce49c4"
+}

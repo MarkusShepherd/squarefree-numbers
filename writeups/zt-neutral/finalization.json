@@ -1,0 +1,147 @@
+{
+  "finalized_at_utc": "2026-11-05T07:43:19+00:00",
+  "acceptance_sha256": "ec8142e752b818c7966cdcbc18599cb5e2b06b560a0256953b5e9362e8bb05f6",
+  "accepted_bundle_hash": "f61eaccb4036345690cc195d8d1a64e11e19a2cb2ae7b082a84dba9ebdbcfa81",
+  "source_runs_dir": "/Users/markus/sqf-runs/writeup-zt-neutral",
+  "runs": {
+    "writeup-referee-zt-neutral-r1-0-20261103-233124-818603": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r1-1-20261103-233124-818694": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r2-0-20261104-080427-319919": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r2-1-20261104-080427-320009": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r3-0-20261104-144525-568292": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r3-1-20261104-144525-568362": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r4-0-20261104-152853-951148": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-neutral-r4-1-20261104-152853-951223": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-writer-zt-neutral-r1-20261103-223057-178554": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-neutral-r2-20261103-233931-981662": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": "exited 1"
+    },
+    "writeup-writer-zt-neutral-r2-20261104-072245-137752": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-neutral-r3-20261104-083247-093450": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": "exited 1"
+    },
+    "writeup-writer-zt-neutral-r3-20261104-141015-617680": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-neutral-r4-20261104-145640-012812": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-neutral-r5-20261104-154238-055777": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": "exited 1"
+    }
+  },
+  "operator_interventions": "operator-interventions.md",
+  "files": {
+    "run-records/writeup-referee-zt-neutral-r1-0-20261103-233124-818603/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-neutral-r1-0-20261103-233124-818603/_stream.jsonl": "b5d30d95fc20a57f2a2e2d46d2c6f6e4430dc906e9cdf9bb2d2c4d15e6188ad2",
+    "run-records/writeup-referee-zt-neutral-r1-0-20261103-233124-818603/invocation.json": "0713bd9eee2fd831ee83212cd86cbf049a493336c3bea70e7fc5fd3da270cb58",
+    "run-records/writeup-referee-zt-neutral-r1-0-20261103-233124-818603/outcome.json": "5e635d9369e16c215f186cf5a9ea8996193a4bba2fc3de9887be47eae3effb72",
+    "run-records/writeup-referee-zt-neutral-r1-1-20261103-233124-818694/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-neutral-r1-1-20261103-233124-818694/_stream.jsonl": "32e26af3c2add395707587a923d22fbf4674b28670693f3696bf60a2ad7429a6",
+    "run-records/writeup-referee-zt-neutral-r1-1-20261103-233124-818694/invocation.json": "6a6b4f63306f848f105153140824e23c0b69608c74c6214fd392fae2373b3d0d",
+    "run-records/writeup-referee-zt-neutral-r1-1-20261103-233124-818694/outcome.json": "743268580e49d62a88c99d2dc8c66bff4396ef4c6c4c67ed15517390154367f8",
+    "run-records/writeup-referee-zt-neutral-r2-0-20261104-080427-319919/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-neutral-r2-0-20261104-080427-319919/_stream.jsonl": "d0b62bc16094b293291dff039b0a0304050bd2156517d39cb03520a0ca18652e",
+    "run-records/writeup-referee-zt-neutral-r2-0-20261104-080427-319919/invocation.json": "fb057674aaed01dad412d871aa9636ba87fe9f49e22a984cf375d37c7c69c09d",
+    "run-records/writeup-referee-zt-neutral-r2-0-20261104-080427-319919/outcome.json": "2094b67c0ecb54ba5cb1ec92bd8fa033c523177f3e68bb731384d3dd7addd403",
+    "run-records/writeup-referee-zt-neutral-r2-1-20261104-080427-320009/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-neutral-r2-1-20261104-080427-320009/_stream.jsonl": "7a1f597567eabaf2d114ae3f86ac564f32c255f770471235ac7fbf3c448d383f",
+    "run-records/writeup-referee-zt-neutral-r2-1-20261104-080427-320009/invocation.json": "6f8921b3726a3013360141f9916fab71ca4ae77c2a6f3856403bd5482f052a3b",
+    "run-records/writeup-referee-zt-neutral-r2-1-20261104-080427-320009/outcome.json": "f47f7c7fc4c374c44dc883341f5ebf07aad5501ac39b1855c1225e40e4f11b4a",
+    "run-records/writeup-referee-zt-neutral-r3-0-20261104-144525-568292/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-neutral-r3-0-20261104-144525-568292/_stream.jsonl": "a643b6486f7e871b2d5fabe5161221f2f3a30721222032965217b4b7015adecb",
+    "run-records/writeup-referee-zt-neutral-r3-0-20261104-144525-568292/invocation.json": "fff40bbc7020056bcedf606a6eb6230d233e276b583cdfa50e930c9d0fda95da",
+    "run-records/writeup-referee-zt-neutral-r3-0-20261104-144525-568292/outcome.json": "bc45c91d5db8bab50fa77441f7453e7e9176a0ee0e1e4d2dee8222857f261db5",
+    "run-records/writeup-referee-zt-neutral-r3-1-20261104-144525-568362/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-neutral-r3-1-20261104-144525-568362/_stream.jsonl": "047316e442a9bf2641b47b75b8b9cf6bb155cafe62f547cfcb32ab6e1118da0a",
+    "run-records/writeup-referee-zt-neutral-r3-1-20261104-144525-568362/invocation.json": "9580da8249b90f39da9a52e1e69c1fbcf30764725d8f5534a51081c676dff848",
+    "run-records/writeup-referee-zt-neutral-r3-1-20261104-144525-568362/outcome.json": "ea658ece2f67fe1474e18be3fa776a285f0ee8c2c647f9a0679ce04e3cd30228",
+    "run-records/writeup-referee-zt-neutral-r4-0-20261104-152853-951148/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-neutral-r4-0-20261104-152853-951148/_stream.jsonl": "d563fc9e5973fae70db2dbaeefc635c9b33ae4a4ed2317bdd42b2446ca1421c7",
+    "run-records/writeup-referee-zt-neutral-r4-0-20261104-152853-951148/invocation.json": "69c5b68e4adc934441515d2da6eae23545d287e4526790e50b855d8a8d374dbc",
+    "run-records/writeup-referee-zt-neutral-r4-0-20261104-152853-951148/outcome.json": "028afa0d7ec567ef3f303a7bdae9a6fa81867d9de6433a1819829f73c30ce223",
+    "run-records/writeup-referee-zt-neutral-r4-1-20261104-152853-951223/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-neutral-r4-1-20261104-152853-951223/_stream.jsonl": "62b4bdf72e6cb7b2cbc66d58bf39e477b408b0ab8a36c7f71d5d7ddde5a91d73",
+    "run-records/writeup-referee-zt-neutral-r4-1-20261104-152853-951223/invocation.json": "a0de804232a6930bf6ca280dc2aee4bc6c6e8c6f9f3d7ca99455d855879c3e31",
+    "run-records/writeup-referee-zt-neutral-r4-1-20261104-152853-951223/outcome.json": "8f58b4df7ec8372553b4022d1a7030db939923af2558f54a0e8c17478ba3084b",
+    "run-records/writeup-writer-zt-neutral-r1-20261103-223057-178554/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r1-20261103-223057-178554/_stream.jsonl": "0e69cc3ead58a102508fc4ac0f5b9c91ad45cfa85afc5b0263053ce18c537e07",
+    "run-records/writeup-writer-zt-neutral-r1-20261103-223057-178554/invocation.json": "6cafd6b3c35a31a5ee9d9eb0b18190ef76831e871718dd626c53d302deb48772",
+    "run-records/writeup-writer-zt-neutral-r1-20261103-223057-178554/outcome.json": "44d31d829ec8d8a21f279dba6b1ffd653160d64f89beb623d108dc41e59b600f",
+    "run-records/writeup-writer-zt-neutral-r2-20261103-233931-981662/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r2-20261103-233931-981662/_stream.jsonl": "499f0f4b334c1e1e619b9daab53cbdd5723e02af588d7b047664a7f8caed5cd8",
+    "run-records/writeup-writer-zt-neutral-r2-20261103-233931-981662/invocation.json": "0acd54d01c895ada6112e5b381fae875a9237c435784d9c27da5a8c7d324c18b",
+    "run-records/writeup-writer-zt-neutral-r2-20261103-233931-981662/outcome.json": "a073f51dea55c49b763b91f39fb537022fe1c32eb8e59357253b6ad653412cf9",
+    "run-records/writeup-writer-zt-neutral-r2-20261104-072245-137752/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r2-20261104-072245-137752/_stream.jsonl": "5b2de0f967c71112848f19b3b4b70d56881ad2f98869cbcb49cd70c05dd8643f",
+    "run-records/writeup-writer-zt-neutral-r2-20261104-072245-137752/invocation.json": "0acd54d01c895ada6112e5b381fae875a9237c435784d9c27da5a8c7d324c18b",
+    "run-records/writeup-writer-zt-neutral-r2-20261104-072245-137752/outcome.json": "7429c04d6f658533377eeea8284412d9cb4d388bb52650e8c334d9e90ea87db0",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-083247-093450/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-083247-093450/_stream.jsonl": "91e94bff076dc5ad61ec07efadd28115e9abb70de5e05eb5ddd318e7e1601203",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-083247-093450/invocation.json": "ae3ffdf0f68ada603cb98695d1f6e00fa2bfd338becdb71e759d4f71a6dfdc14",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-083247-093450/outcome.json": "9514b7f3acd9a6585a42ac604575b1515e2490c7af170082433fead22454eff9",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-141015-617680/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-141015-617680/_stream.jsonl": "926a9b1eec2c5c01f3d47ccd1c7cb2f4beb76f0b371f6b304533d60c5ffc98e4",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-141015-617680/invocation.json": "f1f505d577d5e56d5f7d5870c158ceb1551b21dd4af24f7033a9e87bb2c24a74",
+    "run-records/writeup-writer-zt-neutral-r3-20261104-141015-617680/outcome.json": "aceeb56a431717f2b0f4b8cc39d0d3a0c253605ff7e455e05340b16c51074e2b",
+    "run-records/writeup-writer-zt-neutral-r4-20261104-145640-012812/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r4-20261104-145640-012812/_stream.jsonl": "17868be3892925969abb2720dd17dc7cb9719f9aceb31f7fccc11e559ff06aab",
+    "run-records/writeup-writer-zt-neutral-r4-20261104-145640-012812/invocation.json": "20e27b272da55d88adfa268f949704500727a483e1bd9778f326dc3cc637313a",
+    "run-records/writeup-writer-zt-neutral-r4-20261104-145640-012812/outcome.json": "e26d4711890710efc24c3e5115c18adba9cf64d5f5621e2553d1785475f59461",
+    "run-records/writeup-writer-zt-neutral-r5-20261104-154238-055777/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-neutral-r5-20261104-154238-055777/_stream.jsonl": "7338f7b1d6feb337514568bd6bc34388726755e3dbdddd9815ffa2c8e6055fba",
+    "run-records/writeup-writer-zt-neutral-r5-20261104-154238-055777/invocation.json": "6ed80f58c7f48e8cd659b5cc757940b5535eb5cd59336fdd994570e9f892c330",
+    "run-records/writeup-writer-zt-neutral-r5-20261104-154238-055777/outcome.json": "f51f71944cc2832e4ec8433dbb4e1b93044c95fa15845dad68be808090b86f00",
+    "operator-interventions.md": "5d134f9beab0c273ab21af9bbad290b511f726408bded179437f2d864c29a18a"
+  }
+}
