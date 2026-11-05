@@ -152,3 +152,60 @@ notes above are historical; no proof run is active in this worktree.
   24 artifacts against the unchanged problem. Read-only planning preflight
   resolved the shared hint for Opus and Sol without creating a run directory.
   Additional harness-agent usage/cost: zero.
+
+## Thesis-plan planning review (4 Nov 2026)
+
+- Current config is now `thesis-plan`, host mode, with external runs directory
+  `~/sqf-runs/squarefree-numbers-thesis`. The accepted numerics and corpus have
+  been supplied. Markus ran planning; both expected plans exist. No plan is
+  selected and no proving has started.
+- Opus (`plans/thesis.md`): 9 propositions; added hypothesis that f has no
+  repeated irreducible factor; cruxes P7 (sparse arithmetic averaging) and P8
+  (Mellin evaluation). Proposed asymptotic range has lower exponent
+  max(13/15, d/(d+1)), with f(y)/x tending to zero.
+- Sol (`plans/thesis@gpt-6.1-sol.md`): 7 propositions; original polynomial class;
+  cruxes P4 (polynomial averaging) and P5 (Dirichlet series/residues). Supplies
+  a fixed-ratio profile and a constant asymptotic with lower exponent
+  1 - 2 min(1/5,1/(4d-1))/3. P3 also requires a uniform correlation adaptation.
+  Both plans claim agreement with the existing numerical evidence; these are
+  unproved contracts, not accepted results.
+- Checks: status reports 3 invocations, Claude $4.56 and Codex 26,956 output
+  tokens. First Claude invocation failed at the session limit after 3 seconds;
+  successful retry took 2016 seconds (33m36s), Sol took 649 seconds (10m49s).
+  No new agent invocation was made during this operator review.
+- check-leaks: 3 hits, all from Claude's own persisted/background tool-output
+  paths containing the project name; no excluded source content found in
+  those contexts. Both Claude planner streams have 0 hook_started events.
+  Sol's one native search queried the supplied 1998 and 2011 paper titles;
+  it reports an unrelated 2015 metadata result, unopened and unused. Opus
+  made no web search/fetch calls. Await Markus's plan choice.
+
+## Thesis-plan proof status (4 Nov 2026)
+
+- Markus selected the Sol plan and reports completion of proving. Operator
+  status check confirms P1–P7 all passed in round 1 with current approvals.
+- Status totals: 42 agent invocations; Claude $7.64; 23 Codex invocations,
+  173,458 output tokens. This includes failed attempts and retries.
+- Full leak scan: 10 hits. Contexts are Claude persisted/background tool
+  paths and a referee compliance note naming excluded sources; no excluded
+  source content is shown in these contexts.
+- Next stage is integration by both configured integrators, followed by
+  comparing their reports and numerical-constant checks. Integration has not
+  been launched by the operator; no archive/commit/push action is authorised.
+
+## Thesis-plan integration complete (5 Nov 2026)
+
+- Markus reports integration, leak scan and status all good. Operator read
+  both independent integration reports: Opus and Sol agree on the theorem,
+  profile, constant, errors and asymptotic range, with no loss versus Sol's
+  plan. Opus's minor interface notes are resolved within the supplied proofs.
+  Both constants agree with the numerical uncertainty bands; Opus additionally
+  diagnoses extrapolation-fit bias using the predicted profile.
+- Current status: P1–P7 passed in round 1; integration is not marked stale.
+  Totals: 44 agent invocations; Claude $9.46; 24 Codex invocations with
+  185,060 output tokens. The final leak scan has 11 hits, consisting of
+  tool-output paths and a referee compliance note naming excluded sources.
+- Integration codex:gpt-6.1-sol: 260 seconds; failure: none.
+- Integration claude-opus-5-5: 384 seconds; failure: none.
+- Markus authorised committing the current worktree state before archiving.
+  Archive label proposed: `zt-thesis-plan`. No archive or push performed.

@@ -1,5 +1,5 @@
 {
-  "variant": "neutral",
+  "variant": "thesis-plan",
   "variants": {
     "neutral": {
       "hints": [
@@ -23,7 +23,7 @@
       ]
     }
   },
-  "runs_dir": "~/sqf-runs/squarefree-numbers",
+  "runs_dir": "~/sqf-runs/squarefree-numbers-thesis",
   "backends": [
     "claude",
     "codex"
