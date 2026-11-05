@@ -147,3 +147,24 @@ change mathematical statements on the basis of this audit alone.
 - Final validation: all 76 tests passed in 100.417 seconds, including acceptance,
   finalization, offline verification and acceptance during a later revision.
   No live acceptance/finalization was performed; main's results are untouched.
+
+## Finalized write-up tracking development (5 Nov 2026)
+
+- Worktree `.worktrees/writeup-stage`, branch `writeup/stage`, based on merged
+  MR !22 at 60b6c9b. Main's write-up files and index remain untouched.
+- Static `writeups/.gitignore` keeps accepted packages and their audit trails;
+  intermediate rounds, scratch files and working checkpoints remain local.
+  Ordinary `git add writeups/<label>/` selects the preserved package. Removed
+  the proposed custom staging command and all temporary-index handling.
+- Initial finalization still checks original round/input hashes. Verification
+  of finalized packages and repeat finalization use only preserved evidence;
+  they no longer require working round directories or root input files.
+- Regressions use ordinary Git to stage a fixture package and export a clean
+  checkout; offline verification and repeat finalization pass after deleting
+  external runs. Also verifies packaged input corruption is rejected and a
+  normal invocation still stops at accepted status without working inputs.
+- Validation: all 78 dry-run tests passed in 84.955 seconds. All 25 focused
+  tests passed in 3.983 seconds after the final retry/path checks.
+  `git diff --check` passed.
+- Implementation remains uncommitted. No live staging, model calls, commits,
+  pushes or MR; main remains untouched.

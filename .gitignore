@@ -144,7 +144,7 @@ papers/*
 /report/
 /plan.json
 
-# Archives and write-ups are committed whole, including their logs
+# Preserve logs in archives and finalized write-up packages
 !/archive/**/*.log
 !/writeups/**/*.log
 
