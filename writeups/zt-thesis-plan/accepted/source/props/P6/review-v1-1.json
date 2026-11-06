@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "",
+  "objection": "No nontrivial gap found. The contour estimates, Euler-factor bounds, residues, and summation interchanges establish all stated ranges and uniform errors. P5 is used as stated. The quotations and hypotheses match H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I. Classical Theory (2007), Corollaries 10.4\u201310.5, https://doi.org/10.1017/CBO9780511618314.012.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "ceca574a9100a224614a85b910ccf134d624c02af79f05d8576b9719f99a86be",
+  "proof_hash": "e81be306a9dc867abe1a16225d1cde9da29ff9ac528c18e8de1b1dcd60f20822"
+}

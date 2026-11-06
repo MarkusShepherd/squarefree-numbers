@@ -1,0 +1,110 @@
+\chapter{The Dirichlet series of the averaged singular series}\label{ch:dirichlet}
+
+The averaged singular series $W_f(h)$ is a product of local factors that depend only on whether $p\nmid h$, $p\parallel h$ or $p^2\mid h$. Its Dirichlet series therefore factors as $\zeta(s)$ times an Euler product, and a second factorisation exhibits a pole of $\zeta(2s+2)$ at $s=-\frac12$. This pole, which is invisible in the region of absolute convergence, produces the main term of \cref{thm:main}. (Archived source: proposition P5, a crux of the plan.)
+
+\section{Facts about the zeta function}
+
+\begin{lemma}\label{lem:zeta}
+\begin{enumerate}[label=(\alph*)]
+\item For every integer $N\ge1$ and $\re w>0$, $w\ne1$,
+\begin{equation}\label{eq:zeta-N}
+\zeta(w)=\sum_{n\le N}n^{-w}+\frac{N^{1-w}}{w-1}-w\int_N^\infty\{u\}u^{-w-1}\dd u.
+\end{equation}
+In $\re w>0$ the only pole of $\zeta$ is a simple pole at $w=1$ with residue $1$, and $\lim_{w\to1}\bigl(\zeta(w)-\frac1{w-1}\bigr)=\gamma_E$, Euler's constant.
+\item Let $\mathcal B_2(u)=\{u\}^2-\{u\}+\frac16$. The formula
+\begin{equation}\label{eq:zeta-B2}
+\zeta(w)=\frac1{w-1}+\frac12+\frac w{12}-\frac{w(w+1)}2\int_1^\infty\mathcal B_2(u)u^{-w-2}\dd u
+\end{equation}
+continues $\zeta$ meromorphically to $\re w>-1$, with the single pole at $w=1$. In particular $\zeta(0)=-\frac12$ and $-\frac14\le\zeta(-\frac12)\le-\frac16$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) For $\re w>1$ write $\sum_{n>N}n^{-w}=\int_N^\infty u^{-w}\dd\lfloor u\rfloor$, replace $\lfloor u\rfloor=u-\{u\}$, and integrate the second part by parts; the boundary term at $N$ vanishes because $\{N\}=0$. This gives \eqref{eq:zeta-N}. The integral converges absolutely and locally uniformly for $\re w>0$ because $0\le\{u\}<1$, which gives the continuation and the description of the pole. Subtracting $1/(w-1)$ and letting $w\to1$ gives $\sum_{n\le N}n^{-1}-\log N-\int_N^\infty\{u\}u^{-2}\dd u$. The integral lies in $[0,1/N]$, and letting $N\to\infty$ gives $\gamma_E$ by its definition as $\lim(\sum_{n\le N}n^{-1}-\log N)$.
+
+(b) With $N=1$, \eqref{eq:zeta-N} becomes $\zeta(w)=\frac1{w-1}+\frac12-w\int_1^\infty(\{u\}-\frac12)u^{-w-1}\dd u$. The function $\mathcal B_2$ is continuous, satisfies $|\mathcal B_2|\le\frac16$, and has derivative $2(\{u\}-\frac12)$ between integers. Integration by parts over $[1,T]$ for integers $T\ge2$ gives
+\[
+\int_1^T\Bigl(\{u\}-\frac12\Bigr)u^{-w-1}\dd u=\frac{T^{-w-1}-1}{12}+\frac{w+1}2\int_1^T\mathcal B_2(u)u^{-w-2}\dd u,
+\]
+and letting $T\to\infty$ for $\re w>1$ yields \eqref{eq:zeta-B2}. The last integral and its $w$-derivatives are dominated on $\re w\ge\sigma_0>-1$ by $(\log u)^mu^{-\sigma_0-2}/6$, so the integral is holomorphic for $\re w>-1$. At $w=0$ the formula gives $-1+\frac12=-\frac12$. At $w=-\frac12$ it gives $\zeta(-\frac12)=-\frac5{24}+\frac18\int_1^\infty\mathcal B_2(u)u^{-3/2}\dd u$, and the integral has modulus at most $\frac16\cdot2=\frac13$.
+\end{proof}
+
+\section{The local factors}
+
+For each prime $p$ put
+\begin{equation}\label{eq:abd}
+\alpha_p=1-\frac2{p^2}+\frac{\rho(p^2)}{p^4},\qquad
+\beta_p=\frac{\rho(p)}{p^3}-\frac{\rho(p^2)}{p^4},\qquad
+\delta_p=\frac1{p^2}-\frac{\rho(p)}{p^3}.
+\end{equation}
+By \eqref{eq:W-intro}, $w_p(h)$ equals $\alpha_p$, $\alpha_p+\beta_p$ or $\alpha_p+\beta_p+\delta_p$ according as $p\nmid h$, $p\parallel h$ or $p^2\mid h$. By \cref{lem:rho} (with $C_\rho=\max\{d,|A_d|\}$),
+\begin{equation}\label{eq:abd-bounds}
+1-\frac2{p^2}\le\alpha_p\le1,\quad0\le\beta_p\le\frac{\rho(p)}{p^3}\le\frac{C_\rho}{p^3},\quad0\le\delta_p\le\frac1{p^2},\quad\alpha_p+\beta_p+\delta_p=1-\frac1{p^2}.
+\end{equation}
+Here $\beta_p\ge0$ because $\rho(p^2)\le p\rho(p)$, $\delta_p\ge0$ because $\rho(p)\le p$, and $\alpha_p\le1$ because $\rho(p^2)\le p^2$. Define
+\begin{equation}\label{eq:LM}
+L_p(s)=\alpha_p+\beta_pp^{-s}+\delta_pp^{-2s},\qquad
+M_p(s)=\bigl(1-p^{-2s-2}\bigr)L_p(s),
+\end{equation}
+and $P_f(s)=\prod_pL_p(s)$, $H_f(s)=\prod_pM_p(s)$. In the notation of the archived proposition, $L_p(s)=(1-2p^{-2})B_p(s)$ with $B_p(s)=a_p+(b_p-a_p)p^{-s}+(c_p-b_p)p^{-2s}$, $a_p=1+\rho(p^2)/(p^2(p^2-2))$, $b_p=1+\rho(p)/(p(p^2-2))$, $c_p=1+1/(p^2-2)$. Expanding the product, with $z=p^{-s}$,
+\begin{equation}\label{eq:M-expand}
+M_p(s)=\alpha_p+\beta_pz+\bigl(\delta_p-\alpha_pp^{-2}\bigr)z^2-\beta_pp^{-2}z^3-\delta_pp^{-2}z^4,\qquad
+\delta_p-\alpha_pp^{-2}=-\frac{\rho(p)}{p^3}+\frac2{p^4}-\frac{\rho(p^2)}{p^6}.
+\end{equation}
+The cancellation of the terms $\pm p^{-2}$ in the coefficient of $z^2$ is what allows $H_f$ to converge beyond $\re s=-\frac12$.
+
+\section{The factorisation}
+
+\begin{proposition}\label{prop:Df}
+\begin{enumerate}[label=(\alph*)]
+\item The series $D_f(s)=\sum_hW_f(h)h^{-s}$ converges absolutely for $\re s>1$.
+\item The products $P_f$ and $H_f$ converge absolutely and locally uniformly, and define holomorphic functions, on $\re s>-\frac12$ and $\re s>-\frac34$ respectively. For every fixed $\sigma>-\frac34$ there is $C(f,\sigma)$ with $|H_f(\sigma+it)|\le C(f,\sigma)$ for all real $t$.
+\item For $\re s>1$, $D_f(s)=\zeta(s)P_f(s)=\zeta(s)\zeta(2s+2)H_f(s)$. The function $\zeta(s)\zeta(2s+2)H_f(s)$ continues $D_f$ meromorphically to $\re s>-\frac34$, and its only possible poles there are simple poles at $s=1$ and $s=-\frac12$.
+\item $R_f=\Res_{s=1}D_f(s)=P_f(1)$. Moreover $R_f=\widetilde R_f$, where $\widetilde R_f$ is the series of \cref{lem:W-basic}, and \eqref{eq:R-intro} holds. Moreover $B_f=(\gamma_E-\frac32)R_f+P_f'(1)$, and $R_f>0$.
+\item $D_f(0)=-\frac1{2\zeta(2)}=-\frac c2$.
+\item We have $\Res_{s=-1/2}D_f(s)=\frac12\zeta(-\frac12)H_f(-\frac12)$, and hence
+\[
+K_f=-\tfrac83\,\zeta(-\tfrac12)\,H_f(-\tfrac12).
+\]
+Moreover $H_f(-\frac12)>0$ and $K_f>0$, and $K_f$ is given by the absolutely convergent product \eqref{eq:K-intro}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) By \cref{lem:W-basic}, $0<W_f(h)\le1$, so $\sum_h|W_f(h)h^{-s}|\le\sum_hh^{-\re s}$.
+
+(b) For $\re s\ge\sigma$, \eqref{eq:abd-bounds} gives $|L_p(s)-1|\le2p^{-2}+C_\rho p^{-3-\sigma}+p^{-2-2\sigma}$. If $\sigma>-\frac12$ all exponents exceed one, so by \cref{lem:sums}(c) the sum over $p$ converges uniformly on $\re s\ge\sigma$, and \cref{lem:products} applies. For $M_p$, \eqref{eq:M-expand} and \eqref{eq:abd-bounds} give, for $\re s\ge\sigma$,
+\[
+|M_p(s)-1|\le\frac2{p^2}+\frac{C_\rho}{p^{3+\sigma}}+\Bigl(\frac{C_\rho}{p^3}+\frac2{p^4}+\frac{C_\rho}{p^5}\Bigr)p^{-2\sigma}+\frac{C_\rho}{p^{5+3\sigma}}+\frac1{p^{4+4\sigma}}.
+\]
+For $\sigma>-\frac34$ the exponents $2$, $3+\sigma$, $3+2\sigma$, $4+2\sigma$, $5+2\sigma$, $5+3\sigma$ and $4+4\sigma$ all exceed one. Hence $\sum_p\sup_{\re s\ge\sigma}|M_p(s)-1|=:E_H(\sigma)<\infty$, and \cref{lem:products} gives absolute and locally uniform convergence, holomorphy, and $|H_f(\sigma+it)|\le\exp(E_H(\sigma))$ for all $t$.
+
+(c) By \cref{lem:W-basic}, $W_f(1)=\prod_p\alpha_p>0$, and $u(h)=W_f(h)/W_f(1)$ is multiplicative with $u(p)=(\alpha_p+\beta_p)/\alpha_p$ and $u(p^e)=(\alpha_p+\beta_p+\delta_p)/\alpha_p$ for $e\ge2$. For $\re s>1$ and $z=p^{-s}$ its local series is
+\[
+1+\frac{\alpha_p+\beta_p}{\alpha_p}z+\frac{\alpha_p+\beta_p+\delta_p}{\alpha_p}\cdot\frac{z^2}{1-z}=\frac{\alpha_p+\beta_pz+\delta_pz^2}{\alpha_p(1-z)}=\frac{L_p(s)}{\alpha_p(1-p^{-s})}.
+\]
+Since $\sum_h|u(h)h^{-s}|<\infty$, \cref{lem:euler} gives $\sum_hu(h)h^{-s}=\prod_pL_p(s)\alpha_p^{-1}(1-p^{-s})^{-1}$. Multiplying by the convergent product $W_f(1)=\prod_p\alpha_p$ and using the Euler product of $\zeta$ gives $D_f(s)=\zeta(s)P_f(s)$; the limits of partial products multiply. For $\re s>-\frac12$ we have $\re(2s+2)>1$, so $\prod_p(1-p^{-2s-2})^{-1}=\zeta(2s+2)$ converges absolutely, and multiplying the products gives $P_f(s)=\zeta(2s+2)H_f(s)$. By \cref{lem:zeta}(b), $\zeta(s)$ and $\zeta(2s+2)$ are meromorphic for $\re s>-\frac34$, since then $\re s>-1$ and $\re(2s+2)>\frac12$. Their only poles there are at $s=1$ and at $2s+2=1$, both simple. Since $H_f$ is holomorphic, $\zeta(s)\zeta(2s+2)H_f(s)$ is the required continuation.
+
+(d) Since $P_f$ is holomorphic near $1$ and $\zeta(s)=\frac1{s-1}+\gamma_E+O(s-1)$ by \cref{lem:zeta}(a), we have $D_f(s)=\frac{P_f(1)}{s-1}+\gamma_EP_f(1)+P_f'(1)+O(s-1)$. This gives $R_f=P_f(1)$ and the formula for $B_f$ from \eqref{eq:RBK}. Substituting \eqref{eq:abd},
+\[
+L_p(1)=\alpha_p+\frac{\beta_p}p+\frac{\delta_p}{p^2}=1-\frac2{p^2}+\frac1{p^4}+\frac{(1-1/p)(\rho(p)+\rho(p^2))}{p^4}
+=\Bigl(1-\frac1{p^2}\Bigr)^2\bigl(1+T_p\bigr),
+\]
+with $T_p=(1-1/p)(\rho(p)+\rho(p^2))/(p^2-1)^2\ge0$. By \cref{lem:rho}(d) and $p^2-1\ge\frac34p^2$, $T_p\le\frac{16C_\rho}9(p^{-3}+p^{-4})$, which is summable. Using \eqref{eq:c-euler}, $R_f=\zeta(2)^{-2}\prod_p(1+T_p)>0$, which is \eqref{eq:R-intro}. For the identification with $\widetilde R_f$, note that $\lambda(r)\rho(r)/r=c^2v(r)$, where $v$ is the nonnegative multiplicative function supported on cube-free integers with
+\[
+v(p)=\frac{(1-1/p)\rho(p)}{(p^2-1)^2},\qquad v(p^2)=\frac{\varphi(p^2)\rho(p^2)}{p^2(p^2-1)^2}=\frac{(1-1/p)\rho(p^2)}{(p^2-1)^2},
+\]
+using \cref{lem:rho}(a) for multiplicativity of $\rho$. Thus $1+v(p)+v(p^2)=1+T_p$. Since $\sum_rv(r)<\infty$ by \cref{lem:W-basic}, \cref{lem:euler} gives $\widetilde R_f=c^2\prod_p(1+T_p)=R_f$.
+
+(e) $L_p(0)=\alpha_p+\beta_p+\delta_p=1-p^{-2}$, so $P_f(0)=c$ by \eqref{eq:c-euler}. The identity $D_f=\zeta P_f$ persists on $\re s>-\frac12$ by (c), and both factors are regular at $0$; by \cref{lem:zeta}(b), $D_f(0)=\zeta(0)c=-c/2$.
+
+(f) Near $s=-\frac12$, $\zeta(2s+2)=\frac{1/2}{s+1/2}+O(1)$, while $\zeta(s)$ and $H_f(s)$ are holomorphic. This gives the residue, and the formula for $K_f$ follows from \eqref{eq:RBK}. At $s=-\frac12$,
+\[
+M_p(-\tfrac12)=\Bigl(1-\frac1p\Bigr)\bigl(\alpha_p+\beta_p\sqrt p+\delta_pp\bigr)=\Bigl(1-\frac1p\Bigr)\Bigl(1+\frac1p-\frac{2+\rho(p)}{p^2}+\frac{\rho(p)}{p^{5/2}}-\frac{\rho(p^2)}{p^{7/2}}+\frac{\rho(p^2)}{p^4}\Bigr),
+\]
+by direct substitution of \eqref{eq:abd}. This is positive because $\alpha_p>0$ and $\beta_p,\delta_p\ge0$. The deviations $|M_p(-\frac12)-1|$ are summable by (b), so \cref{lem:products}(c) gives $H_f(-\frac12)>0$, and \cref{lem:zeta}(b) gives $\zeta(-\frac12)<0$. Hence $K_f>0$, and \eqref{eq:K-intro} is the product $H_f(-\frac12)=\prod_pM_p(-\frac12)$, with the factors at each prime kept together.
+\end{proof}
+
+\begin{remark}
+Both poles in (c) are genuine, since $R_f>0$ and $K_f>0$. The value $D_f(0)=-c/2$ is essential: in \cref{ch:mellin} it produces the term $+cH$ in the expansion of $\Theta_f(H)$, which cancels the diagonal term $cx(Y-Z)$ of \cref{prop:reduction}. The identity $R_f=\widetilde R_f$ makes the logarithmic terms cancel as well.
+\end{remark}

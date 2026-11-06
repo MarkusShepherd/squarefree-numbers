@@ -1,0 +1,27 @@
+{
+  "accepted_snapshot": "a5a325174de9779c6d8d1ddcd4159a709fd398e347d9cf81f538ca460fa56793",
+  "artifacts": {
+    "generated/constants.tex": "792e9b46cfcf9c159614e86b8f46c6685b7dbc42507ae1f73225bd424d7ba35c",
+    "generated/tab_constants.tex": "6690f7a2a6ab0abd9a64f55783955d3a72bea4032caf95513553853df7d585bb",
+    "generated/tab_truncation.tex": "f052dd65721fecd42af59522a41b1fb6a62bab06cef67c148db276ecd6abfa26",
+    "generated/tab_theta.tex": "af19f43942b4d95ba60196ff098992b1bb6a929c9bb664c64de382ab4af14562",
+    "generated/tab_profile.tex": "852c66e093e0e923b9dea7a230a92486a26b4f6c818989efed6319676b794154",
+    "generated/tab_extrapolation.tex": "2e07f50f6300e93bacb5d060582d02a4a22c64b8da9038edf5f6ad40303e8b93",
+    "generated/tab_fits.tex": "d5bf9582bf7106c1f3bf1ded9e071cfa99b87dd2a5d4230c3b3e130fe33a28bf",
+    "generated/tab_normalised_t2.tex": "866a54f59e10cedf4cd289397746308011a80f9bb3e21ccde8493b1b582dccc7",
+    "generated/tab_normalised_t3.tex": "6080c27397f377db358e88a4aa31b37d974eb26b89b3413ba60794967c31f599",
+    "generated/tab_normalised_lin.tex": "5d7f7c6d9eb35d3bc73be9641feb18aed1593b889fff18ed459729a9e0362d00",
+    "generated/curve_t2.dat": "60928f5b3538f53ca5daedc47e77e5a7dc2cb0fd6972770e1cffb153bae0d89a",
+    "generated/data_t2.dat": "e2039ce4a6f5a0d07bc015b002628357e1c6a6b060f9c2f3fc277de83983ab96",
+    "generated/deviation_t2.dat": "4efe4f5a161ad17f720b8ef68b9287eb2f46c9d827b5d993bb3225e7c5d6e375",
+    "generated/curve_t3.dat": "384f69adfd76ffcbb610d17d6928f75ff68bf717396f857cf1fd619e52b28ae1",
+    "generated/data_t3.dat": "dc50b040f2d89a0fe29482ec31748be09b1412ea5f167b2d2b15456c470d1bf7",
+    "generated/deviation_t3.dat": "ec5b3643b1ca7644301cbb83252a8b03a158124235f09182bcd79411f9b2ba96",
+    "generated/curve_lin.dat": "3aa590daaa13b32a59ca519ed3927c7ae87533d1bdc3b60e4c0fea89fe9e91cb",
+    "generated/data_lin.dat": "75669ac8c99f43b9b0ddeb23870a81d44cbce92d607b0e7f0ed36496d7ff05a7",
+    "generated/deviation_lin.dat": "dcb271c5afe1470f600c57566f75cf58ed0d5b1ab1d67e617297357a69d4a407",
+    "generated/fig_profile.tex": "67d2f645233834d2011c68f0b7887c4b15e0c39c45530bcb2ccc84b5502bc8e1",
+    "generated/fig_deviation.tex": "0cb4055ddf8b8cfa66df2a83febd971e411fef3a0f25e65b1bd98b50ad619a67"
+  },
+  "pdf": "5e2d2df069f85d2f635635010aeec7d39744be8885bacc1447b2bd1146ab11a2"
+}

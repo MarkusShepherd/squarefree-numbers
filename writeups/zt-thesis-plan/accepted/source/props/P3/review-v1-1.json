@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "",
+  "objection": "No nontrivial gap found. The proof establishes the stronger absolute bound O(x^{4/5}), uniformly in m, including when x\u2212m is bounded or zero. The truncation errors, congruence counts, and absolutely convergent Euler product are justified. No external results or dependencies are used.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "1360c4e8fef4c0fe67cb14d454b082a01cecde1fb9a16547917fbf343d7ea986",
+  "proof_hash": "bc0a65cb946da1ec5030bfcd5bc1579613a8363bba3ec9982440741bd2d4a1b2"
+}

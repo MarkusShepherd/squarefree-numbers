@@ -1,0 +1,147 @@
+{
+  "finalized_at_utc": "2026-11-06T05:48:26+00:00",
+  "acceptance_sha256": "117377bc2594bc4310545807e265b0e3893f6f84e99432c71d4fe54066836560",
+  "accepted_bundle_hash": "fabadae7abe501422aa0f237cccd24d3bc36b716bb9c5cab5e4566f5b676cf51",
+  "source_runs_dir": "/Users/markus/sqf-runs/squarefree-numbers-thesis",
+  "runs": {
+    "writeup-referee-zt-thesis-plan-r2-0-20261105-120059-855636": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": "exited 1"
+    },
+    "writeup-referee-zt-thesis-plan-r2-0-20261105-152111-814828": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r2-1-20261105-120059-855725": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r3-0-20261105-155919-018992": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": "exited 1"
+    },
+    "writeup-referee-zt-thesis-plan-r3-0-20261106-001723-989304": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r3-1-20261105-155919-019067": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r4-0-20261106-010006-147359": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r4-1-20261106-010006-147464": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r5-0-20261106-012802-106702": {
+      "role": "writeup_referee",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-referee-zt-thesis-plan-r5-1-20261106-012802-106799": {
+      "role": "writeup_referee",
+      "model": "codex:gpt-6.1-sol",
+      "failure": null
+    },
+    "writeup-writer-zt-thesis-plan-r1-20261105-102749-441524": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-thesis-plan-r2-20261105-113302-897941": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-thesis-plan-r3-20261105-153125-087472": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-thesis-plan-r4-20261106-002626-171422": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    },
+    "writeup-writer-zt-thesis-plan-r5-20261106-010853-670343": {
+      "role": "writer",
+      "model": "claude-opus-5-5",
+      "failure": null
+    }
+  },
+  "operator_interventions": "operator-interventions.md",
+  "files": {
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-120059-855636/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-120059-855636/_stream.jsonl": "8df2f3504dbdd660b2f3d91b713dca8e137e739d3606569343bff4a5b9558b2b",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-120059-855636/invocation.json": "defe4ae100b8b2e1e6a8eea8dbb8313b9676403b66c434aedf8fa7ca246b1655",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-120059-855636/outcome.json": "1d2578ffe63585e4cbf41b668ee32b6558dc38637ebfd961c1d6f7f9231da810",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-152111-814828/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-152111-814828/_stream.jsonl": "f41c84e429e6df0cfd0cc261650ece94525c6e6cd88e41b4513254fd9fed2908",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-152111-814828/invocation.json": "78efda80d152d12b936e4494e9af78c87bb3c78c8f457cdcdae040d8a16e4a23",
+    "run-records/writeup-referee-zt-thesis-plan-r2-0-20261105-152111-814828/outcome.json": "fae99b452bd9f112f182b62e3ab8fffc28beaa51e6b1cb744c93432e99aca968",
+    "run-records/writeup-referee-zt-thesis-plan-r2-1-20261105-120059-855725/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-thesis-plan-r2-1-20261105-120059-855725/_stream.jsonl": "de3dc526e549d0ed9bb4e405da8ee357df80d51115bfc8382474d19053571342",
+    "run-records/writeup-referee-zt-thesis-plan-r2-1-20261105-120059-855725/invocation.json": "225840cb904addf0449631cb61523707081fc93762c7781f454759d77eabeb41",
+    "run-records/writeup-referee-zt-thesis-plan-r2-1-20261105-120059-855725/outcome.json": "f58ca6fd750537dbaf32c8a1339b04e94af63497187a484cb3d92613ffefb9fe",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261105-155919-018992/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261105-155919-018992/_stream.jsonl": "52cf641d862eb56a6e1422d557aa760370e04cd33ba2e87b85d1d44c643045cb",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261105-155919-018992/invocation.json": "279bc53d1811cbb87dc15b00401df2e02ff17314ec6fa4175064a2086b0f8787",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261105-155919-018992/outcome.json": "20c96ac120bd87ff5722326db784c20b90ef1f3b025014de41f9b30696612d67",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261106-001723-989304/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261106-001723-989304/_stream.jsonl": "2c90e3f0f43366ebb13efa70361f0f0ec31a4273b6f7b897d4663cf9f25b94db",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261106-001723-989304/invocation.json": "320e44f37797c1e2cd67ece1b877a5f51a605efa236ebf0124a5eb25f286f6e5",
+    "run-records/writeup-referee-zt-thesis-plan-r3-0-20261106-001723-989304/outcome.json": "ec247a8e8fbfa069ef2477051af92686c09a832032cf4bf1a27632d63d9d15e5",
+    "run-records/writeup-referee-zt-thesis-plan-r3-1-20261105-155919-019067/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-thesis-plan-r3-1-20261105-155919-019067/_stream.jsonl": "e5f0bee4252036ea43251f02a96a864f1f72af216828fbb79cda0441448cd311",
+    "run-records/writeup-referee-zt-thesis-plan-r3-1-20261105-155919-019067/invocation.json": "640170e1dce6abc88105453c8d93ee04d2f5c39822a48fa601fbcb699f6b68f4",
+    "run-records/writeup-referee-zt-thesis-plan-r3-1-20261105-155919-019067/outcome.json": "5509db7804f53a979aee22341c0af1738d5190a38740f3ef7a243cd1cdb38103",
+    "run-records/writeup-referee-zt-thesis-plan-r4-0-20261106-010006-147359/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-thesis-plan-r4-0-20261106-010006-147359/_stream.jsonl": "ab3eaae8c1caaa6a3807e8b4f87c47dc61cdd06d97665700e90f93c439454935",
+    "run-records/writeup-referee-zt-thesis-plan-r4-0-20261106-010006-147359/invocation.json": "9738c92adf78f06fe7efb5a1650b8124aa5e9491b32ca0b47fcc31e8946c1cc7",
+    "run-records/writeup-referee-zt-thesis-plan-r4-0-20261106-010006-147359/outcome.json": "2b2e97baa01112fab20c76402caaf64c93788b85d9f7d2b5187155d3c76750e8",
+    "run-records/writeup-referee-zt-thesis-plan-r4-1-20261106-010006-147464/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-thesis-plan-r4-1-20261106-010006-147464/_stream.jsonl": "b13e2b6c5cf8e591dd5aac7d2d50b21680a56bddf2e57f8729650747cfa6f0ed",
+    "run-records/writeup-referee-zt-thesis-plan-r4-1-20261106-010006-147464/invocation.json": "0471bdefaf48bf7ee9a60730be6f2b9027c0a767849b497bbd9ed5fb88b6686a",
+    "run-records/writeup-referee-zt-thesis-plan-r4-1-20261106-010006-147464/outcome.json": "77fee612819bc396b51bf4999d1666ef3104d95f9c0b0c3fffb447300a6778c9",
+    "run-records/writeup-referee-zt-thesis-plan-r5-0-20261106-012802-106702/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-referee-zt-thesis-plan-r5-0-20261106-012802-106702/_stream.jsonl": "f44e663a3d981d72379ad1f5859d1f970a2c1c71cbe21479d724265ef7bca7d6",
+    "run-records/writeup-referee-zt-thesis-plan-r5-0-20261106-012802-106702/invocation.json": "46be653196ba68586ecc62b1106b5a411bf643592dc0e5a201ac1bd728fb8aa7",
+    "run-records/writeup-referee-zt-thesis-plan-r5-0-20261106-012802-106702/outcome.json": "ba9ed4de97fc3618fc7c7232197d7f003ed537c12129cd18c25a8a0df44e179a",
+    "run-records/writeup-referee-zt-thesis-plan-r5-1-20261106-012802-106799/_stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "run-records/writeup-referee-zt-thesis-plan-r5-1-20261106-012802-106799/_stream.jsonl": "d8c13eda53b4afa6c1fb255bdc3641bdc03051eb28258f5a91ea4fab6a82c768",
+    "run-records/writeup-referee-zt-thesis-plan-r5-1-20261106-012802-106799/invocation.json": "d52ba01d0bf07d7bcdfbd2d24f88ba9f78a3717808802941b0036d276c7864fe",
+    "run-records/writeup-referee-zt-thesis-plan-r5-1-20261106-012802-106799/outcome.json": "66fbc50fea404c24cb8376e5000f4ba845c90dd137ca50e67a7f881c733fb960",
+    "run-records/writeup-writer-zt-thesis-plan-r1-20261105-102749-441524/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-thesis-plan-r1-20261105-102749-441524/_stream.jsonl": "134d9edf9f050be3c676c600471b1977872471cea90eede6997ec0117821a205",
+    "run-records/writeup-writer-zt-thesis-plan-r1-20261105-102749-441524/invocation.json": "86eb57d19807d16de507504342cace5d6c0cf689efdf3d38c8ef18db3f37b0dc",
+    "run-records/writeup-writer-zt-thesis-plan-r1-20261105-102749-441524/outcome.json": "d44578800a10bb744eb6791c728b29e46c33da76c1db3401034a44a0676db3b9",
+    "run-records/writeup-writer-zt-thesis-plan-r2-20261105-113302-897941/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-thesis-plan-r2-20261105-113302-897941/_stream.jsonl": "5988cb93d0d4503d0dab8ec283f8c5030bd21f4dd81825da067efc1f67073a76",
+    "run-records/writeup-writer-zt-thesis-plan-r2-20261105-113302-897941/invocation.json": "55954dc6b1822b2ff88cd9a74567aeae40682d7afbb6f014ae6c9b9cd39778ad",
+    "run-records/writeup-writer-zt-thesis-plan-r2-20261105-113302-897941/outcome.json": "e61f399fc603f404de2c48e6909b46e5405978c9bf6eed327de57a3a21bde5f1",
+    "run-records/writeup-writer-zt-thesis-plan-r3-20261105-153125-087472/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-thesis-plan-r3-20261105-153125-087472/_stream.jsonl": "53aa255c5585859158b73952f88af553e56ae9e23b72bc3a48402d6e651df15e",
+    "run-records/writeup-writer-zt-thesis-plan-r3-20261105-153125-087472/invocation.json": "b39de7b01b441efe015ac40b2e9117a328ab2771475d2941ff26b950c36dc405",
+    "run-records/writeup-writer-zt-thesis-plan-r3-20261105-153125-087472/outcome.json": "ff6ff3c88c50347e5c6b0139702d49ba3ba353c10b4460784dc4d4ead27a8bb6",
+    "run-records/writeup-writer-zt-thesis-plan-r4-20261106-002626-171422/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-thesis-plan-r4-20261106-002626-171422/_stream.jsonl": "9b702942f3d96160ee3293eb141a906fa3bbc55bb73b6e9bca4453e6c5994bcf",
+    "run-records/writeup-writer-zt-thesis-plan-r4-20261106-002626-171422/invocation.json": "80c537fa731179c73276374024ec77d275b787afd18c63e62109bc70c48da3bd",
+    "run-records/writeup-writer-zt-thesis-plan-r4-20261106-002626-171422/outcome.json": "4618946712f8a294343c08eb79f444b0cb5c4acb1da2db5eefde36b8b2b67acb",
+    "run-records/writeup-writer-zt-thesis-plan-r5-20261106-010853-670343/_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run-records/writeup-writer-zt-thesis-plan-r5-20261106-010853-670343/_stream.jsonl": "52ae8eed044dbfc179ed242e354f4a3eb892b3e1f11da61f2b14937bb40c2605",
+    "run-records/writeup-writer-zt-thesis-plan-r5-20261106-010853-670343/invocation.json": "2a4f9fd7c62a6c300e9f877f3be8d497f7797de8f0dd6970746bbfa9b015c55c",
+    "run-records/writeup-writer-zt-thesis-plan-r5-20261106-010853-670343/outcome.json": "ad15e25a2440ef628e5f2c46983f98001610fd38e2fe7b813a640fcadd89bdce",
+    "operator-interventions.md": "a8bb2c397be67ba0ccca7e7e463224be0fe818b106848ddf7cbb88f7c3202c53"
+  }
+}

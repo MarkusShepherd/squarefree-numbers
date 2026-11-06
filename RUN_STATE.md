@@ -457,3 +457,28 @@ notes above are historical; no proof run is active in this worktree.
   the same writeup zt-thesis-plan command once Claude quota is available.
   It reuses the saved Codex review and retries the missing Claude review;
   reviewer-requested revision may then advance to the next manuscript round.
+
+## Thesis-plan write-up accepted and finalized (6 Nov 2026)
+
+- Round 5 passed both Opus and Sol reviews with no remaining issues. Markus
+  recorded human acceptance of that exact revision and ran finalization.
+  Accepted PDF: writeups/zt-thesis-plan/accepted/manuscript/main.pdf.
+- At Markus's request, operator independently verified acceptance against
+  original round 5, both passing reviews, the manuscript/numerical manifests,
+  finalization and all 15 preserved invocation records. All 178 packaged files
+  match the staged Git blobs. A clean export of the exact index also passes
+  offline verification without working rounds or external run directories.
+- Accepted PDF SHA-256:
+  5e2d2df069f85d2f635635010aeec7d39744be8885bacc1447b2bd1146ab11a2.
+- Write-up-stage usage: 15 invocations; Claude $51.29; Codex 54,182 output
+  tokens, including failed attempts. No new agents or provider usage for this
+  verification. The accepted package and historical reviews remain unchanged.
+- Full current run leak scan: 204 hits. Reviewed write-up contexts contain
+  authorised provenance text, compliance notes and own persisted/background
+  tool paths. Round-2 writer also wrote a reproduction-procedure note under
+  its own Claude project memory path; this is an outside-work-folder write,
+  not excluded-source content. No excluded-source content was found in the
+  scanned contexts. Full transcripts are preserved in the finalized audit.
+- Markus authorised committing the verified finalized package. Working rounds
+  and machine checkpoints remain local under the existing ignore rules; no
+  unrelated run package is included. No push authorised or performed.

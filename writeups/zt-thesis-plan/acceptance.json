@@ -1,0 +1,38 @@
+{
+  "decision": "accepted_by_human",
+  "accepted_by": "Markus",
+  "recorded_at_utc": "2026-11-06T05:48:06+00:00",
+  "reason": null,
+  "archive_label": "zt-thesis-plan",
+  "accepted_round": 5,
+  "source_revision": "round-5",
+  "source_revision_hash": "19f0d96a7152e48de12286b6c5a9a7b7a330a68254f2bb0a1fb3c941971cd61b",
+  "accepted_bundle": "accepted",
+  "accepted_bundle_hash": "fabadae7abe501422aa0f237cccd24d3bc36b716bb9c5cab5e4566f5b676cf51",
+  "manifest": "accepted/manifest.json",
+  "manifest_sha256": "48825b9a36b6ac4ba67aa8ebe122be392e6528bc9fd27551e92050c6b31d290b",
+  "manuscript_hash": "9da354a9c49632190355b473cdd380bfdf9825ce97dd60e4c76c74fa68bf8844",
+  "pdf": "accepted/manuscript/main.pdf",
+  "pdf_sha256": "5e2d2df069f85d2f635635010aeec7d39744be8885bacc1447b2bd1146ab11a2",
+  "input_bindings_sha256": "a5ce5fa1c79a90944b6517458df778323e0760def158c9133eff1f6567ce904e",
+  "referee_records": [
+    {
+      "file": "round-5/reviews/0.json",
+      "sha256": "77e069eae0dd9a523275c52a8c130808e34bf55bc92f9f4b98b6505395366b5d",
+      "model": "claude-opus-5-5",
+      "verdict": "pass",
+      "issues": [],
+      "owner_disposition": "Accepted as presented by Markus, overriding remaining reviewer objections."
+    },
+    {
+      "file": "round-5/reviews/1.json",
+      "sha256": "227be7f7cb54004adb5d83d8234e297bb079a8d48fb4ee655b991d55b3ad4328",
+      "model": "codex:gpt-6.1-sol",
+      "verdict": "pass",
+      "issues": [],
+      "owner_disposition": "Accepted as presented by Markus, overriding remaining reviewer objections."
+    }
+  ],
+  "revision_loop": "closed_by_owner_acceptance",
+  "scope": "Exact selected revision accepted as presented, including documented corrections and remaining referee objections. No model pass verdict is asserted."
+}

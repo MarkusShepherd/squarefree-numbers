@@ -1,0 +1,63 @@
+\chapter{Correlations of squarefree numbers}\label{ch:correlations}
+
+The off-diagonal term $S_f$ is a weighted sum of the correlations $C_x(m)$ of \eqref{eq:Cx}. We need an asymptotic formula for $C_x(m)$ that is uniform in the whole range $1\le m\le x$, including differences $m$ close to $x$, where the number $x-m$ of available pairs is small. Counts of pairs of squarefree numbers with a given difference have a long history (see for example \cite{mirsky1949}, and the discussion of the related binary additive problem in \cite[\S1]{bgpvw1998}). The archived proof gives a self-contained elementary argument with an explicit absolute constant. The archived plan anticipated a circle-method argument based on \cite{bgpvw1998}, but the proof does not need it. (Archived source: proposition P3.)
+
+\begin{proposition}\label{prop:corr}
+There is an absolute constant $K_{\mathrm c}$ such that for all real $x\ge2$ and all integers $1\le m\le x$,
+\[
+\bigl|C_x(m)-(x-m)\Sing(m)\bigr|\le K_{\mathrm c}\,x^{4/5}.
+\]
+One may take $K_{\mathrm c}=67+2D_{1/10}$, with $D_{1/10}$ as in \cref{lem:divisor}. In particular, for every $\eps>0$ the bound $C(\eps)x^{4/5+\eps}$ holds, which is the form recorded in the archived plan.
+\end{proposition}
+
+\begin{proof}
+Put $L=x-m\ge0$ and $H=\lfloor x^{2/5}\rfloor$, so that $\frac12x^{2/5}\le H\le x^{2/5}$ and $H\ge1$. All bounds below hold for every real $L\ge0$, including $L<1$, when $C_x(m)=0$.
+
+\emph{Truncation.} For $k\ge1$ split \eqref{eq:mu2} as $\mu^2(k)=T_H(k)+R_H(k)$, where
+\[
+T_H(k)=\sum_{\substack{e\le H\\e^2\mid k}}\mu(e),\qquad R_H(k)=\sum_{\substack{e>H\\e^2\mid k}}\mu(e).
+\]
+Then $|T_H(k)|\le\tau(k)$ and $|R_H(k)|\le\#\{e>H:e^2\mid k\}$. Each of the sets $\{n:1\le n\le L\}$ and $\{n+m:1\le n\le L\}$ consists of integers in $[1,x]$, because $m+L=x$. Each contains at most $x/e^2$ multiples of $e^2$. Therefore, by \cref{lem:sums}(a),
+\begin{equation}\label{eq:RH-sum}
+\sum_{1\le n\le L}|R_H(n)|\le\sum_{e>H}\frac x{e^2}\le\frac xH,\qquad\sum_{1\le n\le L}|R_H(n+m)|\le\frac xH.
+\end{equation}
+The exact identity
+\[
+\mu^2(n)\mu^2(n+m)-T_H(n)T_H(n+m)=R_H(n)\mu^2(n+m)+T_H(n)R_H(n+m)
+\]
+together with $0\le\mu^2\le1$ and $|T_H(n)|\le\tau(n)\le D_{1/10}x^{1/10}$ (\cref{lem:divisor}) bounds each summand by $|R_H(n)|+D_{1/10}x^{1/10}|R_H(n+m)|$. Summing with \eqref{eq:RH-sum},
+\begin{equation}\label{eq:corr-trunc}
+\Bigl|C_x(m)-\sum_{1\le n\le L}T_H(n)T_H(n+m)\Bigr|\le(1+D_{1/10}x^{1/10})\frac xH\le2x^{3/5}+2D_{1/10}x^{7/10}.
+\end{equation}
+
+\emph{Counting the truncated congruences.} Let $e_1,e_2\le H$ and $g=(e_1,e_2)$. The congruences $n\equiv0\bmod e_1^2$ and $n\equiv-m\bmod e_2^2$ are soluble exactly when $g^2\mid m$. Necessity follows by reducing modulo $g^2$. For sufficiency write $e_1=ga$, $e_2=gb$ with $(a,b)=1$ and $n=e_1^2u$; the second congruence becomes $a^2u\equiv-m/g^2\bmod b^2$, which determines $u$ modulo $b^2$. Hence the solutions form one residue class modulo $e_1^2e_2^2/g^2$. For any residue class modulo $h$ with representative $r$, the number of its members in $[1,L]$ is $\lfloor(L-r)/h\rfloor-\lfloor-r/h\rfloor=L/h+\theta$ with $|\theta|\le1$. Expanding both truncated sums therefore gives
+\begin{equation}\label{eq:corr-AH}
+\sum_{1\le n\le L}T_H(n)T_H(n+m)=L\,\mathcal A_H(m)+E_H,\qquad|E_H|\le H^2\le x^{4/5},
+\end{equation}
+where
+\[
+\mathcal A_H(m)=\sum_{\substack{e_1,e_2\le H\\(e_1,e_2)^2\mid m}}\frac{\mu(e_1)\mu(e_2)(e_1,e_2)^2}{e_1^2e_2^2}.
+\]
+
+\emph{Completing the series.} Let $\mathcal A(m)$ denote the same sum over all $e_1,e_2\ge1$. Writing $e_1=ga$, $e_2=gb$ and dropping the coprimality of $a,b$ shows absolute convergence:
+$\sum_{e_1,e_2}(e_1,e_2)^2/(e_1e_2)^2\le\sum_gg^{-2}\sum_aa^{-2}\sum_bb^{-2}\le8$. For the tail with $e_1>H$, the same substitution gives the bound $\sum_gg^{-2}\bigl(\sum_{a>H/g}a^{-2}\bigr)\bigl(\sum_bb^{-2}\bigr)$. For $g\le H$ the summand is at most $g^{-2}(2g/H)\cdot2=4/(gH)$ by \cref{lem:sums}(a), and summing over $g\le H$ gives at most $4(1+\log H)/H$. For $g>H$ the summand is at most $4/g^2$, and these sum to at most $4/H$. By symmetry the tail with $e_2>H$ has the same bound, so
+\begin{equation}\label{eq:corr-tail}
+|\mathcal A(m)-\mathcal A_H(m)|\le\frac{8(2+\log H)}H,
+\end{equation}
+uniformly in $m$, because the condition $(e_1,e_2)^2\mid m$ was dropped.
+
+\emph{The Euler product.} By absolute convergence, $\mathcal A(m)$ factors over primes, the argument of \cref{lem:euler} applying verbatim to the double sum. Only the exponents $0$ and $1$ occur in $e_1,e_2$. At a prime $p$ the four choices contribute $1$, $-p^{-2}$, $-p^{-2}$, and $p^{-2}\one_{p^2\mid m}$, so by \eqref{eq:sing}
+\[
+\mathcal A(m)=\prod_p\Bigl(1-\frac2{p^2}+\frac{\one_{p^2\mid m}}{p^2}\Bigr)=\Sing(m).
+\]
+
+\emph{Conclusion.} Since $0\le L\le x$, $H\ge\frac12x^{2/5}$ and $\log H\le\frac25\log x\le2x^{1/5}$ (\cref{lem:sums}(d)), \eqref{eq:corr-tail} gives
+\[
+L\,|\mathcal A_H(m)-\Sing(m)|\le16x^{3/5}\bigl(2+\tfrac25\log x\bigr)\le32x^{3/5}+32x^{4/5}\le64x^{4/5}.
+\]
+Combining with \eqref{eq:corr-trunc} and \eqref{eq:corr-AH} gives $|C_x(m)-L\Sing(m)|\le(2+2D_{1/10}+1+64)x^{4/5}$.
+\end{proof}
+
+\begin{remark}
+The constant $D_{1/10}$ is astronomically large, but only its existence matters. For the application in \cref{ch:assembly} only the exponent $4/5$ is relevant: summing the error over the roughly $x\log x$ weighted pairs $(h,k)$ costs $x^{9/5+\eps}$, and this caps the saving in \cref{thm:main} at $\eta_d\le1/5$.
+\end{remark}

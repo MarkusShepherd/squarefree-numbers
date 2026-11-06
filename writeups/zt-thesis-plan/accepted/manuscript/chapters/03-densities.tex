@@ -1,0 +1,119 @@
+\chapter{Local densities and the singular series}\label{ch:densities}
+
+This chapter collects the arithmetic of a single modulus: the density $g(q,l)$, its mean square over residue classes, and the expansion of the singular series $\Sing$ in Ramanujan sums. The same coefficient $\lambda(r)$ governs both the mean square of the densities and the singular series. This shared coefficient is the reason why, in \cref{ch:assembly}, the density term and the off-diagonal term produce the same constant $R_f$ and cancel. (Archived source: proposition P1.)
+
+\section{The density of squarefree numbers in a residue class}
+
+The starting point is the identity
+\begin{equation}\label{eq:mu2}
+\mu^2(n)=\sum_{m^2\mid n}\mu(m)\qquad(n\ge1),
+\end{equation}
+which follows by multiplying local factors: a prime $p$ with $p^2\mid n$ contributes the factor $1+\mu(p)=0$, while all other primes contribute $1$.
+
+\begin{proposition}\label{prop:density}
+For every integer $q\ge1$, every integer $l$ and real $x\ge1$,
+\begin{equation}\label{eq:density-error}
+\bigl|Q(x;q,l)-x\,g(q,l)\bigr|\le3\sqrt x,\qquad
+g(q,l)=\frac1q\sum_{\substack{m\ge1\\(m^2,q)\mid l}}\frac{\mu(m)(m^2,q)}{m^2},
+\end{equation}
+where the series converges absolutely; in particular $g(q,l)=\lim_{x\to\infty}Q(x;q,l)/x$. Equivalently, $g(q,l)=0$ if some $p^2$ divides both $q$ and $l$, and otherwise
+\begin{equation}\label{eq:density-closed}
+g(q,l)=\frac cq\prod_{p\mid q}\Bigl(1-\frac1{p^2}\Bigr)^{-1}\prod_{\substack{p\parallel q\\p\mid l}}\Bigl(1-\frac1p\Bigr).
+\end{equation}
+In particular $0\le g(q,l)\le1/q$. For $l=0$ the series reads $g(q,0)=\sum_{m\ge1}\mu(m)/[q,m^2]$.
+\end{proposition}
+
+\begin{proof}
+Let $M=\lfloor\sqrt x\rfloor$ and $d_m=(m^2,q)$. By \eqref{eq:mu2}, $Q(x;q,l)=\sum_{m\le M}\mu(m)N_m$, where $N_m$ counts $n\le x$ with $n\equiv l\bmod q$ and $m^2\mid n$. These two congruences are soluble exactly when $d_m\mid l$: writing $n=m^2u$ turns them into $m^2u\equiv l\bmod q$, and after division by $d_m$ the coefficient $m^2/d_m$ is coprime to $q/d_m$. When soluble, the solutions form one residue class modulo $qm^2/d_m$, so $N_m$ differs from $xd_m/(qm^2)$ by at most one. Summing over $m\le M$,
+\[
+Q(x;q,l)=\frac xq\sum_{\substack{m\le M\\d_m\mid l}}\frac{\mu(m)d_m}{m^2}+E_1,\qquad|E_1|\le M.
+\]
+Each term of the series in \eqref{eq:density-error} has modulus at most $m^{-2}$ because $d_m\le q$, so the series converges absolutely, and by \cref{lem:sums}(a) the omitted tail contributes at most $x\sum_{m>M}m^{-2}\le x/M$. Since $\sqrt x/2\le M\le\sqrt x$, the total error is at most $M+x/M\le3\sqrt x$. Dividing by $x$ and letting $x\to\infty$ identifies the limit.
+
+For the closed form, only squarefree $m$ contribute. By absolute convergence (\cref{lem:euler}) the series factors over primes. If $t=v_p(q)$, including $p$ in $m$ contributes $-p^{\min(2,t)-2}$, and is allowed exactly when $p^{\min(2,t)}\mid l$. Hence the local factor of $q\,g(q,l)$ is
+\[
+1-p^{-2}\ (t=0),\qquad
+\begin{cases}1&(p\nmid l)\\1-p^{-1}&(p\mid l)\end{cases}\ (t=1),\qquad
+\begin{cases}1&(p^2\nmid l)\\0&(p^2\mid l)\end{cases}\ (t\ge2),
+\]
+these conditions being meaningful also for $l=0$. Combining with \eqref{eq:c-euler} gives \eqref{eq:density-closed} and the zero case. All local factors lie in $[0,1]$, so $0\le q\,g(q,l)\le1$. For $l=0$ every $m$ is admissible and $d_m/(qm^2)=1/[q,m^2]$.
+\end{proof}
+
+\section{The mean square of the densities}
+
+Define the multiplicative function $G$ by $G(1)=1$, $G(p)=G(p^2)=-1/(p^2-1)$ and $G(p^j)=0$ for $j\ge3$, and put
+\begin{equation}\label{eq:lambda}
+\gamma(r)=c\,G(r),\qquad\lambda(r)=\varphi(r)\gamma(r)^2.
+\end{equation}
+Thus $\lambda(r)=c^2\varphi(r)\prod_{p\mid r}(p^2-1)^{-2}$ if no prime cube divides $r$, and $\lambda(r)=0$ otherwise. Its prime-power values are
+\begin{equation}\label{eq:lambda-p}
+\lambda(p)=c^2\frac{p-1}{(p^2-1)^2},\qquad\lambda(p^2)=c^2\frac{p(p-1)}{(p^2-1)^2}.
+\end{equation}
+
+\begin{proposition}\label{prop:second-moment}
+\begin{enumerate}[label=(\alph*)]
+\item For every $q\ge1$, $\displaystyle q\sum_{l=1}^qg(q,l)^2=\sum_{r\mid q}\lambda(r)$.
+\item $\sum_{r\ge1}\lambda(r)=c$.
+\item Every $r$ in the support of $\lambda$ can be written uniquely as $r=ab^2$ with $a,b$ squarefree and coprime, and $0\le\lambda(ab^2)\le c^2a^{-3}b^{-2}$.
+\item For every real $R>0$,
+\[
+\mathcal T(R):=\sum_{r>R}\lambda(r)\le\frac{10}3R^{-1/2},\qquad
+\mathcal N(R):=\sum_{r\le R}r\lambda(r)\le\frac53R^{1/2}.
+\]
+In particular there is an absolute constant $C_0$ with $\mathcal T(R)\le C_0R^{-1/2}(\log2R)^2$ and $\mathcal N(R)\le C_0R^{1/2}(\log2R)^2$ for $R\ge2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) For $t\ge1$ define $b_{p,t}(l)=1-p^{-1}$ if $t=1$ and $p\mid l$; $b_{p,t}(l)=0$ if $t\ge2$ and $p^2\mid l$; and $b_{p,t}(l)=1$ otherwise. By \cref{prop:density}, including its zero case,
+\[
+q\,g(q,l)=c\prod_{p^t\parallel q}\Bigl(1-\frac1{p^2}\Bigr)^{-1}b_{p,t}(l).
+\]
+For $t=1$ there are $p-1$ residues with $b_{p,1}=1$ and one with $b_{p,1}=1-p^{-1}$, so
+\[
+\Bigl(1-\frac1{p^2}\Bigr)^{-2}\frac1p\sum_{l\bmod p}b_{p,1}(l)^2=\frac{p^4-2p^2+p}{(p^2-1)^2}=1+\frac{p-1}{(p^2-1)^2}=1+\frac{\lambda(p)}{c^2}.
+\]
+For $t\ge2$, exactly $p^{t-2}$ of the $p^t$ residues have $b_{p,t}=0$ and the others have $b_{p,t}=1$, so
+\[
+\Bigl(1-\frac1{p^2}\Bigr)^{-2}\frac1{p^t}\sum_{l\bmod p^t}b_{p,t}(l)^2=\Bigl(1-\frac1{p^2}\Bigr)^{-1}=1+\frac1{p^2-1}=1+\frac{\lambda(p)+\lambda(p^2)}{c^2},
+\]
+using $(p-1)+p(p-1)=p^2-1$. By the Chinese remainder theorem the residues modulo $q$ correspond to tuples of residues modulo the prime powers $p^t\parallel q$, so the average of $(q\,g(q,l))^2$ over $l\bmod q$ factors into these local averages. Hence
+\[
+q\sum_{l=1}^qg(q,l)^2=\frac1q\sum_{l=1}^q(q\,g(q,l))^2=c^2\prod_{p^t\parallel q}\Bigl(1+\sum_{j=1}^{t}\frac{\lambda(p^j)}{c^2}\Bigr)=\sum_{r\mid q}\lambda(r).
+\]
+
+(c) The representation is standard. With $A_p=p^3/((p-1)(p+1)^2)$, \eqref{eq:lambda-p} reads $\lambda(p)=c^2A_p/p^3$ and $\lambda(p^2)=c^2A_p/p^2$. Since $(p-1)(p+1)^2-p^3=p^2-p-1\ge1$, we have $0<A_p\le1$, and multiplying over the prime factors gives the bound.
+
+(b) By (c), $\sum_r\lambda(r)\le c^2\sum_aa^{-3}\sum_bb^{-2}<\infty$. The function $\lambda/c^2$ is multiplicative (note $\lambda(1)=c^2$), and $1+(\lambda(p)+\lambda(p^2))/c^2=(1-p^{-2})^{-1}$. Hence \cref{lem:euler} and \eqref{eq:c-euler} give $\sum_r\lambda(r)=c^2\prod_p(1-p^{-2})^{-1}=c^2\zeta(2)=c$.
+
+(d) Dropping the conditions on $a,b$ in (c) only enlarges the nonnegative sums. By \cref{lem:sums}(a) with $T=\sqrt{R/a}$,
+\[
+\mathcal T(R)\le c^2\sum_{a\ge1}a^{-3}\sum_{b>\sqrt{R/a}}b^{-2}\le2c^2R^{-1/2}\sum_aa^{-5/2}\le\frac{10}3R^{-1/2},
+\]
+using $c\le1$ and $\sum_aa^{-5/2}\le1+\int_1^\infty t^{-5/2}\dd t=\frac53$. Similarly $r\lambda(r)\le c^2a^{-2}$ for $r=ab^2$, and for each $a\le R$ there are at most $\sqrt{R/a}$ values of $b$, so $\mathcal N(R)\le c^2R^{1/2}\sum_{a\le R}a^{-5/2}\le\frac53R^{1/2}$. For $R\ge2$, $\log 2R>1$, which gives the weaker forms with $C_0=10/3$.
+\end{proof}
+
+\section{The singular series}
+
+For $n\ge1$ define
+\begin{equation}\label{eq:sing}
+\Sing(n)=\prod_p\Bigl(1-\frac2{p^2}\Bigr)\prod_{p^2\mid n}\frac{p^2-1}{p^2-2}
+=\prod_p\Bigl(1-\frac2{p^2}+\frac{\one_{p^2\mid n}}{p^2}\Bigr).
+\end{equation}
+The second form shows that every local factor differs from $1$ by at most $2/p^2$, so the product converges absolutely (\cref{lem:products}). This is the singular series $S_2(n)$ that appears in the asymptotic formula for representations of $n$ as a sum of two squarefree numbers in \cite[Corollary~3]{bgpvw1998}; here it governs pairs with a given difference (\cref{ch:correlations}).
+
+\begin{proposition}\label{prop:ramanujan-sing}
+For every integer $n\ge1$ the series $\sum_{r\ge1}\gamma(r)^2c_r(n)$ converges absolutely, with $\sum_r|\gamma(r)^2c_r(n)|\le c$, and
+\begin{equation}\label{eq:sing-expansion}
+\Sing(n)=\sum_{r\ge1}\gamma(r)^2c_r(n)=\sum_{r\ge1}\lambda(r)\frac{c_r(n)}{\varphi(r)}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \cref{lem:ramanujan}(b), $|\gamma(r)^2c_r(n)|\le\lambda(r)$, so the series converges absolutely with the stated bound by \cref{prop:second-moment}(b). The summand is $c^2$ times the function $G(r)^2c_r(n)$, which is multiplicative in $r$ (\cref{lem:ramanujan}(b)) and vanishes unless $r$ is cube-free. Hence \cref{lem:euler} and \eqref{eq:cp-sum} give
+\[
+\sum_{r\ge1}\gamma(r)^2c_r(n)=c^2\prod_p\Bigl(1+\frac{c_p(n)+c_{p^2}(n)}{(p^2-1)^2}\Bigr)
+=\prod_p\Bigl(1-\frac1{p^2}\Bigr)^2\Bigl(1+\frac{p^2\one_{p^2\mid n}-1}{(p^2-1)^2}\Bigr),
+\]
+where the factor $c^2$ was distributed over the primes using \eqref{eq:c-euler}. If $p^2\nmid n$, the local factor equals $((p^2-1)^2-1)/p^4=1-2/p^2$; if $p^2\mid n$, it equals $(1-p^{-2})^2(1+(p^2-1)^{-1})=1-p^{-2}$. This is the second form of \eqref{eq:sing}.
+\end{proof}

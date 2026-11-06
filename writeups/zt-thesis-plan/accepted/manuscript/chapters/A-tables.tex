@@ -1,0 +1,21 @@
+\chapter{Full numerical tables}\label{app:tables}
+
+The tables list the normalised values $V_f(x,y)/(x^{1/2}f(y)^{3/2})$ for all $x$ and all eight target ratios $r$ (columns), as recomputed by \texttt{reproduce.py} with the snapshot code. The integer $y$ is the largest with $f(y)\le rx$; the actual ratios $f(y)/x$ are recorded in \texttt{reproduction.json}.
+
+\begin{table}[ht]
+\centering\small
+\input{generated/tab_normalised_t2.tex}
+\caption{Normalised variance $V_f(x,y)/(x^{1/2}f(y)^{3/2})$ for $f(t)=t^2+1$; rows: $x$, columns: target ratio $r$.}
+\end{table}
+
+\begin{table}[ht]
+\centering\small
+\input{generated/tab_normalised_t3.tex}
+\caption{Normalised variance $V_f(x,y)/(x^{1/2}f(y)^{3/2})$ for $f(t)=t^3+2$; rows: $x$, columns: target ratio $r$.}
+\end{table}
+
+\begin{table}[ht]
+\centering\small
+\input{generated/tab_normalised_lin.tex}
+\caption{Normalised variance $V_f(x,y)/(x^{1/2}f(y)^{3/2})$ for $f(t)=2t+1$; rows: $x$, columns: target ratio $r$.}
+\end{table}

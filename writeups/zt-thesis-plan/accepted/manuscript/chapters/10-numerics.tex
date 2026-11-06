@@ -1,0 +1,124 @@
+\chapter{Numerical evidence}\label{ch:numerics}
+
+This chapter compares \cref{thm:main} with exact computations of $V_f(x,y)$. The computations come from the numerical snapshot accepted for the archived run (\texttt{source/numerics/snapshot}). Every number in the tables and figures below is recomputed by \texttt{reproduce.py} from that snapshot's own source code and from the formulas of \cref{ch:dirichlet,ch:mellin}; see the \texttt{README.md} accompanying this document. None of the numbers is part of the proof. The fits and their uncertainty envelopes are heuristic.
+
+\section{What is computed}
+
+The snapshot treats $f(t)=t^2+1$, $t^3+2$ and $2t+1$, which satisfy \eqref{eq:f-hyp}, for
+\[
+x\in\{2.5,5\}\cdot10^5\cup\{1,2,4,8,16,32,64,128,256\}\cdot10^6
+\]
+and the target ratios $r\in\{0.01,0.02,0.05,0.1,0.2,0.4,0.7,1\}$; for each pair, $y$ is the largest integer with $f(y)\le rx$. At the two largest values of $x$ the extra ratio $r=0.005$ is also computed, as a diagnostic. The normalised value
+\[
+N_{\mathrm{data}}=\frac{V_f(x,y)}{x^{1/2}f(y)^{3/2}}
+\]
+is compared with the prediction
+\[
+N_{\mathrm{pred}}=F_f(H)H^{3/2}=\frac{x^2F_f(x/Y)}{x^{1/2}Y^{3/2}},\qquad H=\frac x{f(y)}.
+\]
+By \eqref{eq:F-asym}, $N_{\mathrm{pred}}\to K_f$ as $H\to\infty$.
+
+\paragraph{Algorithm of the snapshot.} The computation follows the expansion of \cref{ch:variance} exactly, with no approximation in the counts.
+\begin{itemize}
+\item The squarefree indicator up to $x$ is sieved, and all correlations $C_x(m)$, $0\le m\le x$, are obtained at once from one number-theoretic-transform autocorrelation modulo the prime $3221225473$. Every correlation is at most $x$, which is below the prime, so no information is lost. Then $\sum_lQ(x;q,l)^2=Q(x;1,1)+2\sum_{m\ge1}C_x(mq)$ by \cref{lem:pairs}.
+\item With $g(q,l)=c\,h(q,l)$, where $h$ is the rational number given by \eqref{eq:density-closed}, the coefficients $B_q=\sum_lQ(x;q,l)h(q,l)$ and $D_q=\sum_lh(q,l)^2$ are computed as exact rationals. $B_q$ is computed from the counts $S_a=Q(x;a,0)$ exactly as in the proof of \cref{lem:mixed}. $D_q$ is computed from the local factors of \cref{prop:second-moment}(a): $p(p^2+p-1)/((p-1)(p+1)^2)$ for $p\parallel q$ and $p^2/(p^2-1)$ for $p^2\mid q$, divided by $q$.
+\item The weighted sums are combined as $V=\sum_kf'(k)\bigl(\sum_lQ^2-2cxB_{f(k)}+c^2x^2D_{f(k)}\bigr)$ in 70-digit decimal arithmetic, with $c=6/\pi^2$ evaluated to 85 digits. The integer parts are exact; $V$ itself is irrational, so it is represented by a 70-digit approximation.
+\end{itemize}
+
+\paragraph{Validation in the snapshot code.} The pipeline checks that the transform prime and its primitive root are valid. It checks the rational density formula against an independent enumeration of local residue conditions for all $1275$ pairs $(q,l)$ with $q\le50$, and against brute-force frequencies at $x=10^6$. It checks $\sum_lQ(x;q,l)=Q(x;1,1)$, and it compares, for every modulus at $x=257$, the exact $\sum_lQ^2$ and both rational coefficients with direct residue counts. For every production value of $x$ it also checks $C_x(0)$ and seven lags of the autocorrelation directly. All checks passed in the recomputation.
+
+\paragraph{Reproduction.} \texttt{reproduce.py} copies the snapshot's \texttt{compute.py} and \texttt{counts.cpp} unchanged, after checking their SHA-256 hashes against the acceptance record, compiles the C++ worker locally, and runs the snapshot pipeline on the full grid. In the run used to prepare this document, all $270$ recomputed rows agreed exactly with the archived results: the integer counts were identical, and so were the 70-digit values of $V$. This comparison is recorded in \texttt{reproduction.json}.
+
+\section{The constants}
+
+\Cref{tab:constants} lists $R_f$, $B_f$, $H_f(-\frac12)$ and $K_f$, computed from the Euler products of \cref{prop:Df} over the primes $p\le\Pmax$. The root counts $\rho(p)$ and $\rho(p^2)$ are computed by direct enumeration for small $p$ (for $\rho(p^2)$, $p\le300$; for $\rho(p)$, $p\le1000$). For larger $p$ they follow from the classical rules: for $t^2+1$, $\rho(p)=2$ if $p\equiv1\bmod4$ and $0$ otherwise; for $t^3+2$, $\rho(p)=1$ if $p\equiv2\bmod3$, and if $p\equiv1\bmod3$, $\rho(p)=3$ or $0$ according as $(-2)^{(p-1)/3}\equiv1\bmod p$ or not; for $2t+1$ and $t+1$, $\rho(p)=1$. For these $p$ the roots are simple, so $\rho(p^2)=\rho(p)$ by Hensel's lemma. The rules are checked against the direct counts wherever both are available.
+
+\begin{table}[ht]
+\centering
+\input{generated/tab_constants.tex}
+\caption{Constants of \cref{thm:main}, Euler products over $p\le\Pmax$. The row $f(t)=t+1$ is the comparison of \cref{rem:vaughan}.}\label{tab:constants}
+\end{table}
+
+\paragraph{Truncation.} $R_f$ and $B_f$ are computed from products and sums whose factors differ from $1$ by $O(p^{-3})$ or less, so their truncation errors are negligible at this precision. For $K_f$ the factor $M_p(-\frac12)$ differs from $1$ by about $(3+\rho(p))p^{-2}$. We therefore evaluate $\zeta(2)^{-3}\prod_pM_p(-\frac12)(1-p^{-2})^{-3}$, which is the same number. If $p\ge5$ and $\rho(p),\rho(p^2)\le3$, as is the case for $p>3$ for all four polynomials, then multiplying out the formula in \cref{prop:Df}(f) gives
+\[
+M_p(-\tfrac12)-1=-\frac{3+\rho(p)}{p^2}+\frac{\rho(p)}{p^{5/2}}+\frac{2+\rho(p)}{p^3}-\frac{\rho(p)+\rho(p^2)}{p^{7/2}}+\rho(p^2)\Bigl(\frac1{p^4}+\frac1{p^{9/2}}-\frac1{p^5}\Bigr),
+\]
+and hence $|M_p(-\frac12)-1|\le p^{-2}(6+3\cdot5^{-1/2}+1+6\cdot5^{-3/2}+0.2)\le10p^{-2}$. Since $(1-p^{-2})^{-3}\le1.131$ and $(1-p^{-2})^{-3}-1\le3.6p^{-2}$, it follows that $|M_p(-\frac12)(1-p^{-2})^{-3}-1|\le15p^{-2}$. By \cref{lem:products}(b) and \cref{lem:sums}(c), the omitted primes change $K_f$ by a relative amount of at most $e^{15/N}-1=\Ktrunc$ for $N=\Pmax$. This bound covers the truncation only; floating-point rounding is not certified by interval arithmetic. \Cref{tab:truncation} shows the values at three cutoffs. They are consistent with an actual truncation error far below this bound.
+
+\begin{table}[ht]
+\centering
+\input{generated/tab_truncation.tex}
+\caption{$K_f$ with Euler products truncated at different prime cutoffs.}\label{tab:truncation}
+\end{table}
+
+\paragraph{Vaughan's constant.} Evaluating \eqref{eq:c2} with the same cutoff gives $c_2\approx\cVaughan$, in agreement with $K_{t+1}=\KVau$, as \cref{rem:vaughan} predicts.
+
+\paragraph{Checks of \cref{prop:Df,prop:Theta}.} \texttt{reproduce.py} compares $\sum_{h\le2\cdot10^5}W_f(h)h^{-3}$ with $\zeta(3)P_f(3)$ and finds agreement to within the truncation error. \Cref{tab:theta} shows the normalised remainder $(\Theta_f(H)-R_fH^2\log H-B_fH^2-cH)/H^{1/2}$, which by \eqref{eq:Theta} equals $-K_f+O(H^{-1/8})$. The values are close to $-K_f$, consistent with this error term. Equation \eqref{eq:Theta} does not imply a monotone approach, and for $t^2+1$ and $2t+1$ the distance to $-K_f$ grows slightly from $H=10^4$ to $H=10^5$.
+
+\begin{table}[ht]
+\centering
+\input{generated/tab_theta.tex}
+\caption{$(\Theta_f(H)-R_fH^2\log H-B_fH^2-cH)/H^{1/2}$ compared with $-K_f$.}\label{tab:theta}
+\end{table}
+
+\section{The data against the profile}
+
+\Cref{tab:profile} compares the data at the largest $x=\xmaxdata$ with the profile, and \cref{fig:profile} plots both together with the limit $K_f$. \Cref{fig:deviation} shows how the relative deviation evolves with $x$; the full data are in \cref{app:tables}.
+
+\begin{table}[ht]
+\centering
+\small
+\input{generated/tab_profile.tex}
+\caption{Normalised variance at $x=\xmaxdata$ against the predicted profile $N_{\mathrm{pred}}=F_f(H)H^{3/2}$, $H=x/f(y)$; $r$ is the target ratio.}\label{tab:profile}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\input{generated/fig_profile.tex}
+\caption{Predicted profile $F_f(1/r)\,r^{-3/2}$ (solid), data at $x=\xmaxdata$ (circles) and the constant $K_f$ (dashed), against $r=f(y)/x$ on a logarithmic axis.}\label{fig:profile}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\input{generated/fig_deviation.tex}
+\caption{Relative deviation $100(N_{\mathrm{data}}/N_{\mathrm{pred}}-1)$ against $x$, one line per target ratio $r$.}\label{fig:deviation}
+\end{figure}
+
+The observations are as follows. The bounds quoted in them are rounded outwards, so they may differ from \cref{tab:profile} in the last digit.
+\begin{itemize}
+\item For $f(t)=2t+1$, where $y$ is large ($y$ between $\YminLin$ and $\YmaxLin$ at the largest $x$), data and profile agree to within $\DevabsLin\%$ in absolute value.
+\item For $f(t)=t^2+1$ ($y$ between $\YminTwo$ and $\YmaxTwo$), the deviation lies between $\DevminTwo\%$ and $\DevmaxTwo\%$. At every target ratio its absolute value has decreased by a factor of at least $\DecfacTwo$ from the smallest to the largest $x$. (The diagnostic ratio $0.005$ is computed only at the two largest $x$.)
+\item For $f(t)=t^3+2$, $y$ is only $\YminThree$--$\YmaxThree$, and the deviation ranges from $\DevminThree\%$ to $\DevmaxThree\%$, the largest value occurring at the diagnostic ratio $0.005$. Over the range of $x$ it has decreased substantially, from up to $\DevsmallThree\%$ at the smallest $x$. Between the two largest $x$ its absolute value decreased at $\NdecThree$ of the $\NcmpThree$ ratios, the exception being $r=\NondecThree$; at $r=\SignchThree$ the deviation changed sign. This behaviour is compatible with large lower-order terms from the sampling of $k$, which the proof controls only through the $Z^{-1/d}$ terms of \cref{prop:averaging}. That explanation is plausible but has not been proved.
+\end{itemize}
+The theorem's error bound is far from small in this range. Relative to the main term it is about $x^{-\eta_d}r^{-3/2}$, and at $x=2.56\cdot10^8$ already $x^{-1/11}\approx\ErrrelThree$ for $d=3$ and $x^{-1/7}\approx\ErrrelTwo$ for $d=2$. The data are therefore consistent with the theorem, and they agree with the predicted profile far better than the proved error term requires. However, they cannot test the error exponent.
+
+\section{Extrapolation to small ratios}\label{sec:extrapolation}
+
+The snapshot also estimates the small-ratio constant empirically. Among the eight target ratios it selects the smallest one, $0.01$ for all three polynomials, such that all rows at this or a larger ratio changed by less than $1\%$ between the two largest $x$. It then fits $N(r)=C+a\sqrt r+br$ by unweighted least squares to the largest-$x$ rows with $r\ge0.01$, using the actual ratios. The reported uncertainty is the maximum of twice the formal standard error and of the shifts under several variations: of the cutoff, of $x$, of the model, and of the fitted ratio window. It is a heuristic sensitivity envelope, not a confidence interval.
+
+\begin{table}[ht]
+\centering
+\small\setlength{\tabcolsep}{4.5pt}
+\input{generated/tab_extrapolation.tex}
+\caption{The snapshot's extrapolation $C_{\mathrm{data}}$ with its heuristic envelope; the same fit applied to the exact profile $N_{\mathrm{pred}}$ at the same actual ratios ($C_{\mathrm{prof}}$); the constant $K_f$; and the decomposition $C_{\mathrm{data}}-K_f=(C_{\mathrm{data}}-C_{\mathrm{prof}})+(C_{\mathrm{prof}}-K_f)$.}\label{tab:extrapolation}
+\end{table}
+
+\Cref{tab:extrapolation} shows that $K_f$ lies within the heuristic envelope in all three cases ($K_f/C_{\mathrm{data}}-1=\KgapTwo\%$, $\KgapThree\%$, $\KgapLin\%$). To see where the offset from $K_f$ comes from, the same fit was applied to the \emph{exact} predicted profile $N_{\mathrm{pred}}$ at the same actual ratios. Its intercept $C_{\mathrm{prof}}$ splits the offset exactly as
+\[
+C_{\mathrm{data}}-K_f=\bigl(C_{\mathrm{data}}-C_{\mathrm{prof}}\bigr)+\bigl(C_{\mathrm{prof}}-K_f\bigr).
+\]
+The second term is the bias of the three-parameter model: it is the error that the fit makes on the profile itself, which has no finite-$x$ error. The first term is the difference between the data at $x=\xmaxdata$ and the profile (\cref{tab:profile}), as seen through the fit. For $t^2+1$ and $2t+1$ the model bias dominates ($\CbiasTwo$ and $\CbiasLin$, against $\CdiffTwo$ and $\CdiffLin$). For $t^3+2$ the data--profile term $\CdiffThree$ is larger than the model bias $\CbiasThree$, in line with the per-cent level deviations of the cubic data from the profile in \cref{tab:profile}. In this case most of the (small) offset from $K_f$ comes from the finite-$x$ behaviour of the data, not from the fitting model.
+
+The model bias is not surprising. By \eqref{eq:F-asym} the profile $F_f(1/r)r^{-3/2}$ differs from $K_f$ by a relative amount $O(r^{1/8})$. This is only an upper bound and does not determine the size or the shape of the correction. Empirically, \cref{fig:profile} shows that the profile still varies noticeably below $r=0.01$, and the model $C+a\sqrt r+br$ fitted on $r\ge0.01$ does not reproduce its limit; the column $C_{\mathrm{prof}}-K_f$ quantifies this. This is an observation about the computed profile, not a proved statement about $F_f$.
+
+The ratio dependence is also consistent with the snapshot's log-log regressions (\cref{tab:fits}). At fixed ratio $V_f\approx x^2F_f(1/r)$, so the slope in $x$ should be close to $2$, and the fits find $\alpha+\beta\approx2$. Over the finite ratio range, however, the profile is not a pure power of $r$. So there is no reason for the fixed-$x$ exponent $\beta$ or the joint exponents to equal $\frac32$ and $\frac12$, and they do not.
+
+\begin{table}[ht]
+\centering
+\input{generated/tab_fits.tex}
+\caption{Snapshot regressions of $\log V$ on $\log f(y)$ (fixed $x=\xmaxdata$), on $\log x$ (fixed ratio: the mean of the eight ratio-specific slopes), and jointly on both. In parentheses: formal OLS standard errors for the fixed-$x$ and joint fits; for the fixed-ratio column, the standard error of the mean of the eight slopes, that is, their sample standard deviation divided by $\sqrt8$, which is not a regression standard error. None of these is a rigorous uncertainty.}\label{tab:fits}
+\end{table}
+
+\section{Limitations}
+
+The numerical evidence concerns three polynomials and $x\le2.56\cdot10^8$. In the cubic case, $y$ is small and the agreement is only at the per-cent level. All uncertainties attached to fits are heuristic. The snapshot's validation tests the implementation on small cases and spot checks, not every production count. In the recomputation, every archived row was reproduced exactly; this confirms reproducibility, not the correctness of the shared code. The constants are computed in double precision from truncated Euler products, with a rigorous bound for the truncation of $K_f$ but without certified rounding.
