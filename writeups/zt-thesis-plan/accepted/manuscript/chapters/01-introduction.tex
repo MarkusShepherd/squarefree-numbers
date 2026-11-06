@@ -1,0 +1,171 @@
+\chapter{Introduction}\label{ch:intro}
+
+\section{Squarefree numbers in arithmetic progressions}
+
+Let $\mu$ be the Möbius function, so that $\mu^2(n)$ is the indicator function of the squarefree positive integers. For a modulus $q\ge1$, an integer $l$ and real $x\ge1$ put
+\[
+Q(x;q,l)=\#\{n\le x:\ n\equiv l\ (\mathrm{mod}\ q),\ n\text{ squarefree}\}.
+\]
+The limit $g(q,l)=\lim_{x\to\infty}Q(x;q,l)/x$ exists; its closed form is recalled in \cref{prop:density}. Unlike the primes, the squarefree numbers populate residue classes that are \emph{not} coprime to the modulus, and their density $g(q,l)$ depends on $l$ through the common divisors of $l$ and $q$. For instance, $g(q,l)=0$ whenever $p^2$ divides both $q$ and $l$ for some prime $p$. The error term
+\[
+E(x;q,l)=Q(x;q,l)-g(q,l)\,x
+\]
+measures the irregularity of the distribution, and its mean square over all residue classes and all moduli up to $Y$,
+\[
+V(x,Y)=\sum_{q\le Y}\sum_{l=1}^{q}E(x;q,l)^2,
+\]
+is the squarefree analogue of the Barban--Davenport--Halberstam and Montgomery--Hooley variance for primes \cite{montgomery1970,hooley1975i}.
+
+For $Y\le x$ the bound $V(x,Y)\ll_\eps x^{1+\eps}Y$ is Lemma~2.2 of Brüdern, Granville, Perelli, Vaughan and Wooley \cite{bgpvw1998} (with their parameter $k=2$); it is quoted precisely in \cref{quoted:bgpvw} below. Asymptotic formulae for $V(x,Y)$ go back to work of Orr, Warlimont and Croft, surveyed in the introduction of Vaughan's paper \cite{vaughan2005}; according to that survey, Warlimont \cite{warlimont1980} proved $V(x,Y)=x^2\mathcal F(x/Y)+O(x^{3/2}(\log x)^{7/2})$ for $1\le Y\le x$, with $\mathcal F(u)\sim c_2\,u^{-3/2}$ as $u\to\infty$, where $c_2$ is the constant in \eqref{eq:c2} below; and the argument of Croft \cite{croft1975} contains an error affecting the constant. Vaughan \cite[Theorem]{vaughan2005} broke the barrier $x^{3/2}$ inherent in the earlier methods. For squarefree numbers (his $k=2$) his theorem states that, for $Y\le x$,
+\begin{multline}\label{eq:vaughan}
+V(x,Y)=c_2x^{1/2}Y^{3/2}+O\Bigl(x^{1/4}Y^{7/4}\exp\Bigl(-c^*\frac{(\log 2x/Y)^{3/5}}{(\log\log 3x/Y)^{1/5}}\Bigr)\Bigr)\\
++O\Bigl(x^{3/2}\exp\Bigl(-\tilde c\frac{(\log x)^{3/5}}{(\log\log x)^{1/5}}\Bigr)\Bigr),
+\end{multline}
+for certain positive constants $c^*,\tilde c$, where
+\begin{equation}\label{eq:c2}
+c_2=\frac{8C_1\,(-\zeta(-\frac12))}{3\,\zeta(2)^2},\qquad
+C_1=\prod_p\Bigl(1+\frac{(p-1)^2p^{3/2}-2p^4+3p^3-p}{p^2(p^2-1)^2}\Bigr)
+\end{equation}
+\cite[(1.13)--(1.15)]{vaughan2005}; in the numerator of the local factor of $C_1$, the term $3p^3$ is the sum $p^{2k-1}+2p^{k+1}$ of Vaughan's general formula at $k=2$. The main term is thus of order $x^{1/2}Y^{3/2}$, much smaller than the ``diagonal'' size $xY$ one might naively expect; this reflects strong cancellation, which will also be the central feature of the present work.
+
+\section{Sparse moduli}
+
+Brüdern and Wooley \cite{bruedernwooley2011} asked the analogous question for primes when the moduli are restricted to the values $f(k)$ of a polynomial, weighting the modulus $f(k)$ by $f'(k)$. The weight makes the sparse sum behave like the full sum over moduli $q\le f(y)$, since $f'(k)\,\dd k=\dd f(k)$. They established an asymptotic formula of Montgomery--Hooley type for this sparse variance, improving the upper bound of Mikawa and Peneva \cite{mikawapeneva2005}. Their method follows the approach of Goldston and Vaughan \cite{goldstonvaughan1997} and Vaughan \cite{vaughan1998a}: the variance is linked to the number of solutions of $p_1-p_2=hf(k)$, which is then counted by the circle method.
+
+This document treats the analogous problem for squarefree numbers. Throughout, $f\in\Z[t]$ is a polynomial of degree $d\ge1$ such that
+\begin{equation}\label{eq:f-hyp}
+f(t)\ge2\quad\text{and}\quad f'(t)\ge1\qquad\text{for all real }t\ge1,
+\end{equation}
+and
+\begin{equation}\label{eq:Vf}
+V_f(x,y)=\sum_{k\le y}f'(k)\sum_{l=1}^{f(k)}E\bigl(x;f(k),l\bigr)^2\qquad(f(y)\le x).
+\end{equation}
+Here $k$ runs over positive integers, $y\ge1$ is real, and all residue classes modulo $f(k)$ are included. We write
+\[
+\rho(m)=\#\{a\bmod m:\ f(a)\equiv0\ (\mathrm{mod}\ m)\},\qquad \rho(1)=1,
+\]
+and $Y=f(y)$. No irreducibility, squarefreeness or discriminant condition is imposed on $f$, and $f$ may have fixed prime divisors.
+
+\section{The main result}
+
+To state the result we need an arithmetic weight. For a positive integer $h$ and a prime $p$ let $v_p(h)$ be the exponent of $p$ in $h$, and define
+\begin{equation}\label{eq:W-intro}
+W_f(h)=\prod_p w_p(h),\qquad
+w_p(h)=\begin{cases}
+1-\dfrac2{p^2}+\dfrac{\rho(p^2)}{p^4},& p\nmid h,\\[2mm]
+1-\dfrac2{p^2}+\dfrac{\rho(p)}{p^3},& p\parallel h,\\[2mm]
+1-\dfrac1{p^2},& p^2\mid h.
+\end{cases}
+\end{equation}
+Equivalently, $w_p(h)=(1-2p^{-2})\bigl(1+\rho(p^{j})/(p^{j}(p^2-2))\bigr)$ with $j=\max\{2-v_p(h),0\}$. In \cref{ch:averaging} we shall see that $W_f(h)$ is the average over $k$ of the singular series $\Sing(hf(k))$ that governs the number of pairs of squarefree integers with difference $hf(k)$. The product converges absolutely and $0<W_f(h)\le1$ (\cref{lem:W-basic}). Let
+\[
+D_f(s)=\sum_{h\ge1}W_f(h)h^{-s}\qquad(\re s>1).
+\]
+By \cref{prop:Df}, $D_f$ continues meromorphically to $\re s>-\frac34$, where its only poles are simple poles at $s=1$ and $s=-\frac12$. Define
+\begin{equation}\label{eq:RBK}
+R_f=\Res_{s=1}D_f(s),\qquad
+B_f=\lim_{s\to1}\Bigl(D_f(s)-\frac{R_f}{s-1}\Bigr)-\frac32R_f,\qquad
+K_f=-\frac{16}{3}\Res_{s=-1/2}D_f(s),
+\end{equation}
+and, for real $H\ge1$,
+\begin{equation}\label{eq:ThetaF}
+\Theta_f(H)=\sum_{1\le h\le H}W_f(h)\frac{(H-h)^2}{h},\qquad
+F_f(H)=R_f\log H+B_f+\frac{1}{\zeta(2)H}-\frac{\Theta_f(H)}{H^2}.
+\end{equation}
+
+\begin{theorem}[Main theorem]\label{thm:main}
+Let $f$ satisfy \eqref{eq:f-hyp}, let $d=\deg f$, and put
+\[
+\eta_d=\min\Bigl\{\frac15,\frac1{4d-1}\Bigr\}.
+\]
+For every $\eps$ with $0<\eps<\eta_d/2$ there are constants $C(f,\eps)>0$ and $x_0(f,\eps)$ such that, uniformly for real $x\ge x_0(f,\eps)$ and real $y\ge1$ with $Y=f(y)\le x$,
+\begin{align}
+\bigl|V_f(x,y)-x^2F_f(x/Y)\bigr|&\le C(f,\eps)\,x^{2-\eta_d+\eps},\label{eq:main1}\\
+\bigl|V_f(x,y)-K_fx^{1/2}Y^{3/2}\bigr|&\le C(f,\eps)\bigl(x^{3/8}Y^{13/8}+x^{2-\eta_d+\eps}\bigr).\label{eq:main2}
+\end{align}
+The constant $K_f$ is positive and is given by the absolutely convergent Euler product
+\begin{equation}\label{eq:K-intro}
+K_f=-\frac83\,\zeta(-\tfrac12)\prod_p\Bigl(1-\frac1p\Bigr)\Bigl(1+\frac1p-\frac{2+\rho(p)}{p^2}+\frac{\rho(p)}{p^{5/2}}-\frac{\rho(p^2)}{p^{7/2}}+\frac{\rho(p^2)}{p^4}\Bigr).
+\end{equation}
+Moreover
+\begin{equation}\label{eq:R-intro}
+R_f=\frac1{\zeta(2)^2}\prod_p\Bigl(1+\frac{(1-1/p)(\rho(p)+\rho(p^2))}{(p^2-1)^2}\Bigr).
+\end{equation}
+\end{theorem}
+
+The function $F_f$ is explicit, and \cref{prop:Theta} shows that $|F_f(H)-K_fH^{-3/2}|\le C(f)H^{-13/8}$ for all $H\ge1$; \eqref{eq:main2} is \eqref{eq:main1} combined with this expansion at $H=x/Y$. Dividing \eqref{eq:main2} by its main term gives the following.
+
+\begin{corollary}\label{cor:range}
+Let $0<\delta<\eta_d/3$. Uniformly for $x\ge x_0(f,\delta)$ and $x^{1-2\eta_d/3+\delta}\le f(y)\le x^{1-\delta}$,
+\[
+V_f(x,y)=K_f\,x^{1/2}f(y)^{3/2}\bigl(1+O_{f,\delta}(x^{-\delta/8})\bigr).
+\]
+\end{corollary}
+
+The proof of \cref{cor:range} is given in \cref{sec:corollary}. The exponents for small degrees are as follows.
+
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+$d$ & $\eta_d$ & error in \eqref{eq:main1} & range of \cref{cor:range}\\
+\midrule
+$1$ & $1/5$ & $x^{9/5+\eps}$ & $x^{13/15+\delta}\le f(y)\le x^{1-\delta}$\\
+$2$ & $1/7$ & $x^{13/7+\eps}$ & $x^{19/21+\delta}\le f(y)\le x^{1-\delta}$\\
+$3$ & $1/11$ & $x^{21/11+\eps}$ & $x^{31/33+\delta}\le f(y)\le x^{1-\delta}$\\
+$d\ge2$ & $1/(4d-1)$ & $x^{2-1/(4d-1)+\eps}$ & $x^{1-2/(3(4d-1))+\delta}\le f(y)\le x^{1-\delta}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[Two regimes]\label{rem:regimes}
+\Cref{thm:main} distinguishes two descriptions of the variance. Suppose that $Y/x$ tends to zero and that, in addition, the additive error $x^{2-\eta_d+\eps}$ in \eqref{eq:main2} is $o(x^{1/2}Y^{3/2})$; this holds, for instance, throughout the range of \cref{cor:range}. Then \eqref{eq:main2} shows that the variance is asymptotic to the power law $K_fx^{1/2}Y^{3/2}$, as in Vaughan's theorem \eqref{eq:vaughan}. For smaller $Y$ the theorem gives only an upper bound for the difference, and no asymptotic formula. When the ratio $r=Y/x$ is fixed, \eqref{eq:main1} gives $V_f(x,y)=x^2F_f(1/r)+O(x^{2-\eta_d+\eps})$. Here $x^2F_f(1/r)=K_fx^{1/2}Y^{3/2}\cdot F_f(1/r)r^{-3/2}/K_f$, and by \eqref{eq:F-asym} the factor $F_f(1/r)r^{-3/2}/K_f=1+O(r^{1/8})$ is independent of $x$. The theorem does not say that this factor equals one, and the numerical values in \cref{ch:numerics} show that it does not. The normalised quantity $V_f(x,y)/(x^{1/2}Y^{3/2})$ therefore approaches the ratio-dependent profile $F_f(1/r)r^{-3/2}$ rather than the constant $K_f$. This distinction is essential for interpreting the numerical data.
+\end{remark}
+
+\begin{remark}[Consistency with Vaughan's constant]\label{rem:vaughan}
+For $f(t)=t+1$ one has $\rho(m)=1$ for all $m$, and $V_f(x,y)=V(x,Y)-E(x;1,1)^2$ with $Y=f(y)=y+1$, because the moduli $f(k)=k+1$, $k\le y$, are exactly the integers $2\le q\le Y$; by \cref{prop:density} the subtracted term is $O(x)$. A direct computation shows that for $\rho(p)=\rho(p^2)=1$ each local factor in \eqref{eq:K-intro} equals $(1-p^{-2})^2$ times the local factor of $C_1$ in \eqref{eq:c2}. Since $\prod_p(1-p^{-2})^2=\zeta(2)^{-2}$, it follows that $K_{t+1}=c_2$. Thus the constant of \cref{thm:main} agrees with Vaughan's constant in the one case where both results apply; numerically $K_{t+1}=\KVau$ (see \cref{tab:constants}). For $f(t)=t+1$, \cref{thm:main} is of course much weaker than \eqref{eq:vaughan} as far as the range and the error term are concerned. This comparison was made while preparing this document and is not part of the archived proof (see \cref{app:provenance}).
+\end{remark}
+
+\begin{remark}[Limitations]
+The asymptotic formula is established only for $f(y)\ge x^{1-2\eta_d/3+\delta}$, not throughout $f(y)\le x$. Two features of the argument fix the exponent $\eta_d$ (see \cref{sec:budget}). The cap $1/5$ comes from summing the error $O(x^{4/5})$ of the correlation estimate (\cref{prop:corr}) over about $x\log x$ pairs $(h,k)$. The exponent $1/(4d-1)$ comes from balancing the bound for small moduli, which is obtained by inserting the full variance bound of \cite{bgpvw1998}, against the error of the averaging over polynomial values in \cref{prop:averaging}.
+\end{remark}
+
+\section{Numerical illustration}
+
+\Cref{ch:numerics} compares the theorem with an archived numerical snapshot of exact computations of $V_f(x,y)$ for $f(t)=t^2+1$, $t^3+2$ and $2t+1$, for $2.5\cdot10^5\le x\le 2.56\cdot10^8$ and $f(y)/x\in[0.005,1]$; the computations are repeated by the script \texttt{reproduce.py} accompanying this document. The constants are
+\[
+K_{t^2+1}=\KTwo,\qquad K_{t^3+2}=\KThree,\qquad K_{2t+1}=\KLin,
+\]
+computed from \eqref{eq:K-intro} with primes up to $\Pmax$. At the largest $x$ the data agree with the profile $x^2F_f(x/Y)$ to within a fraction of one per cent for $t^2+1$ and $2t+1$, and to within a few per cent for $t^3+2$, where $y$ is only a few hundred. The snapshot's empirical extrapolation to $r\to0$ is consistent with $K_f$ within its heuristic uncertainty envelope. \Cref{sec:extrapolation} splits its offset from $K_f$ into a part due to the fitting model itself and a part due to the difference between data and profile at finite $x$. The numbers are evidence, not proof; \cref{ch:numerics} explains the method and its limitations.
+
+\section{Strategy of the proof}\label{sec:strategy}
+
+The proof follows a classical route: expand the square, count pairs of squarefree numbers in the same residue class, and evaluate the resulting averages. It has seven steps, corresponding to \cref{ch:densities,ch:variance,ch:correlations,ch:averaging,ch:dirichlet,ch:mellin,ch:assembly}.
+
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Local densities} (\cref{ch:densities}). We compute $g(q,l)$, the second moment $q\sum_lg(q,l)^2=\sum_{r\mid q}\lambda(r)$, and the Ramanujan expansion $\Sing(n)=\sum_r\gamma(r)^2c_r(n)$ of the singular series
+\[
+\Sing(n)=\prod_p\Bigl(1-\frac2{p^2}\Bigr)\prod_{p^2\mid n}\frac{p^2-1}{p^2-2}.
+\]
+\item \emph{Expanding the variance} (\cref{ch:variance}). Opening the square and counting ordered pairs of squarefree numbers in a common residue class gives
+\[
+V_f(x;z,y)\approx cx(Y-Z)+2\sum_{z<k\le y}f'(k)\sum_{h\le x/f(k)}C_x(hf(k))-x^2\sum_{z<k\le y}f'(k)\sum_{l}g(f(k),l)^2,
+\]
+where $c=\zeta(2)^{-1}$, $Z=f(z)$ and $C_x(m)=\sum_{n\le x-m}\mu^2(n)\mu^2(n+m)$. The moduli $f(k)$ with $k\le z$ are disposed of by the bound of \cite{bgpvw1998}.
+\item \emph{Correlations} (\cref{ch:correlations}). An elementary argument gives $C_x(m)=(x-m)\Sing(m)+O(x^{4/5})$ uniformly in $1\le m\le x$.
+\item \emph{Averaging over polynomial moduli} (\cref{ch:averaging}). Using the Ramanujan expansion, the dependence of $\Sing(hf(k))$ and of $\sum_lg(f(k),l)^2$ on $k$ is periodic modulo each $r$. Partial summation replaces the sums over $k$ by integrals over $t=f(k)$. The singular series average to $W_f(h)$, and the density term becomes $R_f\log(Y/Z)$, with the same constant $R_f$.
+\item \emph{The Dirichlet series} (\cref{ch:dirichlet}). The factorisation $D_f(s)=\zeta(s)\zeta(2s+2)H_f(s)$ with $H_f$ an Euler product holomorphic for $\re s>-\frac34$ gives the residues and the value $D_f(0)=-\frac12\zeta(2)^{-1}$.
+\item \emph{The smoothed sum} (\cref{ch:mellin}). A Mellin integral with kernel $2/(s(s+1)(s+2))$ and a contour shift to $\re s=-\frac58$ give
+\[
+\Theta_f(H)=R_fH^2\log H+B_fH^2+cH-K_fH^{1/2}+O(H^{3/8}).
+\]
+The term $cH$ comes from the pole of the kernel at $s=0$ and the value $D_f(0)$.
+\item \emph{Assembly} (\cref{ch:assembly}). The integral produced in step (4) equals $\frac12\bigl(Z^2\Theta_f(x/Z)-Y^2\Theta_f(x/Y)\bigr)$ exactly. In the combination of steps (2)--(6), the terms $x^2R_f\log(Y/Z)$, the $B_f$-terms and the diagonal term $cx(Y-Z)$ cancel identically, which leaves $x^2F_f(x/Y)-x^2F_f(x/Z)$. Choosing $Z=x^{2d/(4d-1)}$ and estimating every error term proves \cref{thm:main}.
+\end{enumerate}
+
+The cancellation in step (7) is the reason for the shape of the profile $F_f$. All three large terms, of sizes $x^2\log x$, $x^2$ and $xY$, disappear, and what remains is $x^2F_f(x/Y)\approx K_fx^{1/2}Y^{3/2}$, produced by the pole of $\zeta(2s+2)$ at $s=-\frac12$.
+
+\section{Organisation and conventions of this document}
+
+\Cref{ch:prelim} collects elementary facts used repeatedly: tail estimates, the divisor bound, infinite products, Ramanujan sums and the growth of $f$. Each of \cref{ch:densities,ch:variance,ch:correlations,ch:averaging,ch:dirichlet,ch:mellin,ch:assembly} proves one of the seven propositions of the archived proof; their statements are kept with the hypotheses, ranges and uniformity of the archive. \Cref{ch:numerics} describes the numerical evidence, \cref{app:tables} lists the full numerical tables, and \cref{app:provenance} records how this document was produced. The file \texttt{changes.md} maps every statement to its archived source.
+
+Only two results are quoted from the literature: Lemma~2.2 of \cite{bgpvw1998}, used for the small moduli in \cref{prop:initial}, and Corollary~10.5 of \cite{montgomeryvaughan2007} (a consequence of the functional equation of $\zeta$), used to bound $\zeta$ in a vertical strip in \cref{lem:zeta-growth}. Everything else is proved here.

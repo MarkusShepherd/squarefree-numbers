@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "Equations (26) and (41).",
+  "objection": "No nontrivial gap found. Both estimates hold over the stated ranges with constants depending only on f. P1 is used as stated; the Euler factors, summed errors, endpoint cases, and convergence arguments check out. No external results are invoked.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "e5fbb074d5474895bf590109986d5b7a5e6323947732545522fcb694aad047cd",
+  "proof_hash": "2ab8a91e52eab826a2951f6c37ea13a774b943aaa6037547f01d5d039fad703c"
+}

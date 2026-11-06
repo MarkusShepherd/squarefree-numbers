@@ -1,0 +1,8 @@
+x=257 NTT length=1024 squarefree=158
+x=257 correlations and squarefree-divisibility counts ready
+x=257 completed exact coefficient stream
+Exact rational g/(6/pi^2) agrees with independent brute local-residue densities for all 1275 pairs q<=50; finite Euler product over primes<=50 divided out exactly.
+Brute squarefree frequencies at x=1000000, q<=50: maximum absolute density discrepancy 3.17040894156e-05.
+sum_l Q(x;q,l)=Q(x;1,1) exactly for every q<=50 at x=1000000 (Q=607926).
+At x=257 every generated modulus for all three polynomials: exact sum Q^2 and both rational density coefficients agree with direct residue counts.
+Every production x: NTT autocorrelation C(0) and seven direct lag sums checked with exact integers. NTT prime 3221225473 (primitive root 5, up to length 2^30) exceeds every autocorrelation coefficient; no modular ambiguity.

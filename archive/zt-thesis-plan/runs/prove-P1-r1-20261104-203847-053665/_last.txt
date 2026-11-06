@@ -1,0 +1,1 @@
+Wrote [proof.md](proof.md) with a complete elementary proof of P1. It also establishes stronger coefficient bounds without logarithmic factors. No external sources were used.

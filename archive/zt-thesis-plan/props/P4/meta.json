@@ -1,0 +1,11 @@
+{
+  "id": "P4",
+  "title": "Polynomial averaging with a common density coefficient",
+  "statement": "Let f and \u03c1 be as in problem.md, d=deg f, and put \u03c1(1)=1. Write \u03b6 for the Riemann zeta function, c=\u03b6(2)^(\u22121), and \u03c6 for Euler's totient. Define \u03bb(r)=c\u00b2\u03c6(r)\u220f_{p|r}(p\u00b2\u22121)^(\u22122) when no prime cube divides r, and \u03bb(r)=0 otherwise; the product for r=1 is empty. Define R_f=\u03a3_{r\u22651}\u03bb(r)\u03c1(r)/r and \ud835\udd16(n)=\u220f_p(1\u22122/p\u00b2)\u220f_{p\u00b2|n}(p\u00b2\u22121)/(p\u00b2\u22122). For h\u22651 let v_p(h) be the exponent of p in h, j_p(h)=max{2\u2212v_p(h),0}, and W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{j_p(h)})/(p^{j_p(h)}(p\u00b2\u22122))]. These series and products converge absolutely. For real x\u22652, 1\u2264z\u2264y, Z=f(z)\u2264Y=f(y)\u2264x, and 2\u2264R\u2264x, put A=Z^(\u22121/d)R^(1/2)(log(2R))\u00b2+R^(\u22121/2)(log(2R))\u00b2log(2x). There is C(f)>0, uniform throughout these ranges, such that |\u03a3_{z<k\u2264y}f'(k)\u03a3_{l=1}^{f(k)}g(f(k),l)\u00b2\u2212R_f log(Y/Z)|\u2264C(f)A, and |\u03a3_{z<k\u2264y}f'(k)\u03a3_{1\u2264h\u2264x/f(k)}(x\u2212hf(k))\ud835\udd16(hf(k))\u2212\u222b_Z^Y \u03a3_{1\u2264h\u2264x/t}(x\u2212ht)W_f(h)dt|\u2264C(f)x\u00b2A. All discrete summation variables are positive integers. No condition on the discriminant, content, or factorization of f is imposed.",
+  "depends_on": [
+    "P1"
+  ],
+  "cites": [],
+  "crux": true,
+  "risk": "The same R_f must occur in the density average and the off-diagonal expansion. The Euler-summation error must be summed using the h-dependent endpoint f(k)\u2264x/h; using y for every h would lose the claimed range. Fixed prime divisors and repeated polynomial factors must be retained."
+}

@@ -14,6 +14,10 @@ material for a blog post, as much as its result.
 
 ## Roles
 
+Make repository changes in a worktree under this repository's `.worktrees/`
+directory. Keep worktrees inside the repository, not in external temporary
+directories. Agent working directories under `runs_dir` remain external.
+
 **You do mechanics:** run steps, read their output and transcripts, run the
 checks below, debug and fix the harness (driver, stubs, config), archive runs,
 and report what happened. Fix harness bugs on a branch with an MR, and run
@@ -34,7 +38,7 @@ the thesis:
 
 - Do **not** open or read, unless Markus explicitly asks: the thesis PDF
   (`schepke_distribution_of_squarefree_numbers_in_arithmetic_progressions.pdf`,
-  wherever it is), `variants/thesis-informed/`, issue
+  wherever it is), `variants/thesis-informed/`, `hints/thesis.md`, issue
   mshepherd/riemannhypothesis.blog#4 and its comments, Dehnert (2015), or
   anything on riemannhypothesis.blog / primes.recommend.games.
 - Do not put known results into prompts, hints, statements or `problem.md`:

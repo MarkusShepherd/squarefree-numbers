@@ -1,0 +1,10 @@
+{
+  "verdict": "pass",
+  "severity": "none",
+  "location": "",
+  "objection": "No nontrivial gap found. Assuming P2\u2013P6 as supplied, the proof establishes both stated bounds with the required ranges, uniformity, and constant dependence. Summation lengths, cutoff exponents, and epsilon losses are accounted for. No external results are cited.",
+  "other_issues": [],
+  "model": "codex:gpt-6.1-sol",
+  "contract_hash": "3baaa3959525161ce5865cde66328895f59fa7a5838dee7a1a49ff8bcfd8f505",
+  "proof_hash": "8e517590b57215fde63b71c50bc5a4946e0ff2e1af86d531f1227b5487c72e6e"
+}

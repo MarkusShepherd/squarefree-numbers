@@ -1,0 +1,1 @@
+{"verdict":"pass","severity":"none","location":"Equations (26) and (41).","objection":"No nontrivial gap found. Both estimates hold over the stated ranges with constants depending only on f. P1 is used as stated; the Euler factors, summed errors, endpoint cases, and convergence arguments check out. No external results are invoked.","other_issues":[]}

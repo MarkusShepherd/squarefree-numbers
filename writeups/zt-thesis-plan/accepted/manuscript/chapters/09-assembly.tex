@@ -1,0 +1,114 @@
+\chapter{Proof of the main theorem}\label{ch:assembly}
+
+We now combine \cref{prop:reduction,prop:initial,prop:corr,prop:averaging,prop:Df,prop:Theta} and \cref{lem:integral-identity}. Throughout, $d=\deg f$,
+\[
+a=4d-1,\qquad\theta=\frac{2d}a,\qquad\eta=\eta_d=\min\Bigl\{\frac15,\frac1a\Bigr\},
+\]
+and $\eps$ with $0<\eps<\eta/2$ is fixed. We put $\eps_1=\eps/2$ and apply \cref{prop:reduction,prop:initial} with $\eps_1$ in place of $\eps$. Constants written $C_f$ depend only on $f$, constants written $C_{f,\eps}$ depend only on $f$ and $\eps$, and both may change from line to line. (Archived source: proposition P7.)
+
+\section{The variance on an interval of moduli}
+
+\begin{lemma}\label{lem:interval}
+Let $x\ge2$, $1\le z\le y$, $2\le Z=f(z)\le Y=f(y)\le x$ and $2\le R\le x$, and let $\mathcal A=\mathcal A(x,Z,R)$ be as in \cref{prop:averaging}. Then
+\[
+\Bigl|V_f(x;z,y)-x^2\bigl(F_f(x/Y)-F_f(x/Z)\bigr)\Bigr|\le C_{f,\eps}\bigl(x^{3/2+\eps_1}+xY^{1-1/d}+x^{9/5}\log(2x)+x^2\mathcal A\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+\emph{Correlations.} For $z<k\le y$ there are at most $x/f(k)$ integers $h$ with $1\le h\le x/f(k)$, and each $m=hf(k)$ is an integer in $[1,x]$. By \cref{prop:corr}, replacing $C_x(m)$ by $(x-m)\Sing(m)$ costs at most $K_{\mathrm c}x^{4/5}$ for each pair $(h,k)$. After multiplying by $f'(k)$ and summing over $h$, the cost is at most $K_{\mathrm c}x^{9/5}f'(k)/f(k)$, and by \eqref{eq:sum-w}
+\begin{equation}\label{eq:S-M}
+|S_f(x;z,y)-M_f(x;z,y)|\le2UK_{\mathrm c}\,x^{9/5}\log(2x).
+\end{equation}
+\emph{Averaging.} \Cref{prop:averaging} applies under exactly the present hypotheses and gives
+\[
+|M_f(x;z,y)-I_f(x;Z,Y)|\le C_fx^2\mathcal A,\qquad|T_f(z,y)-R_f\log(Y/Z)|\le C_f\mathcal A,
+\]
+where we used $\widetilde R_f=R_f$ (\cref{prop:Df}(d)).
+
+\emph{Combination.} By \cref{prop:reduction}, the factor $2$ in front of $S_f$ and the factor $x^2$ in front of $T_f$ give
+\begin{multline*}
+\Bigl|V_f(x;z,y)-\bigl[cx(Y-Z)+2I_f(x;Z,Y)-x^2R_f\log(Y/Z)\bigr]\Bigr|\\
+\le C_{f,\eps}\bigl(x^{3/2+\eps_1}+xY^{1-1/d}\bigr)+4UK_{\mathrm c}x^{9/5}\log(2x)+3C_fx^2\mathcal A.
+\end{multline*}
+\emph{Exact cancellation.} By \cref{lem:integral-identity}, $2I_f(x;Z,Y)=Z^2\Theta_f(x/Z)-Y^2\Theta_f(x/Y)$. By the definition \eqref{eq:ThetaF} of $F_f$, with $c=\zeta(2)^{-1}$, direct subtraction gives
+\[
+x^2\bigl(F_f(x/Y)-F_f(x/Z)\bigr)=-x^2R_f\log(Y/Z)+cx(Y-Z)+Z^2\Theta_f(x/Z)-Y^2\Theta_f(x/Y),
+\]
+because $x^2\cdot c/(x/Y)=cxY$ and the $B_f$-terms cancel. Hence the bracket equals $x^2(F_f(x/Y)-F_f(x/Z))$.
+\end{proof}
+
+\section{Choice of the cutoffs and the error budget}\label{sec:budget}
+
+\begin{proof}[Proof of \eqref{eq:main1}]
+Take
+\[
+Z=x^\theta=x^{2d/a},\qquad R=Z^{1/d}=x^{2/a}.
+\]
+Both exponents lie in $(0,1)$. Choose $x_0=x_0(f)\ge2$ so that $Z\ge\max\{2,f(1)\}$ and $R\ge2$ for $x\ge x_0$; then also $Z\le x$ and $R\le x$. By \cref{lem:poly}(a) there is a unique real $z\ge1$ with $f(z)=Z$. Then
+\begin{equation}\label{eq:exponents}
+\begin{gathered}
+Z^{-1/d}R^{1/2}=R^{-1/2}=x^{-1/a},\qquad1+\theta\Bigl(2-\frac1d\Bigr)=\frac{8d-3}a=2-\frac1a,\\
+\Bigl(2-\frac1a\Bigr)-\Bigl(\frac12+\frac{3d}a\Bigr)=\frac{6d-5}{2a}>0.
+\end{gathered}
+\end{equation}
+
+\emph{Case $Y\ge Z$.} Then $z\le y$, and $V_f(x,y)=V_f(x,z)+V_f(x;z,y)$. Hence
+\[
+|V_f(x,y)-x^2F_f(x/Y)|\le V_f(x,z)+x^2|F_f(x/Z)|+\Bigl|V_f(x;z,y)-x^2\bigl(F_f(x/Y)-F_f(x/Z)\bigr)\Bigr|.
+\]
+We bound every term; the table summarises the result.
+\begin{itemize}
+\item By \cref{prop:initial} and \eqref{eq:exponents}, $V_f(x,z)\le C_{f,\eps}x^{1+\eps_1}Z^{2-1/d}=C_{f,\eps}x^{2-1/a+\eps_1}$.
+\item By \eqref{eq:F-asym} with $H=x/Z\ge1$, $x^2|F_f(x/Z)|\le C_fx^{1/2}Z^{3/2}=C_fx^{1/2+3d/a}\le C_fx^{2-1/a}$, by \eqref{eq:exponents}.
+\item By \cref{lem:interval} the remaining difference is at most $C_{f,\eps}$ times $x^{3/2+\eps_1}+xY^{1-1/d}+x^{9/5}\log(2x)+x^2\mathcal A$, and by \eqref{eq:exponents} and $R\le x$, $x^2\mathcal A\le x^{2-1/a}\bigl((\log2x)^2+(\log2x)^3\bigr)$.
+\end{itemize}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+origin & bound & comparison with $x^{2-\eta+\eps}$\\
+\midrule
+diagonal and mixed terms (\cref{prop:reduction}) & $x^{3/2+\eps_1}$ & $\eta\le\frac15<\frac12$\\
+endpoint of $\sum f'(k)$ (\cref{prop:reduction}) & $xY^{1-1/d}\le x^{2-1/d}$ & $\eta\le\frac1a\le\frac1d$\\
+correlations (\cref{prop:corr}) & $x^{9/5}\log(2x)$ & $\eta\le\frac15$, $\log2x\ll_\eps x^{\eps}$\\
+averaging (\cref{prop:averaging}) & $x^{2-1/a}(\log2x)^3$ & $\eta\le\frac1a$, $(\log2x)^3\ll_\eps x^{\eps}$\\
+initial moduli (\cref{prop:initial}) & $x^{2-1/a+\eps_1}$ & $\eta\le\frac1a$\\
+lower boundary of the profile & $x^{1/2+3d/a}\le x^{2-1/a}$ & $\eta\le\frac1a$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The logarithmic bounds come from \cref{lem:sums}(d). Every row is at most $C_{f,\eps}x^{2-\eta+\eps}$ for $x\ge2$, which proves \eqref{eq:main1} when $Y\ge Z$.
+
+\emph{Case $Y<Z$.} Apply \cref{prop:initial} with $y$ in place of $z$; this is allowed since $y\ge1$ and $f(y)=Y\le x$. Because $2-1/d>0$,
+\[
+0\le V_f(x,y)\le C_{f,\eps}x^{1+\eps_1}Y^{2-1/d}\le C_{f,\eps}x^{1+\eps_1}Z^{2-1/d}=C_{f,\eps}x^{2-1/a+\eps_1}.
+\]
+Also $x/Y\ge1$, so \eqref{eq:F-asym} and \eqref{eq:exponents} give $x^2|F_f(x/Y)|\le C_fx^{1/2}Y^{3/2}\le C_fx^{1/2+3d/a}\le C_fx^{2-1/a}$. The triangle inequality and $\eta\le1/a$ give \eqref{eq:main1} in this case too.
+
+All constants and $x_0$ depend only on $f$ and $\eps$, and real values of $y$ and $z$ need no separate treatment: the sums split exactly as $k\le z$ and $z<k\le y$, and the endpoint effects are contained in \cref{prop:reduction}.
+\end{proof}
+
+\begin{proof}[Proof of \eqref{eq:main2}]
+For every $Y\le x$, \eqref{eq:F-asym} with $H=x/Y\ge1$, multiplied by $x^2$, gives
+\[
+\bigl|x^2F_f(x/Y)-K_fx^{1/2}Y^{3/2}\bigr|\le C_fx^2(x/Y)^{-13/8}=C_fx^{3/8}Y^{13/8},
+\]
+since $x^2(x/Y)^{-3/2}=x^{1/2}Y^{3/2}$. Combine this with \eqref{eq:main1}. The formulas \eqref{eq:K-intro} and \eqref{eq:R-intro} and the positivity of $K_f$ are \cref{prop:Df}(d),(f).
+\end{proof}
+
+\begin{remark}
+The hypothesis $\eps<\eta_d/2$ is not used in the argument above, which works for every $\eps>0$. We keep the hypothesis as stated.
+\end{remark}
+
+\section{\texorpdfstring{Proof of \cref{cor:range}}{Proof of Corollary 1.2}}\label{sec:corollary}
+
+Let $0<\delta<\eta/3$, apply \eqref{eq:main2} with $\eps=\delta$ (admissible because $\delta<\eta/2$), and divide by $K_fx^{1/2}Y^{3/2}$, which is positive by \cref{prop:Df}(f). For $x^{1-2\eta/3+\delta}\le Y\le x^{1-\delta}$ the two relative errors are
+\[
+\frac{x^{3/8}Y^{13/8}}{x^{1/2}Y^{3/2}}=\Bigl(\frac Yx\Bigr)^{1/8}\le x^{-\delta/8},\qquad
+\frac{x^{2-\eta+\delta}}{x^{1/2}Y^{3/2}}\le x^{3/2-\eta+\delta-\frac32(1-\frac{2\eta}3+\delta)}=x^{-\delta/2}\le x^{-\delta/8}.
+\]
+Hence $|V_f(x,y)/(K_fx^{1/2}Y^{3/2})-1|\le C(f,\delta)x^{-\delta/8}$ for $x\ge x_0(f,\delta)$. The range is nonempty because $\delta<\eta/3$. \qed
+
+\section{Where the exponents come from}
+
+The cap $\eta_d\le\frac15$ comes from summing the uniform correlation error $x^{4/5}$ of \cref{prop:corr} over all pairs $(h,k)$; the weighted number of these pairs is $\sum_kf'(k)x/f(k)\asymp x\log x$. The exponent $\frac1{4d-1}$ comes from balancing two terms. The first is the bound $x^{1+\eps}Z^{2-1/d}$ for the initial moduli; it arises from multiplying the full-variance bound \eqref{eq:full-variance} by the largest weight $f'(k)\asymp Z^{1-1/d}$. The second is the averaging error $x^2Z^{-1/(2d)}$ of \cref{prop:averaging} at $R=Z^{1/d}$. Equating $1+\theta(2-\frac1d)$ with $2-\frac\theta{2d}$ gives $\theta=\frac{2d}{4d-1}$. Improving either the treatment of small moduli or the correlation estimate would widen the range of \cref{cor:range}. Neither improvement is attempted here.

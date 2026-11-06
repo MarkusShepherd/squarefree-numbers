@@ -1,0 +1,120 @@
+\chapter{The smoothed sum \texorpdfstring{$\Theta_f$}{Theta\_f} and the profile \texorpdfstring{$F_f$}{F\_f}}\label{ch:mellin}
+
+The integral $I_f(x;Z,Y)$ of \cref{prop:averaging} turns out to be an exact combination of values of the smoothed partial sum
+\[
+\Theta_f(H)=\sum_{1\le h\le H}W_f(h)\frac{(H-h)^2}{h}.
+\]
+We evaluate $\Theta_f(H)$ by a Mellin integral of $D_f$ and a contour shift past the poles at $s=1$, $s=0$ (from the kernel) and $s=-\frac12$. The residues give the four terms $R_fH^2\log H$, $B_fH^2$, $cH$ and $-K_fH^{1/2}$. (Archived source: proposition P6.)
+
+\section{Growth in a vertical strip}
+
+We need one result from the literature. It is a consequence of the functional equation $\zeta(s)=\zeta(1-s)2^s\pi^{s-1}\Gamma(1-s)\sin(\pi s/2)$ \cite[Corollary~10.4]{montgomeryvaughan2007} and Stirling's formula.
+
+\begin{quoted}[{\cite[Corollary~10.5]{montgomeryvaughan2007}}]\label{quoted:mv}
+Suppose that $A>0$ is fixed. Then $|\zeta(s)|\asymp\tau^{1/2-\sigma}|\zeta(1-s)|$ uniformly for $|\sigma|\le A$ and $|t|\ge1$. Here $s=\sigma+it$ and $\tau=|t|+4$.
+\end{quoted}
+
+We use it with $A=2$, only for $-\frac58\le\sigma\le\frac14$ and $|t|\ge2$. Let $c_{\mathrm{MV}}$ be a constant for the upper inequality there, so that $|\zeta(s)|\le c_{\mathrm{MV}}(|t|+4)^{1/2-\sigma}|\zeta(1-s)|$. No conditional estimate for $\zeta$ is used. (The holomorphy of $\zeta$ in the strip away from $s=1$ is already contained in \cref{lem:zeta}(b).)
+
+\begin{lemma}\label{lem:zeta-growth}
+\begin{enumerate}[label=(\alph*)]
+\item Let $\delta\in\{\frac14,\frac34\}$ and $C_\delta=(\frac32)^{1-\delta}\bigl(\frac1{1-\delta}+1\bigr)+\frac4\delta$. Then $|\zeta(\alpha+iv)|\le C_\delta|v|^{1-\delta}$ for $\delta\le\alpha\le6$ and $|v|\ge2$.
+\item For $s=\sigma+it$ with $-\frac58\le\sigma\le2$ and $T=|t|\ge2$,
+\[
+|\zeta(s)|\le C_\zeta T^{11/8},\qquad|\zeta(2s+2)|\le C_{3/4}(2T)^{1/4},\qquad C_\zeta=\max\{C_{1/4},\,3^{9/8}c_{\mathrm{MV}}C_{3/4}\}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Let $V=|v|$ and use \eqref{eq:zeta-N} with $N=\lceil V\rceil$, so $V\le N\le\frac32V$. The finite sum has modulus at most $\sum_{n\le N}n^{-\delta}\le N^{1-\delta}/(1-\delta)\le(\frac32)^{1-\delta}V^{1-\delta}/(1-\delta)$. Next, $|N^{1-s}/(s-1)|\le N^{1-\delta}/V\le(\frac32)^{1-\delta}V^{1-\delta}$. Finally $|s\int_N^\infty\{u\}u^{-s-1}\dd u|\le|s|N^{-\alpha}/\alpha\le(V+6)V^{-\delta}/\delta\le4V^{1-\delta}/\delta$.
+
+(b) For $\frac14\le\sigma\le2$ apply (a) with $\delta=\frac14$: $|\zeta(s)|\le C_{1/4}T^{3/4}\le C_{1/4}T^{11/8}$. For $-\frac58\le\sigma\le\frac14$, $\re(1-s)\in[\frac34,\frac{13}8]$, so (a) with $\delta=\frac34$ and \cref{quoted:mv} give $|\zeta(s)|\le c_{\mathrm{MV}}(3T)^{1/2-\sigma}C_{3/4}T^{1/4}\le3^{9/8}c_{\mathrm{MV}}C_{3/4}T^{11/8}$, using $T+4\le3T$ and $\frac14\le\frac12-\sigma\le\frac98$. Finally, $\re(2s+2)\in[\frac34,6]$ and $|\im(2s+2)|=2T\ge4$, so (a) with $\delta=\frac34$ applies.
+\end{proof}
+
+The bound of \cref{prop:Df}(b) for $H_f$ holds on each vertical line, but the contour shift needs a bound that is uniform on a strip. The archived proof supplies it directly from the Euler product.
+
+\begin{lemma}\label{lem:H-strip}
+Let $\mathcal B$ be the finite set of primes dividing every coefficient of $f$. For $-\frac58\le\re s\le2$,
+\[
+|H_f(s)|\le M_H:=e^{8(1+d)}\prod_{p\in\mathcal B}\bigl(1+p^{-3/4}\bigr)\bigl(1+p^{5/8}+p^{5/4}\bigr).
+\]
+Consequently, with $C_D=2^{1/4}M_HC_\zeta C_{3/4}$,
+\begin{equation}\label{eq:D-growth}
+|D_f(\sigma+it)|\le C_D|t|^{13/8}\qquad\bigl(-\tfrac58\le\sigma\le2,\ |t|\ge2\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $z=p^{-s}$, so $|z|\le p^{5/8}$. For $p\notin\mathcal B$, \cref{lem:rho}(c) gives $\rho(p)\le d$ and $\rho(p^2)\le dp$. Together with \eqref{eq:abd-bounds} this yields $|\alpha_p-1|\le2p^{-2}$, $\beta_p\le dp^{-3}$, $\delta_p\le p^{-2}$ and $|\delta_p-\alpha_pp^{-2}|\le dp^{-3}+2p^{-4}+dp^{-5}\le(2d+1)p^{-3}$. By \eqref{eq:M-expand},
+\[
+|M_p(s)-1|\le2p^{-2}+dp^{-19/8}+(2d+1)p^{-7/4}+dp^{-25/8}+p^{-3/2}\le(4+4d)p^{-3/2},
+\]
+and $\sum_p(4+4d)p^{-3/2}\le(4+4d)\int_1^\infty u^{-3/2}\dd u=8(1+d)$. Hence $|\prod_{p\notin\mathcal B}M_p(s)|\le\prod(1+|M_p(s)-1|)\le e^{8(1+d)}$. For the finitely many $p\in\mathcal B$ use $0\le\alpha_p,\beta_p,\delta_p\le1$ to get $|M_p(s)|\le(1+p^{-2}|z|^2)(1+|z|+|z|^2)\le(1+p^{-3/4})(1+p^{5/8}+p^{5/4})$. The bound \eqref{eq:D-growth} then follows from $D_f(s)=\zeta(s)\zeta(2s+2)H_f(s)$ and \cref{lem:zeta-growth}(b).
+\end{proof}
+
+\section{The Mellin representation}
+
+\begin{lemma}\label{lem:kernel}
+For real $v>0$,
+\[
+\frac1{2\pi i}\int_{1-i\infty}^{1+i\infty}\frac{2v^z}{z(z+1)(z+2)}\dd z=\begin{cases}(1-v^{-1})^2,&v\ge1,\\0,&0<v<1.\end{cases}
+\]
+\end{lemma}
+
+\begin{proof}
+The integral converges absolutely. For $v\ge1$, close the contour by a rectangle to the left, with horizontal sides at heights $\pm T$ and a left side on $\re z=-N-\frac12$ with an integer $N\ge3$. On the horizontal sides the integrand is $O_v(T^{-3})$, so their contribution tends to zero as $T\to\infty$. On the left side each of $|z|,|z+1|,|z+2|$ is at least $\sqrt{(N-3/2)^2+(\im z)^2}$, so the normalised integral is at most $\frac{v^{-N-1/2}}\pi\int_{\R}((N-\frac32)^2+t^2)^{-3/2}\dd t=\frac{2v^{-N-1/2}}{\pi(N-3/2)^2}$, which tends to zero also when $v=1$. The residues at $z=0,-1,-2$ are $1$, $-2v^{-1}$ and $v^{-2}$, with sum $(1-v^{-1})^2$. For $v<1$, close to the right instead; the right side $\re z=N$ contributes at most $2v^N/(\pi N^2)\to0$, and there are no poles.
+\end{proof}
+
+\begin{proposition}\label{prop:Theta}
+There is $C(f)>0$ such that, uniformly for real $H\ge1$,
+\begin{equation}\label{eq:Theta}
+\Bigl|\Theta_f(H)-\bigl(R_fH^2\log H+B_fH^2+cH-K_fH^{1/2}\bigr)\Bigr|\le C(f)H^{3/8},
+\end{equation}
+and consequently
+\begin{equation}\label{eq:F-asym}
+\bigl|F_f(H)-K_fH^{-3/2}\bigr|\le C(f)H^{-13/8},\qquad|F_f(H)|\le(K_f+C(f))H^{-3/2}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\emph{Mellin representation.} Apply \cref{lem:kernel} with $v=H/h$, multiply by $H^2W_f(h)/h$ and sum over $h\ge1$; note $H^2(1-h/H)^2=(H-h)^2$, and a term with $h=H$ vanishes on both sides. With $s=z+1$ the integrand becomes $2W_f(h)H^{s+1}h^{-s}/((s-1)s(s+1))$ on $\re s=2$. The sum over $h$ of its absolute values is at most $2H^3\zeta(2)/|(s-1)s(s+1)|$, which is integrable on the line, because $|(s-1)s(s+1)|\ge|\im s|^3$ there and the denominator does not vanish. Hence summation and integration may be interchanged, and
+\[
+\Theta_f(H)=\frac1{2\pi i}\int_{2-i\infty}^{2+i\infty}G_H(s)\dd s,\qquad G_H(s)=\frac{2D_f(s)H^{s+1}}{(s-1)s(s+1)}.
+\]
+
+\emph{Contour shift.} In the strip $-\frac58\le\re s\le2$ the poles of $G_H$ are at $s=1$ and $s=-\frac12$ (from $D_f$, \cref{prop:Df}(c)) and at $s=0$ (from the kernel); the pole of the kernel at $-1$ lies outside. On the horizontal segments at height $\pm T$, $T\ge2$, each factor of the denominator has modulus at least $T$, and $|H^{s+1}|\le H^3$. So \eqref{eq:D-growth} bounds the integrand by $2C_DH^3T^{-11/8}$. The segments have length $\frac{21}8$, so their total contribution is at most $\frac{21}2C_DH^3T^{-11/8}\to0$ as $T\to\infty$, for each fixed $H$. On the line $\re s=-\frac58$ we have $|(s-1)s(s+1)|\ge\frac{13}8\cdot\frac58\cdot\frac38=\frac{195}{512}$. With $M_0=\max_{|t|\le2}|D_f(-\frac58+it)|$, finite because the line contains no pole, the part $|t|\le2$ contributes at most $4\cdot\frac{512}{195}\cdot2M_0H^{3/8}$ to the integral of $|G_H|$. For $|t|\ge2$, \eqref{eq:D-growth} gives $|G_H|\le2C_DH^{3/8}|t|^{-11/8}$, and these tails contribute at most $4C_DH^{3/8}\int_2^\infty t^{-11/8}\dd t=\frac{32}3C_D2^{-3/8}H^{3/8}$. Hence the residue theorem gives
+\[
+\Theta_f(H)=\sum_{s_0\in\{1,0,-1/2\}}\Res_{s=s_0}G_H(s)+E_f(H),\qquad|E_f(H)|\le C_*H^{3/8},
+\]
+where $C_*=\frac1{2\pi}\bigl(\frac{4096}{195}M_0+\frac{32}3C_D2^{-3/8}\bigr)$ depends only on $f$.
+
+\emph{Residues.} Write $D_f(s)=\frac{R_f}{s-1}+L_f+O(s-1)$ near $s=1$, so that $B_f=L_f-\frac32R_f$ by \eqref{eq:RBK}, and put $q(s)=2/(s(s+1))$. Then $q(1)=1$ and $q'(1)=-\frac32$, and $G_H(s)=q(s)H^{s+1}D_f(s)/(s-1)$ has the residue
+\begin{align*}
+\Res_{s=1}G_H&=R_f\frac{\dd}{\dd s}\bigl(q(s)H^{s+1}\bigr)\Big|_{s=1}+L_fq(1)H^2\\
+&=H^2\bigl(R_f\log H-\tfrac32R_f+L_f\bigr)=R_fH^2\log H+B_fH^2.
+\end{align*}
+At $s=0$, \cref{prop:Df}(e) gives
+\[
+\Res_{s=0}G_H=\frac{2D_f(0)H}{(-1)\cdot1}=-2D_f(0)H=cH.
+\]
+At $s=-\frac12$ the denominator equals $(-\frac32)(-\frac12)(\frac12)=\frac38$, so by \eqref{eq:RBK}
+\[
+\Res_{s=-1/2}G_H=\frac{16}3H^{1/2}\Res_{s=-1/2}D_f=-K_fH^{1/2}.
+\]
+
+This proves \eqref{eq:Theta} with $C(f)=1+C_*$, for every real $H\ge1$, integral or not. Substituting into \eqref{eq:ThetaF} gives the exact identity $F_f(H)=K_fH^{-3/2}-E_f(H)/H^2$, which implies \eqref{eq:F-asym} since $H^{-13/8}\le H^{-3/2}$.
+\end{proof}
+
+\section{The integral identity}
+
+\begin{lemma}\label{lem:integral-identity}
+For real $x\ge2$ and $2\le Z\le Y\le x$,
+\[
+2\int_Z^Y\sum_{1\le h\le x/t}(x-ht)W_f(h)\dd t=Z^2\Theta_f(x/Z)-Y^2\Theta_f(x/Y).
+\]
+\end{lemma}
+
+\begin{proof}
+Write $u_+=\max\{u,0\}$. For $t\in[Z,Y]$ only $h\le x/Z$ contribute, so the left side equals $\sum_{h\le x/Z}W_f(h)\cdot2\int_Z^Y(x-ht)_+\dd t$. The function $t\mapsto(x-ht)_+^2$ is continuously differentiable with derivative $-2h(x-ht)_+$, hence $2\int_Z^Y(x-ht)_+\dd t=\bigl((x-hZ)_+^2-(x-hY)_+^2\bigr)/h$. On the other hand, by the definition of $\Theta_f$, $Z^2\Theta_f(x/Z)=\sum_{h\le x/Z}W_f(h)(x-hZ)_+^2/h$ and $Y^2\Theta_f(x/Y)=\sum_{h\le x/Z}W_f(h)(x-hY)_+^2/h$; in the second sum the terms with $h>x/Y$ vanish. Subtracting gives the identity, with no error term. Note that $x/Z,x/Y\ge1$.
+\end{proof}

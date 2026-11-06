@@ -1,0 +1,141 @@
+\chapter{Notation and elementary tools}\label{ch:prelim}
+
+\section{Conventions}
+
+The letter $p$ always denotes a prime, and products $\prod_p$ run over all primes. Unless a range says otherwise, summation variables $h,k,l,m,n,q,r,a,b,d,e,j$ run over positive integers. Logarithms are natural. We write $c=\zeta(2)^{-1}=6/\pi^2$, $\tau(n)$ for the number of divisors of $n$, $\varphi$ for Euler's totient, $v_p(n)$ for the exponent of $p$ in $n$, $p\parallel n$ when $v_p(n)=1$, $(a,b)$ and $[a,b]$ for the greatest common divisor and least common multiple, $\one_{\mathcal P}$ for the indicator of a property $\mathcal P$, and $e(t)=e^{2\pi it}$. For real $t$, $\lfloor t\rfloor$ and $\{t\}$ are the integer and fractional parts. The polynomial $f$ always satisfies \eqref{eq:f-hyp}, $d=\deg f$, and $Y=f(y)$, $Z=f(z)$. ``Constants depending only on $f$'' may depend on the coefficients of $f$. The notation $A\ll B$ means $|A|\le CB$ for a constant $C$ whose dependence is indicated by subscripts.
+
+\section{Elementary estimates}
+
+\begin{lemma}\label{lem:sums}
+\begin{enumerate}[label=(\alph*)]
+\item $\sum_{j\ge1}j^{-2}\le2$. For an integer $N\ge1$, $\sum_{j>N}j^{-2}\le1/N$. For real $T>0$, $\sum_{j>T}j^{-2}\le2/T$.
+\item For real $y\ge1$, $\sum_{j\le y}1/j\le1+\log y$.
+\item For real $u>1$ and an integer $N\ge1$, $\sum_{p>N}p^{-u}\le\sum_{n>N}n^{-u}\le N^{1-u}/(u-1)$.
+\item For $\eta>0$ and $x\ge2$, $\log(2x)\le J_\eta x^\eta$ with $J_\eta=\log2+1/(e\eta)$. For $x\ge1$, $\log x\le5x^{1/5}$. For fixed $j\ge1$ and $u>0$ there is $C_{j,u}$ with $(\log 2x)^j\le C_{j,u}x^u$ for $x\ge2$.
+\item For integers $d\ge1$ and $H\ge1$, $\sum_{h\le H}h^{-1+1/d}\le dH^{1/d}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Compare $j^{-2}$ with $\int_{j-1}^jt^{-2}\dd t$ for $j\ge2$: $\sum_{j\ge1}j^{-2}\le1+\int_1^\infty t^{-2}\dd t=2$ and $\sum_{j>N}j^{-2}\le\int_N^\infty t^{-2}\dd t=1/N$. For $T\ge1$ put $N=\lfloor T\rfloor\ge T/2$; then $\sum_{j>T}j^{-2}=\sum_{j>N}j^{-2}\le1/N\le2/T$. For $0<T<1$ the sum is at most $2\le2/T$.
+(b) and (c) follow in the same way by comparison with $\int t^{-1}\dd t$ and $\int_N^\infty t^{-u}\dd t$.
+(d) The function $u\mapsto u^{-\eta}\log u$ on $[1,\infty)$ has maximum $1/(e\eta)$, so $\log x\le x^\eta/(e\eta)$, and $\log2\le(\log2)x^\eta$. Also $\log x=\int_1^xt^{-1}\dd t\le\int_1^xt^{-4/5}\dd t\le5x^{1/5}$. The last claim follows from the first with $\eta=u/j$.
+(e) Since $t^{-1+1/d}$ is nonincreasing and integrable on $(0,H]$, the sum is at most $\int_0^Ht^{-1+1/d}\dd t=dH^{1/d}$.
+\end{proof}
+
+\begin{lemma}[Divisor bound]\label{lem:divisor}
+For every $\eta>0$ put $D_\eta=\prod_{p<2^{1/\eta}}(1-p^{-\eta})^{-2}$. Then $\tau(n)\le D_\eta n^\eta$ for all $n\ge1$.
+\end{lemma}
+
+\begin{proof}
+By multiplicativity it suffices to bound $(a+1)p^{-\eta a}$ for each prime power $p^a\parallel n$. If $p\ge2^{1/\eta}$, then $a+1\le2^a\le p^{\eta a}$. If $p<2^{1/\eta}$, then $(a+1)p^{-\eta a}\le\sum_{j\ge0}(j+1)p^{-\eta j}=(1-p^{-\eta})^{-2}$. Factors of $D_\eta$ for primes not dividing $n$ are at least one.
+\end{proof}
+
+\section{Infinite products and Euler products}
+
+\begin{lemma}\label{lem:products}
+Let $(e_p)$ be complex numbers indexed by the primes, with $\sum_p|e_p|<\infty$.
+\begin{enumerate}[label=(\alph*)]
+\item The partial products $P_N=\prod_{p\le N}(1+e_p)$ converge to a limit $P$, and $|P|\le\exp(\sum_p|e_p|)$.
+\item For every $N\ge1$, $\bigl|\prod_{p>N}(1+e_p)-1\bigr|\le\exp\bigl(\sum_{p>N}|e_p|\bigr)-1$.
+\item If $1+e_p\ne0$ for all $p$, then $P\ne0$; if all $1+e_p$ are positive reals, then $P>0$.
+\item If $e_p=e_p(s)$ are holomorphic on an open set $\Omega\subset\C$ and $\sum_p\sup_{s\in K}|e_p(s)|<\infty$ for every compact $K\subset\Omega$, then $P(s)$ is holomorphic on $\Omega$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For a finite set $S$ of primes, expanding the product and using the triangle inequality gives $\bigl|\prod_{p\in S}(1+e_p)-1\bigr|\le\prod_{p\in S}(1+|e_p|)-1\le\exp(\sum_{p\in S}|e_p|)-1$. Hence, for $M>N$,
+\[
+|P_M-P_N|=|P_N|\,\Bigl|\prod_{N<p\le M}(1+e_p)-1\Bigr|\le e^{\sum_p|e_p|}\Bigl(e^{\sum_{p>N}|e_p|}-1\Bigr),
+\]
+which tends to zero as $N\to\infty$. This proves (a), and letting $M\to\infty$ in the finite version gives (b). For (c), choose $N_0$ with $|e_p|\le\frac12$ for $p>N_0$. For $|w|\le\frac12$ the principal logarithm satisfies $|\log(1+w)|\le2|w|$, so $\prod_{p>N_0}(1+e_p)=\exp\bigl(\sum_{p>N_0}\log(1+e_p)\bigr)$ is nonzero, and it is positive if the factors are positive. The finitely many remaining factors are nonzero (positive). For (d), the estimate in (a) holds uniformly on each compact $K$, so the holomorphic functions $P_N$ converge locally uniformly and the limit is holomorphic.
+\end{proof}
+
+\begin{lemma}\label{lem:euler}
+Let $a$ be a multiplicative function with $\sum_n|a(n)|<\infty$. Then $\sum_{n\ge1}a(n)=\prod_p\sum_{j\ge0}a(p^j)$, and the product converges absolutely in the sense of \cref{lem:products}.
+\end{lemma}
+
+\begin{proof}
+The local series converge absolutely. For a bound $N$, multiplying the finitely many local series with $p\le N$ gives $\sum a(n)$ over the integers $n$ all of whose prime factors are at most $N$, by unique factorisation and multiplicativity. Every omitted $n$ exceeds $N$, so the difference from $\sum_na(n)$ is at most $\sum_{n>N}|a(n)|$, which tends to zero. Finally $\sum_p\bigl|\sum_{j\ge1}a(p^j)\bigr|\le\sum_{n\ge2}|a(n)|<\infty$.
+\end{proof}
+
+Applied to $a(n)=n^{-s}$ and $a(n)=\mu(n)n^{-2}$, \cref{lem:euler} gives $\zeta(s)=\prod_p(1-p^{-s})^{-1}$ for $\re s>1$ and
+\begin{equation}\label{eq:c-euler}
+c=\zeta(2)^{-1}=\sum_{n\ge1}\frac{\mu(n)}{n^2}=\prod_p\Bigl(1-\frac1{p^2}\Bigr).
+\end{equation}
+Since $\sum_p2p^{-2}<\infty$ and each factor is positive, \cref{lem:products} also shows that $\prod_p(1-2p^{-2})$ converges to a positive number.
+
+\section{Ramanujan sums}
+
+For $r\ge1$ and $n\in\Z$ let $c_r(n)=\sum_{1\le a\le r,\,(a,r)=1}e(an/r)$.
+
+\begin{lemma}\label{lem:ramanujan}
+\begin{enumerate}[label=(\alph*)]
+\item $c_r(n)=\sum_{s\mid(r,n)}s\,\mu(r/s)$; in particular $c_r(n)$ is an integer depending only on $n$ modulo $r$.
+\item $|c_r(n)|\le\varphi(r)$, and $c_{rs}(n)=c_r(n)c_s(n)$ whenever $(r,s)=1$.
+\item $c_p(n)=p\one_{p\mid n}-1$, $c_{p^2}(n)=p^2\one_{p^2\mid n}-p\one_{p\mid n}$, and hence
+\begin{equation}\label{eq:cp-sum}
+c_p(n)+c_{p^2}(n)=p^2\one_{p^2\mid n}-1.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Insert $\one_{(a,r)=1}=\sum_{b\mid(a,r)}\mu(b)$ and write $a=ba'$:
+\[
+c_r(n)=\sum_{b\mid r}\mu(b)\sum_{a'=1}^{r/b}e\Bigl(\frac{a'n}{r/b}\Bigr)=\sum_{b\mid r}\mu(b)\frac rb\one_{(r/b)\mid n},
+\]
+since a complete geometric sum of $e(a'n/m)$ over $a'\bmod m$ equals $m\one_{m\mid n}$. Writing $s=r/b$ gives (a). The bound $|c_r(n)|\le\varphi(r)$ is trivial, since $c_r(n)$ is a sum of $\varphi(r)$ numbers of modulus one. By (a), $r\mapsto c_r(n)$ is the Dirichlet convolution of the multiplicative functions $s\mapsto s\one_{s\mid n}$ and $\mu$, hence multiplicative. Part (c) is (a) for $r=p,p^2$.
+\end{proof}
+
+\section{The polynomial and its roots}
+
+\begin{lemma}\label{lem:poly}
+There are constants $0<\kappa_1\le1\le\kappa_2$, depending only on $f$, such that for all real $t\ge1$
+\begin{equation}\label{eq:kappa}
+\kappa_1t^d\le f(t)\le\kappa_2t^d,\qquad1\le f'(t)\le\kappa_2t^{d-1},\qquad|f''(t)|\le\kappa_2t^{d-2}.
+\end{equation}
+(For $d=1$, $f''=0$.) Put $U=\kappa_2/\kappa_1$ and $V=U+U^2$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $f$ is continuous, strictly increasing and unbounded on $[1,\infty)$; for every $Z\ge f(1)$ there is a unique real $z\ge1$ with $f(z)=Z$. Moreover $f(k+1)-f(k)\ge1$, $f(t)\ge t+1$, and $f(y)\le x$ implies $y<x$ and $y\le(x/\kappa_1)^{1/d}$.
+\item $w(t)=f'(t)/f(t)$ satisfies $0<w(t)\le U/t$ and $|w'(t)|\le V/t^2$ for $t\ge1$.
+\item If $x\ge2$, $1\le z\le y$ and $f(y)\le x$, then
+\begin{equation}\label{eq:sum-w}
+\sum_{z<k\le y}\frac{f'(k)}{f(k)}\le U\sum_{k\le y}\frac1k\le U(1+\log y)\le2U\log(2x).
+\end{equation}
+\item Put $\alpha=1-1/d$ and $K_1=3\kappa_2\kappa_1^{-\alpha}$. For $1\le z\le y$, the weighted count $\mathcal W=\sum_{z<k\le y}f'(k)$ satisfies
+\begin{equation}\label{eq:weight-count}
+|\mathcal W-(Y-Z)|\le K_1Y^{\alpha},\qquad0\le\mathcal W\le(1+K_1)Y.
+\end{equation}
+\item For $k\le z$ we have $f'(k)\le\kappa_2\kappa_1^{-\alpha}Z^{\alpha}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The leading coefficient $A_d$ of $f$ is nonzero, and it is positive because $f(t)\ge2$ for all large $t$. The function $f(t)/t^d$ is positive and continuous on $[1,\infty)$ with the positive limit $A_d$, so it is bounded above and below by positive constants. Bounding each coefficient of $f'$ and $f''$ gives the upper bounds for $f'$ and $f''$, and $f'\ge1$ is a hypothesis. We may take $\kappa_1\le1\le\kappa_2$.
+
+(a) Monotonicity and $f(k+1)-f(k)=\int_k^{k+1}f'\ge1$ follow from $f'\ge1$, and $f(t)\ge f(1)+(t-1)\ge t+1$. The existence and uniqueness of $z$ follow from continuity and strict monotonicity, and the last claims follow from $x\ge f(y)\ge y+1$ and $x\ge f(y)\ge\kappa_1y^d$.
+
+(b) We have $w(t)\le\kappa_2t^{d-1}/(\kappa_1t^d)=U/t$ and $w'=f''/f-(f'/f)^2$, so $|w'|\le U/t^2+U^2/t^2$.
+
+(c) The first inequality is (b), the second is \cref{lem:sums}(b), and the third uses $y<x$ and $1+\log x\le2\log(2x)$, valid because $\log x+2\log2>1$.
+
+(d) Let $n=\lfloor z\rfloor$ and $m=\lfloor y\rfloor$. For each $k$ with $n<k\le m$, $|f'(k)-\int_{k-1}^kf'|\le\int_{k-1}^k|f''|$, and $[k-1,k]\subset[1,\infty)$ because $k\ge2$. Summing gives $|\mathcal W-\int_n^mf'|\le\int_1^y|f''|\le\kappa_2y^{d-1}$; for $d\ge2$ this uses $\int_1^yt^{d-2}\dd t\le y^{d-1}/(d-1)$, and for $d=1$ the integral vanishes. Replacing $[n,m]$ by $[z,y]$ changes the integral by at most $2\sup_{1\le t\le y}f'(t)\le2\kappa_2y^{d-1}$. Since $\int_z^yf'=Y-Z$ and $y^{d-1}\le(Y/\kappa_1)^{\alpha}$, the first inequality follows. The second follows from the first, because $Y\ge2$ gives $Y^\alpha\le Y$.
+
+(e) $f'(k)\le\kappa_2k^{d-1}\le\kappa_2z^{d-1}\le\kappa_2(Z/\kappa_1)^{\alpha}$.
+\end{proof}
+
+\begin{lemma}\label{lem:rho}
+Let $A_d$ be the leading coefficient of $f$, put $C_\rho=\max\{d,|A_d|\}$, and let $\mathcal B$ be the finite set of primes dividing every coefficient of $f$.
+\begin{enumerate}[label=(\alph*)]
+\item $\rho(mn)=\rho(m)\rho(n)$ whenever $(m,n)=1$.
+\item $\rho(p^2)\le p\rho(p)$ and $\rho(p^j)\le p^j$ for $j\ge0$.
+\item If $p\notin\mathcal B$, then $\rho(p)\le d$ and $\rho(p^2)\le dp$.
+\item $\rho(p)\le\min\{C_\rho,p\}$ and $\rho(p^2)\le C_\rho p$ for every prime $p$.
+\end{enumerate}
+No assumption on the content, discriminant or factorisation of $f$ is needed.
+\end{lemma}
+
+\begin{proof}
+(a) The Chinese remainder theorem identifies residues modulo $mn$ with pairs of residues modulo $m$ and $n$, and $f(a)\equiv0\bmod mn$ if and only if both components are roots. (b) Each root modulo $p^2$ reduces to a root modulo $p$, and each residue modulo $p$ has $p$ lifts modulo $p^2$. (c) For $p\notin\mathcal B$ the reduction of $f$ modulo $p$ is a nonzero polynomial of degree at most $d$ over the field $\mathbb F_p$, so it has at most $d$ roots; then use (b). (d) If $p\nmid A_d$, (c) applies. If $p\mid A_d$, then $\rho(p)\le p\le|A_d|$. The bound for $\rho(p^2)$ follows from (b).
+\end{proof}

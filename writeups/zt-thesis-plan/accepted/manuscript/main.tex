@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2.7cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.17}
+\usepackage[hypertexnames=false,colorlinks=true,linkcolor=blue!50!black,citecolor=green!40!black,urlcolor=blue!60!black]{hyperref}
+\usepackage[capitalise,nameinlink]{cleveref}
+
+\numberwithin{equation}{chapter}
+
+\usepackage{thmtools}
+\declaretheorem[name=Theorem,style=plain,numberwithin=chapter]{theorem}
+\declaretheorem[name=Proposition,style=plain,sibling=theorem]{proposition}
+\declaretheorem[name=Lemma,style=plain,sibling=theorem]{lemma}
+\declaretheorem[name=Corollary,style=plain,sibling=theorem]{corollary}
+\declaretheorem[name=Quoted result,refname={quoted result,quoted results},Refname={Quoted result,Quoted results},style=plain,sibling=theorem]{quoted}
+\declaretheorem[name=Definition,style=definition,sibling=theorem]{definition}
+\declaretheorem[name=Remark,style=remark,sibling=theorem]{remark}
+
+% notation
+\newcommand{\Sing}{\mathfrak S}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\Res}{\operatorname*{Res}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Th}{\Theta_f}
+\newcommand{\eps}{\varepsilon}
+
+\hypersetup{pdftitle={Sparse variance for squarefree numbers in arithmetic progressions to polynomial moduli}}
+
+\input{generated/constants.tex}
+
+\title{Sparse variance for squarefree numbers\\ in arithmetic progressions to polynomial moduli\\[1ex]
+\large A write-up of an archived, model-generated proof}
+\author{Archived run \texttt{zt-thesis-plan}, commit \texttt{867fc9b}\\
+\small (models and workflow are recorded in \cref{app:provenance})}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a polynomial $f\in\Z[t]$ of degree $d\ge1$ with $f(t)\ge2$ and $f'(t)\ge1$ for $t\ge1$, we study the weighted variance
+\[
+V_f(x,y)=\sum_{k\le y}f'(k)\sum_{l=1}^{f(k)}\Bigl(Q(x;f(k),l)-g(f(k),l)\,x\Bigr)^2
+\]
+of the number $Q(x;q,l)$ of squarefree $n\le x$ in the residue class $l\bmod q$, where the moduli are restricted to values of $f$ and every residue class is included. We prove that, uniformly for $f(y)\le x$,
+\[
+V_f(x,y)=x^2F_f\bigl(x/f(y)\bigr)+O_{f,\eps}\bigl(x^{2-\eta_d+\eps}\bigr),\qquad \eta_d=\min\Bigl\{\frac15,\frac1{4d-1}\Bigr\},
+\]
+with an explicit profile $F_f$ satisfying $F_f(H)=K_fH^{-3/2}+O(H^{-13/8})$, and hence
+$V_f(x,y)\sim K_fx^{1/2}f(y)^{3/2}$ for $x^{1-2\eta_d/3+\delta}\le f(y)\le x^{1-\delta}$. The constant $K_f>0$ is $-\frac83\zeta(-\frac12)$ times an absolutely convergent Euler product built from the numbers of roots of $f$ modulo $p$ and $p^2$; no irreducibility or squarefreeness assumption on $f$ is needed. The proof combines an elementary uniform estimate for correlations of squarefree numbers, an average of the resulting singular series over polynomial moduli, and a Mellin-transform analysis of a Dirichlet series whose pole at $s=-\frac12$ produces the main term. We compare the predictions with exact computations of $V_f$ up to $x=2.56\cdot10^8$ for $f(t)=t^2+1$, $t^3+2$ and $2t+1$.
+\end{abstract}
+
+\tableofcontents
+
+\input{chapters/01-introduction}
+\input{chapters/02-preliminaries}
+\input{chapters/03-densities}
+\input{chapters/04-variance}
+\input{chapters/05-correlations}
+\input{chapters/06-averaging}
+\input{chapters/07-dirichlet}
+\input{chapters/08-mellin}
+\input{chapters/09-assembly}
+\input{chapters/10-numerics}
+
+\appendix
+\crefalias{chapter}{appendix}
+\input{chapters/A-tables}
+\input{chapters/B-provenance}
+
+\bibliographystyle{plainurl}
+\bibliography{references}
+
+\end{document}

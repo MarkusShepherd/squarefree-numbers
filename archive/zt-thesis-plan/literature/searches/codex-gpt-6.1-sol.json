@@ -1,0 +1,410 @@
+{
+  "spec": {
+    "inputs": {
+      "problem.md": "b4efb9ea304861681409d13e2a00313e4251bb76c996e3f48cb24160a416ecb4",
+      "papers": "5a4d917debbb9ae4c4b2a62b74ec74f3fba66a3872f2a7e330c8932467516455"
+    },
+    "prompt": "ROLE: librarian\n\nYou are the librarian of a team attacking the problem in `problem.md`. You\nprove nothing. Your job is to find the literature the team should read before\nplanning, so that the planners and provers are not limited to the few papers\nin `papers/`.\n\n## Task\n\n1. Read `problem.md` and the papers in `papers/`, in particular their\n   reference lists: the works they cite are the best leads.\n2. Search the web for further relevant works: journal articles, books,\n   preprints, theses, survey articles, lecture notes and blog posts. Useful\n   topics include, for example, squarefree and k-free numbers in arithmetic\n   progressions, the Barban\u2013Davenport\u2013Halberstam and Montgomery\u2013Hooley\n   theorems and their variants, variances over sparse sets of moduli,\n   exponential sums over k-free numbers, and the distribution of polynomial\n   values modulo q. Follow citations in both directions.\n3. For each work, find its exact bibliographic data and check, by opening it,\n   whether its full text is openly available as a PDF: an author's home page,\n   arXiv, an institutional repository, a journal's open-access page. Never\n   use shadow libraries (Sci-Hub, LibGen, Anna's Archive, Z-Library and the\n   like) or unauthorised copies.\n\n## What to list\n\n- Only works published, or posted as a preprint, **in 2010 or earlier**\n  (rule 4 below). A work you only know from a later citation is fine if the\n  work itself is from 2010 or earlier.\n- Nothing by the excluded author, and not the excluded paper (rule 1 below).\n- Not the papers already in `papers/`.\n- Aim for 10\u201330 works, the most useful first. A short list of works that\n  matter beats a long list of works that only share keywords.\n\n## Fields\n\n- `id`: a short key such as `croft1975`.\n- `authors`, `title`, `year`, `venue` (journal with volume and pages,\n  publisher, or \"preprint\"), `kind`.\n- `url`: the landing page (journal page, DOI link, MathSciNet or zbMATH entry,\n  arXiv abstract page).\n- `pdf_url`: only a direct link to the full text as a PDF that you have\n  checked is openly available. Leave it out if you are not sure; a wrong\n  `pdf_url` wastes a download, a missing one only costs a manual look.\n- `access`: `open` if `pdf_url` is set, `paywalled` if the full text is\n  behind a paywall, `unknown` otherwise.\n- `relevance`: 3 = likely needed for the proof, 2 = useful background or\n  method, 1 = related.\n- `why`: one or two sentences on what the work contains that the team would\n  use, e.g. which lemma or estimate.\n\nUse `notes` for anything else the team should know, such as a gap in the\nliterature or a key work you could not identify exactly.\n\n\n## Rules for every agent on this project\n\n1. **Excluded author.** Markus Schepke (who also publishes as Markus Shepherd)\n   wrote a master's thesis on exactly this problem. The point of this project is\n   to solve it independently of that work. Do not search for, open, fetch or\n   read anything written by him: his thesis, his blog (riemannhypothesis.blog,\n   primes.recommend.games, mshepherd.gitlab.io), his GitLab projects, or any\n   other source by him. If a search result or a source turns out to be his,\n   stop, use nothing from it, and say so explicitly in your output. The same\n   applies to anything you may remember about his work: do not use it.\n   **Excluded paper.** The same rules apply to Fabian Dehnert, *Sparse variance\n   for k-free numbers in arithmetic progressions*, Monatsh. Math. 177 (2015),\n   373\u2013396 (doi:10.1007/s00605-014-0691-6), which solves this problem too: do\n   not search for, open or use it, or anything you remember of it.\n2. Work only with the files in your current directory and with the published\n   literature. Do not read or list files outside your current directory.\n3. Cite every external source you use: authors, title, year, and URL or arXiv\n   id.\n4. **Literature up to 2010.** Use only literature published, or posted as a\n   preprint, in 2010 or earlier, plus the papers in `papers/` (Br\u00fcdern\u2013Wooley\n   2011 among them). This applies to searching, reading and citing, and to\n   results you remember: do not use a result first published in 2011 or\n   later, even if you know it. If a source turns out to be from 2011 or later,\n   stop reading it, use nothing from it, and say so in your output.\n5. **Python.** If you can run commands, `python3` has numpy, scipy, mpmath\n   and sympy installed, besides the standard library; use them as you like.\n   Installing anything else is not possible in your sandbox, so don't try.\n6. **Reading PDFs.** Poppler's `pdfinfo`, `pdftotext` and `pdftoppm` should\n   be available to you. Use `pdftotext -layout` to extract text and, when\n   supported, render relevant pages with `pdftoppm` to check equations,\n   tables or unclear extraction visually. You are free to use a different\n   tool if it works better for you. If Poppler is unavailable, flag this to\n   the user for installation; do not try to install it in your sandbox.\n   Keep any extracted text or rendered pages within your current directory.\n",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "authors": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "article",
+                  "book",
+                  "preprint",
+                  "thesis",
+                  "lecture notes",
+                  "survey",
+                  "blog post",
+                  "other"
+                ],
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "pdf_url": {
+                "type": "string"
+              },
+              "access": {
+                "enum": [
+                  "open",
+                  "paywalled",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "relevance": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "why": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "authors",
+              "title",
+              "year",
+              "venue",
+              "kind",
+              "url",
+              "pdf_url",
+              "access",
+              "relevance",
+              "why"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "items",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "effort": "high",
+    "capabilities": {
+      "read": true,
+      "write": false,
+      "compute": false,
+      "research": true
+    },
+    "exclusion": {
+      "blocked_domains": [
+        "riemannhypothesis.blog",
+        "*.riemannhypothesis.blog",
+        "riemannhypothesis.info",
+        "*.riemannhypothesis.info",
+        "primes.recommend.games",
+        "mshepherd.gitlab.io",
+        "gitlab.com"
+      ],
+      "blocked_bash": [
+        "curl *",
+        "wget *",
+        "git *"
+      ],
+      "leak_patterns": [
+        "schepke",
+        "shepherd",
+        "riemannhypothesis",
+        "primes.recommend.games",
+        "mshepherd",
+        "squarefree-numbers",
+        "dehnert",
+        "s00605-014-0691",
+        "sparse variance for k-free",
+        "monatsh. math. 177",
+        "distribution of squarefree numbers in arithmetic progressions"
+      ],
+      "literature_cutoff_year": 2010
+    },
+    "model": "codex:gpt-6.1-sol"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "vaughan1998ii",
+        "authors": "R. C. Vaughan",
+        "title": "On a variance associated with the distribution of general sequences in arithmetic progressions. II",
+        "year": 1998,
+        "venue": "Philosophical Transactions of the Royal Society of London A 356 (1738), 793\u2013809",
+        "kind": "article",
+        "url": "https://doi.org/10.1098/rsta.1998.0186",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 3,
+        "why": "Develops variance asymptotics for sequences with residue-dependent local densities, including non-coprime residue classes. Vaughan\u2019s supplied 2005 paper explicitly identifies its Theorem 1.2 as an earlier framework applicable to k-free numbers."
+      },
+      {
+        "id": "warlimont1980",
+        "authors": "Richard Warlimont",
+        "title": "Squarefree numbers in arithmetic progressions",
+        "year": 1980,
+        "venue": "Journal of the London Mathematical Society (2) 22 (1), 21\u201324",
+        "kind": "article",
+        "url": "https://doi.org/10.1112/jlms/s2-22.1.21",
+        "pdf_url": "",
+        "access": "paywalled",
+        "relevance": 3,
+        "why": "Gives an earlier asymptotic for the squarefree variance averaged over moduli. The supplied Vaughan paper specifically recommends its treatment as avoiding a flaw in Croft\u2019s argument."
+      },
+      {
+        "id": "croft1975",
+        "authors": "M. J. Croft",
+        "title": "Square-Free Numbers in Arithmetic Progressions",
+        "year": 1975,
+        "venue": "Proceedings of the London Mathematical Society (3) 30 (2), 143\u2013159",
+        "kind": "article",
+        "url": "https://doi.org/10.1112/plms/s3-30.2.143",
+        "pdf_url": "",
+        "access": "paywalled",
+        "relevance": 3,
+        "why": "A central early reference for mean-square distribution of squarefree numbers in progressions. Read with Vaughan\u2019s correction: the contour argument leading to Croft\u2019s equation (6.6), and consequently a stated constant, is faulty."
+      },
+      {
+        "id": "orr1971",
+        "authors": "Richard C. Orr",
+        "title": "Remainder estimates for squarefree integers in arithmetic progression",
+        "year": 1971,
+        "venue": "Journal of Number Theory 3 (4), 474\u2013497",
+        "kind": "article",
+        "url": "https://doi.org/10.1016/0022-314X(71)90015-1",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 3,
+        "why": "Establishes squarefree analogues of average remainder estimates associated with Barban, Bombieri, Davenport, Halberstam and Gallagher. A useful source for preliminary mean-square bounds before extracting a sparse-modulus asymptotic."
+      },
+      {
+        "id": "goldstonvaughan1997",
+        "authors": "D. A. Goldston and R. C. Vaughan",
+        "title": "On the Montgomery-Hooley asymptotic formula",
+        "year": 1997,
+        "venue": "Sieve Methods, Exponential Sums, and their Applications in Number Theory, London Mathematical Society Lecture Note Series 237, Cambridge University Press, 117\u2013142",
+        "kind": "article",
+        "url": "https://doi.org/10.1017/CBO9780511526091.010",
+        "pdf_url": "https://personal.science.psu.edu/rcv4/personal/Publications/MONHOOE.pdf",
+        "access": "open",
+        "relevance": 3,
+        "why": "Treats the off-diagonal part of variance directly as an additive problem through the circle method. Its singular-series summation and contour arguments are explicitly used in the supplied sparse-prime paper; distinguish unconditional arguments from those assuming GRH."
+      },
+      {
+        "id": "vaughan1998i",
+        "authors": "R. C. Vaughan",
+        "title": "On a variance associated with the distribution of general sequences in arithmetic progressions. I",
+        "year": 1998,
+        "venue": "Philosophical Transactions of the Royal Society of London A 356 (1738), 781\u2013791",
+        "kind": "article",
+        "url": "https://doi.org/10.1098/rsta.1998.0185",
+        "pdf_url": "https://web.williams.edu/Mathematics/sjmiller/public_html/ntrmt11/handouts/primes/Vaughn_VariancePrimeDistr1998.pdf",
+        "access": "open",
+        "relevance": 3,
+        "why": "Develops the general-sequence Montgomery\u2013Hooley method when small-modulus equidistribution concerns reduced residue classes. Its concluding singular-series calculation is specifically cited by the supplied Br\u00fcdern\u2013Wooley paper."
+      },
+      {
+        "id": "vaughan1997",
+        "authors": "R. C. Vaughan",
+        "title": "The Hardy-Littlewood Method",
+        "year": 1997,
+        "venue": "Second edition, Cambridge Tracts in Mathematics 125, Cambridge University Press",
+        "kind": "book",
+        "url": "https://doi.org/10.1017/CBO9780511470929",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 3,
+        "why": "Provides polynomial exponential-sum estimates and the circle-method machinery needed for sparse polynomial moduli. The supplied Br\u00fcdern\u2013Wooley paper explicitly uses Theorems 5.2 and 7.4 and the transference exercise in Chapter 2."
+      },
+      {
+        "id": "blomer2008",
+        "authors": "Valentin Blomer",
+        "title": "The average value of divisor sums in arithmetic progressions",
+        "year": 2008,
+        "venue": "The Quarterly Journal of Mathematics 59 (3), 275\u2013286",
+        "kind": "article",
+        "url": "https://doi.org/10.1093/qmath/ham044",
+        "pdf_url": "",
+        "access": "paywalled",
+        "relevance": 2,
+        "why": "Studies mean-square errors over residue classes for a fixed modulus, with extensions explicitly including k-free numbers. Investigate its estimates as possible inputs for controlling portions of the sparse variance."
+      },
+      {
+        "id": "stewart1991",
+        "authors": "C. L. Stewart",
+        "title": "On the number of solutions of polynomial congruences and Thue equations",
+        "year": 1991,
+        "venue": "Journal of the American Mathematical Society 4 (4), 793\u2013835",
+        "kind": "article",
+        "url": "https://doi.org/10.1090/S0894-0347-1991-1119199-X",
+        "pdf_url": "https://uwaterloo.ca/pure-mathematics/sites/default/files/uploads/documents/s0894-0347-1991-1119199-x_0.pdf",
+        "access": "open",
+        "relevance": 2,
+        "why": "Contains bounds for the number of solutions of polynomial congruences, useful when estimating local root counts and Euler factors. Check the degree, discriminant and nondegeneracy hypotheses before applying these bounds to the chosen polynomial."
+      },
+      {
+        "id": "mikawapeneva2005",
+        "authors": "H. Mikawa and T. P. Peneva",
+        "title": "Primes in arithmetic progressions to spaced moduli",
+        "year": 2005,
+        "venue": "Archiv der Mathematik 84 (3), 239\u2013248",
+        "kind": "article",
+        "url": "https://doi.org/10.1007/s00013-004-1131-y",
+        "pdf_url": "",
+        "access": "paywalled",
+        "relevance": 2,
+        "why": "Proves average distribution results for widely separated moduli. The supplied Br\u00fcdern\u2013Wooley paper invokes this work to remove small polynomial moduli and specifically identifies Section 2.2 as containing an important ingredient."
+      },
+      {
+        "id": "baierzhao2006",
+        "authors": "Stephan Baier and Liangyi Zhao",
+        "title": "Bombieri-Vinogradov type theorems for sparse sets of moduli",
+        "year": 2006,
+        "venue": "Acta Arithmetica 125 (2), 187\u2013201",
+        "kind": "article",
+        "url": "https://arxiv.org/abs/math/0602116",
+        "pdf_url": "https://arxiv.org/pdf/math/0602116",
+        "access": "open",
+        "relevance": 2,
+        "why": "Establishes Barban\u2013Davenport\u2013Halberstam and Bombieri\u2013Vinogradov type bounds for well-distributed sparse sets, including square moduli. Its precise distribution hypotheses provide a useful checklist for any alternative large-sieve treatment of polynomial moduli."
+      },
+      {
+        "id": "baier2006",
+        "authors": "Stephan Baier",
+        "title": "On the large sieve with sparse sets of moduli",
+        "year": 2006,
+        "venue": "Journal of the Ramanujan Mathematical Society 21 (3), 279\u2013295",
+        "kind": "article",
+        "url": "https://arxiv.org/abs/math/0512228",
+        "pdf_url": "https://arxiv.org/pdf/math/0512228",
+        "access": "open",
+        "relevance": 2,
+        "why": "Gives a large-sieve inequality for arbitrary coefficient sequences when the moduli satisfy suitable progression-counting conditions. This makes it a potential tool for squarefree exponential sums without requiring prime-specific coefficients."
+      },
+      {
+        "id": "mirsky1949",
+        "authors": "L. Mirsky",
+        "title": "On the frequency of pairs of square-free numbers with a given difference",
+        "year": 1949,
+        "venue": "Bulletin of the American Mathematical Society 55 (10), 936\u2013939",
+        "kind": "article",
+        "url": "https://doi.org/10.1090/S0002-9904-1949-09313-8",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 2,
+        "why": "Studies squarefree pair correlations at a prescribed shift, the basic objects arising after expanding the variance. Useful for understanding the local correlation factors, while uniformity in varying shifts must be checked separately."
+      },
+      {
+        "id": "hooley1975i",
+        "authors": "C. Hooley",
+        "title": "On the Barban-Davenport-Halberstam theorem. I",
+        "year": 1975,
+        "venue": "Journal f\u00fcr die reine und angewandte Mathematik 274/275, 206\u2013223",
+        "kind": "article",
+        "url": "https://doi.org/10.1515/crll.1975.274-275.206",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 2,
+        "why": "A foundational refinement of the Montgomery variance asymptotic and an important source for the divisor-switching approach. Read to understand the method that the general-sequence and sparse-modulus papers subsequently adapt."
+      },
+      {
+        "id": "montgomery1970",
+        "authors": "H. L. Montgomery",
+        "title": "Primes in arithmetic progressions",
+        "year": 1970,
+        "venue": "Michigan Mathematical Journal 17 (1), 33\u201339",
+        "kind": "article",
+        "url": "https://doi.org/10.1307/mmj/1029000373",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 2,
+        "why": "The original asymptotic treatment of the prime variance underlying the Montgomery\u2013Hooley framework. Provides the classical benchmark for separating diagonal and off-diagonal contributions."
+      },
+      {
+        "id": "warlimont1969",
+        "authors": "Richard Warlimont",
+        "title": "On squarefree numbers in arithmetic progressions",
+        "year": 1969,
+        "venue": "Monatshefte f\u00fcr Mathematik 73, 433\u2013448",
+        "kind": "article",
+        "url": "https://doi.org/10.1007/BF01316664",
+        "pdf_url": "",
+        "access": "paywalled",
+        "relevance": 2,
+        "why": "An early source for average distribution estimates for squarefree numbers, cited by both supplied squarefree papers. Useful for tracing the preliminary mean-square estimates and their large-sieve origins."
+      },
+      {
+        "id": "cahenchabert1997",
+        "authors": "Paul-Jean Cahen and Jean-Luc Chabert",
+        "title": "Integer-Valued Polynomials",
+        "year": 1997,
+        "venue": "Mathematical Surveys and Monographs 48, American Mathematical Society",
+        "kind": "book",
+        "url": "https://doi.org/10.1090/surv/048",
+        "pdf_url": "",
+        "access": "unknown",
+        "relevance": 2,
+        "why": "A reference for the distinction between polynomials with integer coefficients and rational polynomials taking integer values. Relevant to checking modular periodicity and the interpretation of local root counts in the problem\u2019s full stated generality."
+      },
+      {
+        "id": "baierzhao2008",
+        "authors": "Stephan Baier and Liangyi Zhao",
+        "title": "An improvement for the large sieve for square moduli",
+        "year": 2008,
+        "venue": "Journal of Number Theory 128 (1), 154\u2013174",
+        "kind": "article",
+        "url": "https://arxiv.org/abs/math/0512271",
+        "pdf_url": "https://arxiv.org/pdf/math/0512271",
+        "access": "open",
+        "relevance": 2,
+        "why": "Improves large-sieve bounds for arbitrary sequences sampled at fractions with square denominators. Particularly useful if the team first restricts the problem to square moduli; the proof combines Weyl sums, quadratic Gauss sums and exponential-integral estimates."
+      },
+      {
+        "id": "halberstam1972",
+        "authors": "Heini Halberstam",
+        "title": "The distribution of sequences in arithmetic progressions",
+        "year": 1972,
+        "venue": "S\u00e9minaire Delange-Pisot-Poitou 13 (1971\u20131972), no. 2, expos\u00e9 25, 1\u20135",
+        "kind": "lecture notes",
+        "url": "https://www.numdam.org/item/SDPP_1971-1972__13_2_A10_0/",
+        "pdf_url": "https://www.numdam.org/article/SDPP_1971-1972__13_2_A10_0.pdf",
+        "access": "open",
+        "relevance": 2,
+        "why": "A short contemporary overview connecting prime-distribution mean values with general arithmetic sequences and squarefree numbers. Its references independently connect Orr, Warlimont and Croft\u2019s then-developing work."
+      },
+      {
+        "id": "bruedernperelli1998",
+        "authors": "J\u00f6rg Br\u00fcdern and Alberto Perelli",
+        "title": "Goldbach numbers in sparse sequences",
+        "year": 1998,
+        "venue": "Annales de l\u2019Institut Fourier 48 (2), 353\u2013378",
+        "kind": "article",
+        "url": "https://doi.org/10.5802/aif.1621",
+        "pdf_url": "https://www.numdam.org/article/AIF_1998__48_2_353_0.pdf",
+        "access": "open",
+        "relevance": 2,
+        "why": "Develops exponential-sum methods for sequences thinner than polynomial-value sequences. The supplied Br\u00fcdern\u2013Wooley paper points to this work when discussing extensions beyond polynomial moduli."
+      },
+      {
+        "id": "friedlandergoldston1996",
+        "authors": "J. B. Friedlander and D. A. Goldston",
+        "title": "Variance of distribution of primes in residue classes",
+        "year": 1996,
+        "venue": "The Quarterly Journal of Mathematics (2) 47 (3), 313\u2013336",
+        "kind": "article",
+        "url": "https://doi.org/10.1093/qmath/47.3.313",
+        "pdf_url": "",
+        "access": "paywalled",
+        "relevance": 2,
+        "why": "Studies refined prime-variance estimates and their connection with additive correlations and singular series. Useful methodological background for the supplied sparse-prime paper, with conditional estimates kept separate from unconditional inputs."
+      }
+    ],
+    "notes": "The list excludes the three supplied papers. Eight full-text PDF links were opened and verified; empty pdf_url fields indicate that no reliable direct PDF was verified. Unknown access includes blocked retrievals and does not imply a paywall. Elsevier labels Orr\u2019s article \u201cOpen archive\u201d, but its PDF could not be verified. Blomer\u2019s author-hosted abstract18.pdf is only an abstract and is deliberately omitted.\n\nCritical reading warning: R. C. Vaughan, A variance for k-free numbers in arithmetic progressions (2005), p. 574, https://doi.org/10.1112/S0024611505015352, identifies the flaw in Croft\u2019s argument and points to Warlimont (1980). Goldston\u2013Vaughan\u2019s chapter is sometimes cited as 1996; Cambridge confirms the print publication year as 1997.\n\nFor inaccessible works, relevance assessments rely on publisher abstracts and citations in the supplied corpus. Planners should check modular periodicity before using rho(m) for a rational integer-valued polynomial; Cahen\u2013Chabert addresses the relevant distinction.\n\nAn unsolicited search result from primes.recommend.games was identified as belonging to the excluded author; it was not opened or used. Post-2010 works also appeared in search results and were discarded without opening or using their mathematical content. The excluded paper was not opened or used."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "P7",
+  "title": "Assembly and uniform error budget",
+  "statement": "Let f and V_f be as in problem.md, d=deg f, Y=f(y), and \u03b7_d=min{1/5,1/(4d\u22121)}. Define W_f(h)=\u220f_p(1\u22122/p\u00b2)[1+\u03c1(p^{max{2\u2212v_p(h),0}})/(p^{max{2\u2212v_p(h),0}}(p\u00b2\u22122))], with \u03c1(1)=1 and v_p(h) the exponent of p in h. Let D_f(s)=\u03a3_{h\u22651}W_f(h)h^(\u2212s), continued meromorphically; put R_f=Res_{s=1}D_f(s), B_f=lim_{s\u21921}[D_f(s)\u2212R_f/(s\u22121)]\u22123R_f/2, K_f=\u2212(16/3)Res_{s=\u22121/2}D_f(s), \u0398_f(H)=\u03a3_{1\u2264h\u2264H}W_f(h)(H\u2212h)\u00b2/h, and F_f(H)=R_f log H+B_f+1/(\u03b6(2)H)\u2212\u0398_f(H)/H\u00b2. For every 0<\u03b5<\u03b7_d/2 there are C(f,\u03b5)>0 and x_0(f,\u03b5) such that, uniformly for real x\u2265x_0 and y\u22651 with Y\u2264x, |V_f(x,y)\u2212x\u00b2F_f(x/Y)|\u2264C(f,\u03b5)x^(2\u2212\u03b7_d+\u03b5) and |V_f(x,y)\u2212K_f x^(1/2)Y^(3/2)|\u2264C(f,\u03b5)[x^(3/8)Y^(13/8)+x^(2\u2212\u03b7_d+\u03b5)]. Permitted auxiliary choices for Y\u2265x^\u03b8 are \u03b8=2d/(4d\u22121), Z=x^\u03b8, the real z\u22651 satisfying f(z)=Z, and R=Z^(1/d) in P4; for Y<Z the initial-modulus bound applies directly. All constants may depend only on the indicated f and \u03b5.",
+  "depends_on": [
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6"
+  ],
+  "cites": [],
+  "crux": false,
+  "risk": "All logarithmic losses must be absorbed using portions of \u03b5 fixed in advance. The correlation error summed over h contributes x^(9/5+\u03b5), explaining the cap \u03b7_d\u22641/5. The theorem must cover real y, including the gap between y and its integer part."
+}

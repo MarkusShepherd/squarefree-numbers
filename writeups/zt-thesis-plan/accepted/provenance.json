@@ -1,0 +1,106 @@
+{
+  "models": [
+    {
+      "role": "integrator",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.311 (Claude Code)",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "integrator",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "planner",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.311 (Claude Code)",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "planner",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "prover",
+      "model": "claude-sonnet-5-5",
+      "cli_version": "2.1.311 (Claude Code)",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "prover",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "referee",
+      "model": "claude-opus-5-5",
+      "cli_version": "2.1.311 (Claude Code)",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    },
+    {
+      "role": "referee",
+      "model": "codex:gpt-6.1-sol",
+      "cli_version": "codex-cli 0.166.0",
+      "revision": "fc217220e6b3a0e570ab0acdb78e1a50f51a2e13"
+    }
+  ],
+  "approvals": {
+    "P1": {
+      "approval_hash": "b332be1c0af9ca8f75c7157d67020c35d3e491222ce4bca14889e35bf2519cbb",
+      "contract_hash": "5cc4d6d96c8d05affc5a50f312625901dd2a1ca6ef9b90aee301744216249ae1",
+      "proof_hash": "778389f10100273e4d2779607cbaee65d75b47a6ed3dd0095ca89c47c2b29e57"
+    },
+    "P2": {
+      "approval_hash": "11d91b499451d858072df8823372f7432a41342019c5216ec6eda35cbd8e5db5",
+      "contract_hash": "44368bbad81bab54386f5f5b4f18b85f569795132a989e53fe07187a93c0cee1",
+      "proof_hash": "93772052d9c0072a144ab8e028bab0c42f1a25a56f482cf6acb98562034c18c3"
+    },
+    "P3": {
+      "approval_hash": "c97c383b1def68ab1be5cc9cd6f760504d6132eb9dcd3266bb5e71a4e27e9232",
+      "contract_hash": "1360c4e8fef4c0fe67cb14d454b082a01cecde1fb9a16547917fbf343d7ea986",
+      "proof_hash": "bc0a65cb946da1ec5030bfcd5bc1579613a8363bba3ec9982440741bd2d4a1b2"
+    },
+    "P4": {
+      "approval_hash": "0476427f7cd79fb1067b9b3f716fd83cc13de24ff6846a554d9cf8b6b8357183",
+      "contract_hash": "e5fbb074d5474895bf590109986d5b7a5e6323947732545522fcb694aad047cd",
+      "proof_hash": "2ab8a91e52eab826a2951f6c37ea13a774b943aaa6037547f01d5d039fad703c"
+    },
+    "P5": {
+      "approval_hash": "6cbfbc244ecca433400afeaa98c2af68b8fece4a44d183f853c5a101c7ceb69a",
+      "contract_hash": "900535a00bf84da006344706279e359a1959c21fa66a2e7924ef1e4de41de22a",
+      "proof_hash": "63b51f43bd0905d26ed8bcb54f67de57e10f0ff4c07164c97e5563e2271eb466"
+    },
+    "P6": {
+      "approval_hash": "5806c133ab2175420c68325165d59b27f1153c0ffc002d609af4d36b4ba1348f",
+      "contract_hash": "ceca574a9100a224614a85b910ccf134d624c02af79f05d8576b9719f99a86be",
+      "proof_hash": "e81be306a9dc867abe1a16225d1cde9da29ff9ac528c18e8de1b1dcd60f20822"
+    },
+    "P7": {
+      "approval_hash": "97a7eace810f30793a7df528e9d0f37cefe72fea7c7881cf25b11d40b3f9324d",
+      "contract_hash": "3baaa3959525161ce5865cde66328895f59fa7a5838dee7a1a49ff8bcfd8f505",
+      "proof_hash": "8e517590b57215fde63b71c50bc5a4946e0ff2e1af86d531f1227b5487c72e6e"
+    }
+  },
+  "selected_plan": "thesis@gpt-6.1-sol",
+  "repository_url": "https://gitlab.com/mshepherd/squarefree-numbers",
+  "archive_commit": "867fc9baf25edf4995748d91dd950e98cfd9debf",
+  "archive_label": "zt-thesis-plan",
+  "harness_commit": "552a8f01b9aa8504bbf03e82d149b1fdb3913980",
+  "writer_models": [
+    "claude-opus-5-5"
+  ],
+  "reviewer_models": [
+    "claude-opus-5-5",
+    "codex:gpt-6.1-sol"
+  ],
+  "writer_cli_versions": {
+    "claude-opus-5-5": "2.1.311 (Claude Code)",
+    "codex:gpt-6.1-sol": "codex-cli 0.166.0"
+  },
+  "version_note": "Model IDs are recorded model identifiers; CLI versions are not model weight versions. Unavailable model versions remain unknown."
+}

@@ -1,0 +1,3 @@
+Wrote [proof.md](/Users/markus/sqf-runs/squarefree-numbers-thesis/prove-P3-r1-20261104-094657-035742/proof.md).
+
+It proves the stronger uniform bound \(O_\varepsilon(x^{2/3+\varepsilon})\), with explicit error estimates covering bounded \(x-m\). No external or excluded sources were used.

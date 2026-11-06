@@ -1,0 +1,8 @@
+x=128000000 NTT length=268435456 squarefree=77814652
+x=128000000 correlations and squarefree-divisibility counts ready
+x=128000000 completed exact coefficient stream
+Diagnostic completed 128000000 57.04794937499901
+x=256000000 NTT length=536870912 squarefree=155629326
+x=256000000 correlations and squarefree-divisibility counts ready
+x=256000000 completed exact coefficient stream
+Diagnostic completed 256000000 119.78770029099906

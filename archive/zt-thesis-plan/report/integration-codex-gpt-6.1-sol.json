@@ -1,0 +1,7 @@
+{
+  "composes": true,
+  "final_theorem": "For the original polynomial class and weight, put Y=f(y) and \u03b7=min{1/5,1/(4d\u22121)}. For every 0<\u03b5<\u03b7/2, uniformly for sufficiently large real x and y\u22651 with Y\u2264x, V_f(x,y)=x\u00b2F_f(x/Y)+O_{f,\u03b5}(x^{2\u2212\u03b7+\u03b5})=K_f x^{1/2}Y^{3/2}+O_{f,\u03b5}(x^{3/8}Y^{13/8}+x^{2\u2212\u03b7+\u03b5}). For 0<\u03b4<\u03b7/3 and x^{1\u22122\u03b7/3+\u03b4}\u2264Y\u2264x^{1\u2212\u03b4}, the relative error is O_{f,\u03b4}(x^{\u2212\u03b4/8}). The complete composition is recorded in assembly.md.",
+  "interface_mismatches": [],
+  "numerics_comparison": "K_(k\u00b2+1)\u22480.138083 versus extrapolated 0.134474705492: +2.683%. K_(k\u00b3+2)\u22480.135608 versus 0.136321256839: \u22120.524%. Both lie within the supplied heuristic uncertainty bands; neither shows a clean-factor discrepancy. Independently reproduced both primary extrapolation fits and checked one variance row per polynomial using direct counts and exact rational density coefficients.",
+  "loss_vs_plan": "None. Every stated error and the plan\u2019s relative-error consequence follow. The saving is limited by the summed P3 correlation error and the balance between P2\u2019s initial-modulus bound and P4\u2019s averaging error."
+}

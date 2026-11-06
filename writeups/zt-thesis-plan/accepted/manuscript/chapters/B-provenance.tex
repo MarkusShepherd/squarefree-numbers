@@ -1,0 +1,36 @@
+\chapter{Provenance of this document}\label{app:provenance}
+
+\paragraph{Source.} This document presents the proof recorded in an archived run of the project repository
+\begin{center}\url{https://gitlab.com/mshepherd/squarefree-numbers}.\end{center}
+The run is labelled \texttt{zt-thesis-plan}. The provenance record lists three distinct revisions:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+archive commit & \texttt{867fc9baf25edf4995748d91dd950e98cfd9debf}\\
+harness commit & \texttt{552a8f01b9aa8504bbf03e82d149b1fdb3913980}\\
+revision in every model record & \texttt{fc217220e6b3a0e570ab0acdb78e1a50f51a2e13}
+\end{tabular}
+\end{center}
+The run followed the plan \texttt{thesis@gpt-6.1-sol}. Of the competing plans, this one was selected by Markus Schepke, the project owner. It decomposes the problem into seven propositions P1--P7, which correspond to \cref{ch:densities,ch:variance,ch:correlations,ch:averaging,ch:dirichlet,ch:mellin,ch:assembly}. For this run the problem statement was accompanied by a short hint, written by the run operator with the project owner's authorisation, that pointed towards Vaughan's paper \cite{vaughan2005} and the work of Brüdern and Wooley \cite{bruedernwooley2011} without describing a method. According to the intervention record, the owner authorised the operator to read the owner's master's thesis on this problem, which the project otherwise excludes, in order to write this hint; the run label \texttt{thesis-plan} reflects this. The numerical snapshot was reused, with the owner's authorisation, from the numerics stage of an earlier run of the same problem. Its acceptance record describes it as ``operator selected; not a proof of numerical correctness''.
+
+\paragraph{Models.} All mathematical content of the archive was produced by language models in the following roles; the recorded identifiers are model identifiers and command-line tool versions, not model weight versions, and no further version information is available.
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+role & model identifier & tool version\\
+\midrule
+planner & \texttt{claude-opus-5-5} & Claude Code 2.1.311\\
+planner & \texttt{codex:gpt-6.1-sol} & codex-cli 0.166.0\\
+prover & \texttt{claude-sonnet-5-5} & Claude Code 2.1.311\\
+prover & \texttt{codex:gpt-6.1-sol} & codex-cli 0.166.0\\
+referee & \texttt{claude-opus-5-5} & Claude Code 2.1.311\\
+referee & \texttt{codex:gpt-6.1-sol} & codex-cli 0.166.0\\
+integrator & \texttt{claude-opus-5-5} & Claude Code 2.1.311\\
+integrator & \texttt{codex:gpt-6.1-sol} & codex-cli 0.166.0\\
+\bottomrule
+\end{tabular}
+\end{center}
+The acceptance record of the numerical snapshot names \texttt{codex-gpt-6.1-sol} as its candidate label. This label is not one of the model records above, and no tool version is recorded for the numerics stage. This write-up was produced by \texttt{claude-opus-5-5} (Claude Code 2.1.311) from the archived plan, statements, proofs, reviews, integration reports and numerical snapshot. The models designated to review the write-up are \texttt{claude-opus-5-5} and \texttt{codex:gpt-6.1-sol}.
+
+\paragraph{Status of the evidence.} Each of P1--P7 was approved in its first version by two independent model referees, one from each model family; their reports are archived next to the proofs. Both integration reports concluded that the propositions compose to the main theorem without loss. This agreement between models is evidence, not certification. \Cref{cor:range} is the ``in particular'' clause of the plan's main theorem. It is not one of the approved propositions; its deduction from \eqref{eq:main2} (\cref{sec:corollary}) is carried out in both integration reports, with $\eps=\delta$ and $\eps=\delta/2$ respectively. While preparing this document, every argument was rechecked step by step, and no mathematical gap was found. The changes made are editorial: notation, merging of repeated arguments into shared lemmas, a few explicit intermediate steps, and the fuller statement of some constants. \Cref{rem:vaughan}, the truncation bound, the consistency checks and the decomposition of the extrapolation offset in \cref{ch:numerics}, and the corresponding parts of \texttt{reproduce.py} were added while preparing this document. The file \texttt{changes.md} lists every change and maps each result to its archived source.
+
+\paragraph{Literature.} The proof quotes only Lemma~2.2 of \cite{bgpvw1998} and Corollary~10.5 of \cite{montgomeryvaughan2007}; both statements were checked against the supplied copies. The other references serve as background. Bibliographic data for works not supplied as full text were taken from the reference lists of the supplied papers and from the project's bibliography candidate list, and were not checked against the originals.

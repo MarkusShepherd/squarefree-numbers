@@ -1,0 +1,68 @@
+[
+  {
+    "run": "integrate-claude-opus-5-5-20261104-230339-075784",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (266kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersthesisintegrateclaudeopus5520261104230339075784/0aedbcc6179d4e2e8b635c0bc70e35dd/toolresults/b7paev3sk."
+  },
+  {
+    "run": "plan-thesis-20261104-072158-442190",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<persistedoutput> output too large (35.8kb). full output saved to: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersthesisplanthesis20261104072158442190/44a428ac1c804d2b8879f1ceacef4c2c/toolresults/biqusj82r.txt preview"
+  },
+  {
+    "run": "plan-thesis-20261104-072158-442190",
+    "kind": "attempt",
+    "pattern": "squarefreenumbers",
+    "context": "read: /users/markus/.claude/projects/usersmarkussqfrunssquarefreenumbersthesisplanthesis20261104072158442190/44a428ac1c804d2b8879f1ceacef4c2c/toolresults/biqusj82r.txt"
+  },
+  {
+    "run": "plan-thesis-20261104-072158-442190",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "t and was moved to the background (id: bl3e6giqs). output is being written to: /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersthesisplanthesis20261104072158442190/44a428ac1c804d2b8879f1ceacef4c2c/tasks/bl3e6giqs.output. you will "
+  },
+  {
+    "run": "referee-P2-r1-0-20261104-204758-501245",
+    "kind": "attempt",
+    "pattern": "schepke",
+    "context": "e cited result is the 1998 lemma from the supplied corpus. the prover should still confirm that no excluded source (the schepke/shepherd material, dehnert 2015, or gitlab) appeared in those search results."
+  },
+  {
+    "run": "referee-P2-r1-0-20261104-204758-501245",
+    "kind": "attempt",
+    "pattern": "shepherd",
+    "context": "result is the 1998 lemma from the supplied corpus. the prover should still confirm that no excluded source (the schepke/shepherd material, dehnert 2015, or gitlab) appeared in those search results."
+  },
+  {
+    "run": "referee-P2-r1-0-20261104-204758-501245",
+    "kind": "attempt",
+    "pattern": "dehnert",
+    "context": "lemma from the supplied corpus. the prover should still confirm that no excluded source (the schepke/shepherd material, dehnert 2015, or gitlab) appeared in those search results."
+  },
+  {
+    "run": "referee-P4-r1-0-20261104-205541-358565",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "t and was moved to the background (id: br8nyfx5v). output is being written to: /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersthesisrefereep4r1020261104205541358565/687efec1786a4e90aedda8a96159c4f9/tasks/br8nyfx5v.output. you wil"
+  },
+  {
+    "run": "referee-P4-r1-0-20261104-205541-358565",
+    "kind": "attempt",
+    "pattern": "squarefreenumbers",
+    "context": "bash: sleep 100; cat /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersthesisrefereep4r1020261104205541358565/687efec1786a4e90aedda8a96159c4f9/tasks/br8nyfx5v.output wait and"
+  },
+  {
+    "run": "referee-P4-r1-0-20261104-205541-358565",
+    "kind": "exposure",
+    "pattern": "squarefreenumbers",
+    "context": "<tooluseerror>blocked: sleep 100 followed by: cat /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersthesisrefereep4r1020261104205541358565/687efec1786a4e90aedda8a96159c4f9/tasks/br8nyfx5v.output. to wait"
+  },
+  {
+    "run": "referee-P4-r1-0-20261104-205541-358565",
+    "kind": "attempt",
+    "pattern": "squarefreenumbers",
+    "context": "read: /private/tmp/claude501/usersmarkussqfrunssquarefreenumbersthesisrefereep4r1020261104205541358565/687efec1786a4e90aedda8a96159c4f9/tasks/br8nyfx5v.output"
+  }
+]
